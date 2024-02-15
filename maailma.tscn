@@ -1,0 +1,1110 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct1c8wsksqlh7"]
+
+[ext_resource type="PackedScene" uid="uid://6kp0g6lrw2mt" path="res://tiili.tscn" id="1_23cfe"]
+[ext_resource type="PackedScene" uid="uid://c7qbutkksn1tn" path="res://tausta_tiili.tscn" id="1_cymxe"]
+[ext_resource type="PackedScene" uid="uid://be2vpwxae66tc" path="res://valo.tscn" id="3_33ha8"]
+[ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://pelaaja.tscn" id="4_udkay"]
+
+[node name="Maailma" type="Node2D"]
+
+[node name="Background" type="CanvasGroup" parent="."]
+
+[node name="TaustaTiili" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 24)
+
+[node name="TaustaTiili2" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 24)
+
+[node name="TaustaTiili3" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 24)
+
+[node name="TaustaTiili4" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 24)
+
+[node name="TaustaTiili5" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 24)
+
+[node name="TaustaTiili6" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 24)
+
+[node name="TaustaTiili7" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 24)
+
+[node name="TaustaTiili8" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 24)
+
+[node name="TaustaTiili9" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 24)
+
+[node name="TaustaTiili10" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 24)
+
+[node name="TaustaTiili11" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 24)
+
+[node name="TaustaTiili12" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 24)
+
+[node name="TaustaTiili13" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 24)
+
+[node name="TaustaTiili14" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 24)
+
+[node name="TaustaTiili15" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 24)
+
+[node name="TaustaTiili16" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 24)
+
+[node name="TaustaTiili17" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 72)
+
+[node name="TaustaTiili18" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 72)
+
+[node name="TaustaTiili19" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 72)
+
+[node name="TaustaTiili20" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 72)
+
+[node name="TaustaTiili21" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 72)
+
+[node name="TaustaTiili22" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 72)
+
+[node name="TaustaTiili23" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 72)
+
+[node name="TaustaTiili24" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 72)
+
+[node name="TaustaTiili25" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 72)
+
+[node name="TaustaTiili26" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 72)
+
+[node name="TaustaTiili27" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 72)
+
+[node name="TaustaTiili28" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 72)
+
+[node name="TaustaTiili29" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 72)
+
+[node name="TaustaTiili30" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 72)
+
+[node name="TaustaTiili31" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 72)
+
+[node name="TaustaTiili32" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 72)
+
+[node name="TaustaTiili33" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 24)
+
+[node name="TaustaTiili34" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 24)
+
+[node name="TaustaTiili35" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 24)
+
+[node name="TaustaTiili36" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 24)
+
+[node name="TaustaTiili37" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 24)
+
+[node name="TaustaTiili38" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 24)
+
+[node name="TaustaTiili39" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 24)
+
+[node name="TaustaTiili40" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 72)
+
+[node name="TaustaTiili41" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 72)
+
+[node name="TaustaTiili42" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 72)
+
+[node name="TaustaTiili43" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 72)
+
+[node name="TaustaTiili44" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 72)
+
+[node name="TaustaTiili45" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 72)
+
+[node name="TaustaTiili46" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 72)
+
+[node name="TaustaTiili47" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 24)
+
+[node name="TaustaTiili48" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 72)
+
+[node name="TaustaTiili49" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 120)
+
+[node name="TaustaTiili50" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 120)
+
+[node name="TaustaTiili51" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 120)
+
+[node name="TaustaTiili52" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 120)
+
+[node name="TaustaTiili53" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 120)
+
+[node name="TaustaTiili54" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 120)
+
+[node name="TaustaTiili55" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 120)
+
+[node name="TaustaTiili56" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 120)
+
+[node name="TaustaTiili57" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 120)
+
+[node name="TaustaTiili58" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 120)
+
+[node name="TaustaTiili59" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 120)
+
+[node name="TaustaTiili60" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 120)
+
+[node name="TaustaTiili61" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 120)
+
+[node name="TaustaTiili62" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 120)
+
+[node name="TaustaTiili63" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 120)
+
+[node name="TaustaTiili64" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 120)
+
+[node name="TaustaTiili65" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 168)
+
+[node name="TaustaTiili66" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 168)
+
+[node name="TaustaTiili67" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 168)
+
+[node name="TaustaTiili68" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 168)
+
+[node name="TaustaTiili69" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 168)
+
+[node name="TaustaTiili70" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 168)
+
+[node name="TaustaTiili71" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 168)
+
+[node name="TaustaTiili72" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 168)
+
+[node name="TaustaTiili73" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 168)
+
+[node name="TaustaTiili74" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 168)
+
+[node name="TaustaTiili75" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 168)
+
+[node name="TaustaTiili76" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 168)
+
+[node name="TaustaTiili77" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 168)
+
+[node name="TaustaTiili78" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 168)
+
+[node name="TaustaTiili79" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 168)
+
+[node name="TaustaTiili80" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 168)
+
+[node name="TaustaTiili81" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 120)
+
+[node name="TaustaTiili82" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 120)
+
+[node name="TaustaTiili83" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 120)
+
+[node name="TaustaTiili84" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 120)
+
+[node name="TaustaTiili85" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 120)
+
+[node name="TaustaTiili86" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 120)
+
+[node name="TaustaTiili87" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 120)
+
+[node name="TaustaTiili88" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 168)
+
+[node name="TaustaTiili89" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 168)
+
+[node name="TaustaTiili90" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 168)
+
+[node name="TaustaTiili91" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 168)
+
+[node name="TaustaTiili92" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 168)
+
+[node name="TaustaTiili93" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 168)
+
+[node name="TaustaTiili94" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 168)
+
+[node name="TaustaTiili95" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 120)
+
+[node name="TaustaTiili96" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 168)
+
+[node name="TaustaTiili97" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 216)
+
+[node name="TaustaTiili98" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 216)
+
+[node name="TaustaTiili99" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 216)
+
+[node name="TaustaTiili100" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 216)
+
+[node name="TaustaTiili101" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 216)
+
+[node name="TaustaTiili102" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 216)
+
+[node name="TaustaTiili103" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 216)
+
+[node name="TaustaTiili104" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 216)
+
+[node name="TaustaTiili105" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 216)
+
+[node name="TaustaTiili106" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 216)
+
+[node name="TaustaTiili107" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 216)
+
+[node name="TaustaTiili108" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 216)
+
+[node name="TaustaTiili109" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 216)
+
+[node name="TaustaTiili110" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 216)
+
+[node name="TaustaTiili111" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 216)
+
+[node name="TaustaTiili112" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 216)
+
+[node name="TaustaTiili113" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 264)
+
+[node name="TaustaTiili114" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 264)
+
+[node name="TaustaTiili115" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 264)
+
+[node name="TaustaTiili116" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 264)
+
+[node name="TaustaTiili117" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 264)
+
+[node name="TaustaTiili118" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 264)
+
+[node name="TaustaTiili119" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 264)
+
+[node name="TaustaTiili120" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 264)
+
+[node name="TaustaTiili121" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 264)
+
+[node name="TaustaTiili122" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 264)
+
+[node name="TaustaTiili123" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 264)
+
+[node name="TaustaTiili124" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 264)
+
+[node name="TaustaTiili125" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 264)
+
+[node name="TaustaTiili126" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 264)
+
+[node name="TaustaTiili127" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 264)
+
+[node name="TaustaTiili128" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 264)
+
+[node name="TaustaTiili129" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 216)
+
+[node name="TaustaTiili130" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 216)
+
+[node name="TaustaTiili131" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 216)
+
+[node name="TaustaTiili132" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 216)
+
+[node name="TaustaTiili133" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 216)
+
+[node name="TaustaTiili134" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 216)
+
+[node name="TaustaTiili135" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 216)
+
+[node name="TaustaTiili136" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 264)
+
+[node name="TaustaTiili137" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 264)
+
+[node name="TaustaTiili138" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 264)
+
+[node name="TaustaTiili139" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 264)
+
+[node name="TaustaTiili140" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 264)
+
+[node name="TaustaTiili141" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 264)
+
+[node name="TaustaTiili142" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 264)
+
+[node name="TaustaTiili143" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 216)
+
+[node name="TaustaTiili144" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 264)
+
+[node name="TaustaTiili145" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 312)
+
+[node name="TaustaTiili146" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 312)
+
+[node name="TaustaTiili147" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 312)
+
+[node name="TaustaTiili148" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 312)
+
+[node name="TaustaTiili149" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 312)
+
+[node name="TaustaTiili150" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 312)
+
+[node name="TaustaTiili151" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 312)
+
+[node name="TaustaTiili152" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 312)
+
+[node name="TaustaTiili153" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 312)
+
+[node name="TaustaTiili154" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 312)
+
+[node name="TaustaTiili155" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 312)
+
+[node name="TaustaTiili156" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 312)
+
+[node name="TaustaTiili157" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 312)
+
+[node name="TaustaTiili158" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 312)
+
+[node name="TaustaTiili159" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 312)
+
+[node name="TaustaTiili160" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 312)
+
+[node name="TaustaTiili161" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 360)
+
+[node name="TaustaTiili162" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 360)
+
+[node name="TaustaTiili163" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 360)
+
+[node name="TaustaTiili164" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 360)
+
+[node name="TaustaTiili165" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 360)
+
+[node name="TaustaTiili166" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 360)
+
+[node name="TaustaTiili167" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 360)
+
+[node name="TaustaTiili168" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 360)
+
+[node name="TaustaTiili169" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 360)
+
+[node name="TaustaTiili170" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 360)
+
+[node name="TaustaTiili171" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 360)
+
+[node name="TaustaTiili172" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 360)
+
+[node name="TaustaTiili173" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 360)
+
+[node name="TaustaTiili174" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 360)
+
+[node name="TaustaTiili175" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 360)
+
+[node name="TaustaTiili176" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 360)
+
+[node name="TaustaTiili177" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 312)
+
+[node name="TaustaTiili178" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 312)
+
+[node name="TaustaTiili179" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 312)
+
+[node name="TaustaTiili180" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 312)
+
+[node name="TaustaTiili181" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 312)
+
+[node name="TaustaTiili182" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 312)
+
+[node name="TaustaTiili183" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 312)
+
+[node name="TaustaTiili184" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 360)
+
+[node name="TaustaTiili185" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 360)
+
+[node name="TaustaTiili186" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 360)
+
+[node name="TaustaTiili187" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 360)
+
+[node name="TaustaTiili188" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 360)
+
+[node name="TaustaTiili189" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 360)
+
+[node name="TaustaTiili190" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 360)
+
+[node name="TaustaTiili191" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 312)
+
+[node name="TaustaTiili192" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 360)
+
+[node name="TaustaTiili193" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 408)
+
+[node name="TaustaTiili194" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 408)
+
+[node name="TaustaTiili195" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 408)
+
+[node name="TaustaTiili196" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 408)
+
+[node name="TaustaTiili197" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 408)
+
+[node name="TaustaTiili198" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 408)
+
+[node name="TaustaTiili199" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 408)
+
+[node name="TaustaTiili200" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 408)
+
+[node name="TaustaTiili201" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 408)
+
+[node name="TaustaTiili202" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 408)
+
+[node name="TaustaTiili203" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 408)
+
+[node name="TaustaTiili204" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 408)
+
+[node name="TaustaTiili205" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 408)
+
+[node name="TaustaTiili206" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 408)
+
+[node name="TaustaTiili207" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 408)
+
+[node name="TaustaTiili208" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 408)
+
+[node name="TaustaTiili209" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 456)
+
+[node name="TaustaTiili210" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 456)
+
+[node name="TaustaTiili211" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 456)
+
+[node name="TaustaTiili212" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 456)
+
+[node name="TaustaTiili213" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 456)
+
+[node name="TaustaTiili214" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 456)
+
+[node name="TaustaTiili215" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 456)
+
+[node name="TaustaTiili216" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 456)
+
+[node name="TaustaTiili217" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 456)
+
+[node name="TaustaTiili218" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 456)
+
+[node name="TaustaTiili219" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 456)
+
+[node name="TaustaTiili220" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 456)
+
+[node name="TaustaTiili221" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 456)
+
+[node name="TaustaTiili222" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 456)
+
+[node name="TaustaTiili223" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 456)
+
+[node name="TaustaTiili224" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 456)
+
+[node name="TaustaTiili225" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 408)
+
+[node name="TaustaTiili226" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 408)
+
+[node name="TaustaTiili227" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 408)
+
+[node name="TaustaTiili228" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 408)
+
+[node name="TaustaTiili229" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 408)
+
+[node name="TaustaTiili230" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 408)
+
+[node name="TaustaTiili231" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 408)
+
+[node name="TaustaTiili232" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 456)
+
+[node name="TaustaTiili233" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 456)
+
+[node name="TaustaTiili234" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 456)
+
+[node name="TaustaTiili235" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 456)
+
+[node name="TaustaTiili236" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 456)
+
+[node name="TaustaTiili237" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 456)
+
+[node name="TaustaTiili238" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 456)
+
+[node name="TaustaTiili239" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 408)
+
+[node name="TaustaTiili240" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 456)
+
+[node name="TaustaTiili241" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 504)
+
+[node name="TaustaTiili242" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 504)
+
+[node name="TaustaTiili243" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 504)
+
+[node name="TaustaTiili244" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 504)
+
+[node name="TaustaTiili245" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 504)
+
+[node name="TaustaTiili246" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 504)
+
+[node name="TaustaTiili247" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 504)
+
+[node name="TaustaTiili248" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 504)
+
+[node name="TaustaTiili249" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 504)
+
+[node name="TaustaTiili250" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 504)
+
+[node name="TaustaTiili251" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 504)
+
+[node name="TaustaTiili252" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 504)
+
+[node name="TaustaTiili253" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 504)
+
+[node name="TaustaTiili254" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 504)
+
+[node name="TaustaTiili255" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 504)
+
+[node name="TaustaTiili256" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 504)
+
+[node name="TaustaTiili257" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 552)
+
+[node name="TaustaTiili258" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 552)
+
+[node name="TaustaTiili259" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 552)
+
+[node name="TaustaTiili260" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 552)
+
+[node name="TaustaTiili261" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 552)
+
+[node name="TaustaTiili262" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 552)
+
+[node name="TaustaTiili263" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 552)
+
+[node name="TaustaTiili264" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 552)
+
+[node name="TaustaTiili265" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 552)
+
+[node name="TaustaTiili266" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 552)
+
+[node name="TaustaTiili267" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 552)
+
+[node name="TaustaTiili268" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 552)
+
+[node name="TaustaTiili269" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 552)
+
+[node name="TaustaTiili270" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 552)
+
+[node name="TaustaTiili271" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 552)
+
+[node name="TaustaTiili272" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 552)
+
+[node name="TaustaTiili273" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 504)
+
+[node name="TaustaTiili274" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 504)
+
+[node name="TaustaTiili275" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 504)
+
+[node name="TaustaTiili276" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 504)
+
+[node name="TaustaTiili277" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 504)
+
+[node name="TaustaTiili278" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 504)
+
+[node name="TaustaTiili279" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 504)
+
+[node name="TaustaTiili280" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 552)
+
+[node name="TaustaTiili281" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 552)
+
+[node name="TaustaTiili282" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 552)
+
+[node name="TaustaTiili283" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 552)
+
+[node name="TaustaTiili284" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 552)
+
+[node name="TaustaTiili285" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 552)
+
+[node name="TaustaTiili286" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 552)
+
+[node name="TaustaTiili287" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 504)
+
+[node name="TaustaTiili288" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 552)
+
+[node name="TaustaTiili289" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 600)
+
+[node name="TaustaTiili290" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 600)
+
+[node name="TaustaTiili291" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 600)
+
+[node name="TaustaTiili292" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 600)
+
+[node name="TaustaTiili293" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 600)
+
+[node name="TaustaTiili294" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 600)
+
+[node name="TaustaTiili295" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 600)
+
+[node name="TaustaTiili296" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 600)
+
+[node name="TaustaTiili297" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 600)
+
+[node name="TaustaTiili298" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 600)
+
+[node name="TaustaTiili299" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 600)
+
+[node name="TaustaTiili300" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 600)
+
+[node name="TaustaTiili301" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 600)
+
+[node name="TaustaTiili302" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 600)
+
+[node name="TaustaTiili303" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 600)
+
+[node name="TaustaTiili304" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 600)
+
+[node name="TaustaTiili305" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(24, 648)
+
+[node name="TaustaTiili306" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(72, 648)
+
+[node name="TaustaTiili307" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(120, 648)
+
+[node name="TaustaTiili308" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(168, 648)
+
+[node name="TaustaTiili309" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(216, 648)
+
+[node name="TaustaTiili310" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(264, 648)
+
+[node name="TaustaTiili311" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(312, 648)
+
+[node name="TaustaTiili312" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(360, 648)
+
+[node name="TaustaTiili313" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(408, 648)
+
+[node name="TaustaTiili314" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(456, 648)
+
+[node name="TaustaTiili315" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(504, 648)
+
+[node name="TaustaTiili316" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(552, 648)
+
+[node name="TaustaTiili317" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(600, 648)
+
+[node name="TaustaTiili318" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(648, 648)
+
+[node name="TaustaTiili319" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(696, 648)
+
+[node name="TaustaTiili320" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(744, 648)
+
+[node name="TaustaTiili321" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 600)
+
+[node name="TaustaTiili322" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 600)
+
+[node name="TaustaTiili323" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 600)
+
+[node name="TaustaTiili324" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 600)
+
+[node name="TaustaTiili325" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 600)
+
+[node name="TaustaTiili326" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 600)
+
+[node name="TaustaTiili327" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 600)
+
+[node name="TaustaTiili328" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(792, 648)
+
+[node name="TaustaTiili329" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(840, 648)
+
+[node name="TaustaTiili330" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(888, 648)
+
+[node name="TaustaTiili331" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(936, 648)
+
+[node name="TaustaTiili332" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(984, 648)
+
+[node name="TaustaTiili333" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1032, 648)
+
+[node name="TaustaTiili334" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1080, 648)
+
+[node name="TaustaTiili335" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 600)
+
+[node name="TaustaTiili336" parent="Background" instance=ExtResource("1_cymxe")]
+position = Vector2(1128, 648)
+
+[node name="Foreground" type="CanvasGroup" parent="."]
+
+[node name="Tiili" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(312, 168)
+
+[node name="Tiili2" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(312, 216)
+
+[node name="Tiili3" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(312, 264)
+
+[node name="Tiili4" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(312, 120)
+
+[node name="Tiili5" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(696, 120)
+
+[node name="Tiili6" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(696, 168)
+
+[node name="Tiili7" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(696, 216)
+
+[node name="Tiili8" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(696, 264)
+
+[node name="Tiili9" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(312, 408)
+
+[node name="Tiili10" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(840, 168)
+
+[node name="Tiili12" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(840, 216)
+
+[node name="Tiili13" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(840, 264)
+
+[node name="Tiili14" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(312, 456)
+
+[node name="Tiili15" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(312, 504)
+
+[node name="Tiili16" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(312, 552)
+
+[node name="Tiili17" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(456, 552)
+
+[node name="Tiili18" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(456, 504)
+
+[node name="Tiili19" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(456, 456)
+
+[node name="Tiili20" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(456, 408)
+
+[node name="Tiili21" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(696, 408)
+
+[node name="Tiili22" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(696, 456)
+
+[node name="Tiili23" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(696, 504)
+
+[node name="Tiili24" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(696, 552)
+
+[node name="Tiili25" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(792, 552)
+
+[node name="Tiili26" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(840, 552)
+
+[node name="Tiili27" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(888, 552)
+
+[node name="Tiili28" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(936, 552)
+
+[node name="Tiili11" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(840, 120)
+
+[node name="Valo" parent="." instance=ExtResource("3_33ha8")]
+position = Vector2(375, 349)
+scale = Vector2(1, 1)
+
+[node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]

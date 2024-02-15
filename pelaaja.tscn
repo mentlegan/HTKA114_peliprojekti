@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://kmwces4tj1hh"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_7oby4"]
+[ext_resource type="Texture2D" uid="uid://do7rilqdyjoxv" path="res://pelaaja.png" id="2_sxjyl"]
+
+[node name="Pelaaja" type="CharacterBody2D"]
+script = ExtResource("1_7oby4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(16, -27, 16, -22, 13, -20, 24, 6, 17, 11, 18, 28, -5, 29, -9, 9, -17, 9, -19, -1, -15, -10, -19, -14, -24, -10, -22, -22, -10, -22, -15, -17, -11, -13, 3, -29)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_sxjyl")
