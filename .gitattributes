@@ -1,2 +1,4 @@
-* text=auto
 * text eol=lf
+*       text=auto
+*.txt   text
+*.jpg   -text
