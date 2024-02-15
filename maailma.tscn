@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=7 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="PackedScene" uid="uid://6kp0g6lrw2mt" path="res://tiili.tscn" id="1_23cfe"]
 [ext_resource type="PackedScene" uid="uid://c7qbutkksn1tn" path="res://tausta_tiili.tscn" id="1_cymxe"]
 [ext_resource type="PackedScene" uid="uid://be2vpwxae66tc" path="res://valo.tscn" id="3_33ha8"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://pelaaja.tscn" id="4_udkay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0jxh"]
+size = Vector2(15.9667, 8.70455)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt5fg"]
+size = Vector2(6.5, 9.83333)
 
 [node name="Maailma" type="Node2D"]
 
@@ -1103,8 +1109,73 @@ position = Vector2(936, 552)
 [node name="Tiili11" parent="Foreground" instance=ExtResource("1_23cfe")]
 position = Vector2(840, 120)
 
-[node name="Valo" parent="." instance=ExtResource("3_33ha8")]
-position = Vector2(375, 349)
-scale = Vector2(1, 1)
+[node name="Lattia" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(240, 456)
+scale = Vector2(60, 6)
+
+[node name="Lattia2" parent="Foreground" instance=ExtResource("1_23cfe")]
+position = Vector2(720, 456)
+scale = Vector2(60, 6)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Foreground"]
+position = Vector2(164, 343)
+scale = Vector2(60, 6)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Foreground/StaticBody2D"]
+position = Vector2(5.36667, 19.3333)
+shape = SubResource("RectangleShape2D_f0jxh")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Foreground"]
+position = Vector2(164, 343)
+scale = Vector2(100, 1)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Foreground/StaticBody2D2"]
+position = Vector2(1.48, -150)
+scale = Vector2(0.03, 22)
+shape = SubResource("RectangleShape2D_f0jxh")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Foreground"]
+position = Vector2(164, 343)
+scale = Vector2(100, 1)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Foreground/StaticBody2D3"]
+position = Vector2(5.34, -151)
+scale = Vector2(0.03, 22)
+shape = SubResource("RectangleShape2D_f0jxh")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Foreground/StaticBody2D3"]
+position = Vector2(6.76, -151.25)
+scale = Vector2(0.03, 22)
+shape = SubResource("RectangleShape2D_f0jxh")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Foreground/StaticBody2D3"]
+position = Vector2(5.32, 137)
+scale = Vector2(0.03, 22)
+shape = SubResource("RectangleShape2D_f0jxh")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Foreground/StaticBody2D3"]
+position = Vector2(2.92, 137)
+scale = Vector2(0.03, 22)
+shape = SubResource("RectangleShape2D_f0jxh")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Foreground/StaticBody2D3"]
+position = Vector2(1.48, 137)
+scale = Vector2(0.03, 22)
+shape = SubResource("RectangleShape2D_f0jxh")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Foreground/StaticBody2D3"]
+position = Vector2(7, 209)
+scale = Vector2(0.12, 6)
+shape = SubResource("RectangleShape2D_f0jxh")
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
+position = Vector2(393, 193)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pelaaja"]
+position = Vector2(4.5, 0.5)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_xt5fg")
+
+[node name="Valo" parent="." instance=ExtResource("3_33ha8")]
+position = Vector2(470, 326)
+scale = Vector2(1, 1)
