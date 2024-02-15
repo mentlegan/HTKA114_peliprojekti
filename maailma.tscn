@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=8 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="PackedScene" uid="uid://6kp0g6lrw2mt" path="res://tiili.tscn" id="1_23cfe"]
 [ext_resource type="PackedScene" uid="uid://c7qbutkksn1tn" path="res://tausta_tiili.tscn" id="1_cymxe"]
 [ext_resource type="PackedScene" uid="uid://be2vpwxae66tc" path="res://valo.tscn" id="3_33ha8"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://pelaaja.tscn" id="4_udkay"]
+[ext_resource type="PackedScene" uid="uid://b56bfyhls3bh2" path="res://valo_2.tscn" id="5_jdvuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0jxh"]
 size = Vector2(15.9667, 8.70455)
@@ -1177,5 +1178,12 @@ scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_xt5fg")
 
 [node name="Valo" parent="." instance=ExtResource("3_33ha8")]
+visible = false
 position = Vector2(470, 326)
 scale = Vector2(1, 1)
+
+[node name="Valo2" parent="." instance=ExtResource("5_jdvuc")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(-11, -5)
+color = Color(0.403922, 0.894118, 0.905882, 1)
