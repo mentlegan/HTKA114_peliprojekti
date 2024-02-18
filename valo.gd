@@ -49,7 +49,6 @@ func _physics_process(delta):
 	if (result): 
 		if (result.rid == player.get_rid()): print("Hit player")
 		else: print("-")
-	
 	# polygon on PackedVector2Array
 	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
 	# print(vec)

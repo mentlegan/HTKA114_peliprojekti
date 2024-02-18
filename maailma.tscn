@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=7 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="PackedScene" uid="uid://6kp0g6lrw2mt" path="res://tiili.tscn" id="1_23cfe"]
 [ext_resource type="PackedScene" uid="uid://c7qbutkksn1tn" path="res://tausta_tiili.tscn" id="1_cymxe"]
@@ -8,9 +8,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0jxh"]
 size = Vector2(15.9667, 8.70455)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xt5fg"]
-size = Vector2(6.5, 9.83333)
 
 [node name="Maailma" type="Node2D"]
 
@@ -1172,18 +1169,14 @@ shape = SubResource("RectangleShape2D_f0jxh")
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
 position = Vector2(393, 193)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pelaaja"]
-position = Vector2(4.5, 0.5)
-scale = Vector2(6, 6)
-shape = SubResource("RectangleShape2D_xt5fg")
-
 [node name="Valo" parent="." instance=ExtResource("3_33ha8")]
 visible = false
 position = Vector2(470, 326)
 scale = Vector2(1, 1)
 
 [node name="Valo2" parent="." instance=ExtResource("5_jdvuc")]
+position = Vector2(571, 246)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(-11, -5)
-color = Color(0.403922, 0.894118, 0.905882, 1)
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)

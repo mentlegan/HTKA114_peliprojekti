@@ -1,15 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=6 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_7oby4"]
 [ext_resource type="Texture2D" uid="uid://do7rilqdyjoxv" path="res://pelaaja.png" id="2_sxjyl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebf7b"]
+size = Vector2(7.16667, 9.66667)
+
+[sub_resource type="Gradient" id="Gradient_k4p4c"]
+offsets = PackedFloat32Array(0, 0.7)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_658q0"]
+gradient = SubResource("Gradient_k4p4c")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Pelaaja" type="CharacterBody2D"]
 script = ExtResource("1_7oby4")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 0)
 build_mode = 1
 polygon = PackedVector2Array(16, -27, 16, -22, 13, -20, 24, 6, 17, 11, 18, 28, -5, 29, -9, 9, -17, 9, -19, -1, -15, -10, -19, -14, -24, -10, -22, -22, -10, -22, -15, -17, -11, -13, 3, -29)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(-1, 0)
 texture = ExtResource("2_sxjyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_ebf7b")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.933333, 0.854902, 0.564706, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_658q0")
+texture_scale = 1.5
