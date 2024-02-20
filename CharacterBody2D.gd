@@ -7,6 +7,8 @@ var raycast = RayCast2D.new()
 
 ## Pelaajan hitbox
 @onready var polygon = get_node("CollisionPolygon2D")
+## Pelaajan animaatio-node
+@onready var animaatio = get_node("Animaatio")
 
 # asetetaan pelaajan nopeus ja hypyt
 const SPEED = 300.0
@@ -17,6 +19,7 @@ const MAX_JUMPS = 2
 # Eli napataan painovoima kimppaan rigidbodyjen kanssa.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var current_jumps = 0
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -36,6 +39,14 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	# Käynnistetään idle-animaatio, jos pelaaja on paikoilaan
+	if velocity.x == 0 && velocity.y == 0:
+		animaatio.play("idle")
+	else:
+		# Tähän myöhemmin pelaajan hyppy-, juoksu- ja kävelyanimaatiot.
+		# Nyt pelkästään pysäyttää idle-animaation.
+		animaatio.stop()
 
 	move_and_slide()
 
