@@ -6,7 +6,7 @@ var raycast = RayCast2D.new()
 
 
 ## Pelaajan hitbox
-@onready var polygon = get_node("CollisionPolygon2D")
+@onready var polygon = get_node("CollisionShape2D")
 ## Pelaajan animaatio-node
 @onready var animaatio = get_node("Animaatio")
 
@@ -29,7 +29,7 @@ func _physics_process(delta):
 		current_jumps = 0
 
 	# Tehdään hyppy. Tähän versioon tehty tuplahyppy demonstraation vuoksi.
-	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or current_jumps < MAX_JUMPS):
+	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up")) and (is_on_floor() or current_jumps < MAX_JUMPS):
 		current_jumps += 1
 		velocity.y = JUMP_VELOCITY
 

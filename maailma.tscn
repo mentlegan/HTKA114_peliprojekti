@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ct1c8wsksqlh7"]
 
-[ext_resource type="PackedScene" uid="uid://cx3kkmmkych2p" path="res://smart_shape_tiili.tscn" id="3_idy4e"]
+[ext_resource type="PackedScene" path="res://smart_shape_tiili.tscn" id="3_idy4e"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://pelaaja.tscn" id="4_udkay"]
 [ext_resource type="PackedScene" uid="uid://b56bfyhls3bh2" path="res://valo.tscn" id="5_jdvuc"]
 

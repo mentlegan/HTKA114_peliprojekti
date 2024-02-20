@@ -2,7 +2,7 @@ extends StaticBody2D
 
 
 @onready var player = get_node("../Pelaaja")
-@onready var hitbox: CollisionPolygon2D = get_node("../Pelaaja/CollisionPolygon2D")
+@onready var hitbox: CollisionShape2D = get_node("../Pelaaja/CollisionShape2D")
 # mallina staattinen tyypitys
 @onready var light: PointLight2D = get_node("PointLight2D")
 
