@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=6 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="PackedScene" uid="uid://6kp0g6lrw2mt" path="res://tiili.tscn" id="1_23cfe"]
 [ext_resource type="PackedScene" uid="uid://c7qbutkksn1tn" path="res://tausta_tiili.tscn" id="1_cymxe"]
-[ext_resource type="PackedScene" uid="uid://be2vpwxae66tc" path="res://valo.tscn" id="3_33ha8"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://pelaaja.tscn" id="4_udkay"]
-[ext_resource type="PackedScene" uid="uid://b56bfyhls3bh2" path="res://valo_2.tscn" id="5_jdvuc"]
+[ext_resource type="PackedScene" uid="uid://b56bfyhls3bh2" path="res://valo.tscn" id="5_jdvuc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0jxh"]
 size = Vector2(15.9667, 8.70455)
@@ -1169,12 +1168,7 @@ shape = SubResource("RectangleShape2D_f0jxh")
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
 position = Vector2(393, 193)
 
-[node name="Valo" parent="." instance=ExtResource("3_33ha8")]
-visible = false
-position = Vector2(470, 326)
-scale = Vector2(1, 1)
-
-[node name="Valo2" parent="." instance=ExtResource("5_jdvuc")]
+[node name="Valo" parent="." instance=ExtResource("5_jdvuc")]
 position = Vector2(571, 246)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

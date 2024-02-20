@@ -1,9 +1,10 @@
-extends Area2D
+extends StaticBody2D
 
 
 @onready var player = get_node("../Pelaaja")
 @onready var hitbox: CollisionPolygon2D = get_node("../Pelaaja/CollisionPolygon2D")
 # mallina staattinen tyypitys
+@onready var light: PointLight2D = get_node("PointLight2D")
 
 var raycast = RayCast2D.new()
 
@@ -45,10 +46,22 @@ func _physics_process(delta):
 	
 	# player.visible = ! (raycast.is_colliding())
 	
+	# light.height nyt 60
+	# sopiva etäisyys 360, joka tulee (light.height * light.texture_scale) / 2
+	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
+	
 	# Jos osuu johonkin
-	if (result): 
-		if (result.rid == player.get_rid()): print("Hit player")
+	if result: 
+		# Jos etäisyys tarpeeksi lyhyt
+		if self.global_position.distance_to(player.global_position) < light.height * light.texture_scale / 2: 
+			print_rich("[color=yellow]Lighted[/color]")
+			# Jos osuu vielä pelaajaan
+			if result.rid == player.get_rid():
+				print_rich("[color=red]Hit player[/color]")
+		# Jos etäisyys liian pitkä
 		else: print("-")
+	
+	#
 	# polygon on PackedVector2Array
 	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
 	# print(vec)
