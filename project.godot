@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Lisää valoprotoilua"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"
