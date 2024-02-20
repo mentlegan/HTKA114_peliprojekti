@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://713ktg8ejflv"]
+
+[ext_resource type="Script" path="res://valocharacter.gd" id="1_jpuqn"]
+[ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://icon.svg" id="2_fvblf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k88go"]
+radius = 18.0
+
+[sub_resource type="Gradient" id="Gradient_7m2qj"]
+offsets = PackedFloat32Array(0, 0.7)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tue1r"]
+gradient = SubResource("Gradient_7m2qj")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="ValoCharacter" type="CharacterBody2D"]
+script = ExtResource("1_jpuqn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k88go")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.94902, 0.87451, 0.729412, 1)
+energy = 3.0
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_tue1r")
+texture_scale = 12.0
+height = 60.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.96046e-08, 0)
+scale = Vector2(0.203125, 0.21875)
+texture = ExtResource("2_fvblf")

@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://ct1c8wsksqlh7"]
+
+[ext_resource type="PackedScene" path="res://smart_shape_tiili.tscn" id="3_idy4e"]
+[ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://pelaaja.tscn" id="4_udkay"]
+[ext_resource type="Script" path="res://valorigid.gd" id="4_xl7jv"]
+[ext_resource type="PackedScene" uid="uid://b56bfyhls3bh2" path="res://valo.tscn" id="5_jdvuc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjo0n"]
+radius = 20.0998
+
+[sub_resource type="Gradient" id="Gradient_ubpnm"]
+offsets = PackedFloat32Array(0, 0.7)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_an6sg"]
+gradient = SubResource("Gradient_ubpnm")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Maailma" type="Node2D"]
+
+[node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
+position = Vector2(393, 193)
+
+[node name="Valo" parent="." instance=ExtResource("5_jdvuc")]
+visible = false
+position = Vector2(571, 246)
+script = null
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(-11, -5)
+color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+
+[node name="SmartShapeTiili" parent="." instance=ExtResource("3_idy4e")]
+
+[node name="ValoRigid" type="RigidBody2D" parent="."]
+position = Vector2(667, 227)
+script = ExtResource("4_xl7jv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ValoRigid"]
+shape = SubResource("CircleShape2D_wjo0n")
+
+[node name="PointLight2D" type="PointLight2D" parent="ValoRigid"]
+color = Color(0.94902, 0.87451, 0.729412, 1)
+energy = 3.0
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_an6sg")
+texture_scale = 12.0
+height = 60.0
