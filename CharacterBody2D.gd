@@ -29,12 +29,12 @@ func _physics_process(delta):
 		current_jumps = 0
 
 	# Tehdään hyppy. Tähän versioon tehty tuplahyppy demonstraation vuoksi.
-	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up")) and (is_on_floor() or current_jumps < MAX_JUMPS):
+	if (Input.is_action_just_pressed("hyppaa")) and (is_on_floor() or current_jumps < MAX_JUMPS):
 		current_jumps += 1
 		velocity.y = JUMP_VELOCITY
 
 	# input-kontrollit. nuolinäppäimillä liikutaan
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("liiku_vasen", "liiku_oikea")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
