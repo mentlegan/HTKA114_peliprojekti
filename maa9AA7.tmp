@@ -718,6 +718,7 @@ shape = SubResource("CapsuleShape2D_j8eiu")
 [node name="Palloja" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
+text = "Palloja: "
 script = ExtResource("12_hj14n")
 
 [connection signal="body_entered" from="Kukka" to="Kukka" method="_on_body_entered"]
