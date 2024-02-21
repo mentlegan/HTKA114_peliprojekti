@@ -82,7 +82,7 @@ func _physics_process(delta):
 	# light.height nyt 60
 	# sopiva etäisyys 360, joka tulee (light.height * light.texture_scale) / 2
 	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
-	return
+
 	# Jos osuu johonkin
 	if result: 
 		# Jos etäisyys tarpeeksi lyhyt
