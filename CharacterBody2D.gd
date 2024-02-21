@@ -33,7 +33,7 @@ func _physics_process(delta):
 		current_jumps += 1
 		velocity.y = JUMP_VELOCITY
 
-	# input-kontrollit. nuolinäppäimillä liikutaan
+	# input-kontrollit
 	var direction = Input.get_axis("liiku_vasen", "liiku_oikea")
 	if direction:
 		velocity.x = direction * SPEED
