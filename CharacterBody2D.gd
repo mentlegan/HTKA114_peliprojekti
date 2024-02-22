@@ -1,6 +1,5 @@
-## Harri 21.2.2024
-## TODO: pelaajan hyppy-, juoksu- ja kävelyanimaatiot
-## TODO: spriten flippaus suuntaa myöten
+## Harri ja Paavo 22.2.2024
+## TODO: pelaajan hyppy- ja juoksuanimaatiot
 extends CharacterBody2D
 
 
@@ -9,7 +8,7 @@ var raycast = RayCast2D.new()
 
 ## Pelaajan hitbox
 @onready var polygon = get_node("CollisionShape2D")
-## Pelaajan animaatio-node
+## Pelaajan animaatio
 @onready var animaatio = get_node("Animaatio")
 
 ## Asetetaan pelaajan nopeus ja hypyt
@@ -30,7 +29,7 @@ func _physics_process(delta):
 		current_jumps = 0
 
 	## Tehdään hyppy
-	if (Input.is_action_just_pressed("hyppaa")) and (is_on_floor()):
+	if Input.is_action_just_pressed("hyppaa") and is_on_floor():
 		current_jumps += 1
 		velocity.y = JUMP_VELOCITY
 
@@ -41,12 +40,25 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	## Käynnistetään idle-animaatio, jos pelaaja on paikoilaan
-	if velocity.x == 0 && velocity.y == 0:
-		animaatio.play("idle")
-	else:
-		## Tähän myöhemmin pelaajan hyppy-, juoksu- ja kävelyanimaatiot.
-		## Nyt pelkästään pysäyttää idle-animaation.
-		animaatio.stop()
-
+	# Liikutetaan pelaajaa
 	move_and_slide()
+	
+	# Käynnistetään / pysäytetään pelaajan animaatio vasta liikkumisen jälkeen.
+	# Tällöin pelaajan kävely/juoksuanimaatio ei jatku jos pelaaja kulkee seinää
+	# päin.
+	
+	if is_on_floor():
+		# Jos pelaaja on maassa eikä liiku, aloitetaan idle-animaatio
+		if velocity.x == 0:
+			animaatio.play("idle")
+		else:
+			# Muutoin aloitetaan kävelyanimaatio
+			animaatio.play("kavely")
+	else:
+		# Tähän myöhemmin hyppyanimaatio
+		animaatio.set_animation("idle")
+		animaatio.stop()
+	
+	# Flipataan animaatio suuntaa myöten
+	if velocity.x != 0:
+		animaatio.set_flip_h(velocity.x < 0)

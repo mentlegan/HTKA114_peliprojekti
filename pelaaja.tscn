@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=18 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_7oby4"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
+[ext_resource type="Texture2D" uid="uid://b6tbps0j5gs0v" path="res://grafiikka/PelaajaKavely.png" id="3_dwx8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebf7b"]
 size = Vector2(7.16667, 9.66667)
@@ -25,6 +26,38 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("2_66tpr")
 region = Rect2(64, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwoba"]
+atlas = ExtResource("3_dwx8p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2v01"]
+atlas = ExtResource("3_dwx8p")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2sj5"]
+atlas = ExtResource("3_dwx8p")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfsq3"]
+atlas = ExtResource("3_dwx8p")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0tta"]
+atlas = ExtResource("3_dwx8p")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcf0f"]
+atlas = ExtResource("3_dwx8p")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmk3c"]
+atlas = ExtResource("3_dwx8p")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q7pi"]
+atlas = ExtResource("3_dwx8p")
+region = Rect2(448, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bqvgf"]
 animations = [{
 "frames": [{
@@ -37,6 +70,35 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwoba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2v01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2sj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfsq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0tta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcf0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmk3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q7pi")
+}],
+"loop": true,
+"name": &"kavely",
+"speed": 10.0
 }]
 
 [node name="Pelaaja" type="CharacterBody2D"]
@@ -58,4 +120,3 @@ texture_filter = 1
 position = Vector2(2, -3)
 sprite_frames = SubResource("SpriteFrames_bqvgf")
 animation = &"idle"
-frame_progress = 0.344394
