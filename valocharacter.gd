@@ -1,9 +1,10 @@
 ## Juuso 27.2.2024
-
+## TODO: pelaajan hyppy- ja juoksuanimaatiot
+## TODO: kaikkien valonlähteiden etsiminen ja sitten raycast tarkistaminen
 extends CharacterBody2D
 
 
-# @onready var player = get_node("../Pelaaja")
+@onready var player = get_node("../Pelaaja")
 # @onready var hitbox: CollisionShape2D = get_node("../Pelaaja/CollisionShape2D")
 # mallina staattinen tyypitys
 # @onready var light: PointLight2D = get_node("PointLight2D")
@@ -35,19 +36,21 @@ func _physics_process(delta):
 	
 	# Valon suunnan antaminen hiiren vasemmalla painikkeella
 	# käytännössä samalla laitetaan liikkeelle
-	# enum MouseButton lukee MOUSE_BUTTON_LEFT = 1 eli voisi olla vain numero 1
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_action_just_pressed("painike_vasen"):
 		# Hiiren suunta
 		var mouse = get_global_mouse_position()
 		# Suuntavektorin muodostus, antaa automaattisesti nopeuden etäisyyden perusteella
 		move_vec = Vector2(mouse.x - self.position.x, mouse.y - self.position.y)
 		MOVING = true
 	
-	#                                  tai pelkkä 2
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		# Alustetaan suuntavektori eli pysäytetään
-		move_vec = Vector2(0, 0)
-		MOVING = false
+	if Input.is_action_just_pressed("painike_oikea"):
+		if !MOVING:
+			self.position.x = player.position.x + 50
+			self.position.y = player.position.y
+		else: 
+			# Alustetaan suuntavektori eli pysäytetään
+			move_vec = Vector2(0, 0)
+			MOVING = false
 	
 	# Liikkeessä
 	if MOVING:
