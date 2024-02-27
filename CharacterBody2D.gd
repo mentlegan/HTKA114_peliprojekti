@@ -1,15 +1,19 @@
-## Harri ja Paavo 22.2.2024
+## Juuso 27.2.2024
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 extends CharacterBody2D
 
 
 var raycast = RayCast2D.new()
 
-
 ## Pelaajan hitbox
 @onready var polygon = get_node("CollisionShape2D")
 ## Pelaajan animaatio
 @onready var animaatio = get_node("Animaatio")
+
+## Valocharacter
+@onready var valoChar = get_node("../ValoCharacter")
+## Itse pointlight2D valo
+@onready var valo = get_node("../ValoCharacter/PointLight2D")
 
 ## Asetetaan pelaajan nopeus ja hypyt
 const SPEED = 300.0
@@ -62,3 +66,45 @@ func _physics_process(delta):
 	# Flipataan animaatio suuntaa myöten
 	if velocity.x != 0:
 		animaatio.set_flip_h(velocity.x < 0)
+	
+	# Raycastin tarkastelua
+	raycast.target_position = Vector2(valoChar.position.x - self.position.x, valoChar.position.y - self.position.y)
+	
+	var space_state = get_world_2d().direct_space_state
+	
+	# use global coordinates, not local to node (ei toimi global)
+	# Luo raycastin valosta pelaajaa kohti
+	var query = PhysicsRayQueryParameters2D.create(Vector2(self.position.x, self.position.y), 
+		Vector2(valoChar.position.x, valoChar.position.y))
+	var result = space_state.intersect_ray(query)
+	
+	""" mitä result sisältää:
+	position: Vector2 # point in world space for collision
+	normal: Vector2 # normal in world space for collision
+	collider: Object # Object collided or null (if unassociated)
+	collider_id: ObjectID # Object it collided against
+	rid: RID # RID it collided against
+	shape: int # shape index of collider
+	metadata: Variant() # metadata of collider
+	"""
+	
+	# polygon on PackedVector2Array
+	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
+	# print(vec)
+	
+	# player.visible = ! (raycast.is_colliding())
+	
+	# light.height nyt 60
+	# sopiva etäisyys 360, joka tulee (light.height * light.texture_scale) / 2
+	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
+
+	# Jos osuu johonkin
+	if result: 
+		# Jos etäisyys tarpeeksi lyhyt
+		if self.global_position.distance_to(valoChar.global_position) < valo.height * valo.texture_scale / 2: 
+			print_rich("[color=yellow]Lighted[/color]")
+			# Jos osuu valoon (eli valon characterbodyyn)
+			if result.rid == valoChar.get_rid():
+				print_rich("[color=red]Hit player[/color]")
+		# Jos etäisyys liian pitkä
+		else: print("-")
