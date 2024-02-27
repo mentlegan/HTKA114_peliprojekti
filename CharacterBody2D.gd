@@ -2,7 +2,7 @@
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 extends CharacterBody2D
 
-
+## Raycast valossa olemisen tarkistamiseen
 var raycast = RayCast2D.new()
 
 ## Pelaajan hitbox
@@ -94,7 +94,7 @@ func _physics_process(delta):
 
 	# player.visible = ! (raycast.is_colliding())
 
-	# light.height nyt 60
+	# light.height nyt 60, texture_scale 12   = 60           = 12
 	# sopiva etäisyys 360, joka tulee (light.height * light.texture_scale) / 2
 	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
 

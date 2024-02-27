@@ -45,7 +45,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("painike_oikea"):
 		if !MOVING:
-			self.position.x = player.position.x + 50
+			self.position.x = player.position.x
 			self.position.y = player.position.y
 		else: 
 			# Alustetaan suuntavektori eli pysäytetään
