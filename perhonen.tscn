@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://dm1ghf6hoypw"]
+
+[ext_resource type="Script" path="res://perhonen.gd" id="1_imobc"]
+[ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="2_kexl8"]
+
+[sub_resource type="Gradient" id="Gradient_7rxju"]
+colors = PackedColorArray(0.666667, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qb6px"]
+gradient = SubResource("Gradient_7rxju")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.802752, 0.165138)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nepe"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg7v4"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y36mp"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6athy"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppeqm"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21mb1"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhk86"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nepos"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nepe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg7v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y36mp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6athy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppeqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21mb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhk86")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Perhonen" type="Path2D"]
+script = ExtResource("1_imobc")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+
+[node name="PointLight2D" type="PointLight2D" parent="PathFollow2D"]
+energy = 1.43
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_qb6px")
+texture_scale = 1.9
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nepos")
+frame_progress = 0.153834
