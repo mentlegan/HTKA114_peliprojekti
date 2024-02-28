@@ -9,6 +9,8 @@ var raycast = RayCast2D.new()
 @onready var polygon = get_node("CollisionShape2D")
 ## Pelaajan animaatio
 @onready var animaatio = get_node("Animaatio")
+## Pelaajan alue
+@onready var area = get_node("Area2D")
 
 ## Valocharacter
 @onready var valoChar = get_node("../ValoCharacter")
@@ -108,3 +110,10 @@ func _physics_process(delta):
 				print_rich("[color=red]Hit player[/color]")
 		# Jos etäisyys liian pitkä
 		else: print("-")
+		
+		""" valmis pohja area2D tarkasteluun
+		overlapping_bodies_result = area.get_overlapping_bodies()
+		for body in overlapping_bodies_result:
+			if body.is_in_group("group"):
+				# do something with it
+		"""

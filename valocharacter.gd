@@ -44,7 +44,7 @@ func _physics_process(delta):
 		MOVING = true
 	
 	if Input.is_action_just_pressed("painike_oikea"):
-		if !MOVING:
+		if not MOVING:
 			self.position.x = player.position.x
 			self.position.y = player.position.y
 		else: 
