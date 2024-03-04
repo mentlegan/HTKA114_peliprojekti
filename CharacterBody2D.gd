@@ -69,32 +69,17 @@ func _physics_process(delta):
 	if velocity.x != 0:
 		animaatio.set_flip_h(velocity.x < 0)
 	
-	print("Valossa: " + str(on_valossa()))
-	print("=====")
-
-	# polygon on PackedVector2Array
-	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
-	# print(vec)
-
-	# player.visible = ! (raycast.is_colliding())
-
-	# light.height nyt 60, texture_scale 12   = 60           = 12
-	# sopiva etäisyys 360, joka tulee (light.height * light.texture_scale) / 2
-	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
-
-
-## Tarkistaa, onko pelaaja valossa.
-## Käy läpi pelaajaan osuvat Area2D-nodet, jotka kuuluvat "valonlahde"-ryhmään.
-## Jos yksikään raycast pelaajan ja valonlähteen välillä ei osu maahan, palautetaan true.
-## Muutoin palautetaan false. 
-func on_valossa():
-	var space_state = get_world_2d().direct_space_state
-	var valonlahteet = Array() # Luodaan tyhjä taulukko valonlähteille, joihin pelaaja osuu
-	var valossa = false # Muuttuja, joka asetetaan todeksi, jos ollaan yhdessäkään valonlähteessä
 	
-	# Käydään läpi pelaajaan osuvat rigidbodyt
+	## Usean valonlähteen tarkistus
+	## Käy läpi kaikki pelaajaan osuvat Area2D nodet
+	## Lähetetään jokaiseen raycast ja tarkistetaan osuuko se johonkin
+	# var space_state = get_world_2d().direct_space_state # Tarvitseeko, ei käytetä mihinkään?
+	var valonlahteet = Array() # Luodaan tyhjä taulukko valonlähteille, joihin pelaaja osuu
+	var valossa = false # Totuusarvo pelaajan olemiselle valossa
+	
+	# Käydään läpi pelaajaan osuvat area2D
 	for node in area.get_overlapping_areas():
-		# Lisätään rigidbody valonlahteet-taulukkoon, jos se kuuluu "valonlahde"-ryhmään
+		# Lisätään area2D node valonlahteet-taulukkoon, jos se kuuluu "valonlahde"-ryhmään
 		if node.is_in_group("valonlahde"):
 			valonlahteet.append(node)
 	
@@ -111,8 +96,20 @@ func on_valossa():
 		
 		# Jos reitti pelaajasta valonlähteeseen on tyhjä, pelaaja on valossa.
 		if not raycast.is_colliding():
-			return true
+			valossa = true
 
 	# Pelaaja ei ole valossa, jos kaikkien valonlähteiden edessä on terrainia
 	# tai jos valonlähteiden taulukko on tyhjä.
-	return false
+	# tällöin totuusarvo valossa jää falseksi
+	print("Valossa: " + str(valossa))
+	print("=====")
+
+	# polygon on PackedVector2Array
+	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
+	# print(vec)
+
+	# player.visible = ! (raycast.is_colliding())
+
+	# light.height nyt 60, texture_scale 12   = 60           = 12
+	# sopiva etäisyys 360, joka tulee (light.height * light.texture_scale) / 2
+	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
