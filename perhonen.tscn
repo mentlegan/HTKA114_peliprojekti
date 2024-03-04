@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dm1ghf6hoypw"]
+[gd_scene load_steps=14 format=3 uid="uid://dm1ghf6hoypw"]
 
 [ext_resource type="Script" path="res://perhonen.gd" id="1_imobc"]
 [ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="2_kexl8"]
@@ -71,19 +71,24 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Perhonen" type="Path2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2q18j"]
+radius = 64.0312
+
+[node name="Perhonen" type="Area2D" groups=["valonlahde"]]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_imobc")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
-rotates = false
-
-[node name="PointLight2D" type="PointLight2D" parent="PathFollow2D"]
+[node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 1.43
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_qb6px")
 texture_scale = 1.9
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PathFollow2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nepos")
 frame_progress = 0.153834
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2q18j")

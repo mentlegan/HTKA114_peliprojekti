@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://713ktg8ejflv"]
+[gd_scene load_steps=7 format=3 uid="uid://713ktg8ejflv"]
 
 [ext_resource type="Script" path="res://valocharacter.gd" id="1_jpuqn"]
 [ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://icon.svg" id="2_fvblf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k88go"]
-radius = 18.0
+radius = 13.0384
 
 [sub_resource type="Gradient" id="Gradient_7m2qj"]
 offsets = PackedFloat32Array(0, 0.7)
@@ -17,7 +17,11 @@ use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1etc"]
+radius = 300.135
+
 [node name="ValoCharacter" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_jpuqn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -36,3 +40,9 @@ height = 60.0
 position = Vector2(5.96046e-08, 0)
 scale = Vector2(0.203125, 0.21875)
 texture = ExtResource("2_fvblf")
+
+[node name="Area2D" type="Area2D" parent="." groups=["valonlahde"]]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_g1etc")

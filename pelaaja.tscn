@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=20 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_7oby4"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
 [ext_resource type="Texture2D" uid="uid://b6tbps0j5gs0v" path="res://grafiikka/PelaajaKavely.png" id="3_dwx8p"]
+[ext_resource type="Script" path="res://palloja_teksti.gd" id="4_tac1h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -102,6 +103,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qv5js"]
+radius = 37.0
+
 [node name="Pelaaja" type="CharacterBody2D"]
 script = ExtResource("1_7oby4")
 
@@ -121,3 +125,24 @@ texture_filter = 1
 position = Vector2(2, -3)
 sprite_frames = SubResource("SpriteFrames_bqvgf")
 animation = &"idle"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = 0.02435
+collision_layer = 4
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-9.67458e-06, 7.62939e-06)
+shape = SubResource("CircleShape2D_qv5js")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Palloja" type="Label" parent="Camera2D"]
+offset_left = -384.0
+offset_top = -216.0
+offset_right = -344.0
+offset_bottom = -193.0
+script = ExtResource("4_tac1h")

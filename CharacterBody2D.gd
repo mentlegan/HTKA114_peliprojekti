@@ -3,8 +3,7 @@
 extends CharacterBody2D
 
 ## Raycast valossa olemisen tarkistamiseen
-var raycast = RayCast2D.new()
-
+@onready var raycast = get_node("RayCast2D")
 ## Pelaajan hitbox
 @onready var polygon = get_node("CollisionShape2D")
 ## Pelaajan animaatio
@@ -25,6 +24,7 @@ const JUMP_VELOCITY = -400.0
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.25
 var current_jumps = 0
+
 
 ## Fysiikanhallintaa
 func _physics_process(delta):
@@ -68,27 +68,9 @@ func _physics_process(delta):
 	# Flipataan animaatio suuntaa myöten
 	if velocity.x != 0:
 		animaatio.set_flip_h(velocity.x < 0)
-
-	# Raycastin tarkastelua
-	raycast.target_position = Vector2(valoChar.position.x - self.position.x, valoChar.position.y - self.position.y)
-
-	var space_state = get_world_2d().direct_space_state
-
-	# use global coordinates, not local to node (ei toimi global)
-	# Luo raycastin valosta pelaajaa kohti
-	var query = PhysicsRayQueryParameters2D.create(Vector2(self.position.x, self.position.y), 
-		Vector2(valoChar.position.x, valoChar.position.y))
-	var result = space_state.intersect_ray(query)
-
-	""" mitä result sisältää:
-	position: Vector2 # point in world space for collision
-	normal: Vector2 # normal in world space for collision
-	collider: Object # Object collided or null (if unassociated)
-	collider_id: ObjectID # Object it collided against
-	rid: RID # RID it collided against
-	shape: int # shape index of collider
-	metadata: Variant() # metadata of collider
-	"""
+	
+	print("Valossa: " + str(on_valossa()))
+	print("=====")
 
 	# polygon on PackedVector2Array
 	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
@@ -100,20 +82,37 @@ func _physics_process(delta):
 	# sopiva etäisyys 360, joka tulee (light.height * light.texture_scale) / 2
 	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
 
-	# Jos osuu johonkin
-	if result: 
-		# Jos etäisyys tarpeeksi lyhyt
-		if self.global_position.distance_to(valoChar.global_position) < valo.height * valo.texture_scale / 2: 
-			print_rich("[color=yellow]Lighted[/color]")
-			# Jos osuu valoon (eli valon characterbodyyn)
-			if result.rid == valoChar.get_rid():
-				print_rich("[color=red]Hit player[/color]")
-		# Jos etäisyys liian pitkä
-		else: print("-")
+
+## Tarkistaa, onko pelaaja valossa.
+## Käy läpi pelaajaan osuvat Area2D-nodet, jotka kuuluvat "valonlahde"-ryhmään.
+## Jos yksikään raycast pelaajan ja valonlähteen välillä ei osu maahan, palautetaan true.
+## Muutoin palautetaan false. 
+func on_valossa():
+	var space_state = get_world_2d().direct_space_state
+	var valonlahteet = Array() # Luodaan tyhjä taulukko valonlähteille, joihin pelaaja osuu
+	var valossa = false # Muuttuja, joka asetetaan todeksi, jos ollaan yhdessäkään valonlähteessä
+	
+	# Käydään läpi pelaajaan osuvat rigidbodyt
+	for node in area.get_overlapping_areas():
+		# Lisätään rigidbody valonlahteet-taulukkoon, jos se kuuluu "valonlahde"-ryhmään
+		if node.is_in_group("valonlahde"):
+			valonlahteet.append(node)
+	
+	print("Valonlähteitä: " + str(len(valonlahteet)))
+	
+	# Käydään läpi taulukkoon lisätyt valonlähteet ja tarkistetaan raycast niiden
+	# ja pelaajan välillä
+	for valonlahde in valonlahteet:
+		# Suunnataan raycast valonlähteeseen
+		raycast.target_position = Vector2(
+			valonlahde.global_position.x - self.position.x,
+			valonlahde.global_position.y - self.position.y
+		)
 		
-		""" valmis pohja area2D tarkasteluun
-		overlapping_bodies_result = area.get_overlapping_bodies()
-		for body in overlapping_bodies_result:
-			if body.is_in_group("group"):
-				# do something with it
-		"""
+		# Jos reitti pelaajasta valonlähteeseen on tyhjä, pelaaja on valossa.
+		if not raycast.is_colliding():
+			return true
+
+	# Pelaaja ei ole valossa, jos kaikkien valonlähteiden edessä on terrainia
+	# tai jos valonlähteiden taulukko on tyhjä.
+	return false
