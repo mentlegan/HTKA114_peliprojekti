@@ -37,10 +37,6 @@ func _ready():
 	# Lisätään Path2D:n lapseksi PathFollow2D
 	path2d.add_child(path_follow_2d)
 	
-	# Lisätään path2d:n lapseksi pathfollow-node
-	if path2d:
-		path2d.add_child(path_follow_2d)
-	
 	# Asetetaan perhosen aloituspiste
 	aloituspiste = global_position
 
