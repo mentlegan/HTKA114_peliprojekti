@@ -112,7 +112,7 @@ func _physics_process(delta):
 	# tällöin totuusarvo valossa jää falseksi
 	print("Valossa: " + str(valossa))
 	print("=====")
-
+	
 	# polygon on PackedVector2Array
 	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
 	# print(vec)
