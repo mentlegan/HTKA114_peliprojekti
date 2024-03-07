@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bil3tqlcqo15k"]
+
+[ext_resource type="Script" path="res://Vihollinen.gd" id="1_8ppmx"]
+[ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://tiili.png" id="1_22viq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7n34"]
+radius = 13.9977
+height = 58.0022
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epnmi"]
+radius = 8.63712
+
+[node name="Vihollinen" type="CharacterBody2D"]
+script = ExtResource("1_8ppmx")
+
+[node name="Tiili" type="Sprite2D" parent="."]
+position = Vector2(-3.72529e-09, -19)
+rotation = -0.00146985
+scale = Vector2(8.55022, 4.67461)
+texture = ExtResource("1_22viq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.86265e-09, -19)
+rotation = -1.57193
+shape = SubResource("CapsuleShape2D_o7n34")
+
+[node name="tarkkaavaisuus" type="Area2D" parent="."]
+position = Vector2(0, -19)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tarkkaavaisuus"]
+scale = Vector2(14.958, 15)
+shape = SubResource("CircleShape2D_epnmi")
+
+[connection signal="body_entered" from="tarkkaavaisuus" to="." method="_on_tarkkaavaisuus_body_entered"]
+[connection signal="body_exited" from="tarkkaavaisuus" to="." method="_on_tarkkaavaisuus_body_exited"]
