@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3iy6ln4bag18"]
+
+[ext_resource type="Script" path="res://Vihollinen.gd" id="1_8ppmx"]
+[ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://tiili.png" id="1_22viq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7n34"]
+radius = 14.0068
+height = 64.0068
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epnmi"]
+radius = 8.63712
+
+[node name="Vihollinen" type="CharacterBody2D"]
+script = ExtResource("1_8ppmx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.2119e-09, -19)
+rotation = -1.57193
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_o7n34")
+
+[node name="Keho" type="Area2D" parent="."]
+position = Vector2(1.86265e-09, 1.90735e-06)
+scale = Vector2(1, 1)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Keho"]
+position = Vector2(-7.62939e-06, -19)
+rotation = -1.57193
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_o7n34")
+
+[node name="tarkkaavaisuus" type="Area2D" parent="."]
+position = Vector2(0, -19)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tarkkaavaisuus"]
+scale = Vector2(14.958, 15)
+shape = SubResource("CircleShape2D_epnmi")
+
+[node name="Tiili" type="Sprite2D" parent="."]
+position = Vector2(-3.72529e-09, -19)
+rotation = -0.00146985
+scale = Vector2(8.55022, 4.67461)
+texture = ExtResource("1_22viq")
+
+[node name="Label" type="Label" parent="Tiili"]
+offset_left = -2.68878
+offset_top = -1.50468
+offset_right = 75.3112
+offset_bottom = 21.4953
+scale = Vector2(0.0736885, 0.144705)
+text = "Vihollinen"
+
+[connection signal="body_entered" from="Keho" to="." method="_on_keho_body_entered"]
+[connection signal="body_entered" from="Keho" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="tarkkaavaisuus" to="." method="_on_tarkkaavaisuus_body_entered"]
+[connection signal="body_exited" from="tarkkaavaisuus" to="." method="_on_tarkkaavaisuus_body_exited"]

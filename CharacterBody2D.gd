@@ -29,12 +29,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.25
 var current_jumps = 0
 
 
-## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan.
-func respawn():
-	# Haetaan SceneTree ja käynnistetään se uudestaan.
-	self.get_tree().reload_current_scene()
-
-
 ## Fysiikanhallintaa
 func _physics_process(delta):
 	## Tästä painovoima

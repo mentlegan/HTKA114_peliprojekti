@@ -1942,7 +1942,7 @@ script = ExtResource("7_ub8jv")
 _points = SubResource("Resource_vvrsq")
 shape_material = ExtResource("8_0kfb3")
 
-[node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
+[node name="Pelaaja" parent="." groups=["Pelaaja"] instance=ExtResource("4_udkay")]
 position = Vector2(1375, 692)
 collision_layer = 2
 floor_stop_on_slope = false
@@ -2035,7 +2035,7 @@ position = Vector2(1069, 155)
 position = Vector2(1149, 152)
 
 [node name="Vihollinen" parent="." instance=ExtResource("12_u46m1")]
-position = Vector2(1633, 591)
+position = Vector2(1704, 686)
 
 [connection signal="body_entered" from="Kukat/Kukka" to="Kukat/Kukka" method="_on_body_entered"]
 [connection signal="body_entered" from="Kukat/Kukka2" to="Kukat/Kukka2" method="_on_body_entered"]
