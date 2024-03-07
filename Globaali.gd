@@ -5,8 +5,3 @@ extends Node
 
 ## Pallomäärä
 var palloja = 0
-
-## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan.
-func respawn():
-	# Haetaan SceneTree ja käynnistetään se uudestaan.
-	self.get_tree().reload_current_scene()

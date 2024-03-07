@@ -26,10 +26,11 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.25
 var current_jumps = 0
 
-func _on_body_entered(body):
-	if body.is_in_group("Vihollinen"): ## Otetaan Vihollisen group
-		Globaali.respawn()
-		print("kuolit")
+
+## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan.
+func respawn():
+	# Haetaan SceneTree ja käynnistetään se uudestaan.
+	self.get_tree().reload_current_scene()
 
 
 ## Fysiikanhallintaa
@@ -37,9 +38,12 @@ func _physics_process(delta):
 	## Tästä painovoima
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	else:
+		current_jumps = 0
 
 	## Tehdään hyppy
 	if Input.is_action_just_pressed("hyppaa") and is_on_floor():
+		current_jumps += 1
 		velocity.y = JUMP_VELOCITY
 
 	## input-kontrollit
