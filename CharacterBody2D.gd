@@ -1,4 +1,4 @@
-## Juuso 27.2.2024
+## Juuso 7.3.2024
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 ## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
 extends CharacterBody2D
@@ -12,10 +12,12 @@ extends CharacterBody2D
 ## Pelaajan alue
 @onready var area = get_node("Area2D")
 
-## Valocharacter
-@onready var valoChar = get_node("../ValoCharacter")
-## Itse pointlight2D valo
-@onready var valo = get_node("../ValoCharacter/PointLight2D")
+## Ladataan valmiiksi valopallo
+var Light = preload("res://valo_character.tscn")
+
+## Valopallon tuhoamisen ja synnyttämisen testaukseen
+var current_lights = 0
+
 
 ## Asetetaan pelaajan nopeus ja hypyt
 const SPEED = 300.0
@@ -114,7 +116,27 @@ func _physics_process(delta):
 	# polygon on PackedVector2Array
 	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
 	# print(vec)
-
+	
+	if Input.is_action_just_pressed("painike_vasen"):
+		# Ei liikaa valopalloja    and Globaali.palloja > 0:
+		# Tällä hetkellä 2 maksimissaan
+		if current_lights < 2:
+			# Hiiren sijainti, otetaan tässä niin on varmasti oikein
+			var mouse = get_global_mouse_position()
+			
+			# Valon synnyttäminen
+			var l = Light.instantiate()
+			# Liikkuminen valon scriptissä
+			l.move(self.position, mouse)
+			# Lisääminen puuhun
+			get_tree().root.add_child(l)
+			current_lights += 1
+			# Globaali.palloja -= 1
+	
+	if Input.is_action_just_pressed("painike_oikea"):
+		# Valopallo scriptissä tuhotaan kaikki valopallot, varmaan muutettava
+		current_lights = 0
+	
 	# player.visible = ! (raycast.is_colliding())
 
 	# light.height nyt 60, texture_scale 12   = 60           = 12
