@@ -1,5 +1,6 @@
 ## Juuso 27.2.2024
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
+## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
 extends CharacterBody2D
 
 ## Raycast valossa olemisen tarkistamiseen
@@ -24,6 +25,12 @@ const JUMP_VELOCITY = -400.0
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.25
 var current_jumps = 0
+
+
+## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan.
+func respawn():
+	# Haetaan SceneTree ja käynnistetään se uudestaan.
+	self.get_tree().reload_current_scene()
 
 
 ## Fysiikanhallintaa
