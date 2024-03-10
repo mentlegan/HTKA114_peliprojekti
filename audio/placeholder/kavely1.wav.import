@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://1pwqq8o5g431"
-path="res://.godot/imported/kavely1.wav-65677cec5be389612dbfe849849cae8e.sample"
+path="res://.godot/imported/kavely1.wav-17476dd3f06ce5696e8f05f6b427e852.sample"
 
 [deps]
 
-source_file="res://audio/kavely1.wav"
-dest_files=["res://.godot/imported/kavely1.wav-65677cec5be389612dbfe849849cae8e.sample"]
+source_file="res://audio/placeholder/kavely1.wav"
+dest_files=["res://.godot/imported/kavely1.wav-17476dd3f06ce5696e8f05f6b427e852.sample"]
 
 [params]
 

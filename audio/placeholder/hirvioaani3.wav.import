@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d3xp6bibdklu7"
-path="res://.godot/imported/hirvioaani3.wav-64d5d6a753c6c0230c705648720e89fe.sample"
+path="res://.godot/imported/hirvioaani3.wav-057cd38efc0885f0a34e77aafb47176b.sample"
 
 [deps]
 
-source_file="res://audio/hirvioaani3.wav"
-dest_files=["res://.godot/imported/hirvioaani3.wav-64d5d6a753c6c0230c705648720e89fe.sample"]
+source_file="res://audio/placeholder/hirvioaani3.wav"
+dest_files=["res://.godot/imported/hirvioaani3.wav-057cd38efc0885f0a34e77aafb47176b.sample"]
 
 [params]
 

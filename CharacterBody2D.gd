@@ -18,7 +18,6 @@ var Light = preload("res://valo_character.tscn")
 ## Valopallon tuhoamisen ja synnyttämisen testaukseen
 var current_lights = 0
 
-
 ## Asetetaan pelaajan nopeus ja hypyt
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -32,13 +31,23 @@ var current_jumps = 0
 ## Fysiikanhallintaa
 func _physics_process(delta):
 	## Tästä painovoima
-	if not is_on_floor():
+	if not (is_on_floor() or is_on_wall()):
 		velocity.y += gravity * delta
+		## Seinää vasten liikkuessa kiipeää
+	elif (is_on_wall()) and (Input.is_action_pressed("liiku_oikea")):
+		velocity.y = -gravity * delta * 6
+	elif (is_on_wall()) and (Input.is_action_pressed("liiku_vasen")):
+		velocity.y = -gravity * delta * 6
+		## Ei tipu jos seinässä kiinni
 	else:
-		current_jumps = 0
+		velocity.y = 0
 
+	## Hyppy takaisin kun maassa
+	if is_on_floor():
+		current_jumps = 0
+	
 	## Tehdään hyppy
-	if Input.is_action_just_pressed("hyppaa") and is_on_floor():
+	if Input.is_action_just_pressed("hyppaa") and (current_jumps < 1 or (current_jumps < 2 and is_on_wall())):
 		current_jumps += 1
 		velocity.y = JUMP_VELOCITY
 
