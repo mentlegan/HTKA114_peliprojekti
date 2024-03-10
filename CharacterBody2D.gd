@@ -19,7 +19,8 @@ var Light = preload("res://valo_character.tscn")
 var current_lights = 0
 
 ## Asetetaan pelaajan nopeus ja hypyt
-const SPEED = 300.0
+const SPEED = 200.0
+const SPRINT = 350.0
 const JUMP_VELOCITY = -400.0
 
 ## Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -54,9 +55,15 @@ func _physics_process(delta):
 	## input-kontrollit
 	var direction = Input.get_axis("liiku_vasen", "liiku_oikea")
 	if direction:
-		velocity.x = direction * SPEED
+		if Input.is_action_pressed("juoksu"):
+			velocity.x = direction * SPRINT
+		else: 
+			velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if Input.is_action_pressed("juoksu"):
+			velocity.x = move_toward(velocity.x, 0, SPRINT)
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	# Liikutetaan pelaajaa
 	move_and_slide()
