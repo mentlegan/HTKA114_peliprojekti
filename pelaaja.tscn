@@ -107,6 +107,7 @@ animations = [{
 radius = 37.0
 
 [node name="Pelaaja" type="CharacterBody2D" groups=["Pelaaja"]]
+collision_layer = 2
 script = ExtResource("1_7oby4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

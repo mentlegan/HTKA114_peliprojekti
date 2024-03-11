@@ -1,5 +1,4 @@
 ## Harri 7.3.2024
-## TODO: toimiva collision pelaajan kanssa, että game over tulee
 
 extends CharacterBody2D
 
@@ -18,7 +17,7 @@ func _physics_process(delta):
 		position += (pelaaja.position - position)/SPEED
 	move_and_slide()
 
-func _on_keho_body_entered(body): ## TODO: tämä toimivaksi. Koitettu vaikka ja mitä mut ei jotenkin toimi
+func _on_keho_body_entered(body): ## Kun pelaaja osuu viholliseen, käynnistetään scene uudestaan
 	if body.is_in_group("Pelaaja"):
 		pelaaja = body
 		Globaali.respawn() ## Voidaan kutsua respawnia näinkin. Tätä samaa voi kutsua muissa game overin instansseissa

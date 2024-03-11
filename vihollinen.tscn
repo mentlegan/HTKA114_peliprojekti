@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7n34"]
 radius = 14.0068
-height = 64.0068
+height = 52.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epnmi"]
 radius = 8.63712
@@ -16,13 +16,12 @@ script = ExtResource("1_8ppmx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.2119e-09, -19)
 rotation = -1.57193
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_o7n34")
 
 [node name="Keho" type="Area2D" parent="."]
 position = Vector2(1.86265e-09, 1.90735e-06)
-scale = Vector2(1, 1)
 collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Keho"]
 position = Vector2(-7.62939e-06, -19)
