@@ -1,6 +1,7 @@
 ## Juuso 7.3.2024
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 ## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
+## TODO: pimeässä kuolemiselle animaatio / visuaalista palautetta ennen yhtäkkistä respawn()-kutsua
 extends CharacterBody2D
 
 ## Raycast valossa olemisen tarkistamiseen
@@ -11,6 +12,10 @@ extends CharacterBody2D
 @onready var animaatio = get_node("Animaatio")
 ## Pelaajan alue
 @onready var area = get_node("Area2D")
+
+## Ajastin pimeässä selviämiselle
+var ajastin_pimeassa = Timer.new()
+const SELVIAMISAIKA_PIMEASSA = 20 ## Kuinka kauan pimeässä selvitään ennen respawn()-kutsua, sekunneissa
 
 ## Ladataan valmiiksi valopallo
 var Light = preload("res://valo_character.tscn")
@@ -27,6 +32,18 @@ const JUMP_VELOCITY = -400.0
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.25
 var current_jumps = 0
+
+
+func _ready():
+	# Lisätään ajastin lapseksi
+	self.add_child(ajastin_pimeassa)
+	
+	# Respawnataan, jos pelaaja on pimeässä liian kauan
+	ajastin_pimeassa.timeout.connect(ilman_valoa_respawnattaessa)
+
+
+func ilman_valoa_respawnattaessa():
+	Globaali.respawn()
 
 
 ## Fysiikanhallintaa
@@ -122,6 +139,12 @@ func _physics_process(delta):
 	# tällöin totuusarvo valossa jää falseksi
 	print("Valossa: " + str(valossa))
 	print("=====")
+	
+	# Aloitetaan / pysäytetään ajastin pimeässä kuolemiselle
+	if ajastin_pimeassa.is_stopped() and not valossa:
+		ajastin_pimeassa.start(SELVIAMISAIKA_PIMEASSA)
+	elif valossa:
+		ajastin_pimeassa.stop()
 	
 	# polygon on PackedVector2Array
 	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
