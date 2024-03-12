@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3iy6ln4bag18"]
+[gd_scene load_steps=10 format=3 uid="uid://c3iy6ln4bag18"]
 
 [ext_resource type="Script" path="res://Vihollinen.gd" id="1_8ppmx"]
 [ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://tiili.png" id="1_22viq"]
+[ext_resource type="AudioStream" uid="uid://dpfx17kpg2tqy" path="res://audio/hirvio/vihollisen_hengitys1.wav" id="3_n8x5q"]
+[ext_resource type="AudioStream" uid="uid://coxp2yaiqgye1" path="res://audio/placeholder/hirvioaani1.wav" id="4_e3in8"]
+[ext_resource type="AudioStream" uid="uid://tgx7ls7se6l0" path="res://audio/placeholder/hirvioaani2.wav" id="5_onit4"]
+[ext_resource type="AudioStream" uid="uid://d3xp6bibdklu7" path="res://audio/placeholder/hirvioaani3.wav" id="6_83ces"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7n34"]
 radius = 14.0068
@@ -9,6 +13,15 @@ height = 52.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epnmi"]
 radius = 8.63712
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bsy7y"]
+streams_count = 3
+stream_0/stream = ExtResource("4_e3in8")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_onit4")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_83ces")
+stream_2/weight = 1.0
 
 [node name="Vihollinen" type="CharacterBody2D"]
 script = ExtResource("1_8ppmx")
@@ -51,6 +64,12 @@ offset_right = 75.3112
 offset_bottom = 21.4953
 scale = Vector2(0.0736885, 0.144705)
 text = "Vihollinen"
+
+[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_n8x5q")
+
+[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_bsy7y")
 
 [connection signal="body_entered" from="Keho" to="." method="_on_keho_body_entered"]
 [connection signal="body_entered" from="Keho" to="." method="_on_area_2d_body_entered"]

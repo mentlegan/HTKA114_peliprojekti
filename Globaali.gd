@@ -1,5 +1,6 @@
 ## Harri 7.3.2024
 ## Tämä on globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
+## TODO: Animaatio / game over näyttö ennen respawn kutsua
 extends Node
 
 ## Pallomäärä
