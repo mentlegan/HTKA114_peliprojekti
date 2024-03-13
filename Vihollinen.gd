@@ -77,7 +77,7 @@ func _on_tarkkaavaisuus_body_entered(body):
 
 
 ## Jos pelaaja poistuu vihollisen tietoisuusalueelta
-func _on_tarkkaavaisuus_body_exited(body):
+func _on_tarkkaavaisuus_body_exited(_body):
 	pelaaja = null
 	jahdissa = false
 	
