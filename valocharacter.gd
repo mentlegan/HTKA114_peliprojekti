@@ -24,5 +24,17 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	# Jos osuu johonkin
 	if collision:
-		# Kimpoaminen
-		velocity = velocity.bounce(collision.get_normal())
+		# Otetaan talteen törmäyksen kohde
+		var collision_collider = collision.get_collider()
+		# Jos osuu köynnösoveen
+		if collision_collider.is_in_group("ovi"):
+			# Tuhotaan ovi sen viitteen avulla
+			collision_collider.queue_free()
+			# Tuhotaan pallo, se imeytyy oveen
+			queue_free()
+			
+			# Vähennetään olemassa olevien valopallojen määrää
+			Globaali.current_lights -= 1
+		
+		else: # Kimpoaminen
+			velocity = velocity.bounce(collision.get_normal())

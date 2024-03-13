@@ -1,4 +1,4 @@
-[gd_scene load_steps=282 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=283 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="4_summ1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://bqggd8nupvqhq" path="res://smart_shape_tiili.tres" id="8_0kfb3"]
 [ext_resource type="Texture2D" uid="uid://bw63swpnyimyq" path="res://grafiikka/Seinä.png" id="8_c83tl"]
 [ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://tiili.png" id="10_fabdf"]
+[ext_resource type="PackedScene" uid="uid://g5n0l8qvflmb" path="res://ovi.tscn" id="12_moce3"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://vihollinen.tscn" id="12_u46m1"]
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://perhonen.tscn" id="13_ufso7"]
 
@@ -2032,7 +2033,7 @@ _points = SubResource("Resource_7u75h")
 shape_material = ExtResource("8_0kfb3")
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1874, 693)
+position = Vector2(2476, 713)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -2154,6 +2155,14 @@ position = Vector2(1149, 152)
 
 [node name="Vihollinen" parent="." instance=ExtResource("12_u46m1")]
 position = Vector2(1415, 653)
+
+[node name="Ovi" parent="." instance=ExtResource("12_moce3")]
+
+[node name="Ovi2" parent="." instance=ExtResource("12_moce3")]
+position = Vector2(2609, 500)
+
+[node name="Ovi3" parent="." instance=ExtResource("12_moce3")]
+position = Vector2(2231, 506)
 
 [connection signal="body_entered" from="Kukat/Kukka" to="Kukat/Kukka" method="_on_body_entered"]
 [connection signal="body_entered" from="Kukat/Kukka2" to="Kukat/Kukka2" method="_on_body_entered"]
