@@ -1,4 +1,4 @@
-## Harri 7.3.2024
+## Juuso 13.3.2024
 ## TODO: Ääniefektin korkeuden muuttaminen
 
 extends CharacterBody2D
@@ -35,13 +35,14 @@ func _ready():
 
 func _physics_process(delta):
 	if not is_on_floor():
-		velocity.y += gravity * delta ## Painovoimaa vihollisellekin
-	if jahdissa: ## Tässä "jahtimoodi" eli kun vihollinen tietää, että missä pelaaja on
+		velocity.y += gravity * delta # Painovoimaa vihollisellekin
+	if jahdissa: # Tässä "jahtimoodi" eli kun vihollinen tietää, että missä pelaaja on
 		position += (pelaaja.position - position)/SPEED
 	move_and_slide()
 
 
-func _idle_audio_ajastimen_loppuessa(): ## Idle audio ajastimen loppuessa soitetaan idle ääniefekti
+## Idle audio ajastimen loppuessa soitetaan idle ääniefekti
+func _idle_audio_ajastimen_loppuessa():
 	if audio_paikoillaan.is_playing():
 		# Jos samaa ääniefektiä soitetaan vielä, ei tehdä mitään
 		return
@@ -53,13 +54,15 @@ func _idle_audio_ajastimen_loppuessa(): ## Idle audio ajastimen loppuessa soitet
 	audio_paikoillaan.play()
 
 
-func _on_keho_body_entered(body): ## Kun pelaaja osuu viholliseen, käynnistetään scene uudestaan
+## Kun pelaaja osuu viholliseen, käynnistetään scene uudestaan
+func _on_keho_body_entered(body):
 	if body.is_in_group("Pelaaja"):
 		pelaaja = body
-		Globaali.respawn() ## Voidaan kutsua respawnia näinkin. Tätä samaa voi kutsua muissa game overin instansseissa
+		Globaali.respawn() # Voidaan kutsua respawnia näinkin. Tätä samaa voi kutsua muissa game overin instansseissa
 
 
-func _on_tarkkaavaisuus_body_entered(body): ## Jos pelaaja astuu vihollisen tietoisuusalueelle
+## Jos pelaaja astuu vihollisen tietoisuusalueelle
+func _on_tarkkaavaisuus_body_entered(body):
 	pelaaja = body
 	jahdissa = true
 	
@@ -73,7 +76,8 @@ func _on_tarkkaavaisuus_body_entered(body): ## Jos pelaaja astuu vihollisen tiet
 		audio_jahtaus.play()
 
 
-func _on_tarkkaavaisuus_body_exited(body): ## Jos pelaaja poistuu vihollisen tietoisuusalueelta
+## Jos pelaaja poistuu vihollisen tietoisuusalueelta
+func _on_tarkkaavaisuus_body_exited(body):
 	pelaaja = null
 	jahdissa = false
 	

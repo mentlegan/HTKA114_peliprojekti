@@ -1,4 +1,4 @@
-## Juuso 7.3.2024
+## Juuso 13.3.2024
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 ## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
 ## TODO: pimeässä kuolemiselle animaatio / visuaalista palautetta ennen yhtäkkistä respawn()-kutsua
@@ -18,10 +18,7 @@ var ajastin_pimeassa = Timer.new()
 const SELVIAMISAIKA_PIMEASSA = 20 ## Kuinka kauan pimeässä selvitään ennen respawn()-kutsua, sekunneissa
 
 ## Ladataan valmiiksi valopallo
-var Light = preload("res://valo_character.tscn")
-
-## Valopallon tuhoamisen ja synnyttämisen testaukseen
-var current_lights = 0
+var light = preload("res://valo_character.tscn")
 
 ## Asetetaan pelaajan nopeus ja hypyt
 const SPEED = 200.0
@@ -48,19 +45,19 @@ func ilman_valoa_respawnattaessa():
 
 ## Fysiikanhallintaa
 func _physics_process(delta):
-	## Tästä painovoima
+	# Tästä painovoima
 	if not (is_on_floor() or is_on_wall()):
 		velocity.y += gravity * delta
-		## Seinää vasten liikkuessa kiipeää
+		# Seinää vasten liikkuessa kiipeää
 	elif (is_on_wall()) and (Input.is_action_pressed("liiku_oikea")):
 		velocity.y = -gravity * delta * 6
 	elif (is_on_wall()) and (Input.is_action_pressed("liiku_vasen")):
 		velocity.y = -gravity * delta * 6
-		## Ei tipu jos seinässä kiinni
+		# Ei tipu jos seinässä kiinni
 	else:
 		velocity.y = 0
 
-	## Hyppy takaisin kun maassa
+	# Hyppy takaisin kun maassa
 	if is_on_floor():
 		current_jumps = 0
 	
@@ -151,25 +148,33 @@ func _physics_process(delta):
 	# print(vec)
 	
 	if Input.is_action_just_pressed("painike_vasen"):
-		# Ei liikaa valopalloja    and Globaali.palloja > 0:
 		# Tällä hetkellä 2 maksimissaan
-		if current_lights < 2:
+		if Globaali.current_lights < 2 and Globaali.palloja > 0:
 			# Hiiren sijainti, otetaan tässä niin on varmasti oikein
 			var mouse = get_global_mouse_position()
 			
 			# Valon synnyttäminen
-			var l = Light.instantiate()
+			var l = light.instantiate()
 			# Liikkuminen valon scriptissä
 			l.move(self.position, mouse)
 			# Lisääminen puuhun
 			get_tree().root.add_child(l)
-			current_lights += 1
-			# Globaali.palloja -= 1
+			
+			# Muuttujiin muutokset
+			Globaali.current_lights += 1
+			Globaali.palloja -= 1
 	
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Valopallo scriptissä tuhotaan kaikki valopallot, varmaan muutettava
-		current_lights = 0
+		Globaali.current_lights = 0
 	
+	## Kukkien kerääminen
+	if Input.is_action_just_pressed("keraa_kukka"):
+		var kukat = area.get_overlapping_areas()
+		for kukka in kukat:
+			if kukka.is_in_group("kukka"):
+				Globaali.palloja = 2
+		
 	# player.visible = ! (raycast.is_colliding())
 
 	# light.height nyt 60, texture_scale 12   = 60           = 12
