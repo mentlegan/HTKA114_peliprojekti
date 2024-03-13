@@ -1,6 +1,5 @@
-## Juuso 13.3.2024
+## Harri 13.3.2024
 ## Tämä on globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
-## TODO: Animaatio / game over näyttö ennen respawn kutsua
 extends Node
 
 ## Käytössä olevat pallot
@@ -12,4 +11,10 @@ var current_lights = 0
 func respawn():
 	# Haetaan SceneTree ja käynnistetään se uudestaan
 	self.get_tree().call_deferred("reload_current_scene")
-	print("kuolit") # game over
+
+## Yleinen game over. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai
+## käynnistää peli uudelleen kutsumalla tämän skriptin respawn() funktiota
+func gameover():
+	#await get_tree().create_timer(2,5).timeout
+	get_tree().paused = true
+	#pelaaja.gos.visible = true
