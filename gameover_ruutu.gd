@@ -9,14 +9,14 @@ var kuolemateksti = [
 	"Darkness has fallen"
 ]
 
-var flavorteksti = kuolemateksti[randi() % kuolemateksti.size()]
-
-func teksti(_value):
-	$Paneeli/MuuttuvaTeksti.text = flavorteksti
+## Readyssa otetaan satunnainen teksti taulukosta, ja asetetaan se ruutuun
+func _ready():
+	$Paneeli/MuuttuvaTeksti.text = kuolemateksti[randi() % kuolemateksti.size()]
+	
+## Kun painaistaan quit-nappulaa
+func _on_lopeta_nappi_pressed():
+	get_tree().quit() #Napataan tree ja peli loppuu quitilla
 
 ## Kun painaistaan restart-nappulaa
-func _on_lopeta_nappi_pressed():
-	pass
-
 func _on_restart_nappi_pressed():
 	Globaali.respawn() #Kutsutaan Globaalin respawn-funktio

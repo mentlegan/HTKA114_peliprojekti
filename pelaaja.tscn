@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=20 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
 [ext_resource type="Texture2D" uid="uid://b6tbps0j5gs0v" path="res://grafiikka/PelaajaKavely.png" id="3_dwx8p"]
 [ext_resource type="Script" path="res://palloja_teksti.gd" id="4_tac1h"]
-[ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://game_over_ruutu.tscn" id="5_i88gp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -148,6 +147,3 @@ offset_top = -216.0
 offset_right = -344.0
 offset_bottom = -193.0
 script = ExtResource("4_tac1h")
-
-[node name="GameOverRuutu" parent="Camera2D" instance=ExtResource("5_i88gp")]
-visible = false

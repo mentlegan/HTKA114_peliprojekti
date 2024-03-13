@@ -1,4 +1,4 @@
-## Juuso 13.3.2024
+## Harri 13.3.2024
 ## TODO: Ääniefektin korkeuden muuttaminen
 
 extends CharacterBody2D
@@ -58,7 +58,7 @@ func _idle_audio_ajastimen_loppuessa():
 func _on_keho_body_entered(body):
 	if body.is_in_group("Pelaaja"):
 		pelaaja = body
-		Globaali.respawn() # Voidaan kutsua respawnia näinkin. Tätä samaa voi kutsua muissa game overin instansseissa
+		Globaali.gameover() # Voidaan kutsua respawnia näinkin. Tätä samaa voi kutsua muissa game overin instansseissa
 
 
 ## Jos pelaaja astuu vihollisen tietoisuusalueelle
