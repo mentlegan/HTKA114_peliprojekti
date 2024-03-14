@@ -1,21 +1,19 @@
-## Harri 14.3.2024
+## Harri, Paavo 14.3.2024
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 ## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
 ## TODO: pimeässä kuolemiselle animaatio / visuaalista palautetta ennen yhtäkkistä respawn()-kutsua
+## TODO: valokukkien kerääminen signaaleilla get_overlapping_areas()-kutsun sijaan
 extends CharacterBody2D
 
 ## Koitetaan signaalia
 signal kuollut
 
-## Raycast valossa olemisen tarkistamiseen
-@onready var raycast = get_node("RayCast2D")
 ## Pelaajan hitbox
 @onready var polygon = get_node("CollisionShape2D")
 ## Pelaajan animaatio
 @onready var animaatio = get_node("Animaatio")
-## Pelaajan alue
-@onready var area = get_node("Area2D")
-
+## Pelaajan alue ja valon tarkistus
+@onready var valon_tarkistus = get_node("ValonTarkistus")
 
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
@@ -41,6 +39,7 @@ func _ready():
 	
 	# Pelaaja kuolee, jos hän on pimeässä liian kauan
 	ajastin_pimeassa.timeout.connect(kuolema)
+
 
 ## Tähän lisätty signaalin emit kokeilumielessä
 func kuolema():
@@ -106,40 +105,9 @@ func _physics_process(delta):
 	if velocity.x != 0:
 		animaatio.set_flip_h(velocity.x < 0)
 	
-	
-	## Usean valonlähteen tarkistus
-	## Käy läpi kaikki pelaajaan osuvat Area2D nodet
-	## Lähetetään jokaiseen raycast ja tarkistetaan osuuko se johonkin
-	# var space_state = get_world_2d().direct_space_state # Tarvitseeko, ei käytetä mihinkään?
-	var valonlahteet = Array() # Luodaan tyhjä taulukko valonlähteille, joihin pelaaja osuu
-	var valossa = false # Totuusarvo pelaajan olemiselle valossa
-	
-	# Käydään läpi pelaajaan osuvat area2D
-	for node in area.get_overlapping_areas():
-		# Lisätään area2D node valonlahteet-taulukkoon, jos se kuuluu "valonlahde"-ryhmään
-		if node.is_in_group("valonlahde"):
-			valonlahteet.append(node)
-	
-	print("Valonlähteitä: " + str(len(valonlahteet)))
-	
-	# Käydään läpi taulukkoon lisätyt valonlähteet ja tarkistetaan raycast niiden
-	# ja pelaajan välillä
-	for valonlahde in valonlahteet:
-		# Suunnataan raycast valonlähteeseen
-		raycast.target_position = Vector2(
-			valonlahde.global_position.x - self.position.x,
-			valonlahde.global_position.y - self.position.y
-		)
-		
-		# Jos reitti pelaajasta valonlähteeseen on tyhjä, pelaaja on valossa.
-		if not raycast.is_colliding():
-			valossa = true
-
-	# Pelaaja ei ole valossa, jos kaikkien valonlähteiden edessä on terrainia
-	# tai jos valonlähteiden taulukko on tyhjä.
-	# tällöin totuusarvo valossa jää falseksi
+	# Usean valonlähteen tarkistus
+	var valossa = valon_tarkistus.on_valossa() # Totuusarvo pelaajan olemiselle valossa
 	print("Valossa: " + str(valossa))
-	print("=====")
 	
 	# Aloitetaan / pysäytetään ajastin pimeässä kuolemiselle
 	if ajastin_pimeassa.is_stopped() and not valossa:
@@ -174,7 +142,8 @@ func _physics_process(delta):
 	
 	## Kukkien kerääminen
 	if Input.is_action_just_pressed("keraa_kukka"):
-		var kukat = area.get_overlapping_areas()
+		# TODO: tämä myöhemmin signaaleilla
+		var kukat = valon_tarkistus.get_overlapping_areas()
 		for kukka in kukat:
 			if kukka.is_in_group("kukka"):
 				Globaali.palloja = 2
