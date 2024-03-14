@@ -12,7 +12,7 @@ position = Vector2(-2, 0.5)
 scale = Vector2(0.234377, 0.992187)
 texture = ExtResource("1_vf814")
 
-[node name="Osuu" type="StaticBody2D" parent="." groups=["ovi_avaa"]]
+[node name="Osuu" type="StaticBody2D" parent="." groups=["oviAVAA"]]
 position = Vector2(-11, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osuu"]

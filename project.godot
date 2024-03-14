@@ -29,7 +29,13 @@ enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg")
 
 [global_group]
 
+oviAVAA=""
 UI=""
+x=""
+oviV=""
+oviO=""
+y=""
+z=""
 
 [input]
 
