@@ -17,6 +17,7 @@ func _ready():
 func _on_lopeta_nappi_pressed():
 	get_tree().quit() #Napataan tree ja peli loppuu quitilla
 
+
 ## Kun painaistaan restart-nappulaa
 func _on_restart_nappi_pressed():
 	Globaali.respawn() #Kutsutaan Globaalin respawn-funktio

@@ -27,9 +27,10 @@ func _physics_process(delta):
 		# Otetaan talteen törmäyksen kohde
 		var collision_collider = collision.get_collider()
 		# Jos osuu köynnösoveen
-		if collision_collider.is_in_group("ovi"):
-			# Tuhotaan ovi sen viitteen avulla
-			collision_collider.queue_free()
+		if collision_collider.is_in_group("ovi_avaa"):
+			# Tuhotaan koko ovi-node sen viitteen avulla
+			collision_collider.get_parent().queue_free()
+			# collision_collider.queue_free()
 			# Tuhotaan pallo, se imeytyy oveen
 			queue_free()
 			
