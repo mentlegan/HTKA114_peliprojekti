@@ -1,37 +1,39 @@
-## Harri 13.3.2024
+## Harri 14.3.2024
 ## Tämä on globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
-## TODO: toimiva tapa napata nodeja tällä, ei taida muuten hommat onnistua (kts. rivi 14)
 extends Node2D
 
 ## Käytössä olevat pallot
 var palloja = 0
 ## Maailmassa olevat pallot
 var current_lights = 0
-## Signaalia varten
+## Signaaleja varten
 var pelaaja = null
+var vihollinen = null
 
-## Tässä pitäisi ottaa käyttöliittymän GameOverRuutu
-@onready var gos = get_node("KayttoLiittyma/GameOverRuutu") ## en ymmärrä, miksi tämä ei toimi
+## Tässä otetaan käyttöliittymän GameOverRuutu groupin avulla. Kaikki muut vaihtoehdot ovat heittäneet erroria
+@onready var gos = get_tree().get_first_node_in_group("gameoverruutu")
 
-## Koetin myös signaaleilla tehdä, mutta ongelma on aika varmasti noden otossa
-func _ready():
+## Yleinen ready
+func _ready():	
+	# Signaalikäsittelyä mm. pelaajan kuolemisesta
 	pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
-	pelaaja.kuollut.connect(_pelaaja_kuolee) # Yhdistetään signaali pelaajasta
+	pelaaja.kuollut.connect(_game_over) # Yhdistetään signaali pelaajasta
+	
+	vihollinen = get_tree().get_first_node_in_group("vihollinen") # Tehdään näissä
+	vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 
-## tehdään signaalista funktio
-func _pelaaja_kuolee():
-	gos.visible = true
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
 func respawn():
-	# Haetaan SceneTree ja käynnistetään se uudestaan
+	palloja = 0 # Resetoidaan pallot, koska reload_current_scene ei sitä tee. Tämän voi koittaa laittaa johonkin järkevämpään paikkaan
+	# Peli pois pauselta
 	get_tree().paused = false
+	# Haetaan SceneTree ja käynnistetään se uudestaan
 	self.get_tree().call_deferred("reload_current_scene")
 
-## Yleinen game over. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai
+## Yleinen game over funktio signaaleista. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai
 ## käynnistää peli uudelleen kutsumalla tämän skriptin respawn() funktiota
-func gameover():
-	pass
-	#get_tree().paused = true # Peli pauselle, kun se päättyy. Voi hienojen animaatioiden kanssa tietysti myös jättää pausettamatta
-	#await get_tree().create_timer(2,5).timeout # Pieni ajastin, että game over ei ihan heti tule
+func _game_over():
+	get_tree().paused = true # Peli pauselle, kun se päättyy. Voi hienojen animaatioiden kanssa tietysti myös jättää pausettamatta
+	await get_tree().create_timer(2,5).timeout # Pieni ajastin, että game over ei ihan heti tule
 	gos.visible = true

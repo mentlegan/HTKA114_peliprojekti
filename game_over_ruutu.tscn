@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://gameover_ruutu.gd" id="1_g4eso"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpcmd"]
-bg_color = Color(0, 0.12261, 0.252501, 1)
+bg_color = Color(0.261614, 0, 0.00741768, 1)
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25

@@ -1,8 +1,7 @@
-## Harri 13.3.2024
+## Harri 14.3.2024
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 ## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
 ## TODO: pimeässä kuolemiselle animaatio / visuaalista palautetta ennen yhtäkkistä respawn()-kutsua
-## TODO: signaalit voi poistaa, jos globaalin nodet saadaan napattua ilman niitä
 extends CharacterBody2D
 
 ## Koitetaan signaalia
@@ -40,13 +39,12 @@ func _ready():
 	# Lisätään ajastin lapseksi
 	self.add_child(ajastin_pimeassa)
 	
-	# Respawnataan, jos pelaaja on pimeässä liian kauan
-	ajastin_pimeassa.timeout.connect(ilman_valoa_respawnattaessa)
+	# Pelaaja kuolee, jos hän on pimeässä liian kauan
+	ajastin_pimeassa.timeout.connect(kuolema)
 
 ## Tähän lisätty signaalin emit kokeilumielessä
-func ilman_valoa_respawnattaessa():
+func kuolema():
 	kuollut.emit()
-	#Globaali.gameover()
 
 
 ## Fysiikanhallintaa

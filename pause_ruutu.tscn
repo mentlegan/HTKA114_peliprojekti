@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccxl4u1mjftgb"]
+
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_trb53"]
+
+[node name="pause_ruutu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_trb53")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 42.0
+offset_bottom = 28.0
+scale = Vector2(27.2847, 23.0016)
+color = Color(0.215902, 0.215902, 0.215902, 1)
+
+[node name="Paneeli" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 178.0
+offset_right = 740.0
+offset_bottom = 449.0
+
+[node name="pauseTeksti" type="Label" parent="Paneeli"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 66.0
+offset_right = 268.0
+offset_bottom = 104.0
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="jatkaNappi" type="Button" parent="Paneeli"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 172.0
+offset_right = 228.0
+offset_bottom = 227.0
+text = "Continue"
+
+[connection signal="pressed" from="Paneeli/jatkaNappi" to="." method="_on_jatka_nappi_pressed"]

@@ -27,6 +27,10 @@ project/assembly_name="Lisää valoprotoilua"
 
 enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg")
 
+[global_group]
+
+UI=""
+
 [input]
 
 liiku_vasen={

@@ -1,9 +1,10 @@
-## Harri 13.3.2024
+## Harri 14.3.2024
 ## TODO: Ääniefektin korkeuden muuttaminen
 
 extends CharacterBody2D
 
 const SPEED = 50.0
+signal pelaaja_kuollut
 
 ## Ajastin vihollisen äänille paikalla ollessaan
 const IDLE_AUDIO_AJASTIN_MAX = 15.0 ## Ajastin asetetaan satunnaisesti 50-100%:iin tästä arvosta sen alkaessa
@@ -58,7 +59,7 @@ func _idle_audio_ajastimen_loppuessa():
 func _on_keho_body_entered(body):
 	if body.is_in_group("Pelaaja"):
 		pelaaja = body
-		Globaali.gameover() # Voidaan kutsua respawnia näinkin. Tätä samaa voi kutsua muissa game overin instansseissa
+		pelaaja_kuollut.emit() # Voidaan kutsua respawnia signaalilla. Tätä samaa voi kutsua muissa game overin instansseissa
 
 
 ## Jos pelaaja astuu vihollisen tietoisuusalueelle
