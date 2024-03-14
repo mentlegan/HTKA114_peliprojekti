@@ -128,10 +128,7 @@ position = Vector2(2, -3)
 sprite_frames = SubResource("SpriteFrames_bqvgf")
 animation = &"idle"
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-
 [node name="ValonTarkistus" parent="." instance=ExtResource("4_5hfdk")]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ValonTarkistus"]
 position = Vector2(-9.67458e-06, 7.62939e-06)
