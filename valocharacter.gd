@@ -6,9 +6,12 @@ extends CharacterBody2D
 var SPEED = 110.0
 
 ## Ladataan ovet valmiiksi
-@onready var ovi_vasen = preload("ovi_vasen.tscn")
-@onready var ovi_oikea = preload("ovi_oikea.tscn")
+@onready var ovi_vasen = preload("res://ovi_vasen.tscn")
+@onready var ovi_oikea = preload("res://ovi_oikea.tscn")
 
+@onready var valo = get_node("PointLight2D")
+
+var kimpoamiset = 0
 
 func move(_position, _mouse):
 	# Aluksi pelaajan kohtaan
@@ -111,6 +114,13 @@ func _physics_process(delta):
 			
 		else: # Kimpoaminen
 			velocity = velocity.bounce(collision.get_normal())
+			# Pienennetään valon energiaa
+			valo.energy *= 0.8
+			# Lisätään kimmotusten määrää
+			kimpoamiset += 1
+			if kimpoamiset >= 5:
+				queue_free()
+				Globaali.current_lights -= 1
 	
 	
 	"""

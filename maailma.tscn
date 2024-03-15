@@ -26,7 +26,7 @@ width = 1.0
 
 [sub_resource type="Resource" id="Resource_2gwjn"]
 script = ExtResource("6_01qo5")
-position = Vector2(2379.25, 559.543)
+position = Vector2(2385.61, 558.836)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
 properties = SubResource("Resource_17oyt")
@@ -104,7 +104,7 @@ width = 1.0
 
 [sub_resource type="Resource" id="Resource_srdgj"]
 script = ExtResource("6_01qo5")
-position = Vector2(2379.25, 559.543)
+position = Vector2(2385.61, 558.836)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
 properties = SubResource("Resource_v371g")
@@ -611,7 +611,7 @@ _point_order = Array[int]([0, 1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 1
 _constraints = {
 Array[int]([0, 43]): 15
 }
-_next_key = 44
+_next_key = 46
 _material_overrides = {}
 
 [sub_resource type="Resource" id="Resource_tcex4"]
@@ -895,7 +895,7 @@ width = 1.0
 
 [sub_resource type="Resource" id="Resource_j4vqe"]
 script = ExtResource("6_01qo5")
-position = Vector2(2421.3, 627.65)
+position = Vector2(2409.99, 627.65)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
 properties = SubResource("Resource_0accs")
@@ -2058,7 +2058,7 @@ floor_snap_length = 14.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(-11, -5)
-color = Color(0.313726, 0.313726, 0.313726, 1)
+color = Color(0.197937, 0.197937, 0.197937, 1)
 
 [node name="Kukat" type="Node" parent="."]
 
@@ -2184,22 +2184,22 @@ position = Vector2(1531, 759)
 [node name="Kuoppa2" parent="Node2D" instance=ExtResource("15_nofhg")]
 position = Vector2(1814, 760)
 
-[node name="Ovi" type="Node" parent="."]
+[node name="Koynnosovet" type="Node" parent="." groups=["koynnosovet"]]
 
-[node name="Ovi_x" type="Node2D" parent="Ovi" groups=["oviV", "x"]]
+[node name="Ovi_x" type="Node2D" parent="Koynnosovet" groups=["oviV", "x"]]
 position = Vector2(2188, 693)
 
-[node name="Ovi_vasen" parent="Ovi/Ovi_x" instance=ExtResource("16_8728b")]
+[node name="Ovi_vasen" parent="Koynnosovet/Ovi_x" instance=ExtResource("16_8728b")]
 
-[node name="Ovi2_x" type="Node2D" parent="Ovi" groups=["oviV", "x"]]
+[node name="Ovi2_x" type="Node2D" parent="Koynnosovet" groups=["oviV", "x"]]
 position = Vector2(2625, 703)
 
-[node name="Ovi3_y" type="Node2D" parent="Ovi" groups=["oviO", "y"]]
+[node name="Ovi3_y" type="Node2D" parent="Koynnosovet" groups=["oviO", "y"]]
 position = Vector2(2236, 506)
 
-[node name="Ovi_oikea" parent="Ovi/Ovi3_y" instance=ExtResource("17_rgts0")]
+[node name="Ovi_oikea" parent="Koynnosovet/Ovi3_y" instance=ExtResource("17_rgts0")]
 
-[node name="Ovi4_z" type="Node2D" parent="Ovi" groups=["oviO", "z"]]
+[node name="Ovi4_z" type="Node2D" parent="Koynnosovet" groups=["oviO", "z"]]
 position = Vector2(2725, 697)
 
 [connection signal="body_entered" from="Kukat/Kukka" to="Kukat/Kukka" method="_on_body_entered"]

@@ -25,14 +25,11 @@ func _ready():
 	vihollinen = get_tree().get_first_node_in_group("vihollinen") # Tehdään näissä
 	vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
-	# Kaikki nodet, joilla ryhmänä oviV tai oviO eli kaikki scenen ovet
-	# Yhdistää kaksi taulukkoa
-	var nodes = (get_tree().get_nodes_in_group("oviV") 
-		+ get_tree().get_nodes_in_group("oviO"))
-	
-	# Lisätään taulukkoon
-	for node in nodes:
-		ovet.append(node)
+	# Haetaan koynnosovet-noden kaikki lapset
+	var koynnosovet_lapset = get_tree().get_first_node_in_group("koynnosovet").get_children()
+	for koynnosovi in koynnosovet_lapset:
+		if koynnosovi.is_in_group("oviV") or koynnosovi.is_in_group("oviO"):
+			ovet.append(koynnosovi)
 
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
@@ -40,6 +37,7 @@ func respawn():
 	palloja = 0 # Resetoidaan pallot, koska reload_current_scene ei sitä tee. Tämän voi koittaa laittaa johonkin järkevämpään paikkaan
 	current_lights = 0 # Nykyisten pallojen määrä laitetaan 0
 	
+	# Valopallojen tuhoaminen
 	var valopallot = get_tree().get_nodes_in_group("valopallo")
 	for pallo in valopallot:
 		pallo.queue_free()
