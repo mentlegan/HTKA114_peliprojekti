@@ -2173,22 +2173,6 @@ position = Vector2(1149, 152)
 [node name="Perhonen6" parent="." instance=ExtResource("13_ufso7")]
 position = Vector2(1661, 740)
 
-[node name="Ovi_x" type="Node2D" parent="." groups=["oviV", "x"]]
-position = Vector2(2188, 693)
-
-[node name="Ovi_vasen" parent="Ovi_x" instance=ExtResource("16_8728b")]
-
-[node name="Ovi2_x" type="Node2D" parent="." groups=["oviV", "x"]]
-position = Vector2(2625, 703)
-
-[node name="Ovi3_y" type="Node2D" parent="." groups=["oviO", "y"]]
-position = Vector2(2236, 506)
-
-[node name="Ovi_oikea" parent="Ovi3_y" instance=ExtResource("17_rgts0")]
-
-[node name="Ovi4_z" type="Node2D" parent="." groups=["oviO", "z"]]
-position = Vector2(2725, 697)
-
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Vihollinen" parent="Node2D" groups=["vihollinen"] instance=ExtResource("12_u46m1")]
@@ -2199,6 +2183,24 @@ position = Vector2(1531, 759)
 
 [node name="Kuoppa2" parent="Node2D" instance=ExtResource("15_nofhg")]
 position = Vector2(1814, 760)
+
+[node name="Ovi" type="Node" parent="."]
+
+[node name="Ovi_x" type="Node2D" parent="Ovi" groups=["oviV", "x"]]
+position = Vector2(2188, 693)
+
+[node name="Ovi_vasen" parent="Ovi/Ovi_x" instance=ExtResource("16_8728b")]
+
+[node name="Ovi2_x" type="Node2D" parent="Ovi" groups=["oviV", "x"]]
+position = Vector2(2625, 703)
+
+[node name="Ovi3_y" type="Node2D" parent="Ovi" groups=["oviO", "y"]]
+position = Vector2(2236, 506)
+
+[node name="Ovi_oikea" parent="Ovi/Ovi3_y" instance=ExtResource("17_rgts0")]
+
+[node name="Ovi4_z" type="Node2D" parent="Ovi" groups=["oviO", "z"]]
+position = Vector2(2725, 697)
 
 [connection signal="body_entered" from="Kukat/Kukka" to="Kukat/Kukka" method="_on_body_entered"]
 [connection signal="body_entered" from="Kukat/Kukka2" to="Kukat/Kukka2" method="_on_body_entered"]

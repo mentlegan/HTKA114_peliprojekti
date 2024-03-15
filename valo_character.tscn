@@ -20,7 +20,7 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1etc"]
 radius = 300.135
 
-[node name="ValoCharacter" type="CharacterBody2D"]
+[node name="ValoCharacter" type="CharacterBody2D" groups=["valopallo"]]
 collision_layer = 4
 script = ExtResource("1_jpuqn")
 

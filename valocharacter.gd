@@ -5,25 +5,9 @@ extends CharacterBody2D
 ## Valon nopeus
 var SPEED = 110.0
 
-## Kaikki scenen ovet
-var ovet = Array()
-
-## Ladataan ovet
+## Ladataan ovet valmiiksi
 @onready var ovi_vasen = preload("ovi_vasen.tscn")
 @onready var ovi_oikea = preload("ovi_oikea.tscn")
-
-
-## Alustetaan ovien taulukko scenen ovilla
-## Siirretään luultavasti ovi.gd vai globaali.gd?
-func _ready():
-	# Kaikki nodet, joilla ryhmänä oviV tai oviO eli kaikki scenen ovet
-	# Yhdistää kaksi taulukkoa
-	var nodes = (get_tree().get_nodes_in_group("oviV") 
-		+ get_tree().get_nodes_in_group("oviO"))
-	
-	# Lisätään taulukkoon
-	for node in nodes:
-		ovet.append(node)
 
 
 func move(_position, _mouse):
@@ -46,7 +30,7 @@ func change_doorsXYZ(_letter, if_y):
 	# Tallenetaan kirjain
 	var letter = _letter
 	
-	for ovi in ovet:                                      # Tämä vain, kun osuu y
+	for ovi in Globaali.ovet:                           # Tämä vain, kun osuu y
 		if ovi.is_in_group(letter) or ovi.is_in_group("y") or if_y:
 			if ovi.get_child_count() == 0:
 				# Listään ovi-nodeille lapseksi vasemmalta

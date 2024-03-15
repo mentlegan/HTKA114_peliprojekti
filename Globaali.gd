@@ -10,6 +10,9 @@ var current_lights = 0
 var pelaaja = null
 var vihollinen = null
 
+## Kaikki scenen ovet
+var ovet = Array()
+
 ## Tässä otetaan käyttöliittymän GameOverRuutu groupin avulla. Kaikki muut vaihtoehdot ovat heittäneet erroria
 @onready var gos = get_tree().get_first_node_in_group("gameoverruutu")
 
@@ -21,11 +24,26 @@ func _ready():
 	
 	vihollinen = get_tree().get_first_node_in_group("vihollinen") # Tehdään näissä
 	vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
+	
+	# Kaikki nodet, joilla ryhmänä oviV tai oviO eli kaikki scenen ovet
+	# Yhdistää kaksi taulukkoa
+	var nodes = (get_tree().get_nodes_in_group("oviV") 
+		+ get_tree().get_nodes_in_group("oviO"))
+	
+	# Lisätään taulukkoon
+	for node in nodes:
+		ovet.append(node)
 
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
 func respawn():
 	palloja = 0 # Resetoidaan pallot, koska reload_current_scene ei sitä tee. Tämän voi koittaa laittaa johonkin järkevämpään paikkaan
+	current_lights = 0 # Nykyisten pallojen määrä laitetaan 0
+	
+	var valopallot = get_tree().get_nodes_in_group("valopallo")
+	for pallo in valopallot:
+		pallo.queue_free()
+	
 	# Peli pois pauselta
 	get_tree().paused = false
 	# Haetaan SceneTree ja käynnistetään se uudestaan
