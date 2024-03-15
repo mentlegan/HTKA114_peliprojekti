@@ -143,3 +143,10 @@ offset_top = -216.0
 offset_right = -344.0
 offset_bottom = -193.0
 script = ExtResource("4_tac1h")
+
+[node name="Label" type="Label" parent="Camera2D"]
+offset_left = 316.0
+offset_top = -215.0
+offset_right = 383.0
+offset_bottom = -192.0
+text = "Apua: F1"

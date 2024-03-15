@@ -1,4 +1,4 @@
-## Harri 14.3.2024
+## Harri ja Juuso 15.3.2024
 ## Tämä on globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
 extends Node2D
 
@@ -14,7 +14,8 @@ var vihollinen = null
 var ovet = Array()
 
 ## Tässä otetaan käyttöliittymän GameOverRuutu groupin avulla. Kaikki muut vaihtoehdot ovat heittäneet erroria
-@onready var gos = get_tree().get_first_node_in_group("gameoverruutu")
+@onready var gameover_ruutu = get_tree().get_first_node_in_group("gameoverruutu")
+@onready var pauseruutu = get_tree().get_first_node_in_group("pauseruutu")
 
 ## Yleinen ready
 func _ready():	
@@ -53,4 +54,4 @@ func respawn():
 func _game_over():
 	get_tree().paused = true # Peli pauselle, kun se päättyy. Voi hienojen animaatioiden kanssa tietysti myös jättää pausettamatta
 	await get_tree().create_timer(2,5).timeout # Pieni ajastin, että game over ei ihan heti tule
-	gos.visible = true
+	gameover_ruutu.visible = true
