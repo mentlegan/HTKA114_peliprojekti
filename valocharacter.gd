@@ -11,7 +11,16 @@ var SPEED = 110.0
 
 @onready var valo = get_node("PointLight2D")
 
+## Kimpoamiset ja ajastin valopallon tuhoamiselle
 var kimpoamiset = 0
+## Tällä hetkellä 7.0 sekuntia elossa
+@onready var elo_aika = get_node("Timer")
+
+
+## Kytketään ajastimen loppuminen valopallon tuhoamiseen
+func _ready():
+	elo_aika.timeout.connect(queue_free)
+
 
 func move(_position, _mouse):
 	# Aluksi pelaajan kohtaan
