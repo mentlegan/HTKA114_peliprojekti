@@ -22,15 +22,17 @@ const IDLE_AUDIO_AJASTIN_MAX = 15.0 ## Ajastin asetetaan satunnaisesti 50-100%:i
 @onready var keho = $Keho
 
 var jahdissa = false ## Vakiona vihollinen ei ole jahtaamassa pelaajaa
-var pakenee = false
+var pakenee = false ## Totuusarvo, pakeneeko vihollinen kuoppaan
 var pelaaja = null
-var valossa = false
 var menossa_kuoppaan = null
 
 ## Taulukko kuopille, joihin vihollinen voi kaivautua
 var kuopat = Array()
 ## Kuoppa, jonne vihollinen on viimeksi kaivautunut
-var kuoppa_indeksi = 0
+var viime_kuopan_indeksi = 0
+## Ajastin pakenemiselle
+var pakenemisen_ajastin = Timer.new()
+const PAKENEMISAIKA = 3
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -57,12 +59,17 @@ func _ready():
 	# Yhdistetään valon signaalit vihollisen omiin funktioihin
 	valon_tarkistus.connect("siirrytty_valoon", siirrytty_valoon)
 	valon_tarkistus.connect("siirrytty_varjoon", siirrytty_varjoon)
+	
+	# Lisätään ajastin lapseksi
+	self.add_child(pakenemisen_ajastin)
+	# Yhdistetään ajastimen loppumiseen pakenemisen lopettaminen
+	pakenemisen_ajastin.timeout.connect(lopeta_pakeneminen)
 
 
 ## Etsii vihollisen kuopista seuraavan, jonne paeta
-func seuraava_kuoppa():
-	menossa_kuoppaan = kuopat[kuoppa_indeksi]
-	kuoppa_indeksi = (kuoppa_indeksi + 1) % len(kuopat)
+func aseta_seuraava_kuoppa():
+	menossa_kuoppaan = kuopat[viime_kuopan_indeksi]
+	viime_kuopan_indeksi = (viime_kuopan_indeksi + 1) % len(kuopat)
 
 
 ## Kun siirrytään valoon
@@ -72,11 +79,18 @@ func siirrytty_valoon():
 	if pakenee:
 		return
 	
+	# Aloitetaan pakenemaan ja lopetetaan jahtaaminen
 	pakenee = true
 	jahdissa = false
-	valossa = true
-	seuraava_kuoppa()
 	
+	# Asetetaan seuraava kuoppa
+	aseta_seuraava_kuoppa()
+	
+	# Aloitetaan ajastin pakenemiselle
+	pakenemisen_ajastin.start(PAKENEMISAIKA)
+	
+	# Jos päällä olevista area2d-nodeista yksi on kuoppa, jonne paetaan, lopetetaan
+	# pakeneminen heti.
 	for node in keho.get_overlapping_areas():
 		if node == menossa_kuoppaan:
 			lopeta_pakeneminen()
@@ -84,11 +98,11 @@ func siirrytty_valoon():
 
 ## Kun siirrytään varjoon
 func siirrytty_varjoon():
-	# Jatketaan pakenemista, jos vihollinen ei ole kerennyt vielä kuoppaan
-	if pakenee:
-		return
+	return # Lisätään varjoon siirtymiseen myöhemmin jotain, jos tarvii
 	
-	valossa = false
+	# Jatketaan pakenemista, jos vihollinen ei ole kerennyt vielä kuoppaan
+	#if pakenee:
+	#	return
 
 
 ## Aloittaa ajastimen idle-ääniefektille
@@ -99,9 +113,8 @@ func aloita_idle_audio_ajastin():
 ## Lopettaa pakenemisen ja teleportaa seuraavaan kuoppaan
 func lopeta_pakeneminen():
 	pakenee = false
-	valossa = false
-	seuraava_kuoppa()
-	print(menossa_kuoppaan)
+	aseta_seuraava_kuoppa()
+	pakenemisen_ajastin.stop()
 	self.global_position = menossa_kuoppaan.global_position
 
 
