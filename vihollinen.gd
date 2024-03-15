@@ -8,7 +8,7 @@ signal pelaaja_kuollut
 
 ## Ajastin vihollisen äänille paikalla ollessaan
 const IDLE_AUDIO_AJASTIN_MAX = 15.0 ## Ajastin asetetaan satunnaisesti 50-100%:iin tästä arvosta sen alkaessa
-@onready var idle_audio_ajastin = Timer.new()
+var idle_audio_ajastin = Timer.new()
 
 ## Ääniefektien nodet
 @onready var audio_paikoillaan = $AudioPaikoillaan
