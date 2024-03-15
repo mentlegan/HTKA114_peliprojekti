@@ -8,6 +8,8 @@
 size = Vector2(30, 12)
 
 [node name="Kuoppa" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_b1s2p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

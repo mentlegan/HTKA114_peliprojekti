@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://valon_tarkistus.gd" id="1_ft5bk"]
 
 [node name="ValonTarkistus" type="Area2D"]
-rotation = 0.02435
 collision_layer = 4
 collision_mask = 14
 script = ExtResource("1_ft5bk")

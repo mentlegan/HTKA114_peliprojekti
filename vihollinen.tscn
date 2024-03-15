@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3iy6ln4bag18"]
+[gd_scene load_steps=12 format=3 uid="uid://c3iy6ln4bag18"]
 
 [ext_resource type="Script" path="res://vihollinen.gd" id="1_8ppmx"]
 [ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://tiili.png" id="1_22viq"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://coxp2yaiqgye1" path="res://audio/placeholder/hirvioaani1.wav" id="4_e3in8"]
 [ext_resource type="AudioStream" uid="uid://tgx7ls7se6l0" path="res://audio/placeholder/hirvioaani2.wav" id="5_onit4"]
 [ext_resource type="AudioStream" uid="uid://d3xp6bibdklu7" path="res://audio/placeholder/hirvioaani3.wav" id="6_83ces"]
+[ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://valon_tarkistus.tscn" id="7_6nu70"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7n34"]
 radius = 14.0068
@@ -23,7 +24,11 @@ stream_1/weight = 1.0
 stream_2/stream = ExtResource("6_83ces")
 stream_2/weight = 1.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ghta"]
+size = Vector2(67.9555, 37)
+
 [node name="Vihollinen" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_8ppmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -74,6 +79,13 @@ stream = SubResource("AudioStreamRandomizer_bsy7y")
 [node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_83ces")
 
+[node name="ValonTarkistus" parent="." instance=ExtResource("7_6nu70")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ValonTarkistus"]
+position = Vector2(0.524925, -18.5)
+shape = SubResource("RectangleShape2D_2ghta")
+
+[connection signal="area_entered" from="Keho" to="." method="_on_keho_area_entered"]
 [connection signal="body_entered" from="Keho" to="." method="_on_keho_body_entered"]
 [connection signal="body_entered" from="Keho" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="tarkkaavaisuus" to="." method="_on_tarkkaavaisuus_body_entered"]
