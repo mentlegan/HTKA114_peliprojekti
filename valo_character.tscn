@@ -28,8 +28,8 @@ script = ExtResource("1_jpuqn")
 shape = SubResource("CircleShape2D_k88go")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.94902, 0.87451, 0.729412, 1)
-energy = 3.0
+color = Color(0.971574, 0.871545, 0.66419, 1)
+energy = 2.0
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_tue1r")

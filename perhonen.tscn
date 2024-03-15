@@ -80,7 +80,7 @@ collision_mask = 0
 script = ExtResource("1_imobc")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 1.43
+energy = 1.2
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_qb6px")
 texture_scale = 1.9

@@ -31,6 +31,7 @@ func respawn():
 	# Haetaan SceneTree ja käynnistetään se uudestaan
 	self.get_tree().call_deferred("reload_current_scene")
 
+
 ## Yleinen game over funktio signaaleista. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai
 ## käynnistää peli uudelleen kutsumalla tämän skriptin respawn() funktiota
 func _game_over():

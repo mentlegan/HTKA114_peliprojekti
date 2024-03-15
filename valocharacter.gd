@@ -33,8 +33,34 @@ func move(_position, _mouse):
 	# Normalisoidun suunnan laskeminen valopallon sijainnista klikattuun kohtaan
 	var light_direction = Vector2(self.position.x, self.position.y).direction_to(_mouse)
 	velocity = light_direction * SPEED
+
+
+## Muuttaa ovet, jos valopallo osuu x tai z oveen
+## Attribuuttina tulee ryhmän nimi (x tai z)
+## if_y kertoo osuuko pallo oveen y, tällöin käydään kaikki ovet aina läpi
+func change_doorsXYZ(_letter, if_y):
+	# Alustetaan ovet valmiiksi käytettäväksi
+	var ovi_v = ovi_vasen.instantiate()
+	var ovi_o = ovi_oikea.instantiate()
 	
+	# Tallenetaan kirjain
+	var letter = _letter
 	
+	for ovi in ovet:                                      # Tämä vain, kun osuu y
+		if ovi.is_in_group(letter) or ovi.is_in_group("y") or if_y:
+			if ovi.get_child_count() == 0:
+				# Listään ovi-nodeille lapseksi vasemmalta
+				# tai oikealta aukeava ovi riippuen ryhmästä
+				if ovi.is_in_group("oviV"):
+					ovi.add_child(ovi_v)
+				elif ovi.is_in_group("oviO"):
+					ovi.add_child(ovi_o)
+			else: # Tuhotaan
+				var lapset = ovi.get_children()
+				for lapsi in lapset:
+					lapsi.queue_free()
+
+
 func _physics_process(delta):
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Tuhotaan valopallo kokonaan
@@ -55,13 +81,6 @@ func _physics_process(delta):
 			# Ylimmän noden ryhmät
 			var groups = ovi_ylin.get_groups()
 			
-			# Alustetaan ovet valmiiksi käytettäväksi
-			var ovi_v = ovi_vasen.instantiate()
-			var ovi_o = ovi_oikea.instantiate()
-			
-			# Koodi on hieman järkyttävän näköistä mutta toimii :P
-			# TODO: sievennys ja optimointi
-			
 			# Ryhmien kanssa tuli onglemia, joten muutettu ilman alaviivaa oleviksi
 			# Välillä ei toiminut esim. kaikilla ovilla, joilla ryhmänä x
 			# Ovien järjestys hierarkiassa muutti myös tuloksia, outoa
@@ -72,51 +91,24 @@ func _physics_process(delta):
 			## SIIRRETTÄVÄ MUUALLE LUULTAVASTI
 			## PELISUUNNITELMASSA ON AVATTU OVIEN TOIMINNALLISUUS, TÄSSÄ VAIN TOTEUTUS
 			
+			# Kirjain ovien muokkauksille
+			var letter
+			
 			# Ovien muokkaus
 			# X ja y
 			if groups.has("x"):
-				for ovi in ovet:
-					if ovi.is_in_group("x") or ovi.is_in_group("y"):
-						if ovi.get_child_count() == 0:
-							# Listään ovi-nodeille lapseksi vasemmalta
-							# tai oikealta aukeava ovi riippuen ryhmästä
-							if ovi.is_in_group("oviV"):
-								ovi.add_child(ovi_v)
-							elif ovi.is_in_group("oviO"):
-								ovi.add_child(ovi_o)
-						else: # Tuhotaan
-							var lapset = ovi.get_children()
-							for lapsi in lapset:
-								lapsi.queue_free()
-							
+				letter = "x"
+				change_doorsXYZ(letter, false)
 			
-			# Kaikki ovet
-			if groups.has("y"):
-				for ovi in ovet:
-					if ovi.is_in_group("x") or ovi.is_in_group("y") or ovi.is_in_group("z"):
-						if ovi.get_child_count() == 0:
-							if ovi.is_in_group("oviV"):
-								ovi.add_child(ovi_v)
-							elif ovi.is_in_group("oviO"):
-								ovi.add_child(ovi_o)
-						else: 
-							var lapset = ovi.get_children()
-							for lapsi in lapset:
-								lapsi.queue_free()
+			# Kaikki ovet x, y, z
+			elif groups.has("y"):
+				letter = "xyz" # Ei väliä
+				change_doorsXYZ(letter, true)
 			
 			# Y ja z
-			if groups.has("z"):
-				for ovi in ovet:
-					if ovi.is_in_group("z") or ovi.is_in_group("y"):
-						if ovi.get_child_count() == 0:
-							if ovi.is_in_group("oviV"):
-								ovi.add_child(ovi_v)
-							elif ovi.is_in_group("oviO"):
-								ovi.add_child(ovi_o)
-						else: 
-							var lapset = ovi.get_children()
-							for lapsi in lapset:
-								lapsi.queue_free()
+			elif groups.has("z"):
+				letter = "z"
+				change_doorsXYZ(letter, false)
 			
 			# Voisiko olla parempi tapa?
 			"""
