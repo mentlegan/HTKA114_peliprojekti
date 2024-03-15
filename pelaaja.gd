@@ -14,6 +14,8 @@ signal kuollut
 @onready var animaatio = get_node("Animaatio")
 ## Pelaajan alue ja valon tarkistus
 @onready var valon_tarkistus = get_node("ValonTarkistus")
+## Totuusarvo valossa olemiselle
+var valossa = false
 
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
@@ -39,6 +41,24 @@ func _ready():
 	
 	# Pelaaja kuolee, jos hän on pimeässä liian kauan
 	ajastin_pimeassa.timeout.connect(kuolema)
+	
+	# Yhdistetään valon signaalit pelaajan omiin funktioihin
+	valon_tarkistus.connect("siirrytty_valoon", siirrytty_valoon)
+	valon_tarkistus.connect("siirrytty_varjoon", siirrytty_varjoon)
+
+
+## Kun siirrytään valoon, lopetetaan ajastin
+func siirrytty_valoon():
+	valossa = true
+	ajastin_pimeassa.stop()
+	print("Valossa: " + str(valossa))
+
+
+## Kun siirrytään varjoon, aloitetaan ajastin
+func siirrytty_varjoon():
+	valossa = false
+	ajastin_pimeassa.start(SELVIAMISAIKA_PIMEASSA)
+	print("Valossa: " + str(valossa))
 
 
 ## Tähän lisätty signaalin emit kokeilumielessä
@@ -104,16 +124,6 @@ func _physics_process(delta):
 	# Flipataan animaatio suuntaa myöten
 	if velocity.x != 0:
 		animaatio.set_flip_h(velocity.x < 0)
-	
-	# Usean valonlähteen tarkistus
-	var valossa = valon_tarkistus.on_valossa() # Totuusarvo pelaajan olemiselle valossa
-	print("Valossa: " + str(valossa))
-	
-	# Aloitetaan / pysäytetään ajastin pimeässä kuolemiselle
-	if ajastin_pimeassa.is_stopped() and not valossa:
-		ajastin_pimeassa.start(SELVIAMISAIKA_PIMEASSA)
-	elif valossa:
-		ajastin_pimeassa.stop()
 	
 	# polygon on PackedVector2Array
 	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))

@@ -3,11 +3,25 @@
 ## _on_area_exited()-kutsun kautta valonlahteet-taulukosta.
 extends Area2D
 
+signal siirrytty_valoon
+signal siirrytty_varjoon
 
 ## Valonlähteet, joiden sisällä ollaan 
 var valonlahteet = Array()
 ## RayCast valontarkistusta varten
 @onready var raycast = $RayCast2D
+## Totuusarvo valossa olemiselle
+var valossa = false
+
+
+func _physics_process(_delta):
+	# Päivitetään valossa-muuttuja ja lähetetään tarvittaessa signaalit
+	var aiemmin_valossa = valossa
+	valossa = on_valossa()
+	if aiemmin_valossa and not valossa:
+		siirrytty_varjoon.emit()
+	elif not aiemmin_valossa and valossa:
+		siirrytty_valoon.emit()
 
 
 ## Palauttaa, onko node valossa.

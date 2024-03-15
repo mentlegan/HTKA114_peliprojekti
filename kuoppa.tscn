@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6cwc10i6c0w4"]
+
+[ext_resource type="Script" path="res://kuoppa.gd" id="1_b1s2p"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ib8au"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_252ua"]
+size = Vector2(30, 12)
+
+[node name="Kuoppa" type="Area2D"]
+script = ExtResource("1_b1s2p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5.75)
+scale = Vector2(30, 12.5)
+texture = SubResource("PlaceholderTexture2D_ib8au")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_252ua")

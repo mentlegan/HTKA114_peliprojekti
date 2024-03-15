@@ -13,9 +13,13 @@ const IDLE_AUDIO_AJASTIN_MAX = 15.0 ## Ajastin asetetaan satunnaisesti 50-100%:i
 ## Ääniefektien nodet
 @onready var audio_paikoillaan = $AudioPaikoillaan
 @onready var audio_jahtaus = $AudioJahtaus
+@onready var audio_pakeneminen = $AudioPakeneminen
 
 var jahdissa = false ## Vakiona vihollinen ei ole jahtaamassa pelaajaa
+var pakenee = false
 var pelaaja = null
+
+var kuopat = Array() ## Taulukko kuopille, joihin vihollinen voi kaivautua
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -31,6 +35,16 @@ func _ready():
 	self.add_child(idle_audio_ajastin)
 	
 	# Aloitetaan ajastin idle-ääniefektille
+	aloita_idle_audio_ajastin()
+	
+	# Etsitään sisarus-nodeista kuopat
+	for sisarus in get_parent().get_children():
+		if sisarus is Kuoppa:
+			kuopat.append(sisarus)
+
+
+## Aloittaa ajastimen idle-ääniefektille
+func aloita_idle_audio_ajastin():
 	idle_audio_ajastin.start((1 - randf() * 0.5) * IDLE_AUDIO_AJASTIN_MAX)
 
 
@@ -84,4 +98,4 @@ func _on_tarkkaavaisuus_body_exited(_body):
 	
 	# Aloitetaan ajastin idle-ääniefektille, jos se on pois päältä
 	if idle_audio_ajastin.is_stopped():
-		idle_audio_ajastin.start((1 - randf() * 0.5) * IDLE_AUDIO_AJASTIN_MAX)
+		aloita_idle_audio_ajastin()
