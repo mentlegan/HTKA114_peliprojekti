@@ -45,6 +45,12 @@ func _ready():
 	# Yhdistetään valon signaalit pelaajan omiin funktioihin
 	valon_tarkistus.connect("siirrytty_valoon", siirrytty_valoon)
 	valon_tarkistus.connect("siirrytty_varjoon", siirrytty_varjoon)
+	
+	# Tarkistetaan pelin alussa, ollaanko valossa
+	if valon_tarkistus.on_valossa():
+		siirrytty_valoon()
+	else:
+		siirrytty_varjoon()
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
