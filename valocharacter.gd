@@ -1,4 +1,5 @@
 ## Juuso 14.3.2024
+## Elias 17.2.2024 - valopallon äänet
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 extends CharacterBody2D
 
@@ -11,6 +12,11 @@ var SPEED = 110.0
 
 @onready var valo = get_node("PointLight2D")
 
+## Audiot
+@onready var audio_valopallon_heitto = $AudioValopallonHeitto
+@onready var audio_valopallon_kimpoaminen = $AudioValopallonKimpoaminen
+@onready var audio_valopallo_hajoaa = $AudioValopalloHajoaa
+
 ## Kimpoamiset ja ajastin valopallon tuhoamiselle
 var kimpoamiset = 0
 ## Tällä hetkellä 7.0 sekuntia elossa
@@ -20,6 +26,7 @@ var kimpoamiset = 0
 ## Kytketään ajastimen loppuminen valopallon tuhoamiseen
 func _ready():
 	elo_aika.timeout.connect(queue_free)
+	audio_valopallon_heitto.play()
 
 
 func move(_position, _mouse):
@@ -66,6 +73,7 @@ func change_doorsXYZ(_letter, if_y):
 func _physics_process(delta):
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Tuhotaan valopallo kokonaan
+		audio_valopallo_hajoaa.play()
 		queue_free()
 	
 	# Valon liikkuminen
@@ -122,6 +130,7 @@ func _physics_process(delta):
 			
 			# Tuhotaan pallo, se imeytyy oveen
 			queue_free()
+			audio_valopallo_hajoaa.play()
 			
 			# Vähennetään olemassa olevien valopallojen määrää
 			Globaali.nykyiset_pallot -= 1
@@ -130,6 +139,7 @@ func _physics_process(delta):
 		else: # Kimpoaminen
 			velocity = velocity.bounce(collision.get_normal())
 			# Pienennetään valon energiaa
+			audio_valopallon_kimpoaminen.play()
 			valo.energy *= 0.8
 			# Lisätään kimmotusten määrää
 			kimpoamiset += 1

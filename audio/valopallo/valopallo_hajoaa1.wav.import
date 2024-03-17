@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/valopallo_hajoaa1.wav-0e23004b9a82baf5822cda7
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

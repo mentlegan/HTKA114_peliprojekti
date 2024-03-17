@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/valopallo_kimpoaa2_CE.wav-0a1e59c4af2794fe4d0
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

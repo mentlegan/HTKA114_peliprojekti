@@ -1,7 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://713ktg8ejflv"]
+[gd_scene load_steps=13 format=3 uid="uid://713ktg8ejflv"]
 
 [ext_resource type="Script" path="res://valocharacter.gd" id="1_jpuqn"]
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="2_7rxo0"]
+[ext_resource type="AudioStream" uid="uid://blivma35f2fg0" path="res://audio/valopallo/valopallo_heitetaan1.wav" id="3_fscrg"]
+[ext_resource type="AudioStream" uid="uid://c86d1dunnw3ey" path="res://audio/valopallo/valopallo_kimpoaa1_CG.wav" id="4_i1y3t"]
+[ext_resource type="AudioStream" uid="uid://b3hoqoyyn2gmv" path="res://audio/valopallo/valopallo_kimpoaa2_CE.wav" id="5_e8yo3"]
+[ext_resource type="AudioStream" uid="uid://br2dpekhk1skw" path="res://audio/valopallo/valopallo_kimpoaa3_GE.wav" id="6_lh6dr"]
+[ext_resource type="AudioStream" uid="uid://c1qoltjvieqv2" path="res://audio/valopallo/valopallo_hajoaa1.wav" id="7_ru2sv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k88go"]
 
@@ -18,6 +23,15 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1etc"]
 radius = 300.135
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ekjm1"]
+streams_count = 3
+stream_0/stream = ExtResource("4_i1y3t")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_e8yo3")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_lh6dr")
+stream_2/weight = 1.0
 
 [node name="ValoCharacter" type="CharacterBody2D" groups=["valopallo"]]
 collision_layer = 4
@@ -50,3 +64,12 @@ shape = SubResource("CircleShape2D_g1etc")
 wait_time = 7.0
 one_shot = true
 autostart = true
+
+[node name="AudioValopallonHeitto" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fscrg")
+
+[node name="AudioValopallonKimpoaminen" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_ekjm1")
+
+[node name="AudioValopalloHajoaa" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ru2sv")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=37 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -13,6 +13,9 @@
 [ext_resource type="AudioStream" uid="uid://b1peevd61tlg" path="res://audio/pelaaja/hyppy3.wav" id="11_ccap1"]
 [ext_resource type="AudioStream" uid="uid://cswhvhcexo03v" path="res://audio/pelaaja/walljump1.wav" id="12_s5sfd"]
 [ext_resource type="AudioStream" uid="uid://bhxvtphkdpk8" path="res://audio/pelaaja/pelaaja_kuolee.wav" id="13_sy5bm"]
+[ext_resource type="AudioStream" uid="uid://7bqpyf7ir0w1" path="res://audio/ambient/luola-aani1.wav" id="14_2eon3"]
+[ext_resource type="AudioStream" uid="uid://c3cxusxblm3m7" path="res://audio/ambient/luola-aani2.wav" id="15_4bgbe"]
+[ext_resource type="AudioStream" uid="uid://dy64fhcfeis5s" path="res://audio/ambient/luola-aani3.wav" id="16_fbtr4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -134,6 +137,15 @@ stream_1/weight = 1.0
 stream_2/stream = ExtResource("11_ccap1")
 stream_2/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pjubx"]
+streams_count = 3
+stream_0/stream = ExtResource("14_2eon3")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("15_4bgbe")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("16_fbtr4")
+stream_2/weight = 1.0
+
 [node name="Pelaaja" type="CharacterBody2D" groups=["Pelaaja"]]
 collision_layer = 2
 script = ExtResource("1_ypfv3")
@@ -212,3 +224,6 @@ bus = &"Pelaaja"
 stream = ExtResource("13_sy5bm")
 volume_db = 7.0
 bus = &"Vihollinen"
+
+[node name="AudioPimeassa" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_pjubx")

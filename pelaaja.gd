@@ -29,6 +29,7 @@ var valossa = false
 @onready var audio_hyppy = $AudioHyppy
 @onready var audio_seinahyppy = $AudioSeinahyppy
 @onready var audio_pelaaja_kuolee = $AudioPelaajaKuolee
+@onready var audio_pimeassa = $AudioPimeassa
 
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
@@ -105,6 +106,8 @@ func siirrytty_varjoon():
 	valossa = false
 	ajastin_pimeassa.start(SELVIAMISAIKA_PIMEASSA)
 	print("Valossa: " + str(valossa))
+	await get_tree().create_timer(2.5).timeout
+	audio_pimeassa.play()
 
 
 ## Tähän lisätty signaalin emit kokeilumielessä
