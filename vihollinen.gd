@@ -1,5 +1,5 @@
 ## Harri 14.3.2024
-## TODO: Ääniefektin korkeuden muuttaminen
+## Elias 17.3.2024 - vihollisen ääniä
 
 extends CharacterBody2D
 
@@ -14,6 +14,10 @@ var idle_audio_ajastin = Timer.new()
 @onready var audio_paikoillaan = $AudioPaikoillaan
 @onready var audio_jahtaus = $AudioJahtaus
 @onready var audio_pakeneminen = $AudioPakeneminen
+# Liikkumisääni silloin kun ei jahdata pelaajaa.
+# Tällä hetkellä vihollinen ei liiku jos se ei jahtaa tai pakene.
+# TODO: Soita ääni kun vihollinen liikkuu, mutta ei jahtaa tai pakene.
+@onready var audio_liikkuminen = $AudioLiikkuminen
 
 ## Valontarkistus-node
 @onready var valon_tarkistus = $ValonTarkistus
