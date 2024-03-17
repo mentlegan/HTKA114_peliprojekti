@@ -154,6 +154,16 @@ func _physics_process(delta):
 		Input.get_axis("tahtaa_ylos", "tahtaa_alas")
 	)
 	
+	# Vasemman tatin arvot
+	var ohjain_tahtays_alt = Vector2(
+		Input.get_axis("tahtaa_vasen_alt", "tahtaa_oikea_alt"),
+		Input.get_axis("tahtaa_ylos_alt", "tahtaa_alas_alt")
+	)
+	
+	# Käytetään vasenta tattia tähtäykseen, jos oikeaa tattia ei käytetä
+	if ohjain_tahtays == Vector2.ZERO:
+		ohjain_tahtays = ohjain_tahtays_alt
+	
 	# Hiiren sijainti, otetaan tässä niin on varmasti oikein
 	var hiiren_sijainti = get_global_mouse_position() - global_position
 	
@@ -161,7 +171,7 @@ func _physics_process(delta):
 	# Asetetaan samalla hiiri pois käytöstä kunnes sitä liikutetaan
 	if ohjain_tahtays != Vector2.ZERO:
 		valon_kohde = ohjain_tahtays.normalized() * MAX_TAHTAIN_ETAISYYS
-		tahtain.visible = true
+		#tahtain.visible = true
 		tahtain.position = valon_kohde
 		hiiren_viime_sijainti = hiiren_sijainti
 		hiiri_kaytossa = false
@@ -171,7 +181,7 @@ func _physics_process(delta):
 	if hiiren_viime_sijainti.distance_to(hiiren_sijainti) > 20:
 		hiiri_kaytossa = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		tahtain.visible = false
+		#tahtain.visible = false
 	
 	# Asetetaan valon suunnaksi hiiren sijainti, jos ei käytetä tattia.
 	if hiiri_kaytossa:
