@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4qkv77frylqp"
-path="res://.godot/imported/EnemyDirt.png-a1908f1573831e2c779f417c9df57d05.ctex"
+uid="uid://b8cydfpi4ba6r"
+path="res://.godot/imported/OhjainTooltipB.png-b716d15f916962bcce29b053842ac909.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grafiikka/EnemyDirt.png"
-dest_files=["res://.godot/imported/EnemyDirt.png-a1908f1573831e2c779f417c9df57d05.ctex"]
+source_file="res://grafiikka/OhjainTooltipB.png"
+dest_files=["res://.godot/imported/OhjainTooltipB.png-b716d15f916962bcce29b053842ac909.ctex"]
 
 [params]
 

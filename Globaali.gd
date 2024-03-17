@@ -21,8 +21,11 @@ var ovet = Array()
 @onready var gameover_ruutu = get_tree().get_first_node_in_group("gameoverruutu")
 @onready var pauseruutu = get_tree().get_first_node_in_group("pauseruutu")
 
+## Lisätään sceneen tausta pelin alussa
+var tausta = preload("res://tausta.tscn")
+
 ## Yleinen ready
-func _ready():	
+func _ready():
 	# Signaalikäsittelyä mm. pelaajan kuolemisesta
 	pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
 	pelaaja.kuollut.connect(_game_over) # Yhdistetään signaali pelaajasta
@@ -39,6 +42,9 @@ func _ready():
 	for koynnosovi in koynnosovet_lapset:
 		if koynnosovi.is_in_group("oviV") or koynnosovi.is_in_group("oviO"):
 			ovet.append(koynnosovi)
+	
+	# Lisätään sceneen tausta
+	self.add_child(tausta.instantiate())
 
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
@@ -59,6 +65,14 @@ func respawn():
 	vihollinen.position = vihollinen_aloitus
 	gameover_ruutu.visible = false
 
+## Pausettaa pelin
+func pausePeli():
+	get_tree().paused = true
+	pauseruutu.visible = true
+
+## Jatkaa peliä pauseruudulta
+func jatkaPelia():
+	pauseruutu.visible = false
 
 ## Yleinen game over funktio signaaleista. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai
 ## käynnistää peli uudelleen kutsumalla tämän skriptin respawn() funktiota

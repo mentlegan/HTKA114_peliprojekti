@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=25 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -105,8 +105,18 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rfwgl"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ifk5e"]
+light_mode = 1
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_qv5js"]
 radius = 37.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e1hap"]
+blend_mode = 1
+light_mode = 1
 
 [node name="Pelaaja" type="CharacterBody2D" groups=["Pelaaja"]]
 collision_layer = 2
@@ -129,6 +139,22 @@ position = Vector2(2, -3)
 sprite_frames = SubResource("SpriteFrames_bqvgf")
 animation = &"idle"
 
+[node name="Palloja" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_rfwgl")
+offset_left = -470.0
+offset_top = -264.0
+offset_right = -430.0
+offset_bottom = -241.0
+script = ExtResource("4_tac1h")
+
+[node name="ApuaLabel" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_ifk5e")
+offset_left = 407.0
+offset_top = -264.0
+offset_right = 474.0
+offset_bottom = -241.0
+text = "Help: F1"
+
 [node name="ValonTarkistus" parent="." instance=ExtResource("4_5hfdk")]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ValonTarkistus"]
@@ -137,20 +163,7 @@ shape = SubResource("CircleShape2D_qv5js")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 999
-
-[node name="Palloja" type="Label" parent="Camera2D"]
-offset_left = -320.0
-offset_top = -180.0
-offset_right = -280.0
-offset_bottom = -157.0
-script = ExtResource("4_tac1h")
-
-[node name="Label" type="Label" parent="Camera2D"]
-offset_left = 253.0
-offset_top = -180.0
-offset_right = 320.0
-offset_bottom = -157.0
-text = "Apua: F1"
+material = SubResource("CanvasItemMaterial_e1hap")
 
 [node name="Tahtain" type="Sprite2D" parent="."]
 visible = false

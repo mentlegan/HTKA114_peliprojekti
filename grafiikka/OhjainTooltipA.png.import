@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://olsd0bk7f3d8"
-path="res://.godot/imported/OhjainTooltipABXY.png-435fd6c502d07356841bd25d09004862.ctex"
+uid="uid://tjr5y6tghm7u"
+path="res://.godot/imported/OhjainTooltipA.png-249b181b23704f8ffd7d938c5f70a4f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grafiikka/OhjainTooltipABXY.png"
-dest_files=["res://.godot/imported/OhjainTooltipABXY.png-435fd6c502d07356841bd25d09004862.ctex"]
+source_file="res://grafiikka/OhjainTooltipA.png"
+dest_files=["res://.godot/imported/OhjainTooltipA.png-249b181b23704f8ffd7d938c5f70a4f7.ctex"]
 
 [params]
 
