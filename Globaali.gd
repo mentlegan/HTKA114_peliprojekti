@@ -23,6 +23,9 @@ var vihollisen_aanenkorkeuden_kerroin = 1
 
 ## Kaikki scenen ovet
 var ovet = Array()
+## Ristiovelle oma kohtelu vielä tässä vaiheessa
+@onready var ovi_risti = get_tree().get_first_node_in_group("risti")
+var pystyssa = true
 
 ## Tässä otetaan käyttöliittymän GameOverRuutu groupin avulla. Kaikki muut vaihtoehdot ovat heittäneet erroria
 @onready var gameover_ruutu = get_tree().get_first_node_in_group("gameoverruutu")

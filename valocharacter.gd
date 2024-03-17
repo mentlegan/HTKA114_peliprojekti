@@ -9,6 +9,8 @@ var SPEED = 110.0
 ## Ladataan ovet valmiiksi
 @onready var ovi_vasen = preload("res://ovi_vasen.tscn")
 @onready var ovi_oikea = preload("res://ovi_oikea.tscn")
+@onready var ovi_pysty_oikea = preload("res://ovi_pysty_oikea.tscn")
+@onready var ovi_vaaka_vasen = preload("res://ovi_vaaka_vasen.tscn")
 
 @onready var valo = get_node("PointLight2D")
 
@@ -68,6 +70,23 @@ func change_doorsXYZ(_letter, if_y):
 				var lapset = ovi.get_children()
 				for lapsi in lapset:
 					lapsi.queue_free()
+	
+	# Pelkkä ristiovi
+	if Globaali.ovi_risti != null:
+		var ovi_pysty = ovi_pysty_oikea.instantiate()
+		var ovi_vaaka = ovi_vaaka_vasen.instantiate()
+		
+		# Tuhotaan kaikki lapset varmistukseksi
+		var ristit = Globaali.ovi_risti.get_children()
+		for risti in ristit:
+			risti.queue_free()
+		
+		if Globaali.pystyssa == true:
+			Globaali.ovi_risti.add_child(ovi_vaaka)
+			Globaali.pystyssa = false
+		else:
+			Globaali.ovi_risti.add_child(ovi_pysty)
+			Globaali.pystyssa = true
 
 
 func _physics_process(delta):
@@ -118,6 +137,11 @@ func _physics_process(delta):
 			# Y ja z
 			elif groups.has("z"):
 				letter = "z"
+				change_doorsXYZ(letter, false)
+			
+			# Ristiovi
+			elif groups.has("risti"):
+				letter = ""
 				change_doorsXYZ(letter, false)
 			
 			# Voisiko olla parempi tapa?

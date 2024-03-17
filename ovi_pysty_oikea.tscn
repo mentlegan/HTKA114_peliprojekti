@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://8dvswt3oh3iq"]
+
+[ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://icon.svg" id="1_v5dix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb28"]
+size = Vector2(11, 254.001)
+
+[node name="Ovi_pysty_oikea" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+rotation = 3.14159
+scale = Vector2(0.234, 2)
+texture = ExtResource("1_v5dix")
+
+[node name="Osuu" type="StaticBody2D" parent="." groups=["oviAVAA"]]
+position = Vector2(6, 1)
+rotation = 0.000310635
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Osuu"]
+position = Vector2(1.90735e-06, -0.000459433)
+shape = SubResource("RectangleShape2D_yrb28")
+
+[node name="Kimpoaa" type="StaticBody2D" parent="."]
+position = Vector2(-11, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kimpoaa"]
+shape = SubResource("RectangleShape2D_yrb28")

@@ -12,10 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://cdkdk3wflsbcx" path="res://audio/pelaaja/hyppy2.wav" id="10_k46sq"]
 [ext_resource type="AudioStream" uid="uid://b1peevd61tlg" path="res://audio/pelaaja/hyppy3.wav" id="11_ccap1"]
 [ext_resource type="AudioStream" uid="uid://cswhvhcexo03v" path="res://audio/pelaaja/walljump1.wav" id="12_s5sfd"]
-[ext_resource type="AudioStream" uid="uid://bhxvtphkdpk8" path="res://audio/pelaaja/pelaaja_kuolee.wav" id="13_sy5bm"]
-[ext_resource type="AudioStream" uid="uid://7bqpyf7ir0w1" path="res://audio/ambient/luola-aani1.wav" id="14_2eon3"]
-[ext_resource type="AudioStream" uid="uid://c3cxusxblm3m7" path="res://audio/ambient/luola-aani2.wav" id="15_4bgbe"]
-[ext_resource type="AudioStream" uid="uid://dy64fhcfeis5s" path="res://audio/ambient/luola-aani3.wav" id="16_fbtr4"]
+[ext_resource type="AudioStream" uid="uid://cykcoberqr44e" path="res://audio/pelaaja/pelaaja_kuolee.wav" id="13_sy5bm"]
+[ext_resource type="AudioStream" uid="uid://e1sqjn1k3jyw" path="res://audio/ambient/luola-aani1.wav" id="14_2eon3"]
+[ext_resource type="AudioStream" uid="uid://cyguje8y5mvu6" path="res://audio/ambient/luola-aani2.wav" id="15_4bgbe"]
+[ext_resource type="AudioStream" uid="uid://gx8ajgkwr0pq" path="res://audio/ambient/luola-aani3.wav" id="16_fbtr4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
