@@ -189,7 +189,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("painike_vasen"):
 		# Tällä hetkellä 2 maksimissaan
-		if Globaali.current_lights < 2 and Globaali.palloja > 0:
+		if Globaali.nykyiset_pallot < 2 and Globaali.palloja > 0:
 			# Valon synnyttäminen
 			var l = light.instantiate()
 			# Liikkuminen valon scriptissä
@@ -198,12 +198,12 @@ func _physics_process(delta):
 			get_tree().root.add_child(l)
 			
 			# Muuttujiin muutokset
-			Globaali.current_lights += 1
+			Globaali.nykyiset_pallot += 1
 			Globaali.palloja -= 1
 	
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Valopallo scriptissä tuhotaan kaikki valopallot, varmaan muutettava
-		Globaali.current_lights = 0
+		Globaali.nykyiset_pallot = 0
 	
 	## Kukkien kerääminen
 	if Input.is_action_just_pressed("keraa_kukka"):

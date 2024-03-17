@@ -5,10 +5,14 @@ extends Node2D
 ## Käytössä olevat pallot
 var palloja = 0
 ## Maailmassa olevat pallot
-var current_lights = 0
+var nykyiset_pallot = 0
 ## Signaaleja varten
 var pelaaja = null
 var vihollinen = null
+
+## Pelaajan ja vihollisen aloitus koordinaatit
+var pelaaja_aloitus = null
+var vihollinen_aloitus = null
 
 ## Kaikki scenen ovet
 var ovet = Array()
@@ -26,6 +30,10 @@ func _ready():
 	vihollinen = get_tree().get_first_node_in_group("vihollinen") # Tehdään näissä
 	vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
+	# Otetaan aloitus koordinaatit talteen
+	pelaaja_aloitus = pelaaja.position
+	vihollinen_aloitus = vihollinen.position
+	
 	# Haetaan koynnosovet-noden kaikki lapset
 	var koynnosovet_lapset = get_tree().get_first_node_in_group("koynnosovet").get_children()
 	for koynnosovi in koynnosovet_lapset:
@@ -36,7 +44,7 @@ func _ready():
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
 func respawn():
 	palloja = 0 # Resetoidaan pallot, koska reload_current_scene ei sitä tee. Tämän voi koittaa laittaa johonkin järkevämpään paikkaan
-	current_lights = 0 # Nykyisten pallojen määrä laitetaan 0
+	nykyiset_pallot = 0 # Nykyisten pallojen määrä laitetaan 0
 	
 	# Valopallojen tuhoaminen
 	var valopallot = get_tree().get_nodes_in_group("valopallo")
@@ -46,7 +54,10 @@ func respawn():
 	# Peli pois pauselta
 	get_tree().paused = false
 	# Haetaan SceneTree ja käynnistetään se uudestaan
-	self.get_tree().call_deferred("reload_current_scene")
+	# self.get_tree().call_deferred("reload_current_scene")
+	pelaaja.position = pelaaja_aloitus
+	vihollinen.position = vihollinen_aloitus
+	gameover_ruutu.visible = false
 
 
 ## Yleinen game over funktio signaaleista. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai

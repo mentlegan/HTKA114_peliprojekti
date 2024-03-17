@@ -118,7 +118,7 @@ func _physics_process(delta):
 			queue_free()
 			
 			# Vähennetään olemassa olevien valopallojen määrää
-			Globaali.current_lights -= 1
+			Globaali.nykyiset_pallot -= 1
 			
 			
 		else: # Kimpoaminen
@@ -129,7 +129,7 @@ func _physics_process(delta):
 			kimpoamiset += 1
 			if kimpoamiset >= 5:
 				queue_free()
-				Globaali.current_lights -= 1
+				Globaali.nykyiset_pallot -= 1
 	
 	
 	"""
