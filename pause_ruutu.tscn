@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccxl4u1mjftgb"]
 
 [ext_resource type="Script" path="res://pause_menu.gd" id="1_trb53"]
-[ext_resource type="Texture2D" path="res://grafiikka/OhjainTooltipABXY.png" id="2_itl5p"]
+[ext_resource type="Texture2D" path="res://grafiikka/OhjainTooltipA.png" id="2_itl5p"]
 
 [node name="pause_ruutu" type="Control"]
 layout_mode = 3
