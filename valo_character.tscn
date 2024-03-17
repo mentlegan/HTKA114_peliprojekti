@@ -1,10 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://713ktg8ejflv"]
 
 [ext_resource type="Script" path="res://valocharacter.gd" id="1_jpuqn"]
-[ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://icon.svg" id="2_fvblf"]
+[ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="2_7rxo0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k88go"]
-radius = 13.0384
 
 [sub_resource type="Gradient" id="Gradient_7m2qj"]
 offsets = PackedFloat32Array(0, 0.7)
@@ -37,9 +36,9 @@ texture_scale = 12.0
 height = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(5.96046e-08, 0)
-scale = Vector2(0.203125, 0.21875)
-texture = ExtResource("2_fvblf")
+texture = ExtResource("2_7rxo0")
 
 [node name="Area2D" type="Area2D" parent="." groups=["valonlahde"]]
 collision_layer = 4
