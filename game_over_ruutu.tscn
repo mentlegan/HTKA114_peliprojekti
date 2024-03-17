@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://gktnyqf3rju6"]
+[gd_scene load_steps=6 format=3 uid="uid://gktnyqf3rju6"]
 
 [ext_resource type="Script" path="res://gameover_ruutu.gd" id="1_g4eso"]
+[ext_resource type="Texture2D" uid="uid://olsd0bk7f3d8" path="res://grafiikka/OhjainTooltipABXY.png" id="2_6ffq6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpcmd"]
 bg_color = Color(0.261614, 0, 0.00741768, 1)
@@ -46,7 +47,20 @@ offset_right = 270.0
 offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bpcmd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paneeli"]
+texture_filter = 1
+position = Vector2(348, 240)
+rotation = 1.5708
+texture = ExtResource("2_6ffq6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Paneeli"]
+texture_filter = 1
+position = Vector2(192, 240)
+rotation = 3.14159
+texture = ExtResource("2_6ffq6")
 
 [node name="GameOverTeksti" type="Label" parent="Paneeli"]
 layout_mode = 1
