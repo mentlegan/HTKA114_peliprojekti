@@ -38,6 +38,7 @@ var light = preload("res://valo_character.tscn")
 const SPEED = 200.0
 const SPRINT = 350.0
 const JUMP_VELOCITY = -400.0
+const WALL_JUMP = 300
 
 ## Ohjaintähtäimen maksimietäisyys näytöllä
 const MAX_TAHTAIN_ETAISYYS = 64
@@ -90,12 +91,12 @@ func _physics_process(delta):
 	# Tästä painovoima
 	if not (is_on_floor() or is_on_wall()):
 		velocity.y += gravity * delta
-		# Seinää vasten liikkuessa kiipeää
-	elif (is_on_wall()) and (Input.is_action_pressed("liiku_oikea")):
+		# Seinää vasten liikkuessa kiipeää tai tippuu
+	elif (is_on_wall()) and (Input.is_action_pressed("kiipea")):
 		velocity.y = -gravity * delta * 6
-	elif (is_on_wall()) and (Input.is_action_pressed("liiku_vasen")):
-		velocity.y = -gravity * delta * 6
-		# Ei tipu jos seinässä kiinni
+	elif (is_on_wall()) and (Input.is_action_pressed("putoa")):
+		velocity.y += gravity * delta
+		# Ei tipu seinältä kun on paikallaan
 	else:
 		velocity.y = 0
 
@@ -104,9 +105,16 @@ func _physics_process(delta):
 		current_jumps = 0
 	
 	## Tehdään hyppy
-	if Input.is_action_just_pressed("hyppaa") and (current_jumps < 1 or (current_jumps < 2 and is_on_wall())):
+	if Input.is_action_just_pressed("hyppaa") and current_jumps < 1 and is_on_floor():
 		current_jumps += 1
 		velocity.y = JUMP_VELOCITY
+	elif current_jumps < 2 and is_on_wall() and Input.is_action_just_pressed("hyppaa"):
+		current_jumps += 1
+		velocity.y = JUMP_VELOCITY
+		if animaatio.is_flipped_h():
+			velocity.x += WALL_JUMP
+		else:
+			velocity.x -= WALL_JUMP
 
 	## input-kontrollit
 	var direction = Input.get_axis("liiku_vasen", "liiku_oikea")
