@@ -14,6 +14,7 @@ var idle_audio_ajastin = Timer.new()
 @onready var audio_paikoillaan = $AudioPaikoillaan
 @onready var audio_jahtaus = $AudioJahtaus
 @onready var audio_pakeneminen = $AudioPakeneminen
+@onready var audio_pelaaja_kuolee = $AudioPelaajaKuolee
 # Liikkumisääni silloin kun ei jahdata pelaajaa.
 # Tällä hetkellä vihollinen ei liiku jos se ei jahtaa tai pakene.
 # TODO: Soita ääni kun vihollinen liikkuu, mutta ei jahtaa tai pakene.
@@ -87,6 +88,8 @@ func siirrytty_valoon():
 	pakenee = true
 	jahdissa = false
 	
+	audio_pakeneminen.play()
+	
 	# Asetetaan seuraava kuoppa
 	aseta_seuraava_kuoppa()
 	
@@ -148,8 +151,12 @@ func _idle_audio_ajastimen_loppuessa():
 ## Kun pelaaja osuu viholliseen, käynnistetään scene uudestaan
 func _on_keho_body_entered(body):
 	if body.is_in_group("Pelaaja"):
+		audio_jahtaus.stop()
+		audio_pelaaja_kuolee.play()
+		await audio_pelaaja_kuolee.finished
 		pelaaja = body
 		pelaaja_kuollut.emit() # Voidaan kutsua respawnia signaalilla. Tätä samaa voi kutsua muissa game overin instansseissa
+		
 
 
 ## Jos pelaaja astuu vihollisen tietoisuusalueelle

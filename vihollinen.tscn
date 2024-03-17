@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3iy6ln4bag18"]
+[gd_scene load_steps=15 format=3 uid="uid://c3iy6ln4bag18"]
 
 [ext_resource type="Script" path="res://vihollinen.gd" id="1_8ppmx"]
 [ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://tiili.png" id="1_22viq"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://d3xp6bibdklu7" path="res://audio/placeholder/hirvioaani3.wav" id="6_83ces"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://valon_tarkistus.tscn" id="7_6nu70"]
 [ext_resource type="AudioStream" uid="uid://ib076mxvlpg7" path="res://audio/hirvio/vihollinen_pakenee.wav" id="7_u5mj7"]
+[ext_resource type="AudioStream" uid="uid://bhxvtphkdpk8" path="res://audio/pelaaja/pelaaja_kuolee.wav" id="9_jbmoq"]
 [ext_resource type="AudioStream" uid="uid://xj0qm50xbp3n" path="res://audio/hirvio/vihollisen_liike1.wav" id="9_t8ssk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7n34"]
@@ -83,11 +84,17 @@ bus = &"Vihollinen"
 
 [node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_u5mj7")
+volume_db = 16.0
 bus = &"Vihollinen"
 
 [node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_t8ssk")
 volume_db = -7.0
+bus = &"Vihollinen"
+
+[node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_jbmoq")
+volume_db = 7.0
 bus = &"Vihollinen"
 
 [node name="ValonTarkistus" parent="." instance=ExtResource("7_6nu70")]
