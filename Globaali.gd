@@ -65,6 +65,14 @@ func respawn():
 	vihollinen.position = vihollinen_aloitus
 	gameover_ruutu.visible = false
 
+## Pausettaa pelin
+func pausePeli():
+	get_tree().paused = true
+	pauseruutu.visible = true
+
+## Jatkaa peliä pauseruudulta
+func jatkaPelia():
+	pauseruutu.visible = false
 
 ## Yleinen game over funktio signaaleista. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai
 ## käynnistää peli uudelleen kutsumalla tämän skriptin respawn() funktiota

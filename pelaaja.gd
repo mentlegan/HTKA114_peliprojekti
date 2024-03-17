@@ -1,13 +1,15 @@
-## Harri, Paavo 14.3.2024
+## Harri, Paavo 17.3.2024
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 ## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
 ## TODO: pimeässä kuolemiselle animaatio / visuaalista palautetta ennen yhtäkkistä respawn()-kutsua
 ## TODO: valokukkien kerääminen signaaleilla get_overlapping_areas()-kutsun sijaan
+## TODO: input controlsien funktioiden dokumentaatioon aina nykyinen controlli
 extends CharacterBody2D
 class_name Pelaaja
 
 ## Koitetaan signaalia
 signal kuollut
+signal pause
 
 ## Pelaajan hitbox
 @onready var polygon = get_node("CollisionShape2D")
@@ -230,7 +232,8 @@ func _physics_process(delta):
 		# Valopallo scriptissä tuhotaan kaikki valopallot, varmaan muutettava
 		Globaali.nykyiset_pallot = 0
 	
-	## Kukkien kerääminen
+	# Kukkien kerääminen
+	# PC F
 	if Input.is_action_just_pressed("keraa_kukka"):
 		# TODO: tämä myöhemmin signaaleilla
 		var kukat = valon_tarkistus.get_overlapping_areas()
@@ -238,6 +241,12 @@ func _physics_process(delta):
 			if kukka.is_in_group("kukka"):
 				Globaali.palloja = 2
 		
+	# Pelin keskeytys
+	# PC Escape
+	# PS4/PS5 Options
+	if Input.is_action_just_pressed("pause"):
+		Globaali.pausePeli()
+	
 	# player.visible = ! (raycast.is_colliding())
 
 	# light.height nyt 60, texture_scale 12   = 60           = 12

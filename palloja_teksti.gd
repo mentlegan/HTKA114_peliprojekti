@@ -1,4 +1,4 @@
-## Harri 21.2.2024
+## Harri 17.3.2024
 ## Hallitaan pallojen määrää indikoivaa tekstiä
 
 extends Label
@@ -7,4 +7,4 @@ extends Label
 ## Ehkä voisi tehdä siistimmin, jos syö muistia liikaa
 ## Tehty näin nyt ainakin tällä kertaa, koska toisten scriptien funktioiden käyttö oli jotenkin hankalaa. Tätä pitää opiskella enemmän
 func _process(_delta):
-	self.text = "Palloja: " + str(Globaali.palloja)
+	self.text = "Light Balls: " + str(Globaali.palloja)
