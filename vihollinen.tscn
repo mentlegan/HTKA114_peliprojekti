@@ -72,12 +72,15 @@ text = "Vihollinen"
 
 [node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_n8x5q")
+bus = &"Vihollinen"
 
 [node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_bsy7y")
+bus = &"Vihollinen"
 
 [node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_83ces")
+bus = &"Vihollinen"
 
 [node name="ValonTarkistus" parent="." instance=ExtResource("7_6nu70")]
 

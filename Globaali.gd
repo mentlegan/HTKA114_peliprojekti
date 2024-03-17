@@ -1,4 +1,6 @@
 ## Harri ja Juuso 15.3.2024
+## Elias 17.3.2024 - vihollisen äänenkorkeus
+## TODO: vihollisen äänenkorkeus paremmin jos vihollisia enemmän kuin 1
 ## Tämä on globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
 extends Node2D
 
@@ -13,6 +15,11 @@ var vihollinen = null
 ## Pelaajan ja vihollisen aloitus koordinaatit
 var pelaaja_aloitus = null
 var vihollinen_aloitus = null
+
+## vihollisen äänenkorkeuden kerroin
+var vihollisen_aanenkorkeuden_kerroin = 1
+@onready var ikkunan_korkeus = get_viewport().get_visible_rect().size.y
+@export var vihollisen_aanenkorkeuden_muutosnopeus = 0.6
 
 ## Kaikki scenen ovet
 var ovet = Array()
@@ -45,6 +52,22 @@ func _ready():
 	
 	# Lisätään sceneen tausta
 	self.add_child(tausta.instantiate())
+
+## Kutsutaan joka frame
+## Käytetään ohjaamaan vihollisen äänenkorkeutta vertaamalla vihollisen ja pelaajan y-koordinaatteja
+func _process(_delta):
+	var vihollisen_korkeus = vihollinen.get_global_position().y
+	var pelaajan_korkeus = pelaaja.get_global_position().y
+	var korkeuksien_erotus = vihollisen_korkeus - pelaajan_korkeus
+	if korkeuksien_erotus < 0: # Vihollinen on pelaajan yläpuolella, joten halutaan arvo väliltä [1, 2]
+		vihollisen_aanenkorkeuden_kerroin = abs(korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus + 1
+	elif korkeuksien_erotus > 0: # Vihollinen on pelaajan alapuolella, joten halutaan kerroin väliltä [0, 1]
+		vihollisen_aanenkorkeuden_kerroin = 1 - (korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus
+	else:
+		vihollisen_aanenkorkeuden_kerroin = 1
+	# "Vihollinen" audiokanavan pitch shift -efekti
+	var vihollinen_pitch_shift = AudioServer.get_bus_effect(1, 0)
+	vihollinen_pitch_shift.pitch_scale = vihollisen_aanenkorkeuden_kerroin
 
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
