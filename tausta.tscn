@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cygyok5r5eerq"]
+
+[ext_resource type="Texture2D" uid="uid://bw63swpnyimyq" path="res://grafiikka/Seinä.png" id="1_66mel"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_clu8o"]
+diffuse_texture = ExtResource("1_66mel")
+texture_filter = 1
+texture_repeat = 2
+
+[node name="Tausta" type="Sprite2D"]
+z_index = -100
+texture = SubResource("CanvasTexture_clu8o")
+region_enabled = true
+region_rect = Rect2(0, 0, 100000, 100000)
