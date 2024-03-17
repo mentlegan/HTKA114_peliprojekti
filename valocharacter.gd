@@ -35,14 +35,20 @@ func move(_position, _mouse):
 ## Attribuuttina tulee ryhmän nimi (x tai z)
 ## if_y kertoo osuuko pallo oveen y, tällöin käydään kaikki ovet aina läpi
 func change_doorsXYZ(_letter, if_y):
-	# Alustetaan ovet valmiiksi käytettäväksi
-	var ovi_v = ovi_vasen.instantiate()
-	var ovi_o = ovi_oikea.instantiate()
+	# Alustetaan ovet vasta silmukassa
+	var ovi_v = null
+	var ovi_o = null
 	
 	# Tallenetaan kirjain
 	var letter = _letter
 	
-	for ovi in Globaali.ovet:                           # Tämä vain, kun osuu y
+	for ovi in Globaali.ovet:
+		# Täytyy alustaa uudelleen, jotta sama ovi ei mene
+		# monelle ovi-nodelle lapseksi
+		ovi_v = ovi_vasen.instantiate()
+		ovi_o = ovi_oikea.instantiate()
+		
+		# Ehto sille, mille oville tehdään operaatio   tämä vain, kun osuu y (kaikki ovet)
 		if ovi.is_in_group(letter) or ovi.is_in_group("y") or if_y:
 			if ovi.get_child_count() == 0:
 				# Listään ovi-nodeille lapseksi vasemmalta
@@ -98,7 +104,7 @@ func _physics_process(delta):
 			
 			# Kaikki ovet x, y, z
 			elif groups.has("y"):
-				letter = "xyz" # Ei väliä
+				letter = "" # Ei väliä
 				change_doorsXYZ(letter, true)
 			
 			# Y ja z
