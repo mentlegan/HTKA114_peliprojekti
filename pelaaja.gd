@@ -44,6 +44,7 @@ const HYPPY_VELOCITY = -450.0
 const JUOKSU_HYPPY_KORKEUS = -350.0
 const JUOKSU_HYPPY_NOPEUS = 1.4
 const SEINA_HYPPY = 50.0
+const SEINA_HYPPY_KORKEUS = -400.0
 
 ## Ohjaintähtäimen maksimietäisyys näytöllä
 const MAX_TAHTAIN_ETAISYYS = 64
@@ -154,7 +155,7 @@ func _physics_process(delta):
 	elif hyppyjen_maara < 2 and onko_seinalla and Input.is_action_just_pressed("hyppaa"):
 		hyppyjen_maara += 1
 		onko_juoksu_hypannyt = false
-		velocity.y = HYPPY_VELOCITY
+		velocity.y = SEINA_HYPPY_KORKEUS
 		if velocity.x == 0:
 			if animaatio.is_flipped_h():
 				velocity.x = SEINA_HYPPY
