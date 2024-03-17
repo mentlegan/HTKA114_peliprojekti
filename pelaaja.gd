@@ -14,12 +14,22 @@ signal kuollut
 @onready var animaatio = get_node("Animaatio")
 ## Pelaajan alue ja valon tarkistus
 @onready var valon_tarkistus = get_node("ValonTarkistus")
+## Ohjaimen tähtäin
+@onready var tahtain = get_node("Tahtain")
 ## Totuusarvo valossa olemiselle
 var valossa = false
 
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
 const SELVIAMISAIKA_PIMEASSA = 20 ## Kuinka kauan pimeässä selvitään ennen respawn()-kutsua, sekunneissa
+
+## Valopallon kohde, jonne se heitetään, pelaajasta nähden.
+## Joko hiiren global_position tai ohjaimen tatin suunta
+var valon_kohde = Vector2(0, 0)
+## Totuusarvo, käytetäänkö hiirtä vai tattia.
+## Hiiri menee väliaikaisesti pois päältä, jos tattia liikutetaan
+var hiiri_kaytossa = true
+var hiiren_viime_sijainti = Vector2(0, 0)
 
 ## Ladataan valmiiksi valopallo
 var light = preload("res://valo_character.tscn")
@@ -28,6 +38,9 @@ var light = preload("res://valo_character.tscn")
 const SPEED = 200.0
 const SPRINT = 350.0
 const JUMP_VELOCITY = -400.0
+
+## Ohjaintähtäimen maksimietäisyys näytöllä
+const MAX_TAHTAIN_ETAISYYS = 64
 
 ## Get the gravity from the project settings to be synced with RigidBody nodes.
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
@@ -135,16 +148,42 @@ func _physics_process(delta):
 	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
 	# print(vec)
 	
+	# Ohjaimen tatin arvot
+	var ohjain_tahtays = Vector2(
+		Input.get_axis("tahtaa_vasen", "tahtaa_oikea"),
+		Input.get_axis("tahtaa_ylos", "tahtaa_alas")
+	)
+	
+	# Hiiren sijainti, otetaan tässä niin on varmasti oikein
+	var hiiren_sijainti = get_global_mouse_position() - global_position
+	
+	# Ohjainta käytettäessä asetetaan valon suunnaksi ohjaimen tatti hiiren sijaan
+	# Asetetaan samalla hiiri pois käytöstä kunnes sitä liikutetaan
+	if ohjain_tahtays != Vector2.ZERO:
+		valon_kohde = ohjain_tahtays.normalized() * MAX_TAHTAIN_ETAISYYS
+		tahtain.visible = true
+		tahtain.position = valon_kohde
+		hiiren_viime_sijainti = hiiren_sijainti
+		hiiri_kaytossa = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+	# Asetetaan hiiri takaisin käyttöön, jos se on liikkunut viime paikaltaan.
+	if hiiren_viime_sijainti.distance_to(hiiren_sijainti) > 20:
+		hiiri_kaytossa = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		tahtain.visible = false
+	
+	# Asetetaan valon suunnaksi hiiren sijainti, jos ei käytetä tattia.
+	if hiiri_kaytossa:
+		valon_kohde = hiiren_sijainti
+	
 	if Input.is_action_just_pressed("painike_vasen"):
 		# Tällä hetkellä 2 maksimissaan
 		if Globaali.current_lights < 2 and Globaali.palloja > 0:
-			# Hiiren sijainti, otetaan tässä niin on varmasti oikein
-			var mouse = get_global_mouse_position()
-			
 			# Valon synnyttäminen
 			var l = light.instantiate()
 			# Liikkuminen valon scriptissä
-			l.move(self.position, mouse)
+			l.move(self.position, valon_kohde + global_position)
 			# Lisääminen puuhun
 			get_tree().root.add_child(l)
 			

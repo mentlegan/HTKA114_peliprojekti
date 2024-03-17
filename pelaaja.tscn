@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=22 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
 [ext_resource type="Texture2D" uid="uid://b6tbps0j5gs0v" path="res://grafiikka/PelaajaKavely.png" id="3_dwx8p"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://valon_tarkistus.tscn" id="4_5hfdk"]
 [ext_resource type="Script" path="res://palloja_teksti.gd" id="4_tac1h"]
+[ext_resource type="Texture2D" uid="uid://unl4x51gimxg" path="res://grafiikka/Tahtain.png" id="6_eyyqa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -150,3 +151,12 @@ offset_top = -180.0
 offset_right = 320.0
 offset_bottom = -157.0
 text = "Apua: F1"
+
+[node name="Tahtain" type="Sprite2D" parent="."]
+visible = false
+light_mask = 512
+visibility_layer = 512
+z_index = 4096
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("6_eyyqa")
