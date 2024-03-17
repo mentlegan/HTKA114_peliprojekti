@@ -9,6 +9,7 @@ texture_repeat = 2
 
 [node name="Tausta" type="Sprite2D"]
 z_index = -100
+texture_filter = 1
 texture = SubResource("CanvasTexture_clu8o")
 region_enabled = true
 region_rect = Rect2(0, 0, 100000, 100000)

@@ -4,6 +4,7 @@
 ## TODO: pimeässä kuolemiselle animaatio / visuaalista palautetta ennen yhtäkkistä respawn()-kutsua
 ## TODO: valokukkien kerääminen signaaleilla get_overlapping_areas()-kutsun sijaan
 extends CharacterBody2D
+class_name Pelaaja
 
 ## Koitetaan signaalia
 signal kuollut
