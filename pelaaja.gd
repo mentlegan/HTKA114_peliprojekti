@@ -35,12 +35,12 @@ var hiiren_viime_sijainti = Vector2(0, 0)
 var light = preload("res://valo_character.tscn")
 
 ## Asetetaan pelaajan nopeus ja hypyt
-const SPEED = 200.0
-const SPRINT = 300.0
-const JUMP_VELOCITY = -450.0
-const SPRINT_JUMP_HEIGHT = -350.0
-const SPRINT_JUMP_SPEED = 1.4
-const WALL_JUMP = 300.0
+const NOPEUS = 200.0
+const JUOKSU = 300.0
+const HYPPY_VELOCITY = -450.0
+const JUOKSU_HYPPY_KORKEUS = -350.0
+const JUOKSU_HYPPY_NOPEUS = 1.4
+const SEINA_HYPPY = 50.0
 
 ## Ohjaintähtäimen maksimietäisyys näytöllä
 const MAX_TAHTAIN_ETAISYYS = 64
@@ -48,14 +48,23 @@ const MAX_TAHTAIN_ETAISYYS = 64
 ## Get the gravity from the project settings to be synced with RigidBody nodes.
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.25
-var current_jumps = 0
+var hyppyjen_maara = 0
 # Onko hypännyt juostessa
-var has_sprint_jumped = false
+var onko_juoksu_hypannyt = false
+# Onko pelaaja seinällä (käytetään timerissa)
+var onko_seinalla = false
 
+## Ajastin seinähypyn bufferille
+var hyppy_ajastin = Timer.new()
+const SEINAHYPPY_BUFFER = 0.1 ## Kuinka kauan seinältä voi olla poissa, niin että pelaaja saa vielä hypätä (sekunteina)
 
 func _ready():
-	# Lisätään ajastin lapseksi
+	# Lisätään ajastimet pimeän tarkistukselle ja seinähypylle lapsiksi
 	self.add_child(ajastin_pimeassa)
+	self.add_child(hyppy_ajastin)
+	
+	# Hyppy mahdollisuus pois jos liian kauan pois seinältä
+	hyppy_ajastin.timeout.connect(hyppy_buffer)
 	
 	# Pelaaja kuolee, jos hän on pimeässä liian kauan
 	ajastin_pimeassa.timeout.connect(kuolema)
@@ -69,6 +78,7 @@ func _ready():
 		siirrytty_valoon()
 	else:
 		siirrytty_varjoon()
+
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
@@ -89,61 +99,78 @@ func siirrytty_varjoon():
 func kuolema():
 	kuollut.emit()
 
+## Ei hyppyä kun liian kauan seinältä
+func hyppy_buffer():
+	onko_seinalla = false
+
+## Kun pelaaja on seinalla
+func seinalla():
+	onko_seinalla = true
+	hyppy_ajastin.stop()
+	if hyppyjen_maara < 1:
+		hyppyjen_maara += 1
 
 ## Fysiikanhallintaa
 func _physics_process(delta):
 	
 	# Tästä painovoima
 	if not (is_on_floor() or is_on_wall()):
+		if onko_seinalla and hyppy_ajastin.is_stopped():
+			hyppy_ajastin.start(SEINAHYPPY_BUFFER)
 		velocity.y += gravity * delta
 		# Seinää vasten liikkuessa kiipeää tai tippuu
 	elif (is_on_wall()) and (Input.is_action_pressed("kiipea")):
 		velocity.y = -gravity * delta * 6
+		seinalla()
 	elif (is_on_wall()) and (Input.is_action_pressed("putoa")):
 		velocity.y += gravity * delta
+		seinalla()
 		# Ei tipu seinältä kun on paikallaan
 	else:
 		velocity.y = 0
-
+		if is_on_wall():
+			seinalla()
 	# Hyppy takaisin kun maassa
 	if is_on_floor():
-		current_jumps = 0
+		hyppyjen_maara = 0
+		onko_seinalla = false
 	
 	
 	## Tehdään hyppy
-	if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and is_on_floor():
-		current_jumps += 1
-		has_sprint_jumped = true
-		velocity.y = SPRINT_JUMP_HEIGHT
-	elif Input.is_action_just_released("hyppaa") and is_on_floor():
-		current_jumps += 1
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and is_on_floor() and hyppyjen_maara < 1:
+		hyppyjen_maara += 1
+		onko_juoksu_hypannyt = true
+		velocity.y = JUOKSU_HYPPY_KORKEUS
+	elif Input.is_action_just_released("hyppaa") and is_on_floor() and hyppyjen_maara < 1:
+		hyppyjen_maara += 1
+		velocity.y = HYPPY_VELOCITY
 		if animaatio.is_flipped_h():
-			velocity.x += SPEED
+			velocity.x += NOPEUS
 		else:
-			velocity.x -= SPEED
-	elif current_jumps < 2 and is_on_wall() and Input.is_action_just_pressed("hyppaa"):
-		current_jumps += 1
-		has_sprint_jumped = false
-		velocity.y = JUMP_VELOCITY
-		if animaatio.is_flipped_h():
-			velocity.x += WALL_JUMP
-		else:
-			velocity.x -= WALL_JUMP
+			velocity.x -= NOPEUS
+	elif hyppyjen_maara < 2 and onko_seinalla and Input.is_action_just_pressed("hyppaa"):
+		hyppyjen_maara += 1
+		onko_juoksu_hypannyt = false
+		velocity.y = HYPPY_VELOCITY
+		if velocity.x == 0:
+			if animaatio.is_flipped_h():
+				velocity.x = SEINA_HYPPY
+			else:
+				velocity.x = -SEINA_HYPPY
 
-	## input-kontrollit
 	var direction = Input.get_axis("liiku_vasen", "liiku_oikea")
+	## input-kontrollit
 	if Input.is_action_pressed("hyppaa") and is_on_floor() and !Input.is_action_pressed("juoksu"):
 		velocity.x = 0
-		has_sprint_jumped = false
+		onko_juoksu_hypannyt = false
 	else:
 		if Input.is_action_pressed("juoksu"):
-			if !is_on_floor() and has_sprint_jumped:
-				velocity.x = direction * SPRINT * SPRINT_JUMP_SPEED
+			if !is_on_floor() and onko_juoksu_hypannyt:
+				velocity.x = direction * JUOKSU * JUOKSU_HYPPY_NOPEUS
 			else:
-				velocity.x = direction * SPRINT
-		else: 
-			velocity.x = direction * SPEED
+				velocity.x = direction * JUOKSU
+		elif direction != 0 or is_on_floor():
+			velocity.x = direction * NOPEUS
 	
 	# Liikutetaan pelaajaa
 	move_and_slide()
@@ -239,6 +266,6 @@ func _physics_process(delta):
 		
 	# player.visible = ! (raycast.is_colliding())
 
-	# light.height nyt 60, texture_scale 12   = 60           = 12
-	# sopiva etäisyys 360, joka tulee (light.height * light.texture_scale) / 2
+	# light.KORKEUS nyt 60, texture_scale 12   = 60           = 12
+	# sopiva etäisyys 360, joka tulee (light.KORKEUS * light.texture_scale) / 2
 	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
