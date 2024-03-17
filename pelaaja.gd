@@ -49,6 +49,8 @@ const MAX_TAHTAIN_ETAISYYS = 64
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.25
 var current_jumps = 0
+# Onko hypännyt juostessa
+var has_sprint_jumped = false
 
 
 func _ready():
@@ -90,6 +92,7 @@ func kuolema():
 
 ## Fysiikanhallintaa
 func _physics_process(delta):
+	
 	# Tästä painovoima
 	if not (is_on_floor() or is_on_wall()):
 		velocity.y += gravity * delta
@@ -106,9 +109,11 @@ func _physics_process(delta):
 	if is_on_floor():
 		current_jumps = 0
 	
+	
 	## Tehdään hyppy
 	if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and is_on_floor():
 		current_jumps += 1
+		has_sprint_jumped = true
 		velocity.y = SPRINT_JUMP_HEIGHT
 	elif Input.is_action_just_released("hyppaa") and is_on_floor():
 		current_jumps += 1
@@ -119,6 +124,7 @@ func _physics_process(delta):
 			velocity.x -= SPEED
 	elif current_jumps < 2 and is_on_wall() and Input.is_action_just_pressed("hyppaa"):
 		current_jumps += 1
+		has_sprint_jumped = false
 		velocity.y = JUMP_VELOCITY
 		if animaatio.is_flipped_h():
 			velocity.x += WALL_JUMP
@@ -129,20 +135,15 @@ func _physics_process(delta):
 	var direction = Input.get_axis("liiku_vasen", "liiku_oikea")
 	if Input.is_action_pressed("hyppaa") and is_on_floor() and !Input.is_action_pressed("juoksu"):
 		velocity.x = 0
+		has_sprint_jumped = false
 	else:
-		if direction:
-			if Input.is_action_pressed("juoksu"):
-				if !is_on_floor():
-					velocity.x = direction * SPRINT * SPRINT_JUMP_SPEED
-				else:
-					velocity.x = direction * SPRINT
-			else: 
-				velocity.x = direction * SPEED
-		else:
-			if Input.is_action_pressed("juoksu"):
-				velocity.x = move_toward(velocity.x, 0, SPRINT)
+		if Input.is_action_pressed("juoksu"):
+			if !is_on_floor() and has_sprint_jumped:
+				velocity.x = direction * SPRINT * SPRINT_JUMP_SPEED
 			else:
-				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.x = direction * SPRINT
+		else: 
+			velocity.x = direction * SPEED
 	
 	# Liikutetaan pelaajaa
 	move_and_slide()
