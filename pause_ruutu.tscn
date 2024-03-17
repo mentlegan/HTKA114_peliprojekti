@@ -20,10 +20,10 @@ color = Color(0.215902, 0.215902, 0.215902, 1)
 
 [node name="Paneeli" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 382.0
-offset_top = 178.0
-offset_right = 740.0
-offset_bottom = 449.0
+offset_left = 155.0
+offset_top = 45.0
+offset_right = 505.0
+offset_bottom = 315.0
 
 [node name="pauseTeksti" type="Label" parent="Paneeli"]
 layout_mode = 0
