@@ -135,18 +135,18 @@ position = Vector2(-9.67458e-06, 7.62939e-06)
 shape = SubResource("CircleShape2D_qv5js")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
+z_index = 999
 
 [node name="Palloja" type="Label" parent="Camera2D"]
-offset_left = -384.0
-offset_top = -216.0
-offset_right = -344.0
-offset_bottom = -193.0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = -280.0
+offset_bottom = -157.0
 script = ExtResource("4_tac1h")
 
 [node name="Label" type="Label" parent="Camera2D"]
-offset_left = 316.0
-offset_top = -215.0
-offset_right = 383.0
-offset_bottom = -192.0
+offset_left = 253.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = -157.0
 text = "Apua: F1"
