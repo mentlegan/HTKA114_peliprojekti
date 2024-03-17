@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=33 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://valon_tarkistus.tscn" id="4_5hfdk"]
 [ext_resource type="Script" path="res://palloja_teksti.gd" id="4_tac1h"]
 [ext_resource type="Texture2D" uid="uid://unl4x51gimxg" path="res://grafiikka/Tahtain.png" id="6_eyyqa"]
+[ext_resource type="AudioStream" uid="uid://dxdmdcknrej26" path="res://audio/pelaaja/kavely2_pitka.wav" id="7_1ycvh"]
+[ext_resource type="AudioStream" uid="uid://bfv8c63nv6e8p" path="res://audio/pelaaja/juoksu.wav" id="8_erxvc"]
+[ext_resource type="AudioStream" uid="uid://cxm4g762805pt" path="res://audio/pelaaja/hyppy1.wav" id="9_fywt3"]
+[ext_resource type="AudioStream" uid="uid://cdkdk3wflsbcx" path="res://audio/pelaaja/hyppy2.wav" id="10_k46sq"]
+[ext_resource type="AudioStream" uid="uid://b1peevd61tlg" path="res://audio/pelaaja/hyppy3.wav" id="11_ccap1"]
+[ext_resource type="AudioStream" uid="uid://cswhvhcexo03v" path="res://audio/pelaaja/walljump1.wav" id="12_s5sfd"]
+[ext_resource type="AudioStream" uid="uid://bhxvtphkdpk8" path="res://audio/pelaaja/pelaaja_kuolee.wav" id="13_sy5bm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -118,6 +125,15 @@ radius = 37.0
 blend_mode = 1
 light_mode = 1
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wrish"]
+streams_count = 3
+stream_0/stream = ExtResource("9_fywt3")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("10_k46sq")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("11_ccap1")
+stream_2/weight = 1.0
+
 [node name="Pelaaja" type="CharacterBody2D" groups=["Pelaaja"]]
 collision_layer = 2
 script = ExtResource("1_ypfv3")
@@ -173,3 +189,26 @@ z_index = 4096
 z_as_relative = false
 texture_filter = 1
 texture = ExtResource("6_eyyqa")
+
+[node name="AudioKavely" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_1ycvh")
+pitch_scale = 1.1
+bus = &"Pelaaja"
+
+[node name="AudioJuoksu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_erxvc")
+bus = &"Pelaaja"
+
+[node name="AudioHyppy" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_wrish")
+bus = &"Pelaaja"
+
+[node name="AudioSeinahyppy" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_s5sfd")
+volume_db = 4.278
+bus = &"Pelaaja"
+
+[node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_sy5bm")
+volume_db = 7.0
+bus = &"Vihollinen"

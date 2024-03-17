@@ -1,4 +1,5 @@
 ## Harri, Paavo 17.3.2024
+## Elias 17.3.2024 - Pelaajan äänet
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 ## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
 ## TODO: pimeässä kuolemiselle animaatio / visuaalista palautetta ennen yhtäkkistä respawn()-kutsua
@@ -21,6 +22,13 @@ signal pause
 @onready var tahtain = get_node("Tahtain")
 ## Totuusarvo valossa olemiselle
 var valossa = false
+
+## Ääniefektit
+@onready var audio_kavely = $AudioKavely
+@onready var audio_juoksu = $AudioJuoksu
+@onready var audio_hyppy = $AudioHyppy
+@onready var audio_seinahyppy = $AudioSeinahyppy
+@onready var audio_pelaaja_kuolee = $AudioPelaajaKuolee
 
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
@@ -101,6 +109,7 @@ func siirrytty_varjoon():
 
 ## Tähän lisätty signaalin emit kokeilumielessä
 func kuolema():
+	audio_pelaaja_kuolee.play() # TODO: Korjaa toimivaksi. Ei kuulu, koska kaikki pausetetaan
 	kuollut.emit()
 
 ## Ei hyppyä kun liian kauan seinältä
@@ -145,9 +154,11 @@ func _physics_process(delta):
 		hyppyjen_maara += 1
 		onko_juoksu_hypannyt = true
 		velocity.y = JUOKSU_HYPPY_KORKEUS
+		audio_hyppy.play()
 	elif Input.is_action_just_released("hyppaa") and is_on_floor() and hyppyjen_maara < 1:
 		hyppyjen_maara += 1
 		velocity.y = HYPPY_VELOCITY
+		audio_hyppy.play()
 		if animaatio.is_flipped_h():
 			velocity.x += NOPEUS
 		else:
@@ -156,6 +167,7 @@ func _physics_process(delta):
 		hyppyjen_maara += 1
 		onko_juoksu_hypannyt = false
 		velocity.y = SEINA_HYPPY_KORKEUS
+		audio_seinahyppy.play()
 		if velocity.x == 0:
 			if animaatio.is_flipped_h():
 				velocity.x = SEINA_HYPPY
@@ -187,13 +199,21 @@ func _physics_process(delta):
 		# Jos pelaaja on maassa eikä liiku, aloitetaan idle-animaatio
 		if velocity.x == 0:
 			animaatio.play("idle")
+			audio_kavely.stop()
+			audio_juoksu.stop()
+		elif Input.is_action_pressed("juoksu"):
+			if not audio_juoksu.playing:
+				audio_juoksu.play()
 		else:
 			# Muutoin aloitetaan kävelyanimaatio
 			animaatio.play("kavely")
+			if not audio_kavely.playing:
+				audio_kavely.play()
 	else:
 		# Tähän myöhemmin hyppyanimaatio
 		animaatio.set_animation("idle")
 		animaatio.stop()
+		audio_kavely.stop()
 	
 	# Flipataan animaatio suuntaa myöten
 	if velocity.x != 0:

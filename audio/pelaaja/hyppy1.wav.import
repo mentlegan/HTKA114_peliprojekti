@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/hyppy1.wav-e818e86da3611faea637050587cce8b7.s
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false

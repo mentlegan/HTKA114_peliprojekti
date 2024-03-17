@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/juoksu.wav-c96d980d8c6c29628d32334360414266.s
 [params]
 
 force/8_bit=false
-force/mono=false
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
