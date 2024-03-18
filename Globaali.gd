@@ -30,7 +30,6 @@ var pystyssa = true
 ## Tässä otetaan käyttöliittymän GameOverRuutu groupin avulla. Kaikki muut vaihtoehdot ovat heittäneet erroria
 @onready var gameover_ruutu = get_tree().get_first_node_in_group("gameoverruutu")
 @onready var pauseruutu = get_tree().get_first_node_in_group("pauseruutu")
-@onready var helpruutu = get_tree().get_first_node_in_group("helpruutu")
 
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://tausta.tscn")
@@ -97,11 +96,6 @@ func respawn():
 func pausePeli():
 	get_tree().paused = true
 	pauseruutu.visible = true
-
-
-## Vaihtaa apuruudun näkyvyyden
-func toggleHelp():
-	helpruutu.visible = not helpruutu.visible
 
 
 ## Jatkaa peliä pauseruudulta

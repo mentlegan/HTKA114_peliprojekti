@@ -299,11 +299,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("pause"):
 		Globaali.pausePeli()
 	
-	# Apuruudun näyttäminen
-	if Input.is_action_just_pressed("help"):
-		Globaali.toggleHelp()
-		$ApuaLabel.visible = not $ApuaLabel.visible
-	
 	# player.visible = ! (raycast.is_colliding())
 
 	# light.KORKEUS nyt 60, texture_scale 12   = 60           = 12

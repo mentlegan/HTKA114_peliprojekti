@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://d1c6axf23uaq5"]
+[gd_scene load_steps=24 format=3 uid="uid://d1c6axf23uaq5"]
 
+[ext_resource type="Script" path="res://help_ruutu.gd" id="1_nedjx"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://tooltip_heita.tscn" id="1_v1cbn"]
 [ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://tooltip_liiku.tscn" id="2_mflqa"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://tooltip_hyppaa.tscn" id="3_wx0kr"]
@@ -11,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://htoyrgaml8l2" path="res://tooltip_juokse.tscn" id="9_n2ctk"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://unshaded.tres" id="10_jtjqm"]
 [ext_resource type="Texture2D" uid="uid://d1oyqkmwe7p1i" path="res://grafiikka/OhjainTooltipSelect.png" id="11_sfvnj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6bbm"]
+bg_color = Color(0, 0, 0, 0.984314)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea60a"]
 atlas = ExtResource("4_7y12j")
@@ -85,6 +89,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_nedjx")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -93,6 +98,7 @@ offset_top = -84.0
 offset_right = -51.0
 offset_bottom = -44.0
 scale = Vector2(29.8753, 16.9683)
+theme_override_styles/panel = SubResource("StyleBoxFlat_g6bbm")
 
 [node name="TooltipHeita" parent="." instance=ExtResource("1_v1cbn")]
 position = Vector2(455, 297)

@@ -170,6 +170,8 @@ sprite_frames = SubResource("SpriteFrames_bqvgf")
 animation = &"idle"
 
 [node name="Palloja" type="Label" parent="."]
+z_index = 99
+z_as_relative = false
 material = SubResource("CanvasItemMaterial_rfwgl")
 offset_left = -470.0
 offset_top = -264.0
@@ -178,6 +180,7 @@ offset_bottom = -241.0
 script = ExtResource("4_tac1h")
 
 [node name="ApuaLabel" type="Label" parent="."]
+z_index = 99
 material = SubResource("CanvasItemMaterial_ifk5e")
 offset_left = 361.0
 offset_top = -262.0
