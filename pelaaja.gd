@@ -205,6 +205,7 @@ func _physics_process(delta):
 			audio_kavely.stop()
 			audio_juoksu.stop()
 		elif Input.is_action_pressed("juoksu"):
+			animaatio.play("kavely")
 			if not audio_juoksu.playing:
 				audio_juoksu.play()
 		else:
