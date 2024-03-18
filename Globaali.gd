@@ -30,6 +30,7 @@ var pystyssa = true
 ## Tässä otetaan käyttöliittymän GameOverRuutu groupin avulla. Kaikki muut vaihtoehdot ovat heittäneet erroria
 @onready var gameover_ruutu = get_tree().get_first_node_in_group("gameoverruutu")
 @onready var pauseruutu = get_tree().get_first_node_in_group("pauseruutu")
+@onready var helpruutu = get_tree().get_first_node_in_group("helpruutu")
 
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://tausta.tscn")
@@ -91,14 +92,22 @@ func respawn():
 	vihollinen.position = vihollinen_aloitus
 	gameover_ruutu.visible = false
 
+
 ## Pausettaa pelin
 func pausePeli():
 	get_tree().paused = true
 	pauseruutu.visible = true
 
+
+## Vaihtaa apuruudun näkyvyyden
+func toggleHelp():
+	helpruutu.visible = not helpruutu.visible
+
+
 ## Jatkaa peliä pauseruudulta
 func jatkaPelia():
 	pauseruutu.visible = false
+
 
 ## Yleinen game over funktio signaaleista. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai
 ## käynnistää peli uudelleen kutsumalla tämän skriptin respawn() funktiota
