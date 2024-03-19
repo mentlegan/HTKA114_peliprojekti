@@ -158,7 +158,7 @@ func _physics_process(delta):
 		onko_juoksu_hypannyt = true
 		velocity.y = JUOKSU_HYPPY_KORKEUS
 		audio_hyppy.play()
-	elif Input.is_action_just_released("hyppaa") and is_on_floor() and hyppyjen_maara < 1:
+	elif Input.is_action_just_pressed("hyppaa") and is_on_floor() and hyppyjen_maara < 1:
 		hyppyjen_maara += 1
 		velocity.y = HYPPY_VELOCITY
 		audio_hyppy.play()
@@ -180,7 +180,7 @@ func _physics_process(delta):
 	var direction = Input.get_axis("liiku_vasen", "liiku_oikea")
 	## input-kontrollit
 	if Input.is_action_pressed("hyppaa") and is_on_floor() and !Input.is_action_pressed("juoksu"):
-		velocity.x = 0
+		##velocity.x = 0
 		onko_juoksu_hypannyt = false
 	else:
 		if Input.is_action_pressed("juoksu"):
