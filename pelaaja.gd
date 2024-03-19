@@ -162,10 +162,10 @@ func _physics_process(delta):
 		hyppyjen_maara += 1
 		velocity.y = HYPPY_VELOCITY
 		audio_hyppy.play()
-		if animaatio.is_flipped_h():
-			velocity.x += NOPEUS
-		else:
-			velocity.x -= NOPEUS
+		##if animaatio.is_flipped_h():
+		##	velocity.x += NOPEUS
+		##else:
+		##	velocity.x -= NOPEUS
 	elif hyppyjen_maara < 2 and onko_seinalla and Input.is_action_just_pressed("hyppaa"):
 		hyppyjen_maara += 1
 		onko_juoksu_hypannyt = false
