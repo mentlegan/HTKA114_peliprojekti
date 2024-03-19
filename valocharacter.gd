@@ -27,7 +27,7 @@ var kimpoamiset = 0
 
 ## Kytketään ajastimen loppuminen valopallon tuhoamiseen
 func _ready():
-	elo_aika.timeout.connect(queue_free)
+	elo_aika.timeout.connect(destroy)
 	audio_valopallon_heitto.play()
 
 
@@ -38,6 +38,12 @@ func move(_position, _mouse):
 	# Normalisoidun suunnan laskeminen valopallon sijainnista klikattuun kohtaan
 	var light_direction = Vector2(self.position.x, self.position.y).direction_to(_mouse)
 	velocity = light_direction * SPEED
+
+
+## Valopallojen tuhoamiseen liittyvä käsittely
+func destroy():
+	queue_free()
+	Globaali.nykyiset_pallot -= 1
 
 
 ## Muuttaa ovet, jos valopallo osuu x tai z oveen
@@ -153,11 +159,8 @@ func _physics_process(delta):
 			"""
 			
 			# Tuhotaan pallo, se imeytyy oveen
-			queue_free()
+			destroy()
 			audio_valopallo_hajoaa.play()
-			
-			# Vähennetään olemassa olevien valopallojen määrää
-			Globaali.nykyiset_pallot -= 1
 			
 			
 		else: # Kimpoaminen
@@ -168,8 +171,7 @@ func _physics_process(delta):
 			# Lisätään kimmotusten määrää
 			kimpoamiset += 1
 			if kimpoamiset >= 5:
-				queue_free()
-				Globaali.nykyiset_pallot -= 1
+				destroy()
 	
 	
 	"""

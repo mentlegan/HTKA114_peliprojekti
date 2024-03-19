@@ -63,9 +63,13 @@ func _process(_delta):
 	var pelaajan_korkeus = pelaaja.get_global_position().y
 	var korkeuksien_erotus = vihollisen_korkeus - pelaajan_korkeus
 	if korkeuksien_erotus < 0: # Vihollinen on pelaajan yläpuolella, joten halutaan arvo väliltä [1, 2]
+		# Tässä ei vielä ongelmaa nykyisissä kentissä
 		vihollisen_aanenkorkeuden_kerroin = abs(korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus + 1
 	elif korkeuksien_erotus > 0: # Vihollinen on pelaajan alapuolella, joten halutaan kerroin väliltä [0, 1]
+		# Bugi, jos menee liian korkealle. Arvoksi tulee negatiivinen. nopea korjaus alla
 		vihollisen_aanenkorkeuden_kerroin = 1 - (korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus
+		if vihollisen_aanenkorkeuden_kerroin > 1:
+			vihollisen_aanenkorkeuden_kerroin = 1
 	else:
 		vihollisen_aanenkorkeuden_kerroin = 1
 	# "Vihollinen" audiokanavan pitch shift -efekti
