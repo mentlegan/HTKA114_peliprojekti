@@ -104,7 +104,7 @@ position = Vector2(0.524925, -18.5)
 shape = SubResource("RectangleShape2D_2ghta")
 
 [connection signal="area_entered" from="Keho" to="." method="_on_keho_area_entered"]
-[connection signal="body_entered" from="Keho" to="." method="_on_keho_body_entered"]
 [connection signal="body_entered" from="Keho" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Keho" to="." method="_on_keho_body_entered"]
 [connection signal="body_entered" from="tarkkaavaisuus" to="." method="_on_tarkkaavaisuus_body_entered"]
 [connection signal="body_exited" from="tarkkaavaisuus" to="." method="_on_tarkkaavaisuus_body_exited"]

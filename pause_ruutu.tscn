@@ -67,5 +67,5 @@ offset_bottom = 246.0
 text = "Quit"
 
 [connection signal="pressed" from="Paneeli/jatkaNappi" to="." method="_on_jatka_nappi_pressed"]
-[connection signal="pressed" from="Paneeli/lopetaNappi" to="." method="_on_jatka_nappi_pressed"]
 [connection signal="pressed" from="Paneeli/lopetaNappi" to="." method="_on_lopeta_nappi_pressed"]
+[connection signal="pressed" from="Paneeli/lopetaNappi" to="." method="_on_jatka_nappi_pressed"]
