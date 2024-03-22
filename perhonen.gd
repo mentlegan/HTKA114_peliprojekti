@@ -1,21 +1,21 @@
 extends Area2D
 
 
-# Perhosen PathFollow2D-node
+## Perhosen PathFollow2D-node
 var path_follow_2d = PathFollow2D.new()
-# Perhosen Path2D-node
+## Perhosen Path2D-node
 var path2d = null
-# Perhosen animaatio
+## Perhosen animaatio
 @onready var animaatio = $AnimatedSprite2D
-# Perhosen nopeus
+## Perhosen nopeus
 @export var nopeus: int = 100
-# Perhosen edeltävän framen x-koordinaatti
+## Perhosen edeltävän framen x-koordinaatti
 var edeltava_x = position.x
-# Perhosen tämänhetkinen etäisyys reitillä. Liukuluku, 0..1 välissä
+## Perhosen tämänhetkinen etäisyys reitillä. Liukuluku, 0..1 välissä
 var etaisyys = 0
-# Perhosen aloituspiste, joka asetetaan _ready()-kutsun aikana
+## Perhosen aloituspiste, joka asetetaan _ready()-kutsun aikana
 var aloituspiste = null
-# Perhosen reitin pituus, min 1
+## Perhosen reitin pituus, min 1
 var reitin_pituus = 1
 
 
