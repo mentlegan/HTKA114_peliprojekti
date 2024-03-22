@@ -66,6 +66,8 @@ var hyppyjen_maara = 0
 var onko_juoksu_hypannyt = false
 # Onko pelaaja seinällä (käytetään timerissa)
 var onko_seinalla = false
+# Toggle seinäkiipeämiselle
+var kiipeamis_toggle = false
 
 ## Ajastin seinähypyn bufferille
 var hyppy_ajastin = Timer.new()
@@ -129,16 +131,23 @@ func seinalla():
 ## Fysiikanhallintaa
 func _physics_process(delta):
 	
+	# Seinäkiipeämiseen toggle
+	if Input.is_action_just_pressed("kiipeamis_toggle"):
+		if kiipeamis_toggle:
+			kiipeamis_toggle = false
+		else:
+			kiipeamis_toggle = true
+	
 	# Tästä painovoima
 	if not (is_on_floor() or is_on_wall()):
 		if onko_seinalla and hyppy_ajastin.is_stopped():
 			hyppy_ajastin.start(SEINAHYPPY_BUFFER)
 		velocity.y += gravity * delta
 		# Seinää vasten liikkuessa kiipeää tai tippuu
-	elif (is_on_wall()) and (Input.is_action_pressed("kiipea")):
+	elif is_on_wall() and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
 		velocity.y = -gravity * delta * 6
 		seinalla()
-	elif (is_on_wall()) and (Input.is_action_pressed("putoa")):
+	elif is_on_wall() and (Input.is_action_pressed("putoa") or !kiipeamis_toggle):
 		velocity.y += gravity * delta
 		seinalla()
 		# Ei tipu seinältä kun on paikallaan
@@ -146,6 +155,7 @@ func _physics_process(delta):
 		velocity.y = 0
 		if is_on_wall():
 			seinalla()
+		
 	# Hyppy takaisin kun maassa
 	if is_on_floor():
 		hyppyjen_maara = 0
