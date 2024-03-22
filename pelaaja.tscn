@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=41 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -33,6 +33,12 @@ gradient = SubResource("Gradient_k4p4c")
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_d4qav"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lbg0v"]
+gradient = SubResource("Gradient_d4qav")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvkv5"]
 atlas = ExtResource("2_66tpr")
@@ -163,6 +169,11 @@ energy = 0.8
 texture = SubResource("GradientTexture2D_658q0")
 texture_scale = 1.5
 
+[node name="PimeaValo" type="PointLight2D" parent="."]
+blend_mode = 1
+texture = SubResource("GradientTexture2D_lbg0v")
+texture_scale = 15.22
+
 [node name="Animaatio" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(2, -3)
@@ -170,7 +181,6 @@ sprite_frames = SubResource("SpriteFrames_bqvgf")
 animation = &"idle"
 
 [node name="Palloja" type="Label" parent="."]
-z_index = 99
 z_as_relative = false
 material = SubResource("CanvasItemMaterial_rfwgl")
 offset_left = -470.0
@@ -180,7 +190,6 @@ offset_bottom = -241.0
 script = ExtResource("4_tac1h")
 
 [node name="ApuaLabel" type="Label" parent="."]
-z_index = 99
 material = SubResource("CanvasItemMaterial_ifk5e")
 offset_left = 361.0
 offset_top = -262.0

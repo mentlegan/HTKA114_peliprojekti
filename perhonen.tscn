@@ -84,7 +84,7 @@ energy = 1.2
 blend_mode = 2
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_qb6px")
-texture_scale = 1.9
+texture_scale = 2.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
