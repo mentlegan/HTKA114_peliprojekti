@@ -47,13 +47,17 @@ var hiiren_viime_sijainti = Vector2(0, 0)
 var light = preload("res://valo_character.tscn")
 
 ## Asetetaan pelaajan nopeus ja hypyt
-const NOPEUS = 200.0
-const JUOKSU = 300.0
-const HYPPY_VELOCITY = -450.0
-const JUOKSU_HYPPY_KORKEUS = -350.0
+const MAX_NOPEUS = 200.0
+const MAX_JUOKSU_NOPEUS = 300.0
+const KIIHTYVYYS = 25.0
+const KITKA = 15.0
+const KAANTYSMIS_NOPEUS = 1.5
+const HYPPY_VELOCITY = -500.0
+const JUOKSU_HYPPY_KORKEUS = -400.0
 const JUOKSU_HYPPY_NOPEUS = 1.4
 const SEINA_HYPPY = 50.0
 const SEINA_HYPPY_KORKEUS = -400.0
+var suunta = Vector2.ZERO
 
 ## Ohjaintähtäimen maksimietäisyys näytöllä
 const MAX_TAHTAIN_ETAISYYS = 64
@@ -62,8 +66,6 @@ const MAX_TAHTAIN_ETAISYYS = 64
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.25
 var hyppyjen_maara = 0
-# Onko hypännyt juostessa
-var onko_juoksu_hypannyt = false
 # Onko pelaaja seinällä (käytetään timerissa)
 var onko_seinalla = false
 # Toggle seinäkiipeämiselle
@@ -165,20 +167,14 @@ func _physics_process(delta):
 	## Tehdään hyppy
 	if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and is_on_floor() and hyppyjen_maara < 1:
 		hyppyjen_maara += 1
-		onko_juoksu_hypannyt = true
 		velocity.y = JUOKSU_HYPPY_KORKEUS
 		audio_hyppy.play()
 	elif Input.is_action_just_pressed("hyppaa") and is_on_floor() and hyppyjen_maara < 1:
 		hyppyjen_maara += 1
 		velocity.y = HYPPY_VELOCITY
 		audio_hyppy.play()
-		##if animaatio.is_flipped_h():
-		##	velocity.x += NOPEUS
-		##else:
-		##	velocity.x -= NOPEUS
 	elif hyppyjen_maara < 2 and onko_seinalla and Input.is_action_just_pressed("hyppaa"):
 		hyppyjen_maara += 1
-		onko_juoksu_hypannyt = false
 		velocity.y = SEINA_HYPPY_KORKEUS
 		audio_seinahyppy.play()
 		if velocity.x == 0:
@@ -186,20 +182,25 @@ func _physics_process(delta):
 				velocity.x = SEINA_HYPPY
 			else:
 				velocity.x = -SEINA_HYPPY
-
-	var direction = Input.get_axis("liiku_vasen", "liiku_oikea")
+	
+	# Otetaan pelaajan liikkeen haluttu suunta
+	suunta = Input.get_axis("liiku_vasen", "liiku_oikea")
 	## input-kontrollit
-	if Input.is_action_pressed("hyppaa") and is_on_floor() and not Input.is_action_pressed("juoksu"):
-		##velocity.x = 0
-		onko_juoksu_hypannyt = false
-	else:
+	var nopeus = 0
+	if suunta != 0:
+		# Juostessa eri nopeus
 		if Input.is_action_pressed("juoksu"):
-			if not is_on_floor() and onko_juoksu_hypannyt:
-				velocity.x = direction * JUOKSU * JUOKSU_HYPPY_NOPEUS
-			else:
-				velocity.x = direction * JUOKSU
-		elif direction != 0 or is_on_floor():
-			velocity.x = direction * NOPEUS
+			nopeus = MAX_JUOKSU_NOPEUS
+		else:
+			nopeus = MAX_NOPEUS
+		# Jos ei ole vielä vaihtanut suuntaa, kiihtyy haluttuun suuntaan nopeampaa (eli kääntyessä)
+		if (suunta < 0 and velocity.x > 0) or (suunta > 0 and velocity.x < 0):
+			velocity.x = move_toward(velocity.x, suunta * nopeus, KIIHTYVYYS * KAANTYSMIS_NOPEUS)
+		else:
+			velocity.x = move_toward(velocity.x, suunta * nopeus, KIIHTYVYYS)
+	# Hidastetaan kun ei liikuta mihinkään suuntaan
+	else:
+		velocity.x = move_toward(velocity.x, 0, KITKA)
 	
 	# Liikutetaan pelaajaa
 	move_and_slide()
