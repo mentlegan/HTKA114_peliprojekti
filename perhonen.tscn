@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="2_kexl8"]
 
 [sub_resource type="Gradient" id="Gradient_7rxju"]
-colors = PackedColorArray(0.666667, 1, 1, 1, 0, 0, 0, 1)
+colors = PackedColorArray(0.666667, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qb6px"]
 gradient = SubResource("Gradient_7rxju")
@@ -81,6 +81,7 @@ script = ExtResource("1_imobc")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 1.2
+blend_mode = 2
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_qb6px")
 texture_scale = 1.9

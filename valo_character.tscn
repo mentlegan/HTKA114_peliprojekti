@@ -11,8 +11,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_k88go"]
 
 [sub_resource type="Gradient" id="Gradient_7m2qj"]
-offsets = PackedFloat32Array(0, 0.7)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.8)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tue1r"]
@@ -43,6 +43,7 @@ shape = SubResource("CircleShape2D_k88go")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.971574, 0.871545, 0.66419, 1)
 energy = 2.0
+blend_mode = 2
 shadow_enabled = true
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_tue1r")
