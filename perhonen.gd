@@ -8,13 +8,15 @@ var path2d = null
 # Perhosen animaatio
 @onready var animaatio = $AnimatedSprite2D
 # Perhosen nopeus
-const NOPEUS = 0.1
+@export var nopeus: int = 100
 # Perhosen edeltävän framen x-koordinaatti
 var edeltava_x = position.x
 # Perhosen tämänhetkinen etäisyys reitillä. Liukuluku, 0..1 välissä
 var etaisyys = 0
 # Perhosen aloituspiste, joka asetetaan _ready()-kutsun aikana
 var aloituspiste = null
+# Perhosen reitin pituus, min 1
+var reitin_pituus = 1
 
 
 func _ready():
@@ -40,11 +42,18 @@ func _ready():
 	# Asetetaan perhosen aloituspiste
 	aloituspiste = global_position
 
+	# Asetetaan perhosen reitin pituus
+	var curve2d = path2d.get_curve()
+	if curve2d:
+		reitin_pituus = max(1, path2d.get_curve().get_baked_length())
+	else:
+		reitin_pituus = 1
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Kuljetetaan pathfollow2d-nodea reitillä eteenpäin
-	etaisyys += delta * NOPEUS
+	etaisyys += (delta * nopeus) / reitin_pituus
 	path_follow_2d.set_progress_ratio(etaisyys)
 	
 	# Käännetään perhonen suunnan mukaan
