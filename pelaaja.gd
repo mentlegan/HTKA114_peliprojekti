@@ -147,7 +147,7 @@ func _physics_process(delta):
 	elif is_on_wall() and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
 		velocity.y = -gravity * delta * 6
 		seinalla()
-	elif is_on_wall() and (Input.is_action_pressed("putoa") or !kiipeamis_toggle):
+	elif is_on_wall() and (Input.is_action_pressed("putoa") or not kiipeamis_toggle):
 		velocity.y += gravity * delta
 		seinalla()
 		# Ei tipu seinältä kun on paikallaan
@@ -189,12 +189,12 @@ func _physics_process(delta):
 
 	var direction = Input.get_axis("liiku_vasen", "liiku_oikea")
 	## input-kontrollit
-	if Input.is_action_pressed("hyppaa") and is_on_floor() and !Input.is_action_pressed("juoksu"):
+	if Input.is_action_pressed("hyppaa") and is_on_floor() and not Input.is_action_pressed("juoksu"):
 		##velocity.x = 0
 		onko_juoksu_hypannyt = false
 	else:
 		if Input.is_action_pressed("juoksu"):
-			if !is_on_floor() and onko_juoksu_hypannyt:
+			if not is_on_floor() and onko_juoksu_hypannyt:
 				velocity.x = direction * JUOKSU * JUOKSU_HYPPY_NOPEUS
 			else:
 				velocity.x = direction * JUOKSU
