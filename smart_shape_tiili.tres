@@ -20,7 +20,7 @@ textures_corner_inner = Array[Texture2D]([])
 textures_taper_left = Array[Texture2D]([])
 textures_taper_right = Array[Texture2D]([])
 randomize_texture = false
-use_corner_texture = true
+use_corner_texture = false
 use_taper_texture = true
 fit_mode = 1
 
