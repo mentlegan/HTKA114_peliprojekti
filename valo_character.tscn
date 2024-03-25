@@ -24,6 +24,7 @@ stream_2/stream = ExtResource("6_lh6dr")
 stream_2/weight = 1.0
 
 [node name="ValoCharacter" type="CharacterBody2D" groups=["valopallo"]]
+light_mask = 2
 collision_layer = 4
 script = ExtResource("1_jpuqn")
 

@@ -57,4 +57,4 @@ fill_texture_absolute_rotation = false
 fill_texture_offset = Vector2(0, 0)
 fill_texture_angle_offset = 0.0
 fill_mesh_offset = 0.0
-render_offset = -0.1
+render_offset = -0.2
