@@ -31,6 +31,9 @@ var valossa = false
 @onready var audio_pelaaja_kuolee = $AudioPelaajaKuolee
 @onready var audio_pimeassa = $AudioPimeassa
 
+## Näyttöä pimentävä valo
+@onready var pimea_valo = $PimeaValo
+
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
 const SELVIAMISAIKA_PIMEASSA = 20 ## Kuinka kauan pimeässä selvitään ennen respawn()-kutsua, sekunneissa
@@ -95,6 +98,9 @@ func _ready():
 		siirrytty_valoon()
 	else:
 		siirrytty_varjoon()
+	
+	# Asetetaan pimeä-valo näkyviin pelin alussa
+	pimea_valo.visible = true
 
 
 
