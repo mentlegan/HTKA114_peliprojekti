@@ -12,7 +12,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_k88go"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1etc"]
-radius = 239.019
+radius = 258.002
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ekjm1"]
 streams_count = 3
