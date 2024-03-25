@@ -1,18 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dm1ghf6hoypw"]
+[gd_scene load_steps=13 format=3 uid="uid://dm1ghf6hoypw"]
 
 [ext_resource type="Script" path="res://perhonen.gd" id="1_imobc"]
 [ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="2_kexl8"]
-
-[sub_resource type="Gradient" id="Gradient_7rxju"]
-colors = PackedColorArray(0.666667, 1, 1, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qb6px"]
-gradient = SubResource("Gradient_7rxju")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.802752, 0.165138)
+[ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_p0fjj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8nepe"]
 atlas = ExtResource("2_kexl8")
@@ -80,11 +70,9 @@ collision_mask = 0
 script = ExtResource("1_imobc")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 1.2
 blend_mode = 2
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_qb6px")
-texture_scale = 2.5
+texture = ExtResource("2_p0fjj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

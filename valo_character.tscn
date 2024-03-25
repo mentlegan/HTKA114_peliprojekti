@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://713ktg8ejflv"]
+[gd_scene load_steps=12 format=3 uid="uid://713ktg8ejflv"]
 
 [ext_resource type="Script" path="res://valocharacter.gd" id="1_jpuqn"]
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="2_7rxo0"]
+[ext_resource type="Texture2D" uid="uid://bmvtp7yssbvk2" path="res://grafiikka/Valo512.png" id="2_ook1w"]
 [ext_resource type="AudioStream" uid="uid://blivma35f2fg0" path="res://audio/valopallo/valopallo_heitetaan1.wav" id="3_fscrg"]
 [ext_resource type="AudioStream" uid="uid://c86d1dunnw3ey" path="res://audio/valopallo/valopallo_kimpoaa1_CG.wav" id="4_i1y3t"]
 [ext_resource type="AudioStream" uid="uid://b3hoqoyyn2gmv" path="res://audio/valopallo/valopallo_kimpoaa2_CE.wav" id="5_e8yo3"]
@@ -10,19 +11,8 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k88go"]
 
-[sub_resource type="Gradient" id="Gradient_7m2qj"]
-offsets = PackedFloat32Array(0, 0.8)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
-metadata/_snap_enabled = true
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tue1r"]
-gradient = SubResource("Gradient_7m2qj")
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_g1etc"]
-radius = 257.002
+radius = 239.019
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ekjm1"]
 streams_count = 3
@@ -46,8 +36,7 @@ energy = 2.0
 blend_mode = 2
 shadow_enabled = true
 shadow_filter = 1
-texture = SubResource("GradientTexture2D_tue1r")
-texture_scale = 10.0
+texture = ExtResource("2_ook1w")
 height = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
