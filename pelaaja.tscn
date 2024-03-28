@@ -155,7 +155,7 @@ gradient = SubResource("Gradient_d4qav")
 collision_layer = 2
 script = ExtResource("1_ypfv3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Pelaaja"]]
 position = Vector2(3, -1)
 scale = Vector2(6, 6)
 shape = SubResource("CapsuleShape2D_u7j51")

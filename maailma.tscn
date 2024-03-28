@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=20 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://Globaali.gd" id="1_mglvu"]
 [ext_resource type="Script" path="res://ss2d_varjot.gd" id="2_a4qf7"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://ovi_vasen.tscn" id="16_8728b"]
 [ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://tooltip_liiku.tscn" id="18_yqpof"]
 [ext_resource type="PackedScene" uid="uid://htoyrgaml8l2" path="res://tooltip_juokse.tscn" id="19_ng21i"]
+[ext_resource type="PackedScene" uid="uid://daeaotnb7peu2" path="res://piikki.tscn" id="19_qwqpv"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://tooltip_heita.tscn" id="21_ql1ss"]
 [ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://tooltip_pysayta.tscn" id="22_uoo6h"]
@@ -124,3 +125,7 @@ position = Vector2(2831, 671)
 
 [node name="TooltipKiipea" parent="Tooltipit" instance=ExtResource("24_8j4jx")]
 position = Vector2(2928, 671)
+
+[node name="piikki" parent="." instance=ExtResource("19_qwqpv")]
+position = Vector2(1279, 739)
+rotation = 0.447802

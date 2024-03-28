@@ -11,6 +11,7 @@ var nykyiset_pallot = 0
 ## Signaaleja varten
 var pelaaja = null
 var vihollinen = null
+var piikki = null
 
 ## Pelaajan ja vihollisen aloitus koordinaatit
 var pelaaja_aloitus = null
@@ -42,6 +43,9 @@ func _ready():
 	
 	vihollinen = get_tree().get_first_node_in_group("vihollinen") # Tehdään näissä
 	vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
+	
+	piikki = get_tree().get_first_node_in_group("piikki") # Tehdään näissä
+	piikki.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
 	# Otetaan aloitus koordinaatit talteen
 	pelaaja_aloitus = pelaaja.position
