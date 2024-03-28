@@ -3,24 +3,28 @@
 extends Node2D
 
 
+# SmartShape2D-materiaalit
 var reunat = preload("res://smart_shape_reunat.tres")
+var tiili = preload("res://smart_shape_tiili.tres")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Lisätään SS2D_Shape-nodeille varjot ja collisionit.
+	# Muutetaan Polygon2D-nodet SS2D_Shape-nodeiksi ja lisätään niille varjot ja collisionit.
 	self.lisaa_varjot_ja_collisionit()
 
 
-## Luo jokaiselle SS2D_Shape-lapsinodelle LightOccluder2D- ja CollisionPolygon2D-nodet.
+## Muuttaa jokaisen Polygon2D-lapsinoden SS2D_Shape-nodeksi ja lisää sille LightOccluder2D- ja CollisionPolygon2D-nodet.
 ## Asettaa samalla SS2D_Shape-noden uudeksi vanhemmaksi StaticBody2D-noden, jotta
 ## CollisionPolygon2D toimisi.
 ##
 ## Esimerkki nodejen rakenteesta ennen funktion kutsua:
 ##
 ##   Tiilet
-##   ├── SS2D_Shape
-##   └── SS2D_Shape2
+##   ├── Polygon2D
+##   ├── Polygon2D2
+##   ├── SS2D_Shape     <- Voidaan vielä käyttää SS2D_Shape:a,
+##                      joka tosin muuttaa .tscn-tiedostoa jokaisella avauksella.
 ##
 ## Funktiokutsun jälkeen:
 ##
@@ -29,15 +33,46 @@ func _ready():
 ##   │   ├── CollisionPolygon2D
 ##   │   ├── LightOccluder2D
 ##   │   └── SS2D_Shape
-##   └── StaticBody2D2
+##   ├── StaticBody2D2
+##   │   ├── CollisionPolygon2D
+##   │   ├── LightOccluder2D
+##   │   └── SS2D_Shape
+##   └── StaticBody2D3
 ##       ├── CollisionPolygon2D
 ##       ├── LightOccluder2D
-##       └── SS2D_Shape2
+##       └── SS2D_Shape
 ##
 func lisaa_varjot_ja_collisionit():
-	# Käydään läpi jokainen lapsi-node.
+	# Käydään läpi jokainen lapsi-node. Muutetaan Polygon2D-nodet SS2D-nodeiksi.
 	for lapsi in get_children():
-		# Käsitellään pelkästään SS2D_Shape-nodeja
+		if lapsi is Polygon2D:
+			# Haetaan Polygon2D:n PackedVector2Array
+			var polygon = lapsi.get_polygon()
+
+			# Luodaan SS2D
+			var ss2d = SS2D_Shape.new()
+
+			# Lisätään SS2D:lle Polygon2D:n vektorit
+			for v2 in polygon:
+				ss2d.add_point(v2)
+			
+			# Kutsutaan close_shape:a, jotta collisionit toimisivat
+			ss2d.close_shape()
+
+			# Asetetaan SS2D:lle materiaali
+			ss2d._set_material(tiili)
+
+			# Kutsutaan vielä varulta _points_modified
+			ss2d._points_modified()
+
+			# Lisätään SS2D lapseksi ja poistetaan Polygon2D
+			self.add_child(ss2d)
+			lapsi.queue_free()
+
+	# Käydään uudestaan läpi jokainen lapsi-node.
+	for lapsi in get_children():
+		# Käsitellään pelkästään SS2D_Shape-nodeja,
+		# tässä on nyt mukana aiemmin muutetut Polygon2D-nodet.
 		if lapsi is SS2D_Shape:
 			# Luodaan StaticBody2D, jonka lapseksi asetetaan nykyinen SS2D_Shape
 			var static_body = StaticBody2D.new()
