@@ -35,6 +35,9 @@ var pystyssa = true
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://tausta.tscn")
 
+@export var taso2 = preload("res://maailma2.tscn")
+var t2 = preload("res://maailma2.tscn")
+
 ## Yleinen ready
 func _ready():
 	# Signaalikäsittelyä mm. pelaajan kuolemisesta
@@ -45,7 +48,8 @@ func _ready():
 	vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
 	piikki = get_tree().get_first_node_in_group("piikki") # Tehdään näissä
-	piikki.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
+	if piikki != null:
+		piikki.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
 	# Otetaan aloitus koordinaatit talteen
 	pelaaja_aloitus = pelaaja.position
@@ -57,6 +61,7 @@ func _ready():
 		if koynnosovi.is_in_group("oviV") or koynnosovi.is_in_group("oviO"):
 			ovet.append(koynnosovi)
 	
+	print(ovet)
 	# Lisätään sceneen tausta
 	self.add_child(tausta.instantiate())
 
@@ -79,6 +84,19 @@ func _process(_delta):
 	# "Vihollinen" audiokanavan pitch shift -efekti
 	var vihollinen_pitch_shift = AudioServer.get_bus_effect(1, 0)
 	vihollinen_pitch_shift.pitch_scale = vihollisen_aanenkorkeuden_kerroin
+	
+	# F2
+	if Input.is_action_just_pressed("taso2"):
+		ovet = Array()
+		# Hyvin scuffed tapa, mutta toimii (kait?)
+		get_tree().change_scene_to_packed(taso2)
+		get_tree().root.add_child(t2.instantiate())
+		_ready()
+		# get_node("/root/Maailma2").free()
+	
+	# F3
+	if Input.is_action_just_pressed("poista"):
+		get_node("/root/@Node2D@64").queue_free() # Poistetaan duplikoitu maailma2
 
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan

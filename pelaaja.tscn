@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b6tbps0j5gs0v" path="res://grafiikka/PelaajaKavely.png" id="3_dwx8p"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://valon_tarkistus.tscn" id="4_5hfdk"]
 [ext_resource type="Script" path="res://palloja_teksti.gd" id="4_tac1h"]
-[ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://unshaded.tres" id="5_gdn2h"]
+[ext_resource type="Material" path="res://unshaded.tres" id="5_gdn2h"]
 [ext_resource type="Texture2D" uid="uid://unl4x51gimxg" path="res://grafiikka/Tahtain.png" id="6_eyyqa"]
 [ext_resource type="Texture2D" uid="uid://d1oyqkmwe7p1i" path="res://grafiikka/OhjainTooltipSelect.png" id="6_uircd"]
 [ext_resource type="AudioStream" uid="uid://dxdmdcknrej26" path="res://audio/pelaaja/kavely2_pitka.wav" id="7_1ycvh"]

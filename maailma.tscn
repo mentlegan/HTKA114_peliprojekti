@@ -1,6 +1,5 @@
-[gd_scene load_steps=20 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=19 format=3 uid="uid://ct1c8wsksqlh7"]
 
-[ext_resource type="Script" path="res://Globaali.gd" id="1_mglvu"]
 [ext_resource type="Script" path="res://ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://d1c6axf23uaq5" path="res://help_ruutu.tscn" id="4_5kntw"]
@@ -11,17 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://dfcuf6ogfruj6" path="res://kukka.tscn" id="14_332fg"]
 [ext_resource type="PackedScene" uid="uid://b6cwc10i6c0w4" path="res://kuoppa.tscn" id="15_nofhg"]
 [ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://ovi_vasen.tscn" id="16_8728b"]
-[ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://tooltip_liiku.tscn" id="18_yqpof"]
-[ext_resource type="PackedScene" uid="uid://htoyrgaml8l2" path="res://tooltip_juokse.tscn" id="19_ng21i"]
+[ext_resource type="PackedScene" path="res://tooltip_liiku.tscn" id="18_yqpof"]
+[ext_resource type="PackedScene" path="res://tooltip_juokse.tscn" id="19_ng21i"]
 [ext_resource type="PackedScene" uid="uid://daeaotnb7peu2" path="res://piikki.tscn" id="19_qwqpv"]
-[ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://tooltip_poimi.tscn" id="20_i01e2"]
+[ext_resource type="PackedScene" path="res://tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://tooltip_heita.tscn" id="21_ql1ss"]
-[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://tooltip_pysayta.tscn" id="22_uoo6h"]
-[ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://tooltip_hyppaa.tscn" id="23_jotwo"]
-[ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://tooltip_kiipea.tscn" id="24_8j4jx"]
+[ext_resource type="PackedScene" path="res://tooltip_pysayta.tscn" id="22_uoo6h"]
+[ext_resource type="PackedScene" path="res://tooltip_hyppaa.tscn" id="23_jotwo"]
+[ext_resource type="PackedScene" path="res://tooltip_kiipea.tscn" id="24_8j4jx"]
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
-script = ExtResource("1_mglvu")
 
 [node name="KayttoLiittyma" type="CanvasLayer" parent="." groups=["UI"]]
 process_mode = 3
