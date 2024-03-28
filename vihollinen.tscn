@@ -35,7 +35,7 @@ collision_layer = 2
 script = ExtResource("1_8ppmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.2119e-09, -19)
+position = Vector2(-3.49255e-10, 1.90735e-06)
 rotation = -1.57193
 shape = SubResource("CapsuleShape2D_o7n34")
 
@@ -45,7 +45,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Keho"]
-position = Vector2(-7.62939e-06, -19)
+position = Vector2(-1.86719e-09, 0)
 rotation = -1.57193
 scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_o7n34")
@@ -56,11 +56,12 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tarkkaavaisuus"]
+position = Vector2(0, 19)
 scale = Vector2(14.958, 15)
 shape = SubResource("CircleShape2D_epnmi")
 
 [node name="Tiili" type="Sprite2D" parent="."]
-position = Vector2(-3.72529e-09, -19)
+position = Vector2(3.49248e-10, 0)
 rotation = -0.00146985
 scale = Vector2(8.55022, 4.67461)
 texture = ExtResource("1_22viq")
@@ -100,7 +101,6 @@ bus = &"Vihollinen"
 [node name="ValonTarkistus" parent="." instance=ExtResource("7_6nu70")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ValonTarkistus"]
-position = Vector2(0.524925, -18.5)
 shape = SubResource("RectangleShape2D_2ghta")
 
 [connection signal="area_entered" from="Keho" to="." method="_on_keho_area_entered"]

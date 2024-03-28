@@ -82,7 +82,7 @@ position = Vector2(1627, 682)
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Vihollinen" parent="Node2D" groups=["vihollinen"] instance=ExtResource("12_u46m1")]
-position = Vector2(2815, 395)
+position = Vector2(2820, 391)
 
 [node name="Kuoppa" parent="Node2D" instance=ExtResource("15_nofhg")]
 position = Vector2(2889, 409)
