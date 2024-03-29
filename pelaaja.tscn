@@ -155,6 +155,13 @@ gradient = SubResource("Gradient_d4qav")
 collision_layer = 2
 script = ExtResource("1_ypfv3")
 
+[node name="keho" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="keho" groups=["Pelaaja"]]
+position = Vector2(3, -1)
+scale = Vector2(6, 6)
+shape = SubResource("CapsuleShape2D_u7j51")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Pelaaja"]]
 position = Vector2(3, -1)
 scale = Vector2(6, 6)
@@ -240,6 +247,7 @@ volume_db = 4.278
 bus = &"Pelaaja"
 
 [node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("13_sy5bm")
 volume_db = 7.0
 bus = &"Vihollinen"
@@ -260,3 +268,5 @@ light_mask = 0
 visibility_layer = 0
 range_item_cull_mask = 2
 texture = ExtResource("20_8tpmo")
+
+[connection signal="body_entered" from="keho" to="." method="_on_keho_body_entered"]

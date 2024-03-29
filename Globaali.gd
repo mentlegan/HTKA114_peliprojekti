@@ -1,5 +1,4 @@
-## Harri ja Juuso 15.3.2024
-## Elias 17.3.2024 - vihollisen äänenkorkeus
+## Harri 29.3.2024
 ## TODO: vihollisen äänenkorkeus paremmin jos vihollisia enemmän kuin 1
 ## Tämä on globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
 extends Node2D
@@ -28,9 +27,18 @@ var ovet = Array()
 @onready var ovi_risti = get_tree().get_first_node_in_group("risti")
 var pystyssa = true
 
-## Tässä otetaan käyttöliittymän GameOverRuutu groupin avulla. Kaikki muut vaihtoehdot ovat heittäneet erroria
-@onready var gameover_ruutu = get_tree().get_first_node_in_group("gameoverruutu")
-@onready var pauseruutu = get_tree().get_first_node_in_group("pauseruutu")
+## Tässä otetaan käyttöliittymän pauseruutu groupin avulla. Alla on toinen tapa ottaa
+## @onready var pauseruutu = get_tree().get_first_node_in_group("pauseruutu")
+
+## /root/Maailma/[uniquenimi] näyttäisi toimivan:
+## pitää vaan muistaa kaikille käsiteltäville nodeille laittaa unique nimi nodepuusta:
+## oikea näppäin ja % merkillä oleva valinta Access as unique name 
+## ja kutsua sitä % merkillä scriptissä, kuten alla:
+@onready var gameover_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%GameOverRuutu")
+@onready var pauseruutu = get_node("/root/Maailma/%KayttoLiittyma/%pause_ruutu")
+@onready var uusiVihollinen = get_node("/root/Maailma/%uudetViholliset/%uusiVihollinen")
+
+
 
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://tausta.tscn")
@@ -47,6 +55,8 @@ func _ready():
 	vihollinen = get_tree().get_first_node_in_group("vihollinen") # Tehdään näissä
 	vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
+	uusiVihollinen.pelaaja_kuollut.connect(_game_over)
+	
 	piikki = get_tree().get_first_node_in_group("piikki") # Tehdään näissä
 	if piikki != null:
 		piikki.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
@@ -61,7 +71,6 @@ func _ready():
 		if koynnosovi.is_in_group("oviV") or koynnosovi.is_in_group("oviO"):
 			ovet.append(koynnosovi)
 	
-	print(ovet)
 	# Lisätään sceneen tausta
 	self.add_child(tausta.instantiate())
 

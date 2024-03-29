@@ -8,9 +8,8 @@
 extends CharacterBody2D
 class_name Pelaaja
 
-## Koitetaan signaalia
+## Tästä signaalit, jotka lähtetään, kun jotain tapahtuu. Muut koodit osaavat ottaa nämä signaalit, ja käyttää niitä
 signal kuollut
-signal pause
 
 ## Pelaajan hitbox
 @onready var polygon = get_node("CollisionShape2D")
@@ -102,8 +101,6 @@ func _ready():
 	# Asetetaan pimeä-valo näkyviin pelin alussa
 	pimea_valo.visible = true
 
-
-
 ## Kun siirrytään valoon, lopetetaan ajastin
 func siirrytty_valoon():
 	valossa = true
@@ -120,7 +117,7 @@ func siirrytty_varjoon():
 	audio_pimeassa.play()
 
 
-## Tähän lisätty signaalin emit kokeilumielessä
+## Tähän lisätty signaalin emit
 func kuolema():
 	audio_pelaaja_kuolee.play() # TODO: Korjaa toimivaksi. Ei kuulu, koska kaikki pausetetaan
 	kuollut.emit()

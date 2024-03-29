@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=24 format=3 uid="uid://ct1c8wsksqlh7"]
 
+[ext_resource type="Script" path="res://Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://pause_ruutu.tscn" id="3_g8yqd"]
-[ext_resource type="PackedScene" uid="uid://d1c6axf23uaq5" path="res://help_ruutu.tscn" id="4_5kntw"]
+[ext_resource type="PackedScene" path="res://help_ruutu.tscn" id="4_5kntw"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://pelaaja.tscn" id="4_udkay"]
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://game_over_ruutu.tscn" id="9_er4wh"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://vihollinen.tscn" id="12_u46m1"]
@@ -12,27 +13,38 @@
 [ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://ovi_vasen.tscn" id="16_8728b"]
 [ext_resource type="PackedScene" path="res://tooltip_liiku.tscn" id="18_yqpof"]
 [ext_resource type="PackedScene" path="res://tooltip_juokse.tscn" id="19_ng21i"]
-[ext_resource type="PackedScene" uid="uid://daeaotnb7peu2" path="res://piikki.tscn" id="19_qwqpv"]
+[ext_resource type="PackedScene" path="res://piikki.tscn" id="19_qwqpv"]
 [ext_resource type="PackedScene" path="res://tooltip_poimi.tscn" id="20_i01e2"]
-[ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://tooltip_heita.tscn" id="21_ql1ss"]
+[ext_resource type="PackedScene" path="res://tooltip_heita.tscn" id="21_ql1ss"]
+[ext_resource type="PackedScene" uid="uid://bukv6x5qpfus" path="res://uusiVihollinen.tscn" id="22_nrhn1"]
 [ext_resource type="PackedScene" path="res://tooltip_pysayta.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" path="res://tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" path="res://tooltip_kiipea.tscn" id="24_8j4jx"]
+[ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://valon_tarkistus.tscn" id="25_y4qtl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqbre"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y8kc"]
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
+script = ExtResource("1_sggs7")
 
 [node name="KayttoLiittyma" type="CanvasLayer" parent="." groups=["UI"]]
+unique_name_in_owner = true
 process_mode = 3
 
-[node name="GameOverRuutu" parent="KayttoLiittyma" groups=["UI", "gameoverruutu"] instance=ExtResource("9_er4wh")]
+[node name="GameOverRuutu" parent="KayttoLiittyma" groups=["UI"] instance=ExtResource("9_er4wh")]
+unique_name_in_owner = true
 process_mode = 3
 visible = false
 
-[node name="pause_ruutu" parent="KayttoLiittyma" groups=["UI", "pauseruutu"] instance=ExtResource("3_g8yqd")]
+[node name="pause_ruutu" parent="KayttoLiittyma" groups=["UI"] instance=ExtResource("3_g8yqd")]
+unique_name_in_owner = true
 process_mode = 3
 visible = false
 
 [node name="HelpRuutu" parent="KayttoLiittyma" groups=["UI", "helpruutu"] instance=ExtResource("4_5kntw")]
+unique_name_in_owner = true
 visible = false
 
 [node name="Tiilet" type="CanvasGroup" parent="."]
@@ -67,7 +79,7 @@ position = Vector2(2488, 741)
 rotation = 3.25753
 
 [node name="Kukka4" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(1918, 743)
+position = Vector2(1807, 743)
 rotation = 3.03455
 
 [node name="Kukka5" parent="Kukat" instance=ExtResource("14_332fg")]
@@ -78,6 +90,8 @@ rotation = 3.23426
 position = Vector2(1627, 682)
 
 [node name="Node2D" type="Node2D" parent="."]
+process_mode = 4
+visible = false
 
 [node name="Vihollinen" parent="Node2D" groups=["vihollinen"] instance=ExtResource("12_u46m1")]
 position = Vector2(2820, 391)
@@ -110,7 +124,7 @@ position = Vector2(1397, 644)
 position = Vector2(1553, 646)
 
 [node name="TooltipPoimi" parent="Tooltipit" instance=ExtResource("20_i01e2")]
-position = Vector2(1922, 672)
+position = Vector2(1810, 667)
 
 [node name="TooltipHeita" parent="Tooltipit" instance=ExtResource("21_ql1ss")]
 position = Vector2(2102, 672)
@@ -127,3 +141,46 @@ position = Vector2(2928, 671)
 [node name="piikki" parent="." instance=ExtResource("19_qwqpv")]
 position = Vector2(1279, 739)
 rotation = 0.447802
+
+[node name="uudetViholliset" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="uusiVihollinen" parent="uudetViholliset" groups=["newVihollinen"] instance=ExtResource("22_nrhn1")]
+unique_name_in_owner = true
+position = Vector2(2250, 459)
+rotation = 2.36926
+scale = Vector2(1.98894, 0.998497)
+
+[node name="uusiVihollinenNode" type="Node2D" parent="uudetViholliset"]
+process_mode = 4
+visible = false
+position = Vector2(-10, 1)
+
+[node name="alue" type="Area2D" parent="uudetViholliset/uusiVihollinenNode" groups=["newVihollinen"]]
+position = Vector2(1798, 693)
+rotation = 3.14159
+scale = Vector2(8.05238, -6.17997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="uudetViholliset/uusiVihollinenNode/alue"]
+shape = SubResource("RectangleShape2D_iqbre")
+
+[node name="ValonTarkistus" parent="uudetViholliset/uusiVihollinenNode/alue" instance=ExtResource("25_y4qtl")]
+scale = Vector2(0.248258, 0.98758)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="uudetViholliset/uusiVihollinenNode/alue/ValonTarkistus"]
+shape = SubResource("RectangleShape2D_3y8kc")
+
+[node name="alue2" type="Area2D" parent="uudetViholliset/uusiVihollinenNode" groups=["newVihollinen"]]
+position = Vector2(2033, 695)
+scale = Vector2(7.01317, 6.47715)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="uudetViholliset/uusiVihollinenNode/alue2"]
+shape = SubResource("RectangleShape2D_iqbre")
+
+[node name="ValonTarkistus" parent="uudetViholliset/uusiVihollinenNode/alue2" instance=ExtResource("25_y4qtl")]
+scale = Vector2(0.297583, 0.977328)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="uudetViholliset/uusiVihollinenNode/alue2/ValonTarkistus"]
+shape = SubResource("RectangleShape2D_3y8kc")
+
+[connection signal="body_entered" from="uudetViholliset/uusiVihollinenNode/alue" to="uudetViholliset" method="_on_alue_body_entered"]

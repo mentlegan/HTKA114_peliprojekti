@@ -94,6 +94,7 @@ volume_db = -7.0
 bus = &"Vihollinen"
 
 [node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("9_jbmoq")
 volume_db = 7.0
 bus = &"Vihollinen"
