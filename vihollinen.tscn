@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://vihollinen.gd" id="1_8ppmx"]
 [ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://tiili.png" id="1_22viq"]
-[ext_resource type="AudioStream" uid="uid://dpfx17kpg2tqy" path="res://audio/hirvio/vihollisen_hengitys1.wav" id="3_n8x5q"]
-[ext_resource type="AudioStream" uid="uid://coxp2yaiqgye1" path="res://audio/placeholder/hirvioaani1.wav" id="4_e3in8"]
-[ext_resource type="AudioStream" uid="uid://tgx7ls7se6l0" path="res://audio/placeholder/hirvioaani2.wav" id="5_onit4"]
-[ext_resource type="AudioStream" uid="uid://d3xp6bibdklu7" path="res://audio/placeholder/hirvioaani3.wav" id="6_83ces"]
+[ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="3_shivu"]
+[ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="4_x7yr7"]
+[ext_resource type="AudioStream" uid="uid://cbninhjqk8vnv" path="res://audio/hirvio/hirvioaani2_mono.wav" id="5_6g22y"]
+[ext_resource type="AudioStream" uid="uid://dyo460luf8lv1" path="res://audio/hirvio/hirvioaani3_mono.wav" id="6_n31od"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://valon_tarkistus.tscn" id="7_6nu70"]
-[ext_resource type="AudioStream" uid="uid://ib076mxvlpg7" path="res://audio/hirvio/vihollinen_pakenee.wav" id="7_u5mj7"]
-[ext_resource type="AudioStream" uid="uid://cykcoberqr44e" path="res://audio/pelaaja/pelaaja_kuolee.wav" id="9_jbmoq"]
-[ext_resource type="AudioStream" uid="uid://xj0qm50xbp3n" path="res://audio/hirvio/vihollisen_liike1.wav" id="9_t8ssk"]
+[ext_resource type="AudioStream" uid="uid://crbflddm0u661" path="res://audio/hirvio/vihollinen_pakenee1_mono.wav" id="7_vywia"]
+[ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="9_q3xk2"]
+[ext_resource type="AudioStream" uid="uid://xj0qm50xbp3n" path="res://audio/hirvio/vihollisen_liike1_mono.wav" id="9_t8ssk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7n34"]
 radius = 14.0068
@@ -20,11 +20,11 @@ radius = 8.63712
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bsy7y"]
 streams_count = 3
-stream_0/stream = ExtResource("4_e3in8")
+stream_0/stream = ExtResource("4_x7yr7")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("5_onit4")
+stream_1/stream = ExtResource("5_6g22y")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("6_83ces")
+stream_2/stream = ExtResource("6_n31od")
 stream_2/weight = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ghta"]
@@ -75,7 +75,7 @@ scale = Vector2(0.0736885, 0.144705)
 text = "Vihollinen"
 
 [node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_n8x5q")
+stream = ExtResource("3_shivu")
 bus = &"Vihollinen"
 
 [node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="."]
@@ -84,7 +84,7 @@ volume_db = -3.0
 bus = &"Vihollinen"
 
 [node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_u5mj7")
+stream = ExtResource("7_vywia")
 volume_db = 16.0
 bus = &"Vihollinen"
 
@@ -95,7 +95,7 @@ bus = &"Vihollinen"
 
 [node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
-stream = ExtResource("9_jbmoq")
+stream = ExtResource("9_q3xk2")
 volume_db = 7.0
 bus = &"Vihollinen"
 
@@ -105,7 +105,7 @@ bus = &"Vihollinen"
 shape = SubResource("RectangleShape2D_2ghta")
 
 [connection signal="area_entered" from="Keho" to="." method="_on_keho_area_entered"]
-[connection signal="body_entered" from="Keho" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Keho" to="." method="_on_keho_body_entered"]
+[connection signal="body_entered" from="Keho" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="tarkkaavaisuus" to="." method="_on_tarkkaavaisuus_body_entered"]
 [connection signal="body_exited" from="tarkkaavaisuus" to="." method="_on_tarkkaavaisuus_body_exited"]

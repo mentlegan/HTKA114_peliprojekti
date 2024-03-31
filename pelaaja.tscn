@@ -6,18 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://b6tbps0j5gs0v" path="res://grafiikka/PelaajaKavely.png" id="3_dwx8p"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://valon_tarkistus.tscn" id="4_5hfdk"]
 [ext_resource type="Script" path="res://palloja_teksti.gd" id="4_tac1h"]
-[ext_resource type="Material" path="res://unshaded.tres" id="5_gdn2h"]
+[ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://unshaded.tres" id="5_gdn2h"]
 [ext_resource type="Texture2D" uid="uid://unl4x51gimxg" path="res://grafiikka/Tahtain.png" id="6_eyyqa"]
 [ext_resource type="Texture2D" uid="uid://d1oyqkmwe7p1i" path="res://grafiikka/OhjainTooltipSelect.png" id="6_uircd"]
-[ext_resource type="AudioStream" uid="uid://dxdmdcknrej26" path="res://audio/pelaaja/kavely2_pitka.wav" id="7_1ycvh"]
-[ext_resource type="AudioStream" uid="uid://bfv8c63nv6e8p" path="res://audio/pelaaja/juoksu.wav" id="8_erxvc"]
-[ext_resource type="AudioStream" uid="uid://cxm4g762805pt" path="res://audio/pelaaja/hyppy1.wav" id="9_fywt3"]
-[ext_resource type="AudioStream" uid="uid://cdkdk3wflsbcx" path="res://audio/pelaaja/hyppy2.wav" id="10_k46sq"]
-[ext_resource type="AudioStream" uid="uid://b1peevd61tlg" path="res://audio/pelaaja/hyppy3.wav" id="11_ccap1"]
-[ext_resource type="AudioStream" uid="uid://cswhvhcexo03v" path="res://audio/pelaaja/walljump1.wav" id="12_s5sfd"]
-[ext_resource type="AudioStream" uid="uid://cykcoberqr44e" path="res://audio/pelaaja/pelaaja_kuolee.wav" id="13_sy5bm"]
+[ext_resource type="AudioStream" uid="uid://eqsig3hl534a" path="res://audio/pelaaja/kavely2_pitka_mono.wav" id="10_uhji0"]
+[ext_resource type="AudioStream" uid="uid://37o042m8fj2j" path="res://audio/pelaaja/juoksu_mono.wav" id="11_kteua"]
+[ext_resource type="AudioStream" uid="uid://es1b0j0djyua" path="res://audio/pelaaja/hyppy1_mono.wav" id="12_k2yxh"]
+[ext_resource type="AudioStream" uid="uid://ntnhr3lolj61" path="res://audio/pelaaja/hyppy2_mono.wav" id="13_rny7p"]
 [ext_resource type="AudioStream" uid="uid://e1sqjn1k3jyw" path="res://audio/ambient/luola-aani1.wav" id="14_2eon3"]
+[ext_resource type="AudioStream" uid="uid://b3cxujqnjndpd" path="res://audio/pelaaja/hyppy3_mono.wav" id="14_yxy1y"]
 [ext_resource type="AudioStream" uid="uid://cyguje8y5mvu6" path="res://audio/ambient/luola-aani2.wav" id="15_4bgbe"]
+[ext_resource type="AudioStream" uid="uid://bjbaqnxkgke0l" path="res://audio/pelaaja/walljump1_mono.wav" id="15_bxt80"]
+[ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="16_4n4el"]
 [ext_resource type="AudioStream" uid="uid://gx8ajgkwr0pq" path="res://audio/ambient/luola-aani3.wav" id="16_fbtr4"]
 [ext_resource type="Texture2D" uid="uid://dj3c6nkmnxha2" path="res://grafiikka/Valo256.png" id="20_8tpmo"]
 
@@ -129,11 +129,11 @@ light_mode = 1
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wrish"]
 streams_count = 3
-stream_0/stream = ExtResource("9_fywt3")
+stream_0/stream = ExtResource("12_k2yxh")
 stream_0/weight = 1.0
-stream_1/stream = ExtResource("10_k46sq")
+stream_1/stream = ExtResource("13_rny7p")
 stream_1/weight = 1.0
-stream_2/stream = ExtResource("11_ccap1")
+stream_2/stream = ExtResource("14_yxy1y")
 stream_2/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pjubx"]
@@ -229,12 +229,12 @@ texture_filter = 1
 texture = ExtResource("6_eyyqa")
 
 [node name="AudioKavely" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_1ycvh")
+stream = ExtResource("10_uhji0")
 pitch_scale = 1.1
 bus = &"Pelaaja"
 
 [node name="AudioJuoksu" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_erxvc")
+stream = ExtResource("11_kteua")
 bus = &"Pelaaja"
 
 [node name="AudioHyppy" type="AudioStreamPlayer2D" parent="."]
@@ -242,13 +242,13 @@ stream = SubResource("AudioStreamRandomizer_wrish")
 bus = &"Pelaaja"
 
 [node name="AudioSeinahyppy" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_s5sfd")
+stream = ExtResource("15_bxt80")
 volume_db = 4.278
 bus = &"Pelaaja"
 
 [node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
-stream = ExtResource("13_sy5bm")
+stream = ExtResource("16_4n4el")
 volume_db = 7.0
 bus = &"Vihollinen"
 
