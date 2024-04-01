@@ -16,7 +16,9 @@ var piikki = null
 var pelaaja_aloitus = null
 var vihollinen_aloitus = null
 
-var pelaaja_taso2 = Vector2(4084, 191)
+## Pelaajan taso2 koordinaatit teleporttaamiseen
+@onready var pelaaja_taso2 = get_node("/root/Maailma/%Taso2Teleport").position
+@onready var pelaaja_taso3 = get_node("/root/Maailma/%Taso3Teleport").position
 
 ## vihollisen äänenkorkeuden kerroin
 var vihollisen_aanenkorkeuden_kerroin = 1
@@ -76,6 +78,7 @@ func _ready():
 	# Lisätään sceneen tausta
 	self.add_child(tausta.instantiate())
 
+
 ## Kutsutaan joka frame
 ## Käytetään ohjaamaan vihollisen äänenkorkeutta vertaamalla vihollisen ja pelaajan y-koordinaatteja
 func _process(_delta):
@@ -94,6 +97,7 @@ func _process(_delta):
 		vihollisen_aanenkorkeuden_kerroin = 1
 	# "Vihollinen" audiokanavan pitch shift -efekti
 	var vihollinen_pitch_shift = AudioServer.get_bus_effect(1, 0)
+	# TODO: korjaa bugi, saa virheellisiä arvoja
 	vihollinen_pitch_shift.pitch_scale = vihollisen_aanenkorkeuden_kerroin
 	
 	# F2
@@ -109,7 +113,8 @@ func _process(_delta):
 		pelaaja.position = pelaaja_taso2
 	
 	# F3
-	# if Input.is_action_just_pressed("poista"):
+	if Input.is_action_just_pressed("taso3"):
+		pelaaja.position = pelaaja_taso3
 		# get_node("/root/@Node2D@65").queue_free() # Poistetaan duplikoitu maailma2
 
 
