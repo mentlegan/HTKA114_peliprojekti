@@ -54,7 +54,7 @@ func lisaa_varjot_ja_collisionit():
 
 			# Lisätään SS2D:lle Polygon2D:n vektorit
 			for vektori in polygon:
-				ss2d.add_point(vektori)
+				ss2d.add_point(vektori + lapsi.position)
 			
 			# Kutsutaan close_shape:a, jotta collisionit toimisivat
 			ss2d.close_shape()

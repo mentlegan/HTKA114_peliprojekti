@@ -72,7 +72,7 @@ func astuttu_alueelle(body):
 
 ## Kollektiivinen alueelta poistumisen funktio
 ## TODO: tähän voisi lisäillä jotain hauskaa, jos tulee mieleen. Ääniä vaikka?
-func poistuttu_alueelta(body):
+func poistuttu_alueelta(_body):
 	kuolema_ajastin.stop() # Pysäytetään ajastin, että pelaaja ei kuole, vaikka astuisi alueelta pois
 
 ## Funktio alueelle 1

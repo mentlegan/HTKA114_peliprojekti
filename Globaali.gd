@@ -16,6 +16,8 @@ var piikki = null
 var pelaaja_aloitus = null
 var vihollinen_aloitus = null
 
+var pelaaja_taso2 = Vector2(4084, 191)
+
 ## vihollisen äänenkorkeuden kerroin
 var vihollisen_aanenkorkeuden_kerroin = 1
 @onready var ikkunan_korkeus = get_viewport().get_visible_rect().size.y
@@ -39,7 +41,6 @@ var pystyssa = true
 @onready var uusiVihollinen = get_node("/root/Maailma/%uudetViholliset/%uusiVihollinen")
 
 
-
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://tausta.tscn")
 
@@ -55,7 +56,8 @@ func _ready():
 	vihollinen = get_tree().get_first_node_in_group("vihollinen") # Tehdään näissä
 	vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
-	uusiVihollinen.pelaaja_kuollut.connect(_game_over)
+	if uusiVihollinen != null:
+		uusiVihollinen.pelaaja_kuollut.connect(_game_over)
 	
 	piikki = get_tree().get_first_node_in_group("piikki") # Tehdään näissä
 	if piikki != null:
@@ -96,16 +98,19 @@ func _process(_delta):
 	
 	# F2
 	if Input.is_action_just_pressed("taso2"):
+		"""
 		ovet = Array()
 		# Hyvin scuffed tapa, mutta toimii (kait?)
 		get_tree().change_scene_to_packed(taso2)
 		get_tree().root.add_child(t2.instantiate())
 		_ready()
 		# get_node("/root/Maailma2").free()
+		"""
+		pelaaja.position = pelaaja_taso2
 	
 	# F3
-	if Input.is_action_just_pressed("poista"):
-		get_node("/root/@Node2D@64").queue_free() # Poistetaan duplikoitu maailma2
+	# if Input.is_action_just_pressed("poista"):
+		# get_node("/root/@Node2D@65").queue_free() # Poistetaan duplikoitu maailma2
 
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan

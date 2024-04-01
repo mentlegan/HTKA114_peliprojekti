@@ -220,7 +220,7 @@ position = Vector2(2740, 470)
 position = Vector2(1, 1)
 
 [node name="Ovi2_x" type="Node2D" parent="Koynnosovet" groups=["oviO", "x"]]
-position = Vector2(3457, 1049)
+position = Vector2(3453, 1051)
 
 [node name="Ovi_oikea" parent="Koynnosovet/Ovi2_x" instance=ExtResource("17_jnvwc")]
 
