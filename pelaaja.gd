@@ -37,7 +37,6 @@ var valossa = false
 @onready var huilu = $Huilu
 @onready var huilun_nakyvyys_ajastin = $Huilu/NakyvyysAjastin
 @onready var huilun_cd_ajastin = $Huilu/CooldownAjastin
-@onready var huilun_valo = $Huilu/Valo
 @onready var aanen_taajuus_sprite = $AanenTaajuus
 @onready var aanen_taajuus_ajastin = $AanenTaajuus/Ajastin
 
@@ -168,7 +167,6 @@ func seinalla():
 
 ## Vaihtaa äänen taajuutta delta-arvon verran.
 func vaihda_aanen_taajuutta(delta):
-	var aiempi_aanen_taajuus = aanen_taajuus
 	aanen_taajuus = aanen_taajuus + delta
 	if aanen_taajuus > AANEN_TAAJUUS_MAX:
 		aanen_taajuus = AANEN_TAAJUUS_MIN
@@ -178,8 +176,6 @@ func vaihda_aanen_taajuutta(delta):
 	aanen_taajuus_sprite.visible = true
 	aanen_taajuus_sprite.frame = aanen_taajuus - 1
 	aanen_taajuus_ajastin.start()
-
-	huilun_valo.visible = aanen_taajuus == 2
 
 
 ## Fysiikanhallintaa
