@@ -35,7 +35,9 @@ var valossa = false
 
 ## Huilu, äänen taajuuden sprite ja niiden ajastimet
 @onready var huilu = $Huilu
-@onready var huilun_ajastin = $Huilu/Ajastin
+@onready var huilun_nakyvyys_ajastin = $Huilu/NakyvyysAjastin
+@onready var huilun_cd_ajastin = $Huilu/CooldownAjastin
+@onready var huilun_valo = $Huilu/Valo
 @onready var aanen_taajuus_sprite = $AanenTaajuus
 @onready var aanen_taajuus_ajastin = $AanenTaajuus/Ajastin
 
@@ -113,11 +115,14 @@ func _ready():
 	pimea_valo.visible = true
 
 	# Piilotetaan huilu, kun sen ajastin päättyy
-	huilun_ajastin.timeout.connect(func(): huilu.visible = false)
+	huilun_nakyvyys_ajastin.timeout.connect(func(): huilu.visible = false)
 
 	# Samoin piilotetaan äänen taajuuden sprite, kun sen ajastin päättyy
 	aanen_taajuus_ajastin.timeout.connect(
 		func(): aanen_taajuus_sprite.visible = false
+	)
+	huilun_cd_ajastin.timeout.connect(
+		func(): huilun_cd_ajastin.stop()
 	)
 
 
@@ -152,6 +157,22 @@ func seinalla():
 	hyppy_ajastin.stop()
 	if hyppyjen_maara < 1:
 		hyppyjen_maara += 1
+
+
+## Vaihtaa äänen taajuutta delta-arvon verran.
+func vaihda_aanen_taajuutta(delta):
+	var aiempi_aanen_taajuus = aanen_taajuus
+	aanen_taajuus = min(
+		max(aanen_taajuus + delta, AANEN_TAAJUUS_MIN),
+		AANEN_TAAJUUS_MAX
+	)
+
+	aanen_taajuus_sprite.visible = true
+	aanen_taajuus_sprite.frame = aanen_taajuus - 1
+	aanen_taajuus_ajastin.start()
+
+	huilun_valo.visible = aanen_taajuus == 2
+
 
 ## Fysiikanhallintaa
 func _physics_process(delta):
@@ -325,28 +346,21 @@ func _physics_process(delta):
 			Globaali.palloja -= 1
 	
 	if Input.is_action_just_pressed("laske_taajuutta"):
-		if aanen_taajuus > AANEN_TAAJUUS_MIN:
-			aanen_taajuus -= 1
-			aanen_taajuus_sprite.visible = true
-			aanen_taajuus_sprite.frame = aanen_taajuus - 1
-			aanen_taajuus_ajastin.start()
+		vaihda_aanen_taajuutta(-1)
 	
 	if Input.is_action_just_pressed("nosta_taajuutta"):
-		if aanen_taajuus < AANEN_TAAJUUS_MAX:
-			aanen_taajuus += 1
-			aanen_taajuus_sprite.visible = true
-			aanen_taajuus_sprite.frame = aanen_taajuus - 1
-			aanen_taajuus_ajastin.start()
+		vaihda_aanen_taajuutta(1)
 	
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Valopallo scriptissä tuhotaan kaikki valopallot, varmaan muutettava
 		Globaali.nykyiset_pallot = 0
 
 		# Asetetaan huilu näkyviin hetkeksi ja käännetään se hiiren suuntaan
-		if not huilu.visible:
+		if huilun_cd_ajastin.is_stopped():
 			huilu.visible = true
 			huilu.rotation = valon_kohde.angle()
-			huilun_ajastin.start()
+			huilun_nakyvyys_ajastin.start()
+			huilun_cd_ajastin.start()
 	
 	# Kukkien kerääminen
 	# PC F

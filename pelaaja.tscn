@@ -313,7 +313,6 @@ range_item_cull_mask = 2
 texture = ExtResource("20_8tpmo")
 
 [node name="Huilu" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 6
 
@@ -325,9 +324,12 @@ offset = Vector2(1.0443, 0.0116279)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Huilu"]
 polygon = PackedVector2Array(0, 0, 23, -58, 360, -150, 430, -110, 473, 0, 430, 110, 360, 150, 23, 58)
 
-[node name="Ajastin" type="Timer" parent="Huilu"]
+[node name="NakyvyysAjastin" type="Timer" parent="Huilu"]
 
-[node name="PointLight2D" type="PointLight2D" parent="Huilu"]
+[node name="CooldownAjastin" type="Timer" parent="Huilu"]
+wait_time = 3.0
+
+[node name="Valo" type="PointLight2D" parent="Huilu"]
 range_item_cull_mask = 2
 texture = ExtResource("21_hedvg")
 offset = Vector2(224, 0)
