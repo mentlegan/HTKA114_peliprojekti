@@ -33,6 +33,10 @@ var valossa = false
 ## Näyttöä pimentävä valo
 @onready var pimea_valo = $PimeaValo
 
+## Huilu ja sen ajastin
+@onready var huilu = $Huilu
+@onready var huilun_ajastin = $Huilu/Ajastin
+
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
 const SELVIAMISAIKA_PIMEASSA = 20 ## Kuinka kauan pimeässä selvitään ennen respawn()-kutsua, sekunneissa
@@ -100,6 +104,10 @@ func _ready():
 	
 	# Asetetaan pimeä-valo näkyviin pelin alussa
 	pimea_valo.visible = true
+
+	# Piilotetaan huilu, kun sen ajastin päättyy
+	huilun_ajastin.timeout.connect(func(): huilu.visible = false)
+
 
 ## Kun siirrytään valoon, lopetetaan ajastin
 func siirrytty_valoon():
@@ -297,6 +305,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Valopallo scriptissä tuhotaan kaikki valopallot, varmaan muutettava
 		Globaali.nykyiset_pallot = 0
+
+		# Asetetaan huilu näkyviin hetkeksi ja käännetään se hiiren suuntaan
+		if not huilu.visible:
+			huilu.visible = true
+			huilu.rotation = valon_kohde.angle()
+			huilun_ajastin.start()
 	
 	# Kukkien kerääminen
 	# PC F
