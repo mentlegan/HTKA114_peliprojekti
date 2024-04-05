@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=49 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -21,6 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://gx8ajgkwr0pq" path="res://audio/ambient/luola-aani3.wav" id="16_fbtr4"]
 [ext_resource type="Texture2D" uid="uid://dj3c6nkmnxha2" path="res://grafiikka/Valo256.png" id="20_8tpmo"]
 [ext_resource type="Texture2D" uid="uid://sur11dalyqea" path="res://grafiikka/HuilunValo.png" id="21_hedvg"]
+[ext_resource type="Texture2D" uid="uid://cbatwxsibovo" path="res://grafiikka/AanenTaajuus1.png" id="22_7od7w"]
+[ext_resource type="Texture2D" uid="uid://cg7a67mf311xj" path="res://grafiikka/AanenTaajuus2.png" id="23_ai0kk"]
+[ext_resource type="Texture2D" uid="uid://cp4f2v1euxr6b" path="res://grafiikka/AanenTaajuus3.png" id="24_7n80x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -153,6 +156,23 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_d4qav")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3o2br"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ln8w0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_7od7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ai0kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_7n80x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Pelaaja" type="CharacterBody2D" groups=["Pelaaja"]]
 collision_layer = 2
@@ -291,5 +311,15 @@ polygon = PackedVector2Array(0, 0, 23, -58, 360, -150, 430, -110, 473, 0, 430, 1
 range_item_cull_mask = 2
 texture = ExtResource("21_hedvg")
 offset = Vector2(224, 0)
+
+[node name="AanenTaajuus" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 99
+material = ExtResource("5_gdn2h")
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_ln8w0")
+
+[node name="Ajastin" type="Timer" parent="AanenTaajuus"]
+wait_time = 0.73
 
 [connection signal="body_entered" from="keho" to="." method="_on_keho_body_entered"]

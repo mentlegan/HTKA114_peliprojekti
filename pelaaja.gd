@@ -33,9 +33,16 @@ var valossa = false
 ## Näyttöä pimentävä valo
 @onready var pimea_valo = $PimeaValo
 
-## Huilu ja sen ajastin
+## Huilu, äänen taajuuden sprite ja niiden ajastimet
 @onready var huilu = $Huilu
 @onready var huilun_ajastin = $Huilu/Ajastin
+@onready var aanen_taajuus_sprite = $AanenTaajuus
+@onready var aanen_taajuus_ajastin = $AanenTaajuus/Ajastin
+
+# Äänen taajuus
+var aanen_taajuus = 1
+const AANEN_TAAJUUS_MIN = 1
+const AANEN_TAAJUUS_MAX = 3
 
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
@@ -107,6 +114,11 @@ func _ready():
 
 	# Piilotetaan huilu, kun sen ajastin päättyy
 	huilun_ajastin.timeout.connect(func(): huilu.visible = false)
+
+	# Samoin piilotetaan äänen taajuuden sprite, kun sen ajastin päättyy
+	aanen_taajuus_ajastin.timeout.connect(
+		func(): aanen_taajuus_sprite.visible = false
+	)
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
@@ -301,6 +313,20 @@ func _physics_process(delta):
 			# Muuttujiin muutokset
 			Globaali.nykyiset_pallot += 1
 			Globaali.palloja -= 1
+	
+	if Input.is_action_just_pressed("laske_taajuutta"):
+		if aanen_taajuus > AANEN_TAAJUUS_MIN:
+			aanen_taajuus -= 1
+			aanen_taajuus_sprite.visible = true
+			aanen_taajuus_sprite.frame = aanen_taajuus - 1
+			aanen_taajuus_ajastin.start()
+	
+	if Input.is_action_just_pressed("nosta_taajuutta"):
+		if aanen_taajuus < AANEN_TAAJUUS_MAX:
+			aanen_taajuus += 1
+			aanen_taajuus_sprite.visible = true
+			aanen_taajuus_sprite.frame = aanen_taajuus - 1
+			aanen_taajuus_ajastin.start()
 	
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Valopallo scriptissä tuhotaan kaikki valopallot, varmaan muutettava
