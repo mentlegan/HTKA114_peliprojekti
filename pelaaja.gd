@@ -128,6 +128,7 @@ func _ready():
 	
 	# Asetetaan äänen taajuus yhdeksi
 	vaihda_aanen_taajuutta(-10)
+	aanen_taajuus_sprite.visible = false
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
@@ -168,10 +169,11 @@ func seinalla():
 ## Vaihtaa äänen taajuutta delta-arvon verran.
 func vaihda_aanen_taajuutta(delta):
 	var aiempi_aanen_taajuus = aanen_taajuus
-	aanen_taajuus = min(
-		max(aanen_taajuus + delta, AANEN_TAAJUUS_MIN),
-		AANEN_TAAJUUS_MAX
-	)
+	aanen_taajuus = aanen_taajuus + delta
+	if aanen_taajuus > AANEN_TAAJUUS_MAX:
+		aanen_taajuus = AANEN_TAAJUUS_MIN
+	if aanen_taajuus < AANEN_TAAJUUS_MIN:
+		aanen_taajuus = AANEN_TAAJUUS_MAX
 
 	aanen_taajuus_sprite.visible = true
 	aanen_taajuus_sprite.frame = aanen_taajuus - 1
