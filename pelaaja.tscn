@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=52 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://gx8ajgkwr0pq" path="res://audio/ambient/luola-aani3.wav" id="16_fbtr4"]
 [ext_resource type="Texture2D" uid="uid://dj3c6nkmnxha2" path="res://grafiikka/Valo256.png" id="20_8tpmo"]
 [ext_resource type="Texture2D" uid="uid://cbatwxsibovo" path="res://grafiikka/AanenTaajuus1.png" id="22_7od7w"]
+[ext_resource type="Texture2D" uid="uid://bh2dveepeu0so" path="res://grafiikka/Nuotti.png" id="22_fot2n"]
 [ext_resource type="Texture2D" uid="uid://cg7a67mf311xj" path="res://grafiikka/AanenTaajuus2.png" id="23_ai0kk"]
 [ext_resource type="Texture2D" uid="uid://cp4f2v1euxr6b" path="res://grafiikka/AanenTaajuus3.png" id="24_7n80x"]
 
@@ -313,9 +314,28 @@ range_item_cull_mask = 2
 texture = ExtResource("20_8tpmo")
 
 [node name="Huilu" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 6
+
+[node name="Partikkelit" type="CPUParticles2D" parent="Huilu"]
+z_index = 99
+texture_filter = 1
+material = ExtResource("5_gdn2h")
+position = Vector2(64, 0)
+scale = Vector2(1, 1)
+emitting = false
+amount = 5
+texture = ExtResource("22_fot2n")
+emission_shape = 1
+emission_sphere_radius = 9.66
+spread = 9.73
+gravity = Vector2(70, 0)
+initial_velocity_min = 90.23
+initial_velocity_max = 157.89
+radial_accel_max = 91.73
+tangential_accel_min = -10.0
+tangential_accel_max = 10.0
+damping_max = 9.474
 
 [node name="Sprite2D" type="Sprite2D" parent="Huilu"]
 scale = Vector2(39.5, 21.5)
@@ -323,6 +343,7 @@ texture = SubResource("PlaceholderTexture2D_3o2br")
 offset = Vector2(1.0443, 0.0116279)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Huilu"]
+visible = false
 polygon = PackedVector2Array(0, 0, 23, -58, 360, -150, 430, -110, 473, 0, 430, 110, 360, 150, 23, 58)
 
 [node name="NakyvyysAjastin" type="Timer" parent="Huilu"]

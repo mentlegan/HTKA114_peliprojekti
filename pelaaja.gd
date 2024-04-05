@@ -35,10 +35,15 @@ var valossa = false
 
 ## Huilu, äänen taajuuden sprite ja niiden ajastimet
 @onready var huilu = $Huilu
+@onready var huilun_sprite = $Huilu/Sprite2D
 @onready var huilun_nakyvyys_ajastin = $Huilu/NakyvyysAjastin
 @onready var huilun_cd_ajastin = $Huilu/CooldownAjastin
 @onready var aanen_taajuus_sprite = $AanenTaajuus
 @onready var aanen_taajuus_ajastin = $AanenTaajuus/Ajastin
+
+# Huilun partikkelit ja niiden säde
+@onready var huilun_partikkelit = $Huilu/Partikkelit
+const HUILUN_PARTIKKELEIDEN_SADE = 64
 
 # Äänen taajuus
 var aanen_taajuus = 1
@@ -120,7 +125,8 @@ func _ready():
 	pimea_valo.visible = true
 	
 	# Piilotetaan huilu, kun sen ajastin päättyy
-	huilun_nakyvyys_ajastin.timeout.connect(func(): huilu.visible = false)
+	huilun_nakyvyys_ajastin.timeout.connect(piilota_huilu)
+	piilota_huilu()
 	
 	# Samoin piilotetaan äänen taajuuden sprite, kun sen ajastin päättyy
 	aanen_taajuus_ajastin.timeout.connect(
@@ -133,6 +139,11 @@ func _ready():
 	# Asetetaan äänen taajuus yhdeksi
 	vaihda_aanen_taajuutta(-10)
 	aanen_taajuus_sprite.visible = false
+
+
+func piilota_huilu():
+	huilun_sprite.visible = false
+	huilun_partikkelit.set_emitting(false)
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
@@ -360,9 +371,9 @@ func _physics_process(delta):
 			Globaali.nykyiset_pallot += 1
 			Globaali.palloja -= 1
 	
+	# Nostetaan ja lasketaan äänen taajuutta tarvittaessa
 	if Input.is_action_just_pressed("laske_taajuutta"):
 		vaihda_aanen_taajuutta(-1)
-	
 	if Input.is_action_just_pressed("nosta_taajuutta"):
 		vaihda_aanen_taajuutta(1)
 	
@@ -372,10 +383,12 @@ func _physics_process(delta):
 
 		# Asetetaan huilu näkyviin hetkeksi ja käännetään se hiiren suuntaan
 		if huilun_cd_ajastin.is_stopped():
-			huilu.visible = true
+			huilun_sprite.visible = true
 			huilu.rotation = valon_kohde.angle()
 			huilun_nakyvyys_ajastin.start()
 			huilun_cd_ajastin.start()
+			huilun_partikkelit.set_emitting(true)
+			huilun_partikkelit.set_gravity(Vector2.from_angle(huilu.rotation) * 40)
 	
 	# Kukkien kerääminen
 	# PC F
@@ -391,7 +404,7 @@ func _physics_process(delta):
 	# PS4/PS5 Options
 	if Input.is_action_just_pressed("pause"):
 		Globaali.pausePeli()
-	
+
 	# player.visible = ! (raycast.is_colliding())
 
 	# light.KORKEUS nyt 60, texture_scale 12   = 60           = 12

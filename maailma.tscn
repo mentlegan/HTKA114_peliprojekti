@@ -523,62 +523,50 @@ rotation = 1.25991
 rotation = -0.00243501
 
 [node name="Ovet_1" type="Node2D" parent="Koynnosovet"]
-scale = Vector2(1, 1)
 
 [node name="Ovi_x" type="Node2D" parent="Koynnosovet/Ovet_1" groups=["oviV", "x"]]
 position = Vector2(2189.31, 698.333)
-scale = Vector2(1, 1)
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_1/Ovi_x" instance=ExtResource("16_8728b")]
 
 [node name="Ovi2_x" type="Node2D" parent="Koynnosovet/Ovet_1" groups=["oviO", "x"]]
 position = Vector2(2690, 697)
-scale = Vector2(1, 1)
 
 [node name="Ovi3_y" type="Node2D" parent="Koynnosovet/Ovet_1" groups=["oviO", "y"]]
 position = Vector2(2236, 506)
-scale = Vector2(1, 1)
 
 [node name="Ovet_2" type="Node2D" parent="Koynnosovet"]
-scale = Vector2(1, 1)
 
 [node name="Ovi_x_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviV", "x"]]
 position = Vector2(4521.5, -1433.99)
-scale = Vector2(1, 1)
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_2/Ovi_x_2" instance=ExtResource("16_8728b")]
 position = Vector2(1, 1)
 
 [node name="Ovi2_x_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviO", "x"]]
 position = Vector2(5205.09, -850.328)
-scale = Vector2(1, 1)
 
 [node name="Ovi_oikea" parent="Koynnosovet/Ovet_2/Ovi2_x_2" instance=ExtResource("20_155o0")]
 
 [node name="Ovi3_y_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviO", "y"]]
 position = Vector2(4514, -1166)
-scale = Vector2(1, 1)
 
 [node name="Ovi4_z_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviV", "z"]]
 position = Vector2(3944.1, -857.399)
 rotation = -0.693876
-scale = Vector2(1, 1)
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_2/Ovi4_z_2" instance=ExtResource("16_8728b")]
 
 [node name="Ovi5_z_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviO", "z"]]
 position = Vector2(4726.07, -845.494)
-scale = Vector2(1, 1)
 
 [node name="Ovi_oikea" parent="Koynnosovet/Ovet_2/Ovi5_z_2" instance=ExtResource("20_155o0")]
 
 [node name="Ovet_3" type="Node2D" parent="Koynnosovet"]
-scale = Vector2(1, 1)
 
 [node name="Ovi_x_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviV", "x"]]
 position = Vector2(7107, 829.308)
 rotation = 1.47207
-scale = Vector2(1, 1)
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_3/Ovi_x_3" instance=ExtResource("16_8728b")]
 position = Vector2(-3.69549e-06, 8.38041e-05)
@@ -586,32 +574,26 @@ position = Vector2(-3.69549e-06, 8.38041e-05)
 [node name="Ovi2_x_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviO", "x"]]
 position = Vector2(4162, 381)
 rotation = 1.46682
-scale = Vector2(1, 1)
 
 [node name="Ovi_oikea" parent="Koynnosovet/Ovet_3/Ovi2_x_3" instance=ExtResource("20_155o0")]
 
 [node name="Ovi7_x_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviV", "x"]]
 position = Vector2(4664, 816)
 rotation = 1.14474
-scale = Vector2(1, 1)
 
 [node name="Ovi3_y_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["risti", "y"]]
 position = Vector2(5340.37, 676.006)
-scale = Vector2(1, 1)
 
 [node name="Ovi_pysty_oikea" parent="Koynnosovet/Ovet_3/Ovi3_y_3" instance=ExtResource("15_bna8j")]
 
 [node name="Ovi4_z_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviO", "z"]]
 position = Vector2(6575, 1403)
-scale = Vector2(1, 1)
 
 [node name="Ovi5_z_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviO", "z"]]
 position = Vector2(4717, 1279)
-scale = Vector2(1, 1)
 
 [node name="Ovi6_z_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviO", "z"]]
 position = Vector2(6237.71, 535.19)
-scale = Vector2(1, 1)
 
 [node name="Ovi_oikea" parent="Koynnosovet/Ovet_3/Ovi6_z_3" instance=ExtResource("20_155o0")]
 
