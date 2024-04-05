@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=33 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://ss2d_varjot.gd" id="2_a4qf7"]
@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://tooltip_pysayta.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://tooltip_kiipea.tscn" id="24_8j4jx"]
-[ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://valon_tarkistus.tscn" id="25_y4qtl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5tk56"]
 radius = 14.9721
@@ -65,10 +64,6 @@ _data = {
 "points": PackedVector2Array(-5.65685, 27.5772, 5.65685, -27.5772, 0, -1, -65.5159, -0.629961, 65.5159, 0.629961, 36, 49, -31.5111, -0.756618, 31.5111, 0.756618, 229, 40, 0, 0, 0, 0, 344, 36, 0, 0, 0, 0, 478, 28, 0, 0, 0, 0, 610, 16, 0, 0, 0, 0, 750, 12, 0, 0, 0, 0, 891, 8, -68.646, 10.8847, 68.646, -10.8847, 1038, -1, 0, 0, 0, 0, 1102, -20, 0, 0, 0, 0, 1116, -32, 0, 0, 0, 0, 1108, -44, 62.6757, 15.8955, -62.6757, -15.8955, 1065, -53, 0, 0, 0, 0, 902, -33, 86.429, 4.79626, -86.429, -4.79626, 775, -32, 0, 0, 0, 0, 699, -28, 84.8528, -3.53555, -84.8528, 3.53555, 476, -20, 73.2334, 1.77742, -73.2334, -1.77742, 111, -18, 0, 0, 0, 0, 37, -19, 0, 0, 0, 0, 15, -20, 0, 0, 0, 0, 0, -1)
 }
 point_count = 21
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqbre"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y8kc"]
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 script = ExtResource("1_sggs7")
@@ -175,7 +170,7 @@ position = Vector2(2045.9, 224.38)
 polygon = PackedVector2Array(5115.1, 468.62, 5029.57, 451.89, 4909.7, 418.927, 4741.89, 363.49, 4644.5, 318.54, 4525.65, 267.584, 4377.13, 238.298, 4282.42, 227.513, 4148.18, 233.699, 4097.56, 243.103, 4011.03, 265.074, 3904.33, 277.141, 3788.51, 279.814, 3691.41, 286.941, 3425.79, 301.784, 3269.83, 313.349, 3158.2, 316.381, 2950.98, 307.518, 2814.91, 240.732, 2675.05, 184.036, 2593.62, 152.795, 2516.59, 93.1031, 2489.22, 21.4713, 2426.38, -31.2937, 2357.91, -88.5356, 2331.51, -129.234, 2321.37, -151.233, 2327.26, -170.788, 2346.97, -179.196, 2417.13, -173.235, 3264.5, -99.072, 3710.56, -78.4362, 4541.74, -114.335, 4858.14, -98.9627, 4935.99, 31.7321, 5024.39, 182.311, 5076.08, 345.628)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1379, 722)
+position = Vector2(1397, 722)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -626,41 +621,9 @@ unique_name_in_owner = true
 
 [node name="uusiVihollinen" parent="uudetViholliset" groups=["newVihollinen"] instance=ExtResource("22_nrhn1")]
 unique_name_in_owner = true
-position = Vector2(2250, 459)
-rotation = 2.36926
-scale = Vector2(1.98894, 0.998497)
-
-[node name="uusiVihollinenNode" type="Node2D" parent="uudetViholliset"]
-process_mode = 4
-visible = false
-position = Vector2(-10, 1)
-
-[node name="alue" type="Area2D" parent="uudetViholliset/uusiVihollinenNode" groups=["newVihollinen"]]
-position = Vector2(1798, 693)
-rotation = 3.14159
-scale = Vector2(8.05238, -6.17997)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="uudetViholliset/uusiVihollinenNode/alue"]
-shape = SubResource("RectangleShape2D_iqbre")
-
-[node name="ValonTarkistus" parent="uudetViholliset/uusiVihollinenNode/alue" instance=ExtResource("25_y4qtl")]
-scale = Vector2(0.248258, 0.98758)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="uudetViholliset/uusiVihollinenNode/alue/ValonTarkistus"]
-shape = SubResource("RectangleShape2D_3y8kc")
-
-[node name="alue2" type="Area2D" parent="uudetViholliset/uusiVihollinenNode" groups=["newVihollinen"]]
-position = Vector2(2033, 695)
-scale = Vector2(7.01317, 6.47715)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="uudetViholliset/uusiVihollinenNode/alue2"]
-shape = SubResource("RectangleShape2D_iqbre")
-
-[node name="ValonTarkistus" parent="uudetViholliset/uusiVihollinenNode/alue2" instance=ExtResource("25_y4qtl")]
-scale = Vector2(0.297583, 0.977328)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="uudetViholliset/uusiVihollinenNode/alue2/ValonTarkistus"]
-shape = SubResource("RectangleShape2D_3y8kc")
+position = Vector2(2617, 424)
+rotation = 1.91135
+scale = Vector2(0.495335, 1.15089)
 
 [node name="Aarre" type="Marker2D" parent="."]
 position = Vector2(2366, -177)
@@ -701,4 +664,3 @@ position = Vector2(1309, 134)
 [connection signal="body_entered" from="Kukat/Kukka5_3" to="Kukat/Kukka5_3" method="_on_body_entered"]
 [connection signal="body_entered" from="Kukat/Kukka6_3" to="Kukat/Kukka6_3" method="_on_body_entered"]
 [connection signal="body_entered" from="Kukat/Kukka7_3" to="Kukat/Kukka7_3" method="_on_body_entered"]
-[connection signal="body_entered" from="uudetViholliset/uusiVihollinenNode/alue" to="uudetViholliset" method="_on_alue_body_entered"]

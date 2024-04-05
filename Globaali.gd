@@ -1,6 +1,7 @@
 ## Harri 29.3.2024
 ## TODO: vihollisen äänenkorkeus paremmin jos vihollisia enemmän kuin 1
-## Tämä on globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
+## TODO: tuki uusien vihollisten äänenkorkeudelle
+## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
 extends Node2D
 
 ## Käytössä olevat pallot
@@ -152,5 +153,6 @@ func jatkaPelia():
 ## käynnistää peli uudelleen kutsumalla tämän skriptin respawn() funktiota
 func _game_over():
 	get_tree().paused = true # Peli pauselle, kun se päättyy. Voi hienojen animaatioiden kanssa tietysti myös jättää pausettamatta
+	# Tai pausettaa peli muuten, mutta hienot kuolema-animaatiot silti toimivat normaalisti
 	await get_tree().create_timer(2,5).timeout # Pieni ajastin, että game over ei ihan heti tule
 	gameover_ruutu.visible = true

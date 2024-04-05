@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bukv6x5qpfus"]
+[gd_scene load_steps=13 format=3 uid="uid://bukv6x5qpfus"]
 
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://valon_tarkistus.tscn" id="1_7vppl"]
 [ext_resource type="Script" path="res://uusi_vihollinen.gd" id="1_th14a"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://crbflddm0u661" path="res://audio/hirvio/vihollinen_pakenee1_mono.wav" id="7_lwns6"]
 [ext_resource type="AudioStream" uid="uid://xj0qm50xbp3n" path="res://audio/hirvio/vihollisen_liike1_mono.wav" id="8_n68mi"]
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="9_kwoii"]
+[ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="10_yff1a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k26xj"]
 
@@ -91,6 +92,9 @@ process_mode = 3
 stream = ExtResource("9_kwoii")
 volume_db = 7.0
 bus = &"Vihollinen"
+
+[node name="AudioKaivautuminen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_yff1a")
 
 [connection signal="body_entered" from="alue" to="." method="_on_alue_body_entered"]
 [connection signal="body_exited" from="alue" to="." method="_on_alue_body_exited"]

@@ -1,6 +1,7 @@
 ## Juuso 14.3.2024
 ## Elias 17.2.2024 - valopallon äänet
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
+## TODO: jostain syystä valopallon hajoamisääni ei soi
 extends CharacterBody2D
 
 ## Valon nopeus
@@ -98,7 +99,7 @@ func change_doorsXYZ(_letter, if_y):
 func _physics_process(delta):
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Tuhotaan valopallo kokonaan
-		audio_valopallo_hajoaa.play()
+		audio_valopallo_hajoaa.play() # TODO: Jostain syystä ei soi
 		queue_free()
 	
 	# Valon liikkuminen
@@ -160,7 +161,7 @@ func _physics_process(delta):
 			
 			# Tuhotaan pallo, se imeytyy oveen
 			destroy()
-			audio_valopallo_hajoaa.play()
+			audio_valopallo_hajoaa.play() # TODO: Jostain syystä ei soi
 			
 			
 		else: # Kimpoaminen
