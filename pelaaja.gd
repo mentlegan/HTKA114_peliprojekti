@@ -41,6 +41,13 @@ var valossa = false
 @onready var aanen_taajuus_sprite = $AanenTaajuus
 @onready var aanen_taajuus_ajastin = $AanenTaajuus/Ajastin
 
+# Huilun äänet
+@onready var huilun_aanet = [
+	$HuiluAaniA,
+	$HuiluAaniC,
+	$HuiluAaniE,
+]
+
 # Huilun partikkelit ja niiden säde
 @onready var huilun_partikkelit = $Huilu/Partikkelit
 const HUILUN_PARTIKKELEIDEN_SADE = 64
@@ -390,6 +397,7 @@ func _physics_process(delta):
 			huilun_partikkelit.set_emitting(true)
 			huilun_partikkelit.set_gravity(Vector2.from_angle(huilu.rotation) * 40)
 			huilun_partikkelit.modulate = aanen_taajuuden_vari()
+			huilun_aanet[(aanen_taajuus - 1) % AANEN_TAAJUUS_MAX].play()
 	
 	# Kukkien kerääminen
 	# PC F
@@ -399,12 +407,6 @@ func _physics_process(delta):
 		for kukka in kukat:
 			if kukka.is_in_group("kukka"):
 				Globaali.palloja = 2
-		
-	# Pelin keskeytys
-	# PC Escape
-	# PS4/PS5 Options
-	if Input.is_action_just_pressed("pause"):
-		Globaali.pausePeli()
 
 	# player.visible = ! (raycast.is_colliding())
 
