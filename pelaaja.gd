@@ -389,6 +389,7 @@ func _physics_process(delta):
 			huilun_cd_ajastin.start()
 			huilun_partikkelit.set_emitting(true)
 			huilun_partikkelit.set_gravity(Vector2.from_angle(huilu.rotation) * 40)
+			huilun_partikkelit.modulate = aanen_taajuuden_vari()
 	
 	# Kukkien kerääminen
 	# PC F
