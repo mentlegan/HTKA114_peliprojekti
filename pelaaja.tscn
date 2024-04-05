@@ -1,9 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=52 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_gc81g"]
 [ext_resource type="Texture2D" uid="uid://b6tbps0j5gs0v" path="res://grafiikka/PelaajaKavely.png" id="3_dwx8p"]
+[ext_resource type="Texture2D" uid="uid://bnq2w54rhw78d" path="res://grafiikka/PelaajaHyppy-Sheet.png" id="3_li6jh"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://valon_tarkistus.tscn" id="4_5hfdk"]
 [ext_resource type="Script" path="res://palloja_teksti.gd" id="4_tac1h"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://unshaded.tres" id="5_gdn2h"]
@@ -34,6 +35,14 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lbg0v"]
 gradient = SubResource("Gradient_1og31")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1c8r"]
+atlas = ExtResource("3_li6jh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo8gg"]
+atlas = ExtResource("3_li6jh")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvkv5"]
 atlas = ExtResource("2_66tpr")
@@ -77,6 +86,17 @@ region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bqvgf"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1c8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo8gg")
+}],
+"loop": true,
+"name": &"hyppy",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cvkv5")

@@ -248,10 +248,20 @@ func _physics_process(delta):
 			if not audio_kavely.playing:
 				audio_kavely.play()
 	else:
-		# Tähän myöhemmin hyppyanimaatio
-		animaatio.set_animation("idle")
-		animaatio.stop()
 		audio_kavely.stop()
+
+		if onko_seinalla:
+			# Tähän myöhemmin kiipeämisanimaatio
+			animaatio.set_animation("idle")
+			animaatio.stop()
+		else:
+			# Asetetaan hyppyanimaatio
+			animaatio.set_animation("hyppy")
+			animaatio.stop()
+			if velocity.y < 0:
+				animaatio.frame = 0
+			else:
+				animaatio.frame = 1
 	
 	# Flipataan animaatio suuntaa myöten
 	if velocity.x != 0:
