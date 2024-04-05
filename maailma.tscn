@@ -1,12 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=27 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://d1c6axf23uaq5" path="res://help_ruutu.tscn" id="4_5kntw"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://pelaaja.tscn" id="4_udkay"]
-[ext_resource type="Texture2D" uid="uid://dite5ccabklvd" path="res://grafiikka/LightFlower.png" id="8_s3kw4"]
-[ext_resource type="Script" path="res://kukka.gd" id="8_u4hvi"]
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://game_over_ruutu.tscn" id="9_er4wh"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://vihollinen.tscn" id="12_u46m1"]
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://perhonen.tscn" id="13_ufso7"]
@@ -48,22 +46,6 @@ _data = {
 "points": PackedVector2Array(-5.65685, 27.5772, 5.65685, -27.5772, 0, -1, -65.5159, -0.629961, 65.5159, 0.629961, 36, 49, -31.5111, -0.756618, 31.5111, 0.756618, 229, 40, 0, 0, 0, 0, 344, 36, 0, 0, 0, 0, 478, 28, 0, 0, 0, 0, 610, 16, 0, 0, 0, 0, 750, 12, 0, 0, 0, 0, 891, 8, -68.646, 10.8847, 68.646, -10.8847, 1038, -1, 0, 0, 0, 0, 1102, -20, 0, 0, 0, 0, 1116, -32, 0, 0, 0, 0, 1108, -44, 62.6757, 15.8955, -62.6757, -15.8955, 1065, -53, 0, 0, 0, 0, 902, -33, 86.429, 4.79626, -86.429, -4.79626, 775, -32, 0, 0, 0, 0, 699, -28, 84.8528, -3.53555, -84.8528, 3.53555, 476, -20, 73.2334, 1.77742, -73.2334, -1.77742, 111, -18, 0, 0, 0, 0, 37, -19, 0, 0, 0, 0, 15, -20, 0, 0, 0, 0, 0, -1)
 }
 point_count = 21
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5tk56"]
-radius = 14.9721
-height = 34.9547
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ch1mv"]
-radius = 17.4773
-height = 34.9547
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_au6wg"]
-radius = 14.9721
-height = 34.9547
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jmvsr"]
-radius = 17.4773
-height = 34.9547
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 script = ExtResource("1_sggs7")
@@ -220,280 +202,75 @@ rotation = -0.00132818
 
 [node name="Kukka2" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(1250, 643)
-rotation = 2.03571
+rotation = 2.06039
 
 [node name="Kukka6" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(3271, 218)
+position = Vector2(3270.71, 220.344)
 rotation = 2.91312
 
 [node name="Kukka3" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(2488, 741)
+position = Vector2(2488.02, 743.305)
 rotation = -3.02566
 
 [node name="Kukka4" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(1807, 743)
+position = Vector2(1808.01, 744.402)
 rotation = 3.03455
 
 [node name="Kukka5" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(2506, 540)
+position = Vector2(2506.28, 543.329)
 rotation = -3.04893
 
-[node name="Kukka_2" type="Area2D" parent="Kukat" groups=["kukka"]]
-position = Vector2(3917, -1110)
-collision_mask = 2
-script = ExtResource("8_u4hvi")
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka_2"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka_2"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_5tk56")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka_2" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka_2/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_ch1mv")
-
-[node name="Kukka6_2" type="Area2D" parent="Kukat" groups=["kukka"]]
-position = Vector2(4684, -1113)
-collision_mask = 2
-script = ExtResource("8_u4hvi")
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka6_2"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka6_2"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_5tk56")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka6_2" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka6_2/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_ch1mv")
-
-[node name="Kukka7_2" type="Area2D" parent="Kukat" groups=["kukka"]]
-position = Vector2(3617, -772)
-rotation = 2.1024
-collision_mask = 2
-script = ExtResource("8_u4hvi")
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka7_2"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka7_2"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_5tk56")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka7_2" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka7_2/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_ch1mv")
-
-[node name="Kukka8_2" type="Area2D" parent="Kukat" groups=["kukka"]]
-position = Vector2(4417, -801)
-collision_mask = 2
-script = ExtResource("8_u4hvi")
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka8_2"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka8_2"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_5tk56")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka8_2" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka8_2/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_ch1mv")
-
-[node name="Kukka9_2" type="Area2D" parent="Kukat" groups=["kukka"]]
-position = Vector2(5789, -861)
-collision_mask = 2
-script = ExtResource("8_u4hvi")
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka9_2"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka9_2"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_5tk56")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka9_2" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka9_2/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_ch1mv")
-
-[node name="Kukka10_2" type="Area2D" parent="Kukat" groups=["kukka"]]
-position = Vector2(4911, -616)
-collision_mask = 2
-script = ExtResource("8_u4hvi")
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka10_2"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka10_2"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_5tk56")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka10_2" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka10_2/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_ch1mv")
-
-[node name="Kukka_3" type="Area2D" parent="Kukat"]
-position = Vector2(5503, 1452)
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka_3"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka_3"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_au6wg")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka_3" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka_3/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_jmvsr")
-
-[node name="Kukka2_3" type="Area2D" parent="Kukat"]
-position = Vector2(5886, 2167)
-rotation = -2.68054
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka2_3"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka2_3"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_au6wg")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka2_3" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka2_3/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_jmvsr")
-
-[node name="Kukka3_3" type="Area2D" parent="Kukat"]
-position = Vector2(4766, 1316)
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka3_3"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka3_3"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_au6wg")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka3_3" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka3_3/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_jmvsr")
-
-[node name="Kukka4_3" type="Area2D" parent="Kukat"]
-position = Vector2(4353, 712)
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka4_3"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka4_3"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_au6wg")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka4_3" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka4_3/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_jmvsr")
-
-[node name="Kukka5_3" type="Area2D" parent="Kukat"]
-position = Vector2(6703, 1440)
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka5_3"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka5_3"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_au6wg")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka5_3" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka5_3/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_jmvsr")
-
-[node name="Kukka6_3" type="Area2D" parent="Kukat"]
-position = Vector2(5724, 773)
-rotation = -3.08395
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka6_3"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka6_3"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_au6wg")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka6_3" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka6_3/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_jmvsr")
-
-[node name="Kukka7_3" type="Area2D" parent="Kukat"]
-position = Vector2(5812, 599)
-rotation = -3.0692
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Kukat/Kukka7_3"]
-rotation = 2.41614
-texture = ExtResource("8_s3kw4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka7_3"]
-position = Vector2(-0.28493, 1.38523)
-shape = SubResource("CapsuleShape2D_au6wg")
-
-[node name="Area2D" type="Area2D" parent="Kukat/Kukka7_3" groups=["kukka"]]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kukat/Kukka7_3/Area2D"]
-position = Vector2(-0.284943, 1.38524)
-shape = SubResource("CapsuleShape2D_jmvsr")
+[node name="Kukka7" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(3891.48, -1109.83)
+rotation = -3.04893
+
+[node name="Kukka8" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(4650.47, -1106.82)
+rotation = -3.04893
+
+[node name="Kukka9" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(4443.06, -794.099)
+rotation = -3.04893
+
+[node name="Kukka10" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(4924.8, -600.459)
+rotation = -3.04893
+
+[node name="Kukka11" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(3620.03, -769.193)
+rotation = -4.0176
+
+[node name="Kukka12" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(5785.13, -843.317)
+rotation = -3.33175
+
+[node name="Kukka13" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(5512.06, 1462.32)
+rotation = -3.10376
+
+[node name="Kukka16" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(4765.24, 1329.33)
+rotation = -3.10376
+
+[node name="Kukka17" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(4370.04, 724.805)
+rotation = -3.10376
+
+[node name="Kukka14" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(5910.12, 2172.85)
+rotation = -3.4901
+
+[node name="Kukka15" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(6724.08, 1453.93)
+rotation = -3.2586
+
+[node name="Kukka18" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(5753.97, 779.643)
+rotation = -3.15909
+
+[node name="Kukka19" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(5809.2, 605.716)
+rotation = -3.15909
 
 [node name="Node2D" type="Node2D" parent="."]
 process_mode = 4
@@ -557,7 +334,7 @@ position = Vector2(5205.09, -850.328)
 [node name="Ovi_oikea" parent="Koynnosovet/Ovet_2/Ovi2_x_2" instance=ExtResource("20_155o0")]
 
 [node name="Ovi3_y_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviO", "y"]]
-position = Vector2(4514, -1166)
+position = Vector2(4517.8, -1144)
 
 [node name="Ovi4_z_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviV", "z"]]
 position = Vector2(3944.1, -857.399)
@@ -595,7 +372,7 @@ position = Vector2(5340.37, 676.006)
 [node name="Ovi_pysty_oikea" parent="Koynnosovet/Ovet_3/Ovi3_y_3" instance=ExtResource("15_bna8j")]
 
 [node name="Ovi4_z_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviO", "z"]]
-position = Vector2(6575, 1403)
+position = Vector2(6575.57, 1417.02)
 
 [node name="Ovi5_z_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviO", "z"]]
 position = Vector2(4717, 1279)
@@ -669,17 +446,3 @@ position = Vector2(7110, 19)
 
 [node name="Alkuanimaatio" type="Marker2D" parent="Muuta"]
 position = Vector2(1309, 134)
-
-[connection signal="body_entered" from="Kukat/Kukka_2" to="Kukat/Kukka_2" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka6_2" to="Kukat/Kukka6_2" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka7_2" to="Kukat/Kukka7_2" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka8_2" to="Kukat/Kukka8_2" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka9_2" to="Kukat/Kukka9_2" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka10_2" to="Kukat/Kukka10_2" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka_3" to="Kukat/Kukka_3" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka2_3" to="Kukat/Kukka2_3" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka3_3" to="Kukat/Kukka3_3" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka4_3" to="Kukat/Kukka4_3" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka5_3" to="Kukat/Kukka5_3" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka6_3" to="Kukat/Kukka6_3" method="_on_body_entered"]
-[connection signal="body_entered" from="Kukat/Kukka7_3" to="Kukat/Kukka7_3" method="_on_body_entered"]

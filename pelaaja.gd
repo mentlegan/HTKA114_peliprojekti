@@ -211,11 +211,10 @@ func vaihda_aanen_taajuutta(delta):
 func _physics_process(delta):
 	
 	# Seinäkiipeämiseen toggle
+	# PC E
 	if Input.is_action_just_pressed("kiipeamis_toggle"):
-		if kiipeamis_toggle:
-			kiipeamis_toggle = false
-		else:
-			kiipeamis_toggle = true
+		# Oiva tapa muuttaa totuusarvo vastakkaiseksi
+		kiipeamis_toggle = not kiipeamis_toggle
 	
 	# Tästä painovoima
 	if not (is_on_floor() or is_on_wall()):
