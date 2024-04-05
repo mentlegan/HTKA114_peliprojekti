@@ -90,6 +90,7 @@ var kiipeamis_toggle = false
 var hyppy_ajastin = Timer.new()
 const SEINAHYPPY_BUFFER = 0.1 ## Kuinka kauan seinältä voi olla poissa, niin että pelaaja saa vielä hypätä (sekunteina)
 
+
 func _ready():
 	# Lisätään ajastimet pimeän tarkistukselle ja seinähypylle lapsiksi
 	self.add_child(ajastin_pimeassa)
@@ -113,10 +114,10 @@ func _ready():
 	
 	# Asetetaan pimeä-valo näkyviin pelin alussa
 	pimea_valo.visible = true
-
+	
 	# Piilotetaan huilu, kun sen ajastin päättyy
 	huilun_nakyvyys_ajastin.timeout.connect(func(): huilu.visible = false)
-
+	
 	# Samoin piilotetaan äänen taajuuden sprite, kun sen ajastin päättyy
 	aanen_taajuus_ajastin.timeout.connect(
 		func(): aanen_taajuus_sprite.visible = false
@@ -124,6 +125,9 @@ func _ready():
 	huilun_cd_ajastin.timeout.connect(
 		func(): huilun_cd_ajastin.stop()
 	)
+	
+	# Asetetaan äänen taajuus yhdeksi
+	vaihda_aanen_taajuutta(-10)
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
@@ -147,9 +151,11 @@ func kuolema():
 	audio_pelaaja_kuolee.play() # TODO: Korjaa toimivaksi. Ei kuulu, koska kaikki pausetetaan
 	kuollut.emit()
 
+
 ## Ei hyppyä kun liian kauan seinältä
 func hyppy_buffer():
 	onko_seinalla = false
+
 
 ## Kun pelaaja on seinalla
 func seinalla():
