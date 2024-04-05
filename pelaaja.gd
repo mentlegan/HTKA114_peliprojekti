@@ -44,6 +44,11 @@ var valossa = false
 var aanen_taajuus = 1
 const AANEN_TAAJUUS_MIN = 1
 const AANEN_TAAJUUS_MAX = 3
+const AANEN_TAAJUUS_VARIT = [
+	Color(1, 0, 0, 1),
+	Color(1, 1, 0, 1),
+	Color(0, 0, 1, 1)
+]
 
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
@@ -165,6 +170,11 @@ func seinalla():
 		hyppyjen_maara += 1
 
 
+## Palauttaa nykyisen äänen taajuuden värin
+func aanen_taajuuden_vari():
+	return AANEN_TAAJUUS_VARIT[(aanen_taajuus - 1) % AANEN_TAAJUUS_MAX]
+
+
 ## Vaihtaa äänen taajuutta delta-arvon verran.
 func vaihda_aanen_taajuutta(delta):
 	aanen_taajuus = aanen_taajuus + delta
@@ -176,6 +186,7 @@ func vaihda_aanen_taajuutta(delta):
 	aanen_taajuus_sprite.visible = true
 	aanen_taajuus_sprite.frame = aanen_taajuus - 1
 	aanen_taajuus_ajastin.start()
+	aanen_taajuus_sprite.modulate = aanen_taajuuden_vari()
 
 
 ## Fysiikanhallintaa
