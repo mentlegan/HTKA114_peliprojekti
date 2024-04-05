@@ -27,7 +27,7 @@ var vihollisen_aanenkorkeuden_kerroin = 1
 @export var vihollisen_aanenkorkeuden_muutosnopeus = 0.6
 
 ## Kaikki scenen ovet
-var ovet = Array()
+# var ovet = Array()
 ## Ristiovelle oma kohtelu vielä tässä vaiheessa
 @onready var ovi_risti = get_tree().get_first_node_in_group("risti")
 var pystyssa = true
@@ -70,11 +70,16 @@ func _ready():
 	pelaaja_aloitus = pelaaja.position
 	vihollinen_aloitus = vihollinen.position
 	
-	# Haetaan koynnosovet-noden kaikki lapset
-	var koynnosovet_lapset = get_tree().get_first_node_in_group("koynnosovet").get_children()
-	for koynnosovi in koynnosovet_lapset:
-		if koynnosovi.is_in_group("oviV") or koynnosovi.is_in_group("oviO"):
-			ovet.append(koynnosovi)
+	"""
+	# Haetaan koynnosovet-noden kaikki lapset eli ovet tasoittain
+	var koynnosovet_tasot = get_tree().get_first_node_in_group("koynnosovet").get_children()
+	for koynnosovi_vanhempi in koynnosovet_tasot:
+		# Koynnosovien todelliset muutettavat nodet
+		var koynnosovi_lapset = koynnosovi_vanhempi.get_children()
+		for koynnosovi_lapsi in koynnosovi_lapset:
+			if koynnosovi_lapsi.is_in_group("oviV") or koynnosovi_lapsi.is_in_group("oviO"):
+				ovet.append(koynnosovi_lapsi)
+	"""
 	
 	# Lisätään sceneen tausta
 	self.add_child(tausta.instantiate())

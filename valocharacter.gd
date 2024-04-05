@@ -50,15 +50,19 @@ func destroy():
 ## Muuttaa ovet, jos valopallo osuu x tai z oveen
 ## Attribuuttina tulee ryhmän nimi (x tai z)
 ## if_y kertoo osuuko pallo oveen y, tällöin käydään kaikki ovet aina läpi
-func change_doorsXYZ(_letter, if_y):
+func change_doorsXYZ(_letter, _ovi_ylin, if_y):
 	# Alustetaan ovet vasta silmukassa
 	var ovi_v = null
 	var ovi_o = null
 	
 	# Tallenetaan kirjain
 	var letter = _letter
+	# Talteen node, joka sisältää tason ovet. Käytetään vielä ristiovessa
+	var ovi_ylin = _ovi_ylin
+	# Varsinaiset muokattavat ovet
+	var tason_ovet = ovi_ylin.get_children()
 	
-	for ovi in Globaali.ovet:
+	for ovi in tason_ovet:
 		# Täytyy alustaa uudelleen, jotta sama ovi ei mene
 		# monelle ovi-nodelle lapseksi
 		ovi_v = ovi_vasen.instantiate()
@@ -78,8 +82,8 @@ func change_doorsXYZ(_letter, if_y):
 				for lapsi in lapset:
 					lapsi.queue_free()
 	
-	# Pelkkä ristiovi
-	if Globaali.ovi_risti != null:
+	# Pelkkä ristiovi                         # vain tasossa 3
+	if Globaali.ovi_risti != null and ovi_ylin.get_name() == "Ovet_3":
 		var ovi_pysty = ovi_pysty_oikea.instantiate()
 		var ovi_vaaka = ovi_vaaka_vasen.instantiate()
 		
@@ -113,9 +117,12 @@ func _physics_process(delta):
 			# Otetaan ovi, joka tuhotaan
 			var parent = collision_collider.get_parent()
 			# Otetaan ylin ovi-node
-			var ovi_ylin = parent.get_parent()
-			# Ylimmän noden ryhmät
-			var groups = ovi_ylin.get_groups()
+			var ovi_muokattava = parent.get_parent()
+			# Ylimmän noden ryhmät eli x, y tai z
+			var groups = ovi_muokattava.get_groups()
+			
+			# Minkä tason ovet kyseessä (ovet_1 tai ovet_2 jne...)
+			var ovi_ylin = ovi_muokattava.get_parent()
 			
 			# Ryhmien kanssa tuli onglemia, joten muutettu ilman alaviivaa oleviksi
 			# Välillä ei toiminut esim. kaikilla ovilla, joilla ryhmänä x
@@ -134,22 +141,22 @@ func _physics_process(delta):
 			# X ja y
 			if groups.has("x"):
 				letter = "x"
-				change_doorsXYZ(letter, false)
+				change_doorsXYZ(letter, ovi_ylin, false)
 			
 			# Kaikki ovet x, y, z
 			elif groups.has("y"):
 				letter = "" # Ei väliä
-				change_doorsXYZ(letter, true)
+				change_doorsXYZ(letter, ovi_ylin, true)
 			
 			# Y ja z
 			elif groups.has("z"):
 				letter = "z"
-				change_doorsXYZ(letter, false)
+				change_doorsXYZ(letter, ovi_ylin, false)
 			
 			# Ristiovi
 			elif groups.has("risti"):
 				letter = ""
-				change_doorsXYZ(letter, false)
+				change_doorsXYZ(letter, ovi_ylin, false)
 			
 			# Voisiko olla parempi tapa?
 			"""
