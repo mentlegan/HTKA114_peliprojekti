@@ -18,8 +18,8 @@ var pelaaja_aloitus = null
 var vihollinen_aloitus = null
 
 ## Pelaajan taso2 koordinaatit teleporttaamiseen
-@onready var pelaaja_taso2 = get_node("/root/Maailma/%Taso2Teleport").position
-@onready var pelaaja_taso3 = get_node("/root/Maailma/%Taso3Teleport").position
+@onready var pelaaja_taso2 = get_node("/root/Maailma/%Muuta/%Taso2Teleport").position
+@onready var pelaaja_taso3 = get_node("/root/Maailma/%Muuta/%Taso3Teleport").position
 
 ## vihollisen äänenkorkeuden kerroin
 var vihollisen_aanenkorkeuden_kerroin = 1
@@ -85,6 +85,37 @@ func _ready():
 	self.add_child(tausta.instantiate())
 
 
+## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process
+## Kutsutaan vain kun painetaan jotain
+func _input(_event: InputEvent) -> void:
+	# F2
+	if Input.is_action_just_pressed("taso2"):
+		"""
+		ovet = Array()
+		# Hyvin scuffed tapa, mutta toimii (kait?)
+		get_tree().change_scene_to_packed(taso2)
+		get_tree().root.add_child(t2.instantiate())
+		_ready()
+		# get_node("/root/Maailma2").free()
+		"""
+		pelaaja.position = pelaaja_taso2
+	
+	# F3
+	if Input.is_action_just_pressed("taso3"):
+		pelaaja.position = pelaaja_taso3
+		# get_node("/root/@Node2D@65").queue_free() # Poistetaan duplikoitu maailma2
+	
+	# Pelin keskeytys
+	# PC Escape
+	# PS4/PS5 Options
+	if Input.is_action_just_pressed("pause"):
+		if get_tree().paused == false:
+			pausePeli()
+			# Asetetaan inputti "syödyksi", sitä ei käsitellä enää missään muualla
+			# Esim. pause-menun skriptissä, jossa pelin jatkuminen
+			get_viewport().set_input_as_handled()
+
+
 ## Kutsutaan joka frame
 ## Käytetään ohjaamaan vihollisen äänenkorkeutta vertaamalla vihollisen ja pelaajan y-koordinaatteja
 func _process(_delta):
@@ -105,23 +136,6 @@ func _process(_delta):
 	var vihollinen_pitch_shift = AudioServer.get_bus_effect(1, 0)
 	# TODO: korjaa bugi, saa virheellisiä arvoja
 	vihollinen_pitch_shift.pitch_scale = vihollisen_aanenkorkeuden_kerroin
-	
-	# F2
-	if Input.is_action_just_pressed("taso2"):
-		"""
-		ovet = Array()
-		# Hyvin scuffed tapa, mutta toimii (kait?)
-		get_tree().change_scene_to_packed(taso2)
-		get_tree().root.add_child(t2.instantiate())
-		_ready()
-		# get_node("/root/Maailma2").free()
-		"""
-		pelaaja.position = pelaaja_taso2
-	
-	# F3
-	if Input.is_action_just_pressed("taso3"):
-		pelaaja.position = pelaaja_taso3
-		# get_node("/root/@Node2D@65").queue_free() # Poistetaan duplikoitu maailma2
 
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan

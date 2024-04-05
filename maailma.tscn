@@ -25,22 +25,6 @@
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://tooltip_kiipea.tscn" id="24_8j4jx"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5tk56"]
-radius = 14.9721
-height = 34.9547
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ch1mv"]
-radius = 17.4773
-height = 34.9547
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_au6wg"]
-radius = 14.9721
-height = 34.9547
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jmvsr"]
-radius = 17.4773
-height = 34.9547
-
 [sub_resource type="Curve2D" id="Curve2D_h32vt"]
 _data = {
 "points": PackedVector2Array(-1.678, 21.6889, 1.678, -21.6889, 2, -3, 0, 0, 0, 0, 3, -17, 0, 0, 0, 0, 41, -33, 0, 0, 0, 0, 88, -24, -24.7487, -9.8995, 24.7487, 9.8995, 173, 10, -10.6066, -42.4264, 10.6066, 42.4264, 203, 88, 0, 0, 0, 0, 230, 176, 0, 0, 0, 0, 207, 209, 32.2774, -9.41974, -32.2774, 9.41974, 166, 246, 0, 0, 0, 0, 89, 262, 0, 0, 0, 0, -5, 302, 14.2952, -38.6812, -14.2952, 38.6812, -53, 346, 0, 0, 0, 0, -89, 409, 0, -1.88775, 0, 1.88775, -120, 463, 0, 0, 0, 0, -165, 453, 0, 0, 0, 0, -207, 413, 0, 0, 0, 0, -195, 328, 0, 0, 0, 0, -151, 279, 0, 0, 0, 0, -104, 253, 0, 0, 0, 0, -42, 245, 0, 0, 0, 0, -8, 239, 0, 0, 0, 0, 29, 237, 0, 0, 0, 0, 83, 212, 0, 0, 0, 0, 129, 178, 0, 0, 0, 0, 139, 130, 18.2684, 25.0173, -18.2684, -25.0173, 135, 74, 0, 0, 0, 0, 67, 40, 0, 0, 0, 0, 13, 26, 0, 0, 0, 0, 2, -3)
@@ -64,6 +48,22 @@ _data = {
 "points": PackedVector2Array(-5.65685, 27.5772, 5.65685, -27.5772, 0, -1, -65.5159, -0.629961, 65.5159, 0.629961, 36, 49, -31.5111, -0.756618, 31.5111, 0.756618, 229, 40, 0, 0, 0, 0, 344, 36, 0, 0, 0, 0, 478, 28, 0, 0, 0, 0, 610, 16, 0, 0, 0, 0, 750, 12, 0, 0, 0, 0, 891, 8, -68.646, 10.8847, 68.646, -10.8847, 1038, -1, 0, 0, 0, 0, 1102, -20, 0, 0, 0, 0, 1116, -32, 0, 0, 0, 0, 1108, -44, 62.6757, 15.8955, -62.6757, -15.8955, 1065, -53, 0, 0, 0, 0, 902, -33, 86.429, 4.79626, -86.429, -4.79626, 775, -32, 0, 0, 0, 0, 699, -28, 84.8528, -3.53555, -84.8528, 3.53555, 476, -20, 73.2334, 1.77742, -73.2334, -1.77742, 111, -18, 0, 0, 0, 0, 37, -19, 0, 0, 0, 0, 15, -20, 0, 0, 0, 0, 0, -1)
 }
 point_count = 21
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5tk56"]
+radius = 14.9721
+height = 34.9547
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ch1mv"]
+radius = 17.4773
+height = 34.9547
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_au6wg"]
+radius = 14.9721
+height = 34.9547
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jmvsr"]
+radius = 17.4773
+height = 34.9547
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 script = ExtResource("1_sggs7")
@@ -175,6 +175,45 @@ floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
 floor_snap_length = 14.0
+
+[node name="Perhoset" type="Node2D" parent="."]
+rotation = -0.00132818
+
+[node name="Perhonen_3" parent="Perhoset" instance=ExtResource("13_ufso7")]
+position = Vector2(6158.02, 738.18)
+rotation = 0.00132818
+
+[node name="Path2D" type="Path2D" parent="Perhoset/Perhonen_3"]
+position = Vector2(0, 1)
+curve = SubResource("Curve2D_h32vt")
+
+[node name="Perhonen2_3" parent="Perhoset" instance=ExtResource("13_ufso7")]
+position = Vector2(4554.06, 1464.05)
+rotation = 0.00132818
+
+[node name="Path2D" type="Path2D" parent="Perhoset/Perhonen2_3"]
+position = Vector2(-12, -24)
+curve = SubResource("Curve2D_fl3c8")
+
+[node name="Perhonen_2" parent="Perhoset" instance=ExtResource("13_ufso7")]
+position = Vector2(4863.89, -1420.54)
+rotation = 0.00132818
+
+[node name="Path2D" type="Path2D" parent="Perhoset/Perhonen_2"]
+position = Vector2(-2, 3)
+curve = SubResource("Curve2D_gn40s")
+
+[node name="Perhonen2_2" parent="Perhoset" instance=ExtResource("13_ufso7")]
+position = Vector2(4158.83, -622.477)
+rotation = 0.00132818
+
+[node name="Path2D" type="Path2D" parent="Perhoset/Perhonen2_2"]
+position = Vector2(-18, -14)
+curve = SubResource("Curve2D_mw22o")
+
+[node name="Perhonen6" parent="Perhoset" instance=ExtResource("13_ufso7")]
+position = Vector2(1626.09, 684.16)
+rotation = 0.00132818
 
 [node name="Kukat" type="Node2D" parent="."]
 rotation = -0.00132818
@@ -456,37 +495,6 @@ collision_layer = 8
 position = Vector2(-0.284943, 1.38524)
 shape = SubResource("CapsuleShape2D_jmvsr")
 
-[node name="Perhonen_3" parent="." instance=ExtResource("13_ufso7")]
-position = Vector2(6159, 730)
-
-[node name="Path2D" type="Path2D" parent="Perhonen_3"]
-position = Vector2(0, 1)
-curve = SubResource("Curve2D_h32vt")
-
-[node name="Perhonen2_3" parent="." instance=ExtResource("13_ufso7")]
-position = Vector2(4556, 1458)
-
-[node name="Path2D" type="Path2D" parent="Perhonen2_3"]
-position = Vector2(-12, -24)
-curve = SubResource("Curve2D_fl3c8")
-
-[node name="Perhonen_2" parent="." instance=ExtResource("13_ufso7")]
-position = Vector2(4862, -1427)
-
-[node name="Path2D" type="Path2D" parent="Perhonen_2"]
-position = Vector2(-2, 3)
-curve = SubResource("Curve2D_gn40s")
-
-[node name="Perhonen2_2" parent="." instance=ExtResource("13_ufso7")]
-position = Vector2(4158, -628)
-
-[node name="Path2D" type="Path2D" parent="Perhonen2_2"]
-position = Vector2(-18, -14)
-curve = SubResource("Curve2D_mw22o")
-
-[node name="Perhonen6" parent="." instance=ExtResource("13_ufso7")]
-position = Vector2(1627, 682)
-
 [node name="Node2D" type="Node2D" parent="."]
 process_mode = 4
 
@@ -633,30 +641,33 @@ position = Vector2(2617, 424)
 rotation = 1.91135
 scale = Vector2(0.495335, 1.15089)
 
-[node name="Aarre" type="Marker2D" parent="."]
+[node name="Muuta" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Aarre" type="Marker2D" parent="Muuta"]
 position = Vector2(2366, -177)
 
-[node name="Taso2Teleport" type="Node2D" parent="."]
+[node name="Taso2Teleport" type="Node2D" parent="Muuta"]
 unique_name_in_owner = true
 position = Vector2(3747, -1154)
 
-[node name="Taso3Teleport" type="Node2D" parent="."]
+[node name="Taso3Teleport" type="Node2D" parent="Muuta"]
 unique_name_in_owner = true
 position = Vector2(5717, 2136)
 
-[node name="Huilu1" type="Marker2D" parent="."]
+[node name="Huilu1" type="Marker2D" parent="Muuta"]
 position = Vector2(3147, 202)
 
-[node name="TP_kentan1loppu" type="Marker2D" parent="."]
+[node name="TP_kentan1loppu" type="Marker2D" parent="Muuta"]
 position = Vector2(6730, -935)
 
-[node name="Ovipuzzle" type="Marker2D" parent="."]
+[node name="Ovipuzzle" type="Marker2D" parent="Muuta"]
 position = Vector2(7918, -524)
 
-[node name="TP_kentan1loppu2" type="Marker2D" parent="."]
+[node name="TP_kentan1loppu2" type="Marker2D" parent="Muuta"]
 position = Vector2(7110, 19)
 
-[node name="Alkuanimaatio" type="Marker2D" parent="."]
+[node name="Alkuanimaatio" type="Marker2D" parent="Muuta"]
 position = Vector2(1309, 134)
 
 [connection signal="body_entered" from="Kukat/Kukka_2" to="Kukat/Kukka_2" method="_on_body_entered"]

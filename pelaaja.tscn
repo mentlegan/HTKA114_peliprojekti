@@ -334,7 +334,6 @@ z_index = 99
 texture_filter = 1
 material = ExtResource("5_gdn2h")
 position = Vector2(64, 0)
-scale = Vector2(1, 1)
 emitting = false
 amount = 5
 texture = ExtResource("22_fot2n")
