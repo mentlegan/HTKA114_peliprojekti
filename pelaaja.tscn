@@ -213,16 +213,17 @@ position = Vector2(3, -1)
 scale = Vector2(6, 6)
 shape = SubResource("CapsuleShape2D_u7j51")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.933333, 0.854902, 0.564706, 1)
-shadow_enabled = true
-texture = ExtResource("2_gc81g")
-
 [node name="PimeaValo" type="PointLight2D" parent="."]
 visible = false
 blend_mode = 1
 texture = SubResource("GradientTexture2D_lbg0v")
 texture_scale = 15.22
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.933333, 0.854902, 0.564706, 1)
+blend_mode = 2
+shadow_enabled = true
+texture = ExtResource("2_gc81g")
 
 [node name="Animaatio" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
