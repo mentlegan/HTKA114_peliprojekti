@@ -139,9 +139,6 @@ func _ready():
 	aanen_taajuus_ajastin.timeout.connect(
 		func(): aanen_taajuus_sprite.visible = false
 	)
-	huilun_cd_ajastin.timeout.connect(
-		func(): huilun_cd_ajastin.stop()
-	)
 	
 	# Asetetaan äänen taajuus yhdeksi
 	vaihda_aanen_taajuutta(-10)

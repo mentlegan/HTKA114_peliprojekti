@@ -359,9 +359,11 @@ visible = false
 polygon = PackedVector2Array(0, 0, 23, -58, 360, -150, 430, -110, 473, 0, 430, 110, 360, 150, 23, 58)
 
 [node name="NakyvyysAjastin" type="Timer" parent="Huilu"]
+one_shot = true
 
 [node name="CooldownAjastin" type="Timer" parent="Huilu"]
 wait_time = 3.0
+one_shot = true
 
 [node name="AanenTaajuus" type="AnimatedSprite2D" parent="."]
 visible = false
