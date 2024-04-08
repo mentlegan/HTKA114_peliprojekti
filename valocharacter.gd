@@ -59,13 +59,11 @@ func destroy():
 ## _ovi_ylin on ylin node, joka sisältää kaikki tason ovet
 ## if_y kertoo osuuko pallo oveen y, tällöin käydään kaikki ovet aina läpi
 func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
-	# Alustetaan ovet vasta silmukassa
+	# Alustetaan ovet vasta silmukassa tarvittaessa
 	var ovi_v_x = null
 	var ovi_o_x = null
-	
 	var ovi_v_y = null
 	var ovi_o_y = null
-	
 	var ovi_v_z = null
 	var ovi_o_z = null
 	
@@ -77,17 +75,6 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 	var tason_ovet = ovi_ylin.get_children()
 	
 	for ovi in tason_ovet:
-		# Täytyy alustaa uudelleen, jotta sama ovi ei mene
-		# monelle ovi-nodelle lapseksi
-		ovi_v_x = ovi_vasen_x.instantiate()
-		ovi_o_x = ovi_oikea_x.instantiate()
-		
-		ovi_v_y = ovi_vasen_y.instantiate()
-		ovi_o_y = ovi_oikea_y.instantiate()
-		
-		ovi_v_z = ovi_vasen_z.instantiate()
-		ovi_o_z = ovi_oikea_z.instantiate()
-		
 		# Ehto sille, mille oville tehdään operaatio   tämä vain, kun osuu y (kaikki ovet)
 		if ovi.is_in_group(kirjain) or ovi.is_in_group("y") or if_y:
 			if ovi.get_child_count() == 0:
@@ -97,22 +84,28 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 				# x
 				if ryhmat.has("x"):
 					if ryhmat.has("oviV"):
+						ovi_v_x = ovi_vasen_x.instantiate()
 						ovi.add_child(ovi_v_x)
 					else:
+						ovi_o_x = ovi_oikea_x.instantiate()
 						ovi.add_child(ovi_o_x)
 				
 				# y
 				elif ryhmat.has("y"):
 					if ryhmat.has("oviV"):
+						ovi_v_y = ovi_vasen_y.instantiate()
 						ovi.add_child(ovi_v_y)
 					else:
+						ovi_o_y = ovi_oikea_y.instantiate()
 						ovi.add_child(ovi_o_y)
 				
 				# z
 				if ryhmat.has("z"):
 					if ryhmat.has("oviV"):
+						ovi_v_z = ovi_vasen_z.instantiate()
 						ovi.add_child(ovi_v_z)
 					else:
+						ovi_o_z = ovi_oikea_z.instantiate()
 						ovi.add_child(ovi_o_z)
 			else: # Tuhotaan
 				var lapset = ovi.get_children()
