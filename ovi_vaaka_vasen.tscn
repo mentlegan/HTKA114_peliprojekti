@@ -11,7 +11,6 @@ rotation = -1.54462
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.45233, -47.3078)
-rotation = 3.14159
 scale = Vector2(0.431053, 3.34782)
 texture = ExtResource("1_crlcv")
 
