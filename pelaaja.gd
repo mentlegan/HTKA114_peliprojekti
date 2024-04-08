@@ -75,7 +75,7 @@ var hiiri_kaytossa = true
 var hiiren_viime_sijainti = Vector2(0, 0)
 
 ## Ladataan valmiiksi valopallo
-var light = preload("res://valo_character.tscn")
+var valopallo = preload("res://valo_character.tscn")
 
 ## Asetetaan pelaajan nopeus ja hypyt
 const MAX_NOPEUS = 200.0
@@ -364,7 +364,7 @@ func _physics_process(delta):
 		# Tällä hetkellä 2 maksimissaan
 		if Globaali.nykyiset_pallot < 2 and Globaali.palloja > 0:
 			# Valon synnyttäminen
-			var l = light.instantiate()
+			var l = valopallo.instantiate()
 			# Liikkuminen valon scriptissä
 			l.move(self.position, valon_kohde + global_position)
 			# Lisääminen puuhun
@@ -381,9 +381,6 @@ func _physics_process(delta):
 		vaihda_aanen_taajuutta(1)
 	
 	if Input.is_action_just_pressed("painike_oikea"):
-		# Valopallo scriptissä tuhotaan kaikki valopallot, varmaan muutettava
-		Globaali.nykyiset_pallot = 0
-
 		# Asetetaan huilu näkyviin hetkeksi ja käännetään se hiiren suuntaan
 		if huilun_cd_ajastin.is_stopped():
 			huilun_sprite.visible = true

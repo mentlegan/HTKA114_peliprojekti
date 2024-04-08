@@ -143,6 +143,7 @@ func _physics_process(delta):
 		# Tuhotaan valopallo kokonaan
 		audio_valopallo_hajoaa.play() # TODO: Jostain syystä ei soi
 		queue_free()
+		Globaali.nykyiset_pallot = 0
 	
 	# Valon liikkuminen
 	var collision = move_and_collide(velocity * delta)
