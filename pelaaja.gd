@@ -106,6 +106,16 @@ var kiipeamis_toggle = false
 var hyppy_ajastin = Timer.new()
 const SEINAHYPPY_BUFFER = 0.1 ## Kuinka kauan seinältä voi olla poissa, niin että pelaaja saa vielä hypätä (sekunteina)
 
+## Pelaajan elämäpisteet
+var pelaajan_elamat = 1
+
+## Miten pitkästi pelaaja voi tippua, kunnes siitä ottaa vahinkoa
+var putoamis_raja = 200
+## Tarkistetaako maahan osuessa pudotuksen pituus, putoamis vahinkoa varten
+var putoamis_vahinko = false
+## Miltä korkeudelta pelaajan pudotus alkoi
+var putoamis_huippu = get_global_position().y
+
 
 func _ready():
 	# Lisätään ajastimet pimeän tarkistukselle ja seinähypylle lapsiksi
@@ -169,6 +179,7 @@ func siirrytty_varjoon():
 ## Tähän lisätty signaalin emit
 func kuolema():
 	audio_pelaaja_kuolee.play() # TODO: Korjaa toimivaksi. Ei kuulu, koska kaikki pausetetaan
+	pelaajan_elamat = 1
 	kuollut.emit()
 
 
@@ -181,6 +192,7 @@ func hyppy_buffer():
 func seinalla():
 	onko_seinalla = true
 	hyppy_ajastin.stop()
+	putoamis_vahinko = false
 	if hyppyjen_maara < 1:
 		hyppyjen_maara += 1
 
@@ -218,6 +230,9 @@ func _physics_process(delta):
 		if onko_seinalla and hyppy_ajastin.is_stopped():
 			hyppy_ajastin.start(SEINAHYPPY_BUFFER)
 		velocity.y += gravity * delta
+		if not putoamis_vahinko:
+			putoamis_vahinko = true
+			putoamis_huippu = get_global_position().y
 		# Seinää vasten liikkuessa kiipeää tai tippuu
 	elif is_on_wall() and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
 		velocity.y = -gravity * delta * 6
@@ -230,11 +245,16 @@ func _physics_process(delta):
 		velocity.y = 0
 		if is_on_wall():
 			seinalla()
-		
+
 	# Hyppy takaisin kun maassa
 	if is_on_floor():
 		hyppyjen_maara = 0
 		onko_seinalla = false
+		if putoamis_vahinko and (get_global_position().y - putoamis_huippu) > putoamis_raja:
+			pelaajan_elamat -= 1
+			putoamis_vahinko = false
+			if pelaajan_elamat <= 0:
+				kuolema()
 	
 	
 	## Tehdään hyppy
