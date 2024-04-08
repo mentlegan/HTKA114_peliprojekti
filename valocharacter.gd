@@ -58,7 +58,7 @@ func destroy():
 ## Attribuuttina tulee ryhmän nimi (x tai z)
 ## _ovi_ylin on ylin node, joka sisältää kaikki tason ovet
 ## if_y kertoo osuuko pallo oveen y, tällöin käydään kaikki ovet aina läpi
-func change_doorsXYZ(_letter, _ovi_ylin, if_y):
+func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 	# Alustetaan ovet vasta silmukassa
 	var ovi_v_x = null
 	var ovi_o_x = null
@@ -70,7 +70,7 @@ func change_doorsXYZ(_letter, _ovi_ylin, if_y):
 	var ovi_o_z = null
 	
 	# Tallenetaan kirjain
-	var letter = _letter
+	var kirjain = _kirjain
 	# Talteen node, joka sisältää tason ovet. Käytetään vielä ristiovessa
 	var ovi_ylin = _ovi_ylin
 	# Varsinaiset muokattavat ovet
@@ -89,7 +89,7 @@ func change_doorsXYZ(_letter, _ovi_ylin, if_y):
 		ovi_o_z = ovi_oikea_z.instantiate()
 		
 		# Ehto sille, mille oville tehdään operaatio   tämä vain, kun osuu y (kaikki ovet)
-		if ovi.is_in_group(letter) or ovi.is_in_group("y") or if_y:
+		if ovi.is_in_group(kirjain) or ovi.is_in_group("y") or if_y:
 			if ovi.get_child_count() == 0:
 				# Listään ovi-nodeille lapseksi vasemmalta
 				# tai oikealta aukeava ovi riippuen ryhmästä:
@@ -176,28 +176,28 @@ func _physics_process(delta):
 			# Kirjain ovien muokkauksille
 			# Ei voi ottaa suoraan ryhmistä, koska taulukon järjestys ei pysy aina samana,
 			# voisi ottaa jos karsisi pois oviV tai oviO
-			var letter
+			var kirjain
 			
 			# Ovien muokkaus
 			# X ja y
 			if groups.has("x"):
-				letter = "x"
-				change_doorsXYZ(letter, ovi_ylin, false)
+				kirjain = "x"
+				change_doorsXYZ(kirjain, ovi_ylin, false)
 			
 			# Kaikki ovet x, y, z
 			elif groups.has("y"):
-				letter = "" # Ei väliä
-				change_doorsXYZ(letter, ovi_ylin, true)
+				kirjain = "" # Ei väliä
+				change_doorsXYZ(kirjain, ovi_ylin, true)
 			
 			# Y ja z
 			elif groups.has("z"):
-				letter = "z"
-				change_doorsXYZ(letter, ovi_ylin, false)
+				kirjain = "z"
+				change_doorsXYZ(kirjain, ovi_ylin, false)
 			
 			# Ristiovi
 			elif groups.has("risti"):
-				letter = ""
-				change_doorsXYZ(letter, ovi_ylin, false)
+				kirjain = ""
+				change_doorsXYZ(kirjain, ovi_ylin, false)
 			
 			# Voisiko olla parempi tapa?
 			"""
@@ -216,7 +216,11 @@ func _physics_process(delta):
 			velocity = velocity.bounce(collision.get_normal())
 			# Pienennetään valon energiaa
 			audio_valopallon_kimpoaminen.play()
+			# Vähennetään kirkkautta kimmotessa
 			valo.energy *= 0.8
+			# Keskimäärin vähennetään nopeutta hiukan kimmotessa
+			# Voi joskus myös nopeutua :)
+			velocity *= randf_range(0.8, 1.1)
 			# Lisätään kimmotusten määrää
 			kimpoamiset += 1
 			if kimpoamiset >= 5:
