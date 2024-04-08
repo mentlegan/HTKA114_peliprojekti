@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://perhonen.tscn" id="13_pip84"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://vihollinen.tscn" id="14_ibbcy"]
 [ext_resource type="PackedScene" uid="uid://b6cwc10i6c0w4" path="res://kuoppa.tscn" id="15_lm0b0"]
-[ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://ovi_vasen.tscn" id="16_arssj"]
-[ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://ovi_oikea.tscn" id="17_nf7l5"]
+[ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://ovi_vasen_x.tscn" id="16_arssj"]
+[ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://ovi_oikea_x.tscn" id="17_nf7l5"]
 [ext_resource type="PackedScene" uid="uid://8dvswt3oh3iq" path="res://ovi_pysty_oikea.tscn" id="18_gv4dt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_adu2w"]

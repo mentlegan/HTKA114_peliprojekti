@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bir0xnr31j2qx"]
 
-[ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://icon.svg" id="1_hrtvu"]
+[ext_resource type="Texture2D" uid="uid://bnxce3fiyxehx" path="res://grafiikka/VineDoorClosedHalfStickLeftDead.png" id="1_crlcv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb28"]
 size = Vector2(11, 424.169)
@@ -10,10 +10,10 @@ position = Vector2(-30, 0)
 rotation = -1.54462
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.77545, -47.3078)
+position = Vector2(-1.45233, -47.3078)
 rotation = 3.14159
-scale = Vector2(0.234, 3.34782)
-texture = ExtResource("1_hrtvu")
+scale = Vector2(0.431053, 3.34782)
+texture = ExtResource("1_crlcv")
 
 [node name="Osuu" type="StaticBody2D" parent="." groups=["oviAVAA"]]
 position = Vector2(6, 1)

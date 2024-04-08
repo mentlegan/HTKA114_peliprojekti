@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjtq0prowl168"]
 
-[ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://icon.svg" id="1_vf814"]
+[ext_resource type="Texture2D" uid="uid://ccdcq4wb0m36" path="res://grafiikka/VineDoorClosedRightDead.png" id="1_5tevd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb28"]
 size = Vector2(11, 124)
@@ -8,9 +8,9 @@ size = Vector2(11, 124)
 [node name="Ovi_vasen" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, 0.5)
-scale = Vector2(0.234377, 0.992187)
-texture = ExtResource("1_vf814")
+position = Vector2(-2, 0.999981)
+scale = Vector2(0.4375, 0.984375)
+texture = ExtResource("1_5tevd")
 
 [node name="Osuu" type="StaticBody2D" parent="." groups=["oviAVAA"]]
 position = Vector2(-11, 1)

@@ -8,8 +8,15 @@ extends CharacterBody2D
 var SPEED = 110.0
 
 ## Ladataan ovet valmiiksi
-@onready var ovi_vasen = preload("res://ovi_vasen.tscn")
-@onready var ovi_oikea = preload("res://ovi_oikea.tscn")
+## Tehty nyt näin manuaalisesti eri assetteina, jotta esimerkiksi ovia voi venyttää
+## Jos tehtäisiin kaikki koodin puolell1a (esim. tekstuurien laittaminen), ei voisi näin tehdä
+@onready var ovi_vasen_x = preload("res://ovi_vasen_x.tscn")
+@onready var ovi_oikea_x = preload("res://ovi_oikea_x.tscn")
+@onready var ovi_vasen_y = preload("res://ovi_vasen_y.tscn")
+@onready var ovi_oikea_y = preload("res://ovi_oikea_y.tscn")
+@onready var ovi_vasen_z = preload("res://ovi_vasen_z.tscn")
+@onready var ovi_oikea_z = preload("res://ovi_oikea_z.tscn")
+
 @onready var ovi_pysty_oikea = preload("res://ovi_pysty_oikea.tscn")
 @onready var ovi_vaaka_vasen = preload("res://ovi_vaaka_vasen.tscn")
 
@@ -49,11 +56,18 @@ func destroy():
 
 ## Muuttaa ovet, jos valopallo osuu x tai z oveen
 ## Attribuuttina tulee ryhmän nimi (x tai z)
+## _ovi_ylin on ylin node, joka sisältää kaikki tason ovet
 ## if_y kertoo osuuko pallo oveen y, tällöin käydään kaikki ovet aina läpi
 func change_doorsXYZ(_letter, _ovi_ylin, if_y):
 	# Alustetaan ovet vasta silmukassa
-	var ovi_v = null
-	var ovi_o = null
+	var ovi_v_x = null
+	var ovi_o_x = null
+	
+	var ovi_v_y = null
+	var ovi_o_y = null
+	
+	var ovi_v_z = null
+	var ovi_o_z = null
 	
 	# Tallenetaan kirjain
 	var letter = _letter
@@ -65,18 +79,41 @@ func change_doorsXYZ(_letter, _ovi_ylin, if_y):
 	for ovi in tason_ovet:
 		# Täytyy alustaa uudelleen, jotta sama ovi ei mene
 		# monelle ovi-nodelle lapseksi
-		ovi_v = ovi_vasen.instantiate()
-		ovi_o = ovi_oikea.instantiate()
+		ovi_v_x = ovi_vasen_x.instantiate()
+		ovi_o_x = ovi_oikea_x.instantiate()
+		
+		ovi_v_y = ovi_vasen_y.instantiate()
+		ovi_o_y = ovi_oikea_y.instantiate()
+		
+		ovi_v_z = ovi_vasen_z.instantiate()
+		ovi_o_z = ovi_oikea_z.instantiate()
 		
 		# Ehto sille, mille oville tehdään operaatio   tämä vain, kun osuu y (kaikki ovet)
 		if ovi.is_in_group(letter) or ovi.is_in_group("y") or if_y:
 			if ovi.get_child_count() == 0:
 				# Listään ovi-nodeille lapseksi vasemmalta
-				# tai oikealta aukeava ovi riippuen ryhmästä
-				if ovi.is_in_group("oviV"):
-					ovi.add_child(ovi_v)
-				elif ovi.is_in_group("oviO"):
-					ovi.add_child(ovi_o)
+				# tai oikealta aukeava ovi riippuen ryhmästä:
+				var ryhmat = ovi.get_groups()
+				# x
+				if ryhmat.has("x"):
+					if ryhmat.has("oviV"):
+						ovi.add_child(ovi_v_x)
+					else:
+						ovi.add_child(ovi_o_x)
+				
+				# y
+				elif ryhmat.has("y"):
+					if ryhmat.has("oviV"):
+						ovi.add_child(ovi_v_y)
+					else:
+						ovi.add_child(ovi_o_y)
+				
+				# z
+				if ryhmat.has("z"):
+					if ryhmat.has("oviV"):
+						ovi.add_child(ovi_v_z)
+					else:
+						ovi.add_child(ovi_o_z)
 			else: # Tuhotaan
 				var lapset = ovi.get_children()
 				for lapsi in lapset:
@@ -89,10 +126,11 @@ func change_doorsXYZ(_letter, _ovi_ylin, if_y):
 		
 		# Tuhotaan kaikki lapset varmistukseksi
 		var ristit = Globaali.ovi_risti.get_children()
+		var aikaisempi = ristit[0].get_name()
 		for risti in ristit:
 			risti.queue_free()
 		
-		if Globaali.pystyssa == true:
+		if aikaisempi == "Ovi_pysty_oikea":
 			Globaali.ovi_risti.add_child(ovi_vaaka)
 			Globaali.pystyssa = false
 		else:
@@ -135,6 +173,8 @@ func _physics_process(delta):
 			## PELISUUNNITELMASSA ON AVATTU OVIEN TOIMINNALLISUUS, TÄSSÄ VAIN TOTEUTUS
 			
 			# Kirjain ovien muokkauksille
+			# Ei voi ottaa suoraan ryhmistä, koska taulukon järjestys ei pysy aina samana,
+			# voisi ottaa jos karsisi pois oviV tai oviO
 			var letter
 			
 			# Ovien muokkaus

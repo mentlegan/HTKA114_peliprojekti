@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=29 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://ss2d_varjot.gd" id="2_a4qf7"]
@@ -8,14 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://game_over_ruutu.tscn" id="9_er4wh"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://vihollinen.tscn" id="12_u46m1"]
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://perhonen.tscn" id="13_ufso7"]
+[ext_resource type="PackedScene" uid="uid://d3kjiqbvins4c" path="res://ovi_vasen_z.tscn" id="13_vnqp0"]
+[ext_resource type="PackedScene" uid="uid://bmu1me3chb6d" path="res://ovi_oikea_z.tscn" id="14_6n7yc"]
 [ext_resource type="PackedScene" uid="uid://dfcuf6ogfruj6" path="res://kukka.tscn" id="14_332fg"]
 [ext_resource type="PackedScene" uid="uid://8dvswt3oh3iq" path="res://ovi_pysty_oikea.tscn" id="15_bna8j"]
 [ext_resource type="PackedScene" uid="uid://b6cwc10i6c0w4" path="res://kuoppa.tscn" id="15_nofhg"]
-[ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://ovi_vasen.tscn" id="16_8728b"]
+[ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://ovi_vasen_x.tscn" id="16_8728b"]
 [ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://tooltip_liiku.tscn" id="18_yqpof"]
 [ext_resource type="PackedScene" uid="uid://htoyrgaml8l2" path="res://tooltip_juokse.tscn" id="19_ng21i"]
 [ext_resource type="PackedScene" uid="uid://daeaotnb7peu2" path="res://piikki.tscn" id="19_qwqpv"]
-[ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://ovi_oikea.tscn" id="20_155o0"]
+[ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://tooltip_heita.tscn" id="21_ql1ss"]
 [ext_resource type="PackedScene" uid="uid://bukv6x5qpfus" path="res://uusiVihollinen.tscn" id="22_nrhn1"]
@@ -80,8 +82,8 @@ texture_repeat = 2
 polygon = PackedVector2Array(2948, -132, 3000, -93, 3024, -63, 3040, -13, 3043, 72, 3048, 122, 2706, 126, 2439, 164, 2113, 250, 2030, 295, 1954, 376, 1956, 464, 2004, 521, 2082, 562, 2118, 568, 2319, 566, 2420, 631, 1902, 629, 1873, 543, 1844, 493, 1813, 414, 1801, 276, 1730, 207, 1599, 184, 1680, 144, 1672, 70, 1622, 38, 1414, 56, 1242, 35, 964, 55, 866, 66, 628, 136, 462, 75, 516, -116)
 
 [node name="Polygon2D3" type="Polygon2D" parent="Tiilet"]
-position = Vector2(-10, -5)
-polygon = PackedVector2Array(2390, 559, 2660, 565, 2679, 582, 2672, 599, 2645, 617, 2492, 628)
+position = Vector2(-10, -4)
+polygon = PackedVector2Array(2384, 564, 2660, 565, 2695, 577, 2690, 606, 2680, 613, 2666, 616, 2657, 623, 2651, 633, 2609, 633, 2560, 634, 2485, 635)
 
 [node name="Polygon2D5" type="Polygon2D" parent="Tiilet"]
 position = Vector2(387, -2)
@@ -310,12 +312,12 @@ rotation = -0.00243501
 [node name="Ovet_1" type="Node2D" parent="Koynnosovet"]
 
 [node name="Ovi_x" type="Node2D" parent="Koynnosovet/Ovet_1" groups=["oviV", "x"]]
-position = Vector2(2189.31, 698.333)
+position = Vector2(2189.31, 699.333)
 
-[node name="Ovi_vasen" parent="Koynnosovet/Ovet_1/Ovi_x" instance=ExtResource("16_8728b")]
+[node name="Ovi_vasen_x" parent="Koynnosovet/Ovet_1/Ovi_x" instance=ExtResource("16_8728b")]
 
 [node name="Ovi2_x" type="Node2D" parent="Koynnosovet/Ovet_1" groups=["oviO", "x"]]
-position = Vector2(2690, 697)
+position = Vector2(2618.3, 699.378)
 
 [node name="Ovi3_y" type="Node2D" parent="Koynnosovet/Ovet_1" groups=["oviO", "y"]]
 position = Vector2(2236, 506)
@@ -340,12 +342,12 @@ position = Vector2(4517.8, -1144)
 position = Vector2(3944.1, -857.399)
 rotation = -0.693876
 
-[node name="Ovi_vasen" parent="Koynnosovet/Ovet_2/Ovi4_z_2" instance=ExtResource("16_8728b")]
+[node name="Ovi_vasen_z" parent="Koynnosovet/Ovet_2/Ovi4_z_2" instance=ExtResource("13_vnqp0")]
 
 [node name="Ovi5_z_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviO", "z"]]
 position = Vector2(4726.07, -845.494)
 
-[node name="Ovi_oikea" parent="Koynnosovet/Ovet_2/Ovi5_z_2" instance=ExtResource("20_155o0")]
+[node name="Ovi_oikea_z" parent="Koynnosovet/Ovet_2/Ovi5_z_2" instance=ExtResource("14_6n7yc")]
 
 [node name="Ovet_3" type="Node2D" parent="Koynnosovet"]
 
@@ -353,14 +355,14 @@ position = Vector2(4726.07, -845.494)
 position = Vector2(7107, 829.308)
 rotation = 1.47207
 
-[node name="Ovi_vasen" parent="Koynnosovet/Ovet_3/Ovi_x_3" instance=ExtResource("16_8728b")]
+[node name="Ovi_vasen_x" parent="Koynnosovet/Ovet_3/Ovi_x_3" instance=ExtResource("16_8728b")]
 position = Vector2(-3.69549e-06, 8.38041e-05)
 
 [node name="Ovi2_x_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviO", "x"]]
 position = Vector2(4162, 381)
 rotation = 1.46682
 
-[node name="Ovi_oikea" parent="Koynnosovet/Ovet_3/Ovi2_x_3" instance=ExtResource("20_155o0")]
+[node name="Ovi_oikea_x" parent="Koynnosovet/Ovet_3/Ovi2_x_3" instance=ExtResource("20_155o0")]
 
 [node name="Ovi7_x_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviV", "x"]]
 position = Vector2(4664, 816)
@@ -380,7 +382,7 @@ position = Vector2(4717, 1279)
 [node name="Ovi6_z_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviO", "z"]]
 position = Vector2(6237.71, 535.19)
 
-[node name="Ovi_oikea" parent="Koynnosovet/Ovet_3/Ovi6_z_3" instance=ExtResource("20_155o0")]
+[node name="Ovi_oikea_z" parent="Koynnosovet/Ovet_3/Ovi6_z_3" instance=ExtResource("14_6n7yc")]
 
 [node name="Tooltipit" type="CanvasGroup" parent="."]
 
@@ -420,6 +422,7 @@ scale = Vector2(0.495335, 1.15089)
 
 [node name="Muuta" type="Node2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(1, 0)
 
 [node name="Aarre" type="Marker2D" parent="Muuta"]
 position = Vector2(2366, -177)

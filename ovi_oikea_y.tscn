@@ -1,28 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://8dvswt3oh3iq"]
+[gd_scene load_steps=3 format=3 uid="uid://o1g7x7mnf5b"]
 
-[ext_resource type="Texture2D" uid="uid://bnxce3fiyxehx" path="res://grafiikka/VineDoorClosedHalfStickLeftDead.png" id="1_6wtwl"]
+[ext_resource type="Texture2D" uid="uid://bnxce3fiyxehx" path="res://grafiikka/VineDoorClosedHalfStickLeftDead.png" id="1_if71h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb28"]
-size = Vector2(11, 254.001)
+size = Vector2(11, 125.813)
 
-[node name="Ovi_pysty_oikea" type="Node2D"]
+[node name="Ovi_oikea" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2.06187, 1.31187)
-rotation = 3.14159
-scale = Vector2(0.411516, 1.98731)
-texture = ExtResource("1_6wtwl")
+position = Vector2(-2.55681, 0.5)
+scale = Vector2(0.439701, 0.992187)
+texture = ExtResource("1_if71h")
 
 [node name="Osuu" type="StaticBody2D" parent="." groups=["oviAVAA"]]
 position = Vector2(6, 1)
-rotation = 0.000310635
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osuu"]
-position = Vector2(1.90735e-06, -0.000459433)
+position = Vector2(0, -1.1875)
 shape = SubResource("RectangleShape2D_yrb28")
 
 [node name="Kimpoaa" type="StaticBody2D" parent="."]
 position = Vector2(-11, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kimpoaa"]
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_yrb28")

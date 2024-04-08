@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3kjiqbvins4c"]
+
+[ext_resource type="Texture2D" uid="uid://df4t81ry6qmr4" path="res://grafiikka/VineDoorClosedStickRightDead.png" id="1_jhikd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb28"]
+size = Vector2(11, 126)
+
+[node name="Ovi_vasen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 0.999981)
+scale = Vector2(0.4375, 0.984375)
+texture = ExtResource("1_jhikd")
+
+[node name="Osuu" type="StaticBody2D" parent="." groups=["oviAVAA"]]
+position = Vector2(-11, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Osuu"]
+position = Vector2(0, -0.375)
+shape = SubResource("RectangleShape2D_yrb28")
+
+[node name="Kimpoaa" type="StaticBody2D" parent="."]
+position = Vector2(7, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kimpoaa"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_yrb28")

@@ -17,7 +17,7 @@ var piikki = null
 var pelaaja_aloitus = null
 var vihollinen_aloitus = null
 
-## Pelaajan taso2 koordinaatit teleporttaamiseen
+## Pelaajan taso2 ja taso3 koordinaatit teleporttaamiseen
 @onready var pelaaja_taso2 = get_node("/root/Maailma/%Muuta/%Taso2Teleport").position
 @onready var pelaaja_taso3 = get_node("/root/Maailma/%Muuta/%Taso3Teleport").position
 
@@ -47,8 +47,11 @@ var pystyssa = true
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://tausta.tscn")
 
+## Scenen vaihtamiseen, ei luultavasti tarvita
+"""
 @export var taso2 = preload("res://maailma2.tscn")
 var t2 = preload("res://maailma2.tscn")
+"""
 
 ## Yleinen ready
 func _ready():
@@ -127,7 +130,7 @@ func _process(_delta):
 		vihollisen_aanenkorkeuden_kerroin = abs(korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus + 1
 	elif korkeuksien_erotus > 0: # Vihollinen on pelaajan alapuolella, joten halutaan kerroin väliltä [0, 1]
 		# Bugi, jos menee liian korkealle. Arvoksi tulee negatiivinen. nopea korjaus alla
-		vihollisen_aanenkorkeuden_kerroin = 1 - (korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus
+		vihollisen_aanenkorkeuden_kerroin = abs(1 - (korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus)
 		if vihollisen_aanenkorkeuden_kerroin > 1:
 			vihollisen_aanenkorkeuden_kerroin = 1
 	else:
