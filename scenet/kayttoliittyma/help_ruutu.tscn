@@ -1,0 +1,155 @@
+[gd_scene load_steps=24 format=3 uid="uid://d1c6axf23uaq5"]
+
+[ext_resource type="Script" path="res://skriptit/help_ruutu.gd" id="1_nedjx"]
+[ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="1_v1cbn"]
+[ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://scenet/kayttoliittyma/tooltip_liiku.tscn" id="2_mflqa"]
+[ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="3_wx0kr"]
+[ext_resource type="Texture2D" uid="uid://b6tbps0j5gs0v" path="res://grafiikka/PelaajaKavely.png" id="4_7y12j"]
+[ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="5_a54me"]
+[ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="6_mogjd"]
+[ext_resource type="Texture2D" uid="uid://dite5ccabklvd" path="res://grafiikka/LightFlower.png" id="7_ywhbw"]
+[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_pysayta.tscn" id="8_bwust"]
+[ext_resource type="PackedScene" uid="uid://htoyrgaml8l2" path="res://scenet/kayttoliittyma/tooltip_juokse.tscn" id="9_n2ctk"]
+[ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="10_jtjqm"]
+[ext_resource type="Texture2D" uid="uid://d1oyqkmwe7p1i" path="res://grafiikka/OhjainTooltipSelect.png" id="11_sfvnj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6bbm"]
+bg_color = Color(0, 0, 0, 0.984314)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea60a"]
+atlas = ExtResource("4_7y12j")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eujoh"]
+atlas = ExtResource("4_7y12j")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y2lq"]
+atlas = ExtResource("4_7y12j")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wgcy"]
+atlas = ExtResource("4_7y12j")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs2w"]
+atlas = ExtResource("4_7y12j")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kuja"]
+atlas = ExtResource("4_7y12j")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw2yf"]
+atlas = ExtResource("4_7y12j")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aldmb"]
+atlas = ExtResource("4_7y12j")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eov0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea60a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eujoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y2lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wgcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kuja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw2yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aldmb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_i6i2u"]
+light_mode = 1
+
+[node name="Help" type="Control"]
+auto_translate_mode = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_nedjx")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -91.0
+offset_top = -84.0
+offset_right = -51.0
+offset_bottom = -44.0
+scale = Vector2(29.8753, 16.9683)
+theme_override_styles/panel = SubResource("StyleBoxFlat_g6bbm")
+
+[node name="TooltipHeita" parent="." instance=ExtResource("1_v1cbn")]
+position = Vector2(455, 297)
+script = null
+
+[node name="TooltipLiiku" parent="." instance=ExtResource("2_mflqa")]
+position = Vector2(343, 128)
+script = null
+
+[node name="TooltipHyppaa" parent="." instance=ExtResource("3_wx0kr")]
+position = Vector2(454, 127)
+script = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(246, 157)
+sprite_frames = SubResource("SpriteFrames_eov0u")
+
+[node name="TooltipKiipea" parent="." instance=ExtResource("5_a54me")]
+position = Vector2(568, 127)
+script = null
+
+[node name="TooltipPoimi" parent="." instance=ExtResource("6_mogjd")]
+position = Vector2(343, 298)
+script = null
+
+[node name="LightFlower" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(259, 294)
+texture = ExtResource("7_ywhbw")
+
+[node name="TooltipPysayta" parent="." instance=ExtResource("8_bwust")]
+position = Vector2(567, 296)
+script = null
+
+[node name="TooltipJuokse" parent="." instance=ExtResource("9_n2ctk")]
+position = Vector2(679, 127)
+script = null
+
+[node name="ApuaLabel" type="Label" parent="."]
+auto_translate_mode = 1
+material = SubResource("CanvasItemMaterial_i6i2u")
+layout_mode = 0
+offset_left = 830.0
+offset_top = 9.0
+offset_right = 915.0
+offset_bottom = 32.0
+text = "Poistu: F1 /"
+
+[node name="Sprite2D" type="Sprite2D" parent="ApuaLabel"]
+texture_filter = 1
+material = ExtResource("10_jtjqm")
+position = Vector2(104, 13)
+texture = ExtResource("11_sfvnj")

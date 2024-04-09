@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://6kp0g6lrw2mt"]
+
+[ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://grafiikka/tiili.png" id="1_8bduo"]
+
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjx6d"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1woe3"]
+polygon = PackedVector2Array(4, -4, 4, 4, -4, 4, -4, -4)
+
+[node name="Tiili" type="Area2D"]
+scale = Vector2(6, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_8bduo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("RectangleShape2D_tjx6d")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_1woe3")

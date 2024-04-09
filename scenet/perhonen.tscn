@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://dm1ghf6hoypw"]
+
+[ext_resource type="Script" path="res://skriptit/perhonen.gd" id="1_imobc"]
+[ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="2_kexl8"]
+[ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_p0fjj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nepe"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg7v4"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y36mp"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6athy"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppeqm"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21mb1"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhk86"]
+atlas = ExtResource("2_kexl8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nepos"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nepe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg7v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y36mp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6athy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppeqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21mb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhk86")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2q18j"]
+radius = 64.0312
+
+[node name="Perhonen" type="Area2D" groups=["valonlahde"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_imobc")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("2_p0fjj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nepos")
+frame_progress = 0.153834
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2q18j")

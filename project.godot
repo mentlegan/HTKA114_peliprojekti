@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Restless Void"
-run/main_scene="res://maailma.tscn"
+run/main_scene="res://scenet/maailmat/maailma.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://grafiikka/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://tres-tiedostot/default_bus_layout.tres"
 
 [autoload]
 
-Globaali="*res://Globaali.gd"
+Globaali="*res://skriptit/Globaali.gd"
 
 [display]
 

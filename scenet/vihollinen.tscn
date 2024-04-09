@@ -1,0 +1,111 @@
+[gd_scene load_steps=15 format=3 uid="uid://c3iy6ln4bag18"]
+
+[ext_resource type="Script" path="res://skriptit/vihollinen.gd" id="1_8ppmx"]
+[ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://grafiikka/tiili.png" id="1_22viq"]
+[ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="3_shivu"]
+[ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="4_x7yr7"]
+[ext_resource type="AudioStream" uid="uid://cbninhjqk8vnv" path="res://audio/hirvio/hirvioaani2_mono.wav" id="5_6g22y"]
+[ext_resource type="AudioStream" uid="uid://dyo460luf8lv1" path="res://audio/hirvio/hirvioaani3_mono.wav" id="6_n31od"]
+[ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="7_6nu70"]
+[ext_resource type="AudioStream" uid="uid://crbflddm0u661" path="res://audio/hirvio/vihollinen_pakenee1_mono.wav" id="7_vywia"]
+[ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="9_q3xk2"]
+[ext_resource type="AudioStream" uid="uid://xj0qm50xbp3n" path="res://audio/hirvio/vihollisen_liike1_mono.wav" id="9_t8ssk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o7n34"]
+radius = 14.0068
+height = 52.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epnmi"]
+radius = 8.63712
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bsy7y"]
+streams_count = 3
+stream_0/stream = ExtResource("4_x7yr7")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_6g22y")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_n31od")
+stream_2/weight = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ghta"]
+size = Vector2(67.9555, 37)
+
+[node name="Vihollinen" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_8ppmx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.49255e-10, 1.90735e-06)
+rotation = -1.57193
+shape = SubResource("CapsuleShape2D_o7n34")
+
+[node name="Keho" type="Area2D" parent="."]
+position = Vector2(1.86265e-09, 1.90735e-06)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Keho"]
+position = Vector2(-1.86719e-09, 0)
+rotation = -1.57193
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_o7n34")
+
+[node name="tarkkaavaisuus" type="Area2D" parent="."]
+position = Vector2(0, -19)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tarkkaavaisuus"]
+position = Vector2(0, 19)
+scale = Vector2(14.958, 15)
+shape = SubResource("CircleShape2D_epnmi")
+
+[node name="Tiili" type="Sprite2D" parent="."]
+position = Vector2(3.49248e-10, 0)
+rotation = -0.00146985
+scale = Vector2(8.55022, 4.67461)
+texture = ExtResource("1_22viq")
+
+[node name="Label" type="Label" parent="Tiili"]
+offset_left = -2.68878
+offset_top = -1.50468
+offset_right = 75.3112
+offset_bottom = 21.4953
+scale = Vector2(0.0736885, 0.144705)
+text = "Vihollinen"
+
+[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_shivu")
+bus = &"Vihollinen"
+
+[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_bsy7y")
+volume_db = -3.0
+bus = &"Vihollinen"
+
+[node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_vywia")
+volume_db = 16.0
+bus = &"Vihollinen"
+
+[node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_t8ssk")
+volume_db = -7.0
+bus = &"Vihollinen"
+
+[node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("9_q3xk2")
+volume_db = 7.0
+bus = &"Vihollinen"
+
+[node name="ValonTarkistus" parent="." instance=ExtResource("7_6nu70")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ValonTarkistus"]
+shape = SubResource("RectangleShape2D_2ghta")
+
+[connection signal="area_entered" from="Keho" to="." method="_on_keho_area_entered"]
+[connection signal="body_entered" from="Keho" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Keho" to="." method="_on_keho_body_entered"]
+[connection signal="body_entered" from="tarkkaavaisuus" to="." method="_on_tarkkaavaisuus_body_entered"]
+[connection signal="body_exited" from="tarkkaavaisuus" to="." method="_on_tarkkaavaisuus_body_exited"]
