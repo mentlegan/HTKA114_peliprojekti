@@ -5,8 +5,8 @@ extends Node2D
 
 
 # SmartShape2D-materiaalit
-var reunat = preload("res://smart_shape_reunat.tres")
-var tiili = preload("res://smart_shape_tiili.tres")
+var reunat = preload("res://tres-tiedostot/smart_shape_reunat.tres")
+var tiili = preload("res://tres-tiedostot/smart_shape_tiili.tres")
 
 
 # Called when the node enters the scene tree for the first time.

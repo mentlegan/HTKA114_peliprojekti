@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://grafiikka/tiili.png" id="1_8bduo"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjx6d"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1woe3"]
