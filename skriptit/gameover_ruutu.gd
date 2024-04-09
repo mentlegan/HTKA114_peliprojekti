@@ -1,11 +1,11 @@
-## Harri 13.3.2024
+## Harri 9.4.2024
 
 extends Control
 
 ## Tähän voi lisäillä flavor-tekstiä game over-ruutuun, jos sellaisia keksii
 var kuolemateksti = [
 	"May you rest in peace",
-	"The Void has taken you",
+	"The Dark has taken you",
 	"Darkness has fallen"
 ]
 

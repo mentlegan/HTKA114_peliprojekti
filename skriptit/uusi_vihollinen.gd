@@ -1,12 +1,9 @@
-## Harri 5.4.2024
+## Harri 9.4.2024
 ## Vanhan vihollisen saa takaisin: noden Inspector - process - disabled -> inherit
 ## TODO: voisi koittaa kehittää eteenpäin vaikkapa vielä useammalle alueelle
-## Osaa tällä hetkellä:
-## tappaa pelaajan hänen istuessaan liian kauan vihollisen alueella
-## vaihtaa paikkaa kahden alueen välillä saadessaan valopallosta
-## äännähdellä, kun "jahtaa" pelaajaa, tappaa pelaajan, pakenee kaivautumalla alueelta, tai on toimettomana
+## TODO: ei osata käsitellä useampaa uutta vihollista
 extends Node2D
-
+class_name uusiVihollinen
 ## Ajastimet, muuttujat ja signaalit
 signal pelaaja_kuollut ## Pelaajan kuoleman signaali Globaalille
 var pelaaja = null ## Pelaaja, on alussa null
@@ -28,10 +25,16 @@ var light = preload("res://scenet/valo_character.tscn") ## Valon informaatio. Ta
 
 ## Nodet
 ## Käyttää uutta taktiikkaa nodejen saantiin. Aika idioottivarma tapa saada node heittämättä nullia
-@onready var valon_tarkistus = get_node("%ValonTarkistus")
-@onready var valon_tarkistus2 = get_node("%ValonTarkistus2")
-@onready var alue1 = get_node("%alue")
-@onready var alue2 = get_node("%alue2")
+@onready var tarkistukset = get_tree().get_nodes_in_group("newVihollinenValotarkistus")
+#@onready var valon_tarkistus = get_node("%ValonTarkistus")
+#@onready var valon_tarkistus2 = get_node("%ValonTarkistus2")
+@onready var valon_tarkistus = tarkistukset[0]
+@onready var valon_tarkistus2 = tarkistukset[1]
+#@onready var alue1 = get_node("%alue")
+#@onready var alue2 = get_node("%alue2")
+@onready var alueet = get_tree().get_nodes_in_group("newVihollinen")
+@onready var alue1 = alueet[0]
+@onready var alue2 = alueet[1]
 
 ## Kun scene avataan, ready tapahtuu
 func _ready():
@@ -39,9 +42,12 @@ func _ready():
 	nykyinen_alue = alue1
 	# Signaalikäsittelyä
 	idle_audio_ajastin.timeout.connect(_idle_audio_ajastimen_loppuessa)
+	#for i in tarkistukset:
+	#	i.connect("siirrytty_valoon", siirrytty_valoon)
+	#	i.connect("siirrytty_varjoon", siirrytty_varjoon)
 	valon_tarkistus.connect("siirrytty_valoon", siirrytty_valoon)
-	valon_tarkistus.connect("siirrytty_varjoon", siirrytty_varjoon)
-	valon_tarkistus2.connect("siirrytty_valoon", siirrytty_valoon)
+	valon_tarkistus2.connect("siirrytty_varjoon", siirrytty_valoon)
+	valon_tarkistus.connect("siirrytty_valoon", siirrytty_varjoon)
 	valon_tarkistus2.connect("siirrytty_varjoon", siirrytty_varjoon)
 	# Annetaan ajastimet lapsiksi
 	self.add_child(kuolema_ajastin)
@@ -53,6 +59,7 @@ func _ready():
 		siirrytty_valoon()
 	else:
 		siirrytty_varjoon()
+	vaihda_alue(nykyinen_alue)
 
 
 ## Delta kutsutaan joka framella, ei ehkä tarvita?
@@ -77,17 +84,20 @@ func astuttu_alueelle(body):
 			audio_jahtaus.play()
 		var kuolema_aika = rng.randf_range(1.0, 5.0) # Tästä voi säätää ajan kantaman, missä pelaaja voi kuolla viholliseen
 		kuolema_ajastin.start(kuolema_aika) # Aloitetaan jahti
+		print ("Kuolema-aika: " + str(kuolema_aika))
 		#audio_liikkuminen.play() # Kuuluu liikkumisen ääniä, voidaan laittaa myös eri kohtaan
 		await kuolema_ajastin.timeout # Odotetaan, että vihu saa pelaajan kiinni
 		#audio_liikkuminen.stop() # Ei kuulu enää liikkumisen ääniä
 		audio_pelaaja_kuolee.play() # Tapetaan pelaaja erittäin raa'asti
 		pelaaja = body # Varmistetaan vielä, että kyseessä on pelaaja
+		print ("Kuolit viholliseen")
 		kuolema() # Lopulta kuollaan
 
 
 ## Kollektiivinen alueelta poistumisen funktio
 ## TODO: tähän voisi lisäillä jotain hauskaa, jos tulee mieleen
 func poistuttu_alueelta(_body):
+	print ("Turvassa viholliselta")
 	kuolema_ajastin.stop() # Pysäytetään ajastin, että pelaaja ei kuole, vaikka astuisi alueelta pois
 	# Aloitetaan ajastin idle-ääniefektille, jos se on pois päältä
 	if idle_audio_ajastin.is_stopped():
@@ -140,12 +150,13 @@ func _on_alue_2_body_exited(body):
 
 ## Jos vihollinen onkin valossa, vaikkapa valopallon heitosta
 func siirrytty_valoon():
+	audio_pakeneminen.play() # Pelästytään ja äännellään sen mukaisesti
 	vaihda_alue(nykyinen_alue) ## Vaihdetaan nykyinen alue toiseen
+	audio_kaivautuminen.play() # Kaivaudutaan pakoon ja maasta kuuluu hassu ääni
 
 
 ## Vaihdetaan aluetta, eli vihollinen liikkuu, jos päätyy valoon
 func vaihda_alue(alue):
-	audio_pakeneminen.play() # Pelästytään ja äännellään sen mukaisesti
 	alue.process_mode = Node.PROCESS_MODE_DISABLED # Alue deaktivoituu..
 	alue.visible = false # .. ja katoaa näkyvistä, eli vihollinen poistuu alueelta
 	if alue == alue1: # Erotelmaa alueille
@@ -156,7 +167,6 @@ func vaihda_alue(alue):
 		nykyinen_alue = alue1 # Vaihdetaan aluetta
 		alue1.process_mode = Node.PROCESS_MODE_INHERIT # Alue aktivoituu..
 		alue1.visible = true # .. ja tulee näkyviin, eli vihollinen saapuu alueelle
-	audio_kaivautuminen.play() # Kaivaudutaan pakoon ja maasta kuuluu hassu ääni
 
 
 ## Ei varmaan tarvita tätä ollenkaan

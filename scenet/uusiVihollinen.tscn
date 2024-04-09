@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bukv6x5qpfus"]
+[gd_scene load_steps=12 format=3 uid="uid://bukv6x5qpfus"]
 
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="1_7vppl"]
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="1_th14a"]
@@ -10,8 +10,6 @@
 [ext_resource type="AudioStream" uid="uid://xj0qm50xbp3n" path="res://audio/hirvio/vihollisen_liike1_mono.wav" id="8_n68mi"]
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="9_kwoii"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="10_yff1a"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k26xj"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fwwb5"]
 streams_count = 3
@@ -36,17 +34,17 @@ scale = Vector2(7.22472, -9.85951)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="alue"]
-shape = SubResource("RectangleShape2D_k26xj")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(10, -10, 0, -10, -10, -10, -10, 0, -10, 10, 0, 10, 10, 10, 10, 0)
 
-[node name="ValonTarkistus" parent="alue" instance=ExtResource("1_7vppl")]
-unique_name_in_owner = true
+[node name="ValonTarkistus" parent="alue/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("1_7vppl")]
+position = Vector2(4.48989e-05, -1.71738e-07)
 scale = Vector2(0.248258, 0.98758)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue/ValonTarkistus"]
-position = Vector2(-0.128705, -0.00582501)
-scale = Vector2(0.868357, -0.21713)
-polygon = PackedVector2Array(-17.6127, -17.5502, -17.5484, -46.908, 15.2322, -46.818, 16.1728, -15.7637, 46.4319, -15.6806, 46.3588, 17.6292, 16.1023, 16.4169, 16.5398, 46.9053, -17.2495, 46.8124, -17.1814, 15.7609, -45.9275, 15.682, -45.8545, -17.6278)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue/CollisionPolygon2D/ValonTarkistus"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
 
 [node name="alue2" type="Area2D" parent="." groups=["newVihollinen"]]
 unique_name_in_owner = true
@@ -56,17 +54,17 @@ scale = Vector2(7.09998, -9.79605)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="alue2"]
-shape = SubResource("RectangleShape2D_k26xj")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue2"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(10, -10, 0, -10, -10, -10, -10, 0, -10, 10, 0, 10, 10, 10, 10, 0)
 
-[node name="ValonTarkistus2" parent="alue2" instance=ExtResource("1_7vppl")]
-unique_name_in_owner = true
+[node name="ValonTarkistus2" parent="alue2/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("1_7vppl")]
+position = Vector2(4.48989e-05, -1.71738e-07)
 scale = Vector2(0.248258, 0.98758)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue2/ValonTarkistus2"]
-position = Vector2(-0.128705, -0.00582501)
-scale = Vector2(0.868357, -0.21713)
-polygon = PackedVector2Array(-17.6127, -17.5502, -17.5484, -46.908, 15.2322, -46.818, 16.1728, -15.7637, 46.4319, -15.6806, 46.3588, 17.6292, 16.1023, 16.4169, 16.5398, 46.9053, -17.2495, 46.8124, -17.1814, 15.7609, -45.9275, 15.682, -45.8545, -17.6278)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue2/CollisionPolygon2D/ValonTarkistus2"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
 
 [node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_lk12r")

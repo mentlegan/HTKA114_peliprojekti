@@ -1,4 +1,4 @@
-## Harri 29.3.2024
+## Harri 9.4.2024
 ## TODO: vihollisen äänenkorkeus paremmin jos vihollisia enemmän kuin 1
 ## TODO: tuki uusien vihollisten äänenkorkeudelle
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
@@ -41,7 +41,7 @@ var pystyssa = true
 ## ja kutsua sitä % merkillä scriptissä, kuten alla:
 @onready var gameover_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%GameOverRuutu")
 @onready var pauseruutu = get_node("/root/Maailma/%KayttoLiittyma/%pause_ruutu")
-@onready var uusiVihollinen = get_node("/root/Maailma/%uudetViholliset/%uusiVihollinen")
+@onready var uudetViholliset = get_node("/root/Maailma/%uudetViholliset").get_children()
 
 
 ## Lisätään sceneen tausta pelin alussa
@@ -62,8 +62,11 @@ func _ready():
 	vihollinen = get_tree().get_first_node_in_group("vihollinen") # Tehdään näissä
 	vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
-	if uusiVihollinen != null:
-		uusiVihollinen.pelaaja_kuollut.connect(_game_over)
+	# Yhdistetään kuolema kaikkiin uusiin vihollisiin
+	# TODO: tällä lailla voisi laittaa kaikki signaaliyhdistämiset jatkossa?
+	for uusiVihu in uudetViholliset:
+		if uusiVihu != null:
+			uusiVihu.pelaaja_kuollut.connect(_game_over)
 	
 	piikki = get_tree().get_first_node_in_group("piikki") # Tehdään näissä
 	if piikki != null:

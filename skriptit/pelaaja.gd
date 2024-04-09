@@ -178,7 +178,7 @@ func siirrytty_varjoon():
 
 ## Tähän lisätty signaalin emit
 func kuolema():
-	audio_pelaaja_kuolee.play() # TODO: Korjaa toimivaksi. Ei kuulu, koska kaikki pausetetaan
+	audio_pelaaja_kuolee.play()
 	pelaajan_elamat = 1
 	kuollut.emit()
 
