@@ -223,6 +223,9 @@ func respawn():
 	pelaaja.position = pelaaja_aloitus
 	vihollinen.position = vihollinen_aloitus
 	gameover_ruutu.visible = false
+	
+	# Aloittaa timerin alusta
+	pelaaja.ajastin_pimeassa.start()
 
 
 ## Pausettaa pelin
