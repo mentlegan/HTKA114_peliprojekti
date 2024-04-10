@@ -13,6 +13,10 @@ extends Area2D
 @onready var taajuus_1_ajastin = $Taajuus1Ajastin
 @onready var taajuus_2_ajastin = $Taajuus2Ajastin
 
+## Tekstuurit valolle
+var valo_tekstuuri_pieni = preload("res://grafiikka/Valo64.png")
+var valo_tekstuuri_suuri = preload("res://grafiikka/Valo128.png")
+
 ## Muuttuja sille, onko valo asetettu päälle valopallolla
 var valo_paalla_pysyvasti = false
 
@@ -20,6 +24,13 @@ var valo_paalla_pysyvasti = false
 ## Pyykkikassi 
 func _ready():
 	taajuus_1_ajastin.timeout.connect(aseta_valo_pois_paalta)
+	taajuus_2_ajastin.timeout.connect(aseta_valon_tekstuuri)
+	aseta_valon_tekstuuri()
+
+
+## Asettaa valolle uuden tekstuurin
+func aseta_valon_tekstuuri(tekstuuri = valo_tekstuuri_pieni):
+	valo.set_texture(tekstuuri)
 
 
 ## Asettaa kukan valon pois päältä
@@ -44,6 +55,7 @@ func aseta_valo_paalle(pysyva, huilun_taajuus = 0):
 			taajuus_1_ajastin.start()
 		elif (taajuus_2_ajastin.is_stopped() && huilun_taajuus == 2):
 			taajuus_2_ajastin.start()
+			aseta_valon_tekstuuri(valo_tekstuuri_suuri)
 	else:
 		if not taajuus_1_ajastin.is_stopped():
 			taajuus_1_ajastin.stop()
