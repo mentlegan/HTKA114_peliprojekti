@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=44 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -34,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://xj0qm50xbp3n" path="res://audio/hirvio/vihollisen_liike1_mono.wav" id="31_bllwm"]
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="32_a8tci"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="33_y2rdp"]
+[ext_resource type="PackedScene" uid="uid://4ehb4n76ts5g" path="res://scenet/checkpoint.tscn" id="35_je5yh"]
 
 [sub_resource type="Curve2D" id="Curve2D_h32vt"]
 _data = {
@@ -182,7 +183,7 @@ position = Vector2(2045.9, 224.38)
 polygon = PackedVector2Array(5115.1, 468.62, 5029.57, 451.89, 4909.7, 418.927, 4741.89, 363.49, 4644.5, 318.54, 4525.65, 267.584, 4377.13, 238.298, 4282.42, 227.513, 4148.18, 233.699, 4097.56, 243.103, 4011.03, 265.074, 3904.33, 277.141, 3788.51, 279.814, 3691.41, 286.941, 3425.79, 301.784, 3269.83, 313.349, 3158.2, 316.381, 2950.98, 307.518, 2814.91, 240.732, 2675.05, 184.036, 2593.62, 152.795, 2516.59, 93.1031, 2489.22, 21.4713, 2426.38, -31.2937, 2357.91, -88.5356, 2331.51, -129.234, 2321.37, -151.233, 2327.26, -170.788, 2346.97, -179.196, 2417.13, -173.235, 3264.5, -99.072, 3710.56, -78.4362, 4541.74, -114.335, 4858.14, -98.9627, 4935.99, 31.7321, 5024.39, 182.311, 5076.08, 345.628)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(2501, 291)
+position = Vector2(1399, 715)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -250,9 +251,17 @@ rotation = 3.03455
 position = Vector2(2506.28, 543.329)
 rotation = -3.04893
 
+[node name="Kukka21" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(2700.72, 210.587)
+rotation = -3.1705
+
 [node name="Kukka7" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(3891.48, -1109.83)
 rotation = -3.04893
+
+[node name="Kukka20" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(3068.03, -770.926)
+rotation = -5.8498
 
 [node name="Kukka8" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(4650.47, -1106.82)
@@ -302,35 +311,35 @@ rotation = -3.15909
 position = Vector2(5809.2, 605.716)
 rotation = -3.15909
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Viholliset" type="Node2D" parent="."]
 process_mode = 4
 
-[node name="Vihollinen" parent="Node2D" groups=["vihollinen"] instance=ExtResource("12_u46m1")]
+[node name="Vihollinen" parent="Viholliset" groups=["vihollinen"] instance=ExtResource("12_u46m1")]
 position = Vector2(2820, 391)
 
-[node name="Kuoppa" parent="Node2D" instance=ExtResource("15_nofhg")]
+[node name="Kuoppa" parent="Viholliset" instance=ExtResource("15_nofhg")]
 position = Vector2(2889, 409)
 
-[node name="Kuoppa2" parent="Node2D" instance=ExtResource("15_nofhg")]
+[node name="Kuoppa2" parent="Viholliset" instance=ExtResource("15_nofhg")]
 position = Vector2(2593, 556)
 
-[node name="Vihollinen2_2" parent="Node2D" groups=["vihollinen"] instance=ExtResource("12_u46m1")]
+[node name="Vihollinen2_2" parent="Viholliset" groups=["vihollinen"] instance=ExtResource("12_u46m1")]
 position = Vector2(5412, -1120)
 
-[node name="Kuoppa3_2" parent="Node2D" instance=ExtResource("15_nofhg")]
+[node name="Kuoppa3_2" parent="Viholliset" instance=ExtResource("15_nofhg")]
 position = Vector2(5492, -1115)
 
-[node name="Kuoppa4_2" parent="Node2D" instance=ExtResource("15_nofhg")]
+[node name="Kuoppa4_2" parent="Viholliset" instance=ExtResource("15_nofhg")]
 position = Vector2(5499, -844)
 
-[node name="Vihollinen_3" parent="Node2D" groups=["vihollinen"] instance=ExtResource("12_u46m1")]
+[node name="Vihollinen_3" parent="Viholliset" groups=["vihollinen"] instance=ExtResource("12_u46m1")]
 position = Vector2(4951, 1318)
 
-[node name="Kuoppa_3" parent="Node2D" instance=ExtResource("15_nofhg")]
+[node name="Kuoppa_3" parent="Viholliset" instance=ExtResource("15_nofhg")]
 position = Vector2(5083, 1282)
 rotation = -1.57218
 
-[node name="Kuoppa2_3" parent="Node2D" instance=ExtResource("15_nofhg")]
+[node name="Kuoppa2_3" parent="Viholliset" instance=ExtResource("15_nofhg")]
 position = Vector2(5208, 1278)
 rotation = 1.25991
 
@@ -520,6 +529,18 @@ stream = ExtResource("33_y2rdp")
 [node name="uusiVihollinen2" parent="uudetViholliset" instance=ExtResource("22_nrhn1")]
 position = Vector2(5136, 1221)
 
+[node name="Checkpointit" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Checkpoint1" parent="Checkpointit" instance=ExtResource("35_je5yh")]
+
+[node name="Checkpoint2" parent="Checkpointit" instance=ExtResource("35_je5yh")]
+position = Vector2(3719, -1147)
+
+[node name="Checkpoint3" parent="Checkpointit" instance=ExtResource("35_je5yh")]
+position = Vector2(5808, 2139)
+rotation = 0.0300953
+
 [node name="Muuta" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(1, 0)
@@ -529,14 +550,14 @@ position = Vector2(2366, -177)
 
 [node name="Taso2Teleport" type="Node2D" parent="Muuta"]
 unique_name_in_owner = true
-position = Vector2(3747, -1154)
+position = Vector2(3569, -1152)
 
 [node name="Taso3Teleport" type="Node2D" parent="Muuta"]
 unique_name_in_owner = true
 position = Vector2(5717, 2136)
 
 [node name="Huilu1" type="Marker2D" parent="Muuta"]
-position = Vector2(3147, 202)
+position = Vector2(3207, 202)
 
 [node name="TP_kentan1loppu" type="Marker2D" parent="Muuta"]
 position = Vector2(6730, -935)

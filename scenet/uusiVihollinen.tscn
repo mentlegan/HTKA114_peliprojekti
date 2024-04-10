@@ -35,7 +35,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue"]
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(10, -10, 0, -10, -10, -10, -10, 0, -10, 10, 0, 10, 10, 10, 10, 0)
 
 [node name="ValonTarkistus" parent="alue/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("1_7vppl")]
@@ -43,7 +42,6 @@ position = Vector2(4.48989e-05, -1.71738e-07)
 scale = Vector2(0.248258, 0.98758)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue/CollisionPolygon2D/ValonTarkistus"]
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
 
 [node name="alue2" type="Area2D" parent="." groups=["newVihollinen"]]
@@ -55,7 +53,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue2"]
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(10, -10, 0, -10, -10, -10, -10, 0, -10, 10, 0, 10, 10, 10, 10, 0)
 
 [node name="ValonTarkistus2" parent="alue2/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("1_7vppl")]
@@ -63,7 +60,6 @@ position = Vector2(4.48989e-05, -1.71738e-07)
 scale = Vector2(0.248258, 0.98758)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue2/CollisionPolygon2D/ValonTarkistus2"]
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
 
 [node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="."]

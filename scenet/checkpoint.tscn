@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://4ehb4n76ts5g"]
+
+[ext_resource type="Script" path="res://scenet/maailmat/checkpoint.gd" id="1_1e2pn"]
+[ext_resource type="Texture2D" uid="uid://br20xaaypluvi" path="res://grafiikka/Sieni.png" id="2_c5dq6"]
+[ext_resource type="Texture2D" uid="uid://02x0wi25d81d" path="res://grafiikka/Valo64.png" id="3_iv27s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uqf5"]
+size = Vector2(42.0579, 109.119)
+
+[node name="Checkpoint" type="Area2D"]
+position = Vector2(3073, 190)
+collision_mask = 2
+script = ExtResource("1_1e2pn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.999982, 33)
+rotation = 0.0133876
+scale = Vector2(0.826647, 0.99906)
+texture = ExtResource("2_c5dq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.33398, -14.5559)
+rotation = 0.0229341
+shape = SubResource("RectangleShape2D_2uqf5")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-25, 31)
+color = Color(0.828956, 0.801824, 0, 1)
+energy = 1.2
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("3_iv27s")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-12, 31)
+color = Color(0.828956, 0.801824, 0, 1)
+energy = 1.2
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("3_iv27s")
+texture_scale = 0.5
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(1, 31)
+color = Color(0.828956, 0.801824, 0, 1)
+energy = 1.2
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("3_iv27s")
+texture_scale = 0.5
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(14, 31)
+color = Color(0.828956, 0.801824, 0, 1)
+energy = 1.2
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("3_iv27s")
+texture_scale = 0.5
+
+[node name="PointLight2D5" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(28, 31)
+color = Color(0.828956, 0.801824, 0, 1)
+energy = 1.2
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("3_iv27s")
+texture_scale = 0.5
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -14,6 +14,7 @@ var vihollinen = null
 var piikki = null
 
 ## Pelaajan ja vihollisen aloitus koordinaatit
+## Pelaajan aloituspaikka muuttuu pelin edetessä checkpointtien takia
 var pelaaja_aloitus = null
 var vihollinen_aloitus = null
 
