@@ -312,8 +312,8 @@ func _physics_process(delta):
 			elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
 				animaatio.set_flip_h(true)
 	elif is_on_wall() and (Input.is_action_pressed("putoa") or not kiipeamis_toggle):
+		putoamis_vahinko = true
 		velocity.y += gravity * delta
-		seinalla()
 		# Ei tipu seinältä kun on paikallaan
 	else:
 		velocity.y = 0
