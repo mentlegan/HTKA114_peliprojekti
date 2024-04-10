@@ -30,6 +30,7 @@ var vihollinen_aloitus = null
 ## Kentan 1 loppu mukaan minecart tp varten
 @onready var pelaaja_taso2 = get_node("/root/Maailma/%Muuta/%Taso2Teleport").position
 @onready var pelaaja_taso3 = get_node("/root/Maailma/%Muuta/%Taso3Teleport").position
+@onready var pelaaja_taso45 = get_node("/root/Maailma/%Muuta/%Taso45Teleport").position
 @onready var taso1_loppu = get_node("/root/Maailma/%Muuta/%Kentan1_loppu").position
 
 ## Valo köynnösoville ja niiden taulukko
@@ -227,6 +228,11 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("taso3"):
 		pelaaja.position = pelaaja_taso3
 		# get_node("/root/@Node2D@65").queue_free() # Poistetaan duplikoitu maailma2
+	
+	# F4
+	if Input.is_action_just_pressed("taso45"):
+		pelaaja.position = pelaaja_taso45
+	
 	
 	# Pelin keskeytys
 	# PC Escape
