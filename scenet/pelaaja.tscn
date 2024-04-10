@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=75 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://cp4f2v1euxr6b" path="res://grafiikka/AanenTaajuus3.png" id="24_7n80x"]
 [ext_resource type="AudioStream" uid="uid://dw75jyosgto66" path="res://audio/pelaaja/huilu/huiluaani_C.wav" id="24_xxdxr"]
 [ext_resource type="AudioStream" uid="uid://diri4jc7100fi" path="res://audio/pelaaja/huilu/huiluaani_E.wav" id="25_qars5"]
+[ext_resource type="AudioStream" uid="uid://tljiy6rd5uqe" path="res://audio/valopallo/valopallon_poimiminen.mp3" id="26_13gbp"]
 [ext_resource type="Script" path="res://skriptit/huilu.gd" id="26_v60w7"]
 [ext_resource type="AudioStream" uid="uid://7tjeefooail4" path="res://audio/pelaaja/creeping_darkness_2.mp3" id="32_1qpma"]
 
@@ -447,6 +448,15 @@ stream = ExtResource("24_xxdxr")
 [node name="HuiluAaniE" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_qars5")
 
+[node name="AudioValopallonKeraaminen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_13gbp")
+bus = &"Pelaaja"
+
+[node name="AudioPimeyskuolema" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_1qpma")
+volume_db = 3.0
+bus = &"Musiikki"
+
 [node name="ReunojenPimentajaValo" type="PointLight2D" parent="."]
 light_mask = 0
 visibility_layer = 0
@@ -505,11 +515,6 @@ sprite_frames = SubResource("SpriteFrames_ln8w0")
 
 [node name="Ajastin" type="Timer" parent="AanenTaajuus"]
 wait_time = 0.73
-
-[node name="AudioPimeyskuolema" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("32_1qpma")
-volume_db = 3.0
-bus = &"Musiikki"
 
 [connection signal="body_entered" from="keho" to="." method="_on_keho_body_entered"]
 [connection signal="body_entered" from="Huilu" to="." method="_on_huilu_body_entered"]

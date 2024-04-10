@@ -38,6 +38,7 @@ var valossa = false
 @onready var audio_pelaaja_kuolee = $AudioPelaajaKuolee
 @onready var audio_pimeassa = $AudioPimeassa
 @onready var audio_pimeyskuolema = $AudioPimeyskuolema
+@onready var audio_valopallon_keraaminen = $AudioValopallonKeraaminen
 
 ## Näyttöä pimentävä valo
 @onready var pimea_valo = $PimeaValo
@@ -507,6 +508,7 @@ func _physics_process(delta):
 		for kukka in kukat:
 			if kukka.is_in_group("kukka"):
 				Globaali.palloja = 2
+				audio_valopallon_keraaminen.play()
 			elif kukka.is_in_group("minecart"):
 				# Tehty nyt täällä, myöhemmin kerkiää optimoida
 				self.position = Globaali.taso1_loppu
