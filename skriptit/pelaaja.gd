@@ -37,6 +37,7 @@ var valossa = false
 @onready var audio_seinahyppy = $AudioSeinahyppy
 @onready var audio_pelaaja_kuolee = $AudioPelaajaKuolee
 @onready var audio_pimeassa = $AudioPimeassa
+@onready var audio_pimeyskuolema = $AudioPimeyskuolema
 
 ## Näyttöä pimentävä valo
 @onready var pimea_valo = $PimeaValo
@@ -70,7 +71,9 @@ const AANEN_TAAJUUS_VARIT = [
 
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
+var ajastin_pimeassa_audio = Timer.new()
 const SELVIAMISAIKA_PIMEASSA = 20 ## Kuinka kauan pimeässä selvitään ennen respawn()-kutsua, sekunneissa
+const PIMEASSA_AUDION_VIIVE = 12 ## Kuinka monta sekuntia odotetaan pimeässä ennen pimeäkuoleman audion toistamista
 
 ## Valopallon kohde, jonne se heitetään, pelaajasta nähden.
 ## Joko hiiren global_position tai ohjaimen tatin suunta
@@ -140,6 +143,7 @@ var putoamis_huippu = get_global_position().y
 func _ready():
 	# Lisätään ajastimet pimeän tarkistukselle, seinähypylle ja elämä regeneraatiolle lapsiksi
 	self.add_child(ajastin_pimeassa)
+	self.add_child(ajastin_pimeassa_audio)
 	self.add_child(hyppy_ajastin)
 	self.add_child(elama_regen_ajastin)
 	
@@ -151,6 +155,8 @@ func _ready():
 	
 	# Pelaaja kuolee, jos hän on pimeässä liian kauan
 	ajastin_pimeassa.timeout.connect(kuolema)
+	# Toistetaan lähestyvän pimeäkuoleman ääni, kun pelaaja on pimeässä
+	ajastin_pimeassa_audio.timeout.connect(soitaPimeakuolemanAani)
 	
 	# Pelaajan elämä regeneraatio
 	elama_regen_ajastin.timeout.connect(elama_regen)
@@ -201,6 +207,7 @@ func lopeta_huilu_animaatio():
 func siirrytty_valoon():
 	valossa = true
 	ajastin_pimeassa.stop()
+	ajastin_pimeassa_audio.stop()
 	print("Valossa: " + str(valossa))
 
 
@@ -208,6 +215,7 @@ func siirrytty_valoon():
 func siirrytty_varjoon():
 	valossa = false
 	ajastin_pimeassa.start(SELVIAMISAIKA_PIMEASSA)
+	ajastin_pimeassa_audio.start(PIMEASSA_AUDION_VIIVE)
 	print("Valossa: " + str(valossa))
 	await get_tree().create_timer(2.5).timeout
 	audio_pimeassa.play()
@@ -219,6 +227,11 @@ func kuolema():
 	pelaajan_elamat = pelaajan_elamat_max
 	elamat_label_paivita()
 	kuollut.emit()
+
+
+## Toistaa pimeäkuoleman äänen kun oltu pimeässä vakion PIMEASSA_AUDION_VIIVE verran 
+func soitaPimeakuolemanAani():
+	audio_pimeyskuolema.play()
 
 
 ## Haetaan pelaajan elamat
