@@ -281,6 +281,10 @@ func _physics_process(delta):
 		if is_on_wall():
 			animaatio.play("seinakiipeaminen")
 			animaatio.frame = 0
+			if (animaatio.is_flipped_h() and get_wall_normal().x > global_position.x):
+				animaatio.set_flip_h(true)
+			elif not animaatio.is_flipped_h() and get_wall_normal().x < global_position.x:
+				animaatio.set_flip_h(true)
 			seinalla()
 
 	# Hyppy takaisin kun maassa
