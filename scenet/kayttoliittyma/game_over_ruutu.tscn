@@ -12,7 +12,7 @@ corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_nbu0g"]
-font_size = 75
+font_size = 80
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ijjl"]
 font_size = 20
@@ -62,12 +62,13 @@ position = Vector2(192, 240)
 texture = ExtResource("3_tdbvq")
 
 [node name="GameOverTeksti" type="Label" parent="Paneeli"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -259.5
-offset_right = 261.5
+offset_left = -259.0
+offset_right = 262.0
 offset_bottom = 106.0
 grow_horizontal = 2
 text = "Game Over"
@@ -89,6 +90,7 @@ label_settings = SubResource("LabelSettings_6ijjl")
 horizontal_alignment = 1
 
 [node name="RestartNappi" type="Button" parent="Paneeli"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -102,6 +104,7 @@ text = "Restart"
 
 [node name="LopetaNappi" type="Button" parent="Paneeli"]
 auto_translate_mode = 1
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

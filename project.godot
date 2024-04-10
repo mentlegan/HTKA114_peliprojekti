@@ -54,6 +54,15 @@ piikki=""
 koynnosovet=""
 newVihollinenValotarkistus=""
 
+[gui]
+
+theme/custom="res://tres-tiedostot/fontti_teema.tres"
+theme/default_font_antialiasing=0
+theme/default_font_hinting=0
+theme/default_font_subpixel_positioning=0
+theme/default_font_generate_mipmaps=true
+theme/lcd_subpixel_layout=0
+
 [input]
 
 ui_accept={

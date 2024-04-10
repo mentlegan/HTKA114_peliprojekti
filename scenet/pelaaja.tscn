@@ -243,17 +243,18 @@ script = ExtResource("4_tac1h")
 
 [node name="ApuaLabel" type="Label" parent="."]
 z_index = 99
+texture_filter = 1
 material = SubResource("CanvasItemMaterial_ifk5e")
-offset_left = 361.0
-offset_top = -262.0
-offset_right = 438.0
-offset_bottom = -239.0
+offset_left = 302.0
+offset_top = -259.0
+offset_right = 434.0
+offset_bottom = -236.0
 text = "Help: F1 / "
 
 [node name="Sprite2D" type="Sprite2D" parent="ApuaLabel"]
 texture_filter = 1
 material = ExtResource("5_gdn2h")
-position = Vector2(94, 12)
+position = Vector2(148, 12)
 texture = ExtResource("6_uircd")
 
 [node name="ValonTarkistus" parent="." instance=ExtResource("4_5hfdk")]

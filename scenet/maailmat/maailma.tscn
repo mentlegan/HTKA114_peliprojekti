@@ -470,7 +470,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue2"]
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(16.5457, -8.97119, -5.29373, -10.075, -26.0359, -0.764252, -33.0405, 7.70453, -31.9701, 19.3773, -21.9312, 21.663, -2.21539, 15.7344, 11.9767, 0.532562)
 
 [node name="ValonTarkistus2" parent="uudetViholliset/uusiVihollinen/alue2/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
@@ -479,7 +478,6 @@ position = Vector2(4.48989e-05, -1.71738e-07)
 scale = Vector2(0.248258, 0.98758)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue2/CollisionPolygon2D/ValonTarkistus2"]
-scale = Vector2(1, 1)
 polygon = PackedVector2Array(22, -6, 0, -10, -37.1219, -6.88138, -90.302, -0.119019, -124.551, 9.90317, -81.8804, 18.9511, 0.452759, 9.94003, 40, 0)
 
 [node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://6l271xu011uf"]
+
+[ext_resource type="FontFile" uid="uid://bdjbq2bv8e2tm" path="res://grafiikka/VCROSDMono.ttf" id="1_c2r22"]
+
+[resource]
+default_font = ExtResource("1_c2r22")
+default_font_size = 20
