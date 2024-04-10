@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=43 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -67,6 +67,15 @@ stream_1/stream = ExtResource("28_lynst")
 stream_1/weight = 1.0
 stream_2/stream = ExtResource("29_bv82b")
 stream_2/weight = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2lsd"]
+size = Vector2(2697, 1332)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdsjh"]
+size = Vector2(3316, 1432)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eewo"]
+size = Vector2(3770, 2652)
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 script = ExtResource("1_sggs7")
@@ -540,6 +549,32 @@ position = Vector2(7110, 19)
 
 [node name="Alkuanimaatio" type="Marker2D" parent="Muuta"]
 position = Vector2(1309, 134)
+
+[node name="Tasot" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tasot"]
+position = Vector2(2063.5, 591)
+shape = SubResource("RectangleShape2D_b2lsd")
+
+[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D"]
+position = Vector2(348.5, 31)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Tasot"]
+position = Vector2(4425, -1061)
+shape = SubResource("RectangleShape2D_cdsjh")
+
+[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D2"]
+position = Vector2(65, -3)
+zoom = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Tasot"]
+position = Vector2(5600, 1082)
+shape = SubResource("RectangleShape2D_5eewo")
+
+[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D3"]
+position = Vector2(17, -28)
+zoom = Vector2(0.3, 0.3)
 
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]
 [connection signal="body_exited" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_exited"]
