@@ -120,7 +120,8 @@ func aloita_idle_audio_ajastin():
 ## Lopettaa pakenemisen ja teleportaa seuraavaan kuoppaan
 func lopeta_pakeneminen():
 	pakenee = false
-	aseta_seuraava_kuoppa()
+	self.global_position = menossa_kuoppaan.global_position
+	#aseta_seuraava_kuoppa()
 	pakenemisen_ajastin.stop()
 	self.global_position = menossa_kuoppaan.global_position
 
