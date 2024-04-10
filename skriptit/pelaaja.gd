@@ -286,11 +286,12 @@ func _physics_process(delta):
 	elif is_on_wall() and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
 		velocity.y = -gravity * delta * 6
 		seinalla()
-		animaatio.play("seinakiipeaminen")
-		if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
-			animaatio.set_flip_h(true)
-		elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
-			animaatio.set_flip_h(true)
+		if animaatio.get_animation() != "huilu":
+			animaatio.play("seinakiipeaminen")
+			if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
+				animaatio.set_flip_h(true)
+			elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
+				animaatio.set_flip_h(true)
 	elif is_on_wall() and (Input.is_action_pressed("putoa") or not kiipeamis_toggle):
 		velocity.y += gravity * delta
 		seinalla()
@@ -298,12 +299,13 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 		if is_on_wall():
-			animaatio.play("seinakiipeaminen")
-			animaatio.frame = 0
-			if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
-				animaatio.set_flip_h(true)
-			elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
-				animaatio.set_flip_h(true)
+			if animaatio.get_animation() != "huilu":
+				animaatio.play("seinakiipeaminen")
+				animaatio.frame = 0
+				if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
+					animaatio.set_flip_h(true)
+				elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
+					animaatio.set_flip_h(true)
 			seinalla()
 
 	# Hyppy takaisin kun maassa
@@ -467,7 +469,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Käynnistetään huilun animaatio
-		if huilun_cd_ajastin.is_stopped():
+		if huilun_cd_ajastin.is_stopped() && animaatio.get_animation() != "seinakiipeaminen":
 			animaatio.play("huilu")
 			huilu.rotation = valon_kohde.angle()
 			#animaatio.set_flip_h(valon_kohde.x < 0)
