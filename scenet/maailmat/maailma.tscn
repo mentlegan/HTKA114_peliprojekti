@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=49 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://dj16g605n5277" path="res://scenet/ovet/ovi_vasen_y.tscn" id="16_et2f6"]
 [ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://scenet/kayttoliittyma/tooltip_liiku.tscn" id="18_yqpof"]
 [ext_resource type="PackedScene" uid="uid://htoyrgaml8l2" path="res://scenet/kayttoliittyma/tooltip_juokse.tscn" id="19_ng21i"]
-[ext_resource type="PackedScene" uid="uid://daeaotnb7peu2" path="res://scenet/piikki.tscn" id="19_qwqpv"]
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
@@ -573,10 +572,6 @@ position = Vector2(2969, 509)
 
 [node name="TooltipKiipea" parent="Tooltipit" instance=ExtResource("24_8j4jx")]
 position = Vector2(2979, 665)
-
-[node name="piikki" parent="." instance=ExtResource("19_qwqpv")]
-position = Vector2(1279, 739)
-rotation = 0.447802
 
 [node name="uudetViholliset" type="Node2D" parent="."]
 unique_name_in_owner = true
