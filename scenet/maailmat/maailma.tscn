@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=46 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="32_a8tci"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="33_y2rdp"]
 [ext_resource type="PackedScene" uid="uid://4ehb4n76ts5g" path="res://scenet/checkpoint.tscn" id="35_je5yh"]
+[ext_resource type="AudioStream" uid="uid://bw6cpa2qyrfll" path="res://audio/musiikki/ambient1_2_loop.wav" id="37_khmdb"]
 
 [sub_resource type="Curve2D" id="Curve2D_h32vt"]
 _data = {
@@ -493,38 +494,32 @@ position = Vector2(6503.2, -895.167)
 [node name="Ovi_y_kuolematon" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["kuolematon", "oviV", "y"]]
 position = Vector2(6730.06, -16.6123)
 rotation = -1.60282
-scale = Vector2(1, 1)
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_puzzle/Ovi_y_kuolematon" instance=ExtResource("16_et2f6")]
 
 [node name="Ovi_y_kuolematon2" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["kuolematon", "oviV", "y"]]
 position = Vector2(6712.41, -979.658)
 rotation = -1.60282
-scale = Vector2(1, 1)
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_puzzle/Ovi_y_kuolematon2" instance=ExtResource("16_et2f6")]
 
 [node name="Ovi_z_kuolematon" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["kuolematon", "oviV", "z"]]
 position = Vector2(6880.06, -17.247)
 rotation = -1.57978
-scale = Vector2(1, 1)
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_puzzle/Ovi_z_kuolematon" instance=ExtResource("13_vnqp0")]
 
 [node name="Ovi_x_kuolematon" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["kuolematon", "oviV", "x"]]
 position = Vector2(6862.42, -984.293)
 rotation = -1.57978
-scale = Vector2(1, 1)
 
 [node name="Ovi_vasen_x" parent="Koynnosovet/Ovet_puzzle/Ovi_x_kuolematon" instance=ExtResource("16_8728b")]
 
 [node name="Ovi_y" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["oviO", "y"]]
 position = Vector2(7053.89, 56.1764)
-scale = Vector2(1, 1)
 
 [node name="Ovi_z" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["oviO", "z"]]
 position = Vector2(7092.89, 54.2714)
-scale = Vector2(1, 1)
 
 [node name="Ovi_oikea" parent="Koynnosovet/Ovet_puzzle/Ovi_z" instance=ExtResource("14_6n7yc")]
 
@@ -535,11 +530,9 @@ position = Vector2(7128.89, 52.3591)
 
 [node name="Ovi_y2" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["oviO", "y"]]
 position = Vector2(7056.22, -900.821)
-scale = Vector2(1, 1)
 
 [node name="Ovi_x2" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["oviO", "x"]]
 position = Vector2(7103.22, -902.706)
-scale = Vector2(1, 1)
 
 [node name="Ovi_oikea" parent="Koynnosovet/Ovet_puzzle/Ovi_x2" instance=ExtResource("20_155o0")]
 
@@ -725,6 +718,11 @@ shape = SubResource("RectangleShape2D_5eewo")
 [node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D3"]
 position = Vector2(17, -28)
 zoom = Vector2(0.3, 0.3)
+
+[node name="Musiikki" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("37_khmdb")
+bus = &"Musiikki"
 
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]
 [connection signal="body_exited" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_exited"]

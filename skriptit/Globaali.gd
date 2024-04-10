@@ -44,6 +44,8 @@ var pystyssa = true
 @onready var pauseruutu = get_node("/root/Maailma/%KayttoLiittyma/%pause_ruutu")
 @onready var uudetViholliset = get_node("/root/Maailma/%uudetViholliset").get_children()
 
+## Musiikit:
+@onready var musiikki = get_node("/root/Maailma/%Musiikki")
 
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://scenet/tausta.tscn")
@@ -90,6 +92,9 @@ func _ready():
 	
 	# Lisätään sceneen tausta
 	self.add_child(tausta.instantiate())
+	
+	# Aloitetaan musiikki 
+	musiikki.play()
 
 
 ## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process
