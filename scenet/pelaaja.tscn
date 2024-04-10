@@ -1,8 +1,9 @@
-[gd_scene load_steps=55 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=67 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_gc81g"]
+[ext_resource type="Texture2D" uid="uid://cv31tvgdwxnjy" path="res://grafiikka/PelaajaHuilu-Sheet.png" id="3_6n26n"]
 [ext_resource type="Texture2D" uid="uid://b6tbps0j5gs0v" path="res://grafiikka/PelaajaKavely.png" id="3_dwx8p"]
 [ext_resource type="Texture2D" uid="uid://bnq2w54rhw78d" path="res://grafiikka/PelaajaHyppy-Sheet.png" id="3_li6jh"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="4_5hfdk"]
@@ -38,6 +39,54 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lbg0v"]
 gradient = SubResource("Gradient_1og31")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tek73"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3kr3"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwete"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyyhe"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rol5d"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u6dx"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cje60"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en24p"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oymm"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf3nc"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5werk"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2tgj"]
+atlas = ExtResource("3_6n26n")
+region = Rect2(704, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t1c8r"]
 atlas = ExtResource("3_li6jh")
@@ -89,6 +138,47 @@ region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bqvgf"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tek73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3kr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwete")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyyhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rol5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u6dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cje60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en24p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oymm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf3nc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5werk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2tgj")
+}],
+"loop": true,
+"name": &"huilu",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t1c8r")
@@ -177,8 +267,6 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3yd8i"]
 gradient = SubResource("Gradient_d4qav")
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3o2br"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ln8w0"]
 animations = [{
@@ -335,7 +423,7 @@ collision_mask = 6
 z_index = 99
 texture_filter = 1
 material = ExtResource("5_gdn2h")
-position = Vector2(64, 0)
+position = Vector2(37, 0)
 emitting = false
 amount = 5
 texture = ExtResource("22_fot2n")
@@ -350,14 +438,9 @@ tangential_accel_min = -10.0
 tangential_accel_max = 10.0
 damping_max = 9.474
 
-[node name="Sprite2D" type="Sprite2D" parent="Huilu"]
-scale = Vector2(39.5, 21.5)
-texture = SubResource("PlaceholderTexture2D_3o2br")
-offset = Vector2(1.0443, 0.0116279)
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Huilu"]
 visible = false
-polygon = PackedVector2Array(0, 0, 23, -58, 360, -150, 430, -110, 473, 0, 430, 110, 360, 150, 23, 58)
+polygon = PackedVector2Array(-40, -1, -26, -28, 23, -58, 360, -150, 430, -110, 473, 0, 430, 110, 360, 150, 23, 58, -26, 27)
 
 [node name="NakyvyysAjastin" type="Timer" parent="Huilu"]
 one_shot = true

@@ -35,8 +35,6 @@ var valossa = false
 
 ## Huilu, äänen taajuuden sprite ja niiden ajastimet
 @onready var huilu = $Huilu
-@onready var huilun_sprite = $Huilu/Sprite2D
-@onready var huilun_nakyvyys_ajastin = $Huilu/NakyvyysAjastin
 @onready var huilun_cd_ajastin = $Huilu/CooldownAjastin
 @onready var aanen_taajuus_sprite = $AanenTaajuus
 @onready var aanen_taajuus_ajastin = $AanenTaajuus/Ajastin
@@ -50,10 +48,9 @@ var valossa = false
 
 # Huilun partikkelit ja niiden säde
 @onready var huilun_partikkelit = $Huilu/Partikkelit
-const HUILUN_PARTIKKELEIDEN_SADE = 64
 
 # Äänen taajuus
-var aanen_taajuus = 1
+var aanen_taajuus = 2
 const AANEN_TAAJUUS_MIN = 1
 const AANEN_TAAJUUS_MAX = 3
 const AANEN_TAAJUUS_VARIT = [
@@ -141,9 +138,8 @@ func _ready():
 	# Asetetaan pimeä-valo näkyviin pelin alussa
 	pimea_valo.visible = true
 	
-	# Piilotetaan huilu, kun sen ajastin päättyy
-	huilun_nakyvyys_ajastin.timeout.connect(piilota_huilu)
-	piilota_huilu()
+	# Piilotetaan huilu, kun sen animaatio loppuu
+	animaatio.animation_looped.connect(lopeta_huilu_animaatio)
 	
 	# Samoin piilotetaan äänen taajuuden sprite, kun sen ajastin päättyy
 	aanen_taajuus_ajastin.timeout.connect(
@@ -151,13 +147,17 @@ func _ready():
 	)
 	
 	# Asetetaan äänen taajuus yhdeksi
-	vaihda_aanen_taajuutta(-10)
+	vaihda_aanen_taajuutta(-1)
 	aanen_taajuus_sprite.visible = false
 
 
-func piilota_huilu():
-	huilun_sprite.visible = false
-	huilun_partikkelit.set_emitting(false)
+## Lopettaa huilu-animaation
+func lopeta_huilu_animaatio():
+	if animaatio.get_animation() == "huilu":
+		animaatio.set_animation("idle")
+		animaatio.stop()
+		huilun_cd_ajastin.start()
+		huilun_partikkelit.set_emitting(false)
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
@@ -302,36 +302,37 @@ func _physics_process(delta):
 	# Tällöin pelaajan kävely/juoksuanimaatio ei jatku jos pelaaja kulkee seinää
 	# päin.
 	
-	if is_on_floor():
-		# Jos pelaaja on maassa eikä liiku, aloitetaan idle-animaatio
-		if velocity.x == 0:
-			animaatio.play("idle")
-			audio_kavely.stop()
-			audio_juoksu.stop()
-		elif Input.is_action_pressed("juoksu"):
-			animaatio.play("kavely")
-			if not audio_juoksu.playing:
-				audio_juoksu.play()
-		else:
-			# Muutoin aloitetaan kävelyanimaatio
-			animaatio.play("kavely")
-			if not audio_kavely.playing:
-				audio_kavely.play()
-	else:
-		audio_kavely.stop()
-
-		if onko_seinalla:
-			# Tähän myöhemmin kiipeämisanimaatio
-			animaatio.set_animation("idle")
-			animaatio.stop()
-		else:
-			# Asetetaan hyppyanimaatio
-			animaatio.set_animation("hyppy")
-			animaatio.stop()
-			if velocity.y < 0:
-				animaatio.frame = 0
+	if animaatio.get_animation() != "huilu":
+		if is_on_floor():
+			# Jos pelaaja on maassa eikä liiku, aloitetaan idle-animaatio
+			if velocity.x == 0:
+				animaatio.play("idle")
+				audio_kavely.stop()
+				audio_juoksu.stop()
+			elif Input.is_action_pressed("juoksu"):
+				animaatio.play("kavely")
+				if not audio_juoksu.playing:
+					audio_juoksu.play()
 			else:
-				animaatio.frame = 1
+				# Muutoin aloitetaan kävelyanimaatio
+				animaatio.play("kavely")
+				if not audio_kavely.playing:
+					audio_kavely.play()
+		else:
+			audio_kavely.stop()
+
+			if onko_seinalla:
+				# Tähän myöhemmin kiipeämisanimaatio
+				animaatio.set_animation("idle")
+				animaatio.stop()
+			else:
+				# Asetetaan hyppyanimaatio
+				animaatio.set_animation("hyppy")
+				animaatio.stop()
+				if velocity.y < 0:
+					animaatio.frame = 0
+				else:
+					animaatio.frame = 1
 	
 	# Flipataan animaatio suuntaa myöten
 	if velocity.x != 0:
@@ -401,11 +402,11 @@ func _physics_process(delta):
 		vaihda_aanen_taajuutta(1)
 	
 	if Input.is_action_just_pressed("painike_oikea"):
-		# Asetetaan huilu näkyviin hetkeksi ja käännetään se hiiren suuntaan
+		# Käynnistetään huilun animaatio
 		if huilun_cd_ajastin.is_stopped():
-			huilun_sprite.visible = true
+			animaatio.play("huilu")
 			huilu.rotation = valon_kohde.angle()
-			huilun_nakyvyys_ajastin.start()
+			#animaatio.set_flip_h(valon_kohde.x < 0)
 			huilun_cd_ajastin.start()
 			huilun_partikkelit.set_emitting(true)
 			huilun_partikkelit.set_gravity(Vector2.from_angle(huilu.rotation) * 40)
