@@ -109,6 +109,13 @@ const SEINAHYPPY_BUFFER = 0.1 ## Kuinka kauan seinältä voi olla poissa, niin e
 ## Pelaajan elämäpisteet
 const pelaajan_elamat_max = 6
 var pelaajan_elamat = pelaajan_elamat_max
+## Kuinka nopeasti pelaaja saa elämiä takaisin sekunteina
+var elamat_regen_nopeus = 5
+## Kuinka paljon elamia pelaaja saa takaisin
+var elamat_regen_maara = 1
+
+## Elämä regen ajastin
+var elama_regen_ajastin = Timer.new()
 
 ## Miten pitkästi pelaaja voi tippua, kunnes siitä ottaa vahinkoa
 var putoamis_raja_1 = 200
@@ -125,9 +132,10 @@ var putoamis_huippu = get_global_position().y
 
 
 func _ready():
-	# Lisätään ajastimet pimeän tarkistukselle ja seinähypylle lapsiksi
+	# Lisätään ajastimet pimeän tarkistukselle, seinähypylle ja elämä regeneraatiolle lapsiksi
 	self.add_child(ajastin_pimeassa)
 	self.add_child(hyppy_ajastin)
+	self.add_child(elama_regen_ajastin)
 	
 	# Lisätään pelaajan hp labeliin elamat
 	elamat.text = "Health: " + str(pelaajan_elamat_max)
@@ -137,6 +145,9 @@ func _ready():
 	
 	# Pelaaja kuolee, jos hän on pimeässä liian kauan
 	ajastin_pimeassa.timeout.connect(kuolema)
+	
+	# Pelaajan elämä regeneraatio
+	elama_regen_ajastin.timeout.connect(elama_regen)
 	
 	# Yhdistetään valon signaalit pelaajan omiin funktioihin
 	valon_tarkistus.connect("siirrytty_valoon", siirrytty_valoon)
@@ -210,6 +221,14 @@ func get_elamat():
 
 func elamat_label_paivita():
 	elamat.text = "Health: " + str(pelaajan_elamat)
+	
+func elama_regen():
+	if pelaajan_elamat + elamat_regen_maara < pelaajan_elamat_max:
+		pelaajan_elamat += elamat_regen_maara
+		elama_regen_ajastin.start(elamat_regen_nopeus)
+	else:
+		pelaajan_elamat = pelaajan_elamat_max
+	elamat_label_paivita()
 
 
 ## Ei hyppyä kun liian kauan seinältä
@@ -292,6 +311,7 @@ func _physics_process(delta):
 		hyppyjen_maara = 0
 		onko_seinalla = false
 		if putoamis_vahinko:
+			elama_regen_ajastin.start(elamat_regen_nopeus)
 			if (get_global_position().y - putoamis_huippu) > putoamis_raja_3:
 				pelaajan_elamat -= putoamis_raja_3_dmg
 			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_2:
