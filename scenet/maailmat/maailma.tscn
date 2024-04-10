@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=50 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
+[ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
@@ -37,6 +38,8 @@
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="33_y2rdp"]
 [ext_resource type="PackedScene" uid="uid://4ehb4n76ts5g" path="res://scenet/checkpoint.tscn" id="35_je5yh"]
 [ext_resource type="AudioStream" uid="uid://bw6cpa2qyrfll" path="res://audio/musiikki/ambient1_2_loop.wav" id="37_khmdb"]
+[ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
+[ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
 
 [sub_resource type="Curve2D" id="Curve2D_h32vt"]
 _data = {
@@ -70,6 +73,9 @@ stream_1/stream = ExtResource("28_lynst")
 stream_1/weight = 1.0
 stream_2/stream = ExtResource("29_bv82b")
 stream_2/weight = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glbb0"]
+size = Vector2(75, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2lsd"]
 size = Vector2(2697, 1332)
@@ -178,18 +184,18 @@ polygon = PackedVector2Array(4625.73, 492.438, 4679.74, 513.44, 4749.41, 542.654
 
 [node name="Polygon2D9_3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(2045.9, 224.38)
-polygon = PackedVector2Array(4867.4, 1237.13, 4905.9, 1223.96, 4962.58, 1173.56, 4977.72, 1092.94, 4989.06, 987.105, 4989.06, 893.871, 4991.58, 845.994, 4998.87, 785.013, 5025.84, 747.549, 5081.29, 720.591, 5144.12, 701.047, 5120.16, 496.83, 5001.1, 206.62, 4848.1, -109.38, 4858.1, -111.38, 5243.21, -137.71, 5795.93, -151.164, 6722.1, -658.38, 7478.1, -654.38, 7532.1, -177.38, 6894.1, 450.62, 6146.1, 1003.62, 5883.93, 1632.29, 5843.97, 1947.42, 4888.05, 1843.28)
+polygon = PackedVector2Array(4867.4, 1237.13, 4905.9, 1223.96, 4962.58, 1173.56, 4977.72, 1092.94, 4989.06, 987.105, 4989.06, 893.871, 4991.58, 845.994, 4998.87, 785.013, 5025.84, 747.549, 5081.29, 720.591, 5144.12, 701.047, 5120.16, 496.83, 5066.1, 280.62, 6646.1, 83.62, 6648.1, 236.62, 6672.1, 448.62, 6655.1, 569.62, 6146.1, 1003.62, 5883.93, 1632.29, 5843.97, 1947.42, 4888.05, 1843.28)
 
 [node name="Polygon2D10_3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(2045.9, 224.38)
-polygon = PackedVector2Array(5115.1, 468.62, 5029.57, 451.89, 4909.7, 418.927, 4741.89, 363.49, 4644.5, 318.54, 4525.65, 267.584, 4377.13, 238.298, 4282.42, 227.513, 4148.18, 233.699, 4097.56, 243.103, 4011.03, 265.074, 3904.33, 277.141, 3788.51, 279.814, 3691.41, 286.941, 3425.79, 301.784, 3269.83, 313.349, 3158.2, 316.381, 2950.98, 307.518, 2814.91, 240.732, 2675.05, 184.036, 2593.62, 152.795, 2516.59, 93.1031, 2489.22, 21.4713, 2426.38, -31.2937, 2357.91, -88.5356, 2331.51, -129.234, 2321.37, -151.233, 2327.26, -170.788, 2346.97, -179.196, 2417.13, -173.235, 3264.5, -99.072, 3710.56, -78.4362, 4541.74, -114.335, 4864.1, -110.38, 4935.99, 31.7321, 5024.39, 182.311, 5076.08, 345.628)
+polygon = PackedVector2Array(5115.1, 468.62, 5029.57, 451.89, 4909.7, 418.927, 4741.89, 363.49, 4644.5, 318.54, 4525.65, 267.584, 4377.13, 238.298, 4282.42, 227.513, 4148.18, 233.699, 4097.56, 243.103, 4011.03, 265.074, 3904.33, 277.141, 3788.51, 279.814, 3691.41, 286.941, 3425.79, 301.784, 3269.83, 313.349, 3158.2, 316.381, 2950.98, 307.518, 2814.91, 240.732, 2675.05, 184.036, 2593.62, 152.795, 2516.59, 93.1031, 2489.22, 21.4713, 2426.38, -31.2937, 2357.91, -88.5356, 2331.51, -129.234, 2321.37, -151.233, 2327.26, -170.788, 2346.97, -179.196, 2417.13, -173.235, 3264.5, -99.072, 3710.56, -78.4362, 4541.74, -114.335, 4734.1, -110.38, 4813.1, -114.38, 5010.1, -120.38, 5104.1, -126.38, 5324.1, -130.38, 5748.1, -160.38, 5840.1, -175.38, 6734.1, -656.38, 7462.1, -648.38, 7445.1, -153.38, 6610.1, 347.62, 5520.1, 273.62, 5208.1, 354.62)
 
 [node name="Polygon2D10_4" type="Polygon2D" parent="Tiilet"]
 position = Vector2(3069, -744)
 polygon = PackedVector2Array(3282, -101, 3270, -99, 3267, -95, 3266, -84, 3266, -68, 3264, -43, 3261, -3, 3260, 59, 3263, 131, 3263, 217, 3265, 336, 3270, 427, 3283, 510, 3304, 615, 3317, 652, 3326, 673, 3342, 683, 3356, 697, 3381, 710, 3415, 720, 3431, 720, 3435, 729, 3439, 738, 3443, 749, 3453, 748, 3459, 736, 3475, 729, 3491, 730, 3514, 731, 3529, 730, 3543, 736, 3575, 734, 3592, 734, 3598, 731, 3599, 725, 3598, 711, 3598, 700, 3606, 700, 3725, 695, 3726, 710, 3727, 728, 3734, 736, 3742, 735, 3747, 734, 3748, 722, 3748, 696, 3876, 696, 3876, 709, 3876, 722, 3877, 727, 3884, 729, 3902, 725, 3933, 722, 3966, 720, 3988, 720, 4022, 719, 4062, 715, 4108, 707, 4158, 704, 4180, 704, 4212, 704, 4376, 697, 4515, 696, 4632, 689, 5245, 332, 4680, -119, 3368, -100, 3303, -99)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1614, 697)
+position = Vector2(6424, -925)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -324,6 +330,10 @@ rotation = -4.0176
 [node name="Kukka12" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(5785.13, -843.317)
 rotation = -3.33175
+
+[node name="Kukka27" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(6271.58, -433.671)
+rotation = -1.66597
 
 [node name="Kukka13" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(5512.06, 1462.32)
@@ -661,13 +671,54 @@ position = Vector2(3719, -1147)
 position = Vector2(5808, 2139)
 rotation = 0.0300953
 
-[node name="Minecart-tp" type="Node2D" parent="."]
+[node name="Minecartit" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(6631, -887)
+position = Vector2(6622, -871)
 
-[node name="Minecart-tp2" type="Node2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(6691, 79)
+[node name="Minecart1" type="Area2D" parent="Minecartit" groups=["minecart"]]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minecartit/Minecart1"]
+position = Vector2(-4.5, 0)
+shape = SubResource("RectangleShape2D_glbb0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Minecartit/Minecart1"]
+position = Vector2(-12, -7)
+rotation = -0.0114939
+texture = ExtResource("37_snd3d")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Minecartit/Minecart1"]
+z_index = -1
+position = Vector2(46, -8)
+scale = Vector2(0.519523, 0.676654)
+texture = ExtResource("38_c8dmk")
+
+[node name="TooltipMinecart" parent="Minecartit/Minecart1" instance=ExtResource("24_wyudm")]
+position = Vector2(-9, -46)
+
+[node name="Minecart2" type="Area2D" parent="Minecartit" groups=["minecart"]]
+position = Vector2(45, 958)
+rotation = 0.0217203
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minecartit/Minecart2"]
+position = Vector2(-4.50049, 7.62939e-06)
+shape = SubResource("RectangleShape2D_glbb0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Minecartit/Minecart2"]
+position = Vector2(-6, -7)
+rotation = -0.0114939
+texture = ExtResource("37_snd3d")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Minecartit/Minecart2"]
+z_index = -1
+position = Vector2(46, -8)
+scale = Vector2(0.519523, 0.676654)
+texture = ExtResource("38_c8dmk")
+
+[node name="TooltipMinecart2" parent="Minecartit/Minecart2" instance=ExtResource("24_wyudm")]
+position = Vector2(-8.01953, -46.8369)
+rotation = -0.0217203
 
 [node name="Muuta" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -685,13 +736,23 @@ unique_name_in_owner = true
 position = Vector2(5717, 2136)
 
 [node name="Huilu1" type="Marker2D" parent="Muuta"]
-position = Vector2(3207, 202)
+position = Vector2(3178, 201)
 
 [node name="Ovihyppelypuzzle" type="Marker2D" parent="Muuta"]
 position = Vector2(9421, -520)
 
 [node name="Alkuanimaatio" type="Marker2D" parent="Muuta"]
 position = Vector2(1309, 134)
+
+[node name="Kentan1_loppu" type="Node2D" parent="Muuta"]
+unique_name_in_owner = true
+position = Vector2(3352, 210)
+rotation = 0.0157477
+scale = Vector2(0.519523, 0.676654)
+
+[node name="Sprite2D" type="Sprite2D" parent="Muuta/Kentan1_loppu"]
+z_index = -1
+texture = ExtResource("38_c8dmk")
 
 [node name="Tasot" type="Area2D" parent="."]
 visible = false
@@ -722,7 +783,6 @@ zoom = Vector2(0.3, 0.3)
 [node name="Musiikki" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("37_khmdb")
-bus = &"Musiikki"
 
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]
 [connection signal="body_exited" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_exited"]

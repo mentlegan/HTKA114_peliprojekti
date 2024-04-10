@@ -1,3 +1,4 @@
+## Juuso 10.4.2024
 ## Harri, Paavo 17.3.2024
 ## Elias 17.3.2024 - Pelaajan äänet
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
@@ -485,7 +486,7 @@ func _physics_process(delta):
 			huilun_partikkelit.modulate = aanen_taajuuden_vari()
 			huilun_aanet[(aanen_taajuus - 1) % AANEN_TAAJUUS_MAX].play()
 	
-	# Kukkien kerääminen
+	# Kukkien kerääminen JA MINECARTIN KÄYTTÄMINEN
 	# PC F
 	if Input.is_action_just_pressed("keraa_kukka"):
 		# TODO: tämä myöhemmin signaaleilla
@@ -493,6 +494,10 @@ func _physics_process(delta):
 		for kukka in kukat:
 			if kukka.is_in_group("kukka"):
 				Globaali.palloja = 2
+			elif kukka.is_in_group("minecart"):
+				# Tehty nyt täällä, myöhemmin kerkiää optimoida
+				self.position = Globaali.taso1_loppu
+				Globaali.minecartit.queue_free()
 
 	# player.visible = ! (raycast.is_colliding())
 

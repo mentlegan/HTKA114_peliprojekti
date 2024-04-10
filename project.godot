@@ -54,6 +54,7 @@ piikki=""
 koynnosovet=""
 newVihollinenValotarkistus=""
 kuolematon=""
+minecart=""
 
 [gui]
 

@@ -391,6 +391,7 @@ position = Vector2(148, 12)
 texture = ExtResource("6_uircd")
 
 [node name="ValonTarkistus" parent="." instance=ExtResource("4_5hfdk")]
+collision_mask = 30
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ValonTarkistus"]
 position = Vector2(-9.67458e-06, 7.62939e-06)

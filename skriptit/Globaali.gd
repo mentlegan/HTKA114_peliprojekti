@@ -23,8 +23,10 @@ var pelaaja_aloitus = null
 var vihollinen_aloitus = null
 
 ## Pelaajan taso2 ja taso3 koordinaatit teleporttaamiseen
+## Kentan 1 loppu mukaan minecart tp varten
 @onready var pelaaja_taso2 = get_node("/root/Maailma/%Muuta/%Taso2Teleport").position
 @onready var pelaaja_taso3 = get_node("/root/Maailma/%Muuta/%Taso3Teleport").position
+@onready var taso1_loppu = get_node("/root/Maailma/%Muuta/%Kentan1_loppu").position
 
 ## Taulukko Tasot-nodelle
 var tasot = Array()
@@ -54,6 +56,8 @@ var pystyssa = true
 
 ## Musiikit:
 @onready var musiikki = get_node("/root/Maailma/%Musiikki")
+## Minecartit tuhotaan, kun jompi kumpi käytetään
+@onready var minecartit = get_node("/root/Maailma/%Minecartit")
 
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://scenet/tausta.tscn")

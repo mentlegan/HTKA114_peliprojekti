@@ -1,4 +1,4 @@
-## Juuso 14.3.2024
+## Juuso 10.4.2024
 ## Elias 17.2.2024 - valopallon äänet
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 ## TODO: jostain syystä valopallon hajoamisääni ei soi
@@ -74,8 +74,6 @@ func reduce_energy():
 		# valopallo laajenee. Näyttäisi ihan kivalle
 		valo.texture_scale -= 0.1
 	else: 
-		# Varmistukseksi lopetetaan, pitäisi kuitenkin tuhoutua
-		# kun vapautetaan koko valopallo
 		# tuhoutuminen.stop()
 		queue_free()
 		Globaali.nykyiset_pallot -= 1
