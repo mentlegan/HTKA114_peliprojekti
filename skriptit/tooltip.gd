@@ -33,10 +33,18 @@ func kategorisoi_ui():
 	for lapsi in self.get_children():
 		if keskipiste(lapsi).x < -2:
 			ohjain_ui.append(lapsi)
-			lapsi.position.x = 0
+			aseta_keskelle(lapsi)
 		elif keskipiste(lapsi).x > 2:
 			kbm_ui.append(lapsi)
-			lapsi.position.x = 0
+			aseta_keskelle(lapsi)
+
+
+## Asettaa annetun noden vaakasuunnassa keskelle
+func aseta_keskelle(node):
+	if node is Sprite2D:
+		node.position.x = 0
+	if node is Label:
+		node.position.x = node.size.x * -0.5
 
 
 ## Palauttaa annetun noden keskipisteen
