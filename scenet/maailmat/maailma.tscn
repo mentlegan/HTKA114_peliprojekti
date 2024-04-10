@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=51 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
-[ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
+[ext_resource type="PackedScene" uid="uid://ddv0dtq0jbpmp" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
@@ -85,6 +85,9 @@ size = Vector2(3316, 1432)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eewo"]
 size = Vector2(3770, 2652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nydv"]
+size = Vector2(1098, 795)
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 script = ExtResource("1_sggs7")
@@ -574,6 +577,12 @@ position = Vector2(2969, 509)
 [node name="TooltipKiipea" parent="Tooltipit" instance=ExtResource("24_8j4jx")]
 position = Vector2(2979, 665)
 
+[node name="TooltipMinecart" parent="Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(6613, -917)
+
+[node name="TooltipMinecart2" parent="Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(6660, 40)
+
 [node name="piikki" parent="." instance=ExtResource("19_qwqpv")]
 position = Vector2(1279, 739)
 rotation = 0.447802
@@ -693,9 +702,6 @@ position = Vector2(46, -8)
 scale = Vector2(0.519523, 0.676654)
 texture = ExtResource("38_c8dmk")
 
-[node name="TooltipMinecart" parent="Minecartit/Minecart1" instance=ExtResource("24_wyudm")]
-position = Vector2(-9, -46)
-
 [node name="Minecart2" type="Area2D" parent="Minecartit" groups=["minecart"]]
 position = Vector2(45, 958)
 rotation = 0.0217203
@@ -715,10 +721,6 @@ z_index = -1
 position = Vector2(46, -8)
 scale = Vector2(0.519523, 0.676654)
 texture = ExtResource("38_c8dmk")
-
-[node name="TooltipMinecart2" parent="Minecartit/Minecart2" instance=ExtResource("24_wyudm")]
-position = Vector2(-8.01953, -46.8369)
-rotation = -0.0217203
 
 [node name="Muuta" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -755,7 +757,6 @@ z_index = -1
 texture = ExtResource("38_c8dmk")
 
 [node name="Tasot" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tasot"]
 position = Vector2(2063.5, 591)
@@ -779,6 +780,12 @@ shape = SubResource("RectangleShape2D_5eewo")
 [node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D3"]
 position = Vector2(17, -28)
 zoom = Vector2(0.3, 0.3)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Tasot"]
+position = Vector2(6683, -949.5)
+shape = SubResource("RectangleShape2D_4nydv")
+
+[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D4"]
 
 [node name="Musiikki" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
