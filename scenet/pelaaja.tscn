@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=73 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -11,6 +11,7 @@
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="5_gdn2h"]
 [ext_resource type="Texture2D" uid="uid://unl4x51gimxg" path="res://grafiikka/Tahtain.png" id="6_eyyqa"]
 [ext_resource type="Texture2D" uid="uid://d1oyqkmwe7p1i" path="res://grafiikka/OhjainTooltipSelect.png" id="6_uircd"]
+[ext_resource type="Texture2D" uid="uid://dgpptf7h5t4y5" path="res://grafiikka/WallClimb-Sheet.png" id="7_prghi"]
 [ext_resource type="AudioStream" uid="uid://eqsig3hl534a" path="res://audio/pelaaja/kavely2_pitka_mono.wav" id="10_uhji0"]
 [ext_resource type="AudioStream" uid="uid://37o042m8fj2j" path="res://audio/pelaaja/juoksu_mono.wav" id="11_kteua"]
 [ext_resource type="AudioStream" uid="uid://es1b0j0djyua" path="res://audio/pelaaja/hyppy1_mono.wav" id="12_k2yxh"]
@@ -137,6 +138,22 @@ region = Rect2(384, 0, 64, 64)
 atlas = ExtResource("3_dwx8p")
 region = Rect2(448, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v0iw"]
+atlas = ExtResource("7_prghi")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt27y"]
+atlas = ExtResource("7_prghi")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hts1f"]
+atlas = ExtResource("7_prghi")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fml5"]
+atlas = ExtResource("7_prghi")
+region = Rect2(192, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bqvgf"]
 animations = [{
 "frames": [{
@@ -230,6 +247,23 @@ animations = [{
 "loop": true,
 "name": &"kavely",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v0iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt27y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hts1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fml5")
+}],
+"loop": true,
+"name": &"seinakiipeaminen",
+"speed": 5.0
 }]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rfwgl"]
@@ -316,9 +350,10 @@ texture = ExtResource("2_gc81g")
 
 [node name="Animaatio" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(2, -3)
+position = Vector2(2, -4)
 sprite_frames = SubResource("SpriteFrames_bqvgf")
-animation = &"idle"
+animation = &"seinakiipeaminen"
+frame_progress = 0.565493
 
 [node name="Elamat" type="Label" parent="."]
 z_index = 99

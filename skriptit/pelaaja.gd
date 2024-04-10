@@ -264,6 +264,7 @@ func _physics_process(delta):
 	elif is_on_wall() and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
 		velocity.y = -gravity * delta * 6
 		seinalla()
+		animaatio.play("seinakiipeaminen")
 	elif is_on_wall() and (Input.is_action_pressed("putoa") or not kiipeamis_toggle):
 		velocity.y += gravity * delta
 		seinalla()
@@ -271,6 +272,7 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 		if is_on_wall():
+			animaatio.frame = 0
 			seinalla()
 
 	# Hyppy takaisin kun maassa
@@ -355,11 +357,7 @@ func _physics_process(delta):
 		else:
 			audio_kavely.stop()
 
-			if onko_seinalla:
-				# Tähän myöhemmin kiipeämisanimaatio
-				animaatio.set_animation("idle")
-				animaatio.stop()
-			else:
+			if not onko_seinalla:
 				# Asetetaan hyppyanimaatio
 				animaatio.set_animation("hyppy")
 				animaatio.stop()
