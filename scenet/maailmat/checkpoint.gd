@@ -1,6 +1,7 @@
 ## Juuso 10.4.2024
 ## Checkpointtien käsittely
-
+## Tällä hetkellä ei voi aktivoida jo aiemmin aktivoitua checkpointtia uudelleen,
+## jos on esimerkiksi aktivoinut jonkin toisen tässä välissä
 extends Area2D
 
 ## Totuusarvo sille onko päällä

@@ -77,10 +77,12 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 	for ovi in tason_ovet:
 		# Ehto sille, mille oville tehdään operaatio   tämä vain, kun osuu y (kaikki ovet)
 		if ovi.is_in_group(kirjain) or ovi.is_in_group("y") or if_y:
+			# Otetaan ryhmät tarkastelua varten
+			var ryhmat = ovi.get_groups()
+			
 			if ovi.get_child_count() == 0:
 				# Listään ovi-nodeille lapseksi vasemmalta
 				# tai oikealta aukeava ovi riippuen ryhmästä:
-				var ryhmat = ovi.get_groups()
 				# x
 				if ryhmat.has("x"):
 					if ryhmat.has("oviV"):
@@ -108,9 +110,11 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 						ovi_o_z = ovi_oikea_z.instantiate()
 						ovi.add_child(ovi_o_z)
 			else: # Tuhotaan
-				var lapset = ovi.get_children()
-				for lapsi in lapset:
-					lapsi.queue_free()
+				# Varsinaisessa ovipuzzlessa ovia, joita ei voi aukaista
+				if not ryhmat.has("kuolematon"):
+					var lapset = ovi.get_children()
+					for lapsi in lapset:
+						lapsi.queue_free()
 	
 	# Pelkkä ristiovi                         # vain tasossa 3
 	if Globaali.ovi_risti != null and ovi_ylin.get_name() == "Ovet_3":

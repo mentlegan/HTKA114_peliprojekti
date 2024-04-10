@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb28"]
 size = Vector2(11, 125.813)
 
-[node name="Ovi_oikea" type="Node2D"]
+[node name="Ovi_oikea_y" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2.55681, 0.5)
