@@ -268,9 +268,9 @@ func _physics_process(delta):
 		velocity.y = -gravity * delta * 6
 		seinalla()
 		animaatio.play("seinakiipeaminen")
-		if (animaatio.is_flipped_h() and get_wall_normal().x > position.x):
+		if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
 			animaatio.set_flip_h(true)
-		elif not animaatio.is_flipped_h() and get_wall_normal().x < position.x:
+		elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
 			animaatio.set_flip_h(true)
 	elif is_on_wall() and (Input.is_action_pressed("putoa") or not kiipeamis_toggle):
 		velocity.y += gravity * delta
@@ -281,9 +281,9 @@ func _physics_process(delta):
 		if is_on_wall():
 			animaatio.play("seinakiipeaminen")
 			animaatio.frame = 0
-			if (animaatio.is_flipped_h() and get_wall_normal().x > position.x):
+			if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
 				animaatio.set_flip_h(true)
-			elif not animaatio.is_flipped_h() and get_wall_normal().x < position.x:
+			elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
 				animaatio.set_flip_h(true)
 			seinalla()
 
