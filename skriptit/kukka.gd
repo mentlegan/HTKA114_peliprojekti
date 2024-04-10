@@ -80,5 +80,5 @@ func _on_body_entered(body):
 
 ## Kun osutaan huiluun
 func _on_area_entered(area:Area2D):
-	if area is Huilu:
+	if area is Huilu && area.aanen_taajuus == 1:
 		aseta_valo_paalle(false, area.aanen_taajuus)
