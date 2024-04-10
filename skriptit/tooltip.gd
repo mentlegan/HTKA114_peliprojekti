@@ -1,9 +1,51 @@
 extends Area2D
 
 
+var ohjain_ui = Array()
+var kbm_ui = Array()
+
+
 ## Piilotetaan tooltip pelin alussa
 func _ready():
 	visible = false
+	kategorisoi_ui()
+	vaihda_ui(true)
+
+
+## Vaihtaa UI-elementtejen näkyvyyden käytettävissä annetun ohjaimen mukaan.
+func vaihda_ui(nappaimisto):
+	var piilota = ohjain_ui
+	var nayta = kbm_ui
+
+	if not nappaimisto:
+		piilota = kbm_ui
+		nayta = ohjain_ui
+	
+	for node in piilota:
+		node.visible = false
+
+	for node in nayta:
+		node.visible = true
+
+
+## Kategorisoi UI-nodet lisäämällä ne joko ohjain_ui- tai kbm_ui-taulukkoon
+func kategorisoi_ui():
+	for lapsi in self.get_children():
+		if keskipiste(lapsi).x < -2:
+			ohjain_ui.append(lapsi)
+			lapsi.position.x = 0
+		elif keskipiste(lapsi).x > 2:
+			kbm_ui.append(lapsi)
+			lapsi.position.x = 0
+
+
+## Palauttaa annetun noden keskipisteen
+func keskipiste(node):
+	if node is Sprite2D:
+		return node.position
+	if node is Label:
+		return node.position + node.size * 0.5
+	return Vector2(0, 0)
 
 
 ## Asetetaan tooltip näkyviin, kun pelaaja astuu sen alueelle
