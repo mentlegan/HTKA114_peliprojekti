@@ -1,4 +1,5 @@
 ## Harri 9.4.2024
+## Paavo 10.4.2024
 ## TODO: vihollisen äänenkorkeus paremmin jos vihollisia enemmän kuin 1
 ## TODO: tuki uusien vihollisten äänenkorkeudelle
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
@@ -13,6 +14,9 @@ var pelaaja = null
 var vihollinen = null
 var piikki = null
 
+## UI-näkyvyyden ajastin
+var ui_ajastin = Timer.new()
+
 ## Pelaajan ja vihollisen aloitus koordinaatit
 ## Pelaajan aloituspaikka muuttuu pelin edetessä checkpointtien takia
 var pelaaja_aloitus = null
@@ -21,6 +25,10 @@ var vihollinen_aloitus = null
 ## Pelaajan taso2 ja taso3 koordinaatit teleporttaamiseen
 @onready var pelaaja_taso2 = get_node("/root/Maailma/%Muuta/%Taso2Teleport").position
 @onready var pelaaja_taso3 = get_node("/root/Maailma/%Muuta/%Taso3Teleport").position
+
+## Taulukko Tasot-nodelle
+var tasot = Array()
+@onready var tasot_node = get_node("/root/Maailma/Tasot")
 
 ## vihollisen äänenkorkeuden kerroin
 var vihollisen_aanenkorkeuden_kerroin = 1
@@ -92,9 +100,53 @@ func _ready():
 	
 	# Lisätään sceneen tausta
 	self.add_child(tausta.instantiate())
-	
+
 	# Aloitetaan musiikki 
 	musiikki.play()
+
+	# Lisätään UI-ajastin
+	self.add_child(ui_ajastin)
+	ui_ajastin.set_one_shot(true)
+	ui_ajastin.timeout.connect(aseta_ui_nakyvaksi)
+
+	# Täytetään tasot-taulukko
+	lisaa_tasot()
+
+
+## Asettaa pelaajan UI:n takaisin näkyväksi ja (TODO) piilottaa ovet
+## Palauttaa samalla aktiivisen kameran pelaajalle
+func aseta_ui_nakyvaksi():
+	pelaaja.aseta_ui_nakyvyys(true)
+	pelaaja.palauta_kamera()
+
+
+## Lisää Tasot-noden CollisionShape2D- ja Camera2D-nodet taulukkoon.
+func lisaa_tasot():
+	for lapsi in tasot_node.get_children():
+		if lapsi is CollisionShape2D:
+			# Etsitään kamera nykyisen lapsen lapsista
+			var kamera = null
+			for lapsenlapsi in lapsi.get_children():
+				if lapsenlapsi is Camera2D:
+					kamera = lapsenlapsi
+
+			if kamera != null:
+				tasot.append({
+					"rect": Rect2(
+						lapsi.global_position - lapsi.get_shape().get_rect().size * 0.5,
+						lapsi.get_shape().get_rect().size
+					),
+					"kamera": kamera
+				})
+
+
+## Näyttää ovet tasosta, johon annetut koordinaatit sijoittuvat.
+func nayta_tason_ovet(koordinaatit):
+	for taso in tasot:
+		if taso["rect"].has_point(koordinaatit):
+			taso["kamera"].make_current()
+			pelaaja.aseta_ui_nakyvyys(false)
+			ui_ajastin.start(2)
 
 
 ## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process

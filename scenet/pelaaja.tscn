@@ -36,11 +36,11 @@
 radius = 3.83333
 height = 10.6667
 
-[sub_resource type="Gradient" id="Gradient_1og31"]
+[sub_resource type="Gradient" id="Gradient_l5lx0"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lbg0v"]
-gradient = SubResource("Gradient_1og31")
+gradient = SubResource("Gradient_l5lx0")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tek73"]
 atlas = ExtResource("3_6n26n")
@@ -338,9 +338,10 @@ shape = SubResource("CapsuleShape2D_u7j51")
 
 [node name="PimeaValo" type="PointLight2D" parent="."]
 visible = false
+position = Vector2(-17.5059, -41.9961)
+scale = Vector2(2188.64, 1311.03)
 blend_mode = 1
 texture = SubResource("GradientTexture2D_lbg0v")
-texture_scale = 15.22
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.933333, 0.854902, 0.564706, 1)
@@ -447,6 +448,8 @@ stream = ExtResource("25_qars5")
 [node name="ReunojenPimentajaValo" type="PointLight2D" parent="."]
 light_mask = 0
 visibility_layer = 0
+position = Vector2(-1, -4)
+scale = Vector2(133.326, 77.3468)
 blend_mode = 1
 range_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_3yd8i")
@@ -461,7 +464,6 @@ texture = ExtResource("20_8tpmo")
 
 [node name="Huilu" type="Area2D" parent="."]
 collision_layer = 14
-collision_mask = 0
 script = ExtResource("26_v60w7")
 
 [node name="Partikkelit" type="CPUParticles2D" parent="Huilu"]
@@ -503,4 +505,4 @@ sprite_frames = SubResource("SpriteFrames_ln8w0")
 wait_time = 0.73
 
 [connection signal="body_entered" from="keho" to="." method="_on_keho_body_entered"]
-[connection signal="area_entered" from="Huilu" to="." method="_on_huilu_area_entered"]
+[connection signal="body_entered" from="Huilu" to="." method="_on_huilu_body_entered"]

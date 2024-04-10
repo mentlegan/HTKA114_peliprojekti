@@ -19,8 +19,13 @@ signal kuollut
 @onready var valon_tarkistus = get_node("ValonTarkistus")
 ## Ohjaimen tähtäin
 @onready var tahtain = get_node("Tahtain")
-## Pelaajan elamat label
+## Pelaajan labelit
 @onready var elamat = get_node("Elamat")
+@onready var palloja_label = get_node("Palloja")
+@onready var apua_label = get_node("ApuaLabel")
+## Pelaajan kamera
+@onready var kamera = get_node("Camera2D")
+
 ## Totuusarvo valossa olemiselle
 var valossa = false
 
@@ -286,8 +291,9 @@ func _physics_process(delta):
 	elif is_on_wall() and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
 		velocity.y = -gravity * delta * 6
 		seinalla()
-		if animaatio.get_animation() != "huilu":
-			animaatio.play("seinakiipeaminen")
+		if animaatio.get_current_animation() != "huilu":
+			if animaatio.get_current_animation() != "huilu":
+				animaatio.play("seinakiipeaminen")
 			if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
 				animaatio.set_flip_h(true)
 			elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
@@ -299,7 +305,7 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 		if is_on_wall():
-			if animaatio.get_animation() != "huilu":
+			if animaatio.get_current_animation() != "huilu":
 				animaatio.play("seinakiipeaminen")
 				animaatio.frame = 0
 				if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
@@ -469,7 +475,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Käynnistetään huilun animaatio
-		if huilun_cd_ajastin.is_stopped() && animaatio.get_animation() != "seinakiipeaminen":
+		if huilun_cd_ajastin.is_stopped():
 			animaatio.play("huilu")
 			huilu.rotation = valon_kohde.angle()
 			#animaatio.set_flip_h(valon_kohde.x < 0)
@@ -494,3 +500,24 @@ func _physics_process(delta):
 	# light.KORKEUS nyt 60, texture_scale 12   = 60           = 12
 	# sopiva etäisyys 360, joka tulee (light.KORKEUS * light.texture_scale) / 2
 	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
+
+
+## Asettaa UI:n näkyvyyden
+func aseta_ui_nakyvyys(nakyvissa):
+	elamat.visible = nakyvissa
+	palloja_label.visible = nakyvissa
+	apua_label.visible = nakyvissa
+
+
+## Palauttaa pelaajan oman kameran aktiiviseksi
+func palauta_kamera():
+	kamera.make_current()
+
+
+## Kun huiluun osuu rigid/staticbody, tarkistetaan onko se ovi.
+## Jos on, vaihdetaan kameraa ja näytetään tason ovet hetkeksi.
+func _on_huilu_body_entered(body):
+	if aanen_taajuus == 3:
+		var nimi = body.get_name()
+		if nimi == "Osuu" or nimi == "Kimpoaa":
+			Globaali.nayta_tason_ovet(body.global_position)
