@@ -272,6 +272,7 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 		if is_on_wall():
+			animaatio.play("seinakiipeaminen")
 			animaatio.frame = 0
 			seinalla()
 
