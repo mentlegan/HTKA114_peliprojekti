@@ -21,10 +21,13 @@ var valo_tekstuuri_suuri = preload("res://grafiikka/Valo128.png")
 var valo_paalla_pysyvasti = false
 
 
-## Pyykkikassi 
+## Asetetaan ajastimien timeout-funktiot ja valon tekstuuri
 func _ready():
+	# Yhdistetään ajastimet huilun ominaisuuksilta palautumiseen
 	taajuus_1_ajastin.timeout.connect(aseta_valo_pois_paalta)
 	taajuus_2_ajastin.timeout.connect(aseta_valon_tekstuuri)
+
+	# Asetetaan varulta valon tekstuuri pelin alussa
 	aseta_valon_tekstuuri()
 
 
@@ -76,6 +79,5 @@ func _on_body_entered(body):
 
 
 ## Kun osutaan huiluun
-func _on_area_entered(area:Area2D):
-	if area is Huilu:
-		aseta_valo_paalle(false, area.aanen_taajuus)
+func _on_area_entered(area:Huilu):
+	aseta_valo_paalle(false, area.aanen_taajuus)
