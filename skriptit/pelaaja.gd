@@ -19,6 +19,8 @@ signal kuollut
 @onready var valon_tarkistus = get_node("ValonTarkistus")
 ## Ohjaimen tähtäin
 @onready var tahtain = get_node("Tahtain")
+## Pelaajan elamat label
+@onready var elamat = get_node("Elamat")
 ## Totuusarvo valossa olemiselle
 var valossa = false
 
@@ -127,6 +129,9 @@ func _ready():
 	self.add_child(ajastin_pimeassa)
 	self.add_child(hyppy_ajastin)
 	
+	# Lisätään pelaajan hp labeliin elamat
+	elamat.text = "Health: " + str(pelaajan_elamat_max)
+	
 	# Hyppy mahdollisuus pois jos liian kauan pois seinältä
 	hyppy_ajastin.timeout.connect(hyppy_buffer)
 	
@@ -193,6 +198,14 @@ func kuolema():
 	audio_pelaaja_kuolee.play()
 	pelaajan_elamat = 1
 	kuollut.emit()
+
+
+## Haetaan pelaajan elamat
+func get_elamat():
+	return pelaajan_elamat
+
+func elamat_label_paivita(delta):
+	elamat.text = "Health: " + str(pelaajan_elamat)
 
 
 ## Ei hyppyä kun liian kauan seinältä

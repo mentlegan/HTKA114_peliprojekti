@@ -320,6 +320,14 @@ position = Vector2(2, -3)
 sprite_frames = SubResource("SpriteFrames_bqvgf")
 animation = &"idle"
 
+[node name="Elamat" type="Label" parent="."]
+z_index = 99
+material = ExtResource("5_gdn2h")
+offset_left = -468.0
+offset_top = -243.0
+offset_right = -428.0
+offset_bottom = -225.0
+
 [node name="Palloja" type="Label" parent="."]
 z_index = 99
 z_as_relative = false
