@@ -15,7 +15,7 @@ extends Area2D
 
 ## Tekstuurit valolle
 var valo_tekstuuri_pieni = preload("res://grafiikka/Valo64.png")
-var valo_tekstuuri_suuri = preload("res://grafiikka/Valo128.png")
+var valo_tekstuuri_suuri = preload("res://grafiikka/Valo256.png")
 
 ## Muuttuja sille, onko valo asetettu päälle valopallolla
 var valo_paalla_pysyvasti = false
@@ -79,5 +79,6 @@ func _on_body_entered(body):
 
 
 ## Kun osutaan huiluun
-func _on_area_entered(area:Huilu):
-	aseta_valo_paalle(false, area.aanen_taajuus)
+func _on_area_entered(area:Area2D):
+	if area is Huilu:
+		aseta_valo_paalle(false, area.aanen_taajuus)
