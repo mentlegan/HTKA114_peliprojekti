@@ -161,11 +161,13 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 
 
 func _physics_process(delta):
+	"""
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Tuhotaan valopallo kokonaan
 		audio_valopallo_hajoaa.play() # TODO: Jostain syystä ei soi
 		queue_free()
 		Globaali.nykyiset_pallot = 0
+	"""
 	
 	# Valon liikkuminen
 	var collision = move_and_collide(velocity * delta)
