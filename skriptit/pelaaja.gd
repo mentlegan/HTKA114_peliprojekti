@@ -196,7 +196,8 @@ func siirrytty_varjoon():
 ## Tähän lisätty signaalin emit
 func kuolema():
 	audio_pelaaja_kuolee.play()
-	pelaajan_elamat = 1
+	pelaajan_elamat = pelaajan_elamat_max
+	elamat_label_paivita()
 	kuollut.emit()
 
 
@@ -204,7 +205,7 @@ func kuolema():
 func get_elamat():
 	return pelaajan_elamat
 
-func elamat_label_paivita(delta):
+func elamat_label_paivita():
 	elamat.text = "Health: " + str(pelaajan_elamat)
 
 
@@ -283,6 +284,8 @@ func _physics_process(delta):
 				pelaajan_elamat -= putoamis_raja_2_dmg
 			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_1:
 				pelaajan_elamat -= putoamis_raja_1_dmg
+			
+			elamat_label_paivita()
 			putoamis_vahinko = false
 			if pelaajan_elamat <= 0:
 				kuolema()
