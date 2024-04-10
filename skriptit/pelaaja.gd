@@ -35,6 +35,7 @@ var valossa = false
 
 ## Huilu, äänen taajuuden sprite ja niiden ajastimet
 @onready var huilu = $Huilu
+@onready var huilun_collision = $Huilu/CollisionPolygon2D
 @onready var huilun_cd_ajastin = $Huilu/CooldownAjastin
 @onready var aanen_taajuus_sprite = $AanenTaajuus
 @onready var aanen_taajuus_ajastin = $AanenTaajuus/Ajastin
@@ -157,6 +158,9 @@ func _ready():
 	vaihda_aanen_taajuutta(-1)
 	aanen_taajuus_sprite.visible = false
 
+	# Laitetaan huilun collision pois päältä
+	huilun_collision.set_disabled(true)
+
 
 ## Lopettaa huilu-animaation
 func lopeta_huilu_animaatio():
@@ -165,6 +169,7 @@ func lopeta_huilu_animaatio():
 		animaatio.stop()
 		huilun_cd_ajastin.start()
 		huilun_partikkelit.set_emitting(false)
+		huilun_collision.set_disabled(true)
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
@@ -220,6 +225,7 @@ func vaihda_aanen_taajuutta(delta):
 	aanen_taajuus_sprite.visible = true
 	aanen_taajuus_sprite.frame = aanen_taajuus - 1
 	aanen_taajuus_ajastin.start()
+	huilu.aanen_taajuus = aanen_taajuus
 	aanen_taajuus_sprite.modulate = aanen_taajuuden_vari()
 
 
@@ -419,6 +425,7 @@ func _physics_process(delta):
 			animaatio.play("huilu")
 			huilu.rotation = valon_kohde.angle()
 			#animaatio.set_flip_h(valon_kohde.x < 0)
+			huilun_collision.set_disabled(false)
 			huilun_cd_ajastin.start()
 			huilun_partikkelit.set_emitting(true)
 			huilun_partikkelit.set_gravity(Vector2.from_angle(huilu.rotation) * 40)

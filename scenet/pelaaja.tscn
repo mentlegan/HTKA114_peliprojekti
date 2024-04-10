@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=68 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cp4f2v1euxr6b" path="res://grafiikka/AanenTaajuus3.png" id="24_7n80x"]
 [ext_resource type="AudioStream" uid="uid://dw75jyosgto66" path="res://audio/pelaaja/huilu/huiluaani_C.wav" id="24_xxdxr"]
 [ext_resource type="AudioStream" uid="uid://diri4jc7100fi" path="res://audio/pelaaja/huilu/huiluaani_E.wav" id="25_qars5"]
+[ext_resource type="Script" path="res://skriptit/huilu.gd" id="26_v60w7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -416,8 +417,9 @@ range_item_cull_mask = 2
 texture = ExtResource("20_8tpmo")
 
 [node name="Huilu" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 6
+collision_layer = 14
+collision_mask = 0
+script = ExtResource("26_v60w7")
 
 [node name="Partikkelit" type="CPUParticles2D" parent="Huilu"]
 z_index = 99
