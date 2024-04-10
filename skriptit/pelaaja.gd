@@ -287,6 +287,7 @@ func vaihda_aanen_taajuutta(delta):
 
 ## Fysiikanhallintaa
 func _physics_process(delta):
+	var aiempi_hiiren_tila = hiiri_kaytossa
 	
 	# Seinäkiipeämiseen toggle
 	# PC E
@@ -519,6 +520,8 @@ func _physics_process(delta):
 	# light.KORKEUS nyt 60, texture_scale 12   = 60           = 12
 	# sopiva etäisyys 360, joka tulee (light.KORKEUS * light.texture_scale) / 2
 	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
+	if hiiri_kaytossa != aiempi_hiiren_tila:
+		Globaali.vaihda_tooltip_ui(hiiri_kaytossa)
 
 
 ## Asettaa UI:n näkyvyyden
