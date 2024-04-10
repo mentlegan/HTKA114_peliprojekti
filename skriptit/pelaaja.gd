@@ -166,6 +166,9 @@ func _ready():
 	# Laitetaan huilun collision pois päältä
 	huilun_collision.set_disabled(true)
 
+	# Asetetaan idle-animaation pelin alussa
+	animaatio.play("idle")
+
 
 ## Lopettaa huilu-animaation
 func lopeta_huilu_animaatio():
