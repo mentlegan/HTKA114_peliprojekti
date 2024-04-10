@@ -104,10 +104,17 @@ var hyppy_ajastin = Timer.new()
 const SEINAHYPPY_BUFFER = 0.1 ## Kuinka kauan seinältä voi olla poissa, niin että pelaaja saa vielä hypätä (sekunteina)
 
 ## Pelaajan elämäpisteet
-var pelaajan_elamat = 1
+const pelaajan_elamat_max = 6
+var pelaajan_elamat = pelaajan_elamat_max
 
 ## Miten pitkästi pelaaja voi tippua, kunnes siitä ottaa vahinkoa
-var putoamis_raja = 200
+var putoamis_raja_1 = 200
+var putoamis_raja_2 = 300
+var putoamis_raja_3 = 400
+## Miten paljon vahinkoa kustakin korkeudesta ottaa
+var putoamis_raja_1_dmg = 2
+var putoamis_raja_2_dmg = 3
+var putoamis_raja_3_dmg = 6
 ## Tarkistetaako maahan osuessa pudotuksen pituus, putoamis vahinkoa varten
 var putoamis_vahinko = false
 ## Miltä korkeudelta pelaajan pudotus alkoi
@@ -250,8 +257,13 @@ func _physics_process(delta):
 	if is_on_floor():
 		hyppyjen_maara = 0
 		onko_seinalla = false
-		if putoamis_vahinko and (get_global_position().y - putoamis_huippu) > putoamis_raja:
-			pelaajan_elamat -= 1
+		if putoamis_vahinko:
+			if (get_global_position().y - putoamis_huippu) > putoamis_raja_3:
+				pelaajan_elamat -= putoamis_raja_3_dmg
+			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_2:
+				pelaajan_elamat -= putoamis_raja_2_dmg
+			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_1:
+				pelaajan_elamat -= putoamis_raja_1_dmg
 			putoamis_vahinko = false
 			if pelaajan_elamat <= 0:
 				kuolema()
