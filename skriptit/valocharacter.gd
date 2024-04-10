@@ -31,12 +31,15 @@ var SPEED = 110.0
 var kimpoamiset = 0
 ## Tällä hetkellä 7.0 sekuntia elossa
 @onready var elo_aika = get_node("Timer")
+## Ajastin asteittain tuhoutumiselle
+@onready var tuhoutuminen = get_node("Timer2")
 
 
 ## Kytketään ajastimen loppuminen valopallon tuhoamiseen
 func _ready():
-	elo_aika.timeout.connect(destroy)
+	elo_aika.timeout.connect(start_destroy)
 	audio_valopallon_heitto.play()
+	tuhoutuminen.timeout.connect(reduce_energy)
 
 
 func move(_position, _mouse):
@@ -49,9 +52,33 @@ func move(_position, _mouse):
 
 
 ## Valopallojen tuhoamiseen liittyvä käsittely
-func destroy():
-	queue_free()
-	Globaali.nykyiset_pallot -= 1
+func start_destroy():
+	# Pysäytetään valopallo
+	velocity = Vector2(0, 0)
+	# Vaihdetaan blend_mode, jotta ei "syö" muita valoja tuhoutuessa
+	# BLEND_MODE_ADD = 0, sub on 1 ja mix 2
+	valo.blend_mode = 0
+	# Aloitetaan tuhouamisprosessi timerilla
+	tuhoutuminen.start()
+	# queue_free()
+	# Globaali.nykyiset_pallot -= 1
+
+
+func reduce_energy():
+	# Vähennetään valopallon energiaa ja kokoa jonkin ajan verran kunnes alle 0
+	# Tällä hetkellä 0,1 sekunnin välein
+	#             Laitettu texture_scale tarkistus, voisi olla ilmankin. Antaa erilaisen fiiliksen
+	if valo.energy >= 0 and valo.texture_scale >= 0:
+		valo.energy -= 0.15
+		# Ilman texture_scale tarkistusta, kun koko menee negatiiviseksi
+		# valopallo laajenee. Näyttäisi ihan kivalle
+		valo.texture_scale -= 0.1
+	else: 
+		# Varmistukseksi lopetetaan, pitäisi kuitenkin tuhoutua
+		# kun vapautetaan koko valopallo
+		# tuhoutuminen.stop()
+		queue_free()
+		Globaali.nykyiset_pallot -= 1
 
 
 ## Muuttaa ovet, jos valopallo osuu x tai z oveen
@@ -205,7 +232,7 @@ func _physics_process(delta):
 			"""
 			
 			# Tuhotaan pallo, se imeytyy oveen
-			destroy()
+			start_destroy()
 			audio_valopallo_hajoaa.play() # TODO: Jostain syystä ei soi
 			
 			
@@ -221,7 +248,7 @@ func _physics_process(delta):
 			# Lisätään kimmotusten määrää
 			kimpoamiset += 1
 			if kimpoamiset >= 5:
-				destroy()
+				start_destroy()
 	
 	
 	"""
