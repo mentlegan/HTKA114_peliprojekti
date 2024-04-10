@@ -17,6 +17,10 @@ var piikki = null
 ## UI-näkyvyyden ajastin
 var ui_ajastin = Timer.new()
 
+## Taulukko tooltipeille
+@onready var tooltip_node = get_node("/root/Maailma/Tooltipit")
+var tooltipit = Array()
+
 ## Pelaajan ja vihollisen aloitus koordinaatit
 ## Pelaajan aloituspaikka muuttuu pelin edetessä checkpointtien takia
 var pelaaja_aloitus = null
@@ -121,6 +125,23 @@ func _ready():
 	# Täytetään tasot- ja valot-taulukko
 	lisaa_tasot()
 	lisaa_valot()
+
+	# Haetaan pelin kaikki tooltip-nodet.
+	lisaa_tooltipit()
+	vaihda_tooltip_ui(true)
+
+
+## Hakee pelin kaikki tooltip-nodet ja lisää ne omaan taulukkoon
+func lisaa_tooltipit():
+	for lapsi in tooltip_node.get_children():
+		if lapsi is Tooltip:
+			tooltipit.append(lapsi)
+
+
+## Vaihtaa pelin kaikkien tooltippien UI:t vastaamaan annettua ohjainta.
+func vaihda_tooltip_ui(nappaimisto):
+	for tooltip in tooltipit:
+		tooltip.vaihda_ui(nappaimisto)
 
 
 ## Asettaa pelin jokaisen köynnösoven valon näkyvyyden
