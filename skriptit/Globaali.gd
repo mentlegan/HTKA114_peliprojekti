@@ -28,6 +28,11 @@ var vihollinen_aloitus = null
 @onready var pelaaja_taso3 = get_node("/root/Maailma/%Muuta/%Taso3Teleport").position
 @onready var taso1_loppu = get_node("/root/Maailma/%Muuta/%Kentan1_loppu").position
 
+## Valo köynnösoville ja niiden taulukko
+var oven_valo = preload("res://scenet/oven_valo.tscn")
+var ovien_valot = Array()
+@onready var koynnosovet = get_node("/root/Maailma/Koynnosovet")
+
 ## Taulukko Tasot-nodelle
 var tasot = Array()
 @onready var tasot_node = get_node("/root/Maailma/Tasot")
@@ -113,8 +118,26 @@ func _ready():
 	ui_ajastin.set_one_shot(true)
 	ui_ajastin.timeout.connect(aseta_ui_nakyvaksi)
 
-	# Täytetään tasot-taulukko
+	# Täytetään tasot- ja valot-taulukko
 	lisaa_tasot()
+	lisaa_valot()
+
+
+## Asettaa pelin jokaisen köynnösoven valon näkyvyyden
+func aseta_valojen_vakyvyys(nakyvyys):
+	for valo in ovien_valot:
+		valo.visible = nakyvyys
+
+
+## Lisää Koynnosovet-noden jokaiselle lapsenlapselle valot
+func lisaa_valot():
+	for lapsi in koynnosovet.get_children():
+		for lapsenlapsi in lapsi.get_children():
+			var valo = oven_valo.instantiate()
+			valo.global_position = lapsenlapsi.global_position
+			valo.visible = false
+			self.add_child(valo)
+			ovien_valot.append(valo)
 
 
 ## Asettaa pelaajan UI:n takaisin näkyväksi ja (TODO) piilottaa ovet
@@ -122,6 +145,7 @@ func _ready():
 func aseta_ui_nakyvaksi():
 	pelaaja.aseta_ui_nakyvyys(true)
 	pelaaja.palauta_kamera()
+	aseta_valojen_vakyvyys(false)
 
 
 ## Lisää Tasot-noden CollisionShape2D- ja Camera2D-nodet taulukkoon.
@@ -150,7 +174,9 @@ func nayta_tason_ovet(koordinaatit):
 		if taso["rect"].has_point(koordinaatit):
 			taso["kamera"].make_current()
 			pelaaja.aseta_ui_nakyvyys(false)
-			ui_ajastin.start(2)
+			ui_ajastin.start(5)
+			aseta_valojen_vakyvyys(true)
+			return
 
 
 ## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://edcw01ogku56"]
+
+[ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="1_wkbbm"]
+
+[node name="OvenValo" type="PointLight2D"]
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("1_wkbbm")
