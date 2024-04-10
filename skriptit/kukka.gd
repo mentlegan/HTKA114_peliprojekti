@@ -15,7 +15,7 @@ extends Area2D
 
 ## Tekstuurit valolle
 var valo_tekstuuri_pieni = preload("res://grafiikka/Valo64.png")
-var valo_tekstuuri_suuri = preload("res://grafiikka/Valo128.png")
+var valo_tekstuuri_suuri = preload("res://grafiikka/Valo256.png")
 
 ## Muuttuja sille, onko valo asetettu päälle valopallolla
 var valo_paalla_pysyvasti = false
