@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=50 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d1c6axf23uaq5" path="res://scenet/kayttoliittyma/help_ruutu.tscn" id="4_5kntw"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="4_udkay"]
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://scenet/kayttoliittyma/game_over_ruutu.tscn" id="9_er4wh"]
+[ext_resource type="PackedScene" uid="uid://daeaotnb7peu2" path="res://scenet/piikki.tscn" id="9_ox6hl"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://scenet/vihollinen.tscn" id="12_u46m1"]
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://scenet/perhonen.tscn" id="13_ufso7"]
 [ext_resource type="PackedScene" uid="uid://d3kjiqbvins4c" path="res://scenet/ovet/ovi_vasen_z.tscn" id="13_vnqp0"]
@@ -42,9 +43,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_h32vt"]
 _data = {
-"points": PackedVector2Array(-1.678, 21.6889, 1.678, -21.6889, 2, -3, 0, 0, 0, 0, 3, -17, 0, 0, 0, 0, 41, -33, 0, 0, 0, 0, 88, -24, -24.7487, -9.8995, 24.7487, 9.8995, 173, 10, -10.6066, -42.4264, 10.6066, 42.4264, 203, 88, 0, 0, 0, 0, 230, 176, 0, 0, 0, 0, 207, 209, 32.2774, -9.41974, -32.2774, 9.41974, 166, 246, 0, 0, 0, 0, 89, 262, 0, 0, 0, 0, -5, 302, 14.2952, -38.6812, -14.2952, 38.6812, -53, 346, 0, 0, 0, 0, -89, 409, 0, -1.88775, 0, 1.88775, -120, 463, 0, 0, 0, 0, -165, 453, 0, 0, 0, 0, -207, 413, 0, 0, 0, 0, -195, 328, 0, 0, 0, 0, -151, 279, 0, 0, 0, 0, -104, 253, 0, 0, 0, 0, -42, 245, 0, 0, 0, 0, -8, 239, 0, 0, 0, 0, 29, 237, 0, 0, 0, 0, 83, 212, 0, 0, 0, 0, 129, 178, 0, 0, 0, 0, 139, 130, 18.2684, 25.0173, -18.2684, -25.0173, 135, 74, 0, 0, 0, 0, 67, 40, 0, 0, 0, 0, 13, 26, 0, 0, 0, 0, 2, -3)
+"points": PackedVector2Array(-1.678, 21.6889, 1.678, -21.6889, 2, -3, 0, 0, 0, 0, 3, -17, 0, 0, 0, 0, 41, -33, 0, 0, 0, 0, 88, -24, -24.7487, -9.8995, 24.7487, 9.8995, 554.779, -2, -10.6066, -42.4264, 10.6066, 42.4264, 684.519, 44, 0, 0, 0, 0, 693.232, 144, 0, 0, 0, 0, 594.476, 343, 40.5348, -17.4378, -40.5348, 17.4378, 481.196, 357, 0, 0, 0, 0, 369.853, 378, 0, 0, 0, 0, 270.128, 379, 59.3628, -3.04525, -59.3628, 3.04525, 155.88, 356, 0, 0, 0, 0, 61.9648, 354, 0, -1.88775, 0, 1.88775, -38.7285, 381, 0, 0, 0, 0, -88.1064, 392, 0, 0, 0, 0, -228.496, 382, 0, 0, 0, 0, -121.994, 361, 0, 0, 0, 0, -17.4277, 347, 0, 0, 0, 0, 89.0742, 336, 0, 0, 0, 0, 327.252, 349, 0, 0, 0, 0, 456.022, 325, 0, 0, 0, 0, 531.542, 318, 0, 0, 0, 0, 609.967, 292, 0, 0, 0, 0, 680.646, 140, 0, 0, 0, 0, 609.968, 39, 0, 0, 0, 0, 442.469, 14, 18.2684, 25.0173, -18.2684, -25.0173, 209.132, 7, 0, 0, 0, 0, 115.217, 6, 0, 0, 0, 0, 67.7744, 1, 0, 0, 0, 0, 2, -3)
 }
-point_count = 29
+point_count = 30
 
 [sub_resource type="Curve2D" id="Curve2D_fl3c8"]
 _data = {
@@ -193,8 +194,19 @@ polygon = PackedVector2Array(5115.1, 468.62, 5029.57, 451.89, 4909.7, 418.927, 4
 position = Vector2(3069, -744)
 polygon = PackedVector2Array(3282, -101, 3270, -99, 3267, -95, 3266, -84, 3266, -68, 3264, -43, 3261, -3, 3260, 59, 3263, 131, 3263, 217, 3265, 336, 3270, 427, 3283, 510, 3304, 615, 3317, 652, 3326, 673, 3342, 683, 3356, 697, 3381, 710, 3415, 720, 3431, 720, 3435, 729, 3439, 738, 3443, 749, 3453, 748, 3459, 736, 3475, 729, 3491, 730, 3514, 731, 3529, 730, 3543, 736, 3573, 735, 3591, 736, 3618, 739, 3646, 745, 3658, 746, 3656, 737, 3654, 730, 3599, 730, 3598, 711, 3598, 700, 3606, 700, 3725, 695, 3726, 710, 3727, 728, 3685, 729, 3686, 736, 3678, 744, 3672, 752, 3670, 759, 3688, 760, 3696, 758, 3703, 749, 3707, 739, 3726, 735, 3741, 735, 3759, 736, 3771, 740, 3784, 743, 3790, 741, 3792, 735, 3792, 729, 3748, 729, 3748, 696, 3876, 696, 3876, 709, 3876, 726, 3822, 727, 3822, 732, 3824, 737, 3820, 740, 3816, 745, 3814, 752, 3809, 758, 3805, 764, 3811, 768, 3832, 763, 3850, 760, 3862, 759, 3875, 746, 3888, 733, 3909, 719, 3938, 712, 3970, 706, 4003, 704, 4036, 708, 4069, 709, 4107, 710, 4156, 708, 4182, 708, 4229, 707, 4286, 707, 4339, 705, 4388, 703, 4515, 696, 4632, 689, 5245, 332, 4680, -119, 3368, -100, 3303, -99)
 
+[node name="Polygon2D11_5" type="Polygon2D" parent="Tiilet"]
+position = Vector2(-8, 15)
+polygon = PackedVector2Array(9492, -690, 9660, -690, 9789, -688, 10018, -699, 10192, -726, 10351, -761, 10429, -833, 10459, -961, 10499, -1165, 10575, -1263, 10665, -1291, 10878, -1330, 11062, -1368, 11336, -1379, 11533, -1398, 11863, -1408, 12099, -1415, 12177, -1493, 12160, -1595, 12084, -1690, 11802, -1788, 11522, -1792, 10969, -1811, 10308, -1794, 9844, -1760, 9414, -1731, 9107, -1663, 9100, -1633)
+
+[node name="Polygon2D12_5" type="Polygon2D" parent="Tiilet"]
+polygon = PackedVector2Array(9504, -427, 9562, -424, 9638, -417, 9733, -415, 9783, -403, 9802, -372, 9814, -296, 9818, -210, 9823, -127, 9821, -49, 9821, -11, 9818, 30, 9823, 118, 9830, 151, 9887, 158, 9933, 164, 9979, 172, 10028, 125, 10054, 77, 10068, 26, 10082, -25, 10092, -77, 10105, -153, 10117, -223, 10130, -293, 10152, -355, 10183, -362, 10206, -357, 10218, -300, 10229, -236, 10243, -163, 10236, -79, 10240, -9, 10232, 69, 10251, 148, 10290, 190, 10362, 198, 10430, 212, 10465, 183, 10520, 166, 10548, 109, 10571, 39, 10577, -48, 10587, -154, 10606, -274, 10630, -316, 10657, -321, 10684, -313, 10703, -277, 10714, -216, 10717, -149, 10720, -82, 10715, 11, 10712, 84, 10733, 162, 10806, 189, 10870, 195, 10932, 190, 10975, 185, 11009, 124, 11024, 60, 11037, -12, 11044, -82, 11051, -157, 11064, -226, 11080, -281, 11182, -323, 11417, -356, 11667, -348, 11800, -341, 11892, -344, 11971, -351, 12061, -415, 12092, -463, 12121, -591, 12118, -677, 12111, -767, 12109, -864, 12090, -919, 12033, -974, 11966, -1007, 11904, -1029, 11771, -1036, 11688, -1024, 11583, -1002, 11488, -991, 11350, -962, 11303, -945, 11231, -922, 11121, -914, 11041, -906, 10973, -900, 10919, -890, 10843, -894, 10839, -960, 10898, -1000, 11058, -1026, 11146, -1057, 11307, -1083, 11476, -1117, 11728, -1143, 11897, -1143, 12052, -1133, 12187, -1105, 12266, -1086, 12425, -1079, 12649, -1095, 12794, -1076, 12887, -1019, 12915, -919, 12898, -662, 12822, -301, 12713, -39, 12520, 294, 12323, 384, 12049, 470, 11842, 539, 11628, 596, 11398, 658, 11224, 677, 10965, 722, 10551, 729, 10227, 705, 9942, 667, 9745, 636, 9538, 632, 9336, 620, 9179, 605, 9048, 544, 8938, 408, 9490, 65)
+
+[node name="Polygon2D13_5" type="Polygon2D" parent="Tiilet"]
+position = Vector2(-53, 30)
+polygon = PackedVector2Array(11856, -641, 11900, -644, 11933, -644, 11961, -666, 11950, -693, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11381, -695, 11393, -668, 11410, -644, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
+
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(6817, -884)
+position = Vector2(6713, -717)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -246,6 +258,15 @@ rotation = 0.00132818
 [node name="Perhonen8" parent="Perhoset" instance=ExtResource("13_ufso7")]
 position = Vector2(7082.95, 43.4074)
 rotation = 0.00132818
+
+[node name="Perhonen_4" parent="Perhoset" instance=ExtResource("13_ufso7")]
+position = Vector2(11837.1, -802.279)
+rotation = 0.00132818
+
+[node name="Path2D" type="Path2D" parent="Perhoset/Perhonen_4"]
+position = Vector2(-470, 70.9999)
+scale = Vector2(1.03284, 1)
+curve = SubResource("Curve2D_h32vt")
 
 [node name="Kukat" type="Node2D" parent="."]
 rotation = -0.00132818
@@ -353,6 +374,64 @@ rotation = -3.15909
 [node name="Kukka19" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(5809.2, 605.716)
 rotation = -3.15909
+
+[node name="Kukka28" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(7662.92, 68.1778)
+rotation = -3.15909
+
+[node name="Kukka29" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(7585.16, -866.926)
+rotation = -3.15909
+
+[node name="Kukka30" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(8872.59, -436.216)
+rotation = -3.15909
+
+[node name="Kukka31" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(9637.57, -421.2)
+rotation = -3.15909
+
+[node name="Kukka32" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(11200.4, -326.124)
+rotation = -3.15909
+
+[node name="Kukka33" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(11621.9, -703.565)
+rotation = -3.15909
+
+[node name="Kukka34" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(10928.3, -1007.49)
+rotation = -3.15909
+
+[node name="Kukka35" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(11669.5, -1138.5)
+rotation = -3.15909
+
+[node name="Piikit" type="Node2D" parent="."]
+
+[node name="piikki" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10164, -373)
+
+[node name="piikki2" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10191, -374)
+
+[node name="piikki3" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10641, -334)
+
+[node name="piikki4" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10667, -334)
+
+[node name="piikki5" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9920, 125)
+scale = Vector2(10.9424, 1.70514)
+
+[node name="piikki6" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10382, 125)
+scale = Vector2(16.3067, 2.04453)
+
+[node name="piikki7" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10855, 128)
+scale = Vector2(16.3067, 2.04453)
 
 [node name="Viholliset" type="Node2D" parent="."]
 process_mode = 4
