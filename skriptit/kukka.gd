@@ -48,7 +48,8 @@ func aseta_valo_pois_paalta():
 
 ## Asettaa kukan valon päälle, joko pysyvästi tai ajastimella
 func aseta_valo_paalle(pysyva, huilun_taajuus = 0):
-	valo.set_visible(true)
+	if huilun_taajuus == 1:
+		valo.set_visible(true)
 
 	if not valo_area2d.is_in_group("valonlahde"):
 		valo_area2d.add_to_group("valonlahde")
@@ -80,5 +81,5 @@ func _on_body_entered(body):
 
 ## Kun osutaan huiluun
 func _on_area_entered(area:Area2D):
-	if area is Huilu && area.aanen_taajuus == 1:
+	if area is Huilu && (area.aanen_taajuus == 1 or area.aanen_taajuus == 2):
 		aseta_valo_paalle(false, area.aanen_taajuus)
