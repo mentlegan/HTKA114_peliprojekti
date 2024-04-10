@@ -79,5 +79,6 @@ func _on_body_entered(body):
 
 
 ## Kun osutaan huiluun
-func _on_area_entered(area:Huilu):
-	aseta_valo_paalle(false, area.aanen_taajuus)
+func _on_area_entered(area:Area2D):
+	if area is Huilu:
+		aseta_valo_paalle(false, area.aanen_taajuus)
