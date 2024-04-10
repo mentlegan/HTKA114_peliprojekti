@@ -131,6 +131,14 @@ func _ready():
 	vaihda_tooltip_ui(true)
 
 
+## Poistaa minecart-tooltipit
+func poista_minecart_tooltipit():
+	for tooltip in tooltipit:
+		if tooltip.get_name().contains("Minecart"):
+			tooltip.visible = false
+			tooltip.process_mode = Node.PROCESS_MODE_DISABLED
+
+
 ## Hakee pelin kaikki tooltip-nodet ja lisää ne omaan taulukkoon
 func lisaa_tooltipit():
 	for lapsi in tooltip_node.get_children():

@@ -514,6 +514,7 @@ func _physics_process(delta):
 				# Tehty nyt täällä, myöhemmin kerkiää optimoida
 				self.position = Globaali.taso1_loppu
 				Globaali.minecartit.queue_free()
+				Globaali.poista_minecart_tooltipit()
 
 	# player.visible = ! (raycast.is_colliding())
 
