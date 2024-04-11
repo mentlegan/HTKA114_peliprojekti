@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d1c6axf23uaq5"]
+[gd_scene load_steps=25 format=3 uid="uid://d1c6axf23uaq5"]
 
 [ext_resource type="Script" path="res://skriptit/help_ruutu.gd" id="1_nedjx"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="1_v1cbn"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://htoyrgaml8l2" path="res://scenet/kayttoliittyma/tooltip_juokse.tscn" id="9_n2ctk"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="10_jtjqm"]
 [ext_resource type="Texture2D" uid="uid://d1oyqkmwe7p1i" path="res://grafiikka/OhjainTooltipSelect.png" id="11_sfvnj"]
+[ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="13_057yy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6bbm"]
 bg_color = Color(0, 0, 0, 0.984314)
@@ -101,7 +102,7 @@ scale = Vector2(29.8753, 16.9683)
 theme_override_styles/panel = SubResource("StyleBoxFlat_g6bbm")
 
 [node name="TooltipHeita" parent="." instance=ExtResource("1_v1cbn")]
-position = Vector2(455, 297)
+position = Vector2(475, 298)
 script = null
 
 [node name="TooltipLiiku" parent="." instance=ExtResource("2_mflqa")]
@@ -109,7 +110,7 @@ position = Vector2(343, 128)
 script = null
 
 [node name="TooltipHyppaa" parent="." instance=ExtResource("3_wx0kr")]
-position = Vector2(454, 127)
+position = Vector2(474, 128)
 script = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -118,7 +119,7 @@ position = Vector2(246, 157)
 sprite_frames = SubResource("SpriteFrames_eov0u")
 
 [node name="TooltipKiipea" parent="." instance=ExtResource("5_a54me")]
-position = Vector2(568, 127)
+position = Vector2(616, 128)
 script = null
 
 [node name="TooltipPoimi" parent="." instance=ExtResource("6_mogjd")]
@@ -131,11 +132,11 @@ position = Vector2(259, 294)
 texture = ExtResource("7_ywhbw")
 
 [node name="TooltipPysayta" parent="." instance=ExtResource("8_bwust")]
-position = Vector2(567, 296)
+position = Vector2(616, 298)
 script = null
 
 [node name="TooltipJuokse" parent="." instance=ExtResource("9_n2ctk")]
-position = Vector2(679, 127)
+position = Vector2(757, 132)
 script = null
 
 [node name="ApuaLabel" type="Label" parent="."]
@@ -153,3 +154,6 @@ texture_filter = 1
 material = ExtResource("10_jtjqm")
 position = Vector2(169, 11)
 texture = ExtResource("11_sfvnj")
+
+[node name="TooltipTaajuus" parent="." instance=ExtResource("13_057yy")]
+position = Vector2(755, 304)
