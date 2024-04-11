@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="9_kwoii"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="10_yff1a"]
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fwwb5"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w41mi"]
 streams_count = 3
 stream_0/stream = ExtResource("4_hp66u")
 stream_0/weight = 1.0
@@ -26,8 +26,7 @@ rotation = -0.00245404
 scale = Vector2(-0.670116, -0.75484)
 script = ExtResource("1_th14a")
 
-[node name="alue" type="Area2D" parent="." groups=["newVihollinen"]]
-unique_name_in_owner = true
+[node name="alue" type="Area2D" parent="." groups=["newVihollinen", "nykyisetAlueet"]]
 position = Vector2(-176.088, -0.383625)
 rotation = 3.14159
 scale = Vector2(7.22472, -9.85951)
@@ -45,7 +44,6 @@ scale = Vector2(0.248258, 0.98758)
 polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
 
 [node name="alue2" type="Area2D" parent="." groups=["newVihollinen"]]
-unique_name_in_owner = true
 position = Vector2(177.581, 0.386879)
 rotation = 3.14159
 scale = Vector2(7.09998, -9.79605)
@@ -67,7 +65,7 @@ stream = ExtResource("3_lk12r")
 bus = &"Vihollinen"
 
 [node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_fwwb5")
+stream = SubResource("AudioStreamRandomizer_w41mi")
 volume_db = -3.0
 bus = &"Vihollinen"
 

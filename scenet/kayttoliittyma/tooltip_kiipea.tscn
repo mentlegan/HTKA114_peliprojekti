@@ -9,17 +9,17 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 use_parent_material = true
-position = Vector2(-18, 0)
+position = Vector2(-17, 32)
 texture = ExtResource("2_auomr")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." index="2"]
 use_parent_material = true
-position = Vector2(-18, 24)
+position = Vector2(-18, 60)
 texture = ExtResource("3_mivle")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="3"]
 use_parent_material = true
-position = Vector2(20, 0)
+position = Vector2(21, 32)
 texture = ExtResource("4_xppeb")
 
 [node name="Label" type="Label" parent="Sprite2D2" index="0"]
@@ -42,7 +42,7 @@ horizontal_alignment = 1
 
 [node name="Sprite2D4" type="Sprite2D" parent="." index="4"]
 use_parent_material = true
-position = Vector2(20, 23)
+position = Vector2(20, 60)
 texture = ExtResource("4_xppeb")
 
 [node name="Label" type="Label" parent="Sprite2D4" index="0"]
@@ -81,3 +81,10 @@ grow_vertical = 2
 size_flags_horizontal = 0
 text = "Kiipeä"
 horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." index="6"]
+offset_left = -6.0
+offset_top = -10.0
+offset_right = 34.0
+offset_bottom = 8.0
+text = "E"
