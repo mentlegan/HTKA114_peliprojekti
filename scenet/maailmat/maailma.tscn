@@ -260,7 +260,7 @@ position = Vector2(7082.95, 43.4074)
 rotation = 0.00132818
 
 [node name="Perhonen_4" parent="Perhoset" instance=ExtResource("13_ufso7")]
-position = Vector2(11837.1, -802.279)
+position = Vector2(11362, -745.91)
 rotation = 0.00132818
 
 [node name="Path2D" type="Path2D" parent="Perhoset/Perhonen_4"]
@@ -407,31 +407,311 @@ rotation = -3.15909
 position = Vector2(11669.5, -1138.5)
 rotation = -3.15909
 
+[node name="Kukka36" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(10654.4, -320.849)
+rotation = -3.15909
+
 [node name="Piikit" type="Node2D" parent="."]
 
-[node name="piikki" parent="Piikit" instance=ExtResource("9_ox6hl")]
-position = Vector2(10164, -373)
-
-[node name="piikki2" parent="Piikit" instance=ExtResource("9_ox6hl")]
-position = Vector2(10191, -374)
-
-[node name="piikki3" parent="Piikit" instance=ExtResource("9_ox6hl")]
-position = Vector2(10641, -334)
-
-[node name="piikki4" parent="Piikit" instance=ExtResource("9_ox6hl")]
-position = Vector2(10667, -334)
-
-[node name="piikki5" parent="Piikit" instance=ExtResource("9_ox6hl")]
-position = Vector2(9920, 125)
-scale = Vector2(10.9424, 1.70514)
-
-[node name="piikki6" parent="Piikit" instance=ExtResource("9_ox6hl")]
-position = Vector2(10382, 125)
-scale = Vector2(16.3067, 2.04453)
-
 [node name="piikki7" parent="Piikit" instance=ExtResource("9_ox6hl")]
-position = Vector2(10855, 128)
-scale = Vector2(16.3067, 2.04453)
+position = Vector2(10764, 116)
+rotation = 0.312335
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki8" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10813, 133)
+rotation = 0.144216
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki9" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10857, 139)
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki10" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10909, 138)
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki11" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10952, 133)
+rotation = -0.291673
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki12" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10975, 94.9997)
+rotation = -0.718534
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki14" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10301, 132)
+rotation = 0.414141
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki15" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10345, 143)
+rotation = 0.144216
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki16" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10389, 149)
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki17" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10437, 150)
+rotation = -0.104247
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki18" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10484, 127)
+rotation = -0.291673
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki19" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10512, 51.0003)
+rotation = -1.14044
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki20" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10271, 93)
+rotation = 0.696797
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki21" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9842, 93.9998)
+rotation = 0.312335
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki22" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9874, 106)
+rotation = 0.144216
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki23" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9918, 112)
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki24" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9970, 111)
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki25" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10003, 79.0001)
+rotation = -0.291673
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki26" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10026, 26.0003)
+rotation = -0.706501
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki27" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10517, 5.99997)
+rotation = -1.33325
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki28" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10521, -39)
+rotation = -1.50147
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki29" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10526, -94.0001)
+rotation = -1.46825
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki30" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10533, -147)
+rotation = -1.46139
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki31" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10543, -202)
+rotation = -1.31322
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki32" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10552, -253.999)
+rotation = -1.26408
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki33" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10494, 98.0001)
+rotation = -1.14044
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki34" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10973, 59.9994)
+rotation = -1.33325
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki35" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10977, 14.9994)
+rotation = -1.50147
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki36" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10982, -40.0007)
+rotation = -1.46825
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki37" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10989, -93.0007)
+rotation = -1.46139
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki38" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10999, -148.001)
+rotation = -1.31322
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki39" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(11008, -200)
+rotation = -1.26408
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki40" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10036, -17.0006)
+rotation = -1.33325
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki41" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10040, -62.0006)
+rotation = -1.50147
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki42" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10045, -117.001)
+rotation = -1.46825
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki43" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10052, -170.001)
+rotation = -1.46139
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki44" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10062, -225.001)
+rotation = -1.31322
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki45" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10071, -277)
+rotation = -1.26408
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki46" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9862, 59.9994)
+rotation = 1.38435
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki47" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9866, 14.9994)
+rotation = 1.46659
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki48" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9871, -40.0007)
+rotation = 1.4998
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki49" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9878, -93.0007)
+rotation = 1.50666
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki50" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9874, -143)
+rotation = 1.59631
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki51" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9872, -200)
+rotation = 1.50562
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki52" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9871, -253)
+rotation = 1.50562
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki53" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(9863, -305)
+rotation = 1.50562
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki54" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10274, 73.9994)
+rotation = 1.38435
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki55" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10278, 28.9994)
+rotation = 1.46659
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki56" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10283, -26.0007)
+rotation = 1.4998
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki57" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10290, -79.0006)
+rotation = 1.50666
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki58" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10286, -129)
+rotation = 1.59631
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki59" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10284, -186)
+rotation = 1.50562
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki60" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10283, -239)
+rotation = 1.50562
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki61" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10275, -291)
+rotation = 1.50562
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki63" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10763, 81.0002)
+rotation = 1.16078
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki64" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10766, 32.9994)
+rotation = 1.4998
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki65" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10773, -20.0006)
+rotation = 1.50666
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki66" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10769, -70)
+rotation = 1.59631
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki67" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10767, -127)
+rotation = 1.50562
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki68" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10766, -180)
+rotation = 1.50562
+scale = Vector2(2.16079, 1.92657)
+
+[node name="piikki69" parent="Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(10758, -232)
+rotation = 1.50562
+scale = Vector2(2.16079, 1.92657)
 
 [node name="Viholliset" type="Node2D" parent="."]
 process_mode = 4
