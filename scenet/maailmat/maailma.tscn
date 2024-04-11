@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=54 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
 [ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_pysayta.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
+[ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="23_k22wo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
@@ -980,7 +981,10 @@ position = Vector2(1810, 667)
 position = Vector2(2102, 672)
 
 [node name="TooltipSoita" parent="Tooltipit" instance=ExtResource("22_uoo6h")]
-position = Vector2(3636, -1232)
+position = Vector2(3519, -1224)
+
+[node name="TooltipTaajuus" parent="Tooltipit" instance=ExtResource("23_k22wo")]
+position = Vector2(3635, -1222)
 
 [node name="TooltipHyppaa" parent="Tooltipit" instance=ExtResource("23_jotwo")]
 position = Vector2(2967, 493)
@@ -995,7 +999,10 @@ position = Vector2(6613, -917)
 position = Vector2(6660, 40)
 
 [node name="TooltipSoita2" parent="Tooltipit" instance=ExtResource("22_uoo6h")]
-position = Vector2(5713, 2110)
+position = Vector2(5707, 2103)
+
+[node name="TooltipTaajuus2" parent="Tooltipit" instance=ExtResource("23_k22wo")]
+position = Vector2(5860, 2076)
 
 [node name="uudetViholliset" type="Node2D" parent="."]
 unique_name_in_owner = true
