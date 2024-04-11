@@ -1,17 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6cgaubnivnjh"]
+[gd_scene load_steps=5 format=3 uid="uid://b6cgaubnivnjh"]
 
 [ext_resource type="PackedScene" uid="uid://mch12jl02nqd" path="res://scenet/kayttoliittyma/tooltip.tscn" id="1_5egfl"]
 [ext_resource type="Texture2D" uid="uid://bkfapoux2ssdt" path="res://grafiikka/OhjainTooltipR.png" id="2_neliw"]
+[ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="2_sna2d"]
 [ext_resource type="Texture2D" uid="uid://dia3pj1ms5s84" path="res://grafiikka/HiiriTooltipR.png" id="3_n2f5a"]
 
 [node name="TooltipPysayta" instance=ExtResource("1_5egfl")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+material = ExtResource("2_sna2d")
 use_parent_material = true
 position = Vector2(-18, 0)
 texture = ExtResource("2_neliw")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="2"]
+material = ExtResource("2_sna2d")
 use_parent_material = true
 position = Vector2(20, 0)
 texture = ExtResource("3_n2f5a")
@@ -19,6 +22,7 @@ texture = ExtResource("3_n2f5a")
 [node name="Label" type="Label" parent="Sprite2D2" index="0"]
 auto_translate_mode = 1
 texture_filter = 1
+material = ExtResource("2_sna2d")
 use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,6 +42,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="." index="3"]
 auto_translate_mode = 1
 texture_filter = 1
+material = ExtResource("2_sna2d")
 use_parent_material = true
 anchors_preset = 8
 anchor_left = 0.5

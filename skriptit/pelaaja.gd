@@ -452,7 +452,7 @@ func _physics_process(delta):
 	# Asetetaan samalla hiiri pois käytöstä kunnes sitä liikutetaan
 	if ohjain_tahtays != Vector2.ZERO:
 		valon_kohde = ohjain_tahtays.normalized() * MAX_TAHTAIN_ETAISYYS
-		#tahtain.visible = true
+		tahtain.visible = true
 		tahtain.position = valon_kohde
 		hiiren_viime_sijainti = hiiren_sijainti
 		hiiri_kaytossa = false
@@ -462,7 +462,11 @@ func _physics_process(delta):
 	if hiiren_viime_sijainti.distance_to(hiiren_sijainti) > 20:
 		hiiri_kaytossa = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		#tahtain.visible = false
+		tahtain.visible = false
+	
+	# Jos liikutaan, piilotetaan tähtäin
+	if velocity.length() > 1:
+		tahtain.visible = false
 	
 	# Asetetaan valon suunnaksi hiiren sijainti, jos ei käytetä tattia.
 	if hiiri_kaytossa:

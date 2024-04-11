@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=53 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -101,7 +101,13 @@ size = Vector2(2697, 1332)
 size = Vector2(3316, 1432)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eewo"]
-size = Vector2(3770, 2652)
+size = Vector2(3770, 2107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vqab"]
+size = Vector2(2216, 1340)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1v6da"]
+size = Vector2(2146, 1158)
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 script = ExtResource("1_sggs7")
@@ -1321,12 +1327,26 @@ position = Vector2(65, -3)
 zoom = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Tasot"]
-position = Vector2(5600, 1082)
+position = Vector2(5600, 1354.5)
 shape = SubResource("RectangleShape2D_5eewo")
 
 [node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D3"]
-position = Vector2(17, -28)
+position = Vector2(-30, 167)
 zoom = Vector2(0.3, 0.3)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Tasot"]
+position = Vector2(7217, -439)
+shape = SubResource("RectangleShape2D_7vqab")
+
+[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D4"]
+zoom = Vector2(0.4, 0.4)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Tasot"]
+position = Vector2(10382, -622)
+shape = SubResource("RectangleShape2D_1v6da")
+
+[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D5"]
+zoom = Vector2(0.5, 0.5)
 
 [node name="Musiikki" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

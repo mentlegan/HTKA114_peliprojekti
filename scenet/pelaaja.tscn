@@ -404,7 +404,6 @@ z_index = 999
 material = SubResource("CanvasItemMaterial_e1hap")
 
 [node name="Tahtain" type="Sprite2D" parent="."]
-visible = false
 light_mask = 512
 visibility_layer = 512
 z_index = 4096
