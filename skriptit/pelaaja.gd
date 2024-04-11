@@ -209,6 +209,7 @@ func siirrytty_valoon():
 	valossa = true
 	ajastin_pimeassa.stop()
 	ajastin_pimeassa_audio.stop()
+	audio_pimeyskuolema.stop()
 	print("Valossa: " + str(valossa))
 
 
