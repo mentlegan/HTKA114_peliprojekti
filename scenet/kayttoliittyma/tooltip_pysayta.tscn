@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6cgaubnivnjh"]
 
 [ext_resource type="PackedScene" uid="uid://mch12jl02nqd" path="res://scenet/kayttoliittyma/tooltip.tscn" id="1_5egfl"]
-[ext_resource type="Texture2D" uid="uid://bkfapoux2ssdt" path="res://grafiikka/OhjainTooltipR.png" id="2_neliw"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="2_sna2d"]
+[ext_resource type="Texture2D" uid="uid://bl2oyqscnuv4b" path="res://grafiikka/OhjainTooltipRT.png" id="3_l6hvu"]
 [ext_resource type="Texture2D" uid="uid://dia3pj1ms5s84" path="res://grafiikka/HiiriTooltipR.png" id="3_n2f5a"]
 
 [node name="TooltipPysayta" instance=ExtResource("1_5egfl")]
@@ -11,7 +11,7 @@
 material = ExtResource("2_sna2d")
 use_parent_material = true
 position = Vector2(-18, 0)
-texture = ExtResource("2_neliw")
+texture = ExtResource("3_l6hvu")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="2"]
 material = ExtResource("2_sna2d")
