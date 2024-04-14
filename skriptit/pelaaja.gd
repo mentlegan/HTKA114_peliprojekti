@@ -335,8 +335,12 @@ func _physics_process(delta):
 			putoamis_vahinko = true
 			putoamis_huippu = get_global_position().y
 		# Seinää vasten liikkuessa kiipeää tai tippuu
-	elif is_on_wall() and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
+	elif (oli_seinalla or is_on_wall()) and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
 		velocity.y = -gravity * delta * 6
+		if animaatio.is_flipped_h():
+			velocity.x = -300
+		else:
+			velocity.x = 300
 		seinalla()
 		if animaatio.get_animation() != "huilu":
 			animaatio.play("seinakiipeaminen")
@@ -416,7 +420,7 @@ func _physics_process(delta):
 		# Jos ei ole vielä vaihtanut suuntaa, kiihtyy haluttuun suuntaan nopeampaa (eli kääntyessä)
 		if (suunta < 0 and velocity.x > 0) or (suunta > 0 and velocity.x < 0):
 			velocity.x = move_toward(velocity.x, suunta * nopeus, KAANTYSMIS_NOPEUS)
-		elif velocity.x < -MAX_NOPEUS or velocity.x > MAX_NOPEUS:
+		elif (velocity.x < -MAX_NOPEUS or velocity.x > MAX_NOPEUS) and not is_on_wall():
 			velocity.x = move_toward(velocity.x, suunta * nopeus, JUOKSU_KIIHTYVYYS)
 			print(velocity.x)
 			if animaatio.is_flipped_h():
