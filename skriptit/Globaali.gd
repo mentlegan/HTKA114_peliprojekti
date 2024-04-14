@@ -63,6 +63,7 @@ var pystyssa = true
 @onready var gameover_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%GameOverRuutu")
 @onready var pauseruutu = get_node("/root/Maailma/%KayttoLiittyma/%pause_ruutu")
 @onready var uudetViholliset = get_node("/root/Maailma/%uudetViholliset").get_children()
+@onready var piikit = get_node("/root/Maailma/%Piikit").get_children()
 
 ## Musiikit:
 @onready var musiikki = get_node("/root/Maailma/%Musiikki")
@@ -93,9 +94,10 @@ func _ready():
 		if uusiVihu != null:
 			uusiVihu.pelaaja_kuollut.connect(_game_over)
 	
-	piikki = get_tree().get_first_node_in_group("piikki") # Tehdään näissä
-	if piikki != null:
-		piikki.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
+	# piikki = get_tree().get_first_node_in_group("piikki") # Tehdään näissä
+	for piikki in piikit:
+		if piikki != null:
+			piikki.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
 	# Otetaan aloitus koordinaatit talteen
 	pelaaja_aloitus = pelaaja.position
@@ -282,6 +284,8 @@ func respawn():
 	# Haetaan SceneTree ja käynnistetään se uudestaan
 	# self.get_tree().call_deferred("reload_current_scene")
 	pelaaja.position = pelaaja_aloitus
+	# Jos kuolee ilmassa ja respawnaa nii kuolee fall damageen
+	pelaaja.putoamis_vahinko = false
 	vihollinen.position = vihollinen_aloitus
 	gameover_ruutu.visible = false
 	
