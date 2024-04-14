@@ -244,11 +244,21 @@ func elamat_label_paivita():
 	elamat.text = "Health: " + str(pelaajan_elamat)
 	
 func elama_regen():
-	if pelaajan_elamat + elamat_regen_maara < pelaajan_elamat_max:
-		pelaajan_elamat += elamat_regen_maara
-		elama_regen_ajastin.start(elamat_regen_nopeus)
+	saa_elamia(elamat_regen_maara)
+	elama_regen_ajastin.start(elamat_regen_nopeus)
+
+func saa_elamia(maara):
+	if pelaajan_elamat + maara < pelaajan_elamat_max:
+		pelaajan_elamat += maara
 	else:
 		pelaajan_elamat = pelaajan_elamat_max
+	elamat_label_paivita()
+	
+func meneta_elamia(maara):
+	if pelaajan_elamat - maara > 0:
+		pelaajan_elamat -= maara
+	else:
+		kuolema()
 	elamat_label_paivita()
 
 
@@ -337,16 +347,12 @@ func _physics_process(delta):
 		if putoamis_vahinko:
 			elama_regen_ajastin.start(elamat_regen_nopeus)
 			if (get_global_position().y - putoamis_huippu) > putoamis_raja_3:
-				pelaajan_elamat -= putoamis_raja_3_dmg
+				meneta_elamia(putoamis_raja_3_dmg)
 			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_2:
-				pelaajan_elamat -= putoamis_raja_2_dmg
+				meneta_elamia(putoamis_raja_2_dmg)
 			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_1:
-				pelaajan_elamat -= putoamis_raja_1_dmg
-			
-			elamat_label_paivita()
+				meneta_elamia(putoamis_raja_1_dmg)
 			putoamis_vahinko = false
-			if pelaajan_elamat <= 0:
-				kuolema()
 	
 	
 	## Tehdään hyppy
