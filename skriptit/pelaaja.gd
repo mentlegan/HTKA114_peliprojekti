@@ -89,12 +89,12 @@ var valopallo = preload("res://scenet/valo_character.tscn")
 
 ## Asetetaan pelaajan nopeus ja hypyt
 const MAX_NOPEUS = 200.0
-const MAX_JUOKSU_NOPEUS = 300.0
+const MAX_JUOKSU_NOPEUS = 250.0
 const KIIHTYVYYS = 25.0
 const KITKA = 15.0
 const KAANTYSMIS_NOPEUS = 1.5
 const HYPPY_VELOCITY = -500.0
-const JUOKSU_HYPPY_KORKEUS = -400.0
+const JUOKSU_HYPPY_KORKEUS = -450.0
 const JUOKSU_HYPPY_NOPEUS = 1.4
 const SEINA_HYPPY = 50.0
 const SEINA_HYPPY_KORKEUS = -400.0
@@ -322,10 +322,14 @@ func _physics_process(delta):
 			hyppy_ajastin_seinalla.start(SEINAHYPPY_BUFFER)
 		elif oli_maassa and hyppy_ajastin_maassa.is_stopped():
 			hyppy_ajastin_maassa.start(MAAHYPPY_BUFFER)
-		if velocity.y < 0:
-			velocity.y += gravity * delta
+		if velocity.y > -20 and velocity.y < 0:
+			velocity.y += (gravity * delta) / 2.5
+		elif velocity.y > 0 and velocity.y < 20:
+			velocity.y += (gravity * delta) / 2.5
+		elif velocity.y > 25:
+			velocity.y += (gravity * delta) + velocity.y / 50
 		else:
-			velocity.y += gravity * delta * 1.2
+			velocity.y += gravity * delta
 		if not putoamis_vahinko:
 			putoamis_vahinko = true
 			putoamis_huippu = get_global_position().y
@@ -441,7 +445,7 @@ func _physics_process(delta):
 		else:
 			audio_kavely.stop()
 
-			if not is_on_wall():
+			if not is_on_wall() and not is_on_floor():
 				# Asetetaan hyppyanimaatio
 				animaatio.set_animation("hyppy")
 				animaatio.stop()
