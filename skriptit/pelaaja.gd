@@ -107,14 +107,17 @@ const MAX_TAHTAIN_ETAISYYS = 64
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.25
 var hyppyjen_maara = 0
-# Onko pelaaja seinällä (käytetään timerissa)
-var onko_seinalla = false
+# Oliko/onko pelaaja maassa tai seinällä (käytetään timerissa)
+var oli_maassa = false
+var oli_seinalla = false
 # Toggle seinäkiipeämiselle
-var kiipeamis_toggle = false
+var kiipeamis_toggle = true
 
-## Ajastin seinähypyn bufferille
-var hyppy_ajastin = Timer.new()
-const SEINAHYPPY_BUFFER = 0.1 ## Kuinka kauan seinältä voi olla poissa, niin että pelaaja saa vielä hypätä (sekunteina)
+## Ajastin hyppyjen buffereille
+var hyppy_ajastin_seinalla = Timer.new()
+var hyppy_ajastin_maassa = Timer.new()
+const SEINAHYPPY_BUFFER = 0.2 ## Kuinka kauan seinältä voi olla poissa, niin että pelaaja saa vielä hypätä (sekunteina)
+const MAAHYPPY_BUFFER = 0.2 ## Kuinka kauan maalta voi olla poissa, niin että pelaaja saa vielä hypätä (sekunteina)
 
 ## Pelaajan elämäpisteet
 const pelaajan_elamat_max = 6
@@ -142,17 +145,20 @@ var putoamis_huippu = get_global_position().y
 
 
 func _ready():
-	# Lisätään ajastimet pimeän tarkistukselle, seinähypylle ja elämä regeneraatiolle lapsiksi
+	# Lisätään ajastimet pimeän tarkistukselle, hypyille ja elämä regeneraatiolle lapsiksi
 	self.add_child(ajastin_pimeassa)
 	self.add_child(ajastin_pimeassa_audio)
-	self.add_child(hyppy_ajastin)
+	self.add_child(hyppy_ajastin_seinalla)
+	self.add_child(hyppy_ajastin_maassa)
 	self.add_child(elama_regen_ajastin)
 	
 	# Lisätään pelaajan hp labeliin elamat
 	elamat.text = "Health: " + str(pelaajan_elamat_max)
 	
 	# Hyppy mahdollisuus pois jos liian kauan pois seinältä
-	hyppy_ajastin.timeout.connect(hyppy_buffer)
+	hyppy_ajastin_seinalla.timeout.connect(hyppy_buffer_seinalla)
+	# Hyppy mahdollisuus pois jos liian kauan pois maalta
+	hyppy_ajastin_maassa.timeout.connect(hyppy_buffer_maassa)
 	
 	# Pelaaja kuolee, jos hän on pimeässä liian kauan
 	ajastin_pimeassa.timeout.connect(kuolema)
@@ -263,17 +269,21 @@ func meneta_elamia(maara):
 
 
 ## Ei hyppyä kun liian kauan seinältä
-func hyppy_buffer():
-	onko_seinalla = false
+func hyppy_buffer_seinalla():
+	oli_seinalla = false
+	
+## Ei hyppyä kun liian kauan seinältä
+func hyppy_buffer_maassa():
+	oli_maassa = false
 
 
 ## Kun pelaaja on seinalla
 func seinalla():
-	onko_seinalla = true
-	hyppy_ajastin.stop()
+	oli_seinalla = true
+	oli_maassa = false
+	hyppy_ajastin_seinalla.stop()
 	putoamis_vahinko = false
-	if hyppyjen_maara < 1:
-		hyppyjen_maara += 1
+	hyppyjen_maara = 0
 
 
 ## Palauttaa nykyisen äänen taajuuden värin
@@ -308,9 +318,14 @@ func _physics_process(delta):
 	
 	# Tästä painovoima
 	if not (is_on_floor() or is_on_wall()):
-		if onko_seinalla and hyppy_ajastin.is_stopped():
-			hyppy_ajastin.start(SEINAHYPPY_BUFFER)
-		velocity.y += gravity * delta
+		if oli_seinalla and hyppy_ajastin_seinalla.is_stopped():
+			hyppy_ajastin_seinalla.start(SEINAHYPPY_BUFFER)
+		elif oli_maassa and hyppy_ajastin_maassa.is_stopped():
+			hyppy_ajastin_maassa.start(MAAHYPPY_BUFFER)
+		if velocity.y < 0:
+			velocity.y += gravity * delta
+		else:
+			velocity.y += gravity * delta * 1.2
 		if not putoamis_vahinko:
 			putoamis_vahinko = true
 			putoamis_huippu = get_global_position().y
@@ -343,9 +358,10 @@ func _physics_process(delta):
 	# Hyppy takaisin kun maassa
 	if is_on_floor():
 		hyppyjen_maara = 0
-		onko_seinalla = false
+		oli_maassa = true
+		oli_seinalla = false
 		if putoamis_vahinko:
-			elama_regen_ajastin.start(elamat_regen_nopeus)
+			animaatio.scale = Vector2(1.1, 0.9)
 			if (get_global_position().y - putoamis_huippu) > putoamis_raja_3:
 				meneta_elamia(putoamis_raja_3_dmg)
 			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_2:
@@ -356,23 +372,29 @@ func _physics_process(delta):
 	
 	
 	## Tehdään hyppy
-	if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and is_on_floor() and hyppyjen_maara < 1:
+	if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and oli_maassa and hyppyjen_maara < 1:
 		hyppyjen_maara += 1
 		velocity.y = JUOKSU_HYPPY_KORKEUS
+		animaatio.scale = Vector2(0.9, 1.1)
 		audio_hyppy.play()
-	elif Input.is_action_just_pressed("hyppaa") and is_on_floor() and hyppyjen_maara < 1:
+	elif Input.is_action_just_pressed("hyppaa") and oli_maassa and hyppyjen_maara < 1:
 		hyppyjen_maara += 1
 		velocity.y = HYPPY_VELOCITY
+		animaatio.scale = Vector2(0.9, 1.1)
 		audio_hyppy.play()
-	elif hyppyjen_maara < 2 and onko_seinalla and Input.is_action_just_pressed("hyppaa"):
-		hyppyjen_maara += 1
+	elif oli_seinalla and Input.is_action_just_pressed("hyppaa"):
+		hyppyjen_maara = 0
 		velocity.y = SEINA_HYPPY_KORKEUS
+		animaatio.scale = Vector2(0.9, 1.1)
 		audio_seinahyppy.play()
 		if velocity.x == 0:
 			if animaatio.is_flipped_h():
 				velocity.x = SEINA_HYPPY
 			else:
 				velocity.x = -SEINA_HYPPY
+	
+	animaatio.scale.x = move_toward(animaatio.scale.x, 1, 0.5 * delta)
+	animaatio.scale.y = move_toward(animaatio.scale.y, 1, 0.5 * delta)
 	
 	# Otetaan pelaajan liikkeen haluttu suunta
 	suunta = Input.get_axis("liiku_vasen", "liiku_oikea")
@@ -419,7 +441,7 @@ func _physics_process(delta):
 		else:
 			audio_kavely.stop()
 
-			if not onko_seinalla:
+			if not is_on_wall():
 				# Asetetaan hyppyanimaatio
 				animaatio.set_animation("hyppy")
 				animaatio.stop()
