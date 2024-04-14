@@ -12,7 +12,6 @@ var nykyiset_pallot = 0
 ## Signaaleja varten
 var pelaaja = null
 var vihollinen = null
-var piikki = null
 
 ## UI-näkyvyyden ajastin
 var ui_ajastin = Timer.new()
