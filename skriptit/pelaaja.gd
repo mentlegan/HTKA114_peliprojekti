@@ -88,13 +88,14 @@ var hiiren_viime_sijainti = Vector2(0, 0)
 var valopallo = preload("res://scenet/valo_character.tscn")
 
 ## Asetetaan pelaajan nopeus ja hypyt
-const MAX_NOPEUS = 200.0
+const MAX_NOPEUS = 180.0
 const MAX_JUOKSU_NOPEUS = 260.0
-const KIIHTYVYYS = 25.0
+const KIIHTYVYYS = 15.0
+const JUOKSU_KIIHTYVYYS = 2
 const KITKA = 15.0
-const KAANTYSMIS_NOPEUS = 1.5
+const KAANTYSMIS_NOPEUS = 20
 const HYPPY_VELOCITY = -520.0
-const JUOKSU_HYPPY_KORKEUS = -450.0
+const JUOKSU_HYPPY_KORKEUS = -460.0
 const JUOKSU_HYPPY_NOPEUS = 1.4
 const SEINA_HYPPY = 50.0
 const SEINA_HYPPY_KORKEUS = -400.0
@@ -379,6 +380,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and oli_maassa and hyppyjen_maara < 1:
 		hyppyjen_maara += 1
 		velocity.y = JUOKSU_HYPPY_KORKEUS
+		if is_on_floor():
+			velocity.x = JUOKSU_HYPPY_NOPEUS * velocity.x
 		animaatio.scale = Vector2(0.9, 1.1)
 		audio_hyppy.play()
 	elif Input.is_action_just_pressed("hyppaa") and oli_maassa and hyppyjen_maara < 1:
@@ -412,13 +415,25 @@ func _physics_process(delta):
 			nopeus = MAX_NOPEUS
 		# Jos ei ole vielä vaihtanut suuntaa, kiihtyy haluttuun suuntaan nopeampaa (eli kääntyessä)
 		if (suunta < 0 and velocity.x > 0) or (suunta > 0 and velocity.x < 0):
-			velocity.x = move_toward(velocity.x, suunta * nopeus, KIIHTYVYYS * KAANTYSMIS_NOPEUS)
+			velocity.x = move_toward(velocity.x, suunta * nopeus, KAANTYSMIS_NOPEUS)
+		elif velocity.x < -MAX_NOPEUS or velocity.x > MAX_NOPEUS:
+			velocity.x = move_toward(velocity.x, suunta * nopeus, JUOKSU_KIIHTYVYYS)
+			print(velocity.x)
+			if animaatio.is_flipped_h():
+				animaatio.rotation = move_toward(animaatio.rotation, suunta+0.8, delta * velocity.x * suunta / 580)
+				print(animaatio.rotation)
+			else:
+				animaatio.rotation = move_toward(animaatio.rotation, suunta-0.8, delta * velocity.x * suunta / 580)
+				print(animaatio.rotation)
 		else:
 			velocity.x = move_toward(velocity.x, suunta * nopeus, KIIHTYVYYS)
+			
 	# Hidastetaan kun ei liikuta mihinkään suuntaan
 	else:
 		velocity.x = move_toward(velocity.x, 0, KITKA)
 	
+	if velocity.x > -MAX_NOPEUS and velocity.x < MAX_NOPEUS:
+		animaatio.rotation = move_toward(animaatio.rotation, 0, delta)
 	# Liikutetaan pelaajaa
 	move_and_slide()
 	
