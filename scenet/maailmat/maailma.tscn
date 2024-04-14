@@ -436,6 +436,7 @@ position = Vector2(10654.4, -320.849)
 rotation = -3.15909
 
 [node name="Piikit" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="piikki7" parent="Piikit" instance=ExtResource("9_ox6hl")]
 position = Vector2(10764, 116)
