@@ -337,9 +337,9 @@ func _physics_process(delta):
 		# Seinää vasten liikkuessa kiipeää tai tippuu
 	elif (oli_seinalla or is_on_wall()) and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
 		velocity.y = -gravity * delta * 6
-		if animaatio.is_flipped_h():
+		if animaatio.is_flipped_h() and not Input.is_action_pressed("liiku_oikea"):
 			velocity.x = -300
-		else:
+		elif not Input.is_action_pressed("liiku_vasen"):
 			velocity.x = 300
 		seinalla()
 		if animaatio.get_animation() != "huilu":
