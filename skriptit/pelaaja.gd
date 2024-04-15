@@ -252,7 +252,8 @@ func elamat_label_paivita():
 	
 func elama_regen():
 	saa_elamia(elamat_regen_maara)
-	elama_regen_ajastin.start(elamat_regen_nopeus)
+	if pelaajan_elamat < pelaajan_elamat_max:
+		elama_regen_ajastin.start(elamat_regen_nopeus)
 
 func saa_elamia(maara):
 	if pelaajan_elamat + maara < pelaajan_elamat_max:
@@ -264,7 +265,9 @@ func saa_elamia(maara):
 func meneta_elamia(maara):
 	if pelaajan_elamat - maara > 0:
 		pelaajan_elamat -= maara
+		elama_regen_ajastin.start(elamat_regen_nopeus)
 	else:
+		pelaajan_elamat = 0
 		kuolema()
 	elamat_label_paivita()
 
@@ -283,8 +286,9 @@ func seinalla():
 	oli_seinalla = true
 	oli_maassa = false
 	hyppy_ajastin_seinalla.stop()
-	putoamis_vahinko = false
 	hyppyjen_maara = 0
+	if is_on_wall():
+		putoamis_vahinko = false
 
 ## Käännetään pelaajan animaatio jos väärin päin seinällä
 func oikein_seinalla():
@@ -357,13 +361,10 @@ func _physics_process(delta):
 	# Ei tipu seinältä kun on paikallaan
 	else:
 		velocity.y = 0
-		
 		if is_on_wall():
 			animaatio.play("seinakiipeaminen")
 			animaatio.frame = 0
 			oikein_seinalla()
-			print(get_wall_normal().x)
-			print(animaatio.is_flipped_h())
 		seinalla()
 
 	# Hyppy takaisin kun maassa
@@ -373,6 +374,7 @@ func _physics_process(delta):
 		oli_seinalla = false
 		if putoamis_vahinko:
 			animaatio.scale = Vector2(1.1, 0.9)
+			print(get_global_position().y - putoamis_huippu)
 			if (get_global_position().y - putoamis_huippu) > putoamis_raja_3:
 				meneta_elamia(putoamis_raja_3_dmg)
 			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_2:
@@ -424,13 +426,10 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, suunta * nopeus, KAANTYSMIS_NOPEUS)
 		elif (velocity.x < -MAX_NOPEUS or velocity.x > MAX_NOPEUS) and not is_on_wall():
 			velocity.x = move_toward(velocity.x, suunta * nopeus, JUOKSU_KIIHTYVYYS)
-			print(velocity.x)
 			if animaatio.is_flipped_h():
 				animaatio.rotation = move_toward(animaatio.rotation, suunta+0.8, delta * velocity.x * suunta / 580)
-				print(animaatio.rotation)
 			else:
 				animaatio.rotation = move_toward(animaatio.rotation, suunta-0.8, delta * velocity.x * suunta / 580)
-				print(animaatio.rotation)
 		else:
 			velocity.x = move_toward(velocity.x, suunta * nopeus, KIIHTYVYYS)
 			

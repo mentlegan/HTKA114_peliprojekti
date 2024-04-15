@@ -223,15 +223,18 @@ func _input(_event: InputEvent) -> void:
 		_ready()
 		# get_node("/root/Maailma2").free()
 		"""
+		pelaaja.putoamis_vahinko = false
 		pelaaja.position = pelaaja_taso2
 	
 	# F3
 	if Input.is_action_just_pressed("taso3"):
+		pelaaja.putoamis_vahinko = false
 		pelaaja.position = pelaaja_taso3
 		# get_node("/root/@Node2D@65").queue_free() # Poistetaan duplikoitu maailma2
 	
 	# F4
 	if Input.is_action_just_pressed("taso45"):
+		pelaaja.putoamis_vahinko = false
 		pelaaja.position = pelaaja_taso45
 	
 	
@@ -282,9 +285,8 @@ func respawn():
 	get_tree().paused = false
 	# Haetaan SceneTree ja käynnistetään se uudestaan
 	# self.get_tree().call_deferred("reload_current_scene")
-	pelaaja.position = pelaaja_aloitus
-	# Jos kuolee ilmassa ja respawnaa nii kuolee fall damageen
 	pelaaja.putoamis_vahinko = false
+	pelaaja.position = pelaaja_aloitus
 	vihollinen.position = vihollinen_aloitus
 	gameover_ruutu.visible = false
 	
