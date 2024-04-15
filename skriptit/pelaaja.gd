@@ -286,6 +286,12 @@ func seinalla():
 	putoamis_vahinko = false
 	hyppyjen_maara = 0
 
+## Käännetään pelaajan animaatio jos väärin päin seinällä
+func oikein_seinalla():
+	if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
+		animaatio.set_flip_h(!animaatio.is_flipped_h())
+	elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
+		animaatio.set_flip_h(!animaatio.is_flipped_h())
 
 ## Palauttaa nykyisen äänen taajuuden värin
 func aanen_taajuuden_vari():
@@ -337,32 +343,28 @@ func _physics_process(delta):
 		# Seinää vasten liikkuessa kiipeää tai tippuu
 	elif (oli_seinalla or is_on_wall()) and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
 		velocity.y = -gravity * delta * 6
+		animaatio.play("seinakiipeaminen")
+		oikein_seinalla()
 		if animaatio.is_flipped_h() and not Input.is_action_pressed("liiku_oikea"):
 			velocity.x = -300
 		elif not Input.is_action_pressed("liiku_vasen"):
 			velocity.x = 300
 		seinalla()
-		if animaatio.get_animation() != "huilu":
-			animaatio.play("seinakiipeaminen")
-			if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
-				animaatio.set_flip_h(true)
-			elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
-				animaatio.set_flip_h(true)
 	elif is_on_wall() and (Input.is_action_pressed("putoa") or not kiipeamis_toggle):
-		putoamis_vahinko = true
+		animaatio.play("seinakiipeaminen")
+		oikein_seinalla()
 		velocity.y += gravity * delta
-		# Ei tipu seinältä kun on paikallaan
+	# Ei tipu seinältä kun on paikallaan
 	else:
 		velocity.y = 0
+		
 		if is_on_wall():
-			if animaatio.get_animation() != "huilu":
-				animaatio.play("seinakiipeaminen")
-				animaatio.frame = 0
-				if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
-					animaatio.set_flip_h(true)
-				elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
-					animaatio.set_flip_h(true)
-			seinalla()
+			animaatio.play("seinakiipeaminen")
+			animaatio.frame = 0
+			oikein_seinalla()
+			print(get_wall_normal().x)
+			print(animaatio.is_flipped_h())
+		seinalla()
 
 	# Hyppy takaisin kun maassa
 	if is_on_floor():
