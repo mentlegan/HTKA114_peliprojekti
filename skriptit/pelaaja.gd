@@ -5,7 +5,6 @@
 ## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
 ## TODO: pimeässä kuolemiselle animaatio / visuaalista palautetta ennen yhtäkkistä respawn()-kutsua
 ## TODO: valokukkien kerääminen signaaleilla get_overlapping_areas()-kutsun sijaan
-## TODO: input controlsien funktioiden dokumentaatioon aina nykyinen controlli
 extends CharacterBody2D
 class_name Pelaaja
 
@@ -345,6 +344,7 @@ func _physics_process(delta):
 			putoamis_vahinko = true
 			putoamis_huippu = get_global_position().y
 		# Seinää vasten liikkuessa kiipeää tai tippuu
+		# PC kiipeä: W, pudottaudu: S
 	elif (oli_seinalla or is_on_wall()) and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
 		velocity.y = -gravity * delta * 6
 		animaatio.play("seinakiipeaminen")
@@ -384,7 +384,8 @@ func _physics_process(delta):
 			putoamis_vahinko = false
 	
 	
-	## Tehdään hyppy
+	# Tehdään hyppy
+	# PC SPACE_BAR
 	if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and oli_maassa and hyppyjen_maara < 1:
 		hyppyjen_maara += 1
 		velocity.y = JUOKSU_HYPPY_KORKEUS
@@ -412,11 +413,13 @@ func _physics_process(delta):
 	animaatio.scale.y = move_toward(animaatio.scale.y, 1, 0.5 * delta)
 	
 	# Otetaan pelaajan liikkeen haluttu suunta
+	# PC vasen: A, oikea: D
 	suunta = Input.get_axis("liiku_vasen", "liiku_oikea")
 	## input-kontrollit
 	var nopeus = 0
 	if suunta != 0:
 		# Juostessa eri nopeus
+		# PC SHIFT
 		if Input.is_action_pressed("juoksu"):
 			nopeus = MAX_JUOKSU_NOPEUS
 		else:
@@ -483,12 +486,14 @@ func _physics_process(delta):
 	# print(vec)
 	
 	# Ohjaimen tatin arvot
+	# CONTROLLER RIGHT STICK
 	var ohjain_tahtays = Vector2(
 		Input.get_axis("tahtaa_vasen", "tahtaa_oikea"),
 		Input.get_axis("tahtaa_ylos", "tahtaa_alas")
 	)
 	
 	# Vasemman tatin arvot
+	# CONTROLLER LEFT STICK
 	var ohjain_tahtays_alt = Vector2(
 		Input.get_axis("tahtaa_vasen_alt", "tahtaa_oikea_alt"),
 		Input.get_axis("tahtaa_ylos_alt", "tahtaa_alas_alt")
@@ -525,6 +530,7 @@ func _physics_process(delta):
 	if hiiri_kaytossa:
 		valon_kohde = hiiren_sijainti
 	
+	# PC LEFT_CLICK
 	if Input.is_action_just_pressed("painike_vasen"):
 		# Tällä hetkellä 2 maksimissaan
 		if Globaali.nykyiset_pallot < 2 and Globaali.palloja > 0:
@@ -540,11 +546,13 @@ func _physics_process(delta):
 			Globaali.palloja -= 1
 	
 	# Nostetaan ja lasketaan äänen taajuutta tarvittaessa
+	# PC MOUSE_WHEEL
 	if Input.is_action_just_pressed("laske_taajuutta"):
 		vaihda_aanen_taajuutta(-1)
 	if Input.is_action_just_pressed("nosta_taajuutta"):
 		vaihda_aanen_taajuutta(1)
 	
+	# PC RIGHT_CLICK
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Käynnistetään huilun animaatio
 		if huilun_cd_ajastin.is_stopped():

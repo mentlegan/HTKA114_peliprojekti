@@ -19,6 +19,7 @@ var aloituspiste = null
 var reitin_pituus = 1
 
 
+## Ready kutsutaan scenen avaamisessa
 func _ready():
 	# Käynnistetään perhosen animaatio
 	animaatio.play()
@@ -50,7 +51,7 @@ func _ready():
 		reitin_pituus = 1
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+## Kutsutaan joka framella
 func _process(delta):
 	# Kuljetetaan pathfollow2d-nodea reitillä eteenpäin
 	etaisyys += (delta * nopeus) / reitin_pituus

@@ -1,4 +1,4 @@
-## Harri 11.4.2024
+## Harri 15.4.2024
 ## Vanhan vihollisen saa takaisin: noden Inspector - process - disabled -> inherit
 ## Osaa:
 ## Tappaa pelaajan hänen ollessaan alueella liian kauan
@@ -6,7 +6,6 @@
 ## Äännähdellä, kun siltä tuntuu
 ## TODO: voisi koittaa kehittää eteenpäin vaikkapa vielä useammalle alueelle, tai tehdä alueesta uusi scenensä
 ## TODO: alueen vaihto vähän kankea vielä, voisi viilata
-## TODO: pitch ja äänenvoimakkuus suhteessa pelaajaan ei vielä toimi
 ## TODO: jotain pikku bugisuutta: vihollinen joskus ehkä huomaa valopallon seinän läpi,
 ## 		 kenties ohuet seinät tai liian läheiset oltavat toisen alueen kanssa on syynä
 extends Node2D
@@ -30,7 +29,7 @@ var light = preload("res://scenet/valo_character.tscn") ## Valon informaatio. Ta
 ## TODO: Soita ääni kun vihollinen liikkuu, mutta ei jahtaa tai pakene.
 @onready var audio_liikkuminen = $AudioLiikkuminen
 
-## Nodetarrayt
+## Nodearrayt
 @onready var uudetViholliset = Globaali.uudetViholliset
 
 
@@ -59,9 +58,11 @@ func _ready():
 	print(self.name)
 
 
-## Delta kutsutaan joka framella, ei ehkä tarvita?
+## Delta kutsutaan joka framella
 func _process(_delta):
-	pass
+	# Kutsutaan globaalista uuden vihollisen aanen
+	for vihollinen in uudetViholliset:
+		Globaali.uuden_vihollisen_aanen_korkeus(vihollinen)
 
 
 ## Kollektiivinen kuolema-funktio ..
@@ -116,7 +117,8 @@ func _idle_audio_ajastimen_loppuessa():
 
 ## Aloittaa ajastimen idle-ääniefektille
 func aloita_idle_audio_ajastin():
-	idle_audio_ajastin.start((1 - randf() * 0.5) * IDLE_AUDIO_AJASTIN_MAX)
+	#idle_audio_ajastin.start((1 - randf() * 0.5) * IDLE_AUDIO_AJASTIN_MAX)
+	idle_audio_ajastin.start(1)
 
 
 ## Alueelle astumisen funktio alueelle 1

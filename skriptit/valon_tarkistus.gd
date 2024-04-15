@@ -14,6 +14,7 @@ var valonlahteet = Array()
 var valossa = false
 
 
+## Kutsutaan joka framella
 func _physics_process(_delta):
 	# Päivitetään valossa-muuttuja ja lähetetään tarvittaessa signaalit
 	var aiemmin_valossa = valossa

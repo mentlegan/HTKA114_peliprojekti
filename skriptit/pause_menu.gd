@@ -1,10 +1,10 @@
 ## Harri 17.3.2024
 ## Pelin pauseruudun nappien toiminta
-## TODO: jostain syystä scenen puolella ohjaimen kontrolliavut (spritet) eivät näy. Tämä pitäisi korjata
 extends Control
 
 ## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process
 ## Kutsutaan vain kun painetaan jotain
+## PC ESCAPE
 func _input(_event: InputEvent) -> void:
 	# Peli jatkumaan myös escapella
 	if Input.is_action_just_pressed("pause"):
@@ -16,6 +16,7 @@ func _input(_event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 
+## Kutsutaan joka framella
 func _physics_process(_delta):
 	if not visible:
 		return
@@ -28,10 +29,13 @@ func _physics_process(_delta):
 
 
 ## Kun painetaan jatka-nappulaa, eli Continue
+## CONTROLLER DOWN
 func _on_jatka_nappi_pressed():
 	Globaali.jatkaPelia()
 	get_tree().paused = false
 
+
 ## Kun painetaan Quit-nappulaa, peli päättyy
+## CONTROLLER RIGHT
 func _on_lopeta_nappi_pressed():
 	get_tree().quit() # Napataan tree ja peli loppuu quitilla

@@ -4,12 +4,12 @@
 extends Node2D
 
 
-# SmartShape2D-materiaalit
+## SmartShape2D-materiaalit
 var reunat = preload("res://tres-tiedostot/smart_shape_reunat.tres")
 var tiili = preload("res://tres-tiedostot/smart_shape_tiili.tres")
 
 
-# Called when the node enters the scene tree for the first time.
+## Kutsutaan, kun pääsee sceneen
 func _ready():
 	# Muutetaan Polygon2D-nodet SS2D_Shape-nodeiksi ja lisätään niille varjot ja collisionit.
 	self.lisaa_varjot_ja_collisionit()

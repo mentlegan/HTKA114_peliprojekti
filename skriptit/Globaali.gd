@@ -1,7 +1,8 @@
-## Harri 9.4.2024
 ## Paavo 10.4.2024
-## TODO: vihollisen äänenkorkeus paremmin jos vihollisia enemmän kuin 1
-## TODO: tuki uusien vihollisten äänenkorkeudelle
+## Harri 15.4.2024
+## TODO: vihollisen äänenkorkeus paremmin, jos vihollisia enemmän kuin 1
+## TODO: Äänisuunnittelija saa tarkistaa, että toimiiko tuki uusien vihollisten äänenkorkeudelle oikein, oma äänikorva ei riitä:
+	## uuden_vihollisen_aanen_korkeus. kutsutaan uusi_vihollinen.gd:stä
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
 extends Node2D
 
@@ -12,6 +13,7 @@ var nykyiset_pallot = 0
 ## Signaaleja varten
 var pelaaja = null
 var vihollinen = null
+var uusi_vihollinen = null
 
 ## UI-näkyvyyden ajastin
 var ui_ajastin = Timer.new()
@@ -56,6 +58,7 @@ var pystyssa = true
 ## @onready var pauseruutu = get_tree().get_first_node_in_group("pauseruutu")
 
 ## /root/Maailma/[uniquenimi] näyttäisi toimivan:
+## huom. uniikki nimi toimii vain, jos ei ole aikomusta tehdä useaa instanssia
 ## pitää vaan muistaa kaikille käsiteltäville nodeille laittaa unique nimi nodepuusta:
 ## oikea näppäin ja % merkillä oleva valinta Access as unique name 
 ## ja kutsua sitä % merkillä scriptissä, kuten alla:
@@ -88,7 +91,6 @@ func _ready():
 	vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
 	# Yhdistetään kuolema kaikkiin uusiin vihollisiin
-	# TODO: tällä lailla voisi laittaa kaikki signaaliyhdistämiset jatkossa?
 	for uusiVihu in uudetViholliset:
 		if uusiVihu != null:
 			uusiVihu.pelaaja_kuollut.connect(_game_over)
@@ -213,7 +215,7 @@ func nayta_tason_ovet(koordinaatit):
 ## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process
 ## Kutsutaan vain kun painetaan jotain
 func _input(_event: InputEvent) -> void:
-	# F2
+	# PC F2
 	if Input.is_action_just_pressed("taso2"):
 		"""
 		ovet = Array()
@@ -226,21 +228,21 @@ func _input(_event: InputEvent) -> void:
 		pelaaja.putoamis_vahinko = false
 		pelaaja.position = pelaaja_taso2
 	
-	# F3
+	# PC F3
 	if Input.is_action_just_pressed("taso3"):
 		pelaaja.putoamis_vahinko = false
 		pelaaja.position = pelaaja_taso3
 		# get_node("/root/@Node2D@65").queue_free() # Poistetaan duplikoitu maailma2
 	
-	# F4
+	# PC F4
 	if Input.is_action_just_pressed("taso45"):
 		pelaaja.putoamis_vahinko = false
 		pelaaja.position = pelaaja_taso45
 	
 	
 	# Pelin keskeytys
-	# PC Escape
-	# PS4/PS5 Options
+	# PC ESCAPE
+	# PS4/PS5 OPTIONS
 	if Input.is_action_just_pressed("pause"):
 		if get_tree().paused == false:
 			pausePeli()
@@ -249,9 +251,13 @@ func _input(_event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 
-## Kutsutaan joka frame
-## Käytetään ohjaamaan vihollisen äänenkorkeutta vertaamalla vihollisen ja pelaajan y-koordinaatteja
+## Kutsutaan joka framella
 func _process(_delta):
+	vihollisen_aanen_korkeus()
+
+
+## Käytetään ohjaamaan vihollisen äänenkorkeutta vertaamalla vihollisen ja pelaajan y-koordinaatteja
+func vihollisen_aanen_korkeus():
 	var vihollisen_korkeus = vihollinen.get_global_position().y
 	var pelaajan_korkeus = pelaaja.get_global_position().y
 	var korkeuksien_erotus = vihollisen_korkeus - pelaajan_korkeus
@@ -270,6 +276,27 @@ func _process(_delta):
 	# TODO: korjaa bugi, saa virheellisiä arvoja
 	vihollinen_pitch_shift.pitch_scale = vihollisen_aanenkorkeuden_kerroin
 
+
+## Käytetään ohjaamaan uuden vihollisen äänenkorkeutta vertaamalla vihollisen ja pelaajan y-koordinaatteja
+## Pitäisi toimia? TODO: Äänisuunnittelija saa tarkistaa
+func uuden_vihollisen_aanen_korkeus(uusi_vihollinen):
+	var vihollisen_korkeus = uusi_vihollinen.get_global_position().y
+	var pelaajan_korkeus = pelaaja.get_global_position().y
+	var korkeuksien_erotus = vihollisen_korkeus - pelaajan_korkeus
+	if korkeuksien_erotus < 0: # Vihollinen on pelaajan yläpuolella, joten halutaan arvo väliltä [1, 2]
+		# Tässä ei vielä ongelmaa nykyisissä kentissä
+		vihollisen_aanenkorkeuden_kerroin = abs(korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus + 1
+	elif korkeuksien_erotus > 0: # Vihollinen on pelaajan alapuolella, joten halutaan kerroin väliltä [0, 1]
+		# Bugi, jos menee liian korkealle. Arvoksi tulee negatiivinen. nopea korjaus alla
+		vihollisen_aanenkorkeuden_kerroin = abs(1 - (korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus)
+		if vihollisen_aanenkorkeuden_kerroin > 1:
+			vihollisen_aanenkorkeuden_kerroin = 1
+	else:
+		vihollisen_aanenkorkeuden_kerroin = 1
+	# "Vihollinen" audiokanavan pitch shift -efekti
+	var vihollinen_pitch_shift = AudioServer.get_bus_effect(1, 0)
+	# TODO: korjaa bugi, saa virheellisiä arvoja
+	vihollinen_pitch_shift.pitch_scale = vihollisen_aanenkorkeuden_kerroin
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
 func respawn():
@@ -308,7 +335,7 @@ func jatkaPelia():
 ## Yleinen game over funktio signaaleista. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai
 ## käynnistää peli uudelleen kutsumalla tämän skriptin respawn() funktiota
 func _game_over():
-	get_tree().paused = true # Peli pauselle, kun se päättyy. Voi hienojen animaatioiden kanssa tietysti myös jättää pausettamatta
-	# Tai pausettaa peli muuten, mutta hienot kuolema-animaatiot silti toimivat normaalisti
+	get_tree().paused = true # Peli pauselle, kun se päättyy. Voi hienojen animaatioiden kanssa tietysti myös jättää pausettamatta,
+	# tai pausettaa peli muuten, mutta hienot kuolema-animaatiot silti toimivat normaalisti
 	await get_tree().create_timer(2,5).timeout # Pieni ajastin, että game over ei ihan heti tule
 	gameover_ruutu.visible = true

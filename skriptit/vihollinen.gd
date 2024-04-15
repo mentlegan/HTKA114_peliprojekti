@@ -15,9 +15,9 @@ var idle_audio_ajastin = Timer.new()
 @onready var audio_jahtaus = $AudioJahtaus
 @onready var audio_pakeneminen = $AudioPakeneminen
 @onready var audio_pelaaja_kuolee = $AudioPelaajaKuolee
-# Liikkumisääni silloin kun ei jahdata pelaajaa.
-# Tällä hetkellä vihollinen ei liiku jos se ei jahtaa tai pakene.
-# TODO: Soita ääni kun vihollinen liikkuu, mutta ei jahtaa tai pakene.
+## Liikkumisääni silloin kun ei jahdata pelaajaa.
+## Tällä hetkellä vihollinen ei liiku jos se ei jahtaa tai pakene.
+## TODO: Soita ääni kun vihollinen liikkuu, mutta ei jahtaa tai pakene.
 @onready var audio_liikkuminen = $AudioLiikkuminen
 
 ## Valontarkistus-node
@@ -39,10 +39,11 @@ var viime_kuopan_indeksi = 0
 var pakenemisen_ajastin = Timer.new()
 const PAKENEMISAIKA = 3
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+## Otetaan gravity project-settingeistä rigidbodyihin
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
+## Ready tapahtuu, kun astutaan sceneen
 func _ready():
 	# Ajastimen toimintaa varten kutsutaan randomize()
 	randomize()
@@ -126,6 +127,7 @@ func lopeta_pakeneminen():
 	self.global_position = menossa_kuoppaan.global_position
 
 
+## Kutsutaan joka framella
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta # Painovoimaa vihollisellekin
