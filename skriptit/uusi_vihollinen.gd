@@ -117,8 +117,7 @@ func _idle_audio_ajastimen_loppuessa():
 
 ## Aloittaa ajastimen idle-ääniefektille
 func aloita_idle_audio_ajastin():
-	#idle_audio_ajastin.start((1 - randf() * 0.5) * IDLE_AUDIO_AJASTIN_MAX)
-	idle_audio_ajastin.start(1)
+	idle_audio_ajastin.start((1 - randf() * 0.5) * IDLE_AUDIO_AJASTIN_MAX)
 
 
 ## Alueelle astumisen funktio alueelle 1
