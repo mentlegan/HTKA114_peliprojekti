@@ -435,7 +435,7 @@ func _physics_process(delta):
 				animaatio.rotation = move_toward(animaatio.rotation, suunta-0.8, delta * velocity.x * suunta / 580)
 		else:
 			velocity.x = move_toward(velocity.x, suunta * nopeus, KIIHTYVYYS)
-			animaatio.rotation = move_toward(animaatio.rotation, 0, delta)
+			animaatio.rotation = move_toward(animaatio.rotation, 0, delta * 0.4)
 			
 	# Hidastetaan kun ei liikuta mihinkään suuntaan
 	else:
