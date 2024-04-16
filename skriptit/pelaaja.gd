@@ -427,7 +427,7 @@ func _physics_process(delta):
 		# Jos ei ole vielä vaihtanut suuntaa, kiihtyy haluttuun suuntaan nopeampaa (eli kääntyessä)
 		if (suunta < 0 and velocity.x > 0) or (suunta > 0 and velocity.x < 0):
 			velocity.x = move_toward(velocity.x, suunta * nopeus, KAANTYSMIS_NOPEUS)
-		elif (velocity.x < -MAX_NOPEUS or velocity.x > MAX_NOPEUS) and not is_on_wall():
+		elif (velocity.x < -MAX_NOPEUS or velocity.x > MAX_NOPEUS) and is_on_floor():
 			velocity.x = move_toward(velocity.x, suunta * nopeus, JUOKSU_KIIHTYVYYS)
 			if animaatio.is_flipped_h():
 				animaatio.rotation = move_toward(animaatio.rotation, suunta+0.8, delta * velocity.x * suunta / 580)
@@ -435,6 +435,7 @@ func _physics_process(delta):
 				animaatio.rotation = move_toward(animaatio.rotation, suunta-0.8, delta * velocity.x * suunta / 580)
 		else:
 			velocity.x = move_toward(velocity.x, suunta * nopeus, KIIHTYVYYS)
+			animaatio.rotation = move_toward(animaatio.rotation, 0, delta)
 			
 	# Hidastetaan kun ei liikuta mihinkään suuntaan
 	else:
