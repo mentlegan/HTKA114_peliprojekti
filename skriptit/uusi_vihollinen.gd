@@ -64,7 +64,7 @@ func _ready():
 
 ## Delta kutsutaan joka framella
 func _process(_delta):
-	# Kutsutaan globaalista uuden vihollisen aanen
+	# Kutsutaan globaalista uuden vihollisen äänen säädin
 	for vihollinen in uudetViholliset:
 		Globaali.uuden_vihollisen_aanen_korkeus(vihollinen)
 
@@ -77,21 +77,20 @@ func kuolema():
 ## Kollektiivinen alueelle astumisen funktio, eli vihollinen huomaa pelaajan
 func astuttu_alueelle(body):
 	if body.is_in_group("Pelaaja"): # Otetaan pelaajan group
-		# Pysäytetään mahdollinen idle-ääniefekti ja soitetaan vihollisen jahtaus-ääniefekti
+		alueen_vaihto_ajastin.stop() # Pysäytetään ajastin, ettei vihollinen vaihda aluetta pelaajan ollessa siellä ..
+		idle_audio_ajastin.stop() # .. tai ääntele idlenä
+		# Äänten säätöä
 		if audio_paikoillaan.is_playing():
 			audio_paikoillaan.stop()
-			idle_audio_ajastin.stop()
 		if audio_kaivautuminen.is_playing():
 			audio_kaivautuminen.stop()
-		# Jos jahtaus-ääniefekti on jo pyörimässä, ei tehdä mitään
 		if not audio_jahtaus.is_playing():
 			audio_jahtaus.play()
+			audio_liikkuminen.play()
 		var kuolema_aika = rng.randf_range(1.0, 5.0) # Tästä voi säätää ajan kantaman, missä pelaaja voi kuolla viholliseen
 		kuolema_ajastin.start(kuolema_aika) # Aloitetaan jahti
-		print ("Kuolet viholliseen " + str(kuolema_aika) + " sekunnin jälkeen")
-		#audio_liikkuminen.play() # Kuuluu liikkumisen ääniä, voidaan laittaa myös eri kohtaan
+		print ("Kuolet viholliseen " + str(kuolema_aika) + " sekunnin jalkeen")
 		await kuolema_ajastin.timeout # Odotetaan, että vihu saa pelaajan kiinni
-		#audio_liikkuminen.stop() # Ei kuulu enää liikkumisen ääniä
 		audio_pelaaja_kuolee.play() # Tapetaan pelaaja erittäin raa'asti
 		pelaaja = body # Varmistetaan vielä, että kyseessä on pelaaja
 		print ("Kuolit viholliseen")
@@ -108,9 +107,13 @@ func poistuttu_alueelta(_body):
 		aloita_idle_audio_ajastin()
 	if alueen_vaihto_ajastin.is_stopped():
 		aloita_alueen_vaihto_ajastin()
+	if audio_liikkuminen.is_playing():
+		audio_liikkuminen.stop()
 
+
+## Aloittaa alueen vaihtavan ajastimen
 func aloita_alueen_vaihto_ajastin():
-	alueen_vaihto_ajastin.start(7)
+	alueen_vaihto_ajastin.start((1 - randf() * 0.5) * IDLE_AUDIO_AJASTIN_MAX)
 
 
 ## Kun ajastin sanoo, että vihollisen on aika vaihtaa aluetta
@@ -120,7 +123,6 @@ func _alueen_vaihto_ajastimen_loppuessa():
 		return
 	audio_kaivautuminen.play()
 	vaihda_alue(self)
-	#await get_tree().create_timer(1.7).timeout # Annetaan animaation toistaa itseään jonkin aikaa
 
 
 ## Aloittaa ajastimen idle-ääniefektille
