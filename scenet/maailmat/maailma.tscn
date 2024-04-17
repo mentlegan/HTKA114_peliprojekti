@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=58 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -8,10 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://scenet/kayttoliittyma/game_over_ruutu.tscn" id="9_er4wh"]
 [ext_resource type="PackedScene" uid="uid://daeaotnb7peu2" path="res://scenet/piikki.tscn" id="9_ox6hl"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://scenet/vihollinen.tscn" id="12_u46m1"]
+[ext_resource type="Texture2D" uid="uid://4qkv77frylqp" path="res://grafiikka/EnemyDirt.png" id="13_iivh1"]
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://scenet/perhonen.tscn" id="13_ufso7"]
 [ext_resource type="PackedScene" uid="uid://d3kjiqbvins4c" path="res://scenet/ovet/ovi_vasen_z.tscn" id="13_vnqp0"]
 [ext_resource type="PackedScene" uid="uid://bmu1me3chb6d" path="res://scenet/ovet/ovi_oikea_z.tscn" id="14_6n7yc"]
 [ext_resource type="PackedScene" uid="uid://dfcuf6ogfruj6" path="res://scenet/kukka.tscn" id="14_332fg"]
+[ext_resource type="Texture2D" uid="uid://knwtrb12rya4" path="res://grafiikka/EnemyDirt-Sheet.png" id="14_j1sri"]
 [ext_resource type="PackedScene" uid="uid://8dvswt3oh3iq" path="res://scenet/ovet/ovi_pysty_oikea.tscn" id="15_bna8j"]
 [ext_resource type="PackedScene" uid="uid://b6cwc10i6c0w4" path="res://scenet/kuoppa.tscn" id="15_nofhg"]
 [ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://scenet/ovet/ovi_vasen_x.tscn" id="16_8728b"]
@@ -65,25 +67,39 @@ _data = {
 }
 point_count = 21
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fwwb5"]
-streams_count = 3
-stream_0/stream = ExtResource("27_5yynh")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("28_lynst")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("29_bv82b")
-stream_2/weight = 1.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_muepl"]
+atlas = ExtResource("14_j1sri")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38ohx"]
+atlas = ExtResource("14_j1sri")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m5vu"]
+atlas = ExtResource("14_j1sri")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dl2o2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muepl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muepl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38ohx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m5vu")
+}],
+"loop": true,
+"name": &"kaivautuminen",
+"speed": 10.0
+}]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w41mi"]
-streams_count = 3
-stream_0/stream = ExtResource("27_5yynh")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("28_lynst")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("29_bv82b")
-stream_2/weight = 1.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_724pt"]
 streams_count = 3
 stream_0/stream = ExtResource("27_5yynh")
 stream_0/weight = 1.0
@@ -230,7 +246,7 @@ position = Vector2(-53, 30)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 11933, -644, 11961, -666, 11950, -693, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11381, -695, 11393, -668, 11410, -644, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(3164, 187)
+position = Vector2(3269, 204)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -740,7 +756,6 @@ scale = Vector2(2.16079, 1.92657)
 
 [node name="Viholliset" type="Node2D" parent="."]
 process_mode = 4
-visible = false
 
 [node name="Vihollinen" parent="Viholliset" groups=["vihollinen"] instance=ExtResource("12_u46m1")]
 position = Vector2(2820, 391)
@@ -771,6 +786,100 @@ rotation = -1.1579
 [node name="Kuoppa2_3" parent="Viholliset" instance=ExtResource("15_nofhg")]
 position = Vector2(5201, 1269)
 rotation = 1.56308
+
+[node name="uudetViholliset" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-10, 0)
+
+[node name="uusiVihollinen" type="Node2D" parent="uudetViholliset"]
+position = Vector2(3271, 162)
+rotation = -0.00245404
+scale = Vector2(-0.670116, -0.75484)
+script = ExtResource("24_8mx77")
+
+[node name="alue" type="Area2D" parent="uudetViholliset/uusiVihollinen" groups=["newVihollinen", "nykyisetAlueet"]]
+position = Vector2(-176.088, -0.383625)
+rotation = 3.14159
+scale = Vector2(7.22472, -9.85951)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue"]
+polygon = PackedVector2Array(10, -10, 0, -10, -10, -10, -10, 0, -10, 10, 0, 10, 10, 10, 10, 0)
+
+[node name="ValonTarkistus" parent="uudetViholliset/uusiVihollinen/alue/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
+position = Vector2(4.48989e-05, -1.71738e-07)
+scale = Vector2(0.248258, 0.98758)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue/CollisionPolygon2D/ValonTarkistus"]
+polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
+
+[node name="Kuoppa" type="Sprite2D" parent="uudetViholliset/uusiVihollinen"]
+position = Vector2(-176, 0)
+scale = Vector2(2, -3)
+texture = ExtResource("13_iivh1")
+
+[node name="Animaatio" type="AnimatedSprite2D" parent="uudetViholliset/uusiVihollinen/Kuoppa"]
+sprite_frames = SubResource("SpriteFrames_dl2o2")
+animation = &"kaivautuminen"
+frame_progress = 0.402777
+
+[node name="alue2" type="Area2D" parent="uudetViholliset/uusiVihollinen" groups=["newVihollinen"]]
+position = Vector2(177.581, 0.386879)
+rotation = 3.14159
+scale = Vector2(7.09998, -9.79605)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue2"]
+polygon = PackedVector2Array(10, -10, 0, -10, -10, -10, -10, 0, -10, 10, 0, 10, 10, 10, 10, 0)
+
+[node name="ValonTarkistus2" parent="uudetViholliset/uusiVihollinen/alue2/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
+position = Vector2(4.48989e-05, -1.71738e-07)
+scale = Vector2(0.248258, 0.98758)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue2/CollisionPolygon2D/ValonTarkistus2"]
+polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
+
+[node name="Kuoppa2" type="Sprite2D" parent="uudetViholliset/uusiVihollinen"]
+position = Vector2(176, 0)
+rotation = 3.14159
+scale = Vector2(2, 3)
+texture = ExtResource("13_iivh1")
+
+[node name="Animaatio" type="AnimatedSprite2D" parent="uudetViholliset/uusiVihollinen/Kuoppa2"]
+sprite_frames = SubResource("SpriteFrames_dl2o2")
+animation = &"kaivautuminen"
+frame = 1
+frame_progress = 0.415255
+
+[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
+stream = ExtResource("26_ibcbx")
+bus = &"Vihollinen"
+
+[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
+stream = SubResource("AudioStreamRandomizer_w41mi")
+volume_db = -3.0
+bus = &"Vihollinen"
+
+[node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
+stream = ExtResource("30_pn52s")
+volume_db = 16.0
+bus = &"Vihollinen"
+
+[node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
+stream = ExtResource("31_bllwm")
+volume_db = -7.0
+bus = &"Vihollinen"
+
+[node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
+process_mode = 3
+stream = ExtResource("32_a8tci")
+volume_db = 7.0
+bus = &"Vihollinen"
+
+[node name="AudioKaivautuminen" type="AudioStreamPlayer" parent="uudetViholliset/uusiVihollinen"]
+stream = ExtResource("33_y2rdp")
 
 [node name="Koynnosovet" type="Node2D" parent="." groups=["koynnosovet"]]
 rotation = -0.00243501
@@ -1005,225 +1114,11 @@ position = Vector2(5707, 2103)
 [node name="TooltipTaajuus2" parent="Tooltipit" instance=ExtResource("23_k22wo")]
 position = Vector2(5860, 2076)
 
-[node name="uudetViholliset" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="uusiVihollinen" type="Node2D" parent="uudetViholliset"]
-position = Vector2(2637, 424)
-rotation = -4.30116
-scale = Vector2(-0.504163, -1.23582)
-script = ExtResource("24_8mx77")
-
-[node name="alue" type="Area2D" parent="uudetViholliset/uusiVihollinen" groups=["newVihollinen"]]
-position = Vector2(-175.811, -0.501806)
-rotation = 3.14159
-scale = Vector2(7.22472, -9.85951)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue"]
-scale = Vector2(1.02129, 0.930697)
-polygon = PackedVector2Array(18.6125, -2.32597, -1.30597, -6.53424, -10.322, -4.66541, -15.9133, 0.604553, -10.6305, 4.78511, 0.629547, 5.89487, 6.63707, 6.49896, 12.2927, 1.59554)
-
-[node name="ValonTarkistus" parent="uudetViholliset/uusiVihollinen/alue/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
-position = Vector2(4.48989e-05, -1.71738e-07)
-scale = Vector2(0.248258, 0.98758)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue/CollisionPolygon2D/ValonTarkistus"]
-position = Vector2(-15.5275, 4.92374)
-scale = Vector2(1.12717, 0.926584)
-polygon = PackedVector2Array(54.1596, -6.83795, 0, -10, -24.3127, -7.86832, -25.2808, -4.99887, -15.9291, -2.24457, 8.78772, -0.89061, 25.1895, -0.806412, 46.7664, -1.8219)
-
-[node name="alue2" type="Area2D" parent="uudetViholliset/uusiVihollinen" groups=["newVihollinen"]]
-position = Vector2(273.28, 71.4389)
-rotation = 3.14159
-scale = Vector2(7.09998, -9.79605)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue2"]
-position = Vector2(13.4719, -7.27446)
-polygon = PackedVector2Array(12.5919, -7.29779, -6.16116, -8.63449, -22.267, 0.0125427, -31.8862, 10.6675, -28.2068, 18.7116, -19.7044, 20.7992, -5.23518, 14.9149, 11.9767, 0.532562)
-
-[node name="ValonTarkistus2" parent="uudetViholliset/uusiVihollinen/alue2/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
-position = Vector2(-1.79828, -1.67373)
-scale = Vector2(0.248258, 0.98758)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue2/CollisionPolygon2D/ValonTarkistus2"]
-position = Vector2(7.71669, 3.07884)
-polygon = PackedVector2Array(22, -6, 0, -10, -37.1219, -6.88138, -90.302, -0.119019, -124.551, 9.90317, -81.8804, 18.9511, 0.452759, 9.94003, 40, 0)
-
-[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
-stream = ExtResource("26_ibcbx")
-bus = &"Vihollinen"
-
-[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
-stream = SubResource("AudioStreamRandomizer_fwwb5")
-volume_db = -3.0
-bus = &"Vihollinen"
-
-[node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
-stream = ExtResource("30_pn52s")
-volume_db = 16.0
-bus = &"Vihollinen"
-
-[node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
-stream = ExtResource("31_bllwm")
-volume_db = -7.0
-bus = &"Vihollinen"
-
-[node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
-process_mode = 3
-stream = ExtResource("32_a8tci")
-volume_db = 7.0
-bus = &"Vihollinen"
-
-[node name="AudioKaivautuminen" type="AudioStreamPlayer" parent="uudetViholliset/uusiVihollinen"]
-stream = ExtResource("33_y2rdp")
-
-[node name="uusiVihollinen2" type="Node2D" parent="uudetViholliset"]
-position = Vector2(5136, 1221)
-rotation = 2.96459
-scale = Vector2(-0.670116, -0.75484)
-script = ExtResource("24_8mx77")
-
-[node name="alue" type="Area2D" parent="uudetViholliset/uusiVihollinen2" groups=["newVihollinen", "nykyisetAlueet"]]
-position = Vector2(-219.318, 35.1552)
-rotation = 3.11356
-scale = Vector2(7.22472, -9.85951)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen2/alue"]
-polygon = PackedVector2Array(18.394, -5.27271, -1.40332, -3.78473, -5.93762, -3.43555, -6.23584, 0.308899, -2.02698, 5.62811, 7.0144, 6.8537, 20.5712, 4.98944, 19.3974, -0.747162)
-
-[node name="ValonTarkistus" parent="uudetViholliset/uusiVihollinen2/alue/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
-position = Vector2(16.3257, 0.223899)
-scale = Vector2(0.248258, 0.98758)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen2/alue/CollisionPolygon2D/ValonTarkistus"]
-position = Vector2(-73.7062, 1.57572)
-polygon = PackedVector2Array(91.1702, -7.3183, 70.9609, -6.48077, 54.6602, -5.9173, 46.9006, -3.28796, 46.4954, -0.218384, 52.2769, 2.3595, 62.429, 3.67523, 100.402, 2.08475)
-
-[node name="alue2" type="Area2D" parent="uudetViholliset/uusiVihollinen2" groups=["newVihollinen"]]
-position = Vector2(475.251, 109.113)
-rotation = 3.14159
-scale = Vector2(7.09998, -9.79605)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen2/alue2"]
-position = Vector2(27.6854, -7.17052)
-polygon = PackedVector2Array(17.7311, 7.71347, 17.2885, -6.93558, -5.01941, -4.23071, -21.1992, 2.85205, -20.2572, 10.8492, -13.665, 12.2886, -3.69702, 11.2787, 11.6942, 8.27087)
-
-[node name="ValonTarkistus2" parent="uudetViholliset/uusiVihollinen2/alue2/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
-position = Vector2(-15.3893, 6.85439)
-scale = Vector2(0.248258, 0.98758)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen2/alue2/CollisionPolygon2D/ValonTarkistus2"]
-position = Vector2(59.6452, -2.83856)
-polygon = PackedVector2Array(29.3647, -7.66602, -9.03223, -7.38977, -60.3364, -0.8974, -64.9097, 5.07758, -35.3203, 6.16901, -15.7051, 6.01883, 11.4985, 4.95352, 34.8608, 2.74741)
-
-[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
-stream = ExtResource("26_ibcbx")
-bus = &"Vihollinen"
-
-[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
-stream = SubResource("AudioStreamRandomizer_w41mi")
-volume_db = -3.0
-bus = &"Vihollinen"
-
-[node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
-stream = ExtResource("30_pn52s")
-volume_db = 16.0
-bus = &"Vihollinen"
-
-[node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
-stream = ExtResource("31_bllwm")
-volume_db = -7.0
-bus = &"Vihollinen"
-
-[node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
-process_mode = 3
-stream = ExtResource("32_a8tci")
-volume_db = 7.0
-bus = &"Vihollinen"
-
-[node name="AudioKaivautuminen" type="AudioStreamPlayer" parent="uudetViholliset/uusiVihollinen2"]
-stream = ExtResource("33_y2rdp")
-
-[node name="uusiVihollinen3" type="Node2D" parent="uudetViholliset"]
-position = Vector2(5434, -1011)
-rotation = 1.51573
-scale = Vector2(-0.670116, -0.75484)
-script = ExtResource("24_8mx77")
-
-[node name="alue" type="Area2D" parent="uudetViholliset/uusiVihollinen3" groups=["newVihollinen", "nykyisetAlueet"]]
-position = Vector2(-200.789, 56.5145)
-rotation = 3.14859
-scale = Vector2(7.22472, -9.85951)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen3/alue"]
-polygon = PackedVector2Array(7.47446, -16.1039, 0.183197, -16.8215, -10.5098, -18.78, -8.60425, 1.07153, -6.03487, 18.7502, 0.536606, 18.1447, 10.0468, 18.1216, 8.46857, -0.125671)
-
-[node name="ValonTarkistus" parent="uudetViholliset/uusiVihollinen3/alue/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
-position = Vector2(4.48989e-05, -1.71738e-07)
-scale = Vector2(0.248258, 0.98758)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen3/alue/CollisionPolygon2D/ValonTarkistus"]
-polygon = PackedVector2Array(22, -6, 17.0551, -15.3883, -34.3678, -17.4431, -28.8234, -1.68445, -20.9117, 8.06219, -14.9872, 16.7345, 31.5899, 16.511, 25.4582, 1.57422)
-
-[node name="alue2" type="Area2D" parent="uudetViholliset/uusiVihollinen3" groups=["newVihollinen"]]
-position = Vector2(277.097, -81.9691)
-rotation = 3.14159
-scale = Vector2(7.09998, -9.79605)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen3/alue2"]
-polygon = PackedVector2Array(14.9646, -9.60541, -0.55365, -8.91956, -17.4831, -7.50641, -19.2511, 3.79797, -16.4765, 21.4424, -1.03578, 32.1364, 8.15189, 31.2688, 13.0051, 26.4916)
-
-[node name="ValonTarkistus2" parent="uudetViholliset/uusiVihollinen3/alue2/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
-position = Vector2(7.18321, -2.15097)
-scale = Vector2(0.248258, 0.98758)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen3/alue2/CollisionPolygon2D/ValonTarkistus2"]
-polygon = PackedVector2Array(37.1083, -3.07373, 27.7295, -8.20166, -29.8467, -7.96265, -113.489, -7.07965, -106.811, 24.9528, -34.1915, 36.5112, 14.5585, 35.2537, 40.9701, 28.1609)
-
-[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
-stream = ExtResource("26_ibcbx")
-bus = &"Vihollinen"
-
-[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
-stream = SubResource("AudioStreamRandomizer_724pt")
-volume_db = -3.0
-bus = &"Vihollinen"
-
-[node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
-stream = ExtResource("30_pn52s")
-volume_db = 16.0
-bus = &"Vihollinen"
-
-[node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
-stream = ExtResource("31_bllwm")
-volume_db = -7.0
-bus = &"Vihollinen"
-
-[node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
-process_mode = 3
-stream = ExtResource("32_a8tci")
-volume_db = 7.0
-bus = &"Vihollinen"
-
-[node name="AudioKaivautuminen" type="AudioStreamPlayer" parent="uudetViholliset/uusiVihollinen3"]
-stream = ExtResource("33_y2rdp")
-
 [node name="Checkpointit" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Checkpoint1" parent="Checkpointit" instance=ExtResource("35_je5yh")]
+position = Vector2(3075, 191)
 
 [node name="Checkpoint2" parent="Checkpointit" instance=ExtResource("35_je5yh")]
 position = Vector2(3719, -1147)
@@ -1364,11 +1259,3 @@ stream = ExtResource("37_khmdb")
 [connection signal="body_exited" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_exited"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue2" to="uudetViholliset/uusiVihollinen" method="_on_alue_2_body_entered"]
 [connection signal="body_exited" from="uudetViholliset/uusiVihollinen/alue2" to="uudetViholliset/uusiVihollinen" method="_on_alue_2_body_exited"]
-[connection signal="body_entered" from="uudetViholliset/uusiVihollinen2/alue" to="uudetViholliset/uusiVihollinen2" method="_on_alue_body_entered"]
-[connection signal="body_exited" from="uudetViholliset/uusiVihollinen2/alue" to="uudetViholliset/uusiVihollinen2" method="_on_alue_body_exited"]
-[connection signal="body_entered" from="uudetViholliset/uusiVihollinen2/alue2" to="uudetViholliset/uusiVihollinen2" method="_on_alue_2_body_entered"]
-[connection signal="body_exited" from="uudetViholliset/uusiVihollinen2/alue2" to="uudetViholliset/uusiVihollinen2" method="_on_alue_2_body_exited"]
-[connection signal="body_entered" from="uudetViholliset/uusiVihollinen3/alue" to="uudetViholliset/uusiVihollinen3" method="_on_alue_body_entered"]
-[connection signal="body_exited" from="uudetViholliset/uusiVihollinen3/alue" to="uudetViholliset/uusiVihollinen3" method="_on_alue_body_exited"]
-[connection signal="body_entered" from="uudetViholliset/uusiVihollinen3/alue2" to="uudetViholliset/uusiVihollinen3" method="_on_alue_2_body_entered"]
-[connection signal="body_exited" from="uudetViholliset/uusiVihollinen3/alue2" to="uudetViholliset/uusiVihollinen3" method="_on_alue_2_body_exited"]

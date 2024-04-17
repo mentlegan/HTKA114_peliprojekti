@@ -279,8 +279,8 @@ func vihollisen_aanen_korkeus():
 
 ## Käytetään ohjaamaan uuden vihollisen äänenkorkeutta vertaamalla vihollisen ja pelaajan y-koordinaatteja
 ## Pitäisi toimia? TODO: Äänisuunnittelija saa tarkistaa
-func uuden_vihollisen_aanen_korkeus(uusi_vihollinen):
-	var vihollisen_korkeus = uusi_vihollinen.get_global_position().y
+func uuden_vihollisen_aanen_korkeus(uusiVihollinen):
+	var vihollisen_korkeus = uusiVihollinen.get_global_position().y
 	var pelaajan_korkeus = pelaaja.get_global_position().y
 	var korkeuksien_erotus = vihollisen_korkeus - pelaajan_korkeus
 	if korkeuksien_erotus < 0: # Vihollinen on pelaajan yläpuolella, joten halutaan arvo väliltä [1, 2]

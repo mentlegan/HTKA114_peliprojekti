@@ -1,15 +1,49 @@
-[gd_scene load_steps=12 format=3 uid="uid://bukv6x5qpfus"]
+[gd_scene load_steps=18 format=3 uid="uid://bukv6x5qpfus"]
 
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="1_7vppl"]
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="1_th14a"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="3_lk12r"]
+[ext_resource type="Texture2D" uid="uid://4qkv77frylqp" path="res://grafiikka/EnemyDirt.png" id="3_mj7vs"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="4_hp66u"]
+[ext_resource type="Texture2D" uid="uid://knwtrb12rya4" path="res://grafiikka/EnemyDirt-Sheet.png" id="4_ypbd3"]
 [ext_resource type="AudioStream" uid="uid://cbninhjqk8vnv" path="res://audio/hirvio/hirvioaani2_mono.wav" id="5_p2hna"]
 [ext_resource type="AudioStream" uid="uid://dyo460luf8lv1" path="res://audio/hirvio/hirvioaani3_mono.wav" id="6_ajjkn"]
 [ext_resource type="AudioStream" uid="uid://crbflddm0u661" path="res://audio/hirvio/vihollinen_pakenee1_mono.wav" id="7_lwns6"]
 [ext_resource type="AudioStream" uid="uid://xj0qm50xbp3n" path="res://audio/hirvio/vihollisen_liike1_mono.wav" id="8_n68mi"]
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="9_kwoii"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="10_yff1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muepl"]
+atlas = ExtResource("4_ypbd3")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38ohx"]
+atlas = ExtResource("4_ypbd3")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m5vu"]
+atlas = ExtResource("4_ypbd3")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dl2o2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muepl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muepl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38ohx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m5vu")
+}],
+"loop": true,
+"name": &"kaivautuminen",
+"speed": 10.0
+}]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w41mi"]
 streams_count = 3
@@ -43,6 +77,16 @@ scale = Vector2(0.248258, 0.98758)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue/CollisionPolygon2D/ValonTarkistus"]
 polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
 
+[node name="Kuoppa" type="Sprite2D" parent="."]
+position = Vector2(-176, 0)
+scale = Vector2(2, -3)
+texture = ExtResource("3_mj7vs")
+
+[node name="Animaatio" type="AnimatedSprite2D" parent="Kuoppa"]
+sprite_frames = SubResource("SpriteFrames_dl2o2")
+animation = &"kaivautuminen"
+frame_progress = 0.402777
+
 [node name="alue2" type="Area2D" parent="." groups=["newVihollinen"]]
 position = Vector2(177.581, 0.386879)
 rotation = 3.14159
@@ -59,6 +103,18 @@ scale = Vector2(0.248258, 0.98758)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue2/CollisionPolygon2D/ValonTarkistus2"]
 polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
+
+[node name="Kuoppa2" type="Sprite2D" parent="."]
+position = Vector2(176, 0)
+rotation = 3.14159
+scale = Vector2(2, 3)
+texture = ExtResource("3_mj7vs")
+
+[node name="Animaatio" type="AnimatedSprite2D" parent="Kuoppa2"]
+sprite_frames = SubResource("SpriteFrames_dl2o2")
+animation = &"kaivautuminen"
+frame = 1
+frame_progress = 0.415255
 
 [node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_lk12r")

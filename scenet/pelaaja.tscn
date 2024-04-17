@@ -356,7 +356,7 @@ texture_filter = 1
 position = Vector2(2, -4)
 sprite_frames = SubResource("SpriteFrames_bqvgf")
 animation = &"seinakiipeaminen"
-frame_progress = 0.565493
+frame_progress = 0.729584
 
 [node name="Elamat" type="Label" parent="."]
 z_index = 99
