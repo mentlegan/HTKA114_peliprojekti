@@ -65,9 +65,9 @@ var aanen_taajuus = 2
 const AANEN_TAAJUUS_MIN = 1
 const AANEN_TAAJUUS_MAX = 3
 const AANEN_TAAJUUS_VARIT = [
-	Color(1, 0, 0, 1),
-	Color(1, 1, 0, 1),
-	Color(0, 0, 1, 1)
+	Color.YELLOW,
+	Color.GREEN,
+	Color.BLUE
 ]
 
 ## Ajastin pimeässä selviämiselle
