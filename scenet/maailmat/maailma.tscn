@@ -141,7 +141,7 @@ script = ExtResource("1_sggs7")
 z_as_relative = false
 position = Vector2(2976, 162)
 
-[node name="Sprite2D2" type="Polygon2D" parent="Tausta"]
+[node name="Taustakivi_1" type="Polygon2D" parent="Tausta"]
 self_modulate = Color(0.517184, 0.517184, 0.517184, 1)
 clip_children = 1
 texture_repeat = 2
@@ -151,7 +151,7 @@ texture = ExtResource("2_6luqt")
 polygon = PackedVector2Array(702, 48, -150, 74, -158, 3, -162, -75, -150, -149, -103, -201, 0, -247, 97, -269, 219, -276, 370, -277, 515, -258, 607, -235, 717, -163, 728, -121, 753, -82, 739, 0)
 uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Tausta/Sprite2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="Tausta/Taustakivi_1"]
 self_modulate = Color(0.237539, 0.237539, 0.237539, 1)
 texture_repeat = 2
 position = Vector2(2.99991, 26)
@@ -161,7 +161,7 @@ region_rect = Rect2(0, 0, 4000, 2000)
 script = ExtResource("3_8slpc")
 taso = 4
 
-[node name="Sprite2D3" type="Polygon2D" parent="Tausta"]
+[node name="Taustakivi_2" type="Polygon2D" parent="Tausta"]
 self_modulate = Color(0.662452, 0.662452, 0.662452, 1)
 clip_children = 1
 texture_repeat = 2
@@ -171,7 +171,7 @@ texture = ExtResource("2_6luqt")
 polygon = PackedVector2Array(630, 46, -106, 62, -112, 4, -104, -48, -89, -98, -68, -160, 5, -206, 86, -212, 138.455, -216.155, 187, -220, 259, -227, 338, -218, 428, -221, 522, -219, 604, -175, 628, -113, 634, -34)
 uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Tausta/Sprite2D3"]
+[node name="Sprite2D" type="Sprite2D" parent="Tausta/Taustakivi_2"]
 self_modulate = Color(0.281187, 0.281187, 0.281187, 1)
 texture_repeat = 2
 position = Vector2(3.99988, 13)
@@ -181,7 +181,7 @@ region_rect = Rect2(0, 0, 4000, 2000)
 script = ExtResource("3_8slpc")
 taso = 3
 
-[node name="Sprite2D4" type="Polygon2D" parent="Tausta"]
+[node name="Taustakivi_3" type="Polygon2D" parent="Tausta"]
 self_modulate = Color(0.881937, 0.881937, 0.881936, 1)
 clip_children = 1
 texture_repeat = 2
@@ -191,7 +191,7 @@ texture = ExtResource("2_6luqt")
 polygon = PackedVector2Array(630, 46, -35, 32, -18, -16, 10, -81, 40, -109, 76, -121, 123, -149, 165, -165, 222, -177, 294, -176, 364, -168, 439, -157, 522, -146, 596, -110, 626, -38)
 uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Tausta/Sprite2D4"]
+[node name="Sprite2D" type="Sprite2D" parent="Tausta/Taustakivi_3"]
 self_modulate = Color(0.400697, 0.400698, 0.400697, 1)
 texture_repeat = 2
 position = Vector2(5.00015, -9)
@@ -201,7 +201,7 @@ region_rect = Rect2(0, 0, 4000, 2000)
 script = ExtResource("3_8slpc")
 taso = 2
 
-[node name="Sprite2D5" type="Polygon2D" parent="Tausta"]
+[node name="Taustakivi_4" type="Polygon2D" parent="Tausta"]
 self_modulate = Color(0.881937, 0.881937, 0.881936, 1)
 clip_children = 1
 texture_repeat = 2
@@ -211,8 +211,8 @@ texture = ExtResource("2_6luqt")
 polygon = PackedVector2Array(630, 46, -35, 32, 1, 11, 29, 0, 65, -8, 106, -14, 142, -19, 195, -20, 245, -8, 287, -22, 316, -51, 342, -55, 371, -47, 391, -27, 431, -8, 499, -5, 549, 8, 586, 20)
 uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Tausta/Sprite2D5"]
-self_modulate = Color(0.548963, 0.548963, 0.548962, 1)
+[node name="Sprite2D" type="Sprite2D" parent="Tausta/Taustakivi_4"]
+self_modulate = Color(0.181343, 0.416865, 1, 1)
 texture_repeat = 2
 position = Vector2(5.00015, -9)
 texture = ExtResource("2_6luqt")
