@@ -1,7 +1,9 @@
-[gd_scene load_steps=59 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=61 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
+[ext_resource type="Texture2D" uid="uid://bw63swpnyimyq" path="res://grafiikka/Seinä.png" id="2_6luqt"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
+[ext_resource type="Script" path="res://skriptit/plax.gd" id="3_8slpc"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://d1c6axf23uaq5" path="res://scenet/kayttoliittyma/help_ruutu.tscn" id="4_5kntw"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="4_udkay"]
@@ -135,6 +137,48 @@ size = Vector2(2146, 1158)
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 script = ExtResource("1_sggs7")
 
+[node name="Tausta" type="Node2D" parent="."]
+z_as_relative = false
+
+[node name="Sprite2D2" type="Polygon2D" parent="Tausta"]
+self_modulate = Color(0.517184, 0.517184, 0.517184, 1)
+texture_repeat = 2
+position = Vector2(2706, 191)
+texture = ExtResource("2_6luqt")
+polygon = PackedVector2Array(702, 48, -150, 74, -158, 3, -162, -75, -150, -149, -103, -201, 0, -247, 97, -269, 219, -276, 370, -277, 515, -258, 607, -235, 717, -163, 728, -121, 753, -82, 739, 0)
+uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
+script = ExtResource("3_8slpc")
+
+[node name="Sprite2D3" type="Polygon2D" parent="Tausta"]
+self_modulate = Color(0.662452, 0.662452, 0.662452, 1)
+texture_repeat = 2
+position = Vector2(2706, 191)
+texture = ExtResource("2_6luqt")
+polygon = PackedVector2Array(630, 46, -106, 62, -112, 4, -104, -48, -89, -98, -68, -160, 5, -206, 86, -212, 138.455, -216.155, 187, -220, 259, -227, 338, -218, 428, -221, 522, -219, 604, -175, 628, -113, 634, -34)
+uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
+script = ExtResource("3_8slpc")
+taso = 2
+
+[node name="Sprite2D4" type="Polygon2D" parent="Tausta"]
+self_modulate = Color(0.881937, 0.881937, 0.881936, 1)
+texture_repeat = 2
+position = Vector2(2706, 191)
+texture = ExtResource("2_6luqt")
+polygon = PackedVector2Array(630, 46, -35, 32, -18, -16, 10, -81, 40, -109, 76, -121, 123, -149, 165, -165, 222, -177, 294, -176, 364, -168, 439, -157, 522, -146, 596, -110, 626, -38)
+uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
+script = ExtResource("3_8slpc")
+taso = 3
+
+[node name="Sprite2D" type="Polygon2D" parent="Tausta"]
+self_modulate = Color(0, 0.721569, 1, 1)
+position = Vector2(2953, 89.2832)
+scale = Vector2(10.0935, -1.98543)
+texture = ExtResource("2_6luqt")
+polygon = PackedVector2Array(32.3972, -63.3196, 29.9203, -53.2462, 26.0565, -46.6985, 19.1213, -41.1582, 14.2666, -34.6105, 8.81757, -30.0775, 2.57593, -31.0848, -0.792603, -33.0995, -3.96298, -37.1288, -8.71851, -42.6692, -13.9695, -46.6985, -19.4185, -53.2462, -27.8398, -67.3489, 32.9916, -73.3929)
+uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
+script = ExtResource("3_8slpc")
+taso = 4
+
 [node name="KayttoLiittyma" type="CanvasLayer" parent="." groups=["UI"]]
 unique_name_in_owner = true
 process_mode = 3
@@ -162,7 +206,7 @@ polygon = PackedVector2Array(1459, 182, 1384, 213, 1303, 296, 1255, 423, 1231, 6
 
 [node name="Polygon2D2" type="Polygon2D" parent="Tiilet"]
 texture_repeat = 2
-polygon = PackedVector2Array(2948, -132, 3000, -93, 3024, -63, 3040, -13, 3043, 72, 3039, 102, 3032, 120, 3016, 130, 2706, 126, 2439, 164, 2113, 250, 2030, 295, 1954, 376, 1956, 464, 2004, 521, 2082, 562, 2118, 568, 2326, 565, 2411, 630, 1902, 629, 1873, 543, 1844, 493, 1813, 414, 1801, 276, 1730, 207, 1599, 184, 1680, 144, 1672, 70, 1622, 38, 1414, 56, 1242, 35, 964, 55, 866, 66, 628, 136, 462, 75, 516, -116)
+polygon = PackedVector2Array(2602, -156, 2623, -121, 2627, -99, 2604, -67, 2559, -24, 2504, 18, 2473, 51, 2407, 85, 2334, 137, 2184, 186, 2093, 246, 2030, 295, 1954, 376, 1956, 464, 2004, 521, 2082, 562, 2118, 568, 2326, 565, 2411, 630, 1902, 629, 1873, 543, 1844, 493, 1813, 414, 1801, 276, 1730, 207, 1599, 184, 1680, 144, 1672, 70, 1622, 38, 1414, 56, 1242, 35, 964, 55, 866, 66, 628, 136, 462, 75, 516, -116)
 
 [node name="Polygon2D3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(-10, -4)
@@ -174,7 +218,7 @@ polygon = PackedVector2Array(2660, 565, 2679, 582, 2672, 599, 2645, 617, 2483, 6
 
 [node name="Polygon2D6" type="Polygon2D" parent="Tiilet"]
 position = Vector2(-1279, -2245)
-polygon = PackedVector2Array(6218, 306, 4937, 935, 4286, 866, 4217, 1716, 4156, 1779, 4053, 1829, 3621, 1852, 3596, 1855, 3563, 1865, 3540, 1891, 3539, 1930, 3536, 2041, 3542, 2075, 3548, 2101, 3571, 2116, 3587, 2118, 1776, 2152, 1713, -245, 5912, -55, 6681, 9, 6723, 304)
+polygon = PackedVector2Array(6218, 306, 4937, 935, 4286, 866, 4217, 1716, 4137, 1776, 4053, 1829, 4027, 1847, 4009, 1866, 3981, 1887, 3946, 1909, 3915, 1934, 3888, 1959, 3863, 1997, 3857, 2049, 3874, 2073, 3881, 2091, 1776, 2152, 1713, -245, 5912, -55, 6681, 9, 6723, 304)
 
 [node name="Polygon2D4" type="Polygon2D" parent="Tiilet"]
 position = Vector2(1475, 1552)
@@ -252,7 +296,7 @@ position = Vector2(-53, 30)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 11933, -644, 11961, -666, 11950, -693, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11381, -695, 11393, -668, 11410, -644, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(6046, 729)
+position = Vector2(3039, 184)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -321,7 +365,7 @@ position = Vector2(1250, 643)
 rotation = 2.06039
 
 [node name="Kukka6" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(3270.71, 220.344)
+position = Vector2(3402.7, 225.52)
 rotation = 2.91312
 
 [node name="Kukka3" parent="Kukat" instance=ExtResource("14_332fg")]
@@ -1309,7 +1353,7 @@ position = Vector2(5860, 2076)
 unique_name_in_owner = true
 
 [node name="Checkpoint1" parent="Checkpointit" instance=ExtResource("35_je5yh")]
-position = Vector2(3075, 191)
+position = Vector2(2791, 185)
 
 [node name="Checkpoint2" parent="Checkpointit" instance=ExtResource("35_je5yh")]
 position = Vector2(3719, -1147)
