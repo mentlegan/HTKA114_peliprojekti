@@ -563,7 +563,7 @@ func _physics_process(delta):
 		if huilun_cd_ajastin.is_stopped():
 			animaatio.play("huilu")
 			huilu.rotation = valon_kohde.angle()
-			#animaatio.set_flip_h(valon_kohde.x < 0)
+			animaatio.set_flip_h(valon_kohde.x < 0)
 			huilun_collision.set_disabled(false)
 			huilun_cd_ajastin.start()
 			huilun_partikkelit.set_emitting(true)
