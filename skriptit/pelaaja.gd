@@ -320,6 +320,20 @@ func vaihda_aanen_taajuutta(delta):
 func _physics_process(delta):
 	var aiempi_hiiren_tila = hiiri_kaytossa
 	
+	# Ohjaimen tatin arvot
+	# CONTROLLER LEFT STICK
+	var ohjain_tahtays = Vector2(
+		Input.get_axis("tahtaa_vasen", "tahtaa_oikea"),
+		Input.get_axis("tahtaa_ylos", "tahtaa_alas")
+	)
+
+	# Otetaan pelaajan liikkeen haluttu suunta
+	# PC vasen: A, oikea: D
+	suunta = Input.get_axis("liiku_vasen", "liiku_oikea")
+
+	if ohjain_tahtays != Vector2.ZERO && Input.is_action_pressed("ohjain_tahtaa"):
+		suunta = 0
+	
 	# Seinäkiipeämiseen toggle
 	# PC E
 	if Input.is_action_just_pressed("kiipeamis_toggle"):
@@ -349,9 +363,9 @@ func _physics_process(delta):
 		velocity.y = -gravity * delta * 6
 		animaatio.play("seinakiipeaminen")
 		oikein_seinalla()
-		if animaatio.is_flipped_h() and not Input.is_action_pressed("liiku_oikea"):
+		if animaatio.is_flipped_h() and not suunta > 0:
 			velocity.x = -300
-		elif not Input.is_action_pressed("liiku_vasen"):
+		elif not suunta < 0:
 			velocity.x = 300
 		seinalla()
 	elif is_on_wall() and (Input.is_action_pressed("putoa") or not kiipeamis_toggle):
@@ -412,9 +426,6 @@ func _physics_process(delta):
 	animaatio.scale.x = move_toward(animaatio.scale.x, 1, 0.5 * delta)
 	animaatio.scale.y = move_toward(animaatio.scale.y, 1, 0.5 * delta)
 	
-	# Otetaan pelaajan liikkeen haluttu suunta
-	# PC vasen: A, oikea: D
-	suunta = Input.get_axis("liiku_vasen", "liiku_oikea")
 	## input-kontrollit
 	var nopeus = 0
 	if suunta != 0:
@@ -486,24 +497,6 @@ func _physics_process(delta):
 	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
 	# print(vec)
 	
-	# Ohjaimen tatin arvot
-	# CONTROLLER RIGHT STICK
-	var ohjain_tahtays = Vector2(
-		Input.get_axis("tahtaa_vasen", "tahtaa_oikea"),
-		Input.get_axis("tahtaa_ylos", "tahtaa_alas")
-	)
-	
-	# Vasemman tatin arvot
-	# CONTROLLER LEFT STICK
-	var ohjain_tahtays_alt = Vector2(
-		Input.get_axis("tahtaa_vasen_alt", "tahtaa_oikea_alt"),
-		Input.get_axis("tahtaa_ylos_alt", "tahtaa_alas_alt")
-	)
-	
-	# Käytetään vasenta tattia tähtäykseen, jos oikeaa tattia ei käytetä
-	if ohjain_tahtays == Vector2.ZERO:
-		ohjain_tahtays = ohjain_tahtays_alt
-	
 	# Hiiren sijainti, otetaan tässä niin on varmasti oikein
 	var hiiren_sijainti = get_global_mouse_position() - global_position
 	
@@ -523,16 +516,14 @@ func _physics_process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		tahtain.visible = false
 	
-	# Jos liikutaan, piilotetaan tähtäin
-	if velocity.length() > 1:
-		tahtain.visible = false
-	
 	# Asetetaan valon suunnaksi hiiren sijainti, jos ei käytetä tattia.
 	if hiiri_kaytossa:
 		valon_kohde = hiiren_sijainti
+	else:
+		tahtain.visible = Input.is_action_pressed("ohjain_tahtaa")
 	
 	# PC LEFT_CLICK
-	if Input.is_action_just_pressed("painike_vasen"):
+	if Input.is_action_just_pressed("painike_vasen") or Input.is_action_just_released("ohjain_tahtaa"):
 		# Tällä hetkellä 2 maksimissaan
 		if Globaali.nykyiset_pallot < 2 and Globaali.palloja > 0:
 			# Valon synnyttäminen
