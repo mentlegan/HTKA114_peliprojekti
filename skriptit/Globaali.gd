@@ -39,6 +39,17 @@ var oven_valo = preload("res://scenet/oven_valo.tscn")
 var ovien_valot = Array()
 @onready var koynnosovet = get_node("/root/Maailma/Koynnosovet")
 
+## Köynnösovien scenet
+@onready var ovi_vasen_x = preload("res://scenet/ovet/ovi_vasen_x.tscn")
+@onready var ovi_oikea_x = preload("res://scenet/ovet/ovi_oikea_x.tscn")
+@onready var ovi_vasen_y = preload("res://scenet/ovet/ovi_vasen_y.tscn")
+@onready var ovi_oikea_y = preload("res://scenet/ovet/ovi_oikea_y.tscn")
+@onready var ovi_vasen_z = preload("res://scenet/ovet/ovi_vasen_z.tscn")
+@onready var ovi_oikea_z = preload("res://scenet/ovet/ovi_oikea_z.tscn")
+
+@onready var ovi_pysty_oikea = preload("res://scenet/ovet/ovi_pysty_oikea.tscn")
+@onready var ovi_vaaka_vasen = preload("res://scenet/ovet/ovi_vaaka_vasen.tscn")
+
 ## Taulukko Tasot-nodelle
 var tasot = Array()
 @onready var tasot_node = get_node("/root/Maailma/Tasot")
@@ -365,6 +376,53 @@ func respawn():
 	var valopallot = get_tree().get_nodes_in_group("valopallo")
 	for pallo in valopallot:
 		pallo.queue_free()
+	
+	# Alustetaan ovet vasta silmukassa tarvittaessa
+	var ovi_v_x = null
+	var ovi_o_x = null
+	var ovi_v_y = null
+	var ovi_o_y = null
+	var ovi_v_z = null
+	var ovi_o_z = null
+	
+	# Resetoidaan köynnösovet kuolemisen jälkeen
+	# Hyvin samanlaista koodia kuin valo_character (taas...)
+	for lapsi in koynnosovet.get_children():
+		for lapsenlapsi in lapsi.get_children():
+			# Tuhotaan varulta ensiksi kaikki lapset
+			var ovet = lapsenlapsi.get_children()
+			for ovi in ovet:
+				ovi.queue_free()
+			
+			# Ovien lisääminen
+			# Jos x ja aluksi ovi eli 0 (kiinni)
+			if lapsenlapsi.is_in_group("x") and lapsenlapsi.is_in_group("0"):
+				# Jos vasen
+				if lapsenlapsi.is_in_group("oviV"):
+					ovi_v_x = ovi_vasen_x.instantiate()
+					lapsenlapsi.add_child(ovi_v_x)
+				# Jos oikea
+				else:
+					ovi_o_x = ovi_oikea_x.instantiate()
+					lapsenlapsi.add_child(ovi_o_x)
+			elif lapsenlapsi.is_in_group("y") and lapsenlapsi.is_in_group("0"):
+				if lapsenlapsi.is_in_group("risti"):
+					pystyssa = true
+					var ovi_pysty = ovi_pysty_oikea.instantiate()
+					lapsenlapsi.add_child(ovi_pysty)
+				elif lapsenlapsi.is_in_group("oviV"):
+					ovi_v_y = ovi_vasen_y.instantiate()
+					lapsenlapsi.add_child(ovi_v_y)
+				else:
+					ovi_o_y = ovi_oikea_y.instantiate()
+					lapsenlapsi.add_child(ovi_o_y)
+			elif lapsenlapsi.is_in_group("z") and lapsenlapsi.is_in_group("0"):
+				if lapsenlapsi.is_in_group("oviV"):
+					ovi_v_z = ovi_vasen_z.instantiate()
+					lapsenlapsi.add_child(ovi_v_z)
+				else:
+					ovi_o_z = ovi_oikea_z.instantiate()
+					lapsenlapsi.add_child(ovi_o_z)
 	
 	# Peli pois pauselta
 	get_tree().paused = false

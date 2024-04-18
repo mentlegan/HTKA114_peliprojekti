@@ -55,6 +55,7 @@ newVihollinenValotarkistus=""
 kuolematon=""
 minecart=""
 nykyisetAlueet=""
+0="Aluksi ovi, käytetään respawnatessa resetointiin"
 
 [gui]
 
