@@ -1,6 +1,7 @@
 ## Juuso 22.3.2024
-## Paavo 10.4.2024
+## Paavo 18.4.2024
 ## Kukkien ominaisuudet luonnossa
+## TODO: Vähemmän surkea toteutus Area2D:ssa CollisionShape2D:n poistamiseen
 
 extends Area2D
 
@@ -26,7 +27,7 @@ func _ready():
 func sulje_valo():
 	if not valo_paalla_pysyvasti:
 		point_light.set_visible(false)
-		#collision_shape.set_disabled(true)
+		collision_shape.position = Vector2(-9999, -9999)
 		if area.is_in_group("valonlahde"):
 			area.remove_from_group("valonlahde")
 	else:
@@ -42,7 +43,7 @@ func aseta_valon_skaala(skaala):
 	point_light.set_texture_scale(skaala)
 	point_light.set_visible(true)
 	collision_shape.set_scale(Vector2(skaala, skaala))
-	#collision_shape.set_disabled(false)
+	collision_shape.position = Vector2(0, 0)
 
 	if not area.is_in_group("valonlahde"):
 		area.add_to_group("valonlahde")
