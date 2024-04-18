@@ -121,13 +121,13 @@ size = Vector2(75, 48)
 size = Vector2(2697, 1332)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdsjh"]
-size = Vector2(3316, 1432)
+size = Vector2(3064, 1282)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eewo"]
-size = Vector2(3770, 2107)
+size = Vector2(3306.5, 1618)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vqab"]
-size = Vector2(2216, 1340)
+size = Vector2(2219, 1257)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1v6da"]
 size = Vector2(2146, 1158)
@@ -1403,7 +1403,6 @@ z_index = -1
 texture = ExtResource("38_c8dmk")
 
 [node name="Tasot" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tasot"]
 position = Vector2(2063.5, 591)
@@ -1413,7 +1412,7 @@ shape = SubResource("RectangleShape2D_b2lsd")
 position = Vector2(348.5, 31)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tasot"]
-position = Vector2(4425, -1061)
+position = Vector2(4469, -1058)
 shape = SubResource("RectangleShape2D_cdsjh")
 
 [node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D2"]
@@ -1421,19 +1420,19 @@ position = Vector2(65, -3)
 zoom = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Tasot"]
-position = Vector2(5600, 1354.5)
+position = Vector2(5676.75, 1061)
 shape = SubResource("RectangleShape2D_5eewo")
 
 [node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D3"]
-position = Vector2(-30, 167)
+position = Vector2(-56.5, -25)
 zoom = Vector2(0.3, 0.3)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Tasot"]
-position = Vector2(7217, -439)
+position = Vector2(7215.5, -454.5)
 shape = SubResource("RectangleShape2D_7vqab")
 
 [node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D4"]
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.45, 0.45)
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Tasot"]
 position = Vector2(10382, -622)
