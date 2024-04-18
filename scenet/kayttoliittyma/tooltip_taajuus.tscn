@@ -49,14 +49,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -40.0
-offset_right = 22.5
-offset_bottom = -17.0
+offset_left = -54.0
+offset_top = -55.5
+offset_right = 54.0
+offset_bottom = 4.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
-text = "Vaihda
-äänen
-taajuutta"
+text = "Change
+the 
+frequency"
 horizontal_alignment = 1
