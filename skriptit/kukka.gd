@@ -48,8 +48,7 @@ func aseta_valo_pois_paalta():
 
 ## Asettaa kukan valon päälle, joko pysyvästi tai ajastimella
 func aseta_valo_paalle(pysyva, huilun_taajuus = 0):
-	if huilun_taajuus == 1:
-		valo.set_visible(true)
+	valo.set_visible(true)
 
 	if not valo_area2d.is_in_group("valonlahde"):
 		valo_area2d.add_to_group("valonlahde")
