@@ -1,27 +1,26 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmu1me3chb6d"]
 
-[ext_resource type="Texture2D" uid="uid://bef8q3xwwddif" path="res://grafiikka/VineDoorClosedStickLeftDead.png" id="1_osvja"]
+[ext_resource type="Texture2D" uid="uid://ba5tamqdl63gs" path="res://grafiikka/DoorBlueClosed.png" id="1_0ocnn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb28"]
-size = Vector2(11, 125.813)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsyst"]
+size = Vector2(11.5, 127.375)
 
 [node name="Ovi_oikea_z" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2.55681, 0.5)
-scale = Vector2(0.439701, 0.992187)
-texture = ExtResource("1_osvja")
+texture = ExtResource("1_0ocnn")
 
 [node name="Osuu" type="StaticBody2D" parent="." groups=["oviAVAA"]]
-position = Vector2(6, 1)
+position = Vector2(23, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osuu"]
-position = Vector2(0, -1.1875)
-shape = SubResource("RectangleShape2D_yrb28")
+position = Vector2(0, 0.3125)
+shape = SubResource("RectangleShape2D_fsyst")
 
 [node name="Kimpoaa" type="StaticBody2D" parent="."]
-position = Vector2(-11, 1)
+position = Vector2(-26, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kimpoaa"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_yrb28")
+position = Vector2(0.25, -1)
+shape = SubResource("RectangleShape2D_fsyst")

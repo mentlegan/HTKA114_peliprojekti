@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bir0xnr31j2qx"]
 
-[ext_resource type="Texture2D" uid="uid://bnxce3fiyxehx" path="res://grafiikka/VineDoorClosedHalfStickLeftDead.png" id="1_crlcv"]
+[ext_resource type="Texture2D" uid="uid://bjhedyn16pave" path="res://grafiikka/DoorPurpleClosed.png" id="1_3jqnk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb28"]
 size = Vector2(11, 424.169)
@@ -12,7 +12,7 @@ rotation = -1.54462
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.45233, -47.3078)
 scale = Vector2(0.431053, 3.34782)
-texture = ExtResource("1_crlcv")
+texture = ExtResource("1_3jqnk")
 
 [node name="Osuu" type="StaticBody2D" parent="." groups=["oviAVAA"]]
 position = Vector2(6, 1)
