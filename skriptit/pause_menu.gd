@@ -22,9 +22,9 @@ func _physics_process(_delta):
 		return
 	
 	# "Painetaan" nappeja ohjaimella
-	if Input.is_action_just_pressed("abxy_oikea"):
+	if Input.is_action_just_pressed("abxy_ylos"):
 		_on_lopeta_nappi_pressed()
-	if Input.is_action_just_pressed("abxy_alas"):
+	if Input.is_action_just_pressed("abxy_oikea"):
 		_on_jatka_nappi_pressed()
 
 
