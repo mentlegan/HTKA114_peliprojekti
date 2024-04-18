@@ -158,7 +158,7 @@ texture_repeat = 2
 position = Vector2(2.99991, 26)
 texture = ExtResource("3_ch38a")
 region_enabled = true
-region_rect = Rect2(0, 0, 20000, 20000)
+region_rect = Rect2(0, 0, 4000, 2000)
 script = ExtResource("3_8slpc")
 taso = 4
 
@@ -178,7 +178,7 @@ texture_repeat = 2
 position = Vector2(3.99988, 13)
 texture = ExtResource("3_ch38a")
 region_enabled = true
-region_rect = Rect2(0, 0, 20000, 20000)
+region_rect = Rect2(0, 0, 4000, 2000)
 script = ExtResource("3_8slpc")
 taso = 3
 
@@ -198,7 +198,7 @@ texture_repeat = 2
 position = Vector2(5.00015, -9)
 texture = ExtResource("3_ch38a")
 region_enabled = true
-region_rect = Rect2(0, 0, 20000, 20000)
+region_rect = Rect2(0, 0, 4000, 2000)
 script = ExtResource("3_8slpc")
 taso = 2
 
@@ -218,7 +218,7 @@ texture_repeat = 2
 position = Vector2(5.00015, -9)
 texture = ExtResource("3_ch38a")
 region_enabled = true
-region_rect = Rect2(0, 0, 20000, 20000)
+region_rect = Rect2(0, 0, 4000, 2000)
 script = ExtResource("3_8slpc")
 
 [node name="KayttoLiittyma" type="CanvasLayer" parent="." groups=["UI"]]
