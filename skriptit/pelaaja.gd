@@ -65,9 +65,9 @@ var aanen_taajuus = 2
 const AANEN_TAAJUUS_MIN = 1
 const AANEN_TAAJUUS_MAX = 3
 const AANEN_TAAJUUS_VARIT = [
-	Color(1, 0, 0, 1),
-	Color(1, 1, 0, 1),
-	Color(0, 0, 1, 1)
+	Color.YELLOW,
+	Color.GREEN,
+	Color.BLUE
 ]
 
 ## Ajastin pimeässä selviämiselle
@@ -563,7 +563,7 @@ func _physics_process(delta):
 		if huilun_cd_ajastin.is_stopped():
 			animaatio.play("huilu")
 			huilu.rotation = valon_kohde.angle()
-			#animaatio.set_flip_h(valon_kohde.x < 0)
+			animaatio.set_flip_h(valon_kohde.x < 0)
 			huilun_collision.set_disabled(false)
 			huilun_cd_ajastin.start()
 			huilun_partikkelit.set_emitting(true)

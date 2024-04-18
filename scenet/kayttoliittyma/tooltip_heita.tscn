@@ -57,7 +57,7 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
-text = "Heitä"
+text = "Throw"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="." index="5"]

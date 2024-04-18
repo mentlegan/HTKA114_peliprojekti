@@ -201,6 +201,24 @@ func lisaa_tasot():
 				})
 
 
+## Palauttaa totuusarvon siitä, onko pelaaja samassa tasossa kuin annettu node
+func samassa_tasossa_kuin_pelaaja(node: Node):
+	for taso in tasot:
+		if (taso["rect"].has_point(node.global_position)
+		and taso["rect"].has_point(pelaaja.global_position)):
+			return true
+	return false
+
+
+## Palauttaa annetun noden nykyisen tason Rect2-noden.
+## Jos annettu node ei ole minkään tason sisällä, palauttaa uuden Rect2-noden.
+func nykyisen_tason_collision_shape(node: Node) -> Rect2:
+	for taso in tasot:
+		if taso["rect"].has_point(node.global_position):
+			return taso["rect"]
+	return Rect2()
+
+
 ## Näyttää ovet tasosta, johon annetut koordinaatit sijoittuvat.
 func nayta_tason_ovet(koordinaatit):
 	for taso in tasot:

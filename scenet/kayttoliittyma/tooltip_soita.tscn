@@ -5,18 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://bl2oyqscnuv4b" path="res://grafiikka/OhjainTooltipRT.png" id="3_l6hvu"]
 [ext_resource type="Texture2D" uid="uid://dia3pj1ms5s84" path="res://grafiikka/HiiriTooltipR.png" id="3_n2f5a"]
 
-[node name="TooltipPysayta" instance=ExtResource("1_5egfl")]
+[node name="TooltipSoita" instance=ExtResource("1_5egfl")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 material = ExtResource("2_sna2d")
 use_parent_material = true
-position = Vector2(-18, 0)
+position = Vector2(-18, 7)
 texture = ExtResource("3_l6hvu")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="2"]
 material = ExtResource("2_sna2d")
 use_parent_material = true
-position = Vector2(20, 0)
+position = Vector2(20, 7)
 texture = ExtResource("3_n2f5a")
 
 [node name="Label" type="Label" parent="Sprite2D2" index="0"]
@@ -56,5 +56,6 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
-text = "Soita Huilua"
+text = "Play the
+flute"
 horizontal_alignment = 1
