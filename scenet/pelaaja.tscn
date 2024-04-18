@@ -411,6 +411,30 @@ z_as_relative = false
 texture_filter = 1
 texture = ExtResource("6_eyyqa")
 
+[node name="Tahtain2" type="Sprite2D" parent="Tahtain"]
+light_mask = 512
+visibility_layer = 512
+z_index = 4096
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("6_eyyqa")
+
+[node name="Tahtain3" type="Sprite2D" parent="Tahtain"]
+light_mask = 512
+visibility_layer = 512
+z_index = 4096
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("6_eyyqa")
+
+[node name="Tahtain4" type="Sprite2D" parent="Tahtain"]
+light_mask = 512
+visibility_layer = 512
+z_index = 4096
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("6_eyyqa")
+
 [node name="AudioKavely" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_uhji0")
 pitch_scale = 1.1

@@ -19,6 +19,7 @@ signal kuollut
 @onready var valon_tarkistus = get_node("ValonTarkistus")
 ## Ohjaimen tähtäin
 @onready var tahtain = get_node("Tahtain")
+var tahtaimen_lapset = []
 ## Pelaajan labelit
 @onready var elamat = get_node("Elamat")
 @onready var palloja_label = get_node("Palloja")
@@ -101,7 +102,7 @@ const SEINA_HYPPY_KORKEUS = -400.0
 var suunta = Vector2.ZERO
 
 ## Ohjaintähtäimen maksimietäisyys näytöllä
-const MAX_TAHTAIN_ETAISYYS = 64
+const MAX_TAHTAIN_ETAISYYS = 128
 
 ## Get the gravity from the project settings to be synced with RigidBody nodes.
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
@@ -199,6 +200,9 @@ func _ready():
 	# Asetetaan idle-animaation pelin alussa
 	animaatio.play("idle")
 
+	# Lisätään Tähtäin-spriten lapsinodet omaan taulukkoon
+	tahtaimen_lapset = tahtain.get_children()
+
 
 ## Lopettaa huilu-animaation
 func lopeta_huilu_animaatio():
@@ -217,6 +221,13 @@ func siirrytty_valoon():
 	ajastin_pimeassa_audio.stop()
 	audio_pimeyskuolema.stop()
 	print("Valossa: " + str(valossa))
+
+
+func paivita_tahtaimen_lentorata():
+	var n: float = tahtaimen_lapset.size()
+	for i in range(n):
+		tahtaimen_lapset[i].position = -tahtain.position * ((i + 1.0) / (n + 1))
+		tahtaimen_lapset[i].modulate.a = (n - i) / n
 
 
 ## Kun siirrytään varjoon, aloitetaan ajastin
@@ -331,7 +342,9 @@ func _physics_process(delta):
 	# PC vasen: A, oikea: D
 	suunta = Input.get_axis("liiku_vasen", "liiku_oikea")
 
-	if ohjain_tahtays != Vector2.ZERO && Input.is_action_pressed("ohjain_tahtaa"):
+	if (ohjain_tahtays != Vector2.ZERO
+	and Input.is_action_pressed("ohjain_tahtaa")
+	and is_on_floor()):
 		suunta = 0
 	
 	# Seinäkiipeämiseen toggle
@@ -502,8 +515,8 @@ func _physics_process(delta):
 	
 	# Ohjainta käytettäessä asetetaan valon suunnaksi ohjaimen tatti hiiren sijaan
 	# Asetetaan samalla hiiri pois käytöstä kunnes sitä liikutetaan
-	if ohjain_tahtays != Vector2.ZERO:
-		valon_kohde = ohjain_tahtays.normalized() * MAX_TAHTAIN_ETAISYYS
+	if ohjain_tahtays.length() > 0.1:
+		valon_kohde = ohjain_tahtays * MAX_TAHTAIN_ETAISYYS
 		tahtain.visible = true
 		tahtain.position = valon_kohde
 		hiiren_viime_sijainti = hiiren_sijainti
@@ -580,6 +593,9 @@ func _physics_process(delta):
 	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
 	if hiiri_kaytossa != aiempi_hiiren_tila:
 		Globaali.vaihda_tooltip_ui(hiiri_kaytossa)
+	
+	if tahtain.visible:
+		paivita_tahtaimen_lentorata()
 
 
 ## Asettaa UI:n näkyvyyden
