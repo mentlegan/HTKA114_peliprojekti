@@ -4,18 +4,12 @@
 
 extends Area2D
 
-## Kukan valo ja valonlähteen oma CollisionShape2D valon tarkistusta varten.
-@onready var valo_area2d = $Area2D
-@onready var valo = $Area2D/PointLight2D
-@onready var valo_collision = $Area2D/CollisionShape2D
+## Kukan nodet
+@onready var huilu_ajastin = $HuiluAjastin
 
-## Ajastimet huilua varten
-@onready var taajuus_1_ajastin = $Taajuus1Ajastin
-@onready var taajuus_2_ajastin = $Taajuus2Ajastin
-
-## Tekstuurit valolle
-var valo_tekstuuri_pieni = preload("res://grafiikka/Valo64.png")
-var valo_tekstuuri_suuri = preload("res://grafiikka/Valo256.png")
+@onready var area = $Area2D
+@onready var point_light = $Area2D/PointLight2D
+@onready var collision_shape = $Area2D/CollisionShape2D
 
 ## Muuttuja sille, onko valo asetettu päälle valopallolla
 var valo_paalla_pysyvasti = false
@@ -23,62 +17,47 @@ var valo_paalla_pysyvasti = false
 
 ## Asetetaan ajastimien timeout-funktiot ja valon tekstuuri
 func _ready():
+	sulje_valo()
 	# Yhdistetään ajastimet huilun ominaisuuksilta palautumiseen
-	taajuus_1_ajastin.timeout.connect(aseta_valo_pois_paalta)
-	taajuus_2_ajastin.timeout.connect(aseta_valon_tekstuuri)
-
-	# Asetetaan varulta valon tekstuuri pelin alussa
-	aseta_valon_tekstuuri()
+	huilu_ajastin.timeout.connect(sulje_valo)
 
 
-## Asettaa valolle uuden tekstuurin
-func aseta_valon_tekstuuri(tekstuuri = valo_tekstuuri_pieni):
-	valo.set_texture(tekstuuri)
-
-
-## Asettaa kukan valon pois päältä
-func aseta_valo_pois_paalta():
-	if valo_paalla_pysyvasti:
-		return
-	
-	valo.set_visible(false)
-	if valo_area2d.is_in_group("valonlahde"):
-		valo_area2d.remove_from_group("valonlahde")
-
-
-## Asettaa kukan valon päälle, joko pysyvästi tai ajastimella
-func aseta_valo_paalle(pysyva, huilun_taajuus = 0):
-	valo.set_visible(true)
-
-	if not valo_area2d.is_in_group("valonlahde"):
-		valo_area2d.add_to_group("valonlahde")
-
-	if not pysyva:
-		if (taajuus_1_ajastin.is_stopped() && huilun_taajuus == 1):
-			taajuus_1_ajastin.start()
-		elif (taajuus_2_ajastin.is_stopped() && huilun_taajuus == 2):
-			taajuus_2_ajastin.start()
-			aseta_valon_tekstuuri(valo_tekstuuri_suuri)
+## Sulkee kukan valon
+func sulje_valo():
+	if not valo_paalla_pysyvasti:
+		point_light.set_visible(false)
+		#collision_shape.set_disabled(true)
+		if area.is_in_group("valonlahde"):
+			area.remove_from_group("valonlahde")
 	else:
-		if not taajuus_1_ajastin.is_stopped():
-			taajuus_1_ajastin.stop()
-		if not taajuus_2_ajastin.is_stopped():
-			taajuus_2_ajastin.stop()
-	
-	if pysyva:
-		valo_paalla_pysyvasti = true
+		aseta_valon_skaala(1)
+
+
+## Asettaa valolle uuden skaalan ja laittaa sen samalla päälle.
+## Asetettu skaala on vähintään nykyisen valon kokoinen.
+func aseta_valon_skaala(skaala):
+	if not valo_paalla_pysyvasti:
+		skaala = max(skaala, point_light.get_texture_scale())
+
+	point_light.set_texture_scale(skaala)
+	point_light.set_visible(true)
+	collision_shape.set_scale(Vector2(skaala, skaala))
+	#collision_shape.set_disabled(false)
+
+	if not area.is_in_group("valonlahde"):
+		area.add_to_group("valonlahde")
+	print_debug(area.is_in_group("valonlahde"))
 
 
 ## Valon lisääminen pallon osuttua
 func _on_body_entered(body):
-	if body.is_in_group("valopallo") and not valo_paalla_pysyvasti:
-		aseta_valo_paalle(true)
-		
-		# queue_free() # Poistetaan kukka luonnosta, kun se on kerätty
-		# Ei poisteta ainakaan ensimmäisiä kukkia, jotta valopalloja voi ottaa loputtomasti
+	if body.is_in_group("valopallo"):
+		valo_paalla_pysyvasti = true
+		aseta_valon_skaala(1)
 
 
 ## Kun osutaan huiluun
-func _on_area_entered(area:Area2D):
-	if area is Huilu && (area.aanen_taajuus == 1 or area.aanen_taajuus == 2):
-		aseta_valo_paalle(false, area.aanen_taajuus)
+func _on_area_entered(_area:Area2D):
+	if _area is Huilu && _area.aanen_taajuus == 1:
+		aseta_valon_skaala(2)
+		huilu_ajastin.start()
