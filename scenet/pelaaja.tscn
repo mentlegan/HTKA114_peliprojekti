@@ -347,6 +347,7 @@ texture = SubResource("GradientTexture2D_lbg0v")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.933333, 0.854902, 0.564706, 1)
+energy = 0.4
 blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("2_gc81g")

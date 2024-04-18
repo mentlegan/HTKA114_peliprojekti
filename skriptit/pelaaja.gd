@@ -615,5 +615,7 @@ func palauta_kamera():
 func _on_huilu_body_entered(body):
 	if aanen_taajuus == 3:
 		var nimi = body.get_name()
-		if nimi == "Osuu" or nimi == "Kimpoaa":
-			Globaali.nayta_tason_ovet(body.global_position)
+		# Testataan näin, miten toimii
+		# Alkuperäisellä tavalla kutsuu kahdesti
+		if nimi == "Osuu": # or nimi == "Kimpoaa":
+			Globaali.nayta_tason_ovet_ja_resonoi(body)

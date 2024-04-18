@@ -219,8 +219,47 @@ func nykyisen_tason_collision_shape(node: Node) -> Rect2:
 	return Rect2()
 
 
-## Näyttää ovet tasosta, johon annetut koordinaatit sijoittuvat.
-func nayta_tason_ovet(koordinaatit):
+
+## Näyttää ovet tasosta, johon annetut koordinaatit sijoittuvat
+## Samalla tehdään resonointipartikkelit
+func nayta_tason_ovet_ja_resonoi(_ovi_vaikutettu):
+	# Samaa koodia kuin valo_characterissa
+	# Otetaan talteen ovi, johon huilulla vaikutettu
+	var ovi_vaikutettu = _ovi_vaikutettu
+	var koordinaatit = ovi_vaikutettu.global_position
+	
+	# Samaa koodia kuin valo_characterissa
+	# esim ovi_vasen_x -> ovi_x -> ovet_1 (lapset)
+	var parent = ovi_vaikutettu.get_parent()
+	var ovi_muokattava = parent.get_parent()
+	# Ylimmän noden ryhmät eli x, y tai z
+	var ryhmat = ovi_muokattava.get_groups()
+	
+	# Minkä tason ovet kyseessä (ovet_1 tai ovet_2 jne...)
+	var ovi_ylin = ovi_muokattava.get_parent()
+	
+	var tason_ovet = ovi_ylin.get_children()
+	
+	var kirjain
+	var if_y = false
+	
+	if ryhmat.has("x"):
+		kirjain = "x"
+	
+	elif ryhmat.has("y"):
+		kirjain = "" # Ei väliä
+		if_y = true
+	
+	elif ryhmat.has("z"):
+		kirjain = "z"
+	
+	for ovi in tason_ovet:
+		if ovi.is_in_group(kirjain) or ovi.is_in_group("y") or if_y:
+			# TODO: Partikkelit
+			# self.partikkeli_animation.play ???
+			# print_debug(ovi)
+			pass
+	
 	for taso in tasot:
 		if taso["rect"].has_point(koordinaatit):
 			taso["kamera"].make_current()
@@ -228,6 +267,7 @@ func nayta_tason_ovet(koordinaatit):
 			ui_ajastin.start(5)
 			aseta_valojen_vakyvyys(true)
 			return
+
 
 
 ## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process
