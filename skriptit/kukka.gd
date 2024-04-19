@@ -18,15 +18,23 @@ var valo_paalla_pysyvasti = false
 
 ## Asetetaan ajastimien timeout-funktiot ja valon tekstuuri
 func _ready():
-	sulje_valo()
+	point_light.set_energy(0)
 	# Yhdistetään ajastimet huilun ominaisuuksilta palautumiseen
 	huilu_ajastin.timeout.connect(sulje_valo)
+
+
+func aloita_animaatio(skaala, valon_energia, kesto):
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(point_light, "texture_scale", skaala, kesto).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(point_light, "energy", valon_energia, kesto).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(collision_shape, "scale", Vector2(skaala, skaala), kesto).set_trans(Tween.TRANS_CUBIC)
 
 
 ## Sulkee kukan valon
 func sulje_valo():
 	if not valo_paalla_pysyvasti:
-		point_light.set_visible(false)
+		aloita_animaatio(1, 0, 2)
 		collision_shape.position = Vector2(-9999, -9999)
 		if area.is_in_group("valonlahde"):
 			area.remove_from_group("valonlahde")
@@ -40,10 +48,9 @@ func aseta_valon_skaala(skaala):
 	if not valo_paalla_pysyvasti:
 		skaala = max(skaala, point_light.get_texture_scale())
 
-	point_light.set_texture_scale(skaala)
-	point_light.set_visible(true)
-	collision_shape.set_scale(Vector2(skaala, skaala))
 	collision_shape.position = Vector2(0, 0)
+
+	aloita_animaatio(skaala, 1, 2)
 
 	if not area.is_in_group("valonlahde"):
 		area.add_to_group("valonlahde")
@@ -54,7 +61,8 @@ func aseta_valon_skaala(skaala):
 func _on_body_entered(body):
 	if body.is_in_group("valopallo"):
 		valo_paalla_pysyvasti = true
-		aseta_valon_skaala(1)
+		if not area.is_in_group("valonlahde"):
+			aseta_valon_skaala(1)
 
 
 ## Kun osutaan huiluun
