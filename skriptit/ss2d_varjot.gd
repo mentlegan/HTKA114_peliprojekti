@@ -1,6 +1,5 @@
-## Paavo 25.3.2024
+## Paavo 19.4.2024
 ## Juuso 1.4.2024 korjattu polygonien siirtely
-## TODO: Parempi toteutus SS2D-noden kopioimiseen, ei ole kriittinen
 extends Node2D
 
 
