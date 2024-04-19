@@ -1490,6 +1490,7 @@ z_index = -1
 texture = ExtResource("38_c8dmk")
 
 [node name="Tasot" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tasot"]
 position = Vector2(2063.5, 591)
