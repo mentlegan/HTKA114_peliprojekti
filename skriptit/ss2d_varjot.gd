@@ -5,8 +5,7 @@ extends Node2D
 
 
 ## SmartShape2D-materiaalit
-var reunat = preload("res://tres-tiedostot/smart_shape_reunat.tres")
-var tiili = preload("res://tres-tiedostot/smart_shape_tiili.tres")
+var ss2d_materiaali = preload("res://tres-tiedostot/smart_shape_tiili.tres")
 
 
 ## Kutsutaan, kun pääsee sceneen
@@ -64,7 +63,7 @@ func lisaa_varjot_ja_collisionit():
 			ss2d.close_shape()
 
 			# Asetetaan SS2D:lle materiaali
-			ss2d._set_material(tiili)
+			ss2d._set_material(ss2d_materiaali)
 
 			# Kutsutaan vielä varulta _points_modified
 			ss2d._points_modified()
@@ -94,7 +93,7 @@ func lisaa_varjot_ja_collisionit():
 			# Käydään SS2D_Shapen suhteelliset pisteet läpi
 			for piste in suhteelliset_pisteet:
 				# Luodaan Vector2, jonka koordinaatteja siirretään SS2D_Shapen keskipisteen verran
-				var siirretty_piste = Vector2(piste.x + ss2d_sijainti.x, piste.y + ss2d_sijainti.y)
+				var siirretty_piste = piste + ss2d_sijainti
 				sovitetut_pisteet.append(siirretty_piste)
 			
 			# Nyt on käytössä sovitetut pisteet, jonka perusteella luodaan nodet varjoille ja
@@ -112,14 +111,11 @@ func lisaa_varjot_ja_collisionit():
 			static_body.add_child(occluder)
 			static_body.add_child(collision_polygon)
 
-			# Lisätään uusi SS2D-node reunojen renderöimistä varten light_mask:in layerilla 2
-			var ss2d = lapsi.duplicate() # TODO: Tähän jokin parempi toteutus, SmartShape2D.new() yms.
-			ss2d.shape_material = reunat # Asetetaan uusi materiaali SS2D-nodelle
-			ss2d.z_index = 1 # Nostetaan aiemman ss2d-noden päälle
-
-			# Korotetaan light_mask:ia, tämän avulla saadaan renderoitua pelkästään tiettyjen valojen avulla
-			ss2d.light_mask = 2 
+			# Asetetaan light_mask, jotta reunat renderöidään kauempaa
+			lapsi.light_mask = 2
+			# Nostetaan SS2D node yleisten tasoelementtien ylle
+			lapsi.z_index = 2
 
 			# Lisätään lopuksi StaticBody2D ja SS2D Tiilet-noden lapseksi
 			self.add_child(static_body)
-			self.add_child(ss2d)
+			#self.add_child(ss2d)
