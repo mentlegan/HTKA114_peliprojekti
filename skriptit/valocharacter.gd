@@ -27,19 +27,19 @@ var SPEED = 110.0
 @onready var audio_valopallon_kimpoaminen = $AudioValopallonKimpoaminen
 @onready var audio_valopallo_hajoaa = $AudioValopalloHajoaa
 
+## Valopallon sprite, käytetään tuhoamisanimaation aikana
+@onready var sprite = $Sprite2D
+
 ## Kimpoamiset ja ajastin valopallon tuhoamiselle
 var kimpoamiset = 0
 ## Tällä hetkellä 7.0 sekuntia elossa
 @onready var elo_aika = get_node("Timer")
-## Ajastin asteittain tuhoutumiselle
-@onready var tuhoutuminen = get_node("Timer2")
 
 
 ## Kytketään ajastimen loppuminen valopallon tuhoamiseen
 func _ready():
 	elo_aika.timeout.connect(start_destroy)
 	audio_valopallon_heitto.play()
-	tuhoutuminen.timeout.connect(reduce_energy)
 
 
 func move(_position, _mouse):
@@ -55,29 +55,23 @@ func move(_position, _mouse):
 func start_destroy():
 	# Pysäytetään valopallo
 	velocity = Vector2(0, 0)
+
 	# Vaihdetaan blend_mode, jotta ei "syö" muita valoja tuhoutuessa
 	# BLEND_MODE_ADD = 0, sub on 1 ja mix 2
 	valo.blend_mode = 0
-	# Aloitetaan tuhouamisprosessi timerilla
-	tuhoutuminen.start()
-	# queue_free()
-	# Globaali.nykyiset_pallot -= 1
 
-
-func reduce_energy():
-	# Vähennetään valopallon energiaa ja kokoa jonkin ajan verran kunnes alle 0
-	# Tällä hetkellä 0,1 sekunnin välein
-	#             Laitettu texture_scale tarkistus, voisi olla ilmankin. Antaa erilaisen fiiliksen
-	if valo.energy >= 0 and valo.texture_scale >= 0:
-		valo.energy -= 0.15
-		# Ilman texture_scale tarkistusta, kun koko menee negatiiviseksi
-		# valopallo laajenee. Näyttäisi ihan kivalle
-		valo.texture_scale -= 0.1
-	else: 
-		# tuhoutuminen.stop()
-		queue_free()
-		Globaali.nykyiset_pallot -= 1
-
+	# Vähennetään valopallon energiaa ja kokoa. Tuhotaan valopallo animaation päätyttyä
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(valo, "energy", 0, 1)
+	tween.tween_property(valo, "texture_scale", 0, 1)
+	tween.tween_property(sprite, "modulate", Color.TRANSPARENT, 1)
+	tween.finished.connect(
+		func():
+			queue_free()
+			Globaali.nykyiset_pallot -= 1
+	)
 
 ## Muuttaa ovet, jos valopallo osuu x tai z oveen
 ## Attribuuttina tulee ryhmän nimi (x tai z)
