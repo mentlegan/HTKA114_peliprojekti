@@ -243,7 +243,6 @@ func siirrytty_varjoon():
 	print("Valossa: " + str(valossa))
 	await get_tree().create_timer(2.5).timeout
 	audio_pimeassa.play()
-	pimeyskuolema.play("PimeysKuolema")
 
 
 ## Tähän lisätty signaalin emit
@@ -258,6 +257,7 @@ func kuolema():
 ## Toistaa pimeäkuoleman äänen kun oltu pimeässä vakion PIMEASSA_AUDION_VIIVE verran 
 func soitaPimeakuolemanAani():
 	audio_pimeyskuolema.play()
+	pimeyskuolema.play("PimeysKuolema")
 
 
 ## Haetaan pelaajan elamat
