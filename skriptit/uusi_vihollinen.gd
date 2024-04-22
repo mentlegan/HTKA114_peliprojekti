@@ -1,16 +1,15 @@
-## Harri 17.4.2024
+## Harri 22.4.2024
 ## Elias 22.4.2024 äänenkorkeuden muutos
 ## Vanhan vihollisen saa takaisin: noden Inspector - process - disabled -> inherit
 ## TÄRKEÄÄ: pidä nodejen järjestys aina samana kun instanssoit vihollisia, muuten koodi menee sekaisin
 ## Osaa:
 ## Tappaa pelaajan hänen ollessaan alueella liian kauan
-## Vaihtaa alueesta toiseen, kun valonlähde osuu siihen
+## Vaihtaa alueesta toiseen, kun valonlähde osuu siihen, tai spontaanisti patrollata
 ## Äännähdellä, kun siltä tuntuu
 ## TODO: voisi koittaa kehittää eteenpäin vaikkapa vielä useammalle alueelle, tai tehdä alueesta uusi scenensä
-## TODO: alueen vaihto vähän kankea vielä, voisi viilata
-## TODO: viholliset äännähtelevät liian kauas
+## TODO: alueen vaihto valossa vähän kankea vielä, voisi koittaa viilata
 ## TODO: jotain pikku bugisuutta: vihollinen joskus ehkä huomaa valopallon seinän läpi,
-## 		 kenties ohuet seinät tai liian läheiset oltavat toisen alueen kanssa on syynä
+## 		 kenties ohuet seinät tai liian läheiset oltavat toisten alueiden kanssa on syynä
 extends Node2D
 class_name uusiVihollinen
 
@@ -33,8 +32,8 @@ var light = preload("res://scenet/valo_character.tscn") ## Valon informaatio. Ta
 ## TODO: Soita ääni kun vihollinen liikkuu, mutta ei jahtaa tai pakene.
 @onready var audio_liikkuminen = $AudioLiikkuminen
 
-# Kerroin jolla voi muuttaa kuinka nopeasti vihollisen äänenkorkeus muuttuu
-# VAROITUS: Voi hajota jos arvo on suurempi kuin 1. Tällöin toteutusta täytyy vähän muuttaa.
+## Kerroin jolla voi muuttaa kuinka nopeasti vihollisen äänenkorkeus muuttuu
+## VAROITUS: Voi hajota jos arvo on suurempi kuin 1. Tällöin toteutusta täytyy vähän muuttaa.
 var aanenkorkeuden_muutosnopeus = 0.8
 
 ## Nodearrayt
@@ -92,13 +91,13 @@ func astuttu_alueelle(body):
 		if not audio_jahtaus.is_playing():
 			audio_jahtaus.play()
 			audio_liikkuminen.play()
-		var kuolema_aika = rng.randf_range(1.0, 5.0) # Tästä voi säätää ajan kantaman, missä pelaaja voi kuolla viholliseen
+		var kuolema_aika = rng.randf_range(1.0, 4.0) # Tästä voi säätää ajan kantaman, missä pelaaja voi kuolla viholliseen
 		kuolema_ajastin.start(kuolema_aika) # Aloitetaan jahti
 		print ("Kuolet viholliseen " + str(kuolema_aika) + " sekunnin jalkeen")
 		await kuolema_ajastin.timeout # Odotetaan, että vihu saa pelaajan kiinni
 		audio_pelaaja_kuolee.play() # Tapetaan pelaaja erittäin raa'asti
 		pelaaja = body # Varmistetaan vielä, että kyseessä on pelaaja
-		print ("Kuolit viholliseen")
+		print ("Kuolit viholliseen") # Dokumentaatio kuolemasta, olisi hyvä, että muillakin kuolintavoilla olisi moinen
 		kuolema() # Lopulta kuollaan
 
 
@@ -118,7 +117,9 @@ func poistuttu_alueelta(_body):
 
 ## Aloittaa alueen vaihtavan ajastimen
 func aloita_alueen_vaihto_ajastin():
-	alueen_vaihto_ajastin.start((1 - randf() * 0.5) * IDLE_AUDIO_AJASTIN_MAX)
+	#var vaihto_aika = 1 # Testiä varten
+	var vaihto_aika = rng.randf_range(15, 30) # Otetaan random-numero näiden kahden väliltä
+	alueen_vaihto_ajastin.start(vaihto_aika)
 
 
 ## Kun ajastin sanoo, että vihollisen on aika vaihtaa aluetta
@@ -200,19 +201,19 @@ func vaihda_alue(vihollinen):
 	var kuoppa2 = vihollinen.get_children()[3] # Otetaan alueen 1 kuoppa
 	if alue1.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
 		print ("Vihollinen vaihtaa aluetta")
-		aktivoiAlue(alue2)
-		deaktivoiAlue(alue1)
-		toistaAnimaatio(kuoppa1)
+		aktivoi_alue(alue2)
+		deaktivoi_alue(alue1)
+		toista_animaatio(kuoppa1)
 	else: # jos ei olekaan alue 1 kyseessä:
 		if alue2.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
 			print ("Vihollinen vaihtaa aluetta")
-			aktivoiAlue(alue1)
-			deaktivoiAlue(alue2)
-			toistaAnimaatio(kuoppa2)
+			aktivoi_alue(alue1)
+			deaktivoi_alue(alue2)
+			toista_animaatio(kuoppa2)
 
 
 ## Toistetaan kuopan animaatio
-func toistaAnimaatio(kuoppa):
+func toista_animaatio(kuoppa):
 	var animaatio = kuoppa.get_children()[0] # Otetaan kuopan animaatio
 	animaatio.play("kaivautuminen") # Toistetaan animaatio
 	await get_tree().create_timer(5).timeout # Annetaan animaation toistaa itseään jonkin aikaa
@@ -220,14 +221,14 @@ func toistaAnimaatio(kuoppa):
 
 
 ## Aktivoidaan saatu alue
-func aktivoiAlue(alue):
+func aktivoi_alue(alue):
 	alue.process_mode = Node.PROCESS_MODE_INHERIT # Toinen alue tekee saa toiminnallisuuden ..
 	alue.visible = true # .. ja tulee näkyviin testauksen havainnollistamiseksi ..
 	alue.add_to_group("nykyisetAlueet") # .. ja tulee aktiiviseksi, eli on vaarallinen
 
 
 ## Deaktivoidaan saatu alue
-func deaktivoiAlue(alue):
+func deaktivoi_alue(alue):
 	alue.remove_from_group("nykyisetAlueet") # Valoon joutunut vihollinen ei ole aktiivinen ..
 	alue.visible = false # .. ja katoaa näkyvistä testauksen havainnollistamiseksi..
 	alue.process_mode = Node.PROCESS_MODE_DISABLED # .. ja alue menettää toiminnallisuutensa
@@ -258,6 +259,6 @@ func muuta_aanenkorkeutta():
 	vihollinen_pitch_shift.pitch_scale = aanenkorkeuden_kerroin * aanenkorkeuden_muutosnopeus
 
 
-## Ei varmaan tarvita tätä ollenkaan
+## Ei varmaan tarvita tätä ollenkaan, mutta pidetään täällä, jos löytyy käyttöä
 func siirrytty_varjoon():
 	pass

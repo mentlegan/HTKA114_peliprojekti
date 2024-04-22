@@ -1,5 +1,5 @@
 ## Paavo 10.4.2024
-## Harri 15.4.2024
+## Harri 22.4.2024
 ## Elias 22.4.2024
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
 extends Node2D
@@ -51,6 +51,7 @@ var ovien_valot = Array()
 ## Taulukko Tasot-nodelle
 var tasot = Array()
 @onready var tasot_node = get_node("/root/Maailma/Tasot")
+@onready var tasot2 = get_node("/root/Maailma/Tasot").get_children() # Palauttaa vain CollisionShapet tasoista
 
 ## Kaikki scenen ovet
 # var ovet = Array()
@@ -88,6 +89,7 @@ var t2 = preload("res://maailma2.tscn")
 ## Yleinen ready
 func _ready():
 	# Signaalikäsittelyä mm. pelaajan kuolemisesta
+	print(str(tasot2[0].name))
 	pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
 	pelaaja.kuollut.connect(_game_over) # Yhdistetään signaali pelaajasta
 	
@@ -137,6 +139,9 @@ func _ready():
 	# Haetaan pelin kaikki tooltip-nodet.
 	lisaa_tooltipit()
 	vaihda_tooltip_ui(true)
+	
+	# Lisätään viholliset oikein pelin alussa
+	lisaa_viholliset()
 
 
 ## Poistaa minecart-tooltipit
@@ -202,6 +207,15 @@ func lisaa_tasot():
 					),
 					"kamera": kamera
 				})
+
+
+## Lisätään viholliset oikein
+func lisaa_viholliset():
+	for i in uudetViholliset.size():
+		if samassa_tasossa_kuin_pelaaja(uudetViholliset[i]):
+			uudetViholliset[i].process_mode = Node.PROCESS_MODE_INHERIT
+		else:
+			uudetViholliset[i].process_mode = Node.PROCESS_MODE_DISABLED
 
 
 ## Palauttaa totuusarvon siitä, onko pelaaja samassa tasossa kuin annettu node
@@ -310,6 +324,9 @@ func _input(_event: InputEvent) -> void:
 			# Esim. pause-menun skriptissä, jossa pelin jatkuminen
 			get_viewport().set_input_as_handled()
 
+## Kutsutaan joka framella
+func _process(_delta):
+	lisaa_viholliset()
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
 func respawn():
