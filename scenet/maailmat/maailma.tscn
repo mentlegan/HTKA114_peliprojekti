@@ -322,7 +322,7 @@ polygon = PackedVector2Array(2660, 565, 2679, 582, 2672, 599, 2645, 617, 2483, 6
 
 [node name="Polygon2D6" type="Polygon2D" parent="Tiilet"]
 position = Vector2(-1279, -2245)
-polygon = PackedVector2Array(6218, 306, 4937, 935, 4286, 866, 4217, 1716, 4132, 1744, 4069, 1771, 4020, 1796, 3970, 1841, 3878, 1878, 3845, 1940, 3840, 2005, 3873, 2034, 3933, 2034, 4119, 2039, 4122, 2085, 4119, 2126, 1776, 2152, 1713, -245, 5912, -55, 6681, 9, 6723, 304)
+polygon = PackedVector2Array(6218, 306, 4949, 936, 4286, 866, 4217, 1716, 4132, 1744, 4069, 1771, 4020, 1796, 3970, 1841, 3878, 1878, 3845, 1940, 3840, 2005, 3873, 2034, 3933, 2034, 4119, 2039, 4122, 2085, 4119, 2126, 1776, 2152, 1713, -245, 5912, -55, 6681, 9, 6723, 304)
 
 [node name="Polygon2D4" type="Polygon2D" parent="Tiilet"]
 position = Vector2(1475, 1552)
@@ -400,7 +400,7 @@ position = Vector2(-53, 30)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 11933, -644, 11961, -666, 11950, -693, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11381, -695, 11393, -668, 11410, -644, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1394, 726)
+position = Vector2(1404, 705)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -1352,7 +1352,7 @@ rotation = -1.57978
 position = Vector2(16.9874, 1.19161)
 
 [node name="Ovi_y" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["oviO", "y"]]
-position = Vector2(7298.91, 44.773)
+position = Vector2(7298.9, 46.773)
 
 [node name="Ovi_z" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["0", "oviO", "z"]]
 position = Vector2(7365.91, 44.9362)
@@ -1365,10 +1365,10 @@ position = Vector2(7429.92, 43.092)
 [node name="Ovi_oikea" parent="Koynnosovet/Ovet_puzzle/Ovi_x" instance=ExtResource("20_155o0")]
 
 [node name="Ovi_y2" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["oviO", "y"]]
-position = Vector2(7254.22, -902.339)
+position = Vector2(7264.22, -902.315)
 
 [node name="Ovi_x2" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["0", "oviO", "x"]]
-position = Vector2(7321.22, -903.175)
+position = Vector2(7331.22, -903.151)
 
 [node name="Ovi_oikea" parent="Koynnosovet/Ovet_puzzle/Ovi_x2" instance=ExtResource("20_155o0")]
 
@@ -1393,7 +1393,7 @@ rotation = 1.62297
 [node name="Ovi_oikea_x" parent="Koynnosovet/Ovet_hyppely/Ovi_x6_kuolematon" instance=ExtResource("20_155o0")]
 
 [node name="Ovi_x2" type="Node2D" parent="Koynnosovet/Ovet_hyppely" groups=["oviO", "x"]]
-position = Vector2(10416.7, -263.636)
+position = Vector2(10413.6, -249.64)
 rotation = 1.62916
 scale = Vector2(1.85148, 3.06963)
 
