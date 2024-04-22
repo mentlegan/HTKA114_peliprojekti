@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=62 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Texture2D" uid="uid://bw63swpnyimyq" path="res://grafiikka/Seinä.png" id="2_6luqt"]
@@ -44,6 +44,7 @@
 [ext_resource type="AudioStream" uid="uid://bw6cpa2qyrfll" path="res://audio/musiikki/ambient1_2_loop.wav" id="37_khmdb"]
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
+[ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
 
 [sub_resource type="Curve2D" id="Curve2D_fl3c8"]
 _data = {
@@ -339,7 +340,7 @@ position = Vector2(-53, 30)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 11933, -644, 11961, -666, 11950, -693, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11381, -695, 11393, -668, 11410, -644, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(2041, 672)
+position = Vector2(2046, 689)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -1496,37 +1497,38 @@ visible = false
 position = Vector2(2063.5, 591)
 shape = SubResource("RectangleShape2D_b2lsd")
 
-[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D"]
-position = Vector2(348.5, 31)
+[node name="TasonKamera" parent="Tasot/CollisionShape2D" instance=ExtResource("44_1y1h3")]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tasot"]
 position = Vector2(4469, -1058)
 shape = SubResource("RectangleShape2D_cdsjh")
 
-[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D2"]
-position = Vector2(65, -3)
+[node name="TasonKamera" parent="Tasot/CollisionShape2D2" instance=ExtResource("44_1y1h3")]
+position = Vector2(144, -55)
 zoom = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Tasot"]
 position = Vector2(5676.75, 1061)
 shape = SubResource("RectangleShape2D_5eewo")
 
-[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D3"]
-position = Vector2(-56.5, -25)
+[node name="TasonKamera" parent="Tasot/CollisionShape2D3" instance=ExtResource("44_1y1h3")]
+position = Vector2(-23.75, 34)
 zoom = Vector2(0.3, 0.3)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Tasot"]
 position = Vector2(7215.5, -454.5)
 shape = SubResource("RectangleShape2D_7vqab")
 
-[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D4"]
-zoom = Vector2(0.45, 0.45)
+[node name="TasonKamera" parent="Tasot/CollisionShape2D4" instance=ExtResource("44_1y1h3")]
+position = Vector2(-12.5, 3.5)
+zoom = Vector2(0.4, 0.4)
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Tasot"]
 position = Vector2(10382, -622)
 shape = SubResource("RectangleShape2D_1v6da")
 
-[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D5"]
+[node name="TasonKamera" parent="Tasot/CollisionShape2D5" instance=ExtResource("44_1y1h3")]
+position = Vector2(72, 23)
 zoom = Vector2(0.5, 0.5)
 
 [node name="Musiikki" type="AudioStreamPlayer" parent="."]

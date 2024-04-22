@@ -188,7 +188,6 @@ func lisaa_valot():
 ## Palauttaa samalla aktiivisen kameran pelaajalle
 func aseta_ui_nakyvaksi():
 	pelaaja.aseta_ui_nakyvyys(true)
-	pelaaja.palauta_kamera()
 	aseta_valojen_vakyvyys(false)
 
 
@@ -272,10 +271,9 @@ func nayta_tason_ovet_ja_resonoi(_ovi_vaikutettu):
 			pass
 	
 	for taso in tasot:
-		if taso["rect"].has_point(koordinaatit):
-			taso["kamera"].make_current()
+		if taso["rect"].has_point(koordinaatit) and pelaaja.kamera.is_current():
+			taso["kamera"].aktivoi(pelaaja)
 			pelaaja.aseta_ui_nakyvyys(false)
-			ui_ajastin.start(5)
 			aseta_valojen_vakyvyys(true)
 			return
 

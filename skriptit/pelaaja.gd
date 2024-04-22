@@ -51,17 +51,17 @@ var valossa = false
 @onready var aanen_taajuus_sprite = $AanenTaajuus
 @onready var aanen_taajuus_ajastin = $AanenTaajuus/Ajastin
 
-# Huilun äänet
+## Huilun äänet
 @onready var huilun_aanet = [
 	$HuiluAaniA,
 	$HuiluAaniC,
 	$HuiluAaniE,
 ]
 
-# Huilun partikkelit ja niiden säde
+## Huilun partikkelit ja niiden säde
 @onready var huilun_partikkelit = $Huilu/Partikkelit
 
-# Äänen taajuus
+## Äänen taajuus
 var aanen_taajuus = 2
 const AANEN_TAAJUUS_MIN = 1
 const AANEN_TAAJUUS_MAX = 3
@@ -70,6 +70,9 @@ const AANEN_TAAJUUS_VARIT = [
 	Color.GREEN,
 	Color.BLUE
 ]
+
+## UI:n animaatiota varten
+var tween: Tween
 
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
@@ -601,14 +604,19 @@ func _physics_process(delta):
 
 ## Asettaa UI:n näkyvyyden
 func aseta_ui_nakyvyys(nakyvissa):
-	elamat.visible = nakyvissa
-	palloja_label.visible = nakyvissa
-	apua_label.visible = nakyvissa
+	var vari = Color.TRANSPARENT
+	if nakyvissa:
+		vari = Color(1, 1, 1, 1)
 
-
-## Palauttaa pelaajan oman kameran aktiiviseksi
-func palauta_kamera():
-	kamera.make_current()
+	if tween:
+		tween.kill()
+	
+	tween = create_tween()
+	tween.set_parallel(true)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(elamat, "modulate", vari, 0.5)
+	tween.tween_property(palloja_label, "modulate", vari, 0.5)
+	tween.tween_property(apua_label, "modulate", vari, 0.5)
 
 
 ## Kun huiluun osuu rigid/staticbody, tarkistetaan onko se ovi.
