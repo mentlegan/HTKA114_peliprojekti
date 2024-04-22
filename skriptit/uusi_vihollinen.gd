@@ -27,7 +27,7 @@ var light = preload("res://scenet/valo_character.tscn") ## Valon informaatio. Ta
 @onready var audio_paikoillaan = $AudioPaikoillaan
 @onready var audio_jahtaus = $AudioJahtaus
 @onready var audio_pakeneminen = $AudioPakeneminen
-@onready var audio_pelaaja_kuolee = $AudioPelaajaKuolee
+@onready var audio_pelaaja_kuolee_viholliselle = $AudioPelaajaKuoleeViholliselle
 @onready var audio_kaivautuminen = $AudioKaivautuminen
 ## TODO: Soita ääni kun vihollinen liikkuu, mutta ei jahtaa tai pakene.
 @onready var audio_liikkuminen = $AudioLiikkuminen
@@ -95,7 +95,7 @@ func astuttu_alueelle(body):
 		kuolema_ajastin.start(kuolema_aika) # Aloitetaan jahti
 		print ("Kuolet viholliseen " + str(kuolema_aika) + " sekunnin jalkeen")
 		await kuolema_ajastin.timeout # Odotetaan, että vihu saa pelaajan kiinni
-		audio_pelaaja_kuolee.play() # Tapetaan pelaaja erittäin raa'asti
+		audio_pelaaja_kuolee_viholliselle.play() # Tapetaan pelaaja erittäin raa'asti
 		pelaaja = body # Varmistetaan vielä, että kyseessä on pelaaja
 		print ("Kuolit viholliseen") # Dokumentaatio kuolemasta, olisi hyvä, että muillakin kuolintavoilla olisi moinen
 		kuolema() # Lopulta kuollaan

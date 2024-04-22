@@ -35,7 +35,9 @@ var valossa = false
 @onready var audio_juoksu = $AudioJuoksu
 @onready var audio_hyppy = $AudioHyppy
 @onready var audio_seinahyppy = $AudioSeinahyppy
-@onready var audio_pelaaja_kuolee = $AudioPelaajaKuolee
+@onready var audio_pelaaja_kuolee_viholliselle = $AudioPelaajaKuoleeViholliselle
+@onready var audio_pelaaja_fall_damage = $AudioPelaajaFallDamage
+@onready var audio_pelaaja_fall_damage_kuolema = $AudioPelaajaFallDamageKuolema
 @onready var audio_pimeassa = $AudioPimeassa
 @onready var audio_pimeyskuolema = $AudioPimeyskuolema
 @onready var audio_valopallon_keraaminen = $AudioValopallonKeraaminen
@@ -247,7 +249,16 @@ func siirrytty_varjoon():
 
 ## Tähän lisätty signaalin emit
 func kuolema():
-	audio_pelaaja_kuolee.play()
+	audio_pelaaja_kuolee_viholliselle.play()
+	pelaajan_elamat = pelaajan_elamat_max
+	elamat_label_paivita()
+	pimeyskuolema.stop()
+	kuollut.emit()
+
+
+## Kuolema pitäisi toteuttaa paremmin, mutta tässä nyt hätäratkaisuna
+func kuolema_fall_damageen():
+	audio_pelaaja_fall_damage_kuolema.play()
 	pelaajan_elamat = pelaajan_elamat_max
 	elamat_label_paivita()
 	pimeyskuolema.stop()
@@ -285,7 +296,9 @@ func meneta_elamia(maara):
 		elama_regen_ajastin.start(elamat_regen_nopeus)
 	else:
 		pelaajan_elamat = 0
-		kuolema()
+		# TODO: muuta järkevämmäksi
+		# Nyt ei toimi oikein jos pelaaja voi ottaa damagea muusta kuin putoamisesta
+		kuolema_fall_damageen()
 	elamat_label_paivita()
 
 
@@ -407,6 +420,7 @@ func _physics_process(delta):
 		oli_maassa = true
 		oli_seinalla = false
 		if putoamis_vahinko:
+			audio_pelaaja_fall_damage.play()
 			animaatio.scale = Vector2(1.1, 0.9)
 			print(get_global_position().y - putoamis_huippu)
 			if (get_global_position().y - putoamis_huippu) > putoamis_raja_3:

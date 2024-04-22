@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=77 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -23,6 +23,8 @@
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="16_4n4el"]
 [ext_resource type="AudioStream" uid="uid://gx8ajgkwr0pq" path="res://audio/ambient/luola-aani3.wav" id="16_fbtr4"]
 [ext_resource type="Texture2D" uid="uid://dj3c6nkmnxha2" path="res://grafiikka/Valo256.png" id="20_8tpmo"]
+[ext_resource type="AudioStream" uid="uid://k8bolxqmi6bc" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
+[ext_resource type="AudioStream" uid="uid://cmevoa60tvwha" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
 [ext_resource type="Texture2D" uid="uid://cbatwxsibovo" path="res://grafiikka/AanenTaajuus1.png" id="22_7od7w"]
 [ext_resource type="Texture2D" uid="uid://bh2dveepeu0so" path="res://grafiikka/Nuotti.png" id="22_fot2n"]
 [ext_resource type="Texture2D" uid="uid://cg7a67mf311xj" path="res://grafiikka/AanenTaajuus2.png" id="23_ai0kk"]
@@ -454,11 +456,23 @@ stream = ExtResource("15_bxt80")
 volume_db = 4.278
 bus = &"Pelaaja"
 
-[node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("16_4n4el")
 volume_db = 7.0
 bus = &"Vihollinen"
+
+[node name="AudioPelaajaFallDamage" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("20_o55xv")
+volume_db = 7.0
+bus = &"Pelaaja"
+
+[node name="AudioPelaajaFallDamageKuolema" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("20_l0cg5")
+volume_db = 9.962
+bus = &"Pelaaja"
 
 [node name="AudioPimeassa" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_pjubx")
