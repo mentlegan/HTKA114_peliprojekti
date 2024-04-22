@@ -32,8 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://cp4f2v1euxr6b" path="res://grafiikka/AanenTaajuus3.png" id="24_7n80x"]
 [ext_resource type="AudioStream" uid="uid://dw75jyosgto66" path="res://audio/pelaaja/huilu/huiluaani_C.wav" id="24_xxdxr"]
 [ext_resource type="AudioStream" uid="uid://diri4jc7100fi" path="res://audio/pelaaja/huilu/huiluaani_E.wav" id="25_qars5"]
-[ext_resource type="AudioStream" uid="uid://tljiy6rd5uqe" path="res://audio/valopallo/valopallon_poimiminen.mp3" id="26_13gbp"]
 [ext_resource type="Script" path="res://skriptit/huilu.gd" id="26_v60w7"]
+[ext_resource type="AudioStream" uid="uid://sxegtfb2jf0b" path="res://audio/valopallo/valopallo_poimitaan_mono.mp3" id="28_p78nr"]
 [ext_resource type="AudioStream" uid="uid://7tjeefooail4" path="res://audio/pelaaja/creeping_darkness_2.mp3" id="32_1qpma"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
@@ -487,7 +487,8 @@ stream = ExtResource("24_xxdxr")
 stream = ExtResource("25_qars5")
 
 [node name="AudioValopallonKeraaminen" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("26_13gbp")
+stream = ExtResource("28_p78nr")
+volume_db = 16.0
 bus = &"Pelaaja"
 
 [node name="AudioPimeyskuolema" type="AudioStreamPlayer" parent="."]

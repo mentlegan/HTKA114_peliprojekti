@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
-[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
+[ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="23_k22wo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
