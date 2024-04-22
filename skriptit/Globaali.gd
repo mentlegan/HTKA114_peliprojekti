@@ -387,6 +387,9 @@ func respawn():
 	# Aloittaa timerin alusta
 	pelaaja.ajastin_pimeassa.start()
 	pimeyskuolema_animaatio.stop()
+	pelaaja.siirrytty_valoon()
+	pelaaja.siirrytty_varjoon()
+
 
 ## Pausettaa pelin
 func pausePeli():
