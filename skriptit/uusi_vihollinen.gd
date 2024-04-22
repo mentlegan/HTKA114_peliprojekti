@@ -1,4 +1,5 @@
 ## Harri 17.4.2024
+## Elias 22.4.2024 äänenkorkeuden muutos
 ## Vanhan vihollisen saa takaisin: noden Inspector - process - disabled -> inherit
 ## TÄRKEÄÄ: pidä nodejen järjestys aina samana kun instanssoit vihollisia, muuten koodi menee sekaisin
 ## Osaa:
@@ -32,6 +33,10 @@ var light = preload("res://scenet/valo_character.tscn") ## Valon informaatio. Ta
 ## TODO: Soita ääni kun vihollinen liikkuu, mutta ei jahtaa tai pakene.
 @onready var audio_liikkuminen = $AudioLiikkuminen
 
+# Kerroin jolla voi muuttaa kuinka nopeasti vihollisen äänenkorkeus muuttuu
+# VAROITUS: Voi hajota jos arvo on suurempi kuin 1. Tällöin toteutusta täytyy vähän muuttaa.
+var aanenkorkeuden_muutosnopeus = 0.8
+
 ## Nodearrayt
 @onready var uudetViholliset = Globaali.uudetViholliset
 
@@ -64,9 +69,9 @@ func _ready():
 
 ## Delta kutsutaan joka framella
 func _process(_delta):
-	# Kutsutaan globaalista uuden vihollisen äänen säädin
-	for vihollinen in uudetViholliset:
-		Globaali.uuden_vihollisen_aanen_korkeus(vihollinen)
+	# Tarkistetaan ja muutetaan vihollisen äänenkorkeutta sen mukaan onko vihollinen
+	# pelaajan ylä- vai alapuolella
+	muuta_aanenkorkeutta()
 
 
 ## Kollektiivinen kuolema-funktio ..
@@ -234,6 +239,23 @@ func haeNykyinenAlue(vihollinen):
 	for i in vihollinen.get_children():
 		if i.is_in_group("nykyisetAlueet"):
 			return i
+
+
+## Tarkistaa pelaajan ja vihollisen y-koordinaatit ja muuttaa vihollisen äänenkorkeutta.
+## Jos vihollinen on pelaajan yläpuolella, ääni on korkeampi ja jos alapuolella ääni on matalampi.
+func muuta_aanenkorkeutta():
+	var aanenkorkeuden_kerroin = 1
+	var pelaaja_y = Globaali.pelaaja.get_global_position().y
+	var vihollinen_y = self.get_global_position().y
+	# Tason collision shapen korkeus:
+	var y_vaihteluvali = Globaali.nykyisen_tason_collision_shape(self).size.y
+	var korkeuksien_erotus = pelaaja_y - vihollinen_y
+	# Skaalataan y-koordinaattien erotus välille [0, 2] niin että 1 on sama korkeus
+	aanenkorkeuden_kerroin = (korkeuksien_erotus / y_vaihteluvali) + 1
+	# Vihollinen -äänikanavan pitch shift efekti
+	# VAROITUS: Hajoaa jos äänikanavien tai efektien järjestystä muuttaa!!!
+	var vihollinen_pitch_shift = AudioServer.get_bus_effect(1, 0)
+	vihollinen_pitch_shift.pitch_scale = aanenkorkeuden_kerroin * aanenkorkeuden_muutosnopeus
 
 
 ## Ei varmaan tarvita tätä ollenkaan

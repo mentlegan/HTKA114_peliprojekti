@@ -1,8 +1,6 @@
 ## Paavo 10.4.2024
 ## Harri 15.4.2024
-## TODO: vihollisen äänenkorkeus paremmin, jos vihollisia enemmän kuin 1
-## TODO: Äänisuunnittelija saa tarkistaa, että toimiiko tuki uusien vihollisten äänenkorkeudelle oikein, oma äänikorva ei riitä:
-	## uuden_vihollisen_aanen_korkeus. kutsutaan uusi_vihollinen.gd:stä
+## Elias 22.4.2024
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
 extends Node2D
 
@@ -53,11 +51,6 @@ var ovien_valot = Array()
 ## Taulukko Tasot-nodelle
 var tasot = Array()
 @onready var tasot_node = get_node("/root/Maailma/Tasot")
-
-## vihollisen äänenkorkeuden kerroin
-var vihollisen_aanenkorkeuden_kerroin = 1
-@onready var ikkunan_korkeus = get_viewport().get_visible_rect().size.y
-@export var vihollisen_aanenkorkeuden_muutosnopeus = 0.6
 
 ## Kaikki scenen ovet
 # var ovet = Array()
@@ -317,53 +310,6 @@ func _input(_event: InputEvent) -> void:
 			# Esim. pause-menun skriptissä, jossa pelin jatkuminen
 			get_viewport().set_input_as_handled()
 
-
-## Kutsutaan joka framella
-func _process(_delta):
-	vihollisen_aanen_korkeus()
-
-
-## Käytetään ohjaamaan vihollisen äänenkorkeutta vertaamalla vihollisen ja pelaajan y-koordinaatteja
-func vihollisen_aanen_korkeus():
-	var vihollisen_korkeus = vihollinen.get_global_position().y
-	var pelaajan_korkeus = pelaaja.get_global_position().y
-	var korkeuksien_erotus = vihollisen_korkeus - pelaajan_korkeus
-	if korkeuksien_erotus < 0: # Vihollinen on pelaajan yläpuolella, joten halutaan arvo väliltä [1, 2]
-		# Tässä ei vielä ongelmaa nykyisissä kentissä
-		vihollisen_aanenkorkeuden_kerroin = abs(korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus + 1
-	elif korkeuksien_erotus > 0: # Vihollinen on pelaajan alapuolella, joten halutaan kerroin väliltä [0, 1]
-		# Bugi, jos menee liian korkealle. Arvoksi tulee negatiivinen. nopea korjaus alla
-		vihollisen_aanenkorkeuden_kerroin = abs(1 - (korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus)
-		if vihollisen_aanenkorkeuden_kerroin > 1:
-			vihollisen_aanenkorkeuden_kerroin = 1
-	else:
-		vihollisen_aanenkorkeuden_kerroin = 1
-	# "Vihollinen" audiokanavan pitch shift -efekti
-	var vihollinen_pitch_shift = AudioServer.get_bus_effect(1, 0)
-	# TODO: korjaa bugi, saa virheellisiä arvoja
-	vihollinen_pitch_shift.pitch_scale = vihollisen_aanenkorkeuden_kerroin
-
-
-## Käytetään ohjaamaan uuden vihollisen äänenkorkeutta vertaamalla vihollisen ja pelaajan y-koordinaatteja
-## Pitäisi toimia? TODO: Äänisuunnittelija saa tarkistaa
-func uuden_vihollisen_aanen_korkeus(uusiVihu):
-	var vihollisen_korkeus = uusiVihu.get_global_position().y
-	var pelaajan_korkeus = pelaaja.get_global_position().y
-	var korkeuksien_erotus = vihollisen_korkeus - pelaajan_korkeus
-	if korkeuksien_erotus < 0: # Vihollinen on pelaajan yläpuolella, joten halutaan arvo väliltä [1, 2]
-		# Tässä ei vielä ongelmaa nykyisissä kentissä
-		vihollisen_aanenkorkeuden_kerroin = abs(korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus + 1
-	elif korkeuksien_erotus > 0: # Vihollinen on pelaajan alapuolella, joten halutaan kerroin väliltä [0, 1]
-		# Bugi, jos menee liian korkealle. Arvoksi tulee negatiivinen. nopea korjaus alla
-		vihollisen_aanenkorkeuden_kerroin = abs(1 - (korkeuksien_erotus / ikkunan_korkeus) * vihollisen_aanenkorkeuden_muutosnopeus)
-		if vihollisen_aanenkorkeuden_kerroin > 1:
-			vihollisen_aanenkorkeuden_kerroin = 1
-	else:
-		vihollisen_aanenkorkeuden_kerroin = 1
-	# "Vihollinen" audiokanavan pitch shift -efekti
-	var vihollinen_pitch_shift = AudioServer.get_bus_effect(1, 0)
-	# TODO: korjaa bugi, saa virheellisiä arvoja
-	vihollinen_pitch_shift.pitch_scale = vihollisen_aanenkorkeuden_kerroin
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
 func respawn():
