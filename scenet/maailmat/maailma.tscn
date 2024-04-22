@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
-[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
+[ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="23_k22wo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
@@ -77,22 +77,22 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }, {
-"duration": 4.0,
+"duration": 1.4,
 "texture": SubResource("AtlasTexture_3mp68")
 }, {
-"duration": 4.0,
+"duration": 1.4,
 "texture": SubResource("AtlasTexture_hbaew")
 }, {
-"duration": 4.0,
+"duration": 1.4,
 "texture": SubResource("AtlasTexture_a2h6c")
 }, {
-"duration": 4.0,
+"duration": 1.4,
 "texture": SubResource("AtlasTexture_r734k")
 }, {
-"duration": 3.0,
+"duration": 1.4,
 "texture": SubResource("AtlasTexture_kdg2w")
 }, {
-"duration": 4.0,
+"duration": 1.4,
 "texture": SubResource("AtlasTexture_yttgl")
 }],
 "loop": true,
@@ -400,7 +400,7 @@ position = Vector2(-53, 30)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 11933, -644, 11961, -666, 11950, -693, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11381, -695, 11393, -668, 11410, -644, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(5180, -680)
+position = Vector2(1394, 726)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
