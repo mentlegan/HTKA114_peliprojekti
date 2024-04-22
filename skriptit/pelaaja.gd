@@ -26,7 +26,7 @@ var tahtaimen_lapset = []
 @onready var apua_label = get_node("ApuaLabel")
 ## Pelaajan kamera
 @onready var kamera = get_node("Camera2D")
-
+@onready var pimeyskuolema = Globaali.pimeyskuolema_animaatio
 ## Totuusarvo valossa olemiselle
 var valossa = false
 
@@ -223,6 +223,7 @@ func siirrytty_valoon():
 	valossa = true
 	ajastin_pimeassa.stop()
 	ajastin_pimeassa_audio.stop()
+	pimeyskuolema.stop()
 	audio_pimeyskuolema.stop()
 	print("Valossa: " + str(valossa))
 
@@ -242,6 +243,7 @@ func siirrytty_varjoon():
 	print("Valossa: " + str(valossa))
 	await get_tree().create_timer(2.5).timeout
 	audio_pimeassa.play()
+	pimeyskuolema.play("PimeysKuolema")
 
 
 ## Tähän lisätty signaalin emit
@@ -249,6 +251,7 @@ func kuolema():
 	audio_pelaaja_kuolee.play()
 	pelaajan_elamat = pelaajan_elamat_max
 	elamat_label_paivita()
+	pimeyskuolema.stop()
 	kuollut.emit()
 
 

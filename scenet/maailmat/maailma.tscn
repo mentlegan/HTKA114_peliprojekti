@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=70 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Texture2D" uid="uid://bw63swpnyimyq" path="res://grafiikka/Seinä.png" id="2_6luqt"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://d1c6axf23uaq5" path="res://scenet/kayttoliittyma/help_ruutu.tscn" id="4_5kntw"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="4_udkay"]
+[ext_resource type="Texture2D" uid="uid://lxurmqd1rdhq" path="res://grafiikka/Timer-Sheet.png" id="9_75e1e"]
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://scenet/kayttoliittyma/game_over_ruutu.tscn" id="9_er4wh"]
 [ext_resource type="PackedScene" uid="uid://daeaotnb7peu2" path="res://scenet/piikki.tscn" id="9_ox6hl"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://scenet/vihollinen.tscn" id="12_u46m1"]
@@ -45,6 +46,59 @@
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
+atlas = ExtResource("9_75e1e")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbaew"]
+atlas = ExtResource("9_75e1e")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2h6c"]
+atlas = ExtResource("9_75e1e")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r734k"]
+atlas = ExtResource("9_75e1e")
+region = Rect2(2880, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdg2w"]
+atlas = ExtResource("9_75e1e")
+region = Rect2(3840, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yttgl"]
+atlas = ExtResource("9_75e1e")
+region = Rect2(4800, 0, 960, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nwmqr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_3mp68")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_hbaew")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_a2h6c")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_r734k")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_kdg2w")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_yttgl")
+}],
+"loop": true,
+"name": &"PimeysKuolema",
+"speed": 1.0
+}]
 
 [sub_resource type="Curve2D" id="Curve2D_fl3c8"]
 _data = {
@@ -241,6 +295,12 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
+[node name="PimeysKuolema" type="AnimatedSprite2D" parent="KayttoLiittyma"]
+unique_name_in_owner = true
+position = Vector2(480, 270)
+sprite_frames = SubResource("SpriteFrames_nwmqr")
+animation = &"PimeysKuolema"
+
 [node name="Tiilet" type="CanvasGroup" parent="."]
 script = ExtResource("2_a4qf7")
 
@@ -340,7 +400,7 @@ position = Vector2(-53, 30)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 11933, -644, 11961, -666, 11950, -693, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11381, -695, 11393, -668, 11410, -644, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(5168, -672)
+position = Vector2(3002, 114)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -883,10 +943,9 @@ rotation = 1.56308
 
 [node name="uudetViholliset" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-10, 0)
 
 [node name="uusiVihollinen" type="Node2D" parent="uudetViholliset"]
-position = Vector2(2726, 416)
+position = Vector2(2716, 416)
 rotation = 1.57079
 scale = Vector2(-0.670116, -0.75484)
 script = ExtResource("24_8mx77")
@@ -978,7 +1037,7 @@ bus = &"Vihollinen"
 stream = ExtResource("33_y2rdp")
 
 [node name="uusiVihollinen2" type="Node2D" parent="uudetViholliset"]
-position = Vector2(5422, -1023)
+position = Vector2(5412, -1023)
 rotation = -1.57079
 scale = Vector2(-0.670116, -0.75484)
 script = ExtResource("24_8mx77")
@@ -1069,7 +1128,7 @@ bus = &"Vihollinen"
 stream = ExtResource("33_y2rdp")
 
 [node name="uusiVihollinen3" type="Node2D" parent="uudetViholliset"]
-position = Vector2(5122, 1238)
+position = Vector2(5112, 1238)
 rotation = -0.00245404
 scale = Vector2(-0.670116, -0.75484)
 script = ExtResource("24_8mx77")

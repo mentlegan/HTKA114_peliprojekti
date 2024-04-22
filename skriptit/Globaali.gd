@@ -56,7 +56,6 @@ var ovien_indikaattorit = Array()
 ## Taulukko Tasot-nodelle
 var tasot = Array()
 @onready var tasot_node = get_node("/root/Maailma/Tasot")
-@onready var tasot2 = get_node("/root/Maailma/Tasot").get_children() # Palauttaa vain CollisionShapet tasoista
 
 ## Kaikki scenen ovet
 # var ovet = Array()
@@ -74,9 +73,9 @@ var pystyssa = true
 ## ja kutsua sitä % merkillä scriptissä, kuten alla:
 @onready var gameover_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%GameOverRuutu")
 @onready var pauseruutu = get_node("/root/Maailma/%KayttoLiittyma/%pause_ruutu")
+@onready var pimeyskuolema_animaatio = get_node("/root/Maailma/%KayttoLiittyma/%PimeysKuolema")
 @onready var uudetViholliset = get_node("/root/Maailma/%uudetViholliset").get_children()
 @onready var piikit = get_node("/root/Maailma/%Piikit").get_children()
-
 ## Musiikit:
 @onready var musiikki = get_node("/root/Maailma/%Musiikki")
 ## Minecartit tuhotaan, kun jompi kumpi käytetään
@@ -94,7 +93,6 @@ var t2 = preload("res://maailma2.tscn")
 ## Yleinen ready
 func _ready():
 	# Signaalikäsittelyä mm. pelaajan kuolemisesta
-	print(str(tasot2[0].name))
 	pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
 	pelaaja.kuollut.connect(_game_over) # Yhdistetään signaali pelaajasta
 	
@@ -231,11 +229,11 @@ func lisaa_tasot():
 
 ## Lisätään viholliset oikein
 func lisaa_viholliset():
-	for i in uudetViholliset.size():
-		if samassa_tasossa_kuin_pelaaja(uudetViholliset[i]):
-			uudetViholliset[i].process_mode = Node.PROCESS_MODE_INHERIT
-		else:
-			uudetViholliset[i].process_mode = Node.PROCESS_MODE_DISABLED
+	for i in uudetViholliset.size(): # Otetaan viholliset niiden arrayn koon mukaan
+		if samassa_tasossa_kuin_pelaaja(uudetViholliset[i]): # Jos pelaaja on samassa tasossa kuin vihollinen ..
+			uudetViholliset[i].process_mode = Node.PROCESS_MODE_INHERIT # ..vihollinen on toiminnassa
+		else: # Jos ei ole ..
+			uudetViholliset[i].process_mode = Node.PROCESS_MODE_DISABLED # .. vihollinen ei ole toiminnassa
 
 
 ## Palauttaa totuusarvon siitä, onko pelaaja samassa tasossa kuin annettu node
@@ -304,7 +302,6 @@ func _input(_event: InputEvent) -> void:
 		pelaaja.putoamis_vahinko = false
 		pelaaja.position = pelaaja_taso45
 	
-	
 	# Pelin keskeytys
 	# PC ESCAPE
 	# PS4/PS5 OPTIONS
@@ -315,9 +312,11 @@ func _input(_event: InputEvent) -> void:
 			# Esim. pause-menun skriptissä, jossa pelin jatkuminen
 			get_viewport().set_input_as_handled()
 
+
 ## Kutsutaan joka framella
 func _process(_delta):
-	lisaa_viholliset()
+	lisaa_viholliset() # Viholliset päivittyvät pois ja päälle riippuen pelaajan positiosta
+
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
 func respawn():
@@ -387,7 +386,7 @@ func respawn():
 	
 	# Aloittaa timerin alusta
 	pelaaja.ajastin_pimeassa.start()
-
+	pimeyskuolema_animaatio.stop()
 
 ## Pausettaa pelin
 func pausePeli():

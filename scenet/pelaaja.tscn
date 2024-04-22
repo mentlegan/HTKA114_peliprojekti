@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=75 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://unl4x51gimxg" path="res://grafiikka/Tahtain.png" id="6_eyyqa"]
 [ext_resource type="Texture2D" uid="uid://d1oyqkmwe7p1i" path="res://grafiikka/OhjainTooltipSelect.png" id="6_uircd"]
 [ext_resource type="Texture2D" uid="uid://dgpptf7h5t4y5" path="res://grafiikka/WallClimb-Sheet.png" id="7_prghi"]
-[ext_resource type="Texture2D" uid="uid://lxurmqd1rdhq" path="res://grafiikka/Timer-Sheet.png" id="8_vob74"]
 [ext_resource type="AudioStream" uid="uid://eqsig3hl534a" path="res://audio/pelaaja/kavely2_pitka_mono.wav" id="10_uhji0"]
 [ext_resource type="AudioStream" uid="uid://37o042m8fj2j" path="res://audio/pelaaja/juoksu_mono.wav" id="11_kteua"]
 [ext_resource type="AudioStream" uid="uid://es1b0j0djyua" path="res://audio/pelaaja/hyppy1_mono.wav" id="12_k2yxh"]
@@ -269,56 +268,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
-atlas = ExtResource("8_vob74")
-region = Rect2(0, 0, 960, 540)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hbaew"]
-atlas = ExtResource("8_vob74")
-region = Rect2(960, 0, 960, 540)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a2h6c"]
-atlas = ExtResource("8_vob74")
-region = Rect2(1920, 0, 960, 540)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r734k"]
-atlas = ExtResource("8_vob74")
-region = Rect2(2880, 0, 960, 540)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kdg2w"]
-atlas = ExtResource("8_vob74")
-region = Rect2(3840, 0, 960, 540)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yttgl"]
-atlas = ExtResource("8_vob74")
-region = Rect2(4800, 0, 960, 540)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pqehh"]
-animations = [{
-"frames": [{
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_3mp68")
-}, {
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_hbaew")
-}, {
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_a2h6c")
-}, {
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_r734k")
-}, {
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_kdg2w")
-}, {
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_yttgl")
-}],
-"loop": true,
-"name": &"PimeysKuolema",
-"speed": 15.0
-}]
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rfwgl"]
 light_mode = 1
 
@@ -409,11 +358,6 @@ position = Vector2(2, -4)
 sprite_frames = SubResource("SpriteFrames_bqvgf")
 animation = &"seinakiipeaminen"
 frame_progress = 0.729584
-
-[node name="PimeysKuolema" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_pqehh")
-animation = &"PimeysKuolema"
-frame_progress = 0.531344
 
 [node name="Elamat" type="Label" parent="."]
 z_index = 99
