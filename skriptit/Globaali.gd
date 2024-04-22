@@ -1,4 +1,4 @@
-## Paavo 10.4.2024
+## Paavo 22.4.2024
 ## Harri 22.4.2024
 ## Elias 22.4.2024
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
@@ -32,9 +32,14 @@ var vihollinen_aloitus = null
 @onready var pelaaja_taso45 = get_node("/root/Maailma/%Muuta/%Taso45Teleport").position
 @onready var taso1_loppu = get_node("/root/Maailma/%Muuta/%Kentan1_loppu").position
 
-## Valo köynnösoville ja niiden taulukko
+## Valot ja indikaattorit köynnösoville ja niiden taulukko
 var oven_valo = preload("res://scenet/oven_valo.tscn")
+var oven_indikaattori = preload("res://scenet/oven_indikaattori.tscn")
+var oven_indikaattori_punainen = preload("res://tres-tiedostot/oven_indikaattori_punainen.tres")
+var oven_indikaattori_sininen = preload("res://tres-tiedostot/oven_indikaattori_sininen.tres")
+var oven_indikaattori_lila = preload("res://tres-tiedostot/oven_indikaattori_lila.tres")
 var ovien_valot = Array()
+var ovien_indikaattorit = Array()
 @onready var koynnosovet = get_node("/root/Maailma/Koynnosovet")
 
 ## Köynnösovien scenet
@@ -134,12 +139,12 @@ func _ready():
 
 	# Täytetään tasot- ja valot-taulukko
 	lisaa_tasot()
-	lisaa_valot()
+	lisaa_valot_ja_indikaattorit()
 
 	# Haetaan pelin kaikki tooltip-nodet.
 	lisaa_tooltipit()
 	vaihda_tooltip_ui(true)
-	
+
 	# Lisätään viholliset oikein pelin alussa
 	lisaa_viholliset()
 
@@ -171,15 +176,30 @@ func aseta_valojen_vakyvyys(nakyvyys):
 		valo.visible = nakyvyys
 
 
-## Lisää Koynnosovet-noden jokaiselle lapsenlapselle valot
-func lisaa_valot():
+## Lisää Koynnosovet-noden jokaiselle lapsenlapselle valot ja indikaattorit
+func lisaa_valot_ja_indikaattorit():
 	for lapsi in koynnosovet.get_children():
 		for lapsenlapsi in lapsi.get_children():
+			# Valot
 			var valo = oven_valo.instantiate()
 			valo.global_position = lapsenlapsi.global_position
 			valo.visible = false
-			self.add_child(valo)
+			lapsi.add_child(valo)
 			ovien_valot.append(valo)
+
+			# Indikaattorit
+			var indikaattori = oven_indikaattori.instantiate()
+			indikaattori.global_position = lapsenlapsi.global_position
+
+			if lapsenlapsi.is_in_group("x"):
+				indikaattori.texture = oven_indikaattori_punainen
+			elif lapsenlapsi.is_in_group("y"):
+				indikaattori.texture = oven_indikaattori_lila
+			elif lapsenlapsi.is_in_group("z"):
+				indikaattori.texture = oven_indikaattori_sininen
+
+			lapsi.add_child(indikaattori)
+			ovien_indikaattorit.append(indikaattori)
 
 
 ## Asettaa pelaajan UI:n takaisin näkyväksi ja (TODO) piilottaa ovet
@@ -240,50 +260,21 @@ func nykyisen_tason_collision_shape(node: Node) -> Rect2:
 ## Näyttää ovet tasosta, johon annetut koordinaatit sijoittuvat
 ## Samalla tehdään resonointipartikkelit
 func nayta_tason_ovet_ja_resonoi(_ovi_vaikutettu):
-	# Samaa koodia kuin valo_characterissa
-	# Otetaan talteen ovi, johon huilulla vaikutettu
-	var ovi_vaikutettu = _ovi_vaikutettu
-	var koordinaatit = ovi_vaikutettu.global_position
-	
-	# Samaa koodia kuin valo_characterissa
-	# esim ovi_vasen_x -> ovi_x -> ovet_1 (lapset)
-	var parent = ovi_vaikutettu.get_parent()
-	var ovi_muokattava = parent.get_parent()
-	# Ylimmän noden ryhmät eli x, y tai z
-	var ryhmat = ovi_muokattava.get_groups()
-	
-	# Minkä tason ovet kyseessä (ovet_1 tai ovet_2 jne...)
-	var ovi_ylin = ovi_muokattava.get_parent()
-	
-	var tason_ovet = ovi_ylin.get_children()
-	
-	var kirjain
-	var if_y = false
-	
-	if ryhmat.has("x"):
-		kirjain = "x"
-	
-	elif ryhmat.has("y"):
-		kirjain = "" # Ei väliä
-		if_y = true
-	
-	elif ryhmat.has("z"):
-		kirjain = "z"
-	
-	for ovi in tason_ovet:
-		if ovi.is_in_group(kirjain) or ovi.is_in_group("y") or if_y:
-			# TODO: Partikkelit
-			# self.partikkeli_animation.play ???
-			# print_debug(ovi)
-			pass
-	
+	var koordinaatit = _ovi_vaikutettu.global_position
 	for taso in tasot:
 		if taso["rect"].has_point(koordinaatit) and pelaaja.kamera.is_current():
 			taso["kamera"].aktivoi(pelaaja)
 			pelaaja.aseta_ui_nakyvyys(false)
 			aseta_valojen_vakyvyys(true)
+			aseta_indikaattorit_nakyviin(taso["rect"])
 			return
 
+
+## Asettaa ovien indikaattorit näkyviin annetusta tasosta
+func aseta_indikaattorit_nakyviin(rect: Rect2):
+	for indikaattori in ovien_indikaattorit:
+		if rect.has_point(indikaattori.global_position):
+			indikaattori.aloita()
 
 
 ## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process
