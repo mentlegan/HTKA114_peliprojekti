@@ -530,6 +530,9 @@ polygon = PackedVector2Array(-40, -1, -26, -28, 23, -58, 360, -150, 430, -110, 4
 wait_time = 2.0
 one_shot = true
 
+[node name="Ajastin" type="Timer" parent="Huilu"]
+one_shot = true
+
 [node name="AanenTaajuus" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 99

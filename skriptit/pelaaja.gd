@@ -46,6 +46,7 @@ var valossa = false
 ## Huilu, äänen taajuuden sprite ja niiden ajastimet
 @onready var huilu = $Huilu
 @onready var huilun_collision = $Huilu/CollisionPolygon2D
+@onready var huilun_ajastin = $Huilu/Ajastin
 @onready var huilun_cd_ajastin = $Huilu/CooldownAjastin
 @onready var aanen_taajuus_sprite = $AanenTaajuus
 @onready var aanen_taajuus_ajastin = $AanenTaajuus/Ajastin
@@ -182,8 +183,8 @@ func _ready():
 	# Asetetaan pimeä-valo näkyviin pelin alussa
 	pimea_valo.visible = true
 	
-	# Piilotetaan huilu, kun sen animaatio loppuu
-	animaatio.animation_looped.connect(lopeta_huilu_animaatio)
+	# Piilotetaan huilu, kun sen ajastin loppuu
+	huilun_ajastin.timeout.connect(lopeta_huilu_animaatio)
 	
 	# Samoin piilotetaan äänen taajuuden sprite, kun sen ajastin päättyy
 	aanen_taajuus_ajastin.timeout.connect(
@@ -209,9 +210,9 @@ func lopeta_huilu_animaatio():
 	if animaatio.get_animation() == "huilu":
 		animaatio.set_animation("idle")
 		animaatio.stop()
-		huilun_cd_ajastin.start()
-		huilun_partikkelit.set_emitting(false)
-		huilun_collision.set_disabled(true)
+	huilun_cd_ajastin.start()
+	huilun_partikkelit.set_emitting(false)
+	huilun_collision.set_disabled(true)
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
@@ -560,12 +561,12 @@ func _physics_process(delta):
 	# PC RIGHT_CLICK
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Käynnistetään huilun animaatio
-		if huilun_cd_ajastin.is_stopped():
+		if huilun_cd_ajastin.is_stopped() and huilun_ajastin.is_stopped():
 			animaatio.play("huilu")
 			huilu.rotation = valon_kohde.angle()
 			animaatio.set_flip_h(valon_kohde.x < 0)
 			huilun_collision.set_disabled(false)
-			huilun_cd_ajastin.start()
+			huilun_ajastin.start()
 			huilun_partikkelit.set_emitting(true)
 			huilun_partikkelit.set_gravity(Vector2.from_angle(huilu.rotation) * 40)
 			huilun_partikkelit.modulate = aanen_taajuuden_vari()
