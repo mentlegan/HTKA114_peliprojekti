@@ -1,9 +1,7 @@
-[gd_scene load_steps=70 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=68 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
-[ext_resource type="Texture2D" uid="uid://bw63swpnyimyq" path="res://grafiikka/Seinä.png" id="2_6luqt"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
-[ext_resource type="Script" path="res://skriptit/plax.gd" id="3_8slpc"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://d1c6axf23uaq5" path="res://scenet/kayttoliittyma/help_ruutu.tscn" id="4_5kntw"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="4_udkay"]
@@ -191,91 +189,6 @@ size = Vector2(2146, 1158)
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 script = ExtResource("1_sggs7")
-
-[node name="Tausta" type="Node2D" parent="."]
-process_mode = 4
-visible = false
-z_as_relative = false
-position = Vector2(2976, 162)
-
-[node name="Taustakivi_1" type="Polygon2D" parent="Tausta"]
-self_modulate = Color(0.517184, 0.517184, 0.517184, 1)
-clip_children = 1
-texture_repeat = 2
-position = Vector2(-4, -26)
-offset = Vector2(-264, 55)
-texture = ExtResource("2_6luqt")
-polygon = PackedVector2Array(702, 48, -150, 74, -158, 3, -162, -75, -150, -149, -103, -201, 0, -247, 97, -269, 219, -276, 370, -277, 515, -258, 607, -235, 717, -163, 728, -121, 753, -82, 739, 0)
-uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Tausta/Taustakivi_1"]
-self_modulate = Color(0.237539, 0.237539, 0.237539, 1)
-texture_repeat = 2
-position = Vector2(2.99991, 26)
-texture = ExtResource("2_6luqt")
-region_enabled = true
-region_rect = Rect2(0, 0, 4000, 2000)
-script = ExtResource("3_8slpc")
-taso = 4
-
-[node name="Taustakivi_2" type="Polygon2D" parent="Tausta"]
-self_modulate = Color(0.662452, 0.662452, 0.662452, 1)
-clip_children = 1
-texture_repeat = 2
-position = Vector2(-7, -13)
-offset = Vector2(-261, 42)
-texture = ExtResource("2_6luqt")
-polygon = PackedVector2Array(630, 46, -106, 62, -112, 4, -104, -48, -89, -98, -68, -160, 5, -206, 86, -212, 138.455, -216.155, 187, -220, 259, -227, 338, -218, 428, -221, 522, -219, 604, -175, 628, -113, 634, -34)
-uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Tausta/Taustakivi_2"]
-self_modulate = Color(0.281187, 0.281187, 0.281187, 1)
-texture_repeat = 2
-position = Vector2(3.99988, 13)
-texture = ExtResource("2_6luqt")
-region_enabled = true
-region_rect = Rect2(0, 0, 4000, 2000)
-script = ExtResource("3_8slpc")
-taso = 3
-
-[node name="Taustakivi_3" type="Polygon2D" parent="Tausta"]
-self_modulate = Color(0.881937, 0.881937, 0.881936, 1)
-clip_children = 1
-texture_repeat = 2
-position = Vector2(-2, 6)
-offset = Vector2(-266, 23)
-texture = ExtResource("2_6luqt")
-polygon = PackedVector2Array(630, 46, -35, 32, -18, -16, 10, -81, 40, -109, 76, -121, 123, -149, 165, -165, 222, -177, 294, -176, 364, -168, 439, -157, 522, -146, 596, -110, 626, -38)
-uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Tausta/Taustakivi_3"]
-self_modulate = Color(0.400697, 0.400698, 0.400697, 1)
-texture_repeat = 2
-position = Vector2(5.00015, -9)
-texture = ExtResource("2_6luqt")
-region_enabled = true
-region_rect = Rect2(0, 0, 4000, 2000)
-script = ExtResource("3_8slpc")
-taso = 2
-
-[node name="Taustakivi_4" type="Polygon2D" parent="Tausta"]
-self_modulate = Color(0.881937, 0.881937, 0.881936, 1)
-clip_children = 1
-texture_repeat = 2
-position = Vector2(-2, 6)
-offset = Vector2(-266, 23)
-texture = ExtResource("2_6luqt")
-polygon = PackedVector2Array(630, 46, -35, 32, 1, 11, 29, 0, 65, -8, 106, -14, 142, -19, 195, -20, 245, -8, 287, -22, 316, -51, 342, -55, 371, -47, 391, -27, 431, -8, 499, -5, 549, 8, 586, 20)
-uv = PackedVector2Array(64, 64, 0, 64, 0, 0, 64, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Tausta/Taustakivi_4"]
-self_modulate = Color(0.181343, 0.416865, 1, 1)
-texture_repeat = 2
-position = Vector2(5.00015, -9)
-texture = ExtResource("2_6luqt")
-region_enabled = true
-region_rect = Rect2(0, 0, 4000, 2000)
-script = ExtResource("3_8slpc")
 
 [node name="KayttoLiittyma" type="CanvasLayer" parent="." groups=["UI"]]
 unique_name_in_owner = true
