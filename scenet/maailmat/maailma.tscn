@@ -26,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
-[ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
+[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="23_k22wo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
@@ -400,7 +400,7 @@ position = Vector2(-141, 99)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 12015, -632, 12067, -629, 12106, -677, 12089, -704, 12065, -719, 12023, -727, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11353, -707, 11294, -704, 11265, -692, 11252, -669, 11272, -645, 11296, -637, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1382, 719)
+position = Vector2(1390, 711)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -1030,7 +1030,7 @@ stream = ExtResource("31_bllwm")
 volume_db = -7.0
 bus = &"Vihollinen"
 
-[node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
+[node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
 process_mode = 3
 stream = ExtResource("32_a8tci")
 volume_db = 7.0
@@ -1121,7 +1121,7 @@ stream = ExtResource("31_bllwm")
 volume_db = -7.0
 bus = &"Vihollinen"
 
-[node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
+[node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
 process_mode = 3
 stream = ExtResource("32_a8tci")
 volume_db = 7.0
@@ -1213,7 +1213,7 @@ stream = ExtResource("31_bllwm")
 volume_db = -7.0
 bus = &"Vihollinen"
 
-[node name="AudioPelaajaKuolee" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
+[node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
 process_mode = 3
 stream = ExtResource("32_a8tci")
 volume_db = 7.0
@@ -1432,7 +1432,7 @@ scale = Vector2(1.45241, 2.4402)
 position = Vector2(1397, 644)
 
 [node name="TooltipJuokse" parent="Tooltipit" instance=ExtResource("19_ng21i")]
-position = Vector2(1553, 646)
+position = Vector2(3019, 495)
 
 [node name="TooltipPoimi" parent="Tooltipit" instance=ExtResource("20_i01e2")]
 position = Vector2(1810, 667)
@@ -1447,7 +1447,7 @@ position = Vector2(3519, -1203)
 position = Vector2(3635, -1200)
 
 [node name="TooltipHyppaa" parent="Tooltipit" instance=ExtResource("23_jotwo")]
-position = Vector2(2967, 493)
+position = Vector2(2928, 494)
 
 [node name="TooltipKiipea" parent="Tooltipit" instance=ExtResource("24_8j4jx")]
 position = Vector2(2976, 666)
