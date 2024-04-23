@@ -43,8 +43,9 @@ var valossa = false
 @onready var audio_pimeyskuolema = $AudioPimeyskuolema
 @onready var audio_valopallon_keraaminen = $AudioValopallonKeraaminen
 
-## Näyttöä pimentävä valo
+## Näyttöä pimentävät valot
 @onready var pimea_valo = $PimeaValo
+@onready var reunojen_pimentaja_valo = $ReunojenPimentajaValo
 
 ## Huilu, äänen taajuuden sprite ja niiden ajastimet
 @onready var huilu = $Huilu
@@ -209,6 +210,9 @@ func _ready():
 
 	# Lisätään Tähtäin-spriten lapsinodet omaan taulukkoon
 	tahtaimen_lapset = tahtain.get_children()
+
+	# Reunoja pimentävä valo näkyviin
+	reunojen_pimentaja_valo.visible = true
 
 
 ## Lopettaa huilu-animaation
