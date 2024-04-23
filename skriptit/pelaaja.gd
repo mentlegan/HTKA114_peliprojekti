@@ -36,8 +36,9 @@ var valossa = false
 @onready var audio_hyppy = $AudioHyppy
 @onready var audio_seinahyppy = $AudioSeinahyppy
 @onready var audio_pelaaja_kuolee_viholliselle = $AudioPelaajaKuoleeViholliselle
-@onready var audio_pelaaja_fall_damage = $AudioPelaajaFallDamage
+@onready var audio_pelaaja_tomahdys = $AudioPelaajaTomahdys
 @onready var audio_pelaaja_fall_damage_kuolema = $AudioPelaajaFallDamageKuolema
+@onready var audio_pelaaja_fall_damage = $AudioPelaajaFallDamage
 @onready var audio_pimeassa = $AudioPimeassa
 @onready var audio_pimeyskuolema = $AudioPimeyskuolema
 @onready var audio_valopallon_keraaminen = $AudioValopallonKeraaminen
@@ -293,6 +294,7 @@ func saa_elamia(maara):
 func meneta_elamia(maara):
 	if pelaajan_elamat - maara > 0:
 		pelaajan_elamat -= maara
+		audio_pelaaja_fall_damage.play()
 		elama_regen_ajastin.start(elamat_regen_nopeus)
 	else:
 		pelaajan_elamat = 0
@@ -424,7 +426,6 @@ func _physics_process(delta):
 		oli_maassa = true
 		oli_seinalla = false
 		if putoamis_vahinko:
-			audio_pelaaja_fall_damage.play()
 			animaatio.scale = Vector2(1.1, 0.9)
 			print(get_global_position().y - putoamis_huippu)
 			if (get_global_position().y - putoamis_huippu) > putoamis_raja_3:
@@ -433,6 +434,8 @@ func _physics_process(delta):
 				meneta_elamia(putoamis_raja_2_dmg)
 			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_1:
 				meneta_elamia(putoamis_raja_1_dmg)
+			else:
+				audio_pelaaja_tomahdys.play()
 			putoamis_vahinko = false
 	
 	

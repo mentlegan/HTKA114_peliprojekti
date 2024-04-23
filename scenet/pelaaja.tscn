@@ -23,8 +23,8 @@
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="16_4n4el"]
 [ext_resource type="AudioStream" uid="uid://gx8ajgkwr0pq" path="res://audio/ambient/luola-aani3.wav" id="16_fbtr4"]
 [ext_resource type="Texture2D" uid="uid://dj3c6nkmnxha2" path="res://grafiikka/Valo256.png" id="20_8tpmo"]
-[ext_resource type="AudioStream" uid="uid://b7qne6x2tj6ow" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
-[ext_resource type="AudioStream" uid="uid://cf6pckhyjcqju" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
+[ext_resource type="AudioStream" uid="uid://c5gr65mbd8g83" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
+[ext_resource type="AudioStream" uid="uid://320omrds163w" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
 [ext_resource type="Texture2D" uid="uid://cbatwxsibovo" path="res://grafiikka/AanenTaajuus1.png" id="22_7od7w"]
 [ext_resource type="Texture2D" uid="uid://bh2dveepeu0so" path="res://grafiikka/Nuotti.png" id="22_fot2n"]
 [ext_resource type="Texture2D" uid="uid://cg7a67mf311xj" path="res://grafiikka/AanenTaajuus2.png" id="23_ai0kk"]
@@ -33,7 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://dw75jyosgto66" path="res://audio/pelaaja/huilu/huiluaani_C.wav" id="24_xxdxr"]
 [ext_resource type="AudioStream" uid="uid://diri4jc7100fi" path="res://audio/pelaaja/huilu/huiluaani_E.wav" id="25_qars5"]
 [ext_resource type="Script" path="res://skriptit/huilu.gd" id="26_v60w7"]
-[ext_resource type="AudioStream" uid="uid://btgejuf7u2c8p" path="res://audio/valopallo/valopallo_poimitaan_mono.mp3" id="28_p78nr"]
+[ext_resource type="AudioStream" uid="uid://dc077psvcx65q" path="res://audio/valopallo/valopallo_poimitaan_mono.mp3" id="28_p78nr"]
 [ext_resource type="AudioStream" uid="uid://7tjeefooail4" path="res://audio/pelaaja/creeping_darkness_2.mp3" id="32_1qpma"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
@@ -462,7 +462,7 @@ stream = ExtResource("16_4n4el")
 volume_db = 7.0
 bus = &"Vihollinen"
 
-[node name="AudioPelaajaFallDamage" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioPelaajaTomahdys" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("20_o55xv")
 volume_db = 7.0
@@ -495,6 +495,10 @@ bus = &"Pelaaja"
 stream = ExtResource("32_1qpma")
 volume_db = 3.0
 bus = &"Musiikki"
+
+[node name="AudioPelaajaFallDamage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_l0cg5")
+volume_db = 20.0
 
 [node name="ReunojenPimentajaValo" type="PointLight2D" parent="."]
 light_mask = 0
