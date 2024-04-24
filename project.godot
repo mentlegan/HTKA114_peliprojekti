@@ -57,6 +57,7 @@ kuolematon=""
 minecart=""
 nykyisetAlueet=""
 0="Aluksi ovi, käytetään respawnatessa resetointiin"
+valonlahde=""
 
 [gui]
 
@@ -254,4 +255,3 @@ ohjain_tahtaa={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method.mobile="gl_compatibility"

@@ -64,17 +64,17 @@ script = ExtResource("1_th14a")
 position = Vector2(-176.088, -0.383625)
 rotation = 3.14159
 scale = Vector2(7.22472, -9.85951)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 14
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue"]
 polygon = PackedVector2Array(10, -10, 0, -10, -10, -10, -10, 0, -10, 10, 0, 10, 10, 10, 10, 0)
 
-[node name="ValonTarkistus" parent="alue/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("1_7vppl")]
-position = Vector2(4.48989e-05, -1.71738e-07)
+[node name="ValonTarkistus" parent="alue" groups=["newVihollinenValotarkistus"] instance=ExtResource("1_7vppl")]
+position = Vector2(4.3869e-05, -1.71363e-07)
 scale = Vector2(0.248258, 0.98758)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue/CollisionPolygon2D/ValonTarkistus"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue/ValonTarkistus"]
 polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
 
 [node name="Kuoppa" type="Sprite2D" parent="."]
@@ -91,17 +91,17 @@ frame_progress = 0.402777
 position = Vector2(177.581, 0.386879)
 rotation = 3.14159
 scale = Vector2(7.09998, -9.79605)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 14
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue2"]
 polygon = PackedVector2Array(10, -10, 0, -10, -10, -10, -10, 0, -10, 10, 0, 10, 10, 10, 10, 0)
 
-[node name="ValonTarkistus2" parent="alue2/CollisionPolygon2D" groups=["newVihollinenValotarkistus"] instance=ExtResource("1_7vppl")]
-position = Vector2(4.48989e-05, -1.71738e-07)
+[node name="ValonTarkistus2" parent="alue2" groups=["newVihollinenValotarkistus"] instance=ExtResource("1_7vppl")]
+position = Vector2(4.3869e-05, -1.75089e-07)
 scale = Vector2(0.248258, 0.98758)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue2/CollisionPolygon2D/ValonTarkistus2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue2/ValonTarkistus2"]
 polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
 
 [node name="Kuoppa2" type="Sprite2D" parent="."]
@@ -146,5 +146,7 @@ stream = ExtResource("10_yff1a")
 
 [connection signal="body_entered" from="alue" to="." method="_on_alue_body_entered"]
 [connection signal="body_exited" from="alue" to="." method="_on_alue_body_exited"]
+[connection signal="area_entered" from="alue/ValonTarkistus" to="." method="_on_valon_tarkistus_area_entered"]
 [connection signal="body_entered" from="alue2" to="." method="_on_alue_2_body_entered"]
 [connection signal="body_exited" from="alue2" to="." method="_on_alue_2_body_exited"]
+[connection signal="area_entered" from="alue2/ValonTarkistus2" to="." method="_on_valon_tarkistus_2_area_entered"]

@@ -1,4 +1,4 @@
-## Harri 22.4.2024
+## Harri 24.4.2024
 ## Elias 22.4.2024 äänenkorkeuden muutos
 ## Vanhan vihollisen saa takaisin: noden Inspector - process - disabled -> inherit
 ## TÄRKEÄÄ: pidä nodejen järjestys aina samana kun instanssoit vihollisia, muuten koodi menee sekaisin
@@ -58,10 +58,12 @@ func _ready():
 	# TODO: Voisi tehdä siistimminkin, ja globaaliin voisi melkein tehdä oman funktion tekemään samaa
 	for i in self.get_children():
 		for j in i.get_children():
-			for h in j.get_children():
-				if h.is_in_group("newVihollinenValotarkistus"):
-					h.connect("siirrytty_valoon", siirrytty_valoon)
-					h.connect("siirrytty_varjoon", siirrytty_varjoon)
+			if j.is_in_group("newVihollinenValotarkistus"):
+				j.connect("siirrytty_valoon", siirrytty_valoon)
+				j.connect("siirrytty_varjoon", siirrytty_varjoon)
+				#for h in j.get_children():
+					#h.connect("siirrytty_valoon", siirrytty_valoon)
+					#h.connect("siirrytty_varjoon", siirrytty_varjoon)
 	# Asetetaan vakioalueeksi 1 (muokatkaa scenessä aina alue 1 (nodenimi "alue") siihen paikkaan, mistä vihollisen halutaan aloittavan
 	aseta_alueet(self)
 
@@ -71,6 +73,13 @@ func _process(_delta):
 	# Tarkistetaan ja muutetaan vihollisen äänenkorkeutta sen mukaan onko vihollinen
 	# pelaajan ylä- vai alapuolella
 	muuta_aanenkorkeutta()
+	for i in self.get_children():
+		for j in i.get_children():
+			if j.is_in_group("newVihollinenValotarkistus"):
+				if j.on_valossa():
+					siirrytty_valoon()
+				else:
+					siirrytty_varjoon()
 
 
 ## Kollektiivinen kuolema-funktio ..
@@ -222,7 +231,7 @@ func toista_animaatio(kuoppa):
 
 ## Aktivoidaan saatu alue
 func aktivoi_alue(alue):
-	alue.process_mode = Node.PROCESS_MODE_INHERIT # Toinen alue tekee saa toiminnallisuuden ..
+	alue.process_mode = Node.PROCESS_MODE_INHERIT # Toinen alue saa toiminnallisuuden ..
 	alue.visible = true # .. ja tulee näkyviin testauksen havainnollistamiseksi ..
 	alue.add_to_group("nykyisetAlueet") # .. ja tulee aktiiviseksi, eli on vaarallinen
 
@@ -262,3 +271,13 @@ func muuta_aanenkorkeutta():
 ## Ei varmaan tarvita tätä ollenkaan, mutta pidetään täällä, jos löytyy käyttöä
 func siirrytty_varjoon():
 	pass
+
+
+func _on_valon_tarkistus_area_entered(body):
+	if body.is_in_group("valonlahde"):
+		siirrytty_valoon()
+
+
+func _on_valon_tarkistus_2_area_entered(body):
+	if body.is_in_group("valonlahde"):
+		siirrytty_valoon()

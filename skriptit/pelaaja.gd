@@ -1,5 +1,6 @@
+## Harri 24.4.2024
 ## Juuso 10.4.2024
-## Harri, Paavo 17.3.2024
+## Paavo 17.3.2024
 ## Elias 17.3.2024 - Pelaajan äänet
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 ## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
@@ -13,8 +14,9 @@ signal kuollut
 
 ## Pelaajan hitbox
 @onready var polygon = get_node("CollisionShape2D")
-## Pelaajan animaatio
+## Pelaajan animaatiot
 @onready var animaatio = get_node("Animaatio")
+@onready var pauseAnimaatiot = get_node("PauseAnimaatiot") ## Jos halutaan animaatioita myös, kun peli on pausella
 ## Pelaajan alue ja valon tarkistus
 @onready var valon_tarkistus = get_node("ValonTarkistus")
 ## Ohjaimen tähtäin
@@ -207,6 +209,9 @@ func _ready():
 
 	# Asetetaan idle-animaation pelin alussa
 	animaatio.play("idle")
+	
+	# Pausen aikana soitettavat animaatiot eivät ole näkyvissä normaalisti
+	pauseAnimaatiot.visible=false
 
 	# Lisätään Tähtäin-spriten lapsinodet omaan taulukkoon
 	tahtaimen_lapset = tahtain.get_children()

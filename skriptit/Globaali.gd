@@ -1,7 +1,9 @@
+## Harri 24.4.2024
 ## Paavo 22.4.2024
-## Harri 22.4.2024
 ## Elias 22.4.2024
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
+## TODO: pelaajan kuolema-animaation voi kenties siirtää pelaajan scriptiin, jos sen saa toimimaan siellä:
+##		 tehty tänne toistaiseksi Fall damage-kuoleman takia
 extends Node2D
 
 ## Käytössä olevat pallot
@@ -320,6 +322,10 @@ func _process(_delta):
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
 func respawn():
+	# Soitetaan pelaajan animaatioita täällä pausen takia
+	pelaaja.animaatio.visible=true
+	pelaaja.pauseAnimaatiot.stop()
+	pelaaja.pauseAnimaatiot.visible=false
 	palloja = 0 # Resetoidaan pallot, koska reload_current_scene ei sitä tee. Tämän voi koittaa laittaa johonkin järkevämpään paikkaan
 	nykyiset_pallot = 0 # Nykyisten pallojen määrä laitetaan 0
 	
@@ -405,6 +411,10 @@ func jatkaPelia():
 ## Yleinen game over funktio signaaleista. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai
 ## käynnistää peli uudelleen kutsumalla tämän skriptin respawn() funktiota
 func _game_over():
+	# Soitetaan pelaajan animaatioita täällä pausen takia
+	pelaaja.animaatio.visible=false
+	pelaaja.pauseAnimaatiot.visible=true
+	pelaaja.pauseAnimaatiot.play("kuolema")
 	get_tree().paused = true # Peli pauselle, kun se päättyy. Voi hienojen animaatioiden kanssa tietysti myös jättää pausettamatta,
 	# tai pausettaa peli muuten, mutta hienot kuolema-animaatiot silti toimivat normaalisti
 	await get_tree().create_timer(2,5).timeout # Pieni ajastin, että game over ei ihan heti tule
