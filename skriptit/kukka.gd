@@ -12,6 +12,8 @@ extends Area2D
 @onready var point_light = $Area2D/PointLight2D
 @onready var collision_shape = $Area2D/CollisionShape2D
 
+@onready var partikkelit = $CPUParticles2D
+
 ## Muuttuja sille, onko valo asetettu päälle valopallolla
 var valo_paalla_pysyvasti = false
 
@@ -24,6 +26,9 @@ func _ready():
 	point_light.set_energy(0)
 	# Yhdistetään ajastimet huilun ominaisuuksilta palautumiseen
 	huilu_ajastin.timeout.connect(sulje_valo)
+
+	partikkelit.one_shot = true
+	partikkelit.emitting = false
 
 
 func aloita_animaatio(skaala, valon_energia, kesto):
@@ -38,6 +43,11 @@ func aloita_animaatio(skaala, valon_energia, kesto):
 	tween.tween_property(point_light, "texture_scale", skaala, kesto)
 	tween.tween_property(point_light, "energy", valon_energia, kesto)
 	tween.tween_property(collision_shape, "scale", Vector2(skaala, skaala), kesto)
+
+
+## Aloittaa animaation / indikaation keräämiselle
+func aloita_kerays_animaatio():
+	partikkelit.emitting = true
 
 
 ## Sulkee kukan valon
