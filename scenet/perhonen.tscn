@@ -74,6 +74,7 @@ blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("2_p0fjj")
+texture_scale = 1.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

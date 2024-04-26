@@ -173,7 +173,7 @@ stream_2/weight = 1.0
 size = Vector2(75, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2lsd"]
-size = Vector2(2697, 1332)
+size = Vector2(2383.5, 805)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdsjh"]
 size = Vector2(3064, 1282)
@@ -313,7 +313,7 @@ position = Vector2(-141, 99)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 12015, -632, 12067, -629, 12106, -677, 12089, -704, 12065, -719, 12023, -727, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11353, -707, 11294, -704, 11265, -692, 11252, -669, 11272, -645, 11296, -637, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(2702, 184)
+position = Vector2(1413, 713)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -978,7 +978,7 @@ position = Vector2(-3.20743, 8.02861)
 polygon = PackedVector2Array(174.637, -5.64847, 142.124, -9.98921, -16.8179, -11.8302, -98.3618, -12.3416, -99.6396, 13.3736, 96.7065, 12.8865, 146.559, 8.37662, 174.753, 2.10669)
 
 [node name="Kuoppa" type="Sprite2D" parent="uudetViholliset/uusiVihollinen2"]
-position = Vector2(449.677, 358.672)
+position = Vector2(230.299, 363.494)
 scale = Vector2(2, -3)
 texture = ExtResource("13_iivh1")
 
@@ -1477,13 +1477,13 @@ z_index = -1
 texture = ExtResource("38_c8dmk")
 
 [node name="Tasot" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tasot"]
-position = Vector2(2063.5, 591)
+position = Vector2(2278.25, 471)
 shape = SubResource("RectangleShape2D_b2lsd")
 
 [node name="TasonKamera" parent="Tasot/CollisionShape2D" instance=ExtResource("44_1y1h3")]
+position = Vector2(267.75, 79)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tasot"]
 position = Vector2(4469, -1058)

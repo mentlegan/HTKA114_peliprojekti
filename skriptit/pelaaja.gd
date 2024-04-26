@@ -618,23 +618,23 @@ func _physics_process(delta):
 			if kukka.is_in_group("kukka") and Globaali.palloja != 2:
 				Globaali.palloja = 2
 				audio_valopallon_keraaminen.play()
-
+	
 				# Kukan keräämiselle indikaattori
 				if kukan_kerays_tween:
 					kukan_kerays_tween.kill()
 				kukan_kerays_tween = create_tween().set_trans(Tween.TRANS_EXPO)
 				palloja_label.scale = Vector2(1.3, 1.3)
 				kukan_kerays_tween.tween_property(palloja_label, "scale", Vector2(1, 1), 1)
-
+	
 				kukka.aloita_kerays_animaatio()
 			elif kukka.is_in_group("minecart"):
 				# Tehty nyt täällä, myöhemmin kerkiää optimoida
 				self.position = Globaali.taso1_loppu
 				Globaali.minecartit.queue_free()
 				Globaali.poista_minecart_tooltipit()
-
+	
 	# player.visible = ! (raycast.is_colliding())
-
+	
 	# light.KORKEUS nyt 60, texture_scale 12   = 60           = 12
 	# sopiva etäisyys 360, joka tulee (light.KORKEUS * light.texture_scale) / 2
 	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
@@ -650,7 +650,7 @@ func aseta_ui_nakyvyys(nakyvissa):
 	var vari = Color.TRANSPARENT
 	if nakyvissa:
 		vari = Color(1, 1, 1, 1)
-
+	
 	if tween:
 		tween.kill()
 	
