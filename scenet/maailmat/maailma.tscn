@@ -393,8 +393,8 @@ position = Vector2(1808.01, 744.402)
 rotation = 3.03455
 
 [node name="Kukka5" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(2506.27, 548.329)
-rotation = -3.04893
+position = Vector2(2065.29, 536.743)
+rotation = -2.79425
 
 [node name="Kukka37" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(2911.27, 552.867)
@@ -874,7 +874,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue"]
-polygon = PackedVector2Array(-34.4778, 4.35484, -39.0605, -5.8497, -49.1825, -6.10226, -49.9554, 8.00746, 9.7384, 8.04643, 11.337, -6.19898, -9.11053, -5.89757, -14.8564, 4.05473)
+polygon = PackedVector2Array(-34.4778, 4.35484, -39.0605, -5.8497, -40.5063, -5.84742, -37.1523, 7.18077, 9.7384, 8.04643, 11.337, -6.19898, -9.11053, -5.89757, -14.8564, 4.05473)
 
 [node name="ValonTarkistus" parent="uudetViholliset/uusiVihollinen/alue" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
 position = Vector2(-24.1817, -3.99235)
@@ -882,7 +882,7 @@ scale = Vector2(0.248258, 0.98758)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue/ValonTarkistus"]
 position = Vector2(96.5736, 4.04289)
-polygon = PackedVector2Array(-58.9988, 4.92172, -141.367, 4.95482, -160.658, -5.37772, -195.6, -5.22762, -197.072, 7.56227, -139.662, 7.67526, -58.124, 7.77856, 36.7183, 7.33229, 43.176, -5.86777, -35.854, -5.15574)
+polygon = PackedVector2Array(-58.9988, 4.92172, -33.3655, -5.70097, -160.658, -5.37772, -161.486, -5.10529, -149.664, 6.45475, -139.662, 7.67526, -58.124, 7.77856, 36.7183, 7.33229, 43.176, -5.86777, -35.854, -5.15574)
 
 [node name="Kuoppa" type="Sprite2D" parent="uudetViholliset/uusiVihollinen"]
 position = Vector2(289.207, -432.576)
@@ -1151,7 +1151,10 @@ position = Vector2(2189.31, 699.333)
 position = Vector2(2618.3, 699.378)
 
 [node name="Ovi3_y" type="Node2D" parent="Koynnosovet/Ovet_1" groups=["oviO", "y"]]
-position = Vector2(2236, 506)
+position = Vector2(2225.76, 512.421)
+scale = Vector2(0.93, 0.93)
+
+[node name="Ovi_oikea_x" parent="Koynnosovet/Ovet_1/Ovi3_y" instance=ExtResource("20_155o0")]
 
 [node name="Ovet_2" type="Node2D" parent="Koynnosovet"]
 
@@ -1477,6 +1480,7 @@ z_index = -1
 texture = ExtResource("38_c8dmk")
 
 [node name="Tasot" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tasot"]
 position = Vector2(2278.25, 471)
