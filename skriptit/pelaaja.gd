@@ -610,24 +610,28 @@ func _physics_process(delta):
 			huilun_aanet[(aanen_taajuus - 1) % AANEN_TAAJUUS_MAX].play()
 	
 	# Kukkien kerääminen JA MINECARTIN KÄYTTÄMINEN
+	# TODO: tämä myöhemmin signaaleilla
+	var kukat = valon_tarkistus.get_overlapping_areas()
+	for kukka in kukat:
+		if kukka.is_in_group("kukka") and Globaali.palloja != 2 and kukka.voiko_kerata == true:
+			Globaali.palloja = 2
+			print(kukka)
+			audio_valopallon_keraaminen.play()
+	
+			# Kukan keräämiselle indikaattori
+			if kukan_kerays_tween:
+				kukan_kerays_tween.kill()
+			kukan_kerays_tween = create_tween().set_trans(Tween.TRANS_EXPO)
+			palloja_label.scale = Vector2(1.3, 1.3)
+			kukan_kerays_tween.tween_property(palloja_label, "scale", Vector2(1, 1), 1)
+	
+			kukka.aloita_kerays_animaatio()
+			kukka.aloita_kerays()
 	# PC F
-	if Input.is_action_just_pressed("keraa_kukka"):
-		# TODO: tämä myöhemmin signaaleilla
-		var kukat = valon_tarkistus.get_overlapping_areas()
-		for kukka in kukat:
-			if kukka.is_in_group("kukka") and Globaali.palloja != 2:
-				Globaali.palloja = 2
-				audio_valopallon_keraaminen.play()
-	
-				# Kukan keräämiselle indikaattori
-				if kukan_kerays_tween:
-					kukan_kerays_tween.kill()
-				kukan_kerays_tween = create_tween().set_trans(Tween.TRANS_EXPO)
-				palloja_label.scale = Vector2(1.3, 1.3)
-				kukan_kerays_tween.tween_property(palloja_label, "scale", Vector2(1, 1), 1)
-	
-				kukka.aloita_kerays_animaatio()
-			elif kukka.is_in_group("minecart"):
+	if Input.is_action_just_pressed("kayta"):
+		var alueet = valon_tarkistus.get_overlapping_areas()
+		for alue in alueet:
+			if alue.is_in_group("minecart"):
 				# Tehty nyt täällä, myöhemmin kerkiää optimoida
 				self.position = Globaali.taso1_loppu
 				Globaali.minecartit.queue_free()

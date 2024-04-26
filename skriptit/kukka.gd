@@ -7,6 +7,7 @@ extends Area2D
 
 ## Kukan nodet
 @onready var huilu_ajastin = $HuiluAjastin
+@onready var kerays_cooldown = $Timer
 
 @onready var area = $Area2D
 @onready var point_light = $Area2D/PointLight2D
@@ -16,6 +17,8 @@ extends Area2D
 
 ## Muuttuja sille, onko valo asetettu päälle valopallolla
 var valo_paalla_pysyvasti = false
+## Cooldownia varten
+var voiko_kerata = true
 
 ## Tween kukan animaatiota varten
 var tween: Tween
@@ -26,9 +29,20 @@ func _ready():
 	point_light.set_energy(0)
 	# Yhdistetään ajastimet huilun ominaisuuksilta palautumiseen
 	huilu_ajastin.timeout.connect(sulje_valo)
-
+	
 	partikkelit.one_shot = true
 	partikkelit.emitting = false
+	
+	kerays_cooldown.timeout.connect(vaihda_kerays)
+
+
+func aloita_kerays():
+	kerays_cooldown.start()
+	voiko_kerata = false
+
+
+func vaihda_kerays():
+	voiko_kerata = true
 
 
 func aloita_animaatio(skaala, valon_energia, kesto):

@@ -377,7 +377,7 @@ light_mode = 1
 light_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qv5js"]
-radius = 37.0
+radius = 24.0208
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e1hap"]
 blend_mode = 1

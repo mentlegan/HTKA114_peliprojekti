@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="4_aw5ux"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yjw0c"]
-radius = 60.0
-height = 122.0
+radius = 17.0
+height = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rw8h0"]
 radius = 60.208
@@ -73,6 +73,10 @@ damping_max = 76.768
 scale_amount_min = 0.5
 scale_amount_curve = SubResource("Curve_jjl0m")
 color_ramp = SubResource("Gradient_g71rd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -313,7 +313,7 @@ position = Vector2(-141, 99)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 12015, -632, 12067, -629, 12106, -677, 12089, -704, 12065, -719, 12023, -727, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11353, -707, 11294, -704, 11265, -692, 11252, -669, 11272, -645, 11296, -637, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1413, 713)
+position = Vector2(1399, 710)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -1353,7 +1353,7 @@ position = Vector2(1397, 644)
 position = Vector2(3019, 495)
 
 [node name="TooltipPoimi" parent="Tooltipit" instance=ExtResource("20_i01e2")]
-position = Vector2(1810, 667)
+position = Vector2(1744, 308)
 
 [node name="TooltipHeita" parent="Tooltipit" instance=ExtResource("21_ql1ss")]
 position = Vector2(2102, 672)
