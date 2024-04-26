@@ -80,6 +80,7 @@ const AANEN_TAAJUUS_VARIT = [
 ## UI:n ja kukan keräyksen animaatiota varten
 var tween: Tween
 var kukan_kerays_tween: Tween
+var kuolema_tween : Tween
 
 ## Ajastin pimeässä selviämiselle
 var ajastin_pimeassa = Timer.new()
@@ -175,7 +176,7 @@ func _ready():
 	# Pelaaja kuolee, jos hän on pimeässä liian kauan
 	ajastin_pimeassa.timeout.connect(kuolema)
 	# Toistetaan lähestyvän pimeäkuoleman ääni, kun pelaaja on pimeässä
-	ajastin_pimeassa_audio.timeout.connect(soitaPimeakuolemanAani)
+	ajastin_pimeassa_audio.timeout.connect(pimeaKuoleminen)
 	
 	# Pelaajan elämä regeneraatio
 	elama_regen_ajastin.timeout.connect(elama_regen)
@@ -204,21 +205,23 @@ func _ready():
 	# Asetetaan äänen taajuus yhdeksi
 	vaihda_aanen_taajuutta(-1)
 	aanen_taajuus_sprite.visible = false
-
+	
 	# Laitetaan huilun collision pois päältä
 	huilun_collision.set_disabled(true)
-
+	
 	# Asetetaan idle-animaation pelin alussa
 	animaatio.play("idle")
 	
 	# Pausen aikana soitettavat animaatiot eivät ole näkyvissä normaalisti
 	pauseAnimaatiot.visible=false
-
+	
 	# Lisätään Tähtäin-spriten lapsinodet omaan taulukkoon
 	tahtaimen_lapset = tahtain.get_children()
-
+	
 	# Reunoja pimentävä valo näkyviin
 	reunojen_pimentaja_valo.visible = true
+	
+	pimeyskuolema.modulate.a = 0.0
 
 
 ## Lopettaa huilu-animaation
@@ -236,9 +239,17 @@ func siirrytty_valoon():
 	valossa = true
 	ajastin_pimeassa.stop()
 	ajastin_pimeassa_audio.stop()
-	pimeyskuolema.stop()
+	kuolema_tween = create_tween()
+	kuolema_tween.set_trans(Tween.TRANS_CUBIC)
+	kuolema_tween.tween_property(pimeyskuolema, "modulate:a", 0, 4)
 	audio_pimeyskuolema.stop()
+	pimeyskuolema.pause()
+	# Animaatio alkamaan nykyisestä kohdasta taaksepäin
+	await get_tree().create_timer(0.5).timeout
+	pimeyskuolema.play_backwards("PimeysKuolema")
 	print("Valossa: " + str(valossa))
+	await get_tree().create_timer(4).timeout
+	pimeyskuolema.stop()
 
 
 func paivita_tahtaimen_lentorata():
@@ -256,6 +267,16 @@ func siirrytty_varjoon():
 	print("Valossa: " + str(valossa))
 	await get_tree().create_timer(2.5).timeout
 	audio_pimeassa.play()
+
+
+## Toistaa pimeäkuoleman äänen kun oltu pimeässä vakion PIMEASSA_AUDION_VIIVE verran
+## Pimeyskuoleman indikaattorin käsittelyä
+func pimeaKuoleminen():
+	audio_pimeyskuolema.play()
+	pimeyskuolema.play("PimeysKuolema")
+	kuolema_tween = create_tween()
+	kuolema_tween.set_trans(Tween.TRANS_CUBIC)
+	kuolema_tween.tween_property(pimeyskuolema, "modulate:a", 1, 5)
 
 
 ## Tähän lisätty signaalin emit
@@ -276,23 +297,20 @@ func kuolema_fall_damageen():
 	kuollut.emit()
 
 
-## Toistaa pimeäkuoleman äänen kun oltu pimeässä vakion PIMEASSA_AUDION_VIIVE verran 
-func soitaPimeakuolemanAani():
-	audio_pimeyskuolema.play()
-	pimeyskuolema.play("PimeysKuolema")
-
-
 ## Haetaan pelaajan elamat
 func get_elamat():
 	return pelaajan_elamat
 
+
 func elamat_label_paivita():
 	elamat.text = "Health: " + str(pelaajan_elamat)
-	
+
+
 func elama_regen():
 	saa_elamia(elamat_regen_maara)
 	if pelaajan_elamat < pelaajan_elamat_max:
 		elama_regen_ajastin.start(elamat_regen_nopeus)
+
 
 func saa_elamia(maara):
 	if pelaajan_elamat + maara < pelaajan_elamat_max:
@@ -300,7 +318,8 @@ func saa_elamia(maara):
 	else:
 		pelaajan_elamat = pelaajan_elamat_max
 	elamat_label_paivita()
-	
+
+
 func meneta_elamia(maara):
 	if pelaajan_elamat - maara > 0:
 		pelaajan_elamat -= maara
@@ -317,7 +336,8 @@ func meneta_elamia(maara):
 ## Ei hyppyä kun liian kauan seinältä
 func hyppy_buffer_seinalla():
 	oli_seinalla = false
-	
+
+
 ## Ei hyppyä kun liian kauan seinältä
 func hyppy_buffer_maassa():
 	oli_maassa = false
@@ -332,12 +352,14 @@ func seinalla():
 	if is_on_wall():
 		putoamis_vahinko = false
 
+
 ## Käännetään pelaajan animaatio jos väärin päin seinällä
 func oikein_seinalla():
 	if (animaatio.is_flipped_h() and get_wall_normal().x < 0):
 		animaatio.set_flip_h(!animaatio.is_flipped_h())
 	elif not animaatio.is_flipped_h() and get_wall_normal().x > 0:
 		animaatio.set_flip_h(!animaatio.is_flipped_h())
+
 
 ## Palauttaa nykyisen äänen taajuuden värin
 func aanen_taajuuden_vari():
@@ -369,11 +391,11 @@ func _physics_process(delta):
 		Input.get_axis("tahtaa_vasen", "tahtaa_oikea"),
 		Input.get_axis("tahtaa_ylos", "tahtaa_alas")
 	)
-
+	
 	# Otetaan pelaajan liikkeen haluttu suunta
 	# PC vasen: A, oikea: D
 	suunta = Input.get_axis("liiku_vasen", "liiku_oikea")
-
+	
 	if (ohjain_tahtays != Vector2.ZERO
 	and Input.is_action_pressed("ohjain_tahtaa")
 	and is_on_floor()):
@@ -429,7 +451,7 @@ func _physics_process(delta):
 			animaatio.frame = 0
 			oikein_seinalla()
 		seinalla()
-
+	
 	# Hyppy takaisin kun maassa
 	if is_on_floor():
 		hyppyjen_maara = 0
@@ -447,7 +469,6 @@ func _physics_process(delta):
 			else:
 				audio_pelaaja_tomahdys.play()
 			putoamis_vahinko = false
-	
 	
 	# Tehdään hyppy
 	# PC SPACE_BAR
@@ -530,7 +551,7 @@ func _physics_process(delta):
 					audio_kavely.play()
 		else:
 			audio_kavely.stop()
-
+	
 			if not is_on_wall() and not is_on_floor():
 				# Asetetaan hyppyanimaatio
 				animaatio.set_animation("hyppy")

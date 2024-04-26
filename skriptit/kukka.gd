@@ -54,6 +54,7 @@ func aloita_animaatio(skaala, valon_energia, kesto):
 	tween = create_tween()
 	tween.set_parallel(true)
 	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(point_light, "texture_scale", skaala, kesto)
 	tween.tween_property(point_light, "energy", valon_energia, kesto)
 	tween.tween_property(collision_shape, "scale", Vector2(skaala, skaala), kesto)
@@ -83,7 +84,7 @@ func aseta_valon_skaala(skaala):
 
 	collision_shape.position = Vector2(0, 0)
 
-	aloita_animaatio(skaala, 1, 2)
+	aloita_animaatio(skaala, 1, 3)
 
 	if not area.is_in_group("valonlahde"):
 		area.add_to_group("valonlahde")

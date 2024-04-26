@@ -34,6 +34,7 @@ var SPEED = 110.0
 var kimpoamiset = 0
 ## Tällä hetkellä 7.0 sekuntia elossa
 @onready var elo_aika = get_node("Timer")
+var tween: Tween
 
 
 ## Kytketään ajastimen loppuminen valopallon tuhoamiseen
@@ -235,7 +236,13 @@ func _physics_process(delta):
 			# Pienennetään valon energiaa
 			audio_valopallon_kimpoaminen.play()
 			# Vähennetään kirkkautta kimmotessa
-			valo.energy *= 0.8
+			if tween:
+				tween.kill()
+			tween = create_tween()
+			tween.set_ease(Tween.EASE_IN_OUT)
+			tween.set_trans(Tween.TRANS_BACK)
+			tween.tween_property(valo, "energy", valo.energy * 0.8, 0.5)
+			# valo.energy *= 0.8
 			# Keskimäärin vähennetään nopeutta hiukan kimmotessa
 			# Voi joskus myös nopeutua :)
 			velocity *= randf_range(0.8, 1.1)
