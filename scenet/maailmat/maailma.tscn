@@ -1070,8 +1070,8 @@ scale = Vector2(0.248258, 0.98758)
 polygon = PackedVector2Array(-237.317, -12.9661, -260.58, -10.7798, -260.445, -1.80014, -246.127, 9.75888, -217.776, 13.9653, -14.6147, 24.0878, 270.121, 36.6267, 328.404, -15.9145)
 
 [node name="Kuoppa" type="Sprite2D" parent="uudetViholliset/uusiVihollinen3"]
-position = Vector2(-1172.66, -99.2644)
-rotation = 0.0516783
+position = Vector2(-575.809, -76.7673)
+rotation = 0.0267142
 scale = Vector2(2, -3)
 texture = ExtResource("13_iivh1")
 
@@ -1153,8 +1153,6 @@ position = Vector2(2618.3, 699.378)
 [node name="Ovi3_y" type="Node2D" parent="Koynnosovet/Ovet_1" groups=["oviO", "y"]]
 position = Vector2(2225.76, 512.421)
 scale = Vector2(0.93, 0.93)
-
-[node name="Ovi_oikea_x" parent="Koynnosovet/Ovet_1/Ovi3_y" instance=ExtResource("20_155o0")]
 
 [node name="Ovet_2" type="Node2D" parent="Koynnosovet"]
 
