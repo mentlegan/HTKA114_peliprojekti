@@ -74,6 +74,7 @@ func start_destroy():
 			Globaali.nykyiset_pallot -= 1
 	)
 
+
 ## Muuttaa ovet, jos valopallo osuu x tai z oveen
 ## Attribuuttina tulee ryhmän nimi (x tai z)
 ## _ovi_ylin on ylin node, joka sisältää kaikki tason ovet
@@ -226,10 +227,15 @@ func _physics_process(delta):
 					groups.remove_from_group(group)
 			"""
 			
-			# Tuhotaan pallo, se imeytyy oveen
-			start_destroy()
+			# Poistetaan collision, etenkin ristioven kohdalla positionin tweenaus tuotti ongelmia
+			$CollisionShape2D.disabled = true
+			# Pallo imeytyy oveen
+			var pallon_siirto_tween = create_tween().set_trans(Tween.TRANS_QUAD)
+			pallon_siirto_tween.set_ease(Tween.EASE_IN_OUT)
+			pallon_siirto_tween.tween_property(self, "position", parent.global_position, 1)
 			audio_valopallo_hajoaa.play() # TODO: Jostain syystä ei soi
-			
+			await get_tree().create_timer(0.2).timeout
+			start_destroy()
 			
 		else: # Kimpoaminen
 			velocity = velocity.bounce(collision.get_normal())
