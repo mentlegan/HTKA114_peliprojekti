@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6cwc10i6c0w4"]
+[gd_scene load_steps=3 format=3 uid="uid://b6cwc10i6c0w4"]
 
-[ext_resource type="Script" path="res://skriptit/kuoppa.gd" id="1_b1s2p"]
 [ext_resource type="Texture2D" uid="uid://4qkv77frylqp" path="res://grafiikka/EnemyDirt.png" id="2_eog6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_252ua"]
@@ -9,7 +8,6 @@ size = Vector2(30, 12)
 [node name="Kuoppa" type="Area2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_b1s2p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-5.19753e-05, -5.99999)

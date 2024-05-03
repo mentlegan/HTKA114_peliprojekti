@@ -85,7 +85,6 @@ animations = [{
 light_mode = 1
 
 [node name="Help" type="Control"]
-auto_translate_mode = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -117,6 +116,8 @@ script = null
 texture_filter = 1
 position = Vector2(246, 157)
 sprite_frames = SubResource("SpriteFrames_eov0u")
+frame = 1
+frame_progress = 0.859523
 
 [node name="TooltipKiipea" parent="." instance=ExtResource("5_a54me")]
 position = Vector2(616, 128)
@@ -147,7 +148,7 @@ offset_left = 759.0
 offset_top = 10.0
 offset_right = 903.0
 offset_bottom = 33.0
-text = "Poistu: F1 /"
+text = "Close: F1 /"
 
 [node name="Sprite2D" type="Sprite2D" parent="ApuaLabel"]
 texture_filter = 1

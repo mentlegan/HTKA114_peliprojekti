@@ -62,13 +62,13 @@ func start_destroy():
 	valo.blend_mode = 0
 
 	# Vähennetään valopallon energiaa ja kokoa. Tuhotaan valopallo animaation päätyttyä
-	var tween = create_tween()
-	tween.set_parallel(true)
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(valo, "energy", 0, 1)
-	tween.tween_property(valo, "texture_scale", 0, 1)
-	tween.tween_property(sprite, "modulate", Color.TRANSPARENT, 1)
-	tween.finished.connect(
+	var tween_pallo = create_tween()
+	tween_pallo.set_parallel(true)
+	tween_pallo.set_trans(Tween.TRANS_CUBIC)
+	tween_pallo.tween_property(valo, "energy", 0, 1)
+	tween_pallo.tween_property(valo, "texture_scale", 0, 1)
+	tween_pallo.tween_property(sprite, "modulate", Color.TRANSPARENT, 1)
+	tween_pallo.finished.connect(
 		func():
 			queue_free()
 			Globaali.nykyiset_pallot -= 1

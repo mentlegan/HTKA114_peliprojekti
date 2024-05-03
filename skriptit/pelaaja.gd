@@ -98,6 +98,9 @@ var hiiren_viime_sijainti = Vector2(0, 0)
 
 ## Ladataan valmiiksi valopallo
 var valopallo = preload("res://scenet/valo_character.tscn")
+## Valopallon UI tekstuurit
+@onready var palloja_1 = preload("res://grafiikka/LightBall1.png")
+@onready var palloja_2 = preload("res://grafiikka/LightBall2.png")
 
 ## Asetetaan pelaajan nopeus ja hypyt
 const MAX_NOPEUS = 180.0
@@ -120,10 +123,10 @@ const MAX_TAHTAIN_ETAISYYS = 128
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")*1.25
 var hyppyjen_maara = 0
-# Oliko/onko pelaaja maassa tai seinällä (käytetään timerissa)
+## Oliko/onko pelaaja maassa tai seinällä (käytetään timerissa)
 var oli_maassa = false
 var oli_seinalla = false
-# Toggle seinäkiipeämiselle
+## Toggle seinäkiipeämiselle
 var kiipeamis_toggle = true
 
 ## Ajastin hyppyjen buffereille
@@ -222,6 +225,8 @@ func _ready():
 	reunojen_pimentaja_valo.visible = true
 	
 	pimeyskuolema.modulate.a = 0.0
+	
+	palloja_label_paivita()
 
 
 ## Lopettaa huilu-animaation
@@ -331,6 +336,18 @@ func meneta_elamia(maara):
 		# Nyt ei toimi oikein jos pelaaja voi ottaa damagea muusta kuin putoamisesta
 		kuolema_fall_damageen()
 	elamat_label_paivita()
+
+
+func palloja_label_paivita():
+	if Globaali.palloja == 0:
+		palloja_label.visible = false
+	elif Globaali.palloja == 1:
+		palloja_label.set_texture(palloja_1)
+		palloja_label.visible = true
+	else:
+		palloja_label.set_texture(palloja_2)
+		palloja_label.visible = true
+
 
 
 ## Ei hyppyä kun liian kauan seinältä
@@ -605,9 +622,14 @@ func _physics_process(delta):
 			# Lisääminen puuhun
 			get_tree().root.add_child(l)
 			
+			var pallon_heitto_tween = create_tween().set_trans(Tween.TRANS_EXPO)
+			palloja_label.scale = Vector2(0.8, 0.8)
+			pallon_heitto_tween.tween_property(palloja_label, "scale", Vector2(1,1), 1)
+			
 			# Muuttujiin muutokset
 			Globaali.nykyiset_pallot += 1
 			Globaali.palloja -= 1
+			palloja_label_paivita()
 	
 	# Nostetaan ja lasketaan äänen taajuutta tarvittaessa
 	# PC MOUSE_WHEEL
@@ -635,17 +657,19 @@ func _physics_process(delta):
 	var kukat = valon_tarkistus.get_overlapping_areas()
 	for kukka in kukat:
 		if kukka.is_in_group("kukka") and Globaali.palloja != 2 and kukka.voiko_kerata == true:
-			Globaali.palloja = 2
-			print(kukka)
 			audio_valopallon_keraaminen.play()
-	
+			
 			# Kukan keräämiselle indikaattori
 			if kukan_kerays_tween:
 				kukan_kerays_tween.kill()
+			
 			kukan_kerays_tween = create_tween().set_trans(Tween.TRANS_EXPO)
 			palloja_label.scale = Vector2(1.3, 1.3)
 			kukan_kerays_tween.tween_property(palloja_label, "scale", Vector2(1, 1), 1)
-	
+			
+			Globaali.palloja = 2
+			palloja_label_paivita()
+			
 			kukka.aloita_kerays_animaatio()
 			kukka.aloita_kerays()
 	# PC F

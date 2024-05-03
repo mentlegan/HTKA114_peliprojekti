@@ -1,8 +1,7 @@
 ## Harri 14.3.2024
 ## Elias 17.3.2024 - vihollisen ääniä
-
 extends CharacterBody2D
-
+"""
 const SPEED = 50.0
 signal pelaaja_kuollut
 
@@ -199,3 +198,4 @@ func _on_tarkkaavaisuus_body_exited(_body):
 func _on_keho_area_entered(area):
 	if area is Kuoppa and pakenee:
 		lopeta_pakeneminen()
+"""

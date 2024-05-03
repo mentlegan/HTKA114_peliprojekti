@@ -98,8 +98,8 @@ func _ready():
 	pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
 	pelaaja.kuollut.connect(_game_over) # Yhdistetään signaali pelaajasta
 	
-	vihollinen = get_tree().get_first_node_in_group("vihollinen") # Tehdään näissä
-	vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
+	# vihollinen = get_tree().get_first_node_in_group("vihollinen") # Tehdään näissä
+	# vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
 	# Yhdistetään kuolema kaikkiin uusiin vihollisiin
 	for uusiVihu in uudetViholliset:
@@ -113,7 +113,7 @@ func _ready():
 	
 	# Otetaan aloitus koordinaatit talteen
 	pelaaja_aloitus = pelaaja.position
-	vihollinen_aloitus = vihollinen.position
+	# vihollinen_aloitus = vihollinen.position
 	
 	"""
 	# Haetaan koynnosovet-noden kaikki lapset eli ovet tasoittain
