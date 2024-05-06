@@ -26,6 +26,7 @@ var SPEED = 110.0
 @onready var audio_valopallon_heitto = $AudioValopallonHeitto
 @onready var audio_valopallon_kimpoaminen = $AudioValopallonKimpoaminen
 @onready var audio_valopallo_hajoaa = $AudioValopalloHajoaa
+@onready var audio_koynnos_ovi = $AudioKoynnosOvi
 
 ## Valopallon sprite, käytetään tuhoamisanimaation aikana
 @onready var sprite = $Sprite2D
@@ -233,22 +234,20 @@ func _physics_process(delta):
 			var pallon_siirto_tween = create_tween().set_trans(Tween.TRANS_QUAD)
 			pallon_siirto_tween.set_ease(Tween.EASE_IN_OUT)
 			pallon_siirto_tween.tween_property(self, "position", parent.global_position, 1)
+			audio_koynnos_ovi.play()
 			audio_valopallo_hajoaa.play() # TODO: Jostain syystä ei soi
 			await get_tree().create_timer(0.2).timeout
 			start_destroy()
 			
 		else: # Kimpoaminen
 			velocity = velocity.bounce(collision.get_normal())
-			# Pienennetään valon energiaa
 			audio_valopallon_kimpoaminen.play()
-			# Vähennetään kirkkautta kimmotessa
 			if tween:
 				tween.kill()
 			tween = create_tween()
 			tween.set_ease(Tween.EASE_IN_OUT)
 			tween.set_trans(Tween.TRANS_BACK)
 			tween.tween_property(valo, "energy", valo.energy * 0.8, 0.5)
-			# valo.energy *= 0.8
 			# Keskimäärin vähennetään nopeutta hiukan kimmotessa
 			# Voi joskus myös nopeutua :)
 			velocity *= randf_range(0.8, 1.1)
@@ -256,25 +255,3 @@ func _physics_process(delta):
 			kimpoamiset += 1
 			if kimpoamiset >= 5:
 				start_destroy()
-	
-	
-	"""
-	## (TESTAUKSEEN)
-	## Luodaan ovet uudelleen, silloin kun valopallo on olemassa
-	if Input.is_action_just_pressed("q"):
-		# Alustetaan ovet valmiiksi käytettäväksi
-		var ovi_v = ovi_vasen.instantiate()
-		var ovi_o = ovi_oikea.instantiate()
-		
-		# Käydään läpi kaikki ovet
-		for ovi in ovet:
-			# Eli jos ei ole ovea
-			if ovi.get_child_count() == 0:
-				# Listään ovi-nodeille lapseksi vasemmalta
-				# tai oikealta aukeava ovi riippuen ryhmästä
-				if ovi.is_in_group("ovi_v"):
-					ovi.add_child(ovi_v)
-				elif ovi.is_in_group("ovi_o"):
-					ovi.add_child(ovi_o)
-	"""
-	

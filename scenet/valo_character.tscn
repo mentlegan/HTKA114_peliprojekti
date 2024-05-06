@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://713ktg8ejflv"]
+[gd_scene load_steps=13 format=3 uid="uid://713ktg8ejflv"]
 
 [ext_resource type="Script" path="res://skriptit/valocharacter.gd" id="1_0y8yp"]
 [ext_resource type="Texture2D" uid="uid://bmvtp7yssbvk2" path="res://grafiikka/Valo512.png" id="2_kid4c"]
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="3_vppnu"]
 [ext_resource type="AudioStream" uid="uid://ctkufn8j2dbv0" path="res://audio/valopallo/valopallo_heitetaan1_mono.wav" id="4_1ql26"]
 [ext_resource type="AudioStream" uid="uid://jmpel44x4g5k" path="res://audio/valopallo/valopallo_kimpoaa1_CG_mono.wav" id="5_35uxy"]
+[ext_resource type="AudioStream" uid="uid://b552p0vjil1na" path="res://audio/koynnosovi/koynnosovi1.wav" id="5_g0pli"]
 [ext_resource type="AudioStream" uid="uid://bjycmvoahwydx" path="res://audio/valopallo/valopallo_kimpoaa2_CE_mono.wav" id="6_k58co"]
 [ext_resource type="AudioStream" uid="uid://d0up845wq3aos" path="res://audio/valopallo/valopallo_kimpoaa3_GE_mono.wav" id="7_8xih3"]
 [ext_resource type="AudioStream" uid="uid://c1qoltjvieqv2" path="res://audio/valopallo/valopallo_hajoaa1_mono.wav" id="8_b1a0l"]
@@ -74,3 +75,6 @@ stream = SubResource("AudioStreamRandomizer_ekjm1")
 
 [node name="AudioValopalloHajoaa" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_b1a0l")
+
+[node name="AudioKoynnosOvi" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_g0pli")
