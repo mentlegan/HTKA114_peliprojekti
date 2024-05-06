@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=90 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -19,24 +19,22 @@
 [ext_resource type="Texture2D" uid="uid://4qkv77frylqp" path="res://grafiikka/EnemyDirt.png" id="12_73kqy"]
 [ext_resource type="AudioStream" uid="uid://es1b0j0djyua" path="res://audio/pelaaja/hyppy1_mono.wav" id="12_k2yxh"]
 [ext_resource type="AudioStream" uid="uid://ntnhr3lolj61" path="res://audio/pelaaja/hyppy2_mono.wav" id="13_rny7p"]
-[ext_resource type="AudioStream" uid="uid://e1sqjn1k3jyw" path="res://audio/ambient/luola-aani1.wav" id="14_2eon3"]
 [ext_resource type="AudioStream" uid="uid://b3cxujqnjndpd" path="res://audio/pelaaja/hyppy3_mono.wav" id="14_yxy1y"]
-[ext_resource type="AudioStream" uid="uid://cyguje8y5mvu6" path="res://audio/ambient/luola-aani2.wav" id="15_4bgbe"]
 [ext_resource type="AudioStream" uid="uid://bjbaqnxkgke0l" path="res://audio/pelaaja/walljump1_mono.wav" id="15_bxt80"]
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="16_4n4el"]
-[ext_resource type="AudioStream" uid="uid://gx8ajgkwr0pq" path="res://audio/ambient/luola-aani3.wav" id="16_fbtr4"]
 [ext_resource type="Texture2D" uid="uid://dj3c6nkmnxha2" path="res://grafiikka/Valo256.png" id="20_8tpmo"]
-[ext_resource type="AudioStream" uid="uid://c5gr65mbd8g83" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
-[ext_resource type="AudioStream" uid="uid://320omrds163w" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
+[ext_resource type="AudioStream" uid="uid://k8bolxqmi6bc" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
+[ext_resource type="AudioStream" uid="uid://cmevoa60tvwha" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
 [ext_resource type="Texture2D" uid="uid://cbatwxsibovo" path="res://grafiikka/AanenTaajuus1.png" id="22_7od7w"]
 [ext_resource type="Texture2D" uid="uid://bh2dveepeu0so" path="res://grafiikka/Nuotti.png" id="22_fot2n"]
 [ext_resource type="Texture2D" uid="uid://cg7a67mf311xj" path="res://grafiikka/AanenTaajuus2.png" id="23_ai0kk"]
 [ext_resource type="AudioStream" uid="uid://pywxdhvql574" path="res://audio/pelaaja/huilu/huiluaani_A.wav" id="23_elvmw"]
 [ext_resource type="Texture2D" uid="uid://cp4f2v1euxr6b" path="res://grafiikka/AanenTaajuus3.png" id="24_7n80x"]
 [ext_resource type="AudioStream" uid="uid://dw75jyosgto66" path="res://audio/pelaaja/huilu/huiluaani_C.wav" id="24_xxdxr"]
+[ext_resource type="AudioStream" uid="uid://ltpmtsb6fob6" path="res://audio/ambient/tuulen_humina.mp3" id="25_byydo"]
 [ext_resource type="AudioStream" uid="uid://diri4jc7100fi" path="res://audio/pelaaja/huilu/huiluaani_E.wav" id="25_qars5"]
 [ext_resource type="Script" path="res://skriptit/huilu.gd" id="26_v60w7"]
-[ext_resource type="AudioStream" uid="uid://dc077psvcx65q" path="res://audio/valopallo/valopallo_poimitaan_mono.mp3" id="28_p78nr"]
+[ext_resource type="AudioStream" uid="uid://sxegtfb2jf0b" path="res://audio/valopallo/valopallo_poimitaan_mono.mp3" id="28_p78nr"]
 [ext_resource type="AudioStream" uid="uid://7tjeefooail4" path="res://audio/pelaaja/creeping_darkness_2.mp3" id="32_1qpma"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
@@ -391,15 +389,6 @@ stream_1/weight = 1.0
 stream_2/stream = ExtResource("14_yxy1y")
 stream_2/weight = 1.0
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pjubx"]
-streams_count = 3
-stream_0/stream = ExtResource("14_2eon3")
-stream_0/weight = 1.0
-stream_1/stream = ExtResource("15_4bgbe")
-stream_1/weight = 1.0
-stream_2/stream = ExtResource("16_fbtr4")
-stream_2/weight = 1.0
-
 [sub_resource type="Gradient" id="Gradient_d4qav"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
@@ -598,8 +587,9 @@ stream = ExtResource("20_l0cg5")
 volume_db = 9.962
 bus = &"Pelaaja"
 
-[node name="AudioPimeassa" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_pjubx")
+[node name="AudioAmbient" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_byydo")
+volume_db = 12.506
 
 [node name="HuiluAaniA" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_elvmw")

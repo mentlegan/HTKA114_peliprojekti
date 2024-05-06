@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=69 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -24,13 +24,14 @@
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
-[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
+[ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="23_k22wo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
+[ext_resource type="AudioStream" uid="uid://dsuerutfqm4ix" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
 [ext_resource type="AudioStream" uid="uid://cbninhjqk8vnv" path="res://audio/hirvio/hirvioaani2_mono.wav" id="28_lynst"]
@@ -160,7 +161,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w41mi"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7b0f1"]
 streams_count = 3
 stream_0/stream = ExtResource("27_5yynh")
 stream_0/weight = 1.0
@@ -925,33 +926,46 @@ animation = &"kaivautuminen"
 frame = 1
 frame_progress = 0.415255
 
-[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
+[node name="AudioStreamPlayerContainer" type="Node2D" parent="uudetViholliset/uusiVihollinen"]
+
+[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
 stream = ExtResource("26_ibcbx")
 bus = &"Vihollinen"
 
-[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
-stream = SubResource("AudioStreamRandomizer_w41mi")
+[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
+stream = SubResource("AudioStreamRandomizer_7b0f1")
 volume_db = -3.0
 bus = &"Vihollinen"
 
-[node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
+[node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
 stream = ExtResource("30_pn52s")
 volume_db = 16.0
 bus = &"Vihollinen"
 
-[node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
+[node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
 stream = ExtResource("31_bllwm")
 volume_db = -7.0
 bus = &"Vihollinen"
 
-[node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen"]
+[node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
 process_mode = 3
+scale = Vector2(1, 1)
 stream = ExtResource("32_a8tci")
 volume_db = 7.0
 bus = &"Vihollinen"
 
-[node name="AudioKaivautuminen" type="AudioStreamPlayer" parent="uudetViholliset/uusiVihollinen"]
+[node name="AudioKaivautuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
 stream = ExtResource("33_y2rdp")
+
+[node name="AudioTaustaaani" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
+stream = ExtResource("25_lejso")
+autoplay = true
+max_distance = 600.0
 
 [node name="uusiVihollinen2" type="Node2D" parent="uudetViholliset"]
 position = Vector2(5554, -866)
@@ -1016,33 +1030,46 @@ animation = &"kaivautuminen"
 frame = 1
 frame_progress = 0.415255
 
-[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
+[node name="AudioStreamPlayerContainer" type="Node2D" parent="uudetViholliset/uusiVihollinen2"]
+
+[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
 stream = ExtResource("26_ibcbx")
 bus = &"Vihollinen"
 
-[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
-stream = SubResource("AudioStreamRandomizer_w41mi")
+[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
+stream = SubResource("AudioStreamRandomizer_7b0f1")
 volume_db = -3.0
 bus = &"Vihollinen"
 
-[node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
+[node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
 stream = ExtResource("30_pn52s")
 volume_db = 16.0
 bus = &"Vihollinen"
 
-[node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
+[node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
 stream = ExtResource("31_bllwm")
 volume_db = -7.0
 bus = &"Vihollinen"
 
-[node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2"]
+[node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
 process_mode = 3
+scale = Vector2(1, 1)
 stream = ExtResource("32_a8tci")
 volume_db = 7.0
 bus = &"Vihollinen"
 
-[node name="AudioKaivautuminen" type="AudioStreamPlayer" parent="uudetViholliset/uusiVihollinen2"]
+[node name="AudioKaivautuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
 stream = ExtResource("33_y2rdp")
+
+[node name="AudioTaustaaani" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
+stream = ExtResource("25_lejso")
+autoplay = true
+max_distance = 600.0
 
 [node name="uusiVihollinen3" type="Node2D" parent="uudetViholliset"]
 position = Vector2(5109, 1212)
@@ -1108,33 +1135,46 @@ animation = &"kaivautuminen"
 frame = 1
 frame_progress = 0.415255
 
-[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
+[node name="AudioStreamPlayerContainer" type="Node2D" parent="uudetViholliset/uusiVihollinen3"]
+
+[node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
 stream = ExtResource("26_ibcbx")
 bus = &"Vihollinen"
 
-[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
-stream = SubResource("AudioStreamRandomizer_w41mi")
+[node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
+stream = SubResource("AudioStreamRandomizer_7b0f1")
 volume_db = -3.0
 bus = &"Vihollinen"
 
-[node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
+[node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
 stream = ExtResource("30_pn52s")
 volume_db = 16.0
 bus = &"Vihollinen"
 
-[node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
+[node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
 stream = ExtResource("31_bllwm")
 volume_db = -7.0
 bus = &"Vihollinen"
 
-[node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3"]
+[node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
 process_mode = 3
+scale = Vector2(1, 1)
 stream = ExtResource("32_a8tci")
 volume_db = 7.0
 bus = &"Vihollinen"
 
-[node name="AudioKaivautuminen" type="AudioStreamPlayer" parent="uudetViholliset/uusiVihollinen3"]
+[node name="AudioKaivautuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
 stream = ExtResource("33_y2rdp")
+
+[node name="AudioTaustaaani" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
+scale = Vector2(1, 1)
+stream = ExtResource("25_lejso")
+autoplay = true
+max_distance = 600.0
 
 [node name="Koynnosovet" type="Node2D" parent="." groups=["koynnosovet"]]
 rotation = -0.00243501

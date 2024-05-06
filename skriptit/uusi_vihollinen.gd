@@ -1,5 +1,6 @@
 ## Harri 24.4.2024
 ## Elias 22.4.2024 äänenkorkeuden muutos
+## Elias 6.5.2024 äänilähteen vaihtuminen aktiivisen alueen mukaan
 ## Vanhan vihollisen saa takaisin: noden Inspector - process - disabled -> inherit
 ## TÄRKEÄÄ: pidä nodejen järjestys aina samana kun instanssoit vihollisia, muuten koodi menee sekaisin
 ## Osaa:
@@ -24,17 +25,21 @@ var kuolema_ajastin = Timer.new() ## Ajastin, että milloin vihollinen tappaa pe
 var light = preload("res://scenet/valo_character.tscn") ## Valon informaatio. Tarviiko tätä?
 
 ## Äänet, kopsattu toisesta vihollisesta
-@onready var audio_paikoillaan = $AudioPaikoillaan
-@onready var audio_jahtaus = $AudioJahtaus
-@onready var audio_pakeneminen = $AudioPakeneminen
-@onready var audio_pelaaja_kuolee_viholliselle = $AudioPelaajaKuoleeViholliselle
-@onready var audio_kaivautuminen = $AudioKaivautuminen
+@onready var audio_paikoillaan = $AudioStreamPlayerContainer/AudioPaikoillaan
+@onready var audio_jahtaus = $AudioStreamPlayerContainer/AudioJahtaus
+@onready var audio_pakeneminen = $AudioStreamPlayerContainer/AudioPakeneminen
+@onready var audio_pelaaja_kuolee_viholliselle = $AudioStreamPlayerContainer/AudioPelaajaKuoleeViholliselle
+@onready var audio_kaivautuminen = $AudioStreamPlayerContainer/AudioKaivautuminen
 ## TODO: Soita ääni kun vihollinen liikkuu, mutta ei jahtaa tai pakene.
-@onready var audio_liikkuminen = $AudioLiikkuminen
+@onready var audio_liikkuminen = $AudioStreamPlayerContainer/AudioLiikkuminen
+## Node2D, joka määrittää mistä äänet toistetaan ja alueet, joista toinen on aktiivinen
+var audio_stream_player_container
+var alue1
+var alue2
 
 ## Kerroin jolla voi muuttaa kuinka nopeasti vihollisen äänenkorkeus muuttuu
 ## VAROITUS: Voi hajota jos arvo on suurempi kuin 1. Tällöin toteutusta täytyy vähän muuttaa.
-var aanenkorkeuden_muutosnopeus = 0.8
+var aanenkorkeuden_muutosnopeus = 0.6
 
 ## Nodearrayt
 @onready var uudetViholliset = Globaali.uudetViholliset
@@ -65,7 +70,11 @@ func _ready():
 					#h.connect("siirrytty_valoon", siirrytty_valoon)
 					#h.connect("siirrytty_varjoon", siirrytty_varjoon)
 	# Asetetaan vakioalueeksi 1 (muokatkaa scenessä aina alue 1 (nodenimi "alue") siihen paikkaan, mistä vihollisen halutaan aloittavan
+	audio_stream_player_container = $AudioStreamPlayerContainer
+	alue1 = $alue
+	alue2 = $alue2
 	aseta_alueet(self)
+	audio_stream_player_container.global_position = alue1.global_position
 
 
 ## Delta kutsutaan joka framella
@@ -194,9 +203,9 @@ func siirrytty_valoon():
 
 ## Asetetaan alueet niin, että alue 1 on aluksi visible, aktiivinen ja toiminnassa
 func aseta_alueet(vihollinen):
-	var alue1 = vihollinen.get_children()[0] # Otetaan aina alue 1 (nodena "alue") ensimmäiseksi vihollisen paikaksi
+	# Otetaan aina alue 1 (nodena "alue") ensimmäiseksi vihollisen paikaksi
 	alue1.add_to_group("nykyisetAlueet") # Tehdään siitä osa aktiivisten, eli vaarallisten alueiden ryhmää
-	var alue2 = vihollinen.get_children()[2] # Ei-aktiivinen alue
+	# Alue2 on Ei-aktiivinen alue
 	alue2.remove_from_group("nykyisetAlueet") # Varmistus
 	alue2.visible = false # Alue 2 katoaa näkyvistä
 	alue2.process_mode = Node.PROCESS_MODE_DISABLED # Alue 2 ei tee mitään
@@ -204,9 +213,7 @@ func aseta_alueet(vihollinen):
 
 ## Vaihdetaan aluetta, eli vihollinen liikkuu, jos päätyy valoon
 func vaihda_alue(vihollinen):
-	var alue1 = vihollinen.get_children()[0] # Otetaan alue 1
 	var kuoppa1 = vihollinen.get_children()[1] # Otetaan alueen 1 kuoppa
-	var alue2 = vihollinen.get_children()[2] # Otetaan alue 2
 	var kuoppa2 = vihollinen.get_children()[3] # Otetaan alueen 1 kuoppa
 	if alue1.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
 		print ("Vihollinen vaihtaa aluetta")
@@ -234,6 +241,7 @@ func aktivoi_alue(alue):
 	alue.process_mode = Node.PROCESS_MODE_INHERIT # Toinen alue saa toiminnallisuuden ..
 	alue.visible = true # .. ja tulee näkyviin testauksen havainnollistamiseksi ..
 	alue.add_to_group("nykyisetAlueet") # .. ja tulee aktiiviseksi, eli on vaarallinen
+	audio_stream_player_container.global_position = alue.global_position
 
 
 ## Deaktivoidaan saatu alue

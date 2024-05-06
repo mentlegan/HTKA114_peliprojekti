@@ -43,7 +43,7 @@ var valossa = false
 @onready var audio_pelaaja_tomahdys = $AudioPelaajaTomahdys
 @onready var audio_pelaaja_fall_damage_kuolema = $AudioPelaajaFallDamageKuolema
 @onready var audio_pelaaja_fall_damage = $AudioPelaajaFallDamage
-@onready var audio_pimeassa = $AudioPimeassa
+@onready var audio_ambient = $AudioAmbient
 @onready var audio_pimeyskuolema = $AudioPimeyskuolema
 @onready var audio_valopallon_keraaminen = $AudioValopallonKeraaminen
 
@@ -274,7 +274,7 @@ func siirrytty_varjoon():
 	ajastin_pimeassa_audio.start(PIMEASSA_AUDION_VIIVE)
 	print("Valossa: " + str(valossa))
 	await get_tree().create_timer(2.5).timeout
-	audio_pimeassa.play()
+	audio_ambient.play()
 
 
 ## Toistaa pimeäkuoleman äänen kun oltu pimeässä vakion PIMEASSA_AUDION_VIIVE verran
