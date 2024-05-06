@@ -15,7 +15,7 @@ position = Vector2(9.39457, -23.2538)
 polygon = PackedVector2Array(8.05896, -265.302, 26.1575, -261.774, 32.559, -131.897, 41.8294, 183.968, -40.3781, 177.118, -32.9008, -263.229, -13.0647, -269.751)
 
 [node name="Sprite2D4" type="Sprite2D" parent="Polygon2D"]
-position = Vector2(-0.435615, -284.086)
+position = Vector2(-0.409424, -283.086)
 texture = ExtResource("1_3jqnk")
 
 [node name="Sprite2D" type="Sprite2D" parent="Polygon2D"]
@@ -23,12 +23,12 @@ position = Vector2(-1.04447, -27.3508)
 texture = ExtResource("1_3jqnk")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Polygon2D"]
-position = Vector2(-0.513378, 101.044)
+position = Vector2(-0.539551, 100.044)
 texture = ExtResource("1_3jqnk")
 flip_v = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="Polygon2D"]
-position = Vector2(-0.726958, -155.219)
+position = Vector2(-0.726929, -155.219)
 texture = ExtResource("1_3jqnk")
 flip_v = true
 
