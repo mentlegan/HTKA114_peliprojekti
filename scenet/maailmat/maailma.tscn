@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
-[ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
+[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="23_k22wo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
@@ -259,7 +259,7 @@ polygon = PackedVector2Array(2315, 719, 2321, 707, 2366, 684, 2407, 653, 2477, 6
 
 [node name="Polygon2D1_3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(2045.9, 224.38)
-polygon = PackedVector2Array(2012.1, -314.38, 1516.1, -373.38, 1408.1, -453.38, 2361.1, -423.38, 2246.96, -417.945, 2207.78, -376.953, 2188.64, -265.744, 2190.06, -206.347, 2197.13, -113.009, 2198.54, -47.9555, 2204.21, 12.8526, 2248.04, 93.4621, 2325.82, 167.003, 2433.3, 236.3, 2496.95, 297.102, 2716.14, 367.821, 2832.11, 380.551, 2946.61, 395.703, 2997.07, 404.964, 3022.69, 406.554, 3003.57, 421.066, 3001.89, 448.008, 2982.26, 462.475, 2897.16, 459.747, 2793.93, 452.679, 2648.26, 411.664, 2532.3, 387.625, 2446.03, 349.445, 2409.26, 315.5, 2331.48, 273.072, 2279.58, 235.041, 2232.49, 209.814, 2198.42, 187.114, 2181.44, 164.007, 2179.96, 151.266, 2178.09, 138.53, 2177.4, 129.751, 2178.25, 102.546, 2169.43, 82.3936, 2136.67, 55.9448, 2082.5, 49.6308, 2044.1, 38.62, 2032.1, -31.38)
+polygon = PackedVector2Array(2012.1, -314.38, 1516.1, -373.38, 1408.1, -453.38, 2361.1, -423.38, 2246.96, -417.945, 2207.78, -376.953, 2188.64, -265.744, 2190.06, -206.347, 2197.13, -113.009, 2198.54, -47.9555, 2204.21, 12.8526, 2248.04, 93.4621, 2325.82, 167.003, 2433.3, 236.3, 2496.95, 297.102, 2716.14, 367.821, 2832.11, 380.551, 2908.1, 382.62, 2974.1, 387.62, 3026.1, 394.62, 3022.69, 406.554, 3003.57, 421.066, 3001.89, 448.008, 2982.26, 462.475, 2897.16, 459.747, 2793.93, 452.679, 2648.26, 411.664, 2532.3, 387.625, 2446.03, 349.445, 2409.26, 315.5, 2331.48, 273.072, 2279.58, 235.041, 2232.49, 209.814, 2198.42, 187.114, 2181.44, 164.007, 2179.96, 151.266, 2178.09, 138.53, 2177.4, 129.751, 2178.25, 102.546, 2169.43, 82.3936, 2136.67, 55.9448, 2082.5, 49.6308, 2044.1, 38.62, 2032.1, -31.38)
 
 [node name="Polygon2D2_3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(2045.9, 224.38)
@@ -313,7 +313,7 @@ position = Vector2(-141, 99)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 12015, -632, 12067, -629, 12106, -677, 12089, -704, 12065, -719, 12023, -727, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11353, -707, 11294, -704, 11265, -692, 11252, -669, 11272, -645, 11296, -637, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1399, 710)
+position = Vector2(1397, 717)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -381,8 +381,8 @@ position = Vector2(1250, 643)
 rotation = 2.06039
 
 [node name="Kukka6" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(3402.7, 225.52)
-rotation = 2.91312
+position = Vector2(3390.76, 183.504)
+rotation = 0.00830928
 
 [node name="Kukka3" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(2488.01, 746.305)
@@ -1201,9 +1201,10 @@ position = Vector2(4664, 816)
 rotation = 1.14474
 
 [node name="Ovi3_y_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["0", "risti", "y"]]
-position = Vector2(5340.37, 676.006)
+position = Vector2(5339.36, 679.003)
 
 [node name="Ovi_pysty_oikea" parent="Koynnosovet/Ovet_3/Ovi3_y_3" instance=ExtResource("15_bna8j")]
+position = Vector2(0.00295448, 0.000414848)
 
 [node name="Ovi4_z_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviO", "z"]]
 position = Vector2(6575.57, 1417.02)

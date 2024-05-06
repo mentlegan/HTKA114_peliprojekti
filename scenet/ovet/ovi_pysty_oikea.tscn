@@ -7,13 +7,8 @@ size = Vector2(11, 254.001)
 
 [node name="Ovi_pysty_oikea" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2.06187, 1.31187)
-scale = Vector2(0.411516, 1.98731)
-texture = ExtResource("1_rgawe")
-
 [node name="Osuu" type="StaticBody2D" parent="." groups=["oviAVAA"]]
-position = Vector2(6, 1)
+position = Vector2(20, 0)
 rotation = 0.000310635
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osuu"]
@@ -21,7 +16,16 @@ position = Vector2(1.90735e-06, -0.000459433)
 shape = SubResource("RectangleShape2D_yrb28")
 
 [node name="Kimpoaa" type="StaticBody2D" parent="."]
-position = Vector2(-11, 1)
+position = Vector2(-21, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kimpoaa"]
 shape = SubResource("RectangleShape2D_yrb28")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, 63)
+texture = ExtResource("1_rgawe")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-2, -64)
+texture = ExtResource("1_rgawe")
+flip_v = true
