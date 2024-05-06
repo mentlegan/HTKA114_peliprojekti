@@ -24,6 +24,8 @@ signal kuollut
 var tahtaimen_lapset = []
 ## Pelaajan labelit
 @onready var elamat = get_node("Elamat")
+@onready var elama_mittari = get_node("ElamaMittari")
+@onready var elama_mittari_kuvalla = get_node("ElamaMittariKuvalla")
 @onready var palloja_label = get_node("Palloja")
 @onready var apua_label = get_node("ApuaLabel")
 ## Pelaajan kamera
@@ -169,7 +171,9 @@ func _ready():
 	self.add_child(elama_regen_ajastin)
 	
 	# Lisätään pelaajan hp labeliin elamat
-	elamat.text = "Health: " + str(pelaajan_elamat_max)
+	elama_mittari.max_value = pelaajan_elamat_max
+	elama_mittari_kuvalla.max_value = pelaajan_elamat_max
+	elamat_label_paivita()
 	
 	# Hyppy mahdollisuus pois jos liian kauan pois seinältä
 	hyppy_ajastin_seinalla.timeout.connect(hyppy_buffer_seinalla)
@@ -227,7 +231,6 @@ func _ready():
 	pimeyskuolema.modulate.a = 0.0
 	
 	palloja_label_paivita()
-
 
 ## Lopettaa huilu-animaation
 func lopeta_huilu_animaatio():
@@ -308,7 +311,8 @@ func get_elamat():
 
 
 func elamat_label_paivita():
-	elamat.text = "Health: " + str(pelaajan_elamat)
+	elama_mittari.value = pelaajan_elamat
+	elama_mittari_kuvalla.value = pelaajan_elamat
 
 
 func elama_regen():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=93 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -13,8 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://csjbkgti5474u" path="res://grafiikka/PelaajaKuolema-Sheet.png" id="7_dc5pa"]
 [ext_resource type="Texture2D" uid="uid://dgpptf7h5t4y5" path="res://grafiikka/WallClimb-Sheet.png" id="7_prghi"]
 [ext_resource type="AudioStream" uid="uid://eqsig3hl534a" path="res://audio/pelaaja/kavely2_pitka_mono.wav" id="10_uhji0"]
+[ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://grafiikka/tiili.png" id="11_8b884"]
 [ext_resource type="AudioStream" uid="uid://37o042m8fj2j" path="res://audio/pelaaja/juoksu_mono.wav" id="11_kteua"]
 [ext_resource type="Texture2D" uid="uid://dn4q2iyjfh52y" path="res://grafiikka/LightBall2.png" id="11_p47gp"]
+[ext_resource type="Texture2D" uid="uid://4qkv77frylqp" path="res://grafiikka/EnemyDirt.png" id="12_73kqy"]
 [ext_resource type="AudioStream" uid="uid://es1b0j0djyua" path="res://audio/pelaaja/hyppy1_mono.wav" id="12_k2yxh"]
 [ext_resource type="AudioStream" uid="uid://ntnhr3lolj61" path="res://audio/pelaaja/hyppy2_mono.wav" id="13_rny7p"]
 [ext_resource type="AudioStream" uid="uid://e1sqjn1k3jyw" path="res://audio/ambient/luola-aani1.wav" id="14_2eon3"]
@@ -473,13 +475,33 @@ offset_right = -388.0
 offset_bottom = -165.0
 texture = ExtResource("11_p47gp")
 
-[node name="Elamat" type="Label" parent="."]
+[node name="ElamaMittari" type="ProgressBar" parent="."]
+modulate = Color(0.164706, 1, 0.301961, 1)
 z_index = 99
 material = ExtResource("5_gdn2h")
-offset_left = -385.0
-offset_top = -241.0
-offset_right = -345.0
-offset_bottom = -223.0
+offset_left = -375.0
+offset_top = -244.0
+offset_right = -371.0
+offset_bottom = -222.0
+min_value = 1.0
+max_value = 6.0
+value = 1.0
+rounded = true
+
+[node name="ElamaMittariKuvalla" type="TextureProgressBar" parent="."]
+z_index = 99
+material = ExtResource("5_gdn2h")
+offset_left = -344.0
+offset_top = -245.0
+offset_right = -304.0
+offset_bottom = -205.0
+scale = Vector2(4.94934, 0.80468)
+min_value = 1.0
+max_value = 6.0
+value = 6.0
+nine_patch_stretch = true
+texture_under = ExtResource("11_8b884")
+texture_progress = ExtResource("12_73kqy")
 
 [node name="ApuaLabel" type="Label" parent="."]
 z_index = 99
