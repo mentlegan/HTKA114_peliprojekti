@@ -330,6 +330,9 @@ func meneta_elamia(maara):
 		pelaajan_elamat -= maara
 		audio_pelaaja_fall_damage.play()
 		elama_regen_ajastin.start(elamat_regen_nopeus)
+		animaatio.modulate = Color.RED
+		await get_tree().create_timer(0.1).timeout
+		animaatio.modulate = Color.WHITE
 	else:
 		pelaajan_elamat = 0
 		# TODO: muuta järkevämmäksi
