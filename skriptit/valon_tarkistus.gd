@@ -11,20 +11,20 @@ var valonlahteet = Array()
 ## RayCast valontarkistusta varten
 @onready var raycast = $RayCast2D
 ## Totuusarvo valossa olemiselle
-var valossa = false
-
-
-## Tarkistetaan heti SceneTreehen siirryttäessä, ollaanko valossa
-func _ready():
-	valossa = _on_valossa()
-	if valossa:
-		siirrytty_valoon.emit()
-	else:
-		siirrytty_varjoon.emit()
+var valossa = null
 
 
 ## Kutsutaan joka physics framella
 func _physics_process(_delta):
+	# Jos valossa-muuttujaa ei ole vielä asetettu,
+	# päivitetään sen arvo ja lähetetään ensimmäiset signaalit
+	if valossa == null:
+		valossa = _on_valossa()
+		if valossa:
+			siirrytty_valoon.emit()
+		else:
+			siirrytty_varjoon.emit()
+
 	# Lähetetään tarvittaessa signaalit
 	_laheta_signaalit()
 

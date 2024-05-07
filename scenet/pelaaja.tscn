@@ -677,7 +677,17 @@ sprite_frames = SubResource("SpriteFrames_ln8w0")
 [node name="Ajastin" type="Timer" parent="AanenTaajuus"]
 wait_time = 0.73
 
+[node name="AjastinPimealle" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="AjastinPimealleAudio" type="Timer" parent="."]
+wait_time = 12.0
+one_shot = true
+
 [connection signal="body_entered" from="keho" to="." method="_on_keho_body_entered"]
 [connection signal="siirrytty_valoon" from="ValonTarkistus" to="." method="siirrytty_valoon"]
 [connection signal="siirrytty_varjoon" from="ValonTarkistus" to="." method="siirrytty_varjoon"]
 [connection signal="body_entered" from="Huilu" to="." method="_on_huilu_body_entered"]
+[connection signal="timeout" from="AjastinPimealle" to="." method="kuolema"]
+[connection signal="timeout" from="AjastinPimealleAudio" to="." method="pimeaKuoleminen"]

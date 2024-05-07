@@ -84,11 +84,10 @@ var tween: Tween
 var kukan_kerays_tween: Tween
 var kuolema_tween : Tween
 
-## Ajastin pimeässä selviämiselle
-var ajastin_pimeassa = Timer.new()
-var ajastin_pimeassa_audio = Timer.new()
-const SELVIAMISAIKA_PIMEASSA = 20 ## Kuinka kauan pimeässä selvitään ennen respawn()-kutsua, sekunneissa
-const PIMEASSA_AUDION_VIIVE = 12 ## Kuinka monta sekuntia odotetaan pimeässä ennen pimeäkuoleman audion toistamista
+## Ajastin pimeässä selviämiselle: kuinka kauan pimeässä selvitään ennen respawn()-kutsua
+@onready var ajastin_pimeassa = $AjastinPimealle
+## Kuinka monta sekuntia odotetaan pimeässä ennen pimeäkuoleman audion toistamista
+@onready var ajastin_pimeassa_audio = $AjastinPimealleAudio
 
 ## Valopallon kohde, jonne se heitetään, pelaajasta nähden.
 ## Joko hiiren global_position tai ohjaimen tatin suunta
@@ -163,9 +162,7 @@ var putoamis_huippu = get_global_position().y
 
 
 func _ready():
-	# Lisätään ajastimet pimeän tarkistukselle, hypyille ja elämä regeneraatiolle lapsiksi
-	self.add_child(ajastin_pimeassa)
-	self.add_child(ajastin_pimeassa_audio)
+	# Lisätään ajastimet hypyille ja elämä regeneraatiolle lapsiksi
 	self.add_child(hyppy_ajastin_seinalla)
 	self.add_child(hyppy_ajastin_maassa)
 	self.add_child(elama_regen_ajastin)
@@ -179,11 +176,6 @@ func _ready():
 	hyppy_ajastin_seinalla.timeout.connect(hyppy_buffer_seinalla)
 	# Hyppy mahdollisuus pois jos liian kauan pois maalta
 	hyppy_ajastin_maassa.timeout.connect(hyppy_buffer_maassa)
-	
-	# Pelaaja kuolee, jos hän on pimeässä liian kauan
-	ajastin_pimeassa.timeout.connect(kuolema)
-	# Toistetaan lähestyvän pimeäkuoleman ääni, kun pelaaja on pimeässä
-	ajastin_pimeassa_audio.timeout.connect(pimeaKuoleminen)
 	
 	# Pelaajan elämä regeneraatio
 	elama_regen_ajastin.timeout.connect(elama_regen)
@@ -221,12 +213,6 @@ func _ready():
 	pimeyskuolema.modulate.a = 0.0
 	
 	palloja_label_paivita()
-
-	# Tarkistetaan pelin alussa, ollaanko valossa
-	if valon_tarkistus._on_valossa():
-		siirrytty_valoon()
-	else:
-		siirrytty_varjoon()
 
 
 ## Lopettaa huilu-animaation
@@ -267,14 +253,14 @@ func paivita_tahtaimen_lentorata():
 ## Kun siirrytään varjoon, aloitetaan ajastin
 func siirrytty_varjoon():
 	valossa = false
-	ajastin_pimeassa.start(SELVIAMISAIKA_PIMEASSA)
-	ajastin_pimeassa_audio.start(PIMEASSA_AUDION_VIIVE)
+	ajastin_pimeassa.start()
+	ajastin_pimeassa_audio.start()
 	print("Valossa: " + str(valossa))
 	await get_tree().create_timer(2.5).timeout
 	audio_ambient.play()
 
 
-## Toistaa pimeäkuoleman äänen kun oltu pimeässä vakion PIMEASSA_AUDION_VIIVE verran
+## Toistaa pimeäkuoleman äänen kun oltu pimeässä 12 sekuntia.
 ## Pimeyskuoleman indikaattorin käsittelyä
 func pimeaKuoleminen():
 	audio_pimeyskuolema.play()
