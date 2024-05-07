@@ -216,13 +216,13 @@ func vaihda_alue(vihollinen):
 	var kuoppa1 = vihollinen.get_children()[1] # Otetaan alueen 1 kuoppa
 	var kuoppa2 = vihollinen.get_children()[3] # Otetaan alueen 1 kuoppa
 	if alue1.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
-		print ("Vihollinen vaihtaa aluetta")
+		print ("Vihollinen vaihtaa alueelle " + str(alue2))
 		aktivoi_alue(alue2)
 		deaktivoi_alue(alue1)
 		toista_animaatio(kuoppa1)
 	else: # jos ei olekaan alue 1 kyseessä:
 		if alue2.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
-			print ("Vihollinen vaihtaa aluetta")
+			print ("Vihollinen vaihtaa alueelle " + str(alue1))
 			aktivoi_alue(alue1)
 			deaktivoi_alue(alue2)
 			toista_animaatio(kuoppa2)

@@ -312,10 +312,17 @@ func alusta_koynnosovet():
 		for lapsenlapsi in lapsi.get_children():
 			# Katsotaan ettei ole indikaattoriin liittyvä
 			if lapsenlapsi is not PointLight2D and lapsenlapsi is not CPUParticles2D:
+				var ovi_todellinen = lapsenlapsi.get_child(0)
+				var collisionit = Array()
+				for oven_lapsi in ovi_todellinen.get_children():
+					if oven_lapsi is StaticBody2D:
+						collisionit.append(oven_lapsi.get_child(0))
 				# Jos 0 eli kiinni
 				if lapsenlapsi.is_in_group("0") and !lapsenlapsi.is_in_group("risti"):
 					# Kiinni
 					lapsenlapsi.get_child(0).get_node("AnimatedSprite2D").play_backwards("change")
+					for collision in collisionit:
+						collision.disabled = false
 				elif lapsenlapsi.is_in_group("risti"):
 					for ristiovi in lapsenlapsi.get_children():
 						ristiovi.queue_free()
@@ -325,6 +332,8 @@ func alusta_koynnosovet():
 				else:
 					# Auki
 					lapsenlapsi.get_child(0).get_node("AnimatedSprite2D").play("change")
+					for collision in collisionit:
+						collision.disabled = true
 
 
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
