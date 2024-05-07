@@ -54,6 +54,7 @@ var valossa = false
 ## Huilu, äänen taajuuden sprite ja niiden ajastimet
 @onready var huilu = $Huilu
 @onready var huilun_collision = $Huilu/CollisionPolygon2D
+@onready var huilun_raycast = $Huilu/RayCast2D
 @onready var huilun_ajastin = $Huilu/Ajastin
 @onready var huilun_cd_ajastin = $Huilu/CooldownAjastin
 @onready var aanen_taajuus_sprite = $AanenTaajuus
@@ -195,8 +196,9 @@ func _ready():
 	vaihda_aanen_taajuutta(-1)
 	aanen_taajuus_sprite.visible = false
 	
-	# Laitetaan huilun collision pois päältä
+	# Laitetaan huilun collisionit pois päältä
 	huilun_collision.set_disabled(true)
+	huilun_raycast.set_enabled(false)
 	
 	# Asetetaan idle-animaation pelin alussa
 	animaatio.play("idle")
@@ -223,6 +225,7 @@ func lopeta_huilu_animaatio():
 	huilun_cd_ajastin.start()
 	huilun_partikkelit.set_emitting(false)
 	huilun_collision.set_disabled(true)
+	huilun_raycast.set_enabled(false)
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
@@ -632,15 +635,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Käynnistetään huilun animaatio
 		if huilun_cd_ajastin.is_stopped() and huilun_ajastin.is_stopped():
-			animaatio.play("huilu")
-			huilu.rotation = valon_kohde.angle()
-			animaatio.set_flip_h(valon_kohde.x < 0)
-			huilun_collision.set_disabled(false)
-			huilun_ajastin.start()
-			huilun_partikkelit.set_emitting(true)
-			huilun_partikkelit.set_gravity(Vector2.from_angle(huilu.rotation) * 40)
-			huilun_partikkelit.modulate = aanen_taajuuden_vari()
-			huilun_aanet[(aanen_taajuus - 1) % AANEN_TAAJUUS_MAX].play()
+			soita_huilua()
 	
 	# Kukkien kerääminen JA MINECARTIN KÄYTTÄMINEN
 	# TODO: tämä myöhemmin signaaleilla
@@ -682,6 +677,30 @@ func _physics_process(delta):
 	
 	if tahtain.visible:
 		paivita_tahtaimen_lentorata()
+
+
+## Aloittaa huilun soittamisen
+func soita_huilua():
+	# Aloitetaan animaatio, päivitetään huilun suunta
+	# ja käännetään pelaajan sprite tarvittaessa
+	animaatio.play("huilu")
+	huilu.rotation = valon_kohde.angle()
+	animaatio.set_flip_h(valon_kohde.x < 0)
+
+	# Huilun collisionit päälle
+	huilun_collision.set_disabled(false)
+	huilun_raycast.set_enabled(true)
+
+	# Aloitetaan ajastin, jonka jälkeen animaatio viimeistään lopetetaan
+	huilun_ajastin.start()
+
+	# Partikkelit päälle
+	huilun_partikkelit.set_emitting(true)
+	huilun_partikkelit.set_gravity(Vector2.from_angle(huilu.rotation) * 40)
+	huilun_partikkelit.modulate = aanen_taajuuden_vari()
+
+	# Soitetaan huilun ääni
+	huilun_aanet[(aanen_taajuus - 1) % AANEN_TAAJUUS_MAX].play()
 
 
 ## Asettaa UI:n näkyvyyden

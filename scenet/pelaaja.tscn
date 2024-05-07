@@ -660,6 +660,8 @@ visible = false
 scale = Vector2(0.943093, 0.84285)
 polygon = PackedVector2Array(-40, -1, -26, -28, 23, -58, 360, -150, 430, -110, 473, 0, 430, 110, 360, 150, 23, 58, -26, 27)
 
+[node name="RayCast2D" type="RayCast2D" parent="Huilu"]
+
 [node name="CooldownAjastin" type="Timer" parent="Huilu"]
 wait_time = 2.0
 one_shot = true

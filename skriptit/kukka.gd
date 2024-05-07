@@ -103,5 +103,6 @@ func _on_body_entered(body):
 ## Kun osutaan huiluun
 func _on_area_entered(_area:Area2D):
 	if _area is Huilu && _area.aanen_taajuus == 1:
-		aseta_valon_skaala(2)
-		huilu_ajastin.start()
+		if not _area.osuu_terrainiin(self):
+			aseta_valon_skaala(2)
+			huilu_ajastin.start()
