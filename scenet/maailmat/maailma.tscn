@@ -24,14 +24,14 @@
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
-[ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
+[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="23_k22wo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
-[ext_resource type="AudioStream" uid="uid://dsuerutfqm4ix" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
+[ext_resource type="AudioStream" uid="uid://omkl8akcmbbu" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
 [ext_resource type="AudioStream" uid="uid://cbninhjqk8vnv" path="res://audio/hirvio/hirvioaani2_mono.wav" id="28_lynst"]
@@ -379,147 +379,111 @@ rotation = -0.00132818
 
 [node name="Kukka2" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(1250, 643)
-rotation = 2.06039
 
 [node name="Kukka6" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(3390.76, 183.504)
-rotation = 0.00830928
 
 [node name="Kukka3" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(2488.01, 746.305)
-rotation = -3.02566
 
 [node name="Kukka4" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(1808.01, 744.402)
-rotation = 3.03455
 
 [node name="Kukka5" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(2065.29, 536.743)
-rotation = -2.79425
 
 [node name="Kukka37" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(2911.27, 552.867)
-rotation = -3.23589
 
 [node name="Kukka21" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(2700.72, 210.587)
-rotation = -3.1705
 
 [node name="Kukka22" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(4729.25, 568.282)
-rotation = -3.06376
 
 [node name="Kukka23" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(4991.89, 86.6302)
-rotation = -3.17966
 
 [node name="Kukka24" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(6050.84, 123.037)
-rotation = -3.17966
 
 [node name="Kukka25" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(6826.87, 104.067)
-rotation = -3.17966
 
 [node name="Kukka26" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(6802.15, -857.966)
-rotation = -3.17966
 
 [node name="Kukka7" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(3891.48, -1109.83)
-rotation = -3.04893
 
 [node name="Kukka20" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(3068.03, -770.926)
-rotation = -5.8498
 
 [node name="Kukka8" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(4650.47, -1106.82)
-rotation = -3.04893
 
 [node name="Kukka9" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(4443.06, -794.099)
-rotation = -3.04893
 
 [node name="Kukka10" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(5098.81, -607.228)
-rotation = -3.04893
 
 [node name="Kukka11" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(3620.03, -769.193)
-rotation = -4.0176
 
 [node name="Kukka12" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(5785.13, -843.317)
-rotation = -3.33175
 
 [node name="Kukka27" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(6271.58, -433.671)
-rotation = -1.66597
 
 [node name="Kukka13" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(5512.06, 1462.32)
-rotation = -3.10376
 
 [node name="Kukka16" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(4765.24, 1329.33)
-rotation = -3.10376
 
 [node name="Kukka17" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(4370.04, 724.805)
-rotation = -3.10376
 
 [node name="Kukka14" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(5910.12, 2172.85)
-rotation = -3.4901
 
 [node name="Kukka15" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(6724.08, 1453.93)
-rotation = -3.2586
 
 [node name="Kukka18" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(5753.97, 779.643)
-rotation = -3.15909
 
 [node name="Kukka19" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(5809.2, 605.716)
-rotation = -3.15909
 
 [node name="Kukka28" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(7662.92, 68.1778)
-rotation = -3.15909
 
 [node name="Kukka29" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(7585.16, -866.926)
-rotation = -3.15909
 
 [node name="Kukka30" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(8872.59, -436.216)
-rotation = -3.15909
 
 [node name="Kukka31" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(9637.57, -421.2)
-rotation = -3.15909
 
 [node name="Kukka32" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(11200.4, -326.124)
-rotation = -3.15909
 
 [node name="Kukka33" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(11485.8, -630.745)
-rotation = -3.15909
 
 [node name="Kukka34" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(10928.3, -1007.49)
-rotation = -3.15909
 
 [node name="Kukka35" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(11669.5, -1138.5)
-rotation = -3.15909
 
 [node name="Kukka36" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(10654.4, -320.849)
-rotation = -3.15909
 
 [node name="Piikit" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -929,31 +893,26 @@ frame_progress = 0.415255
 [node name="AudioStreamPlayerContainer" type="Node2D" parent="uudetViholliset/uusiVihollinen"]
 
 [node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("26_ibcbx")
 bus = &"Vihollinen"
 
 [node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = SubResource("AudioStreamRandomizer_7b0f1")
 volume_db = -3.0
 bus = &"Vihollinen"
 
 [node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("30_pn52s")
 volume_db = 16.0
 bus = &"Vihollinen"
 
 [node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("31_bllwm")
 volume_db = -7.0
 bus = &"Vihollinen"
 
 [node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
 process_mode = 3
-scale = Vector2(1, 1)
 stream = ExtResource("32_a8tci")
 volume_db = 7.0
 bus = &"Vihollinen"
@@ -962,7 +921,6 @@ bus = &"Vihollinen"
 stream = ExtResource("33_y2rdp")
 
 [node name="AudioTaustaaani" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("25_lejso")
 autoplay = true
 max_distance = 600.0
@@ -1033,31 +991,26 @@ frame_progress = 0.415255
 [node name="AudioStreamPlayerContainer" type="Node2D" parent="uudetViholliset/uusiVihollinen2"]
 
 [node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("26_ibcbx")
 bus = &"Vihollinen"
 
 [node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = SubResource("AudioStreamRandomizer_7b0f1")
 volume_db = -3.0
 bus = &"Vihollinen"
 
 [node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("30_pn52s")
 volume_db = 16.0
 bus = &"Vihollinen"
 
 [node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("31_bllwm")
 volume_db = -7.0
 bus = &"Vihollinen"
 
 [node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
 process_mode = 3
-scale = Vector2(1, 1)
 stream = ExtResource("32_a8tci")
 volume_db = 7.0
 bus = &"Vihollinen"
@@ -1066,7 +1019,6 @@ bus = &"Vihollinen"
 stream = ExtResource("33_y2rdp")
 
 [node name="AudioTaustaaani" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen2/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("25_lejso")
 autoplay = true
 max_distance = 600.0
@@ -1138,31 +1090,26 @@ frame_progress = 0.415255
 [node name="AudioStreamPlayerContainer" type="Node2D" parent="uudetViholliset/uusiVihollinen3"]
 
 [node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("26_ibcbx")
 bus = &"Vihollinen"
 
 [node name="AudioJahtaus" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = SubResource("AudioStreamRandomizer_7b0f1")
 volume_db = -3.0
 bus = &"Vihollinen"
 
 [node name="AudioPakeneminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("30_pn52s")
 volume_db = 16.0
 bus = &"Vihollinen"
 
 [node name="AudioLiikkuminen" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("31_bllwm")
 volume_db = -7.0
 bus = &"Vihollinen"
 
 [node name="AudioPelaajaKuoleeViholliselle" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
 process_mode = 3
-scale = Vector2(1, 1)
 stream = ExtResource("32_a8tci")
 volume_db = 7.0
 bus = &"Vihollinen"
@@ -1171,7 +1118,6 @@ bus = &"Vihollinen"
 stream = ExtResource("33_y2rdp")
 
 [node name="AudioTaustaaani" type="AudioStreamPlayer2D" parent="uudetViholliset/uusiVihollinen3/AudioStreamPlayerContainer"]
-scale = Vector2(1, 1)
 stream = ExtResource("25_lejso")
 autoplay = true
 max_distance = 600.0
