@@ -136,7 +136,7 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 		for risti in ristit:
 			risti.queue_free()
 		
-		if aikaisempi == "Ovi_pysty_oikea":
+		if Globaali.pystyssa:
 			Globaali.ovi_risti.add_child(ovi_vaaka)
 			Globaali.pystyssa = false
 		else:
