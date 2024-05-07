@@ -82,12 +82,14 @@ func start_destroy():
 ## if_y kertoo osuuko pallo oveen y, tällöin käydään kaikki ovet aina läpi
 func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 	# Alustetaan ovet vasta silmukassa tarvittaessa
+	""""
 	var ovi_v_x = null
 	var ovi_o_x = null
 	var ovi_v_y = null
 	var ovi_o_y = null
 	var ovi_v_z = null
 	var ovi_o_z = null
+	"""
 	
 	# Tallenetaan kirjain
 	var kirjain = _kirjain
@@ -98,45 +100,30 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 	
 	for ovi in tason_ovet:
 		# Ehto sille, mille oville tehdään operaatio   tämä vain, kun osuu y (kaikki ovet)
-		if ovi.is_in_group(kirjain) or ovi.is_in_group("y") or if_y:
+		if ovi.is_in_group(kirjain) or ovi.is_in_group("y") or if_y and ovi is not PointLight2D and ovi is not CPUParticles2D:
 			# Otetaan ryhmät tarkastelua varten
 			var ryhmat = ovi.get_groups()
+			# Käsitellään kuolematon ja ristiovi ekana
+			if ryhmat.has("kuolematon") or ryhmat.has("risti"):
+				continue
 			
-			if ovi.get_child_count() == 0:
-				# Listään ovi-nodeille lapseksi vasemmalta
-				# tai oikealta aukeava ovi riippuen ryhmästä:
-				# x
-				if ryhmat.has("x"):
-					if ryhmat.has("oviV"):
-						ovi_v_x = ovi_vasen_x.instantiate()
-						ovi.add_child(ovi_v_x)
-					else:
-						ovi_o_x = ovi_oikea_x.instantiate()
-						ovi.add_child(ovi_o_x)
-				
-				# y
-				elif ryhmat.has("y"):
-					if ryhmat.has("oviV"):
-						ovi_v_y = ovi_vasen_y.instantiate()
-						ovi.add_child(ovi_v_y)
-					else:
-						ovi_o_y = ovi_oikea_y.instantiate()
-						ovi.add_child(ovi_o_y)
-				
-				# z
-				if ryhmat.has("z"):
-					if ryhmat.has("oviV"):
-						ovi_v_z = ovi_vasen_z.instantiate()
-						ovi.add_child(ovi_v_z)
-					else:
-						ovi_o_z = ovi_oikea_z.instantiate()
-						ovi.add_child(ovi_o_z)
-			else: # Tuhotaan
-				# Varsinaisessa ovipuzzlessa ovia, joita ei voi aukaista
-				if not ryhmat.has("kuolematon"):
-					var lapset = ovi.get_children()
-					for lapsi in lapset:
-						lapsi.queue_free()
+			var ovi_todellinen = ovi.get_child(0)
+			var collisionit = Array()
+			for lapsi in ovi_todellinen.get_children():
+				if lapsi is StaticBody2D:
+					collisionit.append(lapsi.get_child(0))
+			var animaatio = ovi_todellinen.get_node_or_null("AnimatedSprite2D")
+			if animaatio.is_playing():
+				return
+			# Jos kiinni tai playing
+			if animaatio.frame != 5:
+				animaatio.play("change")
+				for collision in collisionit:
+					collision.disabled = true
+			else: # Auki
+				animaatio.play_backwards("change")
+				for collision in collisionit:
+					collision.disabled = false
 	
 	# Pelkkä ristiovi                         # vain tasossa 3
 	if Globaali.ovi_risti != null and ovi_ylin.get_name() == "Ovet_3":

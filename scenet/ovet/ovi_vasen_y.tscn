@@ -1,19 +1,69 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj16g605n5277"]
+[gd_scene load_steps=10 format=3 uid="uid://dj16g605n5277"]
 
-[ext_resource type="Texture2D" uid="uid://bjhedyn16pave" path="res://grafiikka/DoorPurpleClosed.png" id="1_nnorm"]
+[ext_resource type="Texture2D" uid="uid://ccwcognbww5ph" path="res://grafiikka/DoorPurple-Sheet.png" id="1_1l8x3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywm4j"]
+atlas = ExtResource("1_1l8x3")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76noh"]
+atlas = ExtResource("1_1l8x3")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx5kw"]
+atlas = ExtResource("1_1l8x3")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yla22"]
+atlas = ExtResource("1_1l8x3")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3mfh"]
+atlas = ExtResource("1_1l8x3")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82bdn"]
+atlas = ExtResource("1_1l8x3")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75a6t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywm4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76noh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx5kw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yla22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3mfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82bdn")
+}],
+"loop": false,
+"name": &"change",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1i11j"]
 size = Vector2(11.5, 127.375)
 
 [node name="Ovi_vasen_y" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, 0.999981)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
-texture = ExtResource("1_nnorm")
+sprite_frames = SubResource("SpriteFrames_75a6t")
+animation = &"change"
 
 [node name="Osuu" type="StaticBody2D" parent="." groups=["oviAVAA"]]
-position = Vector2(-27, 1)
+position = Vector2(-25, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osuu"]
 position = Vector2(0, 0.3125)

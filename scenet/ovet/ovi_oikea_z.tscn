@@ -1,15 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmu1me3chb6d"]
+[gd_scene load_steps=10 format=3 uid="uid://bmu1me3chb6d"]
 
-[ext_resource type="Texture2D" uid="uid://ba5tamqdl63gs" path="res://grafiikka/DoorBlueClosed.png" id="1_0ocnn"]
+[ext_resource type="Texture2D" uid="uid://6g6edjnbh1no" path="res://grafiikka/DoorBlue-Sheet.png" id="1_mtw0e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klw4t"]
+atlas = ExtResource("1_mtw0e")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndn2y"]
+atlas = ExtResource("1_mtw0e")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xni77"]
+atlas = ExtResource("1_mtw0e")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2300"]
+atlas = ExtResource("1_mtw0e")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2jjo"]
+atlas = ExtResource("1_mtw0e")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp22n"]
+atlas = ExtResource("1_mtw0e")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cpqw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klw4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndn2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xni77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2300")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2jjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yp22n")
+}],
+"loop": false,
+"name": &"change",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsyst"]
 size = Vector2(11.5, 127.375)
 
 [node name="Ovi_oikea_z" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2.55681, 0.5)
-texture = ExtResource("1_0ocnn")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cpqw4")
+animation = &"change"
 
 [node name="Osuu" type="StaticBody2D" parent="." groups=["oviAVAA"]]
 position = Vector2(23, 0)

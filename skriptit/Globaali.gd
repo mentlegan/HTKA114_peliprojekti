@@ -24,7 +24,6 @@ var tooltipit = Array()
 ## Pelaajan ja vihollisen aloitus koordinaatit
 ## Pelaajan aloituspaikka muuttuu pelin edetessä checkpointtien takia
 var pelaaja_aloitus = null
-var vihollinen_aloitus = null
 
 ## Pelaajan taso2 ja taso3 koordinaatit teleporttaamiseen
 ## Kentan 1 loppu mukaan minecart tp varten
@@ -110,38 +109,30 @@ func _ready():
 	# Otetaan aloitus koordinaatit talteen
 	pelaaja_aloitus = pelaaja.position
 	
-	"""
-	# Haetaan koynnosovet-noden kaikki lapset eli ovet tasoittain
-	var koynnosovet_tasot = get_tree().get_first_node_in_group("koynnosovet").get_children()
-	for koynnosovi_vanhempi in koynnosovet_tasot:
-		# Koynnosovien todelliset muutettavat nodet
-		var koynnosovi_lapset = koynnosovi_vanhempi.get_children()
-		for koynnosovi_lapsi in koynnosovi_lapset:
-			if koynnosovi_lapsi.is_in_group("oviV") or koynnosovi_lapsi.is_in_group("oviO"):
-				ovet.append(koynnosovi_lapsi)
-	"""
-	
 	# Lisätään sceneen tausta
 	self.add_child(tausta.instantiate())
-
+	
 	# Aloitetaan musiikki 
 	musiikki.play()
-
+	
 	# Lisätään UI-ajastin
 	self.add_child(ui_ajastin)
 	ui_ajastin.set_one_shot(true)
 	ui_ajastin.timeout.connect(aseta_ui_nakyvaksi)
-
+	
 	# Täytetään tasot- ja valot-taulukko
 	lisaa_tasot()
 	lisaa_valot_ja_indikaattorit()
-
+	
 	# Haetaan pelin kaikki tooltip-nodet.
 	lisaa_tooltipit()
 	vaihda_tooltip_ui(true)
-
+	
 	# Lisätään viholliset oikein pelin alussa
 	lisaa_viholliset()
+	
+	# Alustetaan köynnösovet
+	alusta_koynnosovet()
 
 
 ## Poistaa minecart-tooltipit
@@ -181,18 +172,18 @@ func lisaa_valot_ja_indikaattorit():
 			valo.visible = false
 			lapsi.add_child(valo)
 			ovien_valot.append(valo)
-
+	
 			# Indikaattorit
 			var indikaattori = oven_indikaattori.instantiate()
 			indikaattori.global_position = lapsenlapsi.global_position
-
+	
 			if lapsenlapsi.is_in_group("x"):
 				indikaattori.texture = oven_indikaattori_punainen
 			elif lapsenlapsi.is_in_group("y"):
 				indikaattori.texture = oven_indikaattori_lila
 			elif lapsenlapsi.is_in_group("z"):
 				indikaattori.texture = oven_indikaattori_sininen
-
+	
 			lapsi.add_child(indikaattori)
 			ovien_indikaattorit.append(indikaattori)
 
@@ -213,7 +204,7 @@ func lisaa_tasot():
 			for lapsenlapsi in lapsi.get_children():
 				if lapsenlapsi is Camera2D:
 					kamera = lapsenlapsi
-
+	
 			if kamera != null:
 				tasot.append({
 					"rect": Rect2(
@@ -315,12 +306,35 @@ func _process(_delta):
 	lisaa_viholliset() # Viholliset päivittyvät pois ja päälle riippuen pelaajan positiosta
 
 
+func alusta_koynnosovet():
+	# Resetoidaan köynnösovet kuolemisen jälkeen
+	# Käytetään myös ennen pelin alkua kerran _ready()
+	# Asetetaan animationspritejen framet oikeiksi
+	for lapsi in koynnosovet.get_children():
+		for lapsenlapsi in lapsi.get_children():
+			# Katsotaan ettei ole indikaattoriin liittyvä
+			if lapsenlapsi is not PointLight2D and lapsenlapsi is not CPUParticles2D:
+				# Jos 0 eli kiinni
+				if lapsenlapsi.is_in_group("0") and !lapsenlapsi.is_in_group("risti"):
+					# Kiinni
+					lapsenlapsi.get_child(0).get_node("AnimatedSprite2D").play_backwards("change")
+				elif lapsenlapsi.is_in_group("risti"):
+					for ristiovi in lapsenlapsi.get_children():
+						ristiovi.queue_free()
+					pystyssa = true
+					var ovi_pysty = ovi_pysty_oikea.instantiate()
+					lapsenlapsi.add_child(ovi_pysty)
+				else:
+					# Auki
+					lapsenlapsi.get_child(0).get_node("AnimatedSprite2D").play("change")
+
+
 ## Respawnaa pelaajan käynnistämällä nykyisen scenen uudestaan
 func respawn():
 	# Soitetaan pelaajan animaatioita täällä pausen takia
-	pelaaja.animaatio.visible=true
+	pelaaja.animaatio.visible = true
 	pelaaja.pauseAnimaatiot.stop()
-	pelaaja.pauseAnimaatiot.visible=false
+	pelaaja.pauseAnimaatiot.visible = false
 	palloja = 0 # Resetoidaan pallot, koska reload_current_scene ei sitä tee. Tämän voi koittaa laittaa johonkin järkevämpään paikkaan
 	nykyiset_pallot = 0 # Nykyisten pallojen määrä laitetaan 0
 	
@@ -329,52 +343,7 @@ func respawn():
 	for pallo in valopallot:
 		pallo.queue_free()
 	
-	# Alustetaan ovet vasta silmukassa tarvittaessa
-	var ovi_v_x = null
-	var ovi_o_x = null
-	var ovi_v_y = null
-	var ovi_o_y = null
-	var ovi_v_z = null
-	var ovi_o_z = null
-	
-	# Resetoidaan köynnösovet kuolemisen jälkeen
-	# Hyvin samanlaista koodia kuin valo_character (taas...)
-	for lapsi in koynnosovet.get_children():
-		for lapsenlapsi in lapsi.get_children():
-			# Tuhotaan varulta ensiksi kaikki lapset
-			var ovet = lapsenlapsi.get_children()
-			for ovi in ovet:
-				ovi.queue_free()
-			
-			# Ovien lisääminen
-			# Jos x ja aluksi ovi eli 0 (kiinni)
-			if lapsenlapsi.is_in_group("x") and lapsenlapsi.is_in_group("0"):
-				# Jos vasen
-				if lapsenlapsi.is_in_group("oviV"):
-					ovi_v_x = ovi_vasen_x.instantiate()
-					lapsenlapsi.add_child(ovi_v_x)
-				# Jos oikea
-				else:
-					ovi_o_x = ovi_oikea_x.instantiate()
-					lapsenlapsi.add_child(ovi_o_x)
-			elif lapsenlapsi.is_in_group("y") and lapsenlapsi.is_in_group("0"):
-				if lapsenlapsi.is_in_group("risti"):
-					pystyssa = true
-					var ovi_pysty = ovi_pysty_oikea.instantiate()
-					lapsenlapsi.add_child(ovi_pysty)
-				elif lapsenlapsi.is_in_group("oviV"):
-					ovi_v_y = ovi_vasen_y.instantiate()
-					lapsenlapsi.add_child(ovi_v_y)
-				else:
-					ovi_o_y = ovi_oikea_y.instantiate()
-					lapsenlapsi.add_child(ovi_o_y)
-			elif lapsenlapsi.is_in_group("z") and lapsenlapsi.is_in_group("0"):
-				if lapsenlapsi.is_in_group("oviV"):
-					ovi_v_z = ovi_vasen_z.instantiate()
-					lapsenlapsi.add_child(ovi_v_z)
-				else:
-					ovi_o_z = ovi_oikea_z.instantiate()
-					lapsenlapsi.add_child(ovi_o_z)
+	alusta_koynnosovet()
 	
 	# Peli pois pauselta
 	get_tree().paused = false

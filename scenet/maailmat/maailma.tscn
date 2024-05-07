@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=70 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -31,9 +31,10 @@
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
-[ext_resource type="AudioStream" uid="uid://omkl8akcmbbu" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
+[ext_resource type="AudioStream" uid="uid://hm7sud10l8hv" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
+[ext_resource type="PackedScene" uid="uid://o1g7x7mnf5b" path="res://scenet/ovet/ovi_oikea_y.tscn" id="28_1m8ka"]
 [ext_resource type="AudioStream" uid="uid://cbninhjqk8vnv" path="res://audio/hirvio/hirvioaani2_mono.wav" id="28_lynst"]
 [ext_resource type="AudioStream" uid="uid://dyo460luf8lv1" path="res://audio/hirvio/hirvioaani3_mono.wav" id="29_bv82b"]
 [ext_resource type="AudioStream" uid="uid://crbflddm0u661" path="res://audio/hirvio/vihollinen_pakenee1_mono.wav" id="30_pn52s"]
@@ -441,7 +442,7 @@ position = Vector2(6271.58, -433.671)
 position = Vector2(5512.06, 1462.32)
 
 [node name="Kukka16" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(4765.24, 1329.33)
+position = Vector2(4771.24, 1332.34)
 
 [node name="Kukka17" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(4370.04, 724.805)
@@ -1135,19 +1136,23 @@ position = Vector2(2189.31, 699.333)
 [node name="Ovi2_x" type="Node2D" parent="Koynnosovet/Ovet_1" groups=["oviO", "x"]]
 position = Vector2(2618.3, 699.378)
 
+[node name="Ovi_oikea_x" parent="Koynnosovet/Ovet_1/Ovi2_x" instance=ExtResource("20_155o0")]
+
 [node name="Ovi3_y" type="Node2D" parent="Koynnosovet/Ovet_1" groups=["oviO", "y"]]
 position = Vector2(2225.76, 512.421)
 scale = Vector2(0.93, 0.93)
 
+[node name="Ovi_oikea_y" parent="Koynnosovet/Ovet_1/Ovi3_y" instance=ExtResource("28_1m8ka")]
+
 [node name="Ovet_2" type="Node2D" parent="Koynnosovet"]
 
-[node name="Ovi_x_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviV", "x"]]
+[node name="Ovi_x_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["0", "oviV", "x"]]
 position = Vector2(4521.5, -1433.99)
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_2/Ovi_x_2" instance=ExtResource("16_8728b")]
 position = Vector2(1, 1)
 
-[node name="Ovi2_x_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviO", "x"]]
+[node name="Ovi2_x_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["0", "oviO", "x"]]
 position = Vector2(5205.09, -850.328)
 
 [node name="Ovi_oikea" parent="Koynnosovet/Ovet_2/Ovi2_x_2" instance=ExtResource("20_155o0")]
@@ -1155,13 +1160,15 @@ position = Vector2(5205.09, -850.328)
 [node name="Ovi3_y_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviO", "y"]]
 position = Vector2(4517.8, -1144)
 
-[node name="Ovi4_z_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviV", "z"]]
+[node name="Ovi_oikea_y" parent="Koynnosovet/Ovet_2/Ovi3_y_2" instance=ExtResource("28_1m8ka")]
+
+[node name="Ovi4_z_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["0", "oviV", "z"]]
 position = Vector2(3944.1, -857.399)
 rotation = -0.693876
 
 [node name="Ovi_vasen_z" parent="Koynnosovet/Ovet_2/Ovi4_z_2" instance=ExtResource("13_vnqp0")]
 
-[node name="Ovi5_z_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["oviO", "z"]]
+[node name="Ovi5_z_2" type="Node2D" parent="Koynnosovet/Ovet_2" groups=["0", "oviO", "z"]]
 position = Vector2(4726.07, -845.494)
 
 [node name="Ovi_oikea_z" parent="Koynnosovet/Ovet_2/Ovi5_z_2" instance=ExtResource("14_6n7yc")]
@@ -1182,8 +1189,10 @@ rotation = 1.46682
 [node name="Ovi_oikea_x" parent="Koynnosovet/Ovet_3/Ovi2_x_3" instance=ExtResource("20_155o0")]
 
 [node name="Ovi7_x_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviV", "x"]]
-position = Vector2(4664, 816)
+position = Vector2(4667.94, 841.009)
 rotation = 1.14474
+
+[node name="Ovi_vasen_x" parent="Koynnosovet/Ovet_3/Ovi7_x_3" instance=ExtResource("16_8728b")]
 
 [node name="Ovi3_y_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["0", "risti", "y"]]
 position = Vector2(5339.36, 679.003)
@@ -1194,8 +1203,12 @@ position = Vector2(0.00295448, 0.000414848)
 [node name="Ovi4_z_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviO", "z"]]
 position = Vector2(6575.57, 1417.02)
 
+[node name="Ovi_oikea_z" parent="Koynnosovet/Ovet_3/Ovi4_z_3" instance=ExtResource("14_6n7yc")]
+
 [node name="Ovi5_z_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["oviO", "z"]]
-position = Vector2(4712.98, 1288.99)
+position = Vector2(4696.98, 1288.95)
+
+[node name="Ovi_oikea_z" parent="Koynnosovet/Ovet_3/Ovi5_z_3" instance=ExtResource("14_6n7yc")]
 
 [node name="Ovi6_z_3" type="Node2D" parent="Koynnosovet/Ovet_3" groups=["0", "oviO", "z"]]
 position = Vector2(6237.71, 535.19)
@@ -1259,6 +1272,8 @@ position = Vector2(16.9874, 1.19161)
 [node name="Ovi_y" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["oviO", "y"]]
 position = Vector2(7298.9, 46.773)
 
+[node name="Ovi_oikea_y" parent="Koynnosovet/Ovet_puzzle/Ovi_y" instance=ExtResource("28_1m8ka")]
+
 [node name="Ovi_z" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["0", "oviO", "z"]]
 position = Vector2(7365.91, 44.9362)
 
@@ -1271,6 +1286,8 @@ position = Vector2(7429.92, 43.092)
 
 [node name="Ovi_y2" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["oviO", "y"]]
 position = Vector2(7264.22, -902.315)
+
+[node name="Ovi_oikea_y" parent="Koynnosovet/Ovet_puzzle/Ovi_y2" instance=ExtResource("28_1m8ka")]
 
 [node name="Ovi_x2" type="Node2D" parent="Koynnosovet/Ovet_puzzle" groups=["0", "oviO", "x"]]
 position = Vector2(7331.22, -903.151)
@@ -1302,6 +1319,8 @@ position = Vector2(10413.6, -249.64)
 rotation = 1.62916
 scale = Vector2(1.85148, 3.06963)
 
+[node name="Ovi_oikea_x" parent="Koynnosovet/Ovet_hyppely/Ovi_x2" instance=ExtResource("20_155o0")]
+
 [node name="Ovi_x3" type="Node2D" parent="Koynnosovet/Ovet_hyppely" groups=["0", "oviO", "x"]]
 position = Vector2(10890.6, -238.482)
 rotation = 1.62916
@@ -1320,6 +1339,8 @@ scale = Vector2(1.45241, 2.48797)
 position = Vector2(10894.4, -555.474)
 rotation = 1.61743
 scale = Vector2(1.45241, 2.4402)
+
+[node name="Ovi_oikea_x" parent="Koynnosovet/Ovet_hyppely/Ovi_x5" instance=ExtResource("20_155o0")]
 
 [node name="Ovi_x2_kuolematon" type="Node2D" parent="Koynnosovet/Ovet_hyppely" groups=["kuolematon", "oviO", "x"]]
 position = Vector2(10996, -795.227)
