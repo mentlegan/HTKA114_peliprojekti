@@ -12,7 +12,6 @@ var palloja = 0
 var nykyiset_pallot = 0
 ## Signaaleja varten
 var pelaaja = null
-var vihollinen = null
 var uusi_vihollinen = null
 
 ## UI-näkyvyyden ajastin
@@ -98,9 +97,6 @@ func _ready():
 	pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
 	pelaaja.kuollut.connect(_game_over) # Yhdistetään signaali pelaajasta
 	
-	# vihollinen = get_tree().get_first_node_in_group("vihollinen") # Tehdään näissä
-	# vihollinen.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
-	
 	# Yhdistetään kuolema kaikkiin uusiin vihollisiin
 	for uusiVihu in uudetViholliset:
 		if uusiVihu != null:
@@ -113,7 +109,6 @@ func _ready():
 	
 	# Otetaan aloitus koordinaatit talteen
 	pelaaja_aloitus = pelaaja.position
-	# vihollinen_aloitus = vihollinen.position
 	
 	"""
 	# Haetaan koynnosovet-noden kaikki lapset eli ovet tasoittain
@@ -387,8 +382,6 @@ func respawn():
 	# self.get_tree().call_deferred("reload_current_scene")
 	pelaaja.putoamis_vahinko = false
 	pelaaja.position = pelaaja_aloitus
-	if vihollinen:
-		vihollinen.position = vihollinen_aloitus
 	gameover_ruutu.visible = false
 	
 	# Aloittaa timerin alusta
