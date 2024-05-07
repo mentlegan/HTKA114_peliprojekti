@@ -232,8 +232,15 @@ func vaihda_alue(vihollinen):
 func toista_animaatio(kuoppa):
 	var animaatio = kuoppa.get_children()[0] # Otetaan kuopan animaatio
 	animaatio.play("kaivautuminen") # Toistetaan animaatio
-	await get_tree().create_timer(5).timeout # Annetaan animaation toistaa itseään jonkin aikaa
-	animaatio.stop() # Pysäytetään animaatio
+	var timer = Timer.new()
+	add_child(timer)
+	timer.one_shot = true
+	timer.wait_time = 4.0
+	timer.timeout.connect(func(): 
+		timer.queue_free()
+		animaatio.stop())
+	timer.start()
+	# await get_tree().create_timer(5).timeout # Annetaan animaation toistaa itseään jonkin aikaa
 
 
 ## Aktivoidaan saatu alue
