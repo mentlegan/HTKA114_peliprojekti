@@ -34,6 +34,7 @@ func _ready():
 	partikkelit.emitting = false
 	
 	kerays_cooldown.timeout.connect(vaihda_kerays)
+	$AnimatedSprite2D.play("default")
 
 
 func aloita_kerays():
