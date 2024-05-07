@@ -64,15 +64,6 @@ var valossa = null
 
 ## Kutsutaan joka physics framella
 func _physics_process(_delta):
-	# Jos valossa-muuttujaa ei ole vielä asetettu,
-	# päivitetään sen arvo ja lähetetään ensimmäiset signaalit
-	if valossa == null:
-		valossa = _on_valossa()
-		if valossa:
-			siirrytty_valoon.emit()
-		else:
-			siirrytty_varjoon.emit()
-
 	# Lähetetään tarvittaessa signaalit
 	_laheta_signaalit()
 
@@ -81,11 +72,12 @@ func _physics_process(_delta):
 func _laheta_signaalit():
 	var aiemmin_valossa = valossa
 	valossa = _on_valossa()
-	if aiemmin_valossa and not valossa:
-		siirrytty_varjoon.emit()
-	elif not aiemmin_valossa and valossa:
-		siirrytty_valoon.emit()
 
+	if valossa != aiemmin_valossa:
+		if valossa:
+			siirrytty_valoon.emit()
+		else:
+			siirrytty_varjoon.emit()
 
 
 ## Palauttaa, onko node valossa. Älä kutsu tätä funktiota erikseen, vaan kuuntele tämän noden lähettämiä signaaleita siirrytty_valoon ja siirrytty_varjoon.
