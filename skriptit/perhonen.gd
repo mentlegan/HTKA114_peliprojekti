@@ -8,7 +8,7 @@ var path2d = null
 ## Perhosen animaatio
 @onready var animaatio = $AnimatedSprite2D
 ## Perhosen nopeus
-@export var nopeus: int = 100
+@export var nopeus: int = 80
 ## Perhosen edeltävän framen x-koordinaatti
 var edeltava_x = position.x
 ## Perhosen tämänhetkinen etäisyys reitillä. Liukuluku, 0..1 välissä

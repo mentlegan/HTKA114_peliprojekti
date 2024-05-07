@@ -57,8 +57,6 @@ var ovien_indikaattorit = Array()
 var tasot = Array()
 @onready var tasot_node = get_node("/root/Maailma/Tasot")
 
-## Kaikki scenen ovet
-# var ovet = Array()
 ## Ristiovelle oma kohtelu vielä tässä vaiheessa
 @onready var ovi_risti = get_tree().get_first_node_in_group("risti")
 var pystyssa = true
@@ -375,8 +373,8 @@ func jatkaPelia():
 ## käynnistää peli uudelleen kutsumalla tämän skriptin respawn() funktiota
 func _game_over():
 	# Soitetaan pelaajan animaatioita täällä pausen takia
-	pelaaja.animaatio.visible=false
-	pelaaja.pauseAnimaatiot.visible=true
+	pelaaja.animaatio.visible = false
+	pelaaja.pauseAnimaatiot.visible = true
 	pelaaja.pauseAnimaatiot.play("kuolema")
 	get_tree().paused = true # Peli pauselle, kun se päättyy. Voi hienojen animaatioiden kanssa tietysti myös jättää pausettamatta,
 	# tai pausettaa peli muuten, mutta hienot kuolema-animaatiot silti toimivat normaalisti

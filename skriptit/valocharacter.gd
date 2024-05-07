@@ -132,7 +132,6 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 		
 		# Tuhotaan kaikki lapset varmistukseksi
 		var ristit = Globaali.ovi_risti.get_children()
-		var aikaisempi = ristit[0].get_name()
 		for risti in ristit:
 			risti.queue_free()
 		

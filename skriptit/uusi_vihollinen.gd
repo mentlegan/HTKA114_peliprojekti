@@ -202,7 +202,7 @@ func siirrytty_valoon():
 
 
 ## Asetetaan alueet niin, että alue 1 on aluksi visible, aktiivinen ja toiminnassa
-func aseta_alueet(vihollinen):
+func aseta_alueet(_vihollinen):
 	# Otetaan aina alue 1 (nodena "alue") ensimmäiseksi vihollisen paikaksi
 	alue1.add_to_group("nykyisetAlueet") # Tehdään siitä osa aktiivisten, eli vaarallisten alueiden ryhmää
 	# Alue2 on Ei-aktiivinen alue
