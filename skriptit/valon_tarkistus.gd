@@ -16,7 +16,7 @@ var valossa = false
 
 ## Tarkistetaan heti SceneTreehen siirryttäessä, ollaanko valossa
 func _ready():
-	valossa = on_valossa()
+	valossa = _on_valossa()
 	if valossa:
 		siirrytty_valoon.emit()
 	else:
@@ -25,17 +25,23 @@ func _ready():
 
 ## Kutsutaan joka physics framella
 func _physics_process(_delta):
-	# Päivitetään valossa-muuttuja ja lähetetään tarvittaessa signaalit
+	# Lähetetään tarvittaessa signaalit
+	_laheta_signaalit()
+
+
+## Päivittää valossa-muuttujan ja lähettää tarvittaessa signaalin siirrytty_varjoon tai siirrytty_valoon.
+func _laheta_signaalit():
 	var aiemmin_valossa = valossa
-	valossa = on_valossa()
+	valossa = _on_valossa()
 	if aiemmin_valossa and not valossa:
 		siirrytty_varjoon.emit()
 	elif not aiemmin_valossa and valossa:
 		siirrytty_valoon.emit()
 
 
-## Palauttaa, onko node valossa.
-func on_valossa():
+
+## Palauttaa, onko node valossa. Älä kutsu tätä funktiota erikseen, vaan kuuntele tämän noden lähettämiä signaaleita siirrytty_valoon ja siirrytty_varjoon.
+func _on_valossa():
 	# Käydään läpi valonlähteet, joiden sisällä ollaan
 	for valonlahde in valonlahteet:
 		# Tähdätään raycast valonlähteeseen päin
@@ -62,9 +68,15 @@ func _on_area_entered(area):
 	if area.is_in_group("valonlahde") and not valonlahteet.has(area):
 		valonlahteet.append(area)
 
+		# Lähetetään samalla signaalit
+		_laheta_signaalit()
+
 
 ## Kun Area2D-node lähtee, poistetaan se valonlahteet-taulukosta
 func _on_area_exited(area):
 	# Ei turhaan tarkisteta valonlahteet.has(area)-kutsulla, onko area2d jo taulukossa.
 	# Poistetaan, jos sattuu olemaan.
 	valonlahteet.erase(area)
+
+	# Lähetetään samalla signaalit
+	_laheta_signaalit()

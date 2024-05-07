@@ -85,7 +85,7 @@ func _process(_delta):
 	for i in self.get_children():
 		for j in i.get_children():
 			if j.is_in_group("newVihollinenValotarkistus"):
-				if j.on_valossa():
+				if j._on_valossa():
 					siirrytty_valoon()
 				else:
 					siirrytty_varjoon()

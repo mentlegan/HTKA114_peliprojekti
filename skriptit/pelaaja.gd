@@ -188,16 +188,6 @@ func _ready():
 	# Pelaajan elämä regeneraatio
 	elama_regen_ajastin.timeout.connect(elama_regen)
 	
-	# Yhdistetään valon signaalit pelaajan omiin funktioihin
-	valon_tarkistus.connect("siirrytty_valoon", siirrytty_valoon)
-	valon_tarkistus.connect("siirrytty_varjoon", siirrytty_varjoon)
-	
-	# Tarkistetaan pelin alussa, ollaanko valossa
-	if valon_tarkistus.on_valossa():
-		siirrytty_valoon()
-	else:
-		siirrytty_varjoon()
-	
 	# Asetetaan pimeä-valo näkyviin pelin alussa
 	pimea_valo.visible = true
 	
@@ -231,6 +221,13 @@ func _ready():
 	pimeyskuolema.modulate.a = 0.0
 	
 	palloja_label_paivita()
+
+	# Tarkistetaan pelin alussa, ollaanko valossa
+	if valon_tarkistus._on_valossa():
+		siirrytty_valoon()
+	else:
+		siirrytty_varjoon()
+
 
 ## Lopettaa huilu-animaation
 func lopeta_huilu_animaatio():
