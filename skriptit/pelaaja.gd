@@ -690,6 +690,7 @@ func soita_huilua():
 	# Huilun collisionit päälle
 	huilun_collision.set_disabled(false)
 	huilun_raycast.set_enabled(true)
+	huilun_raycast.rotation = -huilu.rotation
 
 	# Aloitetaan ajastin, jonka jälkeen animaatio viimeistään lopetetaan
 	huilun_ajastin.start()
@@ -727,5 +728,5 @@ func _on_huilu_body_entered(body):
 		var nimi = body.get_name()
 		# Testataan näin, miten toimii
 		# Alkuperäisellä tavalla kutsuu kahdesti
-		if nimi == "Osuu": # or nimi == "Kimpoaa":
+		if nimi == "Osuu" and not huilu.osuu_terrainiin(body): # or nimi == "Kimpoaa":
 			Globaali.nayta_tason_ovet_ja_resonoi(body)
