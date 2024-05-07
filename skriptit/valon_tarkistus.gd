@@ -14,7 +14,16 @@ var valonlahteet = Array()
 var valossa = false
 
 
-## Kutsutaan joka framella
+## Tarkistetaan heti SceneTreehen siirryttäessä, ollaanko valossa
+func _ready():
+	valossa = on_valossa()
+	if valossa:
+		siirrytty_valoon.emit()
+	else:
+		siirrytty_varjoon.emit()
+
+
+## Kutsutaan joka physics framella
 func _physics_process(_delta):
 	# Päivitetään valossa-muuttuja ja lähetetään tarvittaessa signaalit
 	var aiemmin_valossa = valossa
