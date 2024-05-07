@@ -23,11 +23,11 @@ signal kuollut
 @onready var tahtain = get_node("Tahtain")
 var tahtaimen_lapset = []
 ## Pelaajan labelit
-@onready var elamat = get_node_or_null("Elamat")
-@onready var elama_mittari = get_node("ElamaMittari")
-@onready var elama_mittari_kuvalla = get_node("ElamaMittariKuvalla")
-@onready var palloja_label = get_node("Palloja")
-@onready var apua_label = get_node("ApuaLabel")
+@onready var hud = get_node("HUD")
+@onready var elama_mittari = get_node("HUD/ElamaMittari")
+@onready var elama_mittari_kuvalla = get_node("HUD/ElamaMittariKuvalla")
+@onready var palloja_label = get_node("HUD/Palloja")
+@onready var apua_label = get_node("HUD/ApuaLabel")
 ## Pelaajan kamera
 @onready var kamera = get_node("Camera2D")
 @onready var pimeyskuolema = Globaali.pimeyskuolema_animaatio
@@ -716,9 +716,7 @@ func aseta_ui_nakyvyys(nakyvissa):
 	tween = create_tween()
 	tween.set_parallel(true)
 	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(elamat, "modulate", vari, 0.5)
-	tween.tween_property(palloja_label, "modulate", vari, 0.5)
-	tween.tween_property(apua_label, "modulate", vari, 0.5)
+	tween.tween_property(hud, "modulate", vari, 0.5)
 
 
 ## Kun huiluun osuu rigid/staticbody, tarkistetaan onko se ovi.
