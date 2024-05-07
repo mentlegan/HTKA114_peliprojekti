@@ -387,7 +387,8 @@ func respawn():
 	# self.get_tree().call_deferred("reload_current_scene")
 	pelaaja.putoamis_vahinko = false
 	pelaaja.position = pelaaja_aloitus
-	vihollinen.position = vihollinen_aloitus
+	if vihollinen:
+		vihollinen.position = vihollinen_aloitus
 	gameover_ruutu.visible = false
 	
 	# Aloittaa timerin alusta
