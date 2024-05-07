@@ -1,6 +1,54 @@
 ## Paavo 14.3.2024
 ## TODO: tarkista: jos valonlahteet-taulukossa oleva node poistetaan scenetreestä, poistuuko se
 ## _on_area_exited()-kutsun kautta valonlahteet-taulukosta.
+##
+## Node, joka lähettää signaalin sen siirtyessä valoon tai varjoon.
+## Aseta ValonTarkistus-node SceneTreessä kyseistä toiminnallisuutta tarvitsevan
+## noden lapseksi, esim Pelaaja-noden tapauksessa:
+##
+## Pelaaja
+## |
+## '-> ValonTarkistus
+##     |
+##     '-> CollisionShape2D    <- Aseta ValonTarkistuksen lapseksi myös CollisionShape2D.
+##                                Valoa tarkistetaan pelkästään, kun kyseisellä alueella on
+##                                valonlähteitä.
+##
+## ValonTarkistus lähettää signaalin, kun se siirtyy valoon tai varjoon.
+## Jos CollisionShape2D:n sisällä olevan valonlähteen ja ValonTarkistus-noden
+## välillä ei ole terrainia, ollaan valossa.
+##
+## Tarkoitus ei ole käyttää funktiota _on_valossa() valon tarkistamiseen, vaan
+## kuunnella signaaleita siirrytty_valoon ja siirrytty_varjoon.
+##
+## Signaaleiden kuunteleminen onnistuu, kun inspectorin kautta yhdistetään signaalit
+## toiminnallisuutta tarvitsevan vanhemman funktioihin: Valitaan SceneTreessä
+## ValonTarkistus-node, valitaan Node-välilehti > Signals > valon_tarkistus.gd > siirrytty_valoon()/-varjoon()
+##
+## Tätä varten vanhemmalla on oltava funktiot, joissa on omaa toiminnallisuutta
+## valoon tai varjoon siirtymiseen liittyen.
+##
+## Tarkoitus siis käyttää seuraavasti:
+##
+## Pelaaja  <---.
+## |            |
+## |  siirrytty_valoon/-varjoon -signaali
+## |            |
+## '-> ValonTarkistus
+##     |
+##     '-> CollisionShape2D
+##
+## Tarkoitus _ei_ole_ käyttää seuraavasti, vaikka tämä toimisi:
+##
+## Pelaaja  ----.
+## |            |
+## |     _on_valossa()-kutsu
+## |            |
+## |            V
+## '-> ValonTarkistus
+##     |
+##     '-> CollisionShape2D
+
 extends Area2D
 
 signal siirrytty_valoon
