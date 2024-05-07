@@ -23,7 +23,7 @@ signal kuollut
 @onready var tahtain = get_node("Tahtain")
 var tahtaimen_lapset = []
 ## Pelaajan labelit
-@onready var elamat = get_node("Elamat") # Ei käytössä heittää erroria
+@onready var elamat = get_node_or_null("Elamat")
 @onready var elama_mittari = get_node("ElamaMittari")
 @onready var elama_mittari_kuvalla = get_node("ElamaMittariKuvalla")
 @onready var palloja_label = get_node("Palloja")
