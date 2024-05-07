@@ -1,4 +1,4 @@
-## Harri 24.4.2024
+## Harri 7.5.2024
 ## Elias 22.4.2024 äänenkorkeuden muutos
 ## Elias 6.5.2024 äänilähteen vaihtuminen aktiivisen alueen mukaan
 ## Vanhan vihollisen saa takaisin: noden Inspector - process - disabled -> inherit
@@ -9,8 +9,6 @@
 ## Äännähdellä, kun siltä tuntuu
 ## TODO: voisi koittaa kehittää eteenpäin vaikkapa vielä useammalle alueelle, tai tehdä alueesta uusi scenensä
 ## TODO: alueen vaihto valossa vähän kankea vielä, voisi koittaa viilata
-## TODO: jotain pikku bugisuutta: vihollinen joskus ehkä huomaa valopallon seinän läpi,
-## 		 kenties ohuet seinät tai liian läheiset oltavat toisten alueiden kanssa on syynä
 extends Node2D
 class_name uusiVihollinen
 
@@ -66,9 +64,6 @@ func _ready():
 			if j.is_in_group("newVihollinenValotarkistus"):
 				j.connect("siirrytty_valoon", siirrytty_valoon)
 				j.connect("siirrytty_varjoon", siirrytty_varjoon)
-				#for h in j.get_children():
-					#h.connect("siirrytty_valoon", siirrytty_valoon)
-					#h.connect("siirrytty_varjoon", siirrytty_varjoon)
 	# Asetetaan vakioalueeksi 1 (muokatkaa scenessä aina alue 1 (nodenimi "alue") siihen paikkaan, mistä vihollisen halutaan aloittavan
 	audio_stream_player_container = $AudioStreamPlayerContainer
 	alue1 = $alue
@@ -82,13 +77,6 @@ func _process(_delta):
 	# Tarkistetaan ja muutetaan vihollisen äänenkorkeutta sen mukaan onko vihollinen
 	# pelaajan ylä- vai alapuolella
 	muuta_aanenkorkeutta()
-	for i in self.get_children():
-		for j in i.get_children():
-			if j.is_in_group("newVihollinenValotarkistus"):
-				if j._on_valossa():
-					siirrytty_valoon()
-				else:
-					siirrytty_varjoon()
 
 
 ## Kollektiivinen kuolema-funktio ..
@@ -222,7 +210,7 @@ func vaihda_alue(vihollinen):
 		toista_animaatio(kuoppa1)
 	else: # jos ei olekaan alue 1 kyseessä:
 		if alue2.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
-			print ("Vihollinen vaihtaa alueelle " + str(alue1))
+			print ("Vihollinen vaihtaa alueelle " + str(alue1.name))
 			aktivoi_alue(alue1)
 			deaktivoi_alue(alue2)
 			toista_animaatio(kuoppa2)

@@ -24,14 +24,14 @@
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
-[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
+[ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="23_k22wo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
-[ext_resource type="AudioStream" uid="uid://hm7sud10l8hv" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
+[ext_resource type="AudioStream" uid="uid://c52myow6udvtx" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
 [ext_resource type="PackedScene" uid="uid://o1g7x7mnf5b" path="res://scenet/ovet/ovi_oikea_y.tscn" id="28_1m8ka"]
@@ -315,7 +315,7 @@ position = Vector2(-141, 99)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 12015, -632, 12067, -629, 12106, -677, 12089, -704, 12065, -719, 12023, -727, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11353, -707, 11294, -704, 11265, -692, 11252, -669, 11272, -645, 11296, -637, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1403, 715)
+position = Vector2(1398, 731)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -827,31 +827,31 @@ rotation = 1.56308
 unique_name_in_owner = true
 
 [node name="uusiVihollinen" type="Node2D" parent="uudetViholliset"]
-position = Vector2(2816, 158)
+position = Vector2(2524, 317)
 rotation = 3.13914
 scale = Vector2(0.670116, 0.75484)
 script = ExtResource("24_8mx77")
 
 [node name="alue" type="Area2D" parent="uudetViholliset/uusiVihollinen" groups=["newVihollinen", "nykyisetAlueet"]]
-position = Vector2(289.305, -468.345)
+position = Vector2(-109.707, -261.222)
 rotation = 3.14159
 scale = Vector2(7.22472, -9.85951)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue"]
-polygon = PackedVector2Array(-34.4778, 4.35484, -39.0605, -5.8497, -40.5063, -5.84742, -37.1523, 7.18077, 9.7384, 8.04643, 11.337, -6.19898, -9.11053, -5.89757, -14.8564, 4.05473)
+polygon = PackedVector2Array(-33.0704, -5.8593, -39.0605, -5.8497, -40.5063, -5.84742, -37.1523, 7.18077, 9.7384, 8.04643, 11.337, -6.19898, -9.11053, -5.89757, -16.5463, -5.8857)
 
 [node name="ValonTarkistus" parent="uudetViholliset/uusiVihollinen/alue" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
-position = Vector2(-24.1817, -3.99235)
+position = Vector2(-18.381, 0.566828)
 scale = Vector2(0.248258, 0.98758)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue/ValonTarkistus"]
-position = Vector2(96.5736, 4.04289)
+position = Vector2(74.8639, -1.11851)
 polygon = PackedVector2Array(-58.9988, 4.92172, -33.3655, -5.70097, -160.658, -5.37772, -161.486, -5.10529, -149.664, 6.45475, -139.662, 7.67526, -58.124, 7.77856, 36.7183, 7.33229, 43.176, -5.86777, -35.854, -5.15574)
 
 [node name="Kuoppa" type="Sprite2D" parent="uudetViholliset/uusiVihollinen"]
-position = Vector2(289.207, -432.576)
+position = Vector2(-106.828, -222.797)
 rotation = 3.14159
 scale = Vector2(2, -3)
 texture = ExtResource("13_iivh1")
@@ -862,14 +862,15 @@ animation = &"kaivautuminen"
 frame_progress = 0.402777
 
 [node name="alue2" type="Area2D" parent="uudetViholliset/uusiVihollinen" groups=["newVihollinen"]]
-position = Vector2(42.4245, -231.745)
+position = Vector2(-399.882, -18.093)
 rotation = 3.14159
 scale = Vector2(7.09998, -9.79605)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="uudetViholliset/uusiVihollinen/alue2"]
-polygon = PackedVector2Array(31.9293, -4.78376, 25.6053, -9.6423, 1.43152, -10.4155, -53.6036, -1.94382, -40.9547, 8.04372, -18.4576, 10.0367, 2.9704, 7.2981, 29.2145, -0.181419)
+position = Vector2(0.41778, -0.676845)
+polygon = PackedVector2Array(31.9293, -4.78376, 24.9758, -9.37082, 1.43152, -10.4155, -52.9695, -0.998203, -40.9547, 8.04372, -18.4576, 10.0367, 3.81317, 7.83772, 29.2145, -0.181419)
 
 [node name="ValonTarkistus2" parent="uudetViholliset/uusiVihollinen/alue2" groups=["newVihollinenValotarkistus"] instance=ExtResource("25_a5dle")]
 position = Vector2(-10.3019, -0.795137)
@@ -880,7 +881,7 @@ position = Vector2(43.1984, 1.35221)
 polygon = PackedVector2Array(125.219, -5.39033, 101.449, -9.62595, 4.91943, -10.5462, -208.302, -2.10823, -162.449, 6.7745, -71.844, 7.834, 8.56592, 6.56961, 114.277, -1.14091)
 
 [node name="Kuoppa2" type="Sprite2D" parent="uudetViholliset/uusiVihollinen"]
-position = Vector2(-60.3848, -288.935)
+position = Vector2(-486.258, -81.8708)
 rotation = 3.14159
 scale = Vector2(2, 3)
 texture = ExtResource("13_iivh1")
@@ -1025,13 +1026,13 @@ autoplay = true
 max_distance = 600.0
 
 [node name="uusiVihollinen3" type="Node2D" parent="uudetViholliset"]
-position = Vector2(5109, 1212)
+position = Vector2(5018, 1207)
 rotation = -0.00245404
 scale = Vector2(-0.670116, -0.75484)
 script = ExtResource("24_8mx77")
 
 [node name="alue" type="Area2D" parent="uudetViholliset/uusiVihollinen3" groups=["newVihollinen", "nykyisetAlueet"]]
-position = Vector2(-625.331, 22.4837)
+position = Vector2(-768.588, 22.1718)
 rotation = 3.14159
 scale = Vector2(7.22472, -9.85951)
 collision_layer = 2
@@ -1049,7 +1050,7 @@ scale = Vector2(0.248258, 0.98758)
 polygon = PackedVector2Array(-237.317, -12.9661, -260.58, -10.7798, -260.445, -1.80014, -246.127, 9.75888, -217.776, 13.9653, -22.1528, 20.8255, 155.158, 27.0129, 198.634, -14.2296)
 
 [node name="Kuoppa" type="Sprite2D" parent="uudetViholliset/uusiVihollinen3"]
-position = Vector2(-575.809, -76.7673)
+position = Vector2(-835.432, -89.256)
 rotation = 0.0267142
 scale = Vector2(2, -3)
 texture = ExtResource("13_iivh1")
@@ -1060,7 +1061,7 @@ animation = &"kaivautuminen"
 frame_progress = 0.402777
 
 [node name="alue2" type="Area2D" parent="uudetViholliset/uusiVihollinen3" groups=["newVihollinen"]]
-position = Vector2(177.581, 0.386879)
+position = Vector2(34.3439, -7.87391)
 rotation = 3.14159
 scale = Vector2(7.09998, -9.79605)
 collision_layer = 2
@@ -1077,7 +1078,7 @@ scale = Vector2(0.248258, 0.98758)
 polygon = PackedVector2Array(-133.846, -5.2874, -75.4292, -5.31061, -91.3677, 4.4183, -240.331, 7.21626, -240.248, 12.6937, 21.312, 9.57715, 19.2759, -13.0168, -115.36, -14.4696)
 
 [node name="Kuoppa2" type="Sprite2D" parent="uudetViholliset/uusiVihollinen3"]
-position = Vector2(288.359, -126.552)
+position = Vector2(143.627, -133.491)
 rotation = 3.14159
 scale = Vector2(2, 3)
 texture = ExtResource("13_iivh1")

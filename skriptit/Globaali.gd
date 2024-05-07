@@ -1,4 +1,4 @@
-## Harri 24.4.2024
+## Harri 7.5.4.2024
 ## Paavo 22.4.2024
 ## Elias 22.4.2024
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
@@ -13,7 +13,9 @@ var nykyiset_pallot = 0
 ## Signaaleja varten
 var pelaaja = null
 var uusi_vihollinen = null
-
+## Sekunnissa päivittämiseen käytettävät muuttujat (kts. process delta)
+var aika_vali = 1.0
+var aika = 0
 ## UI-näkyvyyden ajastin
 var ui_ajastin = Timer.new()
 
@@ -125,9 +127,6 @@ func _ready():
 	# Haetaan pelin kaikki tooltip-nodet.
 	lisaa_tooltipit()
 	vaihda_tooltip_ui(true)
-	
-	# Lisätään viholliset oikein pelin alussa
-	lisaa_viholliset()
 	
 	# Alustetaan köynnösovet
 	alusta_koynnosovet()
@@ -301,7 +300,12 @@ func _input(_event: InputEvent) -> void:
 
 ## Kutsutaan joka framella
 func _process(_delta):
-	lisaa_viholliset() # Viholliset päivittyvät pois ja päälle riippuen pelaajan positiosta
+	# Päivitetään peliä joka sekuntti
+	aika += _delta
+	if aika > aika_vali:
+		# Tähän lisätään joka sekuntti tapahtuva asia
+		lisaa_viholliset() # Viholliset päivittyvät pois ja päälle riippuen pelaajan positiosta
+		aika = 0
 
 
 func alusta_koynnosovet():
