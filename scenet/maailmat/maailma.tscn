@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=78 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -46,6 +46,8 @@
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
+[ext_resource type="Script" path="res://scenet/maailmat/vesiputous.gd" id="45_dq3qu"]
+[ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="45_ocnt8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
 atlas = ExtResource("9_75e1e")
@@ -174,6 +176,45 @@ stream_2/weight = 1.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glbb0"]
 size = Vector2(75, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0tun"]
+size = Vector2(157, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhhqy"]
+atlas = ExtResource("45_ocnt8")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sutg"]
+atlas = ExtResource("45_ocnt8")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8304g"]
+atlas = ExtResource("45_ocnt8")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0h8t"]
+atlas = ExtResource("45_ocnt8")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73xeq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhhqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sutg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8304g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0h8t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2lsd"]
 size = Vector2(2383.5, 805)
 
@@ -245,7 +286,7 @@ polygon = PackedVector2Array(2051, 317, 2608, 514, 2638, 525, 2668, 542, 2734, 5
 
 [node name="Polygon2D4_2" type="Polygon2D" parent="Tiilet"]
 position = Vector2(1764, -1905)
-polygon = PackedVector2Array(1432, 791, 2061, 801, 2143, 809, 2218, 846, 2245, 938, 2242, 982, 2231, 993, 1836, 965, 1837, 1206, 1997, 1229, 2124, 1271, 2187, 1300, 2219, 1315, 2300, 1337, 2440, 1340, 2633, 1339, 3033, 1316, 3197, 1315, 3253, 1312, 3401, 1299, 3471, 1289, 3504, 1274, 3523, 1265, 3534, 1258, 3545, 1246, 3549, 1239, 3550, 1228, 3548, 1223, 3542, 1220, 3533, 1218, 3524, 1210, 3520, 1202, 3524, 1194, 3536, 1195, 3550, 1193, 3562, 1189, 3582, 1183, 3598, 1169, 3603, 1157, 3603, 1141, 3595, 1124, 3579, 1108, 3562, 1103, 3549, 1100, 3537, 1099, 3531, 1095, 3530, 1089, 3534, 1085, 3583, 1080, 3684, 1075, 3808, 1074, 3994, 1074, 4164, 1071, 4313, 1067, 4412, 1062, 4424, 1062, 4434, 1064, 4439, 1066, 4443, 1070, 4447, 1094, 4455, 1126, 4477, 1376, 4489, 1435, 4496, 1538, 4511, 1683, 4517, 1810, 4521, 1855, 4524, 1873, 4529, 1901, 4532, 1908, 4537, 1912, 4544, 1916, 4554, 1919, 4562, 1922, 4571, 1924, 4583, 1925, 4600, 1927, 4617, 1929, 4620, 1932, 4623, 1939, 4627, 1948, 4625, 1951, 4621, 1953, 4614, 1952, 4603, 1951, 4587, 1947, 4565, 1943, 4546, 1943, 4533, 1940, 4520, 1929, 4497, 1923, 4459, 1920, 4417, 1908, 4350, 1902, 4269, 1899, 4240, 1911, 4190, 1912, 4149, 1908, 4121, 1920, 4088, 1931, 4044, 1929, 3986, 1932, 3916, 1929, 3822, 1903, 3688, 1912, 3653, 1922, 3613, 1919, 3545, 1897, 3473, 1867, 3341, 1852, 3214, 1858, 3096, 1858, 2915, 1843, 2770, 1822, 2627, 1798, 2552, 1831, 2504, 1849, 2468, 1879, 1851, 2170, 1745, 2060, 1679, 1998, 1660, 1940, 1575, 1884, 1304, 1696, 1260, 1669, 1247, 1647, 1262, 1578, 1326, 1045, 1351, 924, 1382, 826)
+polygon = PackedVector2Array(1432, 791, 2061, 801, 2143, 809, 2218, 846, 2245, 938, 2242, 982, 2231, 993, 1836, 965, 1837, 1206, 1997, 1229, 2124, 1271, 2187, 1300, 2219, 1315, 2300, 1337, 2440, 1340, 2633, 1339, 3033, 1316, 3197, 1315, 3253, 1312, 3401, 1299, 3471, 1289, 3504, 1274, 3523, 1265, 3534, 1258, 3545, 1246, 3549, 1239, 3550, 1228, 3548, 1223, 3542, 1220, 3533, 1218, 3524, 1210, 3520, 1202, 3524, 1194, 3536, 1195, 3550, 1193, 3562, 1189, 3582, 1183, 3598, 1169, 3603, 1157, 3603, 1141, 3595, 1124, 3579, 1108, 3562, 1103, 3549, 1100, 3537, 1099, 3531, 1095, 3530, 1089, 3534, 1085, 3583, 1080, 3684, 1075, 3808, 1074, 3994, 1074, 4164, 1071, 4313, 1067, 4412, 1062, 4424, 1062, 4434, 1064, 4439, 1066, 4443, 1070, 4447, 1094, 4455, 1126, 4477, 1376, 4489, 1435, 4496, 1538, 4511, 1683, 4517, 1810, 4521, 1855, 4524, 1873, 4529, 1901, 4532, 1908, 4537, 1912, 4544, 1916, 4554, 1919, 4562, 1922, 4571, 1924, 4583, 1925, 4600, 1927, 4617, 1929, 4620, 1932, 4623, 1939, 4627, 1948, 4625, 1951, 4621, 1953, 4614, 1952, 4603, 1951, 4587, 1947, 4565, 1943, 4546, 1943, 4533, 1940, 4520, 1929, 4497, 1923, 4459, 1920, 4417, 1908, 4350, 1902, 4269, 1899, 4240, 1911, 4190, 1912, 4149, 1908, 4121, 1920, 4088, 1931, 4044, 1929, 3986, 1932, 3916, 1929, 3822, 1903, 3688, 1912, 3653, 1922, 3613, 1919, 3545, 1897, 3473, 1867, 3341, 1852, 3214, 1858, 3096, 1858, 2915, 1843, 2770, 1822, 2627, 1798, 2552, 1831, 2504, 1849, 2468, 1879, 1845, 2361, 1826, 2278, 1803, 2245, 1784, 2211, 1745, 2128, 1732, 2090, 1679, 1998, 1660, 1940, 1575, 1884, 1304, 1696, 1260, 1669, 1247, 1647, 1262, 1578, 1326, 1045, 1351, 924, 1382, 826)
 
 [node name="Polygon2D5_2" type="Polygon2D" parent="Tiilet"]
 position = Vector2(1766, -1914)
@@ -265,11 +306,11 @@ polygon = PackedVector2Array(2012.1, -314.38, 1516.1, -373.38, 1408.1, -453.38, 
 
 [node name="Polygon2D2_3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(2045.9, 224.38)
-polygon = PackedVector2Array(2358.34, 1279.55, 2450.1, 1739.62, 2339.1, 1735.62, 2258.1, 1707.62, 2196.1, 1660.62, 2142.1, 1564.62, 1990.1, 1286.62, 1510.1, -129.38, 1514.1, -382.38, 2026.1, -314.38, 2041.26, -75.1888, 2050.78, 205.78, 2069.83, 272.452, 2078.38, 398.523, 2084.36, 500.782, 2105.75, 523.352, 2178.89, 523.857, 2332.67, 512.631, 2423.59, 515.996, 2497.68, 536.188, 2528, 567.998, 2562.01, 621.997, 2585, 717, 2593.71, 799.559, 2607.71, 878.04, 2631.24, 952.344, 2672.66, 952.163, 2718.02, 950.902, 2789.22, 957.979, 2836.5, 980.38, 2844.1, 1004.37, 2826.2, 1021.23, 2775.8, 1007.97, 2741.58, 1000.14, 2704.66, 990.064, 2624.03, 989.759, 2550.09, 972.575, 2527.77, 899.247, 2522.73, 765.695, 2495, 648.528, 2447.11, 589.333, 2343.82, 570.411, 2244.29, 577.972, 2170.03, 609.512, 2176.25, 710.258, 2180.03, 811.052, 2188.85, 915.625, 2176.25, 1021.46, 2177.51, 1114.69, 2187.6, 1205.41, 2212.82, 1257.03, 2268.23, 1275.95, 2347.38, 1277.85)
+polygon = PackedVector2Array(2358.34, 1279.55, 2452.1, 1752.62, 2357.1, 1764.62, 2284.1, 1763.62, 2210.1, 1754.62, 2163.1, 1703.62, 2102.1, 1634.62, 2051.1, 1499.62, 1990.1, 1286.62, 1580.1, 284.62, 1561.1, 244.62, 1540.1, 165.62, 1510.1, -129.38, 1514.1, -382.38, 2026.1, -314.38, 2041.26, -75.1888, 2050.78, 205.78, 2069.83, 272.452, 2078.38, 398.523, 2084.36, 500.782, 2105.75, 523.352, 2178.89, 523.857, 2332.67, 512.631, 2423.59, 515.996, 2497.68, 536.188, 2528, 567.998, 2562.01, 621.997, 2585, 717, 2593.71, 799.559, 2607.71, 878.04, 2631.24, 952.344, 2672.66, 952.163, 2718.02, 950.902, 2789.22, 957.979, 2836.5, 980.38, 2844.1, 1004.37, 2826.2, 1021.23, 2775.8, 1007.97, 2741.58, 1000.14, 2704.66, 990.064, 2624.03, 989.759, 2550.09, 972.575, 2527.77, 899.247, 2522.73, 765.695, 2495, 648.528, 2447.11, 589.333, 2343.82, 570.411, 2244.29, 577.972, 2170.03, 609.512, 2176.25, 710.258, 2180.03, 811.052, 2188.85, 915.625, 2176.25, 1021.46, 2177.51, 1114.69, 2187.6, 1205.41, 2212.82, 1257.03, 2268.23, 1275.95, 2347.38, 1277.85)
 
 [node name="Polygon2D3_3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(2045.9, 224.38)
-polygon = PackedVector2Array(3351.16, 1250.07, 3572.54, 1251.61, 3659.48, 1259.56, 3733.24, 1296.41, 3760.58, 1389.19, 3756.99, 1435.17, 3753.92, 1821.22, 3706.1, 1836.62, 3607.1, 1838.62, 3369.1, 1830.62, 3033.1, 1804.62, 2775.1, 1782.62, 2445.1, 1740.62, 2357.33, 1284.19, 2358.81, 1280.22)
+polygon = PackedVector2Array(3351.16, 1250.07, 3572.54, 1251.61, 3659.48, 1259.56, 3733.24, 1296.41, 3760.58, 1389.19, 3756.99, 1435.17, 3753.92, 1821.22, 3706.1, 1836.62, 3607.1, 1838.62, 3369.1, 1830.62, 3033.1, 1804.62, 2775.1, 1782.62, 2467.1, 1754.62, 2443.1, 1753.62, 2357.33, 1284.19, 2358.81, 1280.22)
 
 [node name="Polygon2D4_3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(2045.9, 224.38)
@@ -315,7 +356,7 @@ position = Vector2(-141, 99)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 12015, -632, 12067, -629, 12106, -677, 12089, -704, 12065, -719, 12023, -727, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11353, -707, 11294, -704, 11265, -692, 11252, -669, 11272, -645, 11296, -637, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1398, 731)
+position = Vector2(3272, 172)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -382,7 +423,7 @@ rotation = -0.00132818
 position = Vector2(1250, 643)
 
 [node name="Kukka6" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(3390.76, 183.504)
+position = Vector2(3390.7, 227.504)
 
 [node name="Kukka3" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(2488.01, 746.305)
@@ -1479,6 +1520,29 @@ scale = Vector2(0.519523, 0.676654)
 z_index = -1
 texture = ExtResource("38_c8dmk")
 
+[node name="Vesiputous" type="Area2D" parent="Muuta"]
+position = Vector2(3480, 248)
+rotation = -0.435676
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("45_dq3qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muuta/Vesiputous"]
+position = Vector2(2.03206, 40.6554)
+shape = SubResource("RectangleShape2D_o0tun")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(-16.5842, 30.8863)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(16.5217, 30.8548)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
 [node name="Tasot" type="Area2D" parent="."]
 visible = false
 
@@ -1537,3 +1601,4 @@ stream = ExtResource("37_khmdb")
 [connection signal="body_exited" from="uudetViholliset/uusiVihollinen3/alue" to="uudetViholliset/uusiVihollinen3" method="_on_alue_body_exited"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen3/alue2" to="uudetViholliset/uusiVihollinen3" method="_on_alue_2_body_entered"]
 [connection signal="body_exited" from="uudetViholliset/uusiVihollinen3/alue2" to="uudetViholliset/uusiVihollinen3" method="_on_alue_2_body_exited"]
+[connection signal="body_entered" from="Muuta/Vesiputous" to="Muuta/Vesiputous" method="_on_body_entered"]
