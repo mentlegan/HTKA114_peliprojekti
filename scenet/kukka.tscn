@@ -71,6 +71,7 @@ sprite_frames = SubResource("SpriteFrames_2clcg")
 frame_progress = 0.328976
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.0045216
 shape = SubResource("CapsuleShape2D_yjw0c")
 
 [node name="Area2D" type="Area2D" parent="."]
