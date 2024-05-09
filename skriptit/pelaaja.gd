@@ -160,12 +160,24 @@ var putoamis_vahinko = false
 ## Miltä korkeudelta pelaajan pudotus alkoi
 var putoamis_huippu = get_global_position().y
 
+## Kamera tärinän arvoja
+var random_voimakkuus: float = 5.0
+var tarina_fade: float = 5.0
+var rng = RandomNumberGenerator.new()
+var tarina_voimakkuus: float = 0.0
+var kamera_tarinan_pituus = 0.1
+var kamera_tarisee = false
+
+## Timer kameran tärinälle
+var kamera_tarina_ajastin = Timer.new()
+
 
 func _ready():
-	# Lisätään ajastimet hypyille ja elämä regeneraatiolle lapsiksi
+	# Lisätään ajastimet hypyille, elämä regeneraatiolle ja kameran tärinälle lapsiksi
 	self.add_child(hyppy_ajastin_seinalla)
 	self.add_child(hyppy_ajastin_maassa)
 	self.add_child(elama_regen_ajastin)
+	self.add_child(kamera_tarina_ajastin)
 	
 	# Lisätään pelaajan hp labeliin elamat
 	elama_mittari_kuvalla.max_value = pelaajan_elamat_max
@@ -178,6 +190,9 @@ func _ready():
 	
 	# Pelaajan elämä regeneraatio
 	elama_regen_ajastin.timeout.connect(elama_regen)
+	
+	# Kamera tarinan lopetus
+	kamera_tarina_ajastin.timeout.connect(tarinan_lopetus)
 	
 	# Asetetaan pimeä-valo näkyviin pelin alussa
 	pimea_valo.visible = true
@@ -294,16 +309,19 @@ func get_elamat():
 	return pelaajan_elamat
 
 
+## Päivitetään pelaajan elamat label
 func elamat_label_paivita():
 	elama_mittari_kuvalla.value = pelaajan_elamat
 
 
+## Lisätään pelaajalle elämiä ja jatketaan regenia, jos ei vielä täydet elämät
 func elama_regen():
 	saa_elamia(elamat_regen_maara)
 	if pelaajan_elamat < pelaajan_elamat_max:
 		elama_regen_ajastin.start(elamat_regen_nopeus)
 
 
+## Lisätään pelaajalle elämiä
 func saa_elamia(maara):
 	if pelaajan_elamat + maara < pelaajan_elamat_max:
 		pelaajan_elamat += maara
@@ -312,9 +330,12 @@ func saa_elamia(maara):
 	elamat_label_paivita()
 
 
+## Vähennetään pelaajan elämiä
 func meneta_elamia(maara):
 	if pelaajan_elamat - maara > 0:
 		pelaajan_elamat -= maara
+		kamera_tarisee = true
+		kamera_tarina_ajastin.start(kamera_tarinan_pituus)
 		audio_pelaaja_fall_damage.play()
 		elama_regen_ajastin.start(elamat_regen_nopeus)
 		animaatio.modulate = Color.RED
@@ -328,6 +349,16 @@ func meneta_elamia(maara):
 	elamat_label_paivita()
 
 
+## Vaihdetaan kameran tärinän arvoa
+func elamamittari_tarina():
+	tarina_voimakkuus = random_voimakkuus
+
+
+## Lopetetaan elämämittarin tarina
+func tarinan_lopetus():
+	kamera_tarisee = false
+
+
 func palloja_label_paivita():
 	if Globaali.palloja == 0:
 		palloja_label.visible = false
@@ -337,7 +368,6 @@ func palloja_label_paivita():
 	else:
 		palloja_label.set_texture(palloja_2)
 		palloja_label.visible = true
-
 
 
 ## Ei hyppyä kun liian kauan seinältä
@@ -567,6 +597,15 @@ func _physics_process(delta):
 					animaatio.frame = 0
 				else:
 					animaatio.frame = 1
+	
+	# Vaihdetaan kameran tärinää
+	if kamera_tarisee:
+		elamamittari_tarina()
+	
+	# Kameralle tärinä
+	if tarina_voimakkuus > 0:
+		tarina_voimakkuus = lerpf(tarina_voimakkuus, 0, tarina_fade * delta)
+		kamera.offset = Vector2(rng.randf_range(-tarina_voimakkuus, tarina_voimakkuus), rng.randf_range(-tarina_voimakkuus, tarina_voimakkuus))
 	
 	# Flipataan animaatio suuntaa myöten
 	if velocity.x != 0:
