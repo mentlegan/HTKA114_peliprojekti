@@ -7,6 +7,9 @@ var path_follow_2d = PathFollow2D.new()
 var path2d = null
 ## Perhosen animaatio
 @onready var animaatio = $AnimatedSprite2D
+## Perhosen äänet
+@onready var audio_perhonen = $AudioPerhonen
+@onready var aanen_ajastin = Timer.new()
 ## Perhosen nopeus
 @export var nopeus: int = 80
 ## Perhosen edeltävän framen x-koordinaatti
@@ -23,6 +26,10 @@ var reitin_pituus = 1
 func _ready():
 	# Käynnistetään perhosen animaatio
 	animaatio.play()
+	# Käynnistetään äänen ajastin
+	self.add_child(aanen_ajastin)
+	aanen_ajastin.timeout.connect(on_aanen_ajastin_timeout)
+	aanen_ajastin.start()
 	
 	# Etsitään perhosen path2d lapsi-nodeista, jos sellainen on olemassa
 	var path2d_jo_lapsena = false
@@ -66,3 +73,9 @@ func _process(delta):
 	# Siirretään perhonen pathfollow2d:n koordinaatteihin
 	self.global_position.x = aloituspiste.x + path_follow_2d.position.x
 	self.global_position.y = aloituspiste.y + path_follow_2d.position.y
+
+
+## Kutsutaan kun aanen_ajastin aika menee loppuun
+func on_aanen_ajastin_timeout():
+	audio_perhonen.play()
+	aanen_ajastin.start(randf_range(1.5, 3.0))
