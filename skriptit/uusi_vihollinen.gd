@@ -193,6 +193,7 @@ func siirrytty_valoon():
 func aseta_alueet(_vihollinen):
 	# Otetaan aina alue 1 (nodena "alue") ensimmäiseksi vihollisen paikaksi
 	alue1.add_to_group("nykyisetAlueet") # Tehdään siitä osa aktiivisten, eli vaarallisten alueiden ryhmää
+	#etsi_lahin_kukka(alue1) # Etsitään alueen lähin kukka
 	# Alue2 on Ei-aktiivinen alue
 	alue2.remove_from_group("nykyisetAlueet") # Varmistus
 	alue2.visible = false # Alue 2 katoaa näkyvistä
@@ -205,13 +206,15 @@ func vaihda_alue(vihollinen):
 	var kuoppa2 = vihollinen.get_children()[3] # Otetaan alueen 1 kuoppa
 	if alue1.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
 		print ("Vihollinen vaihtaa alueelle " + str(alue2))
-		aktivoi_alue(alue2)
+		aktivoi_alue(alue2)	
+		#etsi_lahin_kukka(alue2)
 		deaktivoi_alue(alue1)
 		toista_animaatio(kuoppa1)
 	else: # jos ei olekaan alue 1 kyseessä:
 		if alue2.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
 			print ("Vihollinen vaihtaa alueelle " + str(alue1.name))
 			aktivoi_alue(alue1)
+			#etsi_lahin_kukka(alue1)
 			deaktivoi_alue(alue2)
 			toista_animaatio(kuoppa2)
 
@@ -252,6 +255,19 @@ func haeNykyinenAlue(vihollinen):
 	for i in vihollinen.get_children():
 		if i.is_in_group("nykyisetAlueet"):
 			return i
+
+
+## Haetaan alueen lähin kukka
+func etsi_lahin_kukka(alue) -> Node2D:
+	var lahinKukka
+	var min = Globaali.kukat[0].position - alue.position
+	for i in Globaali.kukat:
+		var etaisyys = i.position - alue.position
+		if etaisyys < min:
+			min = etaisyys
+			lahinKukka = i
+	#print("Alueen " + str(alue.name) + "lahin kukka on " + str(lahinKukka))
+	return lahinKukka
 
 
 ## Tarkistaa pelaajan ja vihollisen y-koordinaatit ja muuttaa vihollisen äänenkorkeutta.

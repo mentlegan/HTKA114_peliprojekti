@@ -75,6 +75,7 @@ var pystyssa = true
 @onready var pauseruutu = get_node("/root/Maailma/%KayttoLiittyma/%pause_ruutu")
 @onready var pimeyskuolema_animaatio = get_node("/root/Maailma/%KayttoLiittyma/%PimeysKuolema")
 @onready var uudetViholliset = get_node("/root/Maailma/%uudetViholliset").get_children()
+@onready var kukat = get_node("/root/Maailma/%Kukat").get_children()
 @onready var piikit = get_node("/root/Maailma/%Piikit").get_children()
 ## Musiikit:
 @onready var musiikki = get_node("/root/Maailma/%Musiikki")
