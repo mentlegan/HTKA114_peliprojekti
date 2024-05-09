@@ -24,7 +24,6 @@ signal kuollut
 var tahtaimen_lapset = []
 ## Pelaajan labelit
 @onready var hud = get_node("HUD")
-@onready var elama_mittari = get_node("HUD/ElamaMittari")
 @onready var elama_mittari_kuvalla = get_node("HUD/ElamaMittariKuvalla")
 @onready var palloja_label = get_node("HUD/Palloja")
 @onready var apua_label = get_node("HUD/ApuaLabel")
@@ -138,7 +137,7 @@ const SEINAHYPPY_BUFFER = 0.2 ## Kuinka kauan seinältä voi olla poissa, niin e
 const MAAHYPPY_BUFFER = 0.2 ## Kuinka kauan maalta voi olla poissa, niin että pelaaja saa vielä hypätä (sekunteina)
 
 ## Pelaajan elämäpisteet
-const pelaajan_elamat_max = 6
+const pelaajan_elamat_max = 5
 var pelaajan_elamat = pelaajan_elamat_max
 ## Kuinka nopeasti pelaaja saa elämiä takaisin sekunteina
 var elamat_regen_nopeus = 5
@@ -149,13 +148,13 @@ var elamat_regen_maara = 1
 var elama_regen_ajastin = Timer.new()
 
 ## Miten pitkästi pelaaja voi tippua, kunnes siitä ottaa vahinkoa
-var putoamis_raja_1 = 200
-var putoamis_raja_2 = 300
-var putoamis_raja_3 = 400
+var putoamis_raja_1 = 250
+var putoamis_raja_2 = 400
+var putoamis_raja_3 = 500
 ## Miten paljon vahinkoa kustakin korkeudesta ottaa
-var putoamis_raja_1_dmg = 2
+var putoamis_raja_1_dmg = 1
 var putoamis_raja_2_dmg = 3
-var putoamis_raja_3_dmg = 6
+var putoamis_raja_3_dmg = 5
 ## Tarkistetaako maahan osuessa pudotuksen pituus, putoamis vahinkoa varten
 var putoamis_vahinko = false
 ## Miltä korkeudelta pelaajan pudotus alkoi
@@ -169,7 +168,6 @@ func _ready():
 	self.add_child(elama_regen_ajastin)
 	
 	# Lisätään pelaajan hp labeliin elamat
-	elama_mittari.max_value = pelaajan_elamat_max
 	elama_mittari_kuvalla.max_value = pelaajan_elamat_max
 	elamat_label_paivita()
 	
@@ -297,7 +295,6 @@ func get_elamat():
 
 
 func elamat_label_paivita():
-	elama_mittari.value = pelaajan_elamat
 	elama_mittari_kuvalla.value = pelaajan_elamat
 
 
