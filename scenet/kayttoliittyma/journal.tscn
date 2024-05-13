@@ -66,5 +66,14 @@ icon = ExtResource("6_xo6a1")
 flat = true
 icon_alignment = 1
 
+[node name="SivuLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 52.0
+offset_right = 90.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.180392, 0.12549, 0.0823529, 1)
+text = "0/0"
+
 [connection signal="pressed" from="ArrowRight" to="." method="vaihda_sivua" binds= [1]]
 [connection signal="pressed" from="ArrowLeft" to="." method="vaihda_sivua" binds= [-1]]
