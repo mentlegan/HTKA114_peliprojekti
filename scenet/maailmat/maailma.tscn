@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
-[ext_resource type="PackedScene" uid="uid://d1c6axf23uaq5" path="res://scenet/kayttoliittyma/help_ruutu.tscn" id="4_5kntw"]
+[ext_resource type="PackedScene" uid="uid://dskh1b4twfo2c" path="res://scenet/kayttoliittyma/journal.tscn" id="4_sg152"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="4_udkay"]
 [ext_resource type="Texture2D" uid="uid://lxurmqd1rdhq" path="res://grafiikka/Timer-Sheet.png" id="9_75e1e"]
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://scenet/kayttoliittyma/game_over_ruutu.tscn" id="9_er4wh"]
@@ -24,14 +24,14 @@
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
-[ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
+[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="23_k22wo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
-[ext_resource type="AudioStream" uid="uid://c52myow6udvtx" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
+[ext_resource type="AudioStream" uid="uid://omkl8akcmbbu" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
 [ext_resource type="PackedScene" uid="uid://o1g7x7mnf5b" path="res://scenet/ovet/ovi_oikea_y.tscn" id="28_1m8ka"]
@@ -48,9 +48,9 @@
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
 [ext_resource type="Script" path="res://scenet/maailmat/vesiputous.gd" id="45_dq3qu"]
 [ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="45_ocnt8"]
-[ext_resource type="Texture2D" uid="uid://00lou65p51b7" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
-[ext_resource type="Texture2D" uid="uid://b4j5lrgdhkb60" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
-[ext_resource type="Texture2D" uid="uid://bqn58o7rps284" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
+[ext_resource type="Texture2D" uid="uid://e23o1tf208e" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
+[ext_resource type="Texture2D" uid="uid://daud7b661lhjw" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
+[ext_resource type="Texture2D" uid="uid://di0xhjslf66mo" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
 atlas = ExtResource("9_75e1e")
@@ -250,8 +250,7 @@ unique_name_in_owner = true
 process_mode = 3
 visible = false
 
-[node name="HelpRuutu" parent="KayttoLiittyma" groups=["UI", "helpruutu"] instance=ExtResource("4_5kntw")]
-unique_name_in_owner = true
+[node name="Journal" parent="KayttoLiittyma" instance=ExtResource("4_sg152")]
 visible = false
 
 [node name="PimeysKuolema" type="AnimatedSprite2D" parent="KayttoLiittyma"]
@@ -1751,6 +1750,7 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="Musiikki" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 stream = ExtResource("37_khmdb")
 
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]

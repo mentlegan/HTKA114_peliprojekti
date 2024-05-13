@@ -72,6 +72,7 @@ var pystyssa = true
 ## oikea näppäin ja % merkillä oleva valinta Access as unique name 
 ## ja kutsua sitä % merkillä scriptissä, kuten alla:
 @onready var gameover_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%GameOverRuutu")
+@onready var journal = get_node("/root/Maailma/%KayttoLiittyma/Journal")
 @onready var pauseruutu = get_node("/root/Maailma/%KayttoLiittyma/%pause_ruutu")
 @onready var pimeyskuolema_animaatio = get_node("/root/Maailma/%KayttoLiittyma/%PimeysKuolema")
 @onready var uudetViholliset = get_node("/root/Maailma/%uudetViholliset").get_children()
@@ -84,6 +85,7 @@ var pystyssa = true
 
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://scenet/tausta.tscn")
+
 
 ## Scenen vaihtamiseen, ei luultavasti tarvita
 """
@@ -131,6 +133,9 @@ func _ready():
 	
 	# Alustetaan köynnösovet
 	alusta_koynnosovet()
+
+	# Journal pois näkyvistä
+	journal.visible = false
 
 
 ## Poistaa minecart-tooltipit
@@ -370,6 +375,16 @@ func respawn():
 	pimeyskuolema_animaatio.stop()
 	pelaaja.siirrytty_valoon()
 	pelaaja.siirrytty_varjoon()
+
+
+## Vaihtaa journalin näkyviin tai piiloon vuorotellen funktiota kutsuessa.
+func toggle_journal():
+	if not pelaaja.valossa && not journal.visible:
+		return
+
+	journal.visible = not journal.visible
+	get_viewport().set_input_as_handled()
+	get_tree().paused = journal.visible
 
 
 ## Pausettaa pelin

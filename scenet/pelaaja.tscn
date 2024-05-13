@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=90 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -21,22 +21,22 @@
 [ext_resource type="AudioStream" uid="uid://bjbaqnxkgke0l" path="res://audio/pelaaja/walljump1_mono.wav" id="15_bxt80"]
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="16_4n4el"]
 [ext_resource type="Texture2D" uid="uid://dj3c6nkmnxha2" path="res://grafiikka/Valo256.png" id="20_8tpmo"]
-[ext_resource type="AudioStream" uid="uid://kyv5pcaicv3d" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
-[ext_resource type="AudioStream" uid="uid://b5xymqblb7j03" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
+[ext_resource type="AudioStream" uid="uid://bg57423k64kdi" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
+[ext_resource type="AudioStream" uid="uid://dhpvpe788aowd" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
 [ext_resource type="Texture2D" uid="uid://cbatwxsibovo" path="res://grafiikka/AanenTaajuus1.png" id="22_7od7w"]
 [ext_resource type="Texture2D" uid="uid://bh2dveepeu0so" path="res://grafiikka/Nuotti.png" id="22_fot2n"]
 [ext_resource type="Texture2D" uid="uid://cg7a67mf311xj" path="res://grafiikka/AanenTaajuus2.png" id="23_ai0kk"]
 [ext_resource type="AudioStream" uid="uid://pywxdhvql574" path="res://audio/pelaaja/huilu/huiluaani_A.wav" id="23_elvmw"]
 [ext_resource type="Texture2D" uid="uid://cp4f2v1euxr6b" path="res://grafiikka/AanenTaajuus3.png" id="24_7n80x"]
 [ext_resource type="AudioStream" uid="uid://dw75jyosgto66" path="res://audio/pelaaja/huilu/huiluaani_C.wav" id="24_xxdxr"]
-[ext_resource type="AudioStream" uid="uid://blwy8nwp0lofn" path="res://audio/ambient/tuulen_humina.mp3" id="25_byydo"]
+[ext_resource type="AudioStream" uid="uid://i5tjphu7uc6a" path="res://audio/ambient/tuulen_humina.mp3" id="25_byydo"]
 [ext_resource type="AudioStream" uid="uid://diri4jc7100fi" path="res://audio/pelaaja/huilu/huiluaani_E.wav" id="25_qars5"]
 [ext_resource type="Script" path="res://skriptit/huilu.gd" id="26_v60w7"]
-[ext_resource type="AudioStream" uid="uid://hyngpo2k3i7b" path="res://audio/valopallo/valopallo_poimitaan_mono.mp3" id="28_p78nr"]
+[ext_resource type="AudioStream" uid="uid://58ojybph5uvf" path="res://audio/valopallo/valopallo_poimitaan_mono.mp3" id="28_p78nr"]
 [ext_resource type="AudioStream" uid="uid://7tjeefooail4" path="res://audio/pelaaja/creeping_darkness_2.mp3" id="32_1qpma"]
-[ext_resource type="Texture2D" uid="uid://vn1qds24dgbc" path="res://grafiikka/HealthbarEmpty.png" id="34_tun23"]
-[ext_resource type="Texture2D" uid="uid://mll3xj0lti8x" path="res://grafiikka/HealthbarOutline.png" id="35_m6how"]
-[ext_resource type="Texture2D" uid="uid://bna2kxhocp4do" path="res://grafiikka/HealthbarFull.png" id="35_x5jxm"]
+[ext_resource type="Texture2D" uid="uid://bf7ghexxlfuu1" path="res://grafiikka/HealthbarEmpty.png" id="34_tun23"]
+[ext_resource type="Texture2D" uid="uid://cbb0001ojs2u8" path="res://grafiikka/HealthbarOutline.png" id="35_m6how"]
+[ext_resource type="Texture2D" uid="uid://bba8rq2i308gq" path="res://grafiikka/HealthbarFull.png" id="35_x5jxm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -410,9 +410,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ifk5e"]
-light_mode = 1
-
 [node name="Pelaaja" type="CharacterBody2D" groups=["Pelaaja"]]
 collision_layer = 2
 script = ExtResource("1_ypfv3")
@@ -670,18 +667,18 @@ texture_progress = ExtResource("35_x5jxm")
 [node name="ApuaLabel" type="Label" parent="HUD"]
 z_index = 99
 texture_filter = 1
-material = SubResource("CanvasItemMaterial_ifk5e")
+material = ExtResource("5_gdn2h")
 layout_mode = 0
-offset_left = 302.0
+offset_left = 280.0
 offset_top = -259.0
-offset_right = 434.0
+offset_right = 436.0
 offset_bottom = -236.0
-text = "Help: F1 / "
+text = "Journal: J / "
 
 [node name="Sprite2D" type="Sprite2D" parent="HUD/ApuaLabel"]
 texture_filter = 1
 material = ExtResource("5_gdn2h")
-position = Vector2(148, 12)
+position = Vector2(168, 12)
 texture = ExtResource("6_uircd")
 
 [connection signal="body_entered" from="keho" to="." method="_on_keho_body_entered"]
