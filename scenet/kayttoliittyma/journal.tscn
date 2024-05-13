@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://dskh1b4twfo2c"]
 
 [ext_resource type="Script" path="res://skriptit/journal.gd" id="1_s3r3l"]
-[ext_resource type="Texture2D" uid="uid://ch7tvwdexsxkt" path="res://grafiikka/Journal1.png" id="2_r7j1j"]
-[ext_resource type="Texture2D" uid="uid://btdinvtrfwvpe" path="res://grafiikka/Journal2.png" id="3_0g2au"]
-[ext_resource type="Texture2D" uid="uid://blvd1nhrcdaj3" path="res://grafiikka/Journal3.png" id="4_o8o2m"]
-[ext_resource type="Texture2D" uid="uid://d3amyk5nv02lq" path="res://grafiikka/JournalArrowLeft.png" id="6_xo6a1"]
-[ext_resource type="Texture2D" uid="uid://bw8vxnp43f4wi" path="res://grafiikka/JournalArrowRight.png" id="7_hkych"]
+[ext_resource type="Texture2D" uid="uid://qvvrbstrqfmv" path="res://grafiikka/Journal1.png" id="2_r7j1j"]
+[ext_resource type="Texture2D" uid="uid://cjksmlxd63f8j" path="res://grafiikka/Journal2.png" id="3_0g2au"]
+[ext_resource type="Texture2D" uid="uid://dft1res7egmrq" path="res://grafiikka/Journal3.png" id="4_o8o2m"]
+[ext_resource type="Texture2D" uid="uid://bu7rvtkq8cjke" path="res://grafiikka/JournalArrowLeft.png" id="6_xo6a1"]
+[ext_resource type="Texture2D" uid="uid://crkn6ichreq7g" path="res://grafiikka/JournalArrowRight.png" id="7_hkych"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_fe87s"]
 frames = 3

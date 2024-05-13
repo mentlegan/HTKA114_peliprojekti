@@ -47,7 +47,7 @@ func _input(_event: InputEvent) -> void:
 
 ## Vaihtaa sivua eteen- tai taaksepäin annetun kokonaisluvun verran.
 ## Vaihtaa samalla sivun spriteä.
-func vaihda_sivua(delta):
+func vaihda_sivua(_delta):
 	sivut_sprite.texture.set_current_frame(
 		(sivut_sprite.texture.get_current_frame() + 1) % sivut_sprite.texture.get_frames()
 	)

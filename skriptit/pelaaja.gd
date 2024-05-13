@@ -249,13 +249,18 @@ func siirrytty_valoon():
 	kuolema_tween = create_tween()
 	kuolema_tween.set_trans(Tween.TRANS_CUBIC)
 	kuolema_tween.tween_property(pimeyskuolema, "modulate:a", 0, 4)
-	audio_pimeyskuolema.stop()
+	var tween_pimeys_audio = get_tree().create_tween()
+	tween_pimeys_audio.set_trans(Tween.TRANS_EXPO)
+	tween_pimeys_audio.set_ease(Tween.EASE_IN)
+	tween_pimeys_audio.tween_property(audio_pimeyskuolema, "volume_db", -60, 2)
 	pimeyskuolema.pause()
 	# Animaatio alkamaan nykyisestä kohdasta taaksepäin
 	await get_tree().create_timer(0.5).timeout
 	pimeyskuolema.play_backwards("PimeysKuolema")
 	print("Valossa: " + str(valossa))
 	await get_tree().create_timer(4).timeout
+	audio_pimeyskuolema.stop()
+	audio_pimeyskuolema.volume_db = 3
 	pimeyskuolema.stop()
 
 
