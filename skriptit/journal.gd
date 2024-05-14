@@ -5,32 +5,42 @@ extends Control
 @onready var sivunumero_label = $SivuLabel
 
 
-var sivut = {
-	"viimeisin_sivu": 0,
-	"nykyinen_sivu": 0
-}
+var sivut = {}
+var otsikot = {}
+var viimeisin_sivu = 1
+var nykyinen_sivu = 1
 
 
 func _ready():
 	paivita_sivunumero()
+	lisaa_sivu("Page text 1", "Title 1", 1)
+	lisaa_sivu("Page text 2", "Title 2", 2)
+	lisaa_sivu("Page text 4", "Title 4", 4)
+	lisaa_sivu("Page text 6", "Title 6", 6)
 
 
-## Lisää journaliin tekstipätkän annettuun sivunumeroon.
-func lisaa_sivu(teksti: String, sivunumero: int):
+## Lisää journaliin tekstipätkän annettuun sivunumeroon. Sivunumeron on oltava >= 1.
+func lisaa_sivu(teksti: String, otsikko: String, sivunumero: int):
 	# Ei lisätä duplikaatteja sivuja
 	if sivut.has(sivunumero):
 		return
 
 	sivut[sivunumero] = teksti
-	if sivunumero > sivut["viimeisin_sivu"]:
-		sivut["viimeisin_sivu"] = sivunumero
+	otsikot[sivunumero] = otsikko
+	
+	if sivunumero > viimeisin_sivu:
+		viimeisin_sivu = sivunumero
 	
 	paivita_sivunumero()
 
 
 ## Päivittää sivunumero-labelin arvon.
 func paivita_sivunumero():
-	sivunumero_label.set_text(str(sivut["nykyinen_sivu"]) + "/" + str(sivut["viimeisin_sivu"]))
+	var otsikko = "???"
+	if otsikot.has(nykyinen_sivu):
+		otsikko = otsikot[nykyinen_sivu]
+
+	sivunumero_label.set_text("%s/%s - %s" % [nykyinen_sivu, viimeisin_sivu, otsikko])
 
 
 ## Käsitellään input journalin ollessa aktiivinen
@@ -39,15 +49,27 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("journal"):
 		Globaali.toggle_journal()
 	
-	if Input.is_action_just_pressed("liiku_vasen"):
-		vaihda_sivua(-1)
-	if Input.is_action_just_pressed("liiku_oikea"):
-		vaihda_sivua(1)
+	if visible:
+		if Input.is_action_just_pressed("liiku_vasen"):
+			vaihda_sivua(-1)
+		if Input.is_action_just_pressed("liiku_oikea"):
+			vaihda_sivua(1)
 
 
 ## Vaihtaa sivua eteen- tai taaksepäin annetun kokonaisluvun verran.
 ## Vaihtaa samalla sivun spriteä.
-func vaihda_sivua(_delta):
-	sivut_sprite.texture.set_current_frame(
-		(sivut_sprite.texture.get_current_frame() + 1) % sivut_sprite.texture.get_frames()
-	)
+func vaihda_sivua(delta):
+	var viime_sivu = nykyinen_sivu
+
+	nykyinen_sivu += delta
+	if nykyinen_sivu > viimeisin_sivu:
+		nykyinen_sivu = 1
+	elif nykyinen_sivu < 1:
+		nykyinen_sivu = viimeisin_sivu
+
+	if nykyinen_sivu != viime_sivu:
+		sivut_sprite.texture.set_current_frame(
+			(sivut_sprite.texture.get_current_frame() + 1) % sivut_sprite.texture.get_frames()
+		)
+
+	paivita_sivunumero()
