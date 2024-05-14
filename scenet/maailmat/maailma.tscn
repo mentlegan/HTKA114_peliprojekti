@@ -533,11 +533,16 @@ position = Vector2(10654.4, -320.849)
 
 [node name="Journalit" type="Node2D" parent="."]
 
-[node name="Sivu" parent="Journalit" instance=ExtResource("10_s3bjw")]
+[node name="Day 1" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(1721, 708)
-teksti = "Teksti 2"
-otsikko = "Otsikko 2"
-sivunumero = 2
+teksti = "This must be the massive cave system the legends speak of. It's been over three moons since I have set out on this journey to find these fabled depths and it seems I have finally found them.
+
+I heard from the old mercenary Grimnir, that deep beneath the mines of this mountain lies still countless gold veins, thick as a dragon's tail and lustrous gemstones shining in colors no dwarf has ever seen before. I asked him why has all this treasure been left unclaimed if it is as grand as the stories tell. The greedy smirk from Grimnirs eyes quickly turned into a serious stare as he told that \"something foul guards the depths. As if the darkness itself was alive. To go there would be a fool's errand\"
+
+I think his age has gotten the better of him. What kind of a dwarf is afraid of the dark?
+If there really is only darkness between me and the gold, then that gold is as good as mine. Time to head inside and set up a camp for the night. Perhaps I will even seal the entrance with a fake floor in case someone is trying to follow me and steal my riches."
+otsikko = "Day 1"
+sivunumero = 1
 
 [node name="Piikit" type="Node2D" parent="."]
 unique_name_in_owner = true

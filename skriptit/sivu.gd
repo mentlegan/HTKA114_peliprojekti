@@ -6,7 +6,7 @@ extends Area2D
 @onready var point_light = $PointLight2D
 
 ## Sivun tekstipätkä
-@export var teksti: String
+@export_multiline var teksti
 ## Sivun otsikko
 @export var otsikko: String
 ## Sivunumero

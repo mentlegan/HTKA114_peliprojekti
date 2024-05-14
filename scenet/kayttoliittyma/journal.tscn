@@ -75,5 +75,34 @@ offset_bottom = 70.0
 theme_override_colors/font_color = Color(0.180392, 0.12549, 0.0823529, 1)
 text = "0/0"
 
+[node name="VasenSivu" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034
+anchor_top = 0.054
+anchor_right = 0.965
+anchor_bottom = 0.894
+offset_left = 12.36
+offset_top = 48.84
+offset_right = -459.4
+offset_bottom = -56.76
+theme_override_colors/default_color = Color(0.228478, 0.129766, 0, 1)
+scroll_active = false
+
+[node name="OikeaSivu" type="RichTextLabel" parent="."]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.034
+anchor_top = 0.054
+anchor_right = 0.965
+anchor_bottom = 0.894
+offset_left = 463.36
+offset_top = 13.84
+offset_right = -9.40002
+offset_bottom = -60.76
+theme_override_colors/default_color = Color(0.228478, 0.129766, 0, 1)
+scroll_active = false
+
 [connection signal="pressed" from="ArrowRight" to="." method="vaihda_sivua" binds= [1]]
 [connection signal="pressed" from="ArrowLeft" to="." method="vaihda_sivua" binds= [-1]]

@@ -4,6 +4,9 @@ extends Control
 @onready var sivut_sprite = $Sivut
 @onready var sivunumero_label = $SivuLabel
 
+@onready var vasen_sivu = $VasenSivu
+@onready var oikea_sivu = $OikeaSivu
+
 
 var sivut = {}
 var otsikot = {}
@@ -34,13 +37,23 @@ func lisaa_sivu(teksti: String, otsikko: String, sivunumero: int):
 	paivita_sivunumero()
 
 
-## Päivittää sivunumero-labelin arvon.
+## Päivittää sivunumero-labelin arvon ja sivujen tekstin.
 func paivita_sivunumero():
 	var otsikko = "???"
 	if otsikot.has(nykyinen_sivu):
 		otsikko = otsikot[nykyinen_sivu]
 
 	sivunumero_label.set_text("%s/%s - %s" % [nykyinen_sivu, viimeisin_sivu, otsikko])
+
+	var teksti = "..."
+	if sivut.has(nykyinen_sivu):
+		teksti = sivut[nykyinen_sivu]
+
+	vasen_sivu.text = teksti
+	if vasen_sivu.get_content_height() > vasen_sivu.size.y:
+		vasen_sivu.text = teksti.substr(0, floor(teksti.length() * 0.5))
+		oikea_sivu.text = teksti.substr(floor(teksti.length() * 0.5), ceil(teksti.length() * 0.5))
+
 
 
 ## Käsitellään input journalin ollessa aktiivinen
