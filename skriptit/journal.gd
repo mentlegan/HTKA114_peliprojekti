@@ -45,11 +45,12 @@ func paivita_sivunumero():
 
 	sivunumero_label.set_text("%s/%s - %s" % [nykyinen_sivu, viimeisin_sivu, otsikko])
 
-	var teksti = "..."
+	var teksti = " "
 	if sivut.has(nykyinen_sivu):
 		teksti = sivut[nykyinen_sivu]
 
 	vasen_sivu.text = teksti
+	oikea_sivu.text = " "
 	if vasen_sivu.get_content_height() > vasen_sivu.size.y:
 		vasen_sivu.text = teksti.substr(0, floor(teksti.length() * 0.5))
 		oikea_sivu.text = teksti.substr(floor(teksti.length() * 0.5), ceil(teksti.length() * 0.5))
