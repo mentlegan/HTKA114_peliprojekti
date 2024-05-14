@@ -18,8 +18,8 @@ func _on_body_entered(body):
 		if tween:
 			return
 		
-		# Lisätään journaliin sivu
-		Globaali.journal_kaytossa = true
+		# Lisätään journal "inventoryyn"
+		Globaali.journal_keratty = true
 
 		# Aloitetaan pickup animaatio
 		point_light.energy = 2
