@@ -387,6 +387,11 @@ func toggle_journal():
 	get_tree().paused = journal.visible
 
 
+## Lisää journaliin tekstipätkän annettuun sivunumeroon. Sivunumeron on oltava >= 1.
+func lisaa_sivu(teksti: String, otsikko: String, sivunumero: int):
+	journal.lisaa_sivu(teksti, otsikko, sivunumero)
+
+
 ## Pausettaa pelin
 func pausePeli():
 	get_tree().paused = true

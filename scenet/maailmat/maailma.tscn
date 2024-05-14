@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=82 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://lxurmqd1rdhq" path="res://grafiikka/Timer-Sheet.png" id="9_75e1e"]
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://scenet/kayttoliittyma/game_over_ruutu.tscn" id="9_er4wh"]
 [ext_resource type="PackedScene" uid="uid://daeaotnb7peu2" path="res://scenet/piikki.tscn" id="9_ox6hl"]
+[ext_resource type="PackedScene" uid="uid://c20thhdg8yhyn" path="res://scenet/sivu.tscn" id="10_s3bjw"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://scenet/vihollinen.tscn" id="12_u46m1"]
 [ext_resource type="Texture2D" uid="uid://4qkv77frylqp" path="res://grafiikka/EnemyDirt.png" id="13_iivh1"]
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://scenet/perhonen.tscn" id="13_ufso7"]
@@ -529,6 +530,14 @@ position = Vector2(11669.5, -1138.5)
 
 [node name="Kukka36" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(10654.4, -320.849)
+
+[node name="Journalit" type="Node2D" parent="."]
+
+[node name="Sivu" parent="Journalit" instance=ExtResource("10_s3bjw")]
+position = Vector2(1721, 708)
+teksti = "Teksti 2"
+otsikko = "Otsikko 2"
+sivunumero = 2
 
 [node name="Piikit" type="Node2D" parent="."]
 unique_name_in_owner = true

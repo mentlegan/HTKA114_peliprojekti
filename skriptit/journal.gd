@@ -13,16 +13,16 @@ var nykyinen_sivu = 1
 
 func _ready():
 	paivita_sivunumero()
-	lisaa_sivu("Page text 1", "Title 1", 1)
-	lisaa_sivu("Page text 2", "Title 2", 2)
-	lisaa_sivu("Page text 4", "Title 4", 4)
-	lisaa_sivu("Page text 6", "Title 6", 6)
+	#lisaa_sivu("Page text 1", "Title 1", 1)
+	#lisaa_sivu("Page text 2", "Title 2", 2)
+	#lisaa_sivu("Page text 4", "Title 4", 4)
+	#lisaa_sivu("Page text 6", "Title 6", 6)
 
 
 ## Lisää journaliin tekstipätkän annettuun sivunumeroon. Sivunumeron on oltava >= 1.
 func lisaa_sivu(teksti: String, otsikko: String, sivunumero: int):
-	# Ei lisätä duplikaatteja sivuja
-	if sivut.has(sivunumero):
+	# Ei lisätä duplikaatteja sivuja tai sivuja <= 1
+	if sivut.has(sivunumero) or sivunumero < 1:
 		return
 
 	sivut[sivunumero] = teksti
