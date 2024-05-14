@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctidyv8v2d1cv"]
+
+[ext_resource type="Texture2D" uid="uid://nwaxbqh4jx1n" path="res://grafiikka/JournalPickup-Sheet.png" id="1_6s1pl"]
+[ext_resource type="Script" path="res://skriptit/journal_pickup.gd" id="1_owwu1"]
+[ext_resource type="Texture2D" uid="uid://02x0wi25d81d" path="res://grafiikka/Valo64.png" id="3_euu4u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wltij"]
+atlas = ExtResource("1_6s1pl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nmab"]
+atlas = ExtResource("1_6s1pl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bonk"]
+atlas = ExtResource("1_6s1pl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmajt"]
+atlas = ExtResource("1_6s1pl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_db1oi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wltij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nmab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bonk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmajt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uvtn"]
+size = Vector2(27, 30)
+
+[node name="JournalPickup" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_owwu1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_db1oi")
+frame_progress = 0.184752
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_7uvtn")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+blend_mode = 2
+texture = ExtResource("3_euu4u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -85,6 +85,8 @@ var pystyssa = true
 
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://scenet/tausta.tscn")
+## Totuusarvo journalin aktivoimiselle
+var journal_kaytossa = false
 
 
 ## Scenen vaihtamiseen, ei luultavasti tarvita
