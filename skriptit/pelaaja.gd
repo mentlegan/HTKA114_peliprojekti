@@ -140,7 +140,7 @@ const MAAHYPPY_BUFFER = 0.2 ## Kuinka kauan maalta voi olla poissa, niin että p
 const pelaajan_elamat_max = 5
 var pelaajan_elamat = pelaajan_elamat_max
 ## Kuinka nopeasti pelaaja saa elämiä takaisin sekunteina
-var elamat_regen_nopeus = 5
+var elamat_regen_nopeus = 8
 ## Kuinka paljon elamia pelaaja saa takaisin
 var elamat_regen_maara = 1
 
@@ -148,9 +148,9 @@ var elamat_regen_maara = 1
 var elama_regen_ajastin = Timer.new()
 
 ## Miten pitkästi pelaaja voi tippua, kunnes siitä ottaa vahinkoa
-var putoamis_raja_1 = 250
-var putoamis_raja_2 = 400
-var putoamis_raja_3 = 500
+var putoamis_raja_1 = 200
+var putoamis_raja_2 = 300
+var putoamis_raja_3 = 400
 ## Miten paljon vahinkoa kustakin korkeudesta ottaa
 var putoamis_raja_1_dmg = 1
 var putoamis_raja_2_dmg = 3
