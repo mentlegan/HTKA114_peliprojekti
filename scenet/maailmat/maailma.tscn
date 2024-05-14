@@ -566,6 +566,46 @@ It is time to head back to my camp. Exploring further must wait until I have got
 otsikko = "Day 2"
 sivunumero = 2
 
+[node name="Day 3" parent="Journalit" instance=ExtResource("10_s3bjw")]
+position = Vector2(1777, 700)
+teksti = "By the gods! I was not dreaming when I thought something lives inside the walls! Grimnir was right, something terrifying definitely lurks in the shadows, I saw it! It was some kind of large worm with insect-like features, but I did not manage to get a better look as it burrowed back underground as soon as the light from the pollen I am carrying with me hit it. Luckily they avoid light, but as soon as darkness falls they get active. I dare not see what happens if I wander too deep in the darkness. My hands are still shaking from that encounter. I must carry the pollen with me at all times and watch out for purple goo. "
+otsikko = "Day 3"
+sivunumero = 3
+
+[node name="Day 4" parent="Journalit" instance=ExtResource("10_s3bjw")]
+position = Vector2(1816, 687)
+teksti = "This is probably my fourth day down here. I'm making steady progress. Today I found giant mushrooms that lit up when I got close to them. I noticed the light from them also repels those soil-dwelling monsters. This will make a great temporary base to explore further from. Perhaps the lighting from this cave has some special properties as my conventional light sources are unable to pierce through the darkness here.
+
+After I finished setting up my camp, I took a seat by the campfire and played my old flute. To my suprise the whole cave appeared to resonate with the music. The yellow flower resonates strongly with high notes while the vines react to lower tones. The vines even reverberated in response to my flute!"
+otsikko = "Day 4"
+sivunumero = 4
+
+[node name="Day 5" parent="Journalit" instance=ExtResource("10_s3bjw")]
+position = Vector2(1864, 702)
+teksti = "The minecarts here tell me that this cave system used to be a mine. Long since abandoned. The tracks show signs of wear, but they appear to be working. With these I can travel between the two endpoints with ease. Can't wait to load them up with gold!"
+otsikko = "Day 5"
+sivunumero = 5
+
+[node name="Day 6" parent="Journalit" instance=ExtResource("10_s3bjw")]
+position = Vector2(1914, 683)
+teksti = "I have come to the conclusion that these butterflies inside this have gained the ability to emit light by ingesting the luminescent pollen from the flowers. Most fascinating indeed. Maybe this discovery will aid in uncovering the secret behind the dense darkness of this mine.
+
+As I lay down for the night one final thought crossed my mind. If those blue creatures really are butterflies, where do they come from?"
+otsikko = "Day 6"
+sivunumero = 6
+
+[node name="Day 7" parent="Journalit" instance=ExtResource("10_s3bjw")]
+position = Vector2(1956, 708)
+teksti = "Another dangerous discovery. Some of the mushrooms look to be corrupted by the foul nature of this darkness. Spores from them cause intense irritation and pain in my airways. I cannot linger around these parts for too long."
+otsikko = "Day 7"
+sivunumero = 7
+
+[node name="Day 8" parent="Journalit" instance=ExtResource("10_s3bjw")]
+position = Vector2(2006, 696)
+teksti = "There is no way around. I must cross these pits filled with spikes, running so deep one cannot see the bottom. I sure hope the vines are able to support my weight. One slip up and it is over. "
+otsikko = "Day 8"
+sivunumero = 8
+
 [node name="Piikit" type="Node2D" parent="."]
 unique_name_in_owner = true
 
