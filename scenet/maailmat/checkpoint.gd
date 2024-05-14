@@ -22,12 +22,8 @@ func _on_body_entered(body):
 		tween.set_trans(Tween.TRANS_CUBIC)
 		tween.set_ease(Tween.EASE_IN_OUT)
 		tween.set_parallel(true)
-		tween.tween_property($Area2D/PointLight2D, "texture_scale", 2, 2)
+		tween.tween_property($Area2D/PointLight2D, "texture_scale", 3, 2)
+		tween.tween_property($Area2D/CollisionShape2D, "scale", Vector2(3, 3), 2)
 		tween.tween_property($Area2D/PointLight2D, "energy", 1.2, 2)
 		$Area2D/PointLight2D.visible = true
 		$Area2D.add_to_group("valonlahde")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass

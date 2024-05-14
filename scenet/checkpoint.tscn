@@ -89,7 +89,7 @@ animations = [{
 size = Vector2(42.0579, 109.119)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n3wnh"]
-radius = 58.0775
+radius = 27.0741
 
 [node name="Checkpoint" type="Area2D"]
 position = Vector2(3073, 190)
@@ -123,6 +123,6 @@ blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("3_iv27s")
-texture_scale = 0.01
+texture_scale = 0.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
