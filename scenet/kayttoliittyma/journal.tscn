@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dskh1b4twfo2c"]
+[gd_scene load_steps=14 format=3 uid="uid://dskh1b4twfo2c"]
 
 [ext_resource type="Script" path="res://skriptit/journal.gd" id="1_s3r3l"]
 [ext_resource type="Texture2D" uid="uid://ch7tvwdexsxkt" path="res://grafiikka/Journal1.png" id="2_r7j1j"]
 [ext_resource type="Texture2D" uid="uid://btdinvtrfwvpe" path="res://grafiikka/Journal2.png" id="3_0g2au"]
 [ext_resource type="Texture2D" uid="uid://blvd1nhrcdaj3" path="res://grafiikka/Journal3.png" id="4_o8o2m"]
+[ext_resource type="Texture2D" uid="uid://b40jcsbtpk0ct" path="res://grafiikka/JournalDrawings.png" id="5_b6luv"]
 [ext_resource type="Texture2D" uid="uid://d3amyk5nv02lq" path="res://grafiikka/JournalArrowLeft.png" id="6_xo6a1"]
 [ext_resource type="Texture2D" uid="uid://bw8vxnp43f4wi" path="res://grafiikka/JournalArrowRight.png" id="7_hkych"]
 [ext_resource type="FontVariation" uid="uid://dg0b41nwa5ui6" path="res://tres-tiedostot/fontti_journal.tres" id="7_ms4bj"]
@@ -17,6 +18,24 @@ frame_1/texture = ExtResource("3_0g2au")
 frame_1/duration = 1.0
 frame_2/texture = ExtResource("4_o8o2m")
 frame_2/duration = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwsus"]
+bg_color = Color(0.25098, 0.188235, 0.129412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yj5a"]
+bg_color = Color(0.23, 0.1472, 0.1058, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll67j"]
+bg_color = Color(0.503341, 0.360125, 0.284058, 1)
+
+[sub_resource type="Theme" id="Theme_y2s0l"]
+Button/styles/focus = SubResource("StyleBoxFlat_fwsus")
+Button/styles/hover = SubResource("StyleBoxFlat_6yj5a")
+Button/styles/normal = SubResource("StyleBoxFlat_ll67j")
 
 [node name="Journal" type="Control"]
 auto_translate_mode = 1
@@ -46,12 +65,18 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AnimatedTexture_fe87s")
 
+[node name="Ohjeet" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_b6luv")
+
 [node name="ArrowRight" type="Button" parent="."]
 layout_mode = 0
-offset_left = 843.0
-offset_top = 426.0
-offset_right = 924.0
-offset_bottom = 485.0
+offset_left = 859.0
+offset_top = 434.0
+offset_right = 940.0
+offset_bottom = 493.0
 icon = ExtResource("7_hkych")
 flat = true
 icon_alignment = 1
@@ -59,10 +84,10 @@ icon_alignment = 1
 [node name="ArrowLeft" type="Button" parent="."]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 43.0
-offset_top = 426.0
-offset_right = 124.0
-offset_bottom = 485.0
+offset_left = 30.0
+offset_top = 434.0
+offset_right = 111.0
+offset_bottom = 493.0
 icon = ExtResource("6_xo6a1")
 flat = true
 icon_alignment = 1
@@ -109,5 +134,28 @@ theme_override_fonts/normal_font = ExtResource("7_ms4bj")
 theme_override_font_sizes/normal_font_size = 17
 scroll_active = false
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+clip_children = 1
+polygon = PackedVector2Array(636, 16, 655, 16, 698, 21, 722, 24, 773, 31, 794, 33, 841, 33, 886, 28, 912, 22, 928, 21, 1055, 19, 914, -71, 554, -48)
+
+[node name="ControlsButton" type="Button" parent="Polygon2D"]
+auto_translate_mode = 1
+offset_left = 801.0
+offset_top = -9.0
+offset_right = 909.0
+offset_bottom = 39.0
+theme = SubResource("Theme_y2s0l")
+text = "Controls"
+
+[node name="JournalButton" type="Button" parent="Polygon2D"]
+offset_left = 701.0
+offset_top = -4.0
+offset_right = 793.0
+offset_bottom = 34.0
+theme = SubResource("Theme_y2s0l")
+text = "Journal"
+
 [connection signal="pressed" from="ArrowRight" to="." method="vaihda_sivua" binds= [1]]
 [connection signal="pressed" from="ArrowLeft" to="." method="vaihda_sivua" binds= [-1]]
+[connection signal="pressed" from="Polygon2D/ControlsButton" to="." method="ohjeet_nakyviin"]
+[connection signal="pressed" from="Polygon2D/JournalButton" to="." method="journal_nakyviin"]

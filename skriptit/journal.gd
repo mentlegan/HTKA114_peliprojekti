@@ -3,6 +3,7 @@ extends Control
 
 @onready var sivut_sprite = $Sivut
 @onready var sivunumero_label = $SivuLabel
+@onready var ohjeet = $Ohjeet
 
 @onready var vasen_sivu = $VasenSivu
 @onready var oikea_sivu = $OikeaSivu
@@ -16,10 +17,7 @@ var nykyinen_sivu = 1
 
 func _ready():
 	paivita_sivunumero()
-	#lisaa_sivu("Page text 1", "Title 1", 1)
-	#lisaa_sivu("Page text 2", "Title 2", 2)
-	#lisaa_sivu("Page text 4", "Title 4", 4)
-	#lisaa_sivu("Page text 6", "Title 6", 6)
+	journal_nakyviin()
 
 
 ## Lisää journaliin tekstipätkän annettuun sivunumeroon. Sivunumeron on oltava >= 1.
@@ -78,11 +76,7 @@ func _input(_event: InputEvent) -> void:
 func vaihda_sivua(delta):
 	var viime_sivu = nykyinen_sivu
 
-	nykyinen_sivu += delta
-	if nykyinen_sivu > viimeisin_sivu:
-		nykyinen_sivu = 1
-	elif nykyinen_sivu < 1:
-		nykyinen_sivu = viimeisin_sivu
+	nykyinen_sivu = clamp(nykyinen_sivu + delta, 1, viimeisin_sivu)
 
 	if nykyinen_sivu != viime_sivu:
 		sivut_sprite.texture.set_current_frame(
@@ -90,3 +84,19 @@ func vaihda_sivua(delta):
 		)
 
 	paivita_sivunumero()
+
+
+## Asettaa ohjeet näkyviin
+func ohjeet_nakyviin():
+	sivunumero_label.visible = false
+	vasen_sivu.visible = false
+	oikea_sivu.visible = false
+	ohjeet.visible = true
+
+
+## Asettaa journalin näkyviin
+func journal_nakyviin():
+	sivunumero_label.visible = true
+	vasen_sivu.visible = true
+	oikea_sivu.visible = true
+	ohjeet.visible = false
