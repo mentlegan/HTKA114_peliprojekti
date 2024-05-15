@@ -1,6 +1,7 @@
-[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://dg0b41nwa5ui6"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dgo8yhibhuxoi"]
 
 [ext_resource type="FontFile" uid="uid://b6odgcwgdxngp" path="res://grafiikka/m5x7.ttf" id="1_2ydut"]
 
 [resource]
-base_font = ExtResource("1_2ydut")
+default_font = ExtResource("1_2ydut")
+default_font_size = 15

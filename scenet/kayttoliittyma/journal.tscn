@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b40jcsbtpk0ct" path="res://grafiikka/JournalDrawings.png" id="5_b6luv"]
 [ext_resource type="Texture2D" uid="uid://d3amyk5nv02lq" path="res://grafiikka/JournalArrowLeft.png" id="6_xo6a1"]
 [ext_resource type="Texture2D" uid="uid://bw8vxnp43f4wi" path="res://grafiikka/JournalArrowRight.png" id="7_hkych"]
-[ext_resource type="FontVariation" uid="uid://dg0b41nwa5ui6" path="res://tres-tiedostot/fontti_journal.tres" id="7_ms4bj"]
+[ext_resource type="Theme" uid="uid://dgo8yhibhuxoi" path="res://tres-tiedostot/fontti_journal.tres" id="7_ms4bj"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_fe87s"]
 frames = 3
@@ -112,9 +112,8 @@ offset_left = 12.36
 offset_top = 48.84
 offset_right = -459.4
 offset_bottom = -56.76
+theme = ExtResource("7_ms4bj")
 theme_override_colors/default_color = Color(0.228478, 0.129766, 0, 1)
-theme_override_fonts/normal_font = ExtResource("7_ms4bj")
-theme_override_font_sizes/normal_font_size = 17
 scroll_active = false
 
 [node name="OikeaSivu" type="RichTextLabel" parent="."]
@@ -129,9 +128,8 @@ offset_left = 461.36
 offset_top = 11.84
 offset_right = -10.4
 offset_bottom = -63.76
+theme = ExtResource("7_ms4bj")
 theme_override_colors/default_color = Color(0.228478, 0.129766, 0, 1)
-theme_override_fonts/normal_font = ExtResource("7_ms4bj")
-theme_override_font_sizes/normal_font_size = 17
 scroll_active = false
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
