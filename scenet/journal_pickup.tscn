@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctidyv8v2d1cv"]
+[gd_scene load_steps=11 format=3 uid="uid://ctidyv8v2d1cv"]
 
-[ext_resource type="Texture2D" uid="uid://nwaxbqh4jx1n" path="res://grafiikka/JournalPickup-Sheet.png" id="1_6s1pl"]
+[ext_resource type="Texture2D" uid="uid://dxfo20a6jj83r" path="res://grafiikka/JournalPickup-Sheet.png" id="1_6s1pl"]
 [ext_resource type="Script" path="res://skriptit/journal_pickup.gd" id="1_owwu1"]
 [ext_resource type="Texture2D" uid="uid://02x0wi25d81d" path="res://grafiikka/Valo64.png" id="3_euu4u"]
+[ext_resource type="AudioStream" uid="uid://j5ps76ct0t82" path="res://audio/journal/journal.mp3" id="4_5w50t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wltij"]
 atlas = ExtResource("1_6s1pl")
@@ -59,5 +60,10 @@ shape = SubResource("RectangleShape2D_7uvtn")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 blend_mode = 2
 texture = ExtResource("3_euu4u")
+
+[node name="AudioJournal" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_5w50t")
+volume_db = 8.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

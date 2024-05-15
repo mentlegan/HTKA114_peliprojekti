@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c20thhdg8yhyn"]
+[gd_scene load_steps=14 format=3 uid="uid://1rmwgns112ns"]
 
-[ext_resource type="Texture2D" uid="uid://c3smnt564sfyv" path="res://grafiikka/PagePickup-Sheet.png" id="1_c07y4"]
+[ext_resource type="Texture2D" uid="uid://bqlgb5j03wemt" path="res://grafiikka/PagePickup-Sheet.png" id="1_c07y4"]
 [ext_resource type="Script" path="res://skriptit/sivu.gd" id="1_ucu4y"]
 [ext_resource type="Texture2D" uid="uid://02x0wi25d81d" path="res://grafiikka/Valo64.png" id="3_wao0c"]
+[ext_resource type="AudioStream" uid="uid://bmyed3q3oo1hc" path="res://audio/journal/journal_sivu1.mp3" id="4_ifntp"]
+[ext_resource type="AudioStream" uid="uid://c3nml8fkrhfue" path="res://audio/journal/journal_sivu2.mp3" id="5_7n0ok"]
+[ext_resource type="AudioStream" uid="uid://npyyt6unldbv" path="res://audio/journal/journal_sivu3.mp3" id="6_jbkmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqehl"]
 size = Vector2(15, 19)
@@ -43,6 +46,15 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_15fmr"]
+streams_count = 3
+stream_0/stream = ExtResource("4_ifntp")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_7n0ok")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_jbkmh")
+stream_2/weight = 1.0
+
 [node name="Sivu" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
@@ -59,5 +71,8 @@ frame_progress = 0.0675255
 [node name="PointLight2D" type="PointLight2D" parent="."]
 blend_mode = 2
 texture = ExtResource("3_wao0c")
+
+[node name="AudioKerays" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_15fmr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

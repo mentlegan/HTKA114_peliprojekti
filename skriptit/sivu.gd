@@ -5,6 +5,8 @@ extends Area2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var point_light = $PointLight2D
 
+@onready var audio_kerays = $AudioKerays
+
 ## Sivun tekstipätkä
 @export_multiline var teksti
 ## Sivun otsikko
@@ -24,6 +26,8 @@ func _on_body_entered(body):
 		# Ei aloiteta pickup animaatiota uudestaan
 		if tween:
 			return
+		if (!audio_kerays.is_playing()):
+			audio_kerays.play()
 		
 		# Lisätään journaliin sivu
 		Globaali.lisaa_sivu(teksti, otsikko, sivunumero)

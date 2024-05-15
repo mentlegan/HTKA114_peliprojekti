@@ -4,6 +4,7 @@ extends Area2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var point_light = $PointLight2D
+@onready var audio_journal = $AudioJournal
 
 var tween: Tween
 
@@ -18,6 +19,8 @@ func _on_body_entered(body):
 		if tween:
 			return
 		
+		if !audio_journal.is_playing():
+			audio_journal.play()
 		# Lisätään journal "inventoryyn"
 		Globaali.journal_keratty = true
 

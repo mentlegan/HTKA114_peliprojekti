@@ -8,6 +8,7 @@ extends Control
 @onready var vasen_sivu = $VasenSivu
 @onready var oikea_sivu = $OikeaSivu
 
+@onready var audio_sivunvaihto = $AudioSivunvaihto
 
 var sivut = {}
 var otsikot = {}
@@ -77,8 +78,9 @@ func vaihda_sivua(delta):
 	var viime_sivu = nykyinen_sivu
 
 	nykyinen_sivu = clamp(nykyinen_sivu + delta, 1, viimeisin_sivu)
-
+	
 	if nykyinen_sivu != viime_sivu:
+		audio_sivunvaihto.play()
 		sivut_sprite.texture.set_current_frame(
 			(sivut_sprite.texture.get_current_frame() + 1) % sivut_sprite.texture.get_frames()
 		)

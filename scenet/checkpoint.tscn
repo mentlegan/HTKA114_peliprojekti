@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://4ehb4n76ts5g"]
 
 [ext_resource type="Script" path="res://scenet/maailmat/checkpoint.gd" id="1_1e2pn"]
-[ext_resource type="Texture2D" uid="uid://cu3txmvkme374" path="res://grafiikka/Checkpoint-Sheet.png" id="2_0arfk"]
+[ext_resource type="Texture2D" uid="uid://uhwxhx1bis2m" path="res://grafiikka/Checkpoint-Sheet.png" id="2_0arfk"]
 [ext_resource type="Texture2D" uid="uid://02x0wi25d81d" path="res://grafiikka/Valo64.png" id="3_iv27s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qopbx"]

@@ -80,6 +80,7 @@ var pystyssa = true
 @onready var piikit = get_node("/root/Maailma/%Piikit").get_children()
 ## Musiikit:
 @onready var musiikki = get_node("/root/Maailma/%Musiikki")
+@onready var audio_journal = get_node("/root/Maailma/%KayttoLiittyma/Journal/%AudioJournal")
 ## Minecartit tuhotaan, kun jompi kumpi käytetään
 @onready var minecartit = get_node("/root/Maailma/%Minecartit")
 
@@ -385,6 +386,7 @@ func toggle_journal():
 		return
 
 	journal.visible = not journal.visible
+	audio_journal.play()
 	get_viewport().set_input_as_handled()
 	get_tree().paused = journal.visible
 
