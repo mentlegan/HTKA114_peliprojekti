@@ -26,14 +26,14 @@
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
-[ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
+[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="23_k22wo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
-[ext_resource type="AudioStream" uid="uid://w8eqa8accgut" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
+[ext_resource type="AudioStream" uid="uid://dj7e0qof8l61h" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
 [ext_resource type="PackedScene" uid="uid://o1g7x7mnf5b" path="res://scenet/ovet/ovi_oikea_y.tscn" id="28_1m8ka"]
@@ -50,9 +50,9 @@
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
 [ext_resource type="Script" path="res://scenet/maailmat/vesiputous.gd" id="45_dq3qu"]
 [ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="45_ocnt8"]
-[ext_resource type="Texture2D" uid="uid://ympcslrn1fxj" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
-[ext_resource type="Texture2D" uid="uid://bwifdpgc8fvfs" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
-[ext_resource type="Texture2D" uid="uid://bwa3bilj1qgve" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
+[ext_resource type="Texture2D" uid="uid://e40h0pytoui6" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
+[ext_resource type="Texture2D" uid="uid://b8nedmfv438k0" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
+[ext_resource type="Texture2D" uid="uid://clgvrklxk5kch" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
 atlas = ExtResource("9_75e1e")
@@ -109,7 +109,7 @@ animations = [{
 
 [sub_resource type="Curve2D" id="Curve2D_fl3c8"]
 _data = {
-"points": PackedVector2Array(0, 0, -73.2334, -1.77742, 79, 21, 0, 0, 0, 0, 12, 24, 0, 0, 0, 0, -105, 12, 0, 0, 0, 0, -173, 0, 0, 0, 0, 0, -227, -18, 0, 0, 0, 0, -248, -117, 0, 0, 0, 0, -238, -234, 0, 0, 0, 0, -228, -333, 0, 0, 0, 0, -224, -403, 0, 0, 0, 0, -226, -462, 0, 0, 0, 0, -209, -501, 0, 0, 0, 0, -149, -527, 0, 0, 0, 0, -95, -524, 0, 0, 0, 0, -61, -497, 0, 0, 0, 0, -42, -441, 0, 0, 0, 0, -34, -350, 0, 0, 0, 0, -28, -268, 0, 0, 0, 0, -32, -181, 0, 0, 0, 0, -9, -146, 0, 0, 0, 0, 63, -121, 0, 0, 0, 0, 85, -129, 0, 0, 0, 0, 98, -152, 0, 0, 0, 0, 93, -173, 0, 0, 0, 0, 75, -184, 0, 0, 0, 0, 51, -185, 0, 0, 0, 0, 16, -195, 0, 0, 0, 0, -4, -208, 0, 0, 0, 0, -13, -278, 0, 0, 0, 0, -17, -339, 0, 0, 0, 0, -27, -440, 0, 0, 0, 0, -43, -508, 0, 0, 0, 0, -84, -554, 0, 0, 0, 0, -156, -571, 0, 0, 0, 0, -228, -562, 0, 0, 0, 0, -271, -530, 0, 0, 0, 0, -278, -450, 0, 0, 0, 0, -272, -354, 0, 0, 0, 0, -269, -244, 0, 0, 0, 0, -281, -98, 0, 0, 0, 0, -249, 9, 0, 0, 0, 0, -198, 39, 0, 0, 0, 0, -124, 44, 0, 0, 0, 0, -44, 44, 0, 0, 0, 0, 44, 51, 0, 0, 0, 0, 103, 50, 0, 0, 0, 0, 111, 37, 0, 0, 0, 0, 106, 19, 0, 0, 0, 0, 93, 19, 0, 0, 0, 0, 80, 20)
+"points": PackedVector2Array(0, 0, 0, 0, 12.0029, 10.9999, 0, 0, 0, 0, -105, 12, 0, 0, 0, 0, -173, 0, 0, 0, 0, 0, -227, -18, 0, 0, 0, 0, -248, -117, 0, 0, 0, 0, -238, -234, 0, 0, 0, 0, -228, -333, 0, 0, 0, 0, -224, -403, 0, 0, 0, 0, -226, -462, 0, 0, 0, 0, -209, -501, 0, 0, 0, 0, -149, -527, 0, 0, 0, 0, -95, -524, 0, 0, 0, 0, -61, -497, 0, 0, 0, 0, -42, -441, 0, 0, 0, 0, -34, -350, 0, 0, 0, 0, -28, -268, 0, 0, 0, 0, -29.9971, -202, 0, 0, 0, 0, -20.9971, -184, 0, 0, 0, 0, 1.00293, -157, 0, 0, 0, 0, 62.0029, -136, 0, 0, 0, 0, 81.0029, -141, 0, 0, 0, 0, 88.0029, -156, 0, 0, 0, 0, 85.0029, -172, 0, 0, 0, 0, 75, -184, 0, 0, 0, 0, 51, -185, 0, 0, 0, 0, 16, -195, 0, 0, 0, 0, -4, -208, 0, 0, 0, 0, -13, -278, 0, 0, 0, 0, -17, -339, 0, 0, 0, 0, -27, -440, 0, 0, 0, 0, -43, -508, 0, 0, 0, 0, -84, -554, 0, 0, 0, 0, -156, -571, 0, 0, 0, 0, -228, -562, 0, 0, 0, 0, -271, -530, 0, 0, 0, 0, -278, -450, 0, 0, 0, 0, -272, -354, 0, 0, 0, 0, -269, -244, 0, 0, 0, 0, -281, -98, 0, 0, 0, 0, -239.997, 8.99988, 0, 0, 0, 0, -195.997, 23.9999, 0, 0, 0, 0, -122.997, 34.9999, 0, 0, 0, 0, -40.9971, 29.9999, 0, 0, 0, 0, 53.0029, 25.9999, 0, 0, 0, 0, 104.003, 27.9999, 0, 0, 0, 0, 103.003, 13.9999, 0, 0, 0, 0, 90.0029, 11.9999, 0, 0, 0, 0, 75.0029, 7.99988, 0, 0, 0, 0, 12.0029, 9.99988)
 }
 point_count = 49
 
@@ -360,7 +360,7 @@ position = Vector2(-141, 99)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 12015, -632, 12067, -629, 12106, -677, 12089, -704, 12065, -719, 12023, -727, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11353, -707, 11294, -704, 11265, -692, 11252, -669, 11272, -645, 11296, -637, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1401, 730)
+position = Vector2(1394, 716)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -370,7 +370,7 @@ floor_snap_length = 14.0
 rotation = -0.00132818
 
 [node name="Perhonen2_3" parent="Perhoset" instance=ExtResource("13_ufso7")]
-position = Vector2(4554.07, 1454.05)
+position = Vector2(4554.08, 1448.05)
 rotation = 0.00132818
 
 [node name="Path2D" type="Path2D" parent="Perhoset/Perhonen2_3"]
