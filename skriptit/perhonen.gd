@@ -48,7 +48,7 @@ func _ready():
 	path2d.add_child(path_follow_2d)
 	
 	# Asetetaan perhosen aloituspiste
-	aloituspiste = global_position
+	aloituspiste = global_position + path2d.position
 
 	# Asetetaan perhosen reitin pituus
 	var curve2d = path2d.get_curve()
