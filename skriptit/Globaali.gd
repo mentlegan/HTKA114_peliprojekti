@@ -1,4 +1,4 @@
-## Harri 7.5.4.2024
+## Harri 16.5.4.2024
 ## Paavo 22.4.2024
 ## Elias 22.4.2024
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
@@ -26,6 +26,7 @@ var tooltipit = Array()
 ## Pelaajan ja vihollisen aloitus koordinaatit
 ## Pelaajan aloituspaikka muuttuu pelin edetessä checkpointtien takia
 var pelaaja_aloitus = null
+var soitetaan_animatic
 
 ## Pelaajan taso2 ja taso3 koordinaatit teleporttaamiseen
 ## Kentan 1 loppu mukaan minecart tp varten
@@ -96,8 +97,13 @@ var journal_keratty = false
 var t2 = preload("res://maailma2.tscn")
 """
 
+@onready var animatic = get_node("/root/Maailma/%KayttoLiittyma/%Animatic")
+
 ## Yleinen ready
 func _ready():
+	# Soitetaan alkuanimatic. Seuraavan rivin voi dokumentoida pois, jos haluaa testata peliä ilman sitä
+	soita_animatic()
+	
 	# Signaalikäsittelyä mm. pelaajan kuolemisesta
 	pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
 	pelaaja.kuollut.connect(_game_over) # Yhdistetään signaali pelaajasta
@@ -140,6 +146,13 @@ func _ready():
 	# Journal pois näkyvistä
 	journal.visible = false
 
+
+## Antaa tiedon animaticin scriptille, että halutaanko alkuanimaticin soivan
+func soita_animatic():
+	soitetaan_animatic = true # Tämä bool sanoo Animaticin scriptille, että alkuanimatic todella soitetaan
+	get_tree().paused = true # Peli pauselle
+	animatic.visible = true # Animaticin interface ja kuvat näkyviin
+	
 
 ## Poistaa minecart-tooltipit
 func poista_minecart_tooltipit():

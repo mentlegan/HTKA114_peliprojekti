@@ -1,0 +1,111 @@
+[gd_scene load_steps=14 format=3 uid="uid://3oa14w4m8khu"]
+
+[ext_resource type="Script" path="res://skriptit/animatic.gd" id="1_ktwnp"]
+[ext_resource type="AudioStream" uid="uid://cns3r7mnoy6l6" path="res://audio/animatic/frame1.mp3" id="2_etvig"]
+[ext_resource type="AudioStream" uid="uid://dk4ewrpa1gb7i" path="res://audio/animatic/frame2.mp3" id="3_m4dui"]
+[ext_resource type="AudioStream" uid="uid://b8je5ss8c7olv" path="res://audio/animatic/frame3.mp3" id="4_077w6"]
+[ext_resource type="AudioStream" uid="uid://d0wdaj0wqt7bj" path="res://audio/animatic/frame4.mp3" id="5_fqiyh"]
+[ext_resource type="AudioStream" uid="uid://dgrrakfpnumcu" path="res://audio/animatic/frame5.mp3" id="6_tyjhu"]
+[ext_resource type="Texture2D" uid="uid://b0wfjcdqju47w" path="res://grafiikka/Frame1.png" id="7_a623f"]
+[ext_resource type="Texture2D" uid="uid://c3sk78qaxc5pw" path="res://grafiikka/Frame2.png" id="8_wa757"]
+[ext_resource type="Texture2D" uid="uid://15thstvwtsdy" path="res://grafiikka/Frame3.png" id="9_iif62"]
+[ext_resource type="Texture2D" uid="uid://c7ajfkg1k06m" path="res://grafiikka/Frame4.png" id="10_q0cmt"]
+[ext_resource type="Texture2D" uid="uid://ve0s0nsbn83y" path="res://grafiikka/Frame5.png" id="11_7xswd"]
+[ext_resource type="Texture2D" uid="uid://cjypqxwnvuymg" path="res://grafiikka/Frame6.png" id="12_xycnc"]
+[ext_resource type="AudioStream" uid="uid://kyv5pcaicv3d" path="res://audio/pelaaja/falldamage.mp3" id="13_oygfy"]
+
+[node name="Animatic" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ktwnp")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 491.0
+offset_right = 961.0
+offset_bottom = 538.0
+
+[node name="next_nappi" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 864.0
+offset_right = 959.0
+offset_bottom = 47.0
+text = "Next
+"
+
+[node name="skip_nappi" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 428.0
+offset_right = 535.0
+offset_bottom = 48.0
+text = "Skip"
+
+[node name="quit_nappi" type="Button" parent="Panel"]
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 47.0
+text = "Quit Game"
+
+[node name="kuvat" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="kuva1" type="Sprite2D" parent="kuvat"]
+visible = false
+light_mask = 2
+visibility_layer = 2
+position = Vector2(481, 226)
+texture = ExtResource("7_a623f")
+
+[node name="kuva2" type="Sprite2D" parent="kuvat"]
+visible = false
+position = Vector2(480, 220)
+texture = ExtResource("8_wa757")
+
+[node name="kuva3" type="Sprite2D" parent="kuvat"]
+visible = false
+position = Vector2(480, 220)
+texture = ExtResource("9_iif62")
+
+[node name="kuva4" type="Sprite2D" parent="kuvat"]
+visible = false
+position = Vector2(480, 220)
+texture = ExtResource("10_q0cmt")
+
+[node name="kuva5" type="Sprite2D" parent="kuvat"]
+visible = false
+position = Vector2(480, 220)
+texture = ExtResource("11_7xswd")
+
+[node name="kuva6" type="Sprite2D" parent="kuvat"]
+visible = false
+position = Vector2(480, 220)
+texture = ExtResource("12_xycnc")
+
+[node name="aanet" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="frame1" type="AudioStreamPlayer" parent="aanet"]
+stream = ExtResource("2_etvig")
+
+[node name="frame2" type="AudioStreamPlayer" parent="aanet"]
+stream = ExtResource("3_m4dui")
+
+[node name="frame3" type="AudioStreamPlayer" parent="aanet"]
+stream = ExtResource("4_077w6")
+
+[node name="frame4" type="AudioStreamPlayer" parent="aanet"]
+stream = ExtResource("5_fqiyh")
+
+[node name="frame5" type="AudioStreamPlayer" parent="aanet"]
+stream = ExtResource("6_tyjhu")
+
+[node name="frame6" type="AudioStreamPlayer" parent="aanet"]
+stream = ExtResource("13_oygfy")
+
+[connection signal="pressed" from="Panel/next_nappi" to="." method="_on_next_nappi_pressed"]
+[connection signal="pressed" from="Panel/skip_nappi" to="." method="_on_skip_nappi_pressed"]
+[connection signal="pressed" from="Panel/quit_nappi" to="." method="_on_quit_nappi_pressed"]
