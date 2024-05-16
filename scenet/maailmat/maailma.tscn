@@ -1,6 +1,5 @@
-[gd_scene load_steps=88 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=87 format=3 uid="uid://ct1c8wsksqlh7"]
 
-[ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://dskh1b4twfo2c" path="res://scenet/kayttoliittyma/journal.tscn" id="4_sg152"]
@@ -241,7 +240,6 @@ size = Vector2(2219, 1257)
 size = Vector2(2146, 1158)
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
-script = ExtResource("1_sggs7")
 
 [node name="KayttoLiittyma" type="CanvasLayer" parent="." groups=["UI"]]
 unique_name_in_owner = true
@@ -376,7 +374,7 @@ position = Vector2(-141, 99)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 12015, -632, 12067, -629, 12106, -677, 12089, -704, 12065, -719, 12023, -727, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11353, -707, 11294, -704, 11265, -692, 11252, -669, 11272, -645, 11296, -637, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1427, 686)
+position = Vector2(6691, 70)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -1641,7 +1639,8 @@ frame_progress = 0.888882
 stream = ExtResource("51_ynajt")
 volume_db = 3.0
 autoplay = true
-max_distance = 700.0
+max_distance = 450.0
+parameters/looping = true
 
 [node name="VihollisRihmasto" type="Node2D" parent="Muuta"]
 
@@ -1853,6 +1852,7 @@ stream = ExtResource("37_khmdb")
 [node name="myrkkysieni" parent="." instance=ExtResource("56_7csj5")]
 position = Vector2(1509, 731)
 
+[connection signal="transitio" from="Pelaaja" to="KayttoLiittyma/Transitio" method="_on_pelaaja_transitio"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]
 [connection signal="body_exited" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_exited"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue2" to="uudetViholliset/uusiVihollinen" method="_on_alue_2_body_entered"]

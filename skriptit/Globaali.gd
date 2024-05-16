@@ -89,8 +89,9 @@ var pystyssa = true
 
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://scenet/tausta.tscn")
-## Totuusarvo journalin aktivoimiselle
+## Totuusarvo journalin aktivoimiselle ja minecartin käytölle
 var journal_keratty = false
+var minecart_kaytetty = false
 
 
 ## Scenen vaihtamiseen, ei luultavasti tarvita

@@ -22,9 +22,17 @@ func _on_vesiputous_transitio():
 func _fade_reset(anim_name):
 	if anim_name == "fade_black":
 		await get_tree().create_timer(1).timeout
-		Globaali.pelaaja.position = Globaali.vesiputous_tp
+		if Globaali.minecart_kaytetty == true:
+			Globaali.pelaaja.position = Globaali.taso1_loppu
+			Globaali.minecart_kaytetty = false
+		else:
+			Globaali.pelaaja.position = Globaali.vesiputous_tp
 		animation_player.play("fade_reset")
 		await get_tree().create_timer(0.5).timeout
 		Globaali.pelaaja.process_mode = Node.PROCESS_MODE_INHERIT
-	else:
+	elif anim_name == "fade_reset":
 		color_rect.visible = false
+
+
+func _on_pelaaja_transitio():
+	_on_vesiputous_transitio()

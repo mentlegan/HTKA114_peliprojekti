@@ -11,6 +11,7 @@ class_name Pelaaja
 
 ## Tästä signaalit, jotka lähtetään, kun jotain tapahtuu. Muut koodit osaavat ottaa nämä signaalit, ja käyttää niitä
 signal kuollut
+signal transitio
 
 ## Pelaajan hitbox
 @onready var polygon = get_node("CollisionShape2D")
@@ -766,7 +767,8 @@ func _physics_process(delta):
 		for alue in alueet:
 			if alue.is_in_group("minecart"):
 				# Tehty nyt täällä, myöhemmin kerkiää optimoida
-				self.position = Globaali.taso1_loppu
+				Globaali.minecart_kaytetty = true
+				transitio.emit()
 				Globaali.minecartit.queue_free()
 				Globaali.poista_minecart_tooltipit()
 	
