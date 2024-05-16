@@ -769,6 +769,7 @@ func _physics_process(delta):
 				# Tehty nyt täällä, myöhemmin kerkiää optimoida
 				Globaali.minecart_kaytetty = true
 				transitio.emit()
+				await get_tree().create_timer(0.8).timeout
 				Globaali.minecartit.queue_free()
 				Globaali.poista_minecart_tooltipit()
 	

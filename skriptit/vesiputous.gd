@@ -16,6 +16,7 @@ func _on_body_entered(body) -> void:
 	if body is Pelaaja:
 		transitio.emit()
 		$CollisionShape2D.set_deferred("disabled", true)
+		self.set_collision_mask_value(2, false)
 		# Teleportataan kuilun alas transitiolla, ruutu mustaksi esim.
 	# Jos valopallo
 	elif body.is_in_group("valopallo"):

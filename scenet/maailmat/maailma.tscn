@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=88 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
@@ -186,7 +186,10 @@ stream_2/weight = 1.0
 size = Vector2(75, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0tun"]
-size = Vector2(157, 57)
+size = Vector2(172.233, 43.2212)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmjpq"]
+size = Vector2(10, 173)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vhhqy"]
 atlas = ExtResource("45_ocnt8")
@@ -284,7 +287,7 @@ polygon = PackedVector2Array(1459, 182, 1384, 213, 1303, 296, 1255, 423, 1231, 6
 
 [node name="Polygon2D2" type="Polygon2D" parent="Tiilet"]
 texture_repeat = 2
-polygon = PackedVector2Array(2840, -119, 2844, -50, 2840, 31, 2847, 100, 2730, 102, 2654, 73, 2553, 78, 2454, 84, 2334, 137, 2184, 186, 2093, 246, 2030, 295, 1954, 376, 1956, 464, 2004, 521, 2082, 562, 2118, 568, 2326, 565, 2411, 630, 1902, 629, 1873, 543, 1844, 493, 1813, 414, 1801, 276, 1730, 207, 1599, 184, 1680, 144, 1672, 70, 1622, 38, 1414, 56, 1242, 35, 964, 55, 866, 66, 628, 136, 462, 75, 516, -116)
+polygon = PackedVector2Array(2840, -119, 2844, -50, 2840, 31, 2847, 91, 2847, 100, 2841, 106, 2828, 104, 2730, 102, 2654, 73, 2553, 78, 2454, 84, 2334, 137, 2184, 186, 2093, 246, 2030, 295, 1954, 376, 1956, 464, 2004, 521, 2082, 562, 2118, 568, 2326, 565, 2411, 630, 1902, 629, 1873, 543, 1844, 493, 1813, 414, 1801, 276, 1730, 207, 1599, 184, 1680, 144, 1672, 70, 1622, 38, 1414, 56, 1242, 35, 964, 55, 866, 66, 628, 136, 462, 75, 516, -116)
 
 [node name="Polygon2D3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(-10, -4)
@@ -296,7 +299,7 @@ polygon = PackedVector2Array(2660, 565, 2679, 582, 2672, 599, 2645, 617, 2483, 6
 
 [node name="Polygon2D6" type="Polygon2D" parent="Tiilet"]
 position = Vector2(-1279, -2245)
-polygon = PackedVector2Array(6218, 306, 4949, 936, 4392, 897, 4330, 902, 4291, 935, 4212, 1703, 4132, 1744, 4069, 1771, 4020, 1796, 3970, 1841, 3878, 1878, 3845, 1940, 3840, 2005, 3873, 2034, 3933, 2034, 4119, 2039, 4122, 2085, 4119, 2126, 1776, 2152, 1713, -245, 5912, -55, 6681, 9, 6723, 304)
+polygon = PackedVector2Array(6218, 306, 4949, 936, 4392, 897, 4330, 902, 4291, 935, 4212, 1703, 4132, 1744, 4069, 1771, 4020, 1796, 3970, 1841, 3878, 1878, 3845, 1940, 3840, 2005, 3873, 2034, 3933, 2034, 4082, 2032, 4105, 2035, 4119, 2039, 4122, 2062, 4122, 2085, 4119, 2126, 1776, 2152, 1713, -245, 5912, -55, 6681, 9, 6723, 304)
 
 [node name="Polygon2D4" type="Polygon2D" parent="Tiilet"]
 position = Vector2(1475, 1552)
@@ -324,7 +327,7 @@ polygon = PackedVector2Array(2012.1, -314.38, 1516.1, -373.38, 1408.1, -453.38, 
 
 [node name="Polygon2D2_3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(2045.9, 224.38)
-polygon = PackedVector2Array(2358.34, 1279.55, 2452.1, 1752.62, 2357.1, 1764.62, 2284.1, 1763.62, 2210.1, 1754.62, 2163.1, 1703.62, 2102.1, 1634.62, 2051.1, 1499.62, 1990.1, 1286.62, 1580.1, 284.62, 1561.1, 244.62, 1540.1, 165.62, 1510.1, -129.38, 1514.1, -382.38, 2026.1, -314.38, 2041.26, -75.1888, 2050.78, 205.78, 2069.83, 272.452, 2078.38, 398.523, 2084.36, 500.782, 2105.75, 523.352, 2178.89, 523.857, 2332.67, 512.631, 2423.59, 515.996, 2497.68, 536.188, 2528, 567.998, 2562.01, 621.997, 2585, 717, 2593.71, 799.559, 2607.71, 878.04, 2631.24, 952.344, 2672.66, 952.163, 2718.02, 950.902, 2789.22, 957.979, 2836.5, 980.38, 2844.1, 1004.37, 2826.2, 1021.23, 2775.8, 1007.97, 2741.58, 1000.14, 2704.66, 990.064, 2624.03, 989.759, 2550.09, 972.575, 2527.77, 899.247, 2522.73, 765.695, 2495, 648.528, 2447.11, 589.333, 2343.82, 570.411, 2244.29, 577.972, 2170.03, 609.512, 2176.25, 710.258, 2180.03, 811.052, 2188.85, 915.625, 2176.25, 1021.46, 2177.51, 1114.69, 2187.6, 1205.41, 2212.82, 1257.03, 2268.23, 1275.95, 2347.38, 1277.85)
+polygon = PackedVector2Array(2358.34, 1279.55, 2452.1, 1752.62, 2357.1, 1764.62, 2284.1, 1763.62, 2217.1, 1778.62, 2168.1, 1772.62, 2138.1, 1760.62, 2101.1, 1730.62, 2102.1, 1634.62, 2051.1, 1499.62, 1990.1, 1286.62, 1580.1, 284.62, 1561.1, 244.62, 1540.1, 165.62, 1510.1, -129.38, 1514.1, -382.38, 2026.1, -314.38, 2041.26, -75.1888, 2050.78, 205.78, 2069.83, 272.452, 2078.38, 398.523, 2084.36, 500.782, 2105.75, 523.352, 2178.89, 523.857, 2332.67, 512.631, 2423.59, 515.996, 2497.68, 536.188, 2528, 567.998, 2562.01, 621.997, 2585, 717, 2593.71, 799.559, 2607.71, 878.04, 2631.24, 952.344, 2672.66, 952.163, 2718.02, 950.902, 2789.22, 957.979, 2836.5, 980.38, 2844.1, 1004.37, 2826.2, 1021.23, 2775.8, 1007.97, 2741.58, 1000.14, 2704.66, 990.064, 2624.03, 989.759, 2550.09, 972.575, 2527.77, 899.247, 2522.73, 765.695, 2495, 648.528, 2447.11, 589.333, 2343.82, 570.411, 2244.29, 577.972, 2170.03, 609.512, 2176.25, 710.258, 2180.03, 811.052, 2188.85, 915.625, 2176.25, 1021.46, 2177.51, 1114.69, 2187.6, 1205.41, 2212.82, 1257.03, 2268.23, 1275.95, 2347.38, 1277.85)
 
 [node name="Polygon2D3_3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(2045.9, 224.38)
@@ -374,7 +377,7 @@ position = Vector2(-141, 99)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 12015, -632, 12067, -629, 12106, -677, 12089, -704, 12065, -719, 12023, -727, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11353, -707, 11294, -704, 11265, -692, 11252, -669, 11272, -645, 11296, -637, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(6691, 70)
+position = Vector2(3031, 181)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -504,6 +507,9 @@ position = Vector2(4370.04, 724.805)
 
 [node name="Kukka14" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(5910.12, 2172.85)
+
+[node name="Kukka38" parent="Kukat" instance=ExtResource("14_332fg")]
+position = Vector2(4361.2, 2111.79)
 
 [node name="Kukka15" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(6724.08, 1453.93)
@@ -1594,7 +1600,7 @@ position = Vector2(9296, -470)
 
 [node name="VesiputousTeleport" type="Node2D" parent="Muuta"]
 unique_name_in_owner = true
-position = Vector2(4220, 2074)
+position = Vector2(4250, 2083)
 
 [node name="Huilu1" type="Marker2D" parent="Muuta"]
 position = Vector2(3178, 201)
@@ -1604,38 +1610,336 @@ position = Vector2(1309, 134)
 
 [node name="Kentan1_loppu" type="Node2D" parent="Muuta"]
 unique_name_in_owner = true
-position = Vector2(3352, 210)
+position = Vector2(3352, 207)
 rotation = 0.0157477
 scale = Vector2(0.519523, 0.676654)
 
 [node name="Sprite2D" type="Sprite2D" parent="Muuta/Kentan1_loppu"]
 z_index = -1
+position = Vector2(0.0908203, 4.43304)
 texture = ExtResource("38_c8dmk")
 
 [node name="Vesiputous" type="Area2D" parent="Muuta"]
 position = Vector2(3480, 248)
-rotation = -0.435676
 collision_layer = 0
 collision_mask = 6
 script = ExtResource("45_dq3qu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Muuta/Vesiputous"]
-position = Vector2(2.03206, 40.6554)
+position = Vector2(11.0001, 16)
+rotation = -0.548437
 shape = SubResource("RectangleShape2D_o0tun")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Muuta/Vesiputous"]
+position = Vector2(714, 1796)
+rotation = -1.26165
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_o0tun")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Muuta/Vesiputous"]
+position = Vector2(720, 1794)
+rotation = 0.252063
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muuta/Vesiputous/StaticBody2D"]
+position = Vector2(-1, 0)
+rotation = 0.117476
+shape = SubResource("RectangleShape2D_kmjpq")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Muuta/Vesiputous"]
+position = Vector2(7.99996, 7.00001)
+rotation = 1.0282
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muuta/Vesiputous/StaticBody2D2"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_kmjpq")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
-position = Vector2(-16.5842, 30.8863)
+position = Vector2(17, -12)
+rotation = 0.188619
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(28, 1.00001)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(-5.99997, 37)
+rotation = -0.271471
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(-28, 37)
+rotation = -0.226993
 sprite_frames = SubResource("SpriteFrames_73xeq")
 frame = 3
 frame_progress = 0.888882
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
-position = Vector2(16.5217, 30.8548)
+position = Vector2(40, 12)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(8.99997, 66)
+rotation = -0.110288
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(63, 76)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(87, 117)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(576, 1630)
+rotation = -0.515961
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(543, 1640)
+rotation = -0.440234
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(654, 1624)
+rotation = -0.235439
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(658, 1704)
+rotation = -0.234727
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(631, 1728)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(598, 1722)
+rotation = -0.434042
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D30" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(565, 1710)
+rotation = -0.434042
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D31" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(579, 1680)
+rotation = -0.434042
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D32" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(607, 1671)
+rotation = -0.434042
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D33" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(637, 1655)
+rotation = -0.434042
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D34" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(601, 1612)
+rotation = -0.434042
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D35" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(626, 1598)
+rotation = -0.434042
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D36" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(640, 1580)
+rotation = -0.434042
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(627, 1775)
+rotation = -0.618876
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(673, 1828)
+rotation = -0.618876
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(678, 1823)
+rotation = -0.500206
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(664, 1777)
+rotation = -0.298483
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(677, 1745)
+rotation = -0.0664869
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D37" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(688, 1762)
+rotation = -0.0799296
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D38" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(688, 1762)
+rotation = -0.0799296
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D40" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(708, 1769)
+rotation = 0.108181
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D41" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(705, 1794)
+rotation = 0.0504143
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D39" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(698, 1823)
+rotation = -0.218172
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(593, 1775)
+rotation = -0.439643
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(625, 1811)
+rotation = -0.568718
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(661, 1823)
+rotation = -0.790643
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(25, 143)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(55, 157)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(52, 217)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(70, 195)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(79, 244)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(99, 177)
+sprite_frames = SubResource("SpriteFrames_73xeq")
+frame = 3
+frame_progress = 0.888882
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
+position = Vector2(38, 86)
+rotation = -0.0291677
 sprite_frames = SubResource("SpriteFrames_73xeq")
 frame = 3
 frame_progress = 0.888882
 
 [node name="AudioVesiputous" type="AudioStreamPlayer2D" parent="Muuta/Vesiputous"]
+rotation = 0.00191071
+stream = ExtResource("51_ynajt")
+volume_db = 3.0
+autoplay = true
+max_distance = 450.0
+parameters/looping = true
+
+[node name="AudioVesiputous2" type="AudioStreamPlayer2D" parent="Muuta/Vesiputous"]
+position = Vector2(674, 1805)
+rotation = 0.00191071
 stream = ExtResource("51_ynajt")
 volume_db = 3.0
 autoplay = true
