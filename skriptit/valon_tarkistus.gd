@@ -67,10 +67,6 @@ func _physics_process(_delta):
 	# Lähetetään tarvittaessa signaalit
 	_laheta_signaalit()
 
-	# Ei oteta vanhemman noden skaalausta tai rotaatiota huomioon raycastissa
-	raycast.global_rotation = 0
-	raycast.global_scale = Vector2(1, 1)
-
 
 ## Päivittää valossa-muuttujan ja lähettää tarvittaessa signaalin siirrytty_varjoon tai siirrytty_valoon.
 func _laheta_signaalit():
