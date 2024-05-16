@@ -58,9 +58,6 @@ func paivita_sivunumero():
 
 ## Käsitellään input journalin ollessa aktiivinen
 func _input(_event: InputEvent) -> void:
-	if not Globaali.journal_keratty:
-		return
-
 	# Peli jatkumaan J:llä
 	if Input.is_action_just_pressed("journal"):
 		Globaali.toggle_journal()

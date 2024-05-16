@@ -27,6 +27,8 @@ var tahtaimen_lapset = []
 @onready var elama_mittari_kuvalla = get_node("HUD/ElamaMittariKuvalla")
 @onready var palloja_label = get_node("HUD/Palloja")
 @onready var apua_label = get_node("HUD/ApuaLabel")
+@onready var journal_info_label = get_node("JournalInfo")
+
 ## Pelaajan kamera
 @onready var kamera = get_node("Camera2D")
 @onready var pimeyskuolema = Globaali.pimeyskuolema_animaatio
@@ -82,7 +84,8 @@ const AANEN_TAAJUUS_VARIT = [
 ## UI:n ja kukan keräyksen animaatiota varten
 var tween: Tween
 var kukan_kerays_tween: Tween
-var kuolema_tween : Tween
+var kuolema_tween: Tween
+var journal_info_tween: Tween
 
 ## Ajastin pimeässä selviämiselle: kuinka kauan pimeässä selvitään ennen respawn()-kutsua
 @onready var ajastin_pimeassa = $AjastinPimealle
@@ -228,6 +231,37 @@ func _ready():
 	pimeyskuolema.modulate.a = 0.0
 	
 	palloja_label_paivita()
+
+	journal_info_label.modulate.a = 0
+	journal_info_label.position.y = -80
+
+
+## Asettaa journalin info-labelin hetkeksi näkyviin.
+func nayta_journal_info():
+	if journal_info_tween is Tween and journal_info_tween.is_running():
+			return
+	
+	journal_info_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	journal_info_tween.set_parallel(true)
+
+	journal_info_tween.tween_property(journal_info_label, "position:y", -100, 1)
+	journal_info_tween.tween_property(journal_info_label, "modulate:a", 1, 1)
+
+	await journal_info_tween.finished
+	await get_tree().create_timer(1).timeout
+	journal_info_tween.kill()
+
+
+	journal_info_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	journal_info_tween.set_parallel(true)
+
+	journal_info_tween.tween_property(journal_info_label, "position:y", -80, 1)
+	journal_info_tween.tween_property(journal_info_label, "modulate:a", 0, 1)
+
+	await journal_info_tween.finished
+	journal_info_tween.kill()
+	print(journal_info_tween.is_running())
+
 
 
 ## Lopettaa huilu-animaation

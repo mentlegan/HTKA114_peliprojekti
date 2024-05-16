@@ -395,8 +395,16 @@ func respawn():
 
 ## Vaihtaa journalin näkyviin tai piiloon vuorotellen funktiota kutsuessa.
 func toggle_journal():
-	if not pelaaja.valossa && not journal.visible:
+	if not journal_keratty:
 		return
+
+	if not pelaaja.valossa && not journal.visible:
+		pelaaja.nayta_journal_info()
+		return
+	
+	pelaaja.journal_info_tween.kill()
+	pelaaja.journal_info_label.modulate.a = 0
+	pelaaja.journal_info_label.position.y = -80
 
 	journal.visible = not journal.visible
 	audio_journal.play()
