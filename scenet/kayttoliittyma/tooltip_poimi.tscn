@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7uvecnvl5tyu"]
 
 [ext_resource type="PackedScene" uid="uid://mch12jl02nqd" path="res://scenet/kayttoliittyma/tooltip.tscn" id="1_r2lsm"]
-[ext_resource type="Texture2D" uid="uid://dst2qpge405p" path="res://grafiikka/OhjainTooltipX.png" id="2_4bnm7"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="2_tt5pr"]
+[ext_resource type="Texture2D" uid="uid://b8cydfpi4ba6r" path="res://grafiikka/OhjainTooltipB.png" id="3_6t3bd"]
 [ext_resource type="Texture2D" uid="uid://carqststa41k" path="res://grafiikka/OhjainTooltipNappaimisto.png" id="3_w1fu4"]
 
 [node name="TooltipPoimi" instance=ExtResource("1_r2lsm")]
@@ -11,7 +11,7 @@
 material = ExtResource("2_tt5pr")
 use_parent_material = true
 position = Vector2(-18, 0)
-texture = ExtResource("2_4bnm7")
+texture = ExtResource("3_6t3bd")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="2"]
 material = ExtResource("2_tt5pr")

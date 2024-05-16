@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://scenet/kayttoliittyma/game_over_ruutu.tscn" id="9_er4wh"]
 [ext_resource type="PackedScene" uid="uid://daeaotnb7peu2" path="res://scenet/piikki.tscn" id="9_ox6hl"]
 [ext_resource type="PackedScene" uid="uid://ctidyv8v2d1cv" path="res://scenet/journal_pickup.tscn" id="10_gl8wc"]
-[ext_resource type="PackedScene" uid="uid://c20thhdg8yhyn" path="res://scenet/sivu.tscn" id="10_s3bjw"]
+[ext_resource type="PackedScene" uid="uid://1rmwgns112ns" path="res://scenet/sivu.tscn" id="10_s3bjw"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://scenet/vihollinen.tscn" id="12_u46m1"]
 [ext_resource type="Texture2D" uid="uid://4qkv77frylqp" path="res://grafiikka/EnemyDirt.png" id="13_iivh1"]
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://scenet/perhonen.tscn" id="13_ufso7"]
