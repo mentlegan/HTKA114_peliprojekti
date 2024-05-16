@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=86 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_sggs7"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -55,6 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://bwifdpgc8fvfs" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
 [ext_resource type="Texture2D" uid="uid://bwa3bilj1qgve" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
 [ext_resource type="PackedScene" uid="uid://3oa14w4m8khu" path="res://scenet/Animatic.tscn" id="55_a4dph"]
+[ext_resource type="PackedScene" uid="uid://c2yksr527rg05" path="res://scenet/myrkkysieni.tscn" id="56_7csj5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
 atlas = ExtResource("9_75e1e")
@@ -1834,6 +1835,9 @@ zoom = Vector2(0.5, 0.5)
 unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("37_khmdb")
+
+[node name="myrkkysieni" parent="." instance=ExtResource("56_7csj5")]
+position = Vector2(1509, 731)
 
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]
 [connection signal="body_exited" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_exited"]

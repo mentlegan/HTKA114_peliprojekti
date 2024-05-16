@@ -145,6 +145,10 @@ var elamat_regen_nopeus = 8
 ## Kuinka paljon elamia pelaaja saa takaisin
 var elamat_regen_maara = 1
 
+## Myrkylle timer
+var myrkky_ajastin = Timer.new()
+var myrkyn_vahinko_maara = 0.5
+var myrkyn_damage_nopeus = 1
 ## Elämä regen ajastin
 var elama_regen_ajastin = Timer.new()
 
@@ -174,11 +178,12 @@ var kamera_tarina_ajastin = Timer.new()
 
 
 func _ready():
-	# Lisätään ajastimet hypyille, elämä regeneraatiolle ja kameran tärinälle lapsiksi
+	# Lisätään ajastimet hypyille, elämä regeneraatiolle, myrkylle ja kameran tärinälle lapsiksi
 	self.add_child(hyppy_ajastin_seinalla)
 	self.add_child(hyppy_ajastin_maassa)
 	self.add_child(elama_regen_ajastin)
 	self.add_child(kamera_tarina_ajastin)
+	self.add_child(myrkky_ajastin)
 	
 	# Lisätään pelaajan hp labeliin elamat
 	elama_mittari_kuvalla.max_value = pelaajan_elamat_max
@@ -191,6 +196,9 @@ func _ready():
 	
 	# Pelaajan elämä regeneraatio
 	elama_regen_ajastin.timeout.connect(elama_regen)
+	
+	# Myrkyn damage
+	myrkky_ajastin.timeout.connect(myrkky_damage)
 	
 	# Kamera tarinan lopetus
 	kamera_tarina_ajastin.timeout.connect(tarinan_lopetus)
@@ -392,7 +400,27 @@ func meneta_elamia(maara):
 		pelaajan_elamat = 0
 		kuolema_fall_damageen()
 	elamat_label_paivita()
-
+	
+## Myrkky damage (oma funktio tulevaisuutta varten, jos tulee suuria muutoksia meneta_elamia() verrattuna)
+func myrkky_damage():
+	if pelaajan_elamat - myrkyn_vahinko_maara > 0:
+		pelaajan_elamat -= myrkyn_vahinko_maara
+		kamera_tarisee = true
+		kamera_tarina_ajastin.start(kamera_tarinan_pituus)
+		audio_pelaaja_fall_damage.play()
+		elama_regen_ajastin.start(elamat_regen_nopeus)
+		animaatio.modulate = Color.BLUE_VIOLET
+		await get_tree().create_timer(0.1).timeout
+		animaatio.modulate = Color.WHITE
+	else:
+		pelaajan_elamat = 0
+		kuolema_fall_damageen()
+	elamat_label_paivita()
+	
+## Myrkky damagen timeri päälle
+func myrkky_timer():
+	if myrkky_ajastin.time_left == 0:
+		myrkky_ajastin.start(myrkyn_damage_nopeus)
 
 ## Vaihdetaan kameran tärinän arvoa
 func elamamittari_tarina():
