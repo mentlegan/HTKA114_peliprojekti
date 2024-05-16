@@ -383,8 +383,6 @@ func meneta_elamia(maara):
 		animaatio.modulate = Color.WHITE
 	else:
 		pelaajan_elamat = 0
-		# TODO: muuta järkevämmäksi
-		# Nyt ei toimi oikein jos pelaaja voi ottaa damagea muusta kuin putoamisesta
 		kuolema_fall_damageen()
 	elamat_label_paivita()
 
