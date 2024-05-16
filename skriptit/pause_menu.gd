@@ -14,18 +14,14 @@ func _input(_event: InputEvent) -> void:
 			# Asetetaan inputti "syödyksi", sitä ei käsitellä enää missään muualla
 			# Näin ei kuitenkaan pitäisi käydä, koska kaikki muu pausella
 			get_viewport().set_input_as_handled()
-
-
-## Kutsutaan joka framella
-func _physics_process(_delta):
-	if not visible:
-		return
 	
-	# "Painetaan" nappeja ohjaimella
-	if Input.is_action_just_pressed("abxy_ylos"):
-		_on_lopeta_nappi_pressed()
-	if Input.is_action_just_pressed("abxy_oikea"):
-		_on_jatka_nappi_pressed()
+	# Annetaan poistua pelistä vasta jos pause menu on päällä...
+	if visible:
+		# "Painetaan" nappeja ohjaimella
+		if Input.is_action_just_pressed("abxy_ylos"):
+			_on_lopeta_nappi_pressed()
+		if Input.is_action_just_pressed("abxy_oikea"):
+			_on_jatka_nappi_pressed()
 
 
 ## Kun painetaan jatka-nappulaa, eli Continue

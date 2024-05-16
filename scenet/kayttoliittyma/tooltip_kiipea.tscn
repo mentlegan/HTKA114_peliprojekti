@@ -82,9 +82,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -30.0
-offset_top = -38.0
+offset_top = -31.0
 offset_right = 30.0
-offset_bottom = -15.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -100,17 +100,7 @@ offset_bottom = 23.0
 text = "E"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label5" type="Label" parent="." index="7"]
-auto_translate_mode = 1
-material = ExtResource("2_5x0ps")
-offset_left = -34.0
-offset_top = -15.0
-offset_right = 38.0
-offset_bottom = 3.0
-text = "Toggle"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label3" type="Label" parent="." index="8"]
+[node name="Label3" type="Label" parent="." index="7"]
 auto_translate_mode = 1
 material = ExtResource("2_5x0ps")
 offset_left = 14.0
@@ -119,7 +109,7 @@ offset_right = 26.0
 offset_bottom = 43.0
 text = "+"
 
-[node name="Label4" type="Label" parent="." index="9"]
+[node name="Label4" type="Label" parent="." index="8"]
 auto_translate_mode = 1
 material = ExtResource("2_5x0ps")
 offset_left = -24.0
@@ -128,7 +118,7 @@ offset_right = -12.0
 offset_bottom = 43.0
 text = "+"
 
-[node name="Sprite2D5" type="Sprite2D" parent="." index="10"]
+[node name="Sprite2D5" type="Sprite2D" parent="." index="9"]
 material = ExtResource("2_5x0ps")
 position = Vector2(-17, 16)
 texture = ExtResource("6_3naji")
