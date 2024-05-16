@@ -281,8 +281,9 @@ func siirrytty_valoon():
 	valossa = true
 	ajastin_pimeassa.stop()
 	ajastin_pimeassa_audio.stop()
-	# Lopetetaan jos pelaa esim. respawnatessa
+	# Lopetetaan kaikki, jos pelaa esim. respawnatessa
 	if audio_pimeyskuolema.playing:
+		kuolema_tween.kill()
 		audio_pimeyskuolema.stop()
 		pimeyskuolema.stop()
 		pimeyskuolema.modulate.a = 0.0

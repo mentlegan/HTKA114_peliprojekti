@@ -426,12 +426,14 @@ func lisaa_sivu(teksti: String, otsikko: String, sivunumero: int):
 
 ## Pausettaa pelin
 func pausePeli():
+	pelaaja.pimeyskuolema.pause()
 	get_tree().paused = true
 	pauseruutu.visible = true
 
 
 ## Jatkaa peliä pauseruudulta
 func jatkaPelia():
+	pelaaja.pimeyskuolema.play()
 	pauseruutu.visible = false
 
 
