@@ -113,6 +113,10 @@ func _ready():
 		if uusiVihu != null:
 			uusiVihu.pelaaja_kuollut.connect(_game_over)
 	
+	# piikki = get_tree().get_first_node_in_group("piikki") # Tehdään näissä
+	for piikki in piikit:
+		if piikki != null:
+			piikki.pelaaja_kuollut.connect(_game_over) # samaa kuin pelaajan käsittelyssä
 	
 	# Otetaan aloitus koordinaatit talteen
 	pelaaja_aloitus = pelaaja.position
