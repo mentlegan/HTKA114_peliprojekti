@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=90 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
@@ -129,6 +129,12 @@ _data = {
 "points": PackedVector2Array(-5.65685, 27.5772, 5.65685, -27.5772, 0, -1, -65.5159, -0.629961, 65.5159, 0.629961, 36, 49, -31.5111, -0.756618, 31.5111, 0.756618, 229, 40, 0, 0, 0, 0, 344, 36, 0, 0, 0, 0, 478, 28, 0, 0, 0, 0, 610, 16, 0, 0, 0, 0, 750, 12, 0, 0, 0, 0, 891, 8, -68.646, 10.8847, 68.646, -10.8847, 1038, -1, 0, 0, 0, 0, 1102, -20, 0, 0, 0, 0, 1116, -32, 0, 0, 0, 0, 1108, -44, 62.6757, 15.8955, -62.6757, -15.8955, 1065, -53, 0, 0, 0, 0, 902, -33, 86.429, 4.79626, -86.429, -4.79626, 775, -32, 0, 0, 0, 0, 699, -28, 84.8528, -3.53555, -84.8528, 3.53555, 476, -20, 73.2334, 1.77742, -73.2334, -1.77742, 111, -18, 0, 0, 0, 0, 37, -19, 0, 0, 0, 0, 15, -20, 0, 0, 0, 0, 0, -1)
 }
 point_count = 21
+
+[sub_resource type="Curve2D" id="Curve2D_eypsu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 51.0005, -9, 0, 0, 0, 0, 191, -12, 0, 0, 0, 0, 353, 9, 0, 0, 0, 0, 652, 39, 0, 0, 0, 0, 952, 49, 0, 0, 0, 0, 1024, 28, 0, 0, 0, 0, 1060, 39, 0, 0, 0, 0, 1089, 52, 0, 0, 0, 0, 1084, 69, 0, 0, 0, 0, 1072, 75, 0, 0, 0, 0, 1024, 78, 0, 0, 0, 0, 938, 73, 0, 0, 0, 0, 826, 71, 0, 0, 0, 0, 699, 61, 0, 0, 0, 0, 570, 52, 0, 0, 0, 0, 508, 49, 0, 0, 0, 0, 372, 45, 0, 0, 0, 0, 242, 28, 0, 0, 0, 0, 102, 28, 0, 0, 0, 0, 18.0005, 41, 0, 0, 0, 0, -27.9995, 30, 0, 0, 0, 0, -42.9995, 13, 0, 0, 0, 0, -32.9995, -6, 0, 0, 0, 0, -18.9995, -13, 0, 0, 0, 0, 29.0005, -12, 0, 0, 0, 0, 51.0005, -10)
+}
+point_count = 26
 
 [sub_resource type="Curve2D" id="Curve2D_h32vt"]
 _data = {
@@ -378,7 +384,7 @@ position = Vector2(-141, 99)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 12015, -632, 12067, -629, 12106, -677, 12089, -704, 12065, -719, 12023, -727, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11353, -707, 11294, -704, 11265, -692, 11252, -669, 11272, -645, 11296, -637, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(3289, 185)
+position = Vector2(3236, 178)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -415,6 +421,13 @@ rotation = 0.00132818
 [node name="Perhonen7" parent="Perhoset" instance=ExtResource("13_ufso7")]
 position = Vector2(7061.22, -913.622)
 rotation = 0.00132818
+
+[node name="Perhonen9" parent="Perhoset" instance=ExtResource("13_ufso7")]
+position = Vector2(4567.26, 2068.07)
+rotation = 0.00132818
+
+[node name="Path2D" type="Path2D" parent="Perhoset/Perhonen9"]
+curve = SubResource("Curve2D_eypsu")
 
 [node name="Perhonen8" parent="Perhoset" instance=ExtResource("13_ufso7")]
 position = Vector2(7082.95, 43.4074)
