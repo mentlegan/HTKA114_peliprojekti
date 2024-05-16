@@ -408,9 +408,10 @@ func toggle_journal():
 		pelaaja.nayta_journal_info()
 		return
 	
-	pelaaja.journal_info_tween.kill()
-	pelaaja.journal_info_label.modulate.a = 0
-	pelaaja.journal_info_label.position.y = -80
+	if pelaaja.journal_info_tween:
+		pelaaja.journal_info_tween.kill()
+		pelaaja.journal_info_label.modulate.a = 0
+		pelaaja.journal_info_label.position.y = -80
 
 	journal.visible = not journal.visible
 	audio_journal.play()
