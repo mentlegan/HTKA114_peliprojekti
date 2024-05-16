@@ -130,8 +130,6 @@ var hyppyjen_maara = 0
 ## Oliko/onko pelaaja maassa tai seinällä (käytetään timerissa)
 var oli_maassa = false
 var oli_seinalla = false
-## Toggle seinäkiipeämiselle
-var kiipeamis_toggle = true
 
 ## Ajastin hyppyjen buffereille
 var hyppy_ajastin_seinalla = Timer.new()
@@ -480,12 +478,6 @@ func _physics_process(delta):
 	and is_on_floor()):
 		suunta = 0
 	
-	# Seinäkiipeämiseen toggle
-	# PC E
-	if Input.is_action_just_pressed("kiipeamis_toggle"):
-		# Oiva tapa muuttaa totuusarvo vastakkaiseksi
-		kiipeamis_toggle = not kiipeamis_toggle
-	
 	# Tästä painovoima
 	if not (is_on_floor() or is_on_wall()):
 		if oli_seinalla and hyppy_ajastin_seinalla.is_stopped():
@@ -505,7 +497,7 @@ func _physics_process(delta):
 			putoamis_huippu = get_global_position().y
 		# Seinää vasten liikkuessa kiipeää tai tippuu
 		# PC kiipeä: W, pudottaudu: S
-	elif (oli_seinalla or is_on_wall()) and Input.is_action_pressed("kiipea") and kiipeamis_toggle:
+	elif (oli_seinalla or is_on_wall()) and Input.is_action_pressed("kiipea"):
 		velocity.y = -gravity * delta * 6
 		animaatio.play("seinakiipeaminen")
 		if not audio_seinahyppy.playing:
@@ -516,7 +508,7 @@ func _physics_process(delta):
 		elif not suunta < 0:
 			velocity.x = 300
 		seinalla()
-	elif is_on_wall() and (Input.is_action_pressed("putoa") or not kiipeamis_toggle):
+	elif is_on_wall() and Input.is_action_pressed("putoa"):
 		if not audio_seinahyppy.playing:
 			animaatio.play("seinakiipeaminen")
 		audio_seinahyppy.play()
