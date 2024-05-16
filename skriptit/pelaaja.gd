@@ -349,6 +349,7 @@ func kuolema():
 	elamat_label_paivita()
 	pimeyskuolema.stop()
 	kuollut.emit()
+	print_debug("Kuolit PIIKKIIN TAI PIMEYTEEN")
 
 
 ## Kuolema pitäisi toteuttaa paremmin, mutta tässä nyt hätäratkaisuna
@@ -358,6 +359,7 @@ func kuolema_fall_damageen():
 	elamat_label_paivita()
 	pimeyskuolema.stop()
 	kuollut.emit()
+	print_debug("Kuolit FALL DAMAGEEN")
 
 
 ## Haetaan pelaajan elamat
