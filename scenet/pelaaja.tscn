@@ -524,30 +524,31 @@ bus = &"Vihollinen"
 process_mode = 3
 stream = ExtResource("20_o55xv")
 volume_db = 7.0
-bus = &"Pelaaja"
 
 [node name="AudioPelaajaFallDamageKuolema" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("20_l0cg5")
-volume_db = 9.962
-bus = &"Pelaaja"
+volume_db = 12.0
 
 [node name="AudioAmbient" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_byydo")
-volume_db = 12.506
+volume_db = 6.0
 
 [node name="HuiluAaniA" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_elvmw")
+bus = &"Kaiku"
 
 [node name="HuiluAaniC" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_xxdxr")
+bus = &"Kaiku"
 
 [node name="HuiluAaniE" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_qars5")
+bus = &"Kaiku"
 
 [node name="AudioValopallonKeraaminen" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_7f2m0")
-volume_db = 16.0
+volume_db = 12.0
 bus = &"Pelaaja"
 
 [node name="AudioPimeyskuolema" type="AudioStreamPlayer" parent="."]
@@ -557,7 +558,7 @@ bus = &"Musiikki"
 
 [node name="AudioPelaajaFallDamage" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_l0cg5")
-volume_db = 20.0
+volume_db = 10.0
 
 [node name="ReunojenPimentajaValo" type="PointLight2D" parent="."]
 visible = false

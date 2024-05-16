@@ -69,12 +69,16 @@ autostart = true
 
 [node name="AudioValopallonHeitto" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_1ql26")
+bus = &"Kaiku"
 
 [node name="AudioValopallonKimpoaminen" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_ekjm1")
+bus = &"Kaiku"
 
 [node name="AudioValopalloHajoaa" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_b1a0l")
+bus = &"Kaiku"
 
 [node name="AudioKoynnosOvi" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_g0pli")
+bus = &"Kaiku"

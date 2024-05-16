@@ -1,4 +1,13 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://uis8rpe4ftxv"]
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://uis8rpe4ftxv"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_wdq3c"]
+resource_name = "Reverb"
+predelay_feedback = 0.2
+room_size = 0.5
+damping = 0.1
+spread = 0.3
+dry = 0.6
+wet = 0.2
 
 [sub_resource type="GDScript" id="GDScript_tyu1k"]
 
@@ -13,27 +22,35 @@ resource_name = "Compressor"
 resource_name = "Chorus"
 
 [resource]
-bus/1/name = &"Vihollinen"
+bus/1/name = &"Kaiku"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = 0.0
-bus/1/send = &"Master"
-bus/1/effect/0/effect = SubResource("AudioEffectPitchShift_l26j5")
+bus/1/volume_db = -0.130497
+bus/1/send = &""
+bus/1/effect/0/effect = SubResource("AudioEffectReverb_wdq3c")
 bus/1/effect/0/enabled = true
-bus/1/effect/1/effect = SubResource("AudioEffectCompressor_x7wt5")
-bus/1/effect/1/enabled = true
-bus/1/effect/2/effect = SubResource("AudioEffectChorus_byvce")
-bus/1/effect/2/enabled = true
-bus/2/name = &"Pelaaja"
+bus/2/name = &"Vihollinen"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = -3.11736
-bus/2/send = &"Master"
-bus/3/name = &"Musiikki"
+bus/2/volume_db = 0.0
+bus/2/send = &"Kaiku"
+bus/2/effect/0/effect = SubResource("AudioEffectPitchShift_l26j5")
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectCompressor_x7wt5")
+bus/2/effect/1/enabled = true
+bus/2/effect/2/effect = SubResource("AudioEffectChorus_byvce")
+bus/2/effect/2/enabled = true
+bus/3/name = &"Pelaaja"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = -5.04538
-bus/3/send = &"Master"
+bus/3/volume_db = -1.51925
+bus/3/send = &"Kaiku"
+bus/4/name = &"Musiikki"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -2.11474
+bus/4/send = &"Master"
