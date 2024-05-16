@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=89 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
@@ -45,6 +45,7 @@
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="32_a8tci"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="33_y2rdp"]
 [ext_resource type="PackedScene" uid="uid://4ehb4n76ts5g" path="res://scenet/checkpoint.tscn" id="35_je5yh"]
+[ext_resource type="AudioStream" uid="uid://c1cvrivyuoavm" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
 [ext_resource type="AudioStream" uid="uid://bw6cpa2qyrfll" path="res://audio/musiikki/ambient1_2_loop.wav" id="37_khmdb"]
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
@@ -1484,6 +1485,11 @@ rotation = 1.57159
 scale = Vector2(1.45241, 2.4402)
 
 [node name="Ovi_oikea_x" parent="Koynnosovet/Ovet_hyppely/Ovi_x2_kuolematon" instance=ExtResource("20_155o0")]
+
+[node name="AudioOvenResonanssi" type="AudioStreamPlayer" parent="Koynnosovet"]
+unique_name_in_owner = true
+stream = ExtResource("37_bfmro")
+volume_db = 4.0
 
 [node name="Tooltipit" type="CanvasGroup" parent="."]
 

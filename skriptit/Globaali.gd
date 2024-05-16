@@ -84,6 +84,7 @@ var pystyssa = true
 ## Musiikit:
 @onready var musiikki = get_node("/root/Maailma/%Musiikki")
 @onready var audio_journal = get_node("/root/Maailma/%KayttoLiittyma/Journal/%AudioJournal")
+@onready var audio_oven_resonanssi = get_node("/root/Maailma/Koynnosovet/%AudioOvenResonanssi")
 ## Minecartit tuhotaan, kun jompi kumpi käytetään
 @onready var minecartit = get_node("/root/Maailma/%Minecartit")
 
@@ -271,6 +272,7 @@ func nayta_tason_ovet_ja_resonoi(_ovi_vaikutettu):
 			pelaaja.aseta_ui_nakyvyys(false)
 			aseta_valojen_vakyvyys(true)
 			aseta_indikaattorit_nakyviin(taso["rect"])
+			audio_oven_resonanssi.play()
 			return
 
 
