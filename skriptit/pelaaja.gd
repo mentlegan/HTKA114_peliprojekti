@@ -281,6 +281,12 @@ func siirrytty_valoon():
 	valossa = true
 	ajastin_pimeassa.stop()
 	ajastin_pimeassa_audio.stop()
+	# Lopetetaan jos pelaa esim. respawnatessa
+	if audio_pimeyskuolema.playing:
+		audio_pimeyskuolema.stop()
+		pimeyskuolema.stop()
+		pimeyskuolema.modulate.a = 0.0
+		return
 	kuolema_tween = create_tween()
 	kuolema_tween.set_trans(Tween.TRANS_CUBIC)
 	kuolema_tween.tween_property(pimeyskuolema, "modulate:a", 0, 4)
