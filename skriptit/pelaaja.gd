@@ -235,6 +235,9 @@ func _ready():
 	journal_info_label.modulate.a = 0
 	journal_info_label.position.y = -80
 
+	if not Globaali.journal_keratty:
+		apua_label.visible = false
+
 
 ## Asettaa journalin info-labelin hetkeksi näkyviin.
 func nayta_journal_info():

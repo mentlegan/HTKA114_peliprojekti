@@ -393,6 +393,12 @@ func respawn():
 	pelaaja.siirrytty_varjoon()
 
 
+## "Kerää" journalin, jotta pelaaja voisi sitä käyttää
+func keraa_journal():
+	journal_keratty = true
+	pelaaja.apua_label.visible = true
+
+
 ## Vaihtaa journalin näkyviin tai piiloon vuorotellen funktiota kutsuessa.
 func toggle_journal():
 	if not journal_keratty:

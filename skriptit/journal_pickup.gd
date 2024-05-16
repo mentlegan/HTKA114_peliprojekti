@@ -21,8 +21,9 @@ func _on_body_entered(body):
 		
 		if !audio_journal.is_playing():
 			audio_journal.play()
+
 		# Lisätään journal "inventoryyn"
-		Globaali.journal_keratty = true
+		Globaali.keraa_journal()
 
 		# Aloitetaan pickup animaatio
 		point_light.energy = 2
