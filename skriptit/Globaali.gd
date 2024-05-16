@@ -296,19 +296,16 @@ func _input(_event: InputEvent) -> void:
 		_ready()
 		# get_node("/root/Maailma2").free()
 		"""
-		pelaaja.putoamis_vahinko = false
-		pelaaja.position = pelaaja_taso2
+		teleporttaa_pelaaja(pelaaja_taso2)
 	
 	# PC F3
 	if Input.is_action_just_pressed("taso3"):
-		pelaaja.putoamis_vahinko = false
-		pelaaja.position = pelaaja_taso3
+		teleporttaa_pelaaja(pelaaja_taso3)
 		# get_node("/root/@Node2D@65").queue_free() # Poistetaan duplikoitu maailma2
 	
 	# PC F4
 	if Input.is_action_just_pressed("taso45"):
-		pelaaja.putoamis_vahinko = false
-		pelaaja.position = pelaaja_taso45
+		teleporttaa_pelaaja(pelaaja_taso45)
 	
 	# Pelin keskeytys
 	# PC ESCAPE
@@ -383,8 +380,7 @@ func respawn():
 	get_tree().paused = false
 	# Haetaan SceneTree ja käynnistetään se uudestaan
 	# self.get_tree().call_deferred("reload_current_scene")
-	pelaaja.putoamis_vahinko = false
-	pelaaja.position = pelaaja_aloitus
+	teleporttaa_pelaaja(pelaaja_aloitus)
 	gameover_ruutu.visible = false
 	
 	# Aloittaa timerin alusta
@@ -423,6 +419,13 @@ func toggle_journal():
 ## Lisää journaliin tekstipätkän annettuun sivunumeroon. Sivunumeron on oltava >= 1.
 func lisaa_sivu(teksti: String, otsikko: String, sivunumero: int):
 	journal.lisaa_sivu(teksti, otsikko, sivunumero)
+
+
+## Yleinen funktio pelaajan teleporttaamiseen päämäärään, jossa poistetaan fall-damage ongelmat
+func teleporttaa_pelaaja(paamaara):
+	pelaaja.position = paamaara
+	pelaaja.putoamis_vahinko = false
+	pelaaja.putoamis_huippu = pelaaja.get_global_position().y
 
 
 ## Pausettaa pelin

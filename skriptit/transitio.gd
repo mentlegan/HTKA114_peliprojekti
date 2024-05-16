@@ -23,10 +23,10 @@ func _fade_reset(anim_name):
 	if anim_name == "fade_black":
 		await get_tree().create_timer(1).timeout
 		if Globaali.minecart_kaytetty == true:
-			Globaali.pelaaja.position = Globaali.taso1_loppu
+			Globaali.teleporttaa_pelaaja(Globaali.taso1_loppu)
 			Globaali.minecart_kaytetty = false
 		else:
-			Globaali.pelaaja.position = Globaali.vesiputous_tp
+			Globaali.teleporttaa_pelaaja(Globaali.vesiputous_tp)
 		animation_player.play("fade_reset")
 		await get_tree().create_timer(0.5).timeout
 		Globaali.pelaaja.process_mode = Node.PROCESS_MODE_INHERIT
