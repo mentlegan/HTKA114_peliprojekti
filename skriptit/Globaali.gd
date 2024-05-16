@@ -391,6 +391,7 @@ func respawn():
 	pimeyskuolema_animaatio.stop()
 	pelaaja.siirrytty_valoon()
 	pelaaja.siirrytty_varjoon()
+	pelaaja.palloja_label_paivita()
 
 
 ## "Kerää" journalin, jotta pelaaja voisi sitä käyttää
