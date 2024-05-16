@@ -63,6 +63,7 @@ script = ExtResource("1_cya2x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8xb5v")
+autoplay = "default"
 frame = 5
 frame_progress = 0.564567
 
