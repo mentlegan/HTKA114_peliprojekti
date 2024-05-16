@@ -34,6 +34,8 @@ var soitetaan_animatic
 @onready var pelaaja_taso3 = get_node("/root/Maailma/%Muuta/%Taso3Teleport").position
 @onready var pelaaja_taso45 = get_node("/root/Maailma/%Muuta/%Taso45Teleport").position
 @onready var taso1_loppu = get_node("/root/Maailma/%Muuta/%Kentan1_loppu").position
+@onready var vesiputous_tp = get_node("/root/Maailma/%Muuta/%VesiputousTeleport").position
+
 
 ## Valot ja indikaattorit köynnösoville ja niiden taulukko
 var oven_valo = preload("res://scenet/oven_valo.tscn")

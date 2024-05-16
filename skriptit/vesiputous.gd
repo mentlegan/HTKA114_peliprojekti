@@ -1,5 +1,9 @@
+## Juuso 16.5.2024
+## Vesiputouksen toiminta
+
 extends Area2D
 
+signal transitio
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +14,8 @@ func _ready() -> void:
 
 func _on_body_entered(body) -> void:
 	if body is Pelaaja:
-		pass
+		transitio.emit()
+		$CollisionShape2D.set_deferred("disabled", true)
 		# Teleportataan kuilun alas transitiolla, ruutu mustaksi esim.
 	# Jos valopallo
 	elif body.is_in_group("valopallo"):
