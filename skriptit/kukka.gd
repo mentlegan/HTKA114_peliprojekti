@@ -13,6 +13,8 @@ extends Area2D
 @onready var point_light = $Area2D/PointLight2D
 @onready var collision_shape = $Area2D/CollisionShape2D
 
+@onready var audio_valokukan_resonanssi = $AudioValokukanResonanssi
+
 @onready var partikkelit = $CPUParticles2D
 
 ## Muuttuja sille, onko valo asetettu päälle valopallolla
@@ -107,5 +109,10 @@ func _on_body_entered(body):
 func _on_area_entered(_area:Area2D):
 	if _area is Huilu && _area.aanen_taajuus == 1:
 		if not _area.osuu_terrainiin(self):
+			var resonanssiaanen_ajastin = Timer.new()
+			resonanssiaanen_ajastin.set_one_shot(true)
+			resonanssiaanen_ajastin.timeout.connect(audio_valokukan_resonanssi.play)
+			self.add_child(resonanssiaanen_ajastin)
+			resonanssiaanen_ajastin.start(0.8)
 			aseta_valon_skaala(2)
 			huilu_ajastin.start()
