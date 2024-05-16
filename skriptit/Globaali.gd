@@ -389,7 +389,6 @@ func respawn():
 	# Aloittaa timerin alusta
 	pelaaja.ajastin_pimeassa.start()
 	pimeyskuolema_animaatio.stop()
-	pelaaja.siirrytty_valoon()
 	pelaaja.siirrytty_varjoon()
 	pelaaja.palloja_label_paivita()
 
@@ -427,12 +426,14 @@ func lisaa_sivu(teksti: String, otsikko: String, sivunumero: int):
 
 ## Pausettaa pelin
 func pausePeli():
+	pelaaja.pimeyskuolema.pause()
 	get_tree().paused = true
 	pauseruutu.visible = true
 
 
 ## Jatkaa peliä pauseruudulta
 func jatkaPelia():
+	pelaaja.pimeyskuolema.play()
 	pauseruutu.visible = false
 
 
@@ -443,6 +444,7 @@ func _game_over():
 	pelaaja.animaatio.visible = false
 	pelaaja.pauseAnimaatiot.visible = true
 	pelaaja.pauseAnimaatiot.play("kuolema")
+	pelaaja.siirrytty_valoon()
 	get_tree().paused = true # Peli pauselle, kun se päättyy. Voi hienojen animaatioiden kanssa tietysti myös jättää pausettamatta,
 	# tai pausettaa peli muuten, mutta hienot kuolema-animaatiot silti toimivat normaalisti
 	await get_tree().create_timer(2,5).timeout # Pieni ajastin, että game over ei ihan heti tule
