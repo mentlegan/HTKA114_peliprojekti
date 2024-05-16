@@ -36,6 +36,9 @@ func _ready():
 	kerays_cooldown.timeout.connect(vaihda_kerays)
 	$AnimatedSprite2D.play("default")
 
+	# Suljetaan valo pelin alussa
+	sulje_valo()
+
 
 func aloita_kerays():
 	kerays_cooldown.start()
