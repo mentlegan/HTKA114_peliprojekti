@@ -418,8 +418,8 @@ func toggle_journal():
 
 
 ## Lisää journaliin tekstipätkän annettuun sivunumeroon. Sivunumeron on oltava >= 1.
-func lisaa_sivu(teksti: String, otsikko: String, sivunumero: int):
-	journal.lisaa_sivu(teksti, otsikko, sivunumero)
+func lisaa_sivu(sivun_sisalto: SivunSisalto, otsikko: String, sivunumero: int):
+	journal.lisaa_sivu(sivun_sisalto, otsikko, sivunumero)
 
 
 ## Yleinen funktio pelaajan teleporttaamiseen päämäärään, jossa poistetaan fall-damage ongelmat

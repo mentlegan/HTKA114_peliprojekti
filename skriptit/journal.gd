@@ -6,9 +6,6 @@ extends Control
 @onready var ohjeet_kbm = $OhjeetKBM
 @onready var ohjeet_controller = $OhjeetController
 
-@onready var vasen_sivu = $VasenSivu
-@onready var oikea_sivu = $OikeaSivu
-
 @onready var audio_sivunvaihto = $AudioSivunvaihto
 
 var sivut = {}
@@ -30,12 +27,14 @@ func _ready():
 
 
 ## Lisää journaliin tekstipätkän annettuun sivunumeroon. Sivunumeron on oltava >= 1.
-func lisaa_sivu(teksti: String, otsikko: String, sivunumero: int):
+func lisaa_sivu(sivun_sisalto: SivunSisalto, otsikko: String, sivunumero: int):
 	# Ei lisätä duplikaatteja sivuja tai sivuja <= 1
 	if sivut.has(sivunumero) or sivunumero < 1:
 		return
 
-	sivut[sivunumero] = teksti
+	sivut[sivunumero] = sivun_sisalto
+	sivun_sisalto.get_parent().remove_child(sivun_sisalto)
+	sivut_sprite.add_child(sivun_sisalto)
 	otsikot[sivunumero] = otsikko
 	
 	if sivunumero > viimeisin_sivu:
@@ -52,16 +51,12 @@ func paivita_sivunumero():
 
 	sivunumero_label.set_text("%s/%s - %s" % [nykyinen_sivu, viimeisin_sivu, otsikko])
 
-	var teksti = " "
-	if sivut.has(nykyinen_sivu):
-		teksti = sivut[nykyinen_sivu]
-
-	vasen_sivu.text = teksti
-	oikea_sivu.text = " "
-	if vasen_sivu.get_content_height() > vasen_sivu.size.y:
-		vasen_sivu.text = teksti.substr(0, floor(teksti.length() * 0.5))
-		oikea_sivu.text = teksti.substr(floor(teksti.length() * 0.5), ceil(teksti.length() * 0.5))
-
+	for i in range(1, viimeisin_sivu + 1):
+		if not sivut.has(i):
+			continue
+		sivut[i].visible = false
+		if nykyinen_sivu == i:
+			sivut[i].visible = true
 
 
 ## Käsitellään input journalin ollessa aktiivinen
@@ -106,8 +101,8 @@ func vaihda_sivua(delta):
 ## Asettaa ohjeet näkyviin
 func ohjeet_nakyviin():
 	sivunumero_label.visible = false
-	vasen_sivu.visible = false
-	oikea_sivu.visible = false
+	for i in range(1, viimeisin_sivu + 1):
+		sivut[i].visible = false
 	if Globaali.pelaaja.hiiri_kaytossa:
 		ohjeet_kbm.visible = true
 		ohjeet_controller.visible = false
@@ -119,7 +114,5 @@ func ohjeet_nakyviin():
 ## Asettaa journalin näkyviin
 func journal_nakyviin():
 	sivunumero_label.visible = true
-	vasen_sivu.visible = true
-	oikea_sivu.visible = true
 	ohjeet_kbm.visible = false
 	ohjeet_controller.visible = false

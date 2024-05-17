@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwhtqvururnho"]
+
+[ext_resource type="PackedScene" uid="uid://gwu1iltp7oef" path="res://scenet/kayttoliittyma/sivun_sisalto.tscn" id="1_53r4r"]
+
+[node name="SivunSisalto" instance=ExtResource("1_53r4r")]
+visible = true
+
+[node name="Label" type="Label" parent="." index="1"]
+auto_translate_mode = 1
+modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+offset_left = 53.0
+offset_top = 79.0
+offset_right = 461.0
+offset_bottom = 377.0
+text = "This must be the massive cave system the legends speak of. It's been over three moons since I have set out on this journey to find these fabled depths and it seems I have finally found them. 
+
+I heard from the old mercenary Grimnir, that deep beneath the mines of this mountain lies still countless gold veins, thick as a dragon's tail and lustrous gemstones shining in colors no dwarf has ever seen before. I asked him why all this treasure has been left unclaimed if it is as grand as the stories tell. The greedy smirk from Grimnirs eyes quickly turned into a serious stare as he told that \"something foul guards the depths. As if the darkness itself was alive. To go there would be a fool's errand\" 
+s
+I think his age has gotten the better of him. What kind of a dwarf is afraid of the dark? 
+If there really is only darkness between me and the gold, then that gold is as good as mine. Time to head inside and set up a camp for the night. Perhaps I will even seal the entrance with some planks in case someone is trying to follow me and steal my riches. "
+autowrap_mode = 2

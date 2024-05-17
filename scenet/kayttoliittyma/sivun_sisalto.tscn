@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://gwu1iltp7oef"]
+
+[ext_resource type="Theme" uid="uid://dgo8yhibhuxoi" path="res://tres-tiedostot/fontti_journal.tres" id="1_qj8wx"]
+[ext_resource type="Script" path="res://skriptit/sivun_sisalto.gd" id="2_6ll3h"]
+[ext_resource type="Texture2D" uid="uid://byscs6abpv2o5" path="res://grafiikka/Journal3.png" id="2_ajbhc"]
+
+[node name="SivunSisalto" type="Control"]
+auto_translate_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qj8wx")
+script = ExtResource("2_6ll3h")
+
+[node name="Piilota" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Piilota"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ajbhc")
+
+[node name="Guide1" type="ColorRect" parent="Piilota"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 50.0
+offset_top = 80.0
+offset_right = 90.0
+offset_bottom = 120.0
+scale = Vector2(10.36, 8.72)
+color = Color(1, 1, 1, 0.431373)
+
+[node name="Guide2" type="ColorRect" parent="Piilota"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 498.0
+offset_top = 52.0
+offset_right = 539.0
+offset_bottom = 92.0
+scale = Vector2(10.2, 9.32)
+color = Color(1, 1, 1, 0.431373)

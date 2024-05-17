@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dskh1b4twfo2c"]
+[gd_scene load_steps=32 format=3 uid="uid://dskh1b4twfo2c"]
 
 [ext_resource type="Script" path="res://skriptit/journal.gd" id="1_s3r3l"]
 [ext_resource type="Texture2D" uid="uid://bblg2tyxhpvdk" path="res://grafiikka/Journal1.png" id="2_r7j1j"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ds743e1ob8r8s" path="res://grafiikka/JournalDrawingsController.png" id="6_kgf51"]
 [ext_resource type="Texture2D" uid="uid://de172dnyt3ukv" path="res://grafiikka/JournalArrowLeft.png" id="6_xo6a1"]
 [ext_resource type="Texture2D" uid="uid://ttbqnt3bnvld" path="res://grafiikka/JournalArrowRight.png" id="7_hkych"]
-[ext_resource type="Theme" uid="uid://dgo8yhibhuxoi" path="res://tres-tiedostot/fontti_journal.tres" id="7_ms4bj"]
 [ext_resource type="AudioStream" uid="uid://xkrxu6jsgxg6" path="res://audio/journal/journal_sivu1.mp3" id="9_sjkug"]
 [ext_resource type="AudioStream" uid="uid://cn2a5vxqabu78" path="res://audio/journal/journal_sivu2.mp3" id="10_wtfct"]
 [ext_resource type="AudioStream" uid="uid://bmsge5tvh6wg6" path="res://audio/journal/journal_sivu3.mp3" id="11_li8cs"]
@@ -166,37 +165,6 @@ offset_right = 90.0
 offset_bottom = 70.0
 theme_override_colors/font_color = Color(0.180392, 0.12549, 0.0823529, 1)
 text = "0/0"
-
-[node name="VasenSivu" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.034
-anchor_top = 0.054
-anchor_right = 0.965
-anchor_bottom = 0.894
-offset_left = 12.36
-offset_top = 48.84
-offset_right = -459.4
-offset_bottom = -56.76
-theme = ExtResource("7_ms4bj")
-theme_override_colors/default_color = Color(0.228478, 0.129766, 0, 1)
-scroll_active = false
-
-[node name="OikeaSivu" type="RichTextLabel" parent="."]
-auto_translate_mode = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.034
-anchor_top = 0.054
-anchor_right = 0.965
-anchor_bottom = 0.894
-offset_left = 461.36
-offset_top = 11.84
-offset_right = -10.4
-offset_bottom = -63.76
-theme = ExtResource("7_ms4bj")
-theme_override_colors/default_color = Color(0.228478, 0.129766, 0, 1)
-scroll_active = false
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 clip_children = 1

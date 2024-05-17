@@ -7,8 +7,8 @@ extends Area2D
 
 @onready var audio_kerays = $AudioKerays
 
-## Sivun tekstipätkä
-@export_multiline var teksti
+@onready var sivun_sisalto = get_node_or_null("SivunSisalto")
+
 ## Sivun otsikko
 @export var otsikko: String
 ## Sivunumero
@@ -19,6 +19,8 @@ var tween: Tween
 
 func _ready():
 	animated_sprite.play()
+	if sivun_sisalto:
+		sivun_sisalto.visible = false
 
 
 func _on_body_entered(body):
@@ -30,7 +32,8 @@ func _on_body_entered(body):
 			audio_kerays.play()
 		
 		# Lisätään journaliin sivu
-		Globaali.lisaa_sivu(teksti, otsikko, sivunumero)
+		if sivun_sisalto:
+			Globaali.lisaa_sivu(sivun_sisalto, otsikko, sivunumero)
 
 		# Aloitetaan pickup animaatio
 		point_light.energy = 2

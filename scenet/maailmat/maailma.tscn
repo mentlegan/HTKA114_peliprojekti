@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=103 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
@@ -17,8 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://d3kjiqbvins4c" path="res://scenet/ovet/ovi_vasen_z.tscn" id="13_vnqp0"]
 [ext_resource type="PackedScene" uid="uid://bmu1me3chb6d" path="res://scenet/ovet/ovi_oikea_z.tscn" id="14_6n7yc"]
 [ext_resource type="PackedScene" uid="uid://dfcuf6ogfruj6" path="res://scenet/kukka.tscn" id="14_332fg"]
+[ext_resource type="PackedScene" uid="uid://bwhtqvururnho" path="res://scenet/kayttoliittyma/sivun_1_sisalto.tscn" id="14_fygqw"]
 [ext_resource type="Texture2D" uid="uid://knwtrb12rya4" path="res://grafiikka/EnemyDirt-Sheet.png" id="14_j1sri"]
 [ext_resource type="PackedScene" uid="uid://8dvswt3oh3iq" path="res://scenet/ovet/ovi_pysty_oikea.tscn" id="15_bna8j"]
+[ext_resource type="PackedScene" uid="uid://dblh5xu0yehdg" path="res://scenet/kayttoliittyma/sivun_2_sisalto.tscn" id="15_eefdw"]
 [ext_resource type="PackedScene" uid="uid://b6cwc10i6c0w4" path="res://scenet/kuoppa.tscn" id="15_nofhg"]
 [ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://scenet/ovet/ovi_vasen_x.tscn" id="16_8728b"]
 [ext_resource type="PackedScene" uid="uid://dj16g605n5277" path="res://scenet/ovet/ovi_vasen_y.tscn" id="16_et2f6"]
@@ -590,82 +592,47 @@ position = Vector2(10654.4, -320.849)
 position = Vector2(1627, 645)
 
 [node name="Day 1" parent="Journalit/JournalPickup" instance=ExtResource("10_s3bjw")]
-visible = false
-teksti = "This must be the massive cave system the legends speak of. It's been over three moons since I have set out on this journey to find these fabled depths and it seems I have finally found them. 
-
-
-I heard from the old mercenary Grimnir, that deep beneath the mines of this mountain lies still countless gold veins, thick as a dragon's tail and lustrous gemstones shining in colors no dwarf has ever seen before. I asked him why all this treasure has been left unclaimed if it is as grand as the stories tell. The greedy smirk from Grimnirs eyes quickly turned into a serious stare as he told that \"something foul guards the depths. As if the darkness itself was alive. To go there would be a fool's errand\" 
-I think his age has gotten the better of him. What kind of a dwarf is afraid of the dark? 
-If there really is only darkness between me and the gold, then that gold is as good as mine. Time to head inside and set up a camp for the night. Perhaps I will even seal the entrance with some planks in case someone is trying to follow me and steal my riches. "
 otsikko = "Journal of Balik Silverbeard"
 sivunumero = 1
 
+[node name="SivunSisalto" parent="Journalit/JournalPickup/Day 1" instance=ExtResource("14_fygqw")]
+visible = false
+
 [node name="Day 2" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(1744, 686)
-teksti = "I didn't sleep well last night. Some kind of light emitting butterfly kept buzzing around my camp the whole night. It does seem rather friendly, but there certainly is something unsettling about these caves. The dark there is not the same as in other caves, it is more intense. Strange noises echoed through the passages at night and when it got dark, I got the feeling that something was moving inside the walls of this cave. I must investigate that later. 
- 
-This cave seems to house an ecosystem of its own. Not once in my days have I seen this type of flora before. Their unique properties are most fascinating. This yellow flower contains luminescent pollen. I will take some of it with me. It should prove quite useful while exploring.  
- 
-The vines here seem to have two sides. On one side they look as if they were dead. As I approached the vines, the healthy side reacted to the pollen I am carrying with me. I wonder if the color of the flowers on those vines has any connection to how they behave when exposed to the pollen? 
- 
-After running some experiments, I discovered the logic behind the vines and their colors! 
-Red flowers affect red and purple flowers 
-Purple flowers affect all flowers 
-Blue flowers affect blue and purple flowers 
-Now I am able to clear my way through the vines by activating them with luminescent pollen in the correct order. 
- 
-It is time to head back to my camp. Exploring further must wait until I have gotten some rest. Hopefully that cursed butterfly has found someone else to bother. "
 otsikko = "Day 2"
 sivunumero = 2
 
+[node name="SivunSisalto" parent="Journalit/Day 2" instance=ExtResource("15_eefdw")]
+visible = false
+
 [node name="Day 3" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(1777, 700)
-teksti = "By the gods! I was not dreaming when I thought something lives inside the walls! Grimnir was right, something terrifying definitely lurks in the shadows, I managed to catch a glimpse of it!  
- 
-It was some kind of a large worm with insect-like features, but I was unable to get a better look as it burrowed back underground as soon as the light from the pollen hit it, leaving behind a massive hole and purple slime. Luckily they avoid light, but as soon as darkness falls, they get active and seek to hunt me down.  
- 
-I dare not see what happens if I wander too deep in the darkness. My hands are still shaking from that encounter. I must carry the pollen with me at all times and take extra caution around areas littered with purple slime.  "
 otsikko = "Day 3"
 sivunumero = 3
 
 [node name="Day 4" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(1816, 687)
-teksti = "This is probably my fourth day down here. I'm making steady progress. Today I found giant mushroom that lit up when I got close to it. I noticed the light from them also repels those soil-dwelling monsters from yesterday. This will make a great temporary base to explore further from. Perhaps the lighting from this cave has some special properties as my conventional light sources are unable to pierce through the darkness here. 
- 
-After I finished setting up my camp, I took a seat by the campfire and played my old flute. To my surprise the whole cave appeared to resonate with the music. When I get close enough, the yellow flower resonates strongly with low tones by amplifying their illumination while the vines react to higher notes. The vines even reverberated in response to my flute! That is a great help when locating them.  "
 otsikko = "Day 4"
 sivunumero = 4
 
 [node name="Day 5" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(1864, 702)
-teksti = "I am unable to progress any further with the vines blocking my way. There must be more vines somewhere. Using my flute to resonate with the vines confirmed my suspicions. There is indeed a second passage that is connected with this one. It contains the last color of flowers needed to clear the way, but the narrow passage is blocked by more vines. There must be another entrance... 
- 
-The minecarts here makes it obvious that this cave system used to be a mine. Long since abandoned. The tracks here have stood the test of time rather well and appear to be safe to use.  
- 
-If my memory serves me right, I remember seeing the other end of this railroad near my camp. I should use this minecart to return there and find another way to the other side. "
 otsikko = "Day 5"
 sivunumero = 5
 
 [node name="Day 6" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(1914, 683)
-teksti = "I have come to the conclusion that these butterflies inside this have gained the ability to emit light by ingesting the luminescent pollen from the flowers. Most fascinating indeed. Maybe this discovery will aid in uncovering the secret behind the dense darkness of this mine. 
-
-
-As I lay down for the night one final thought crossed my mind. If those blue creatures really are butterflies, where do they come from? "
 otsikko = "Day 6"
 sivunumero = 6
 
 [node name="Day 7" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(1956, 708)
-teksti = "Another dangerous discovery. Some of the mushrooms look to be corrupted by the foul nature of this darkness. Spores from them cause intense irritation and pain in my airways when inhaled. I cannot linger around these parts for too long. I need to dash pass the poisonous mushrooms swiftly."
 otsikko = "Day 7"
 sivunumero = 7
 
 [node name="Day 8" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(2006, 696)
-teksti = "There is no way around. I must cross these pits filled with spikes, running so deep one cannot see the bottom. I sure hope the vines are able to support my weight. One slip up and it is over.  
- 
-Once I get past these deadly pits, I have to search a safe place for another camp. My supplies are running low. I should have been more prepared and not let greed get the better of me. "
 otsikko = "Day 8"
 sivunumero = 8
 
