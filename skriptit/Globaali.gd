@@ -397,11 +397,11 @@ func keraa_journal():
 
 
 ## Vaihtaa journalin näkyviin tai piiloon vuorotellen funktiota kutsuessa.
-func toggle_journal():
+func toggle_journal(avaa_valosta_riippumatta = false):
 	if not journal_keratty:
 		return
 
-	if not pelaaja.valossa && not journal.visible:
+	if not avaa_valosta_riippumatta and not pelaaja.valossa and not journal.visible:
 		pelaaja.nayta_journal_info()
 		return
 	
@@ -420,6 +420,8 @@ func toggle_journal():
 ## Lisää journaliin tekstipätkän annettuun sivunumeroon. Sivunumeron on oltava >= 1.
 func lisaa_sivu(sivun_sisalto: SivunSisalto, otsikko: String, sivunumero: int):
 	journal.lisaa_sivu(sivun_sisalto, otsikko, sivunumero)
+	journal.nykyinen_sivu = sivunumero
+	toggle_journal(true)
 
 
 ## Yleinen funktio pelaajan teleporttaamiseen päämäärään, jossa poistetaan fall-damage ongelmat
