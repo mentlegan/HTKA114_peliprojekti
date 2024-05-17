@@ -3,7 +3,8 @@ extends Control
 
 @onready var sivut_sprite = $Sivut
 @onready var sivunumero_label = $SivuLabel
-@onready var ohjeet = $Ohjeet
+@onready var ohjeet_kbm = $OhjeetKBM
+@onready var ohjeet_controller = $OhjeetController
 
 @onready var vasen_sivu = $VasenSivu
 @onready var oikea_sivu = $OikeaSivu
@@ -66,7 +67,11 @@ func paivita_sivunumero():
 ## Käsitellään input journalin ollessa aktiivinen
 func _input(_event: InputEvent) -> void:
 	# Peli jatkumaan J:llä
-	if Input.is_action_just_pressed("journal"):
+	if (Input.is_action_just_pressed("journal")
+	or (self.visible and (
+		Input.is_action_just_pressed("abxy_oikea") or 
+		Input.is_action_just_pressed("pause")
+	))):
 		Globaali.toggle_journal()
 	
 	if visible:
@@ -79,6 +84,8 @@ func _input(_event: InputEvent) -> void:
 ## Vaihtaa sivua eteen- tai taaksepäin annetun kokonaisluvun verran.
 ## Vaihtaa samalla sivun spriteä.
 func vaihda_sivua(delta):
+	if ohjeet_kbm.visible or ohjeet_controller.visible:
+		return
 	if not sivun_vaihto_ajastin.is_stopped():
 		return
 	sivun_vaihto_ajastin.start()
@@ -101,7 +108,12 @@ func ohjeet_nakyviin():
 	sivunumero_label.visible = false
 	vasen_sivu.visible = false
 	oikea_sivu.visible = false
-	ohjeet.visible = true
+	if Globaali.pelaaja.hiiri_kaytossa:
+		ohjeet_kbm.visible = true
+		ohjeet_controller.visible = false
+	else:
+		ohjeet_kbm.visible = false
+		ohjeet_controller.visible = true
 
 
 ## Asettaa journalin näkyviin
@@ -109,4 +121,5 @@ func journal_nakyviin():
 	sivunumero_label.visible = true
 	vasen_sivu.visible = true
 	oikea_sivu.visible = true
-	ohjeet.visible = false
+	ohjeet_kbm.visible = false
+	ohjeet_controller.visible = false

@@ -24,6 +24,7 @@ func _on_body_entered(body):
 
 		# Lisätään journal "inventoryyn"
 		Globaali.keraa_journal()
+		Globaali.toggle_journal()
 
 		# Aloitetaan pickup animaatio
 		point_light.energy = 2
