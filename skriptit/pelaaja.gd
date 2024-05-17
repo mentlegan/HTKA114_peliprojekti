@@ -413,8 +413,10 @@ func myrkky_damage():
 		audio_pelaaja_fall_damage.play()
 		elama_regen_ajastin.start(elamat_regen_nopeus)
 		animaatio.modulate = Color.BLUE_VIOLET
-		await get_tree().create_timer(0.1).timeout
+		elama_mittari_kuvalla.modulate = Color.BLUE_VIOLET
+		await get_tree().create_timer(0.2).timeout
 		animaatio.modulate = Color.WHITE
+		elama_mittari_kuvalla.modulate = Color.WHITE
 	else:
 		pelaajan_elamat = 0
 		kuolema_fall_damageen()
