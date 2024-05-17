@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dblh5xu0yehdg"]
+[gd_scene load_steps=7 format=3 uid="uid://dblh5xu0yehdg"]
 
 [ext_resource type="PackedScene" uid="uid://gwu1iltp7oef" path="res://scenet/kayttoliittyma/sivun_sisalto.tscn" id="1_q2b2e"]
 [ext_resource type="Texture2D" uid="uid://j864gn0weaat" path="res://grafiikka/LightFlowerDrawing.png" id="2_fiul2"]
 [ext_resource type="Texture2D" uid="uid://bkiudrs4f6efu" path="res://grafiikka/VinesDrawing.png" id="3_vh4dj"]
+[ext_resource type="Texture2D" uid="uid://cgmuh7gg1t5qv" path="res://grafiikka/BlueFlowerDrawing.png" id="4_jxq7q"]
+[ext_resource type="Texture2D" uid="uid://cj33hgwp56alb" path="res://grafiikka/PurpleFlowerDrawing.png" id="5_dpuby"]
+[ext_resource type="Texture2D" uid="uid://dq1eu020uxprn" path="res://grafiikka/RedFlowerDrawing.png" id="6_tcv1f"]
 
 [node name="SivunSisalto" instance=ExtResource("1_q2b2e")]
 
 [node name="Label" type="Label" parent="." index="1"]
 auto_translate_mode = 1
 modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 53.0
 offset_top = 79.0
 offset_right = 461.0
@@ -19,6 +23,7 @@ autowrap_mode = 2
 [node name="Label5" type="Label" parent="." index="2"]
 auto_translate_mode = 1
 modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 440.0
 offset_top = 320.0
 offset_right = 548.0
@@ -29,6 +34,7 @@ autowrap_mode = 2
 [node name="Label6" type="Label" parent="." index="3"]
 auto_translate_mode = 1
 modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 334.0
 offset_top = 394.0
 offset_right = 442.0
@@ -39,6 +45,7 @@ autowrap_mode = 2
 [node name="Label3" type="Label" parent="." index="4"]
 auto_translate_mode = 1
 modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 172.0
 offset_top = 196.0
 offset_right = 466.0
@@ -49,6 +56,7 @@ autowrap_mode = 2
 [node name="Label4" type="Label" parent="." index="5"]
 auto_translate_mode = 1
 modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 52.0
 offset_top = 304.0
 offset_right = 346.0
@@ -59,6 +67,7 @@ autowrap_mode = 2
 [node name="Label2" type="Label" parent="." index="6"]
 auto_translate_mode = 1
 modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 500.0
 offset_top = 53.0
 offset_right = 919.0
@@ -73,6 +82,7 @@ autowrap_mode = 2
 [node name="Label7" type="Label" parent="." index="7"]
 auto_translate_mode = 1
 modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 501.0
 offset_top = 326.0
 offset_right = 920.0
@@ -85,6 +95,7 @@ autowrap_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="." index="8"]
 auto_translate_mode = 1
+layout_mode = 0
 offset_left = 42.0
 offset_top = 181.0
 offset_right = 170.0
@@ -93,6 +104,7 @@ texture = ExtResource("2_fiul2")
 
 [node name="TextureRect2" type="TextureRect" parent="." index="9"]
 auto_translate_mode = 1
+layout_mode = 0
 offset_left = 369.0
 offset_top = 297.0
 offset_right = 497.0
@@ -102,6 +114,7 @@ texture = ExtResource("3_vh4dj")
 
 [node name="TextureRect3" type="TextureRect" parent="." index="10"]
 auto_translate_mode = 1
+layout_mode = 0
 offset_left = 544.0
 offset_top = 168.0
 offset_right = 672.0
@@ -111,6 +124,7 @@ texture = ExtResource("3_vh4dj")
 
 [node name="TextureRect4" type="TextureRect" parent="." index="11"]
 auto_translate_mode = 1
+layout_mode = 0
 offset_left = 666.0
 offset_top = 168.0
 offset_right = 794.0
@@ -120,9 +134,110 @@ texture = ExtResource("3_vh4dj")
 
 [node name="TextureRect5" type="TextureRect" parent="." index="12"]
 auto_translate_mode = 1
+layout_mode = 0
 offset_left = 802.0
 offset_top = 168.0
 offset_right = 930.0
 offset_bottom = 424.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_vh4dj")
+
+[node name="TextureRect6" type="TextureRect" parent="." index="13"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 837.0
+offset_top = 181.0
+offset_right = 965.0
+offset_bottom = 309.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_jxq7q")
+
+[node name="TextureRect7" type="TextureRect" parent="." index="14"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 827.0
+offset_top = 219.0
+offset_right = 955.0
+offset_bottom = 347.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_jxq7q")
+
+[node name="TextureRect8" type="TextureRect" parent="." index="15"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 839.0
+offset_top = 255.0
+offset_right = 967.0
+offset_bottom = 383.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_jxq7q")
+
+[node name="TextureRect9" type="TextureRect" parent="." index="16"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 694.0
+offset_top = 177.0
+offset_right = 822.0
+offset_bottom = 305.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_dpuby")
+
+[node name="TextureRect10" type="TextureRect" parent="." index="17"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 704.0
+offset_top = 215.0
+offset_right = 832.0
+offset_bottom = 343.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_dpuby")
+
+[node name="TextureRect11" type="TextureRect" parent="." index="18"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 692.0
+offset_top = 252.0
+offset_right = 820.0
+offset_bottom = 380.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_dpuby")
+
+[node name="TextureRect12" type="TextureRect" parent="." index="19"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 581.0
+offset_top = 174.0
+offset_right = 709.0
+offset_bottom = 302.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_tcv1f")
+
+[node name="TextureRect13" type="TextureRect" parent="." index="20"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 573.0
+offset_top = 218.0
+offset_right = 701.0
+offset_bottom = 346.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_tcv1f")
+
+[node name="TextureRect14" type="TextureRect" parent="." index="21"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 580.0
+offset_top = 263.0
+offset_right = 708.0
+offset_bottom = 391.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_tcv1f")
+
+[node name="TextureRect15" type="TextureRect" parent="." index="22"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 580.0
+offset_top = 263.0
+offset_right = 708.0
+offset_bottom = 391.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_tcv1f")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=109 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
@@ -24,10 +24,16 @@
 [ext_resource type="PackedScene" uid="uid://b6cwc10i6c0w4" path="res://scenet/kuoppa.tscn" id="15_nofhg"]
 [ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://scenet/ovet/ovi_vasen_x.tscn" id="16_8728b"]
 [ext_resource type="PackedScene" uid="uid://dj16g605n5277" path="res://scenet/ovet/ovi_vasen_y.tscn" id="16_et2f6"]
+[ext_resource type="PackedScene" uid="uid://d3aikg4e48mxq" path="res://scenet/kayttoliittyma/sivun_3_sisalto.tscn" id="16_r1qfx"]
+[ext_resource type="PackedScene" uid="uid://ircp8yyh6jwk" path="res://scenet/kayttoliittyma/sivun_4_sisalto.tscn" id="17_ik3il"]
+[ext_resource type="PackedScene" uid="uid://dlips1u0ijn1u" path="res://scenet/kayttoliittyma/sivun_5_sisalto.tscn" id="18_yghk6"]
 [ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://scenet/kayttoliittyma/tooltip_liiku.tscn" id="18_yqpof"]
+[ext_resource type="PackedScene" uid="uid://chjelmcay2ys" path="res://scenet/kayttoliittyma/sivun_6_sisalto.tscn" id="19_fwfgn"]
 [ext_resource type="PackedScene" uid="uid://htoyrgaml8l2" path="res://scenet/kayttoliittyma/tooltip_juokse.tscn" id="19_ng21i"]
+[ext_resource type="PackedScene" uid="uid://bpyv3d1bn2rux" path="res://scenet/kayttoliittyma/sivun_7_sisalto.tscn" id="20_7w6it"]
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
+[ext_resource type="PackedScene" uid="uid://bax24qtm08gy2" path="res://scenet/kayttoliittyma/sivun_8_sisalto.tscn" id="21_ebb8q"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
 [ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
@@ -592,6 +598,7 @@ position = Vector2(10654.4, -320.849)
 position = Vector2(1627, 645)
 
 [node name="Day 1" parent="Journalit/JournalPickup" instance=ExtResource("10_s3bjw")]
+visible = false
 otsikko = "Journal of Balik Silverbeard"
 sivunumero = 1
 
@@ -611,30 +618,48 @@ position = Vector2(1777, 700)
 otsikko = "Day 3"
 sivunumero = 3
 
+[node name="SivunSisalto" parent="Journalit/Day 3" instance=ExtResource("16_r1qfx")]
+visible = false
+
 [node name="Day 4" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(1816, 687)
 otsikko = "Day 4"
 sivunumero = 4
+
+[node name="SivunSisalto" parent="Journalit/Day 4" instance=ExtResource("17_ik3il")]
+visible = false
 
 [node name="Day 5" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(1864, 702)
 otsikko = "Day 5"
 sivunumero = 5
 
+[node name="SivunSisalto" parent="Journalit/Day 5" instance=ExtResource("18_yghk6")]
+visible = false
+
 [node name="Day 6" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(1914, 683)
 otsikko = "Day 6"
 sivunumero = 6
+
+[node name="SivunSisalto" parent="Journalit/Day 6" instance=ExtResource("19_fwfgn")]
+visible = false
 
 [node name="Day 7" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(1956, 708)
 otsikko = "Day 7"
 sivunumero = 7
 
+[node name="SivunSisalto" parent="Journalit/Day 7" instance=ExtResource("20_7w6it")]
+visible = false
+
 [node name="Day 8" parent="Journalit" instance=ExtResource("10_s3bjw")]
 position = Vector2(2006, 696)
 otsikko = "Day 8"
 sivunumero = 8
+
+[node name="SivunSisalto" parent="Journalit/Day 8" instance=ExtResource("21_ebb8q")]
+visible = false
 
 [node name="Piikit" type="Node2D" parent="."]
 unique_name_in_owner = true

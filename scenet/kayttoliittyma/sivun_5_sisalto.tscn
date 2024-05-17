@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlips1u0ijn1u"]
+
+[ext_resource type="PackedScene" uid="uid://gwu1iltp7oef" path="res://scenet/kayttoliittyma/sivun_sisalto.tscn" id="1_sugkt"]
+[ext_resource type="Texture2D" uid="uid://df3iv8xb0t7so" path="res://grafiikka/MinecartDrawing.png" id="2_7ws0o"]
+
+[node name="SivunSisalto" instance=ExtResource("1_sugkt")]
+
+[node name="Label2" type="Label" parent="." index="1"]
+auto_translate_mode = 1
+modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+offset_left = 50.0
+offset_top = 80.0
+offset_right = 465.0
+offset_bottom = 210.0
+text = "I am unable to progress any further with the vines blocking my way. There must be more vines somewhere. Using my flute to resonate with the vines confirmed my suspicions. There is indeed a second passage that is connected with this one. It contains the last color of flowers needed to clear the way, but the narrow passage is blocked by more vines. There must be another entrance... "
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="." index="2"]
+auto_translate_mode = 1
+modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+offset_left = 50.0
+offset_top = 188.0
+offset_right = 465.0
+offset_bottom = 318.0
+text = "The minecarts here makes it obvious that this cave system used to be a mine. Long since abandoned. The tracks here have stood the test of time rather well and appear to be safe to use.  
+ 
+If my memory serves me right, I remember seeing the other end of this railroad near my camp. I should use this minecart to return there and find another way to the other side. 
+"
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="." index="3"]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 52.0
+offset_right = 891.0
+offset_bottom = 470.0
+texture = ExtResource("2_7ws0o")
