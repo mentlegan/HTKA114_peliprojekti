@@ -1,10 +1,10 @@
-[gd_scene load_steps=90 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=100 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://dskh1b4twfo2c" path="res://scenet/kayttoliittyma/journal.tscn" id="4_sg152"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="4_udkay"]
-[ext_resource type="AudioStream" uid="uid://ce7ax4ruej8lx" path="res://audio/journal/journal.mp3" id="5_fl043"]
+[ext_resource type="AudioStream" uid="uid://y88a3ew634t0" path="res://audio/journal/journal.mp3" id="5_fl043"]
 [ext_resource type="PackedScene" uid="uid://dd71njcqglaep" path="res://scenet/transitio.tscn" id="7_f6xdr"]
 [ext_resource type="Texture2D" uid="uid://lxurmqd1rdhq" path="res://grafiikka/Timer-Sheet.png" id="9_75e1e"]
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://scenet/kayttoliittyma/game_over_ruutu.tscn" id="9_er4wh"]
@@ -27,14 +27,14 @@
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://c7uvecnvl5tyu" path="res://scenet/kayttoliittyma/tooltip_poimi.tscn" id="20_i01e2"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="21_ql1ss"]
-[ext_resource type="PackedScene" uid="uid://b6cgaubnivnjh" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
+[ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/tooltip_soita.tscn" id="22_uoo6h"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="23_jotwo"]
 [ext_resource type="PackedScene" uid="uid://bjwbec75p0ekl" path="res://scenet/kayttoliittyma/tooltip_taajuus.tscn" id="23_k22wo"]
 [ext_resource type="PackedScene" uid="uid://cr7t3uo3y05oq" path="res://scenet/kayttoliittyma/tooltip_kiipea.tscn" id="24_8j4jx"]
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
-[ext_resource type="AudioStream" uid="uid://c0o4u83h1ut1m" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
+[ext_resource type="AudioStream" uid="uid://c52myow6udvtx" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
 [ext_resource type="PackedScene" uid="uid://o1g7x7mnf5b" path="res://scenet/ovet/ovi_oikea_y.tscn" id="28_1m8ka"]
@@ -45,19 +45,29 @@
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="32_a8tci"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="33_y2rdp"]
 [ext_resource type="PackedScene" uid="uid://4ehb4n76ts5g" path="res://scenet/checkpoint.tscn" id="35_je5yh"]
-[ext_resource type="AudioStream" uid="uid://c1cvrivyuoavm" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
+[ext_resource type="AudioStream" uid="uid://c47wbedkpa6se" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
 [ext_resource type="AudioStream" uid="uid://bw6cpa2qyrfll" path="res://audio/musiikki/ambient1_2_loop.wav" id="37_khmdb"]
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
 [ext_resource type="Script" path="res://skriptit/vesiputous.gd" id="45_dq3qu"]
 [ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="45_ocnt8"]
-[ext_resource type="Texture2D" uid="uid://pum7sg5u1t75" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
-[ext_resource type="Texture2D" uid="uid://cpixpdqnlnmaq" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
-[ext_resource type="Texture2D" uid="uid://cn8pfxkv24ky6" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
-[ext_resource type="AudioStream" uid="uid://be1k8p0xqgnnh" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
+[ext_resource type="Texture2D" uid="uid://00lou65p51b7" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
+[ext_resource type="Texture2D" uid="uid://b4j5lrgdhkb60" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
+[ext_resource type="Texture2D" uid="uid://bqn58o7rps284" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
+[ext_resource type="AudioStream" uid="uid://bygndcaln8jm1" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
 [ext_resource type="PackedScene" uid="uid://3oa14w4m8khu" path="res://scenet/Animatic.tscn" id="55_a4dph"]
 [ext_resource type="PackedScene" uid="uid://bbxindymh45dn" path="res://scenet/myrkkysieni.tscn" id="56_7csj5"]
+[ext_resource type="Texture2D" uid="uid://c33u04sddf72v" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
+[ext_resource type="Texture2D" uid="uid://ccrqe2bnffd2f" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
+[ext_resource type="Texture2D" uid="uid://dogr5dacg5tfk" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
+[ext_resource type="Texture2D" uid="uid://qxjco0m8hlbc" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
+[ext_resource type="Texture2D" uid="uid://crc34cdwfv60c" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
+[ext_resource type="Texture2D" uid="uid://bjaexfdjkgynx" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
+[ext_resource type="Texture2D" uid="uid://dytfhoxau54mh" path="res://grafiikka/TaustaElementit/SmallRocks.png" id="61_u2j4x"]
+[ext_resource type="Texture2D" uid="uid://cvw6ou2ykddxc" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
+[ext_resource type="Texture2D" uid="uid://doo06s7625k48" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
+[ext_resource type="Texture2D" uid="uid://8dc00svnhdd" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
 atlas = ExtResource("9_75e1e")
@@ -1503,7 +1513,6 @@ scale = Vector2(1.45241, 2.4402)
 unique_name_in_owner = true
 stream = ExtResource("37_bfmro")
 volume_db = 4.0
-bus = &"Kaiku"
 
 [node name="Tooltipit" type="CanvasGroup" parent="."]
 
@@ -1954,7 +1963,6 @@ stream = ExtResource("51_ynajt")
 volume_db = 3.0
 autoplay = true
 max_distance = 450.0
-bus = &"Kaiku"
 parameters/looping = true
 
 [node name="AudioVesiputous2" type="AudioStreamPlayer2D" parent="Muuta/Vesiputous"]
@@ -1964,168 +1972,912 @@ stream = ExtResource("51_ynajt")
 volume_db = 3.0
 autoplay = true
 max_distance = 450.0
-bus = &"Kaiku"
 parameters/looping = true
 
-[node name="VihollisRihmasto" type="Node2D" parent="Muuta"]
+[node name="TaustaElementit" type="Node2D" parent="Muuta"]
 
-[node name="Rihmasto1" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="VihollisRihmasto" type="Node2D" parent="Muuta/TaustaElementit"]
+
+[node name="Rihmasto1" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(2519, 459)
 texture = ExtResource("47_8pqee")
 
-[node name="Rihmasto1" type="Sprite2D" parent="Muuta/VihollisRihmasto/Rihmasto1"]
-position = Vector2(3087, -1316)
-rotation = 3.14159
-scale = Vector2(3.51276, 2.38358)
-texture = ExtResource("47_8pqee")
-
-[node name="Rihmasto2" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto2" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(2585, 524)
 rotation = 3.14159
 scale = Vector2(1.32948, 3.33888)
 texture = ExtResource("48_ky2yn")
 
-[node name="Rihmasto2" type="Sprite2D" parent="Muuta/VihollisRihmasto/Rihmasto2"]
-position = Vector2(-2755.01, 1465.99)
-rotation = 3.14159
-texture = ExtResource("48_ky2yn")
-
-[node name="Rihmasto2" type="Sprite2D" parent="Muuta/VihollisRihmasto/Rihmasto2/Rihmasto2"]
-position = Vector2(164.999, 58.0012)
-rotation = 6.28318
-scale = Vector2(1.44617, 6.40799)
-texture = ExtResource("48_ky2yn")
-
-[node name="Rihmasto3" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto3" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(2457, 459)
 texture = ExtResource("49_3g1ao")
 
-[node name="Rihmasto3" type="Sprite2D" parent="Muuta/VihollisRihmasto/Rihmasto3"]
-position = Vector2(2981, -1321)
-rotation = -3.20175
-scale = Vector2(4.59747, 3.13103)
-texture = ExtResource("49_3g1ao")
-
-[node name="Rihmasto3" type="Sprite2D" parent="Muuta/VihollisRihmasto/Rihmasto3/Rihmasto3"]
-position = Vector2(-59.4404, 9.46126)
-rotation = -3.13655
-scale = Vector2(1.37306, 0.631488)
-texture = ExtResource("49_3g1ao")
-
-[node name="Rihmasto4" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto4" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(2499, 548)
 rotation = -3.14159
 scale = Vector2(1.20286, 1.09984)
 texture = ExtResource("49_3g1ao")
 
-[node name="Rihmasto5" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto5" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(2550, 345)
 rotation = -2.83297
 scale = Vector2(-1.83988, 0.800526)
 texture = ExtResource("47_8pqee")
 
-[node name="Rihmasto6" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto6" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(2581, 281)
 texture = ExtResource("47_8pqee")
 
-[node name="Rihmasto7" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto7" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(2772, 328)
 rotation = -3.01655
 scale = Vector2(1.68289, -5.69023)
 skew = 0.0241873
 texture = ExtResource("49_3g1ao")
 
-[node name="Rihmasto8" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto8" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(2718, 349)
 rotation = -2.92277
 scale = Vector2(2.17004, 4.45931)
 texture = ExtResource("48_ky2yn")
 
-[node name="Rihmasto9" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto9" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(4816, 1242)
 rotation = 0.282333
 texture = ExtResource("49_3g1ao")
 
-[node name="Rihmasto10" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto10" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(5004, 1280)
 rotation = -1.47131
 scale = Vector2(2.67177, -2.64529)
 texture = ExtResource("49_3g1ao")
 
-[node name="Rihmasto11" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto11" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(4766, 1161)
 rotation = -3.05202
 scale = Vector2(2.78977, 2.13813)
 texture = ExtResource("47_8pqee")
 
-[node name="Rihmasto12" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto12" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(4843, 1306)
 rotation = 3.1393
 scale = Vector2(0.60723, 3.60597)
 skew = -0.338373
 texture = ExtResource("48_ky2yn")
 
-[node name="Rihmasto13" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto13" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(4981, 1274)
 rotation = 2.78358
 scale = Vector2(1.13518, 5.25263)
 texture = ExtResource("48_ky2yn")
 
-[node name="Rihmasto14" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto14" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(5505, 1270)
 rotation = -3.13877
 scale = Vector2(1.7304, 3.3597)
 texture = ExtResource("49_3g1ao")
 
-[node name="Rihmasto15" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto15" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(5216, 1325)
 rotation = 0.008302
 scale = Vector2(3.69282, 23.446)
 skew = -0.00402606
 texture = ExtResource("49_3g1ao")
 
-[node name="Rihmasto16" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto16" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(5525, -1232)
 rotation = -3.11537
 scale = Vector2(2.18008, -6.7789)
 skew = -0.0214974
 texture = ExtResource("49_3g1ao")
 
-[node name="Rihmasto17" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto17" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(5704, 1258)
 rotation = -3.12389
 scale = Vector2(2.48803, 4.91978)
 texture = ExtResource("48_ky2yn")
 
-[node name="Rihmasto18" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto18" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(5326, 1250)
 rotation = -3.13646
 scale = Vector2(2.74869, 4.93793)
 skew = 0.0093559
 texture = ExtResource("48_ky2yn")
 
-[node name="Rihmasto19" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto19" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(5521, 1059)
 rotation = 2.85672
 scale = Vector2(8.84293, -5.31887)
 texture = ExtResource("47_8pqee")
 
-[node name="Rihmasto20" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto20" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(5280, -1127)
 rotation = 3.14159
 scale = Vector2(2.37732, 2.28054)
 texture = ExtResource("47_8pqee")
 
-[node name="Rihmasto21" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto21" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(5368, -1275)
 rotation = -0.0298651
 scale = Vector2(2.81263, 3.16201)
 texture = ExtResource("48_ky2yn")
 
-[node name="Rihmasto22" type="Sprite2D" parent="Muuta/VihollisRihmasto"]
+[node name="Rihmasto22" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
 position = Vector2(5893, -844)
 rotation = 3.14159
 texture = ExtResource("47_8pqee")
+
+[node name="Rihmasto23" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
+position = Vector2(5606, -857)
+rotation = 3.14159
+scale = Vector2(3.51276, 2.38358)
+texture = ExtResource("47_8pqee")
+
+[node name="Rihmasto24" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
+position = Vector2(6247.72, -4370.77)
+scale = Vector2(1.32948, 3.33888)
+texture = ExtResource("48_ky2yn")
+
+[node name="Rihmasto25" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
+position = Vector2(6467.08, -4177.12)
+rotation = -2.16359e-05
+scale = Vector2(1.92265, 21.3955)
+skew = 1.5974e-05
+texture = ExtResource("48_ky2yn")
+
+[node name="Rihmasto26" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
+position = Vector2(5709, -908)
+rotation = -0.0567231
+scale = Vector2(6.31256, 1.97724)
+skew = 0.00397015
+texture = ExtResource("49_3g1ao")
+
+[node name="Rihmasto27" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
+position = Vector2(5438, -862)
+rotation = 3.08144
+scale = Vector2(4.59747, 3.13103)
+texture = ExtResource("49_3g1ao")
+
+[node name="Kasvillisuus" type="Node2D" parent="Muuta/TaustaElementit"]
+
+[node name="KukkienVarret" type="Node2D" parent="Muuta/TaustaElementit/Kasvillisuus"]
+
+[node name="Varsi" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(1817, 722)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi2" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(2499, 716)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi3" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(2708, 191)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi4" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(2084, 529)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi5" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(3645, -760)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi6" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(3900, -1142)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi7" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(4660, -1138)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi8" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(4469, -852)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi9" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(5756, -879)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi10" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(6841, 68)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi11" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(8887, -474)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi12" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(7678, 36)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi13" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(9657, -500)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi14" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(10675, -341)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi15" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(11212, -343)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi16" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(11500, -683)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi17" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(10943, -1031)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi18" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(11682, -1183)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi19" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(6745, 1438)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi20" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(5921, 2149)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi21" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(5530, 1425)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi22" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(4379, 2074)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi23" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(4792, 1320)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi24" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(4385, 738)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi25" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(4758, 580)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi26" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(3403, 206)
+texture = ExtResource("59_uc2mr")
+
+[node name="Varsi27" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
+position = Vector2(6066, 91)
+texture = ExtResource("59_uc2mr")
+
+[node name="Ruohot" type="Node2D" parent="Muuta/TaustaElementit/Kasvillisuus"]
+
+[node name="Ruohoa13" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(4661, -599)
+rotation = -0.0334148
+scale = Vector2(1.89226, 1.12862)
+skew = -0.0909433
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa12" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(4916, -606)
+rotation = 3.13125
+scale = Vector2(2.00169, -0.875999)
+skew = 0.00601745
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa11" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(4350, -597)
+rotation = 3.11748
+scale = Vector2(2.32222, -1.95427)
+skew = 0.000342131
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa10" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(4969, -846)
+rotation = -0.00845185
+scale = Vector2(3.72629, 3.56541)
+skew = 0.00178838
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa9" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(4270, -811)
+rotation = 3.13928
+scale = Vector2(1.47596, -1.75326)
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa7" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(4611, -686)
+rotation = 3.11108
+scale = Vector2(10.4145, 2.25996)
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa8" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(4204, -1313)
+rotation = -0.544918
+scale = Vector2(1.02401, 0.976882)
+skew = 0.0809284
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa6" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(4606, -804)
+rotation = -0.0272007
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa5" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(4960, -906)
+rotation = 3.13689
+skew = 0.054244
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa3" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(3060, -773)
+rotation = -1.4531
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa4" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(2858, -51)
+rotation = 1.57079
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa2" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(2785, -223)
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(2289, 742)
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa14" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(6580, 1450)
+rotation = 0.00732602
+skew = 0.0174532
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa15" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(7159, 805)
+rotation = -1.6851
+scale = Vector2(2.12528, 1.00234)
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa16" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(6335, 50)
+rotation = -2.95753
+skew = 0.0174532
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa17" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(7335, -875)
+rotation = -0.00966825
+scale = Vector2(1.94969, 1.0945)
+skew = 0.0348989
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa18" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(7488, 67)
+rotation = -0.0454466
+scale = Vector2(3.80073, 1.19686)
+skew = 0.0191761
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa19" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(10778, -779)
+rotation = -3.02439
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa20" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(11306, -1123)
+rotation = -0.17932
+scale = Vector2(6.31461, 3.1562)
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa21" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(11256, -1332)
+rotation = 3.0428
+scale = Vector2(7.06342, 2.35079)
+texture = ExtResource("56_13vko")
+
+[node name="Puskat" type="Node2D" parent="Muuta/TaustaElementit/Kasvillisuus"]
+
+[node name="Puska5" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(3775, -910)
+rotation = -3.07589
+scale = Vector2(2.53532, 0.935418)
+texture = ExtResource("57_afodq")
+
+[node name="Puska4" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(4603, -695)
+rotation = 3.0805
+scale = Vector2(1, 1)
+texture = ExtResource("57_afodq")
+
+[node name="Puska3" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(4371, -1092)
+rotation = -0.0610281
+scale = Vector2(1, 1)
+texture = ExtResource("57_afodq")
+
+[node name="Puska" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(2257, 357)
+rotation = -0.191048
+texture = ExtResource("57_afodq")
+
+[node name="Puska2" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(4245, 1206)
+rotation = 1.6439
+texture = ExtResource("57_afodq")
+
+[node name="Puska6" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(6991, 790)
+rotation = -2.96964
+scale = Vector2(1, -1)
+texture = ExtResource("57_afodq")
+
+[node name="Puska7" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(6993, 853)
+rotation = 2.91488
+texture = ExtResource("57_afodq")
+
+[node name="Puska8" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(6323, 6)
+rotation = -3.12414
+scale = Vector2(1, -1)
+texture = ExtResource("57_afodq")
+
+[node name="Puska9" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(10843, -817)
+rotation = -1.5708
+scale = Vector2(0.688519, -0.703515)
+texture = ExtResource("57_afodq")
+
+[node name="Puska10" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(3356, -1128)
+rotation = 0.0184054
+scale = Vector2(1, 1)
+texture = ExtResource("57_afodq")
+
+[node name="Kasvit" type="Node2D" parent="Muuta/TaustaElementit/Kasvillisuus"]
+
+[node name="Kasvi3" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(4742, -1123)
+rotation = 0.00690168
+scale = Vector2(1, 1)
+texture = ExtResource("58_b26eb")
+
+[node name="Kasvi4" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(4663, -1424)
+rotation = -0.00591767
+scale = Vector2(1.54978, 1.82985)
+texture = ExtResource("58_b26eb")
+
+[node name="Kasvi2" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(3050, -1305)
+rotation = 2.40312
+scale = Vector2(1, 1)
+texture = ExtResource("58_b26eb")
+
+[node name="Kasvi" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(2622, 216)
+rotation = -0.442822
+texture = ExtResource("58_b26eb")
+
+[node name="Kasvi5" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(5517, 770)
+rotation = -0.0129047
+scale = Vector2(4.633, 0.807138)
+skew = 0.00197506
+texture = ExtResource("58_b26eb")
+
+[node name="Kasvi6" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(7150, 811)
+rotation = -1.69392
+scale = Vector2(1.31363, 1.0426)
+texture = ExtResource("58_b26eb")
+
+[node name="Kasvi7" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(4762, 780)
+rotation = 1.17823
+scale = Vector2(1.25016, 1.69151)
+skew = -0.143717
+texture = ExtResource("58_b26eb")
+
+[node name="Kasvi8" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(4624, 855)
+rotation = 1.04834
+scale = Vector2(1.04526, 1.44132)
+skew = -0.0830425
+texture = ExtResource("58_b26eb")
+
+[node name="Kasvi9" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(3961, -812)
+rotation = -0.983982
+texture = ExtResource("58_b26eb")
+
+[node name="Eloton" type="Node2D" parent="Muuta/TaustaElementit"]
+
+[node name="Kivet" type="Node2D" parent="Muuta/TaustaElementit/Eloton"]
+
+[node name="Kivi8" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(5135, 1475)
+scale = Vector2(0.839255, 0.353911)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi7" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(2885, 744)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi6" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(5527, -1132)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi5" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(4367, 816)
+rotation = 3.05206
+scale = Vector2(1, 1)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi4" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(4348, -950)
+rotation = -3.00425
+scale = Vector2(0.975857, 0.693643)
+skew = -0.111645
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi3" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(5188, 572)
+rotation = 3.12841
+scale = Vector2(0.858944, 1.69611)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi2" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(6012, 946)
+rotation = -3.07977
+scale = Vector2(0.737204, 3.21817)
+skew = -0.111645
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(3415, 68.0001)
+rotation = -1.81717
+scale = Vector2(1, 1)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi9" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(6853, 1444)
+rotation = -3.13554
+scale = Vector2(1.38737, -1.29556)
+skew = -0.068867
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi10" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(6161, 1337)
+rotation = 0.141526
+scale = Vector2(1.85146, -0.734257)
+skew = -0.137596
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi11" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(4485, 2000)
+rotation = 3.11186
+scale = Vector2(0.618954, 1.01898)
+skew = -0.0305288
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi12" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(6651, 1054)
+rotation = 0.0770631
+scale = Vector2(0.720822, 0.600512)
+skew = -0.0256982
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi13" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(5663, 1473)
+rotation = 0.111065
+scale = Vector2(0.839255, 0.353911)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi14" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(6527, 598)
+rotation = 0.355052
+scale = Vector2(0.704349, 0.125253)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi15" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(4857, 769)
+rotation = -3.05046
+scale = Vector2(0.0965464, -0.623228)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi16" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(6754, 728)
+rotation = -2.75779
+scale = Vector2(1, -1)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi17" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(4869, 694)
+rotation = -2.9359
+scale = Vector2(0.139124, 0.951118)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi18" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(11649, -805)
+rotation = -3.14159
+texture = ExtResource("59_moxlu")
+
+[node name="Pikkukivet" type="Node2D" parent="Muuta/TaustaElementit/Eloton"]
+
+[node name="Pikkukivia8" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(5846, 2176)
+rotation = 0.037901
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia7" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(5852, 1310)
+rotation = 0.0116633
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia6" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(4374, 1494)
+rotation = 0.0262604
+scale = Vector2(1, 1)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia5" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(6341, 1027)
+rotation = 0.0375536
+scale = Vector2(0.56465, 1.00502)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia4" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(3084, 724)
+rotation = -0.403419
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia3" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(1568, 752)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia2" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(4888, -1113)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(2139, 561)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia9" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(6944, 1437)
+rotation = -0.505007
+scale = Vector2(1, 1)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia10" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(6064, 1474)
+rotation = -0.117593
+scale = Vector2(1, 1)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia11" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(5119, 799)
+rotation = -0.0854528
+scale = Vector2(1, 1)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia12" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(4566, 1323)
+rotation = 0.217708
+scale = Vector2(1, 1)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia13" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(6440, 107)
+rotation = -0.0203669
+scale = Vector2(1, 1)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia14" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(12017, -393)
+rotation = -0.626709
+scale = Vector2(1, 1)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia15" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(11906, -353)
+rotation = 3.05735
+scale = Vector2(1, -1)
+texture = ExtResource("61_u2j4x")
+
+[node name="Pikkukivia16" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Pikkukivet"]
+position = Vector2(8470, -319)
+rotation = -0.523082
+texture = ExtResource("61_u2j4x")
+
+[node name="Seitit" type="Node2D" parent="Muuta/TaustaElementit/Eloton"]
+
+[node name="Seittia" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Seitit"]
+position = Vector2(2693, -245)
+rotation = 0.169208
+texture = ExtResource("64_20rsk")
+
+[node name="Seittia2" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Seitit"]
+position = Vector2(6303, -549)
+rotation = 0.146672
+scale = Vector2(4.20546, 2.00288)
+texture = ExtResource("64_20rsk")
+
+[node name="Lohkareet" type="Node2D" parent="Muuta/TaustaElementit/Eloton"]
+
+[node name="Lohkare3" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Lohkareet"]
+position = Vector2(3723, -1295)
+rotation = 3.1131
+scale = Vector2(1, 1)
+texture = ExtResource("60_qm1rx")
+
+[node name="Lohkare2" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Lohkareet"]
+position = Vector2(3705, -703)
+rotation = 0.137286
+texture = ExtResource("60_qm1rx")
+
+[node name="Lohkare" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Lohkareet"]
+position = Vector2(4178, 2084)
+rotation = 0.131148
+scale = Vector2(1, 1)
+texture = ExtResource("60_qm1rx")
+
+[node name="Lohkare4" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Lohkareet"]
+position = Vector2(9152, -444)
+scale = Vector2(1, 1)
+texture = ExtResource("60_qm1rx")
+
+[node name="Lohkare5" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Lohkareet"]
+position = Vector2(11622, -364)
+scale = Vector2(1, 1)
+texture = ExtResource("60_qm1rx")
+
+[node name="Luut" type="Node2D" parent="Muuta/TaustaElementit/Eloton"]
+
+[node name="Luita5" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(5317, -734)
+rotation = -0.261799
+texture = ExtResource("63_jo0el")
+
+[node name="Luita6" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(5450, -1244)
+rotation = -1.54187
+texture = ExtResource("63_jo0el")
+
+[node name="Luita3" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(2644, -232)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita4" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(5362, -844)
+rotation = 3.08405
+scale = Vector2(1, -1)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita2" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(1654, 738)
+rotation = -3.14158
+scale = Vector2(1, -1)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(1320, 738)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita7" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(2415, 540)
+rotation = -0.00296581
+scale = Vector2(1, 1)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita8" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(2713, 309)
+rotation = -1.36222
+skew = -0.00862324
+texture = ExtResource("63_jo0el")
+
+[node name="Luita9" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(2626, 357)
+rotation = -2.90614
+scale = Vector2(1, -1)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita10" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(2779, 390)
+rotation = 0.125766
+scale = Vector2(1, 1)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita11" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(2904, 387)
+rotation = -0.80936
+scale = Vector2(1, 1)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita12" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(5428, 1285)
+rotation = -0.00931536
+scale = Vector2(1, 1)
+skew = 0.0186737
+texture = ExtResource("63_jo0el")
+
+[node name="Luita13" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(4815, 1164)
+rotation = -3.05709
+scale = Vector2(1, -1)
+skew = 0.0155739
+texture = ExtResource("63_jo0el")
+
+[node name="Luita14" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(5792, 1294)
+rotation = 3.13042
+scale = Vector2(1, -1)
+skew = 0.0223085
+texture = ExtResource("63_jo0el")
+
+[node name="Luita15" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(4855, 1324)
+scale = Vector2(0.999751, 0.999752)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita16" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(9961, 151)
+rotation = 0.217665
+scale = Vector2(1, 1)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita17" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(10494, 154)
+rotation = 2.81554
+scale = Vector2(1, -1)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita18" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(10767, 156)
+rotation = 0.339629
+texture = ExtResource("63_jo0el")
+
+[node name="Luita19" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(10952, 168)
+rotation = 2.9142
+scale = Vector2(1, -1)
+texture = ExtResource("63_jo0el")
+
+[node name="Luita20" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Luut"]
+position = Vector2(9909, 114)
+rotation = 1.56783
+scale = Vector2(1, 1)
+texture = ExtResource("63_jo0el")
+
+[node name="Puupilarit" type="Node2D" parent="Muuta/TaustaElementit/Eloton"]
+
+[node name="Puupilari3" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Puupilarit"]
+position = Vector2(1363, 771)
+rotation = -1.57079
+texture = ExtResource("62_b454l")
+
+[node name="Puupilari" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Puupilarit"]
+position = Vector2(3310, 187)
+texture = ExtResource("62_b454l")
+
+[node name="Puupilari2" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Puupilarit"]
+position = Vector2(2694, -258)
+texture = ExtResource("62_b454l")
+
+[node name="Puupilari4" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Puupilarit"]
+position = Vector2(6739, 95.0001)
+rotation = 0.0509975
+scale = Vector2(0.480521, 0.389236)
+texture = ExtResource("62_b454l")
+
+[node name="Puupilari5" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Puupilarit"]
+position = Vector2(6693, -866)
+rotation = -3.0906
+scale = Vector2(0.480521, -0.389236)
+texture = ExtResource("62_b454l")
 
 [node name="Tasot" type="Area2D" parent="."]
 visible = false
