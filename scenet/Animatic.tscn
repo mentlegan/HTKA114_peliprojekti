@@ -1,18 +1,33 @@
-[gd_scene load_steps=14 format=3 uid="uid://3oa14w4m8khu"]
+[gd_scene load_steps=20 format=3 uid="uid://3oa14w4m8khu"]
 
 [ext_resource type="Script" path="res://skriptit/animatic.gd" id="1_ktwnp"]
-[ext_resource type="AudioStream" uid="uid://dayqehwq4py1y" path="res://audio/animatic/frame1.mp3" id="2_etvig"]
-[ext_resource type="AudioStream" uid="uid://ydcjddm23elo" path="res://audio/animatic/frame2.mp3" id="3_m4dui"]
-[ext_resource type="AudioStream" uid="uid://difmljq1as0k0" path="res://audio/animatic/frame3.mp3" id="4_077w6"]
-[ext_resource type="AudioStream" uid="uid://tndsxwlhlt53" path="res://audio/animatic/frame4.mp3" id="5_fqiyh"]
-[ext_resource type="AudioStream" uid="uid://cvg7wg2xht1nv" path="res://audio/animatic/frame5.mp3" id="6_tyjhu"]
-[ext_resource type="Texture2D" uid="uid://bdov171ir7krn" path="res://grafiikka/Frame1.png" id="7_a623f"]
-[ext_resource type="Texture2D" uid="uid://duw01ej8ykx2r" path="res://grafiikka/Frame2.png" id="8_wa757"]
-[ext_resource type="Texture2D" uid="uid://dutspbydt8s3w" path="res://grafiikka/Frame3.png" id="9_iif62"]
-[ext_resource type="Texture2D" uid="uid://kfqr5bgygk57" path="res://grafiikka/Frame4.png" id="10_q0cmt"]
-[ext_resource type="Texture2D" uid="uid://cmcf25t8bhrhq" path="res://grafiikka/Frame5.png" id="11_7xswd"]
-[ext_resource type="Texture2D" uid="uid://fu1c86vxhupi" path="res://grafiikka/Frame6.png" id="12_xycnc"]
-[ext_resource type="AudioStream" uid="uid://c4gyuji17ffem" path="res://audio/pelaaja/falldamage.mp3" id="13_oygfy"]
+[ext_resource type="AudioStream" uid="uid://bos5hpjhpfeka" path="res://audio/animatic/frame1.mp3" id="2_etvig"]
+[ext_resource type="AudioStream" uid="uid://cuqdexi5yjs07" path="res://audio/animatic/frame2.mp3" id="3_m4dui"]
+[ext_resource type="Texture2D" uid="uid://b8cydfpi4ba6r" path="res://grafiikka/OhjainTooltipB.png" id="3_qbm57"]
+[ext_resource type="AudioStream" uid="uid://76tia2q8e2x4" path="res://audio/animatic/frame3.mp3" id="4_077w6"]
+[ext_resource type="Texture2D" uid="uid://tjr5y6tghm7u" path="res://grafiikka/OhjainTooltipA.png" id="4_mjejl"]
+[ext_resource type="AudioStream" uid="uid://cjrjpyk8ner1o" path="res://audio/animatic/frame4.mp3" id="5_fqiyh"]
+[ext_resource type="AudioStream" uid="uid://bfqjd23kv6kep" path="res://audio/animatic/frame5.mp3" id="6_tyjhu"]
+[ext_resource type="Texture2D" uid="uid://bf0p8g0h6l0ga" path="res://grafiikka/Frame1.png" id="7_a623f"]
+[ext_resource type="Texture2D" uid="uid://o52peu5um7qx" path="res://grafiikka/Frame2.png" id="8_wa757"]
+[ext_resource type="Texture2D" uid="uid://dnoeg482gmc83" path="res://grafiikka/Frame3.png" id="9_iif62"]
+[ext_resource type="Texture2D" uid="uid://yxd0d60hs1ay" path="res://grafiikka/Frame4.png" id="10_q0cmt"]
+[ext_resource type="Texture2D" uid="uid://djv2w1bbf72w1" path="res://grafiikka/Frame5.png" id="11_7xswd"]
+[ext_resource type="Texture2D" uid="uid://cka8lp3cohe8b" path="res://grafiikka/Frame6.png" id="12_xycnc"]
+[ext_resource type="AudioStream" uid="uid://dj8ykueg5vhcb" path="res://audio/pelaaja/falldamage.mp3" id="13_oygfy"]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_qf5wa"]
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_x6vxs"]
+events = [SubResource("InputEventJoypadButton_qf5wa")]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_1sd5o"]
+button_index = 1
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_8wad5"]
+events = [SubResource("InputEventJoypadButton_1sd5o")]
 
 [node name="Animatic" type="Control"]
 layout_mode = 3
@@ -34,6 +49,9 @@ layout_mode = 0
 offset_left = 864.0
 offset_right = 959.0
 offset_bottom = 47.0
+shortcut = SubResource("Shortcut_x6vxs")
+shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "Next
 "
 
@@ -42,13 +60,46 @@ layout_mode = 0
 offset_left = 428.0
 offset_right = 535.0
 offset_bottom = 48.0
+shortcut = SubResource("Shortcut_8wad5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "Skip"
 
 [node name="quit_nappi" type="Button" parent="Panel"]
 layout_mode = 0
 offset_right = 84.0
 offset_bottom = 47.0
+shortcut_feedback = false
+shortcut_in_tooltip = false
 text = "Quit Game"
+
+[node name="TextureRect2" type="TextureRect" parent="Panel"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 541.0
+offset_top = -16.0
+offset_right = 573.0
+offset_bottom = 16.0
+grow_vertical = 2
+texture = ExtResource("3_qbm57")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Panel"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 827.0
+offset_top = -15.5
+offset_right = 859.0
+offset_bottom = 16.5
+grow_vertical = 2
+texture = ExtResource("4_mjejl")
+stretch_mode = 2
 
 [node name="kuvat" type="Node" parent="."]
 unique_name_in_owner = true
