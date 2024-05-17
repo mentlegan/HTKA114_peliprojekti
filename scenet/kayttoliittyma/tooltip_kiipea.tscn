@@ -1,30 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr7t3uo3y05oq"]
+[gd_scene load_steps=6 format=3 uid="uid://cr7t3uo3y05oq"]
 
 [ext_resource type="PackedScene" uid="uid://mch12jl02nqd" path="res://scenet/kayttoliittyma/tooltip.tscn" id="1_1g6e6"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="2_5x0ps"]
 [ext_resource type="Texture2D" uid="uid://blcn17ln84bmm" path="res://grafiikka/DpadYlos.png" id="2_auomr"]
 [ext_resource type="Texture2D" uid="uid://vpxgh35gef7d" path="res://grafiikka/DpadAlas.png" id="3_mivle"]
 [ext_resource type="Texture2D" uid="uid://carqststa41k" path="res://grafiikka/OhjainTooltipNappaimisto.png" id="4_xppeb"]
-[ext_resource type="Texture2D" uid="uid://bkfapoux2ssdt" path="res://grafiikka/OhjainTooltipR.png" id="6_3naji"]
 
 [node name="TooltipKiipea" instance=ExtResource("1_1g6e6")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 material = ExtResource("2_5x0ps")
 use_parent_material = true
-position = Vector2(-18, 58)
+position = Vector2(-18, 17)
 texture = ExtResource("2_auomr")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." index="2"]
 material = ExtResource("2_5x0ps")
 use_parent_material = true
-position = Vector2(-18, 86)
+position = Vector2(-18, 45)
 texture = ExtResource("3_mivle")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="3"]
 material = ExtResource("2_5x0ps")
 use_parent_material = true
-position = Vector2(20, 60)
+position = Vector2(20, 19)
 texture = ExtResource("4_xppeb")
 
 [node name="Label" type="Label" parent="Sprite2D2" index="0"]
@@ -45,11 +44,12 @@ grow_vertical = 2
 size_flags_horizontal = 0
 text = "W"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D4" type="Sprite2D" parent="." index="4"]
 material = ExtResource("2_5x0ps")
 use_parent_material = true
-position = Vector2(19, 88)
+position = Vector2(19, 47)
 texture = ExtResource("4_xppeb")
 
 [node name="Label" type="Label" parent="Sprite2D4" index="0"]
@@ -70,6 +70,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 text = "S"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="." index="5"]
 auto_translate_mode = 1
@@ -90,35 +91,3 @@ grow_vertical = 2
 size_flags_horizontal = 0
 text = "Climb"
 horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="." index="6"]
-material = ExtResource("2_5x0ps")
-offset_left = 15.0
-offset_top = 5.0
-offset_right = 27.0
-offset_bottom = 23.0
-text = "E"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label3" type="Label" parent="." index="7"]
-auto_translate_mode = 1
-material = ExtResource("2_5x0ps")
-offset_left = 14.0
-offset_top = 25.0
-offset_right = 26.0
-offset_bottom = 43.0
-text = "+"
-
-[node name="Label4" type="Label" parent="." index="8"]
-auto_translate_mode = 1
-material = ExtResource("2_5x0ps")
-offset_left = -24.0
-offset_top = 25.0
-offset_right = -12.0
-offset_bottom = 43.0
-text = "+"
-
-[node name="Sprite2D5" type="Sprite2D" parent="." index="9"]
-material = ExtResource("2_5x0ps")
-position = Vector2(-17, 16)
-texture = ExtResource("6_3naji")
