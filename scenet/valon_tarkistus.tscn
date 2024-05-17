@@ -11,5 +11,9 @@ script = ExtResource("1_ft5bk")
 target_position = Vector2(0, 0)
 hit_from_inside = true
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+update_rotation = false
+update_scale = false
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

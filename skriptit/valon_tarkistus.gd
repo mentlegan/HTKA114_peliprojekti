@@ -58,18 +58,29 @@ signal siirrytty_varjoon
 var valonlahteet = Array()
 ## RayCast valontarkistusta varten
 @onready var raycast = $RayCast2D
+## RemoteTransform2D vanhempien skaalauksen ja rotaation ohittamiseksi
+@onready var remotetransform = $RemoteTransform2D
 ## Totuusarvo valossa olemiselle
 var valossa = null
+
+
+func _ready():
+	# Siirretään raycast nykyisen scenen lapseksi
+	self.remove_child(raycast)
+	get_tree().get_current_scene().add_child.call_deferred(raycast)
+
+	# Odotetaan, että raycast on lisätty nykyisen scenen lapseksi
+	await Engine.get_main_loop().process_frame
+
+	# Laitetaan RemoteTransform2D päivittämään raycastin sijaintia
+	remotetransform.set_remote_node(raycast.get_path())
+
 
 
 ## Kutsutaan joka physics framella
 func _physics_process(_delta):
 	# Lähetetään tarvittaessa signaalit
 	_laheta_signaalit()
-
-	# Ei oteta vanhemman noden skaalausta tai rotaatiota huomioon raycastissa
-	raycast.global_rotation = 0
-	raycast.global_scale = Vector2(1, 1)
 
 
 ## Päivittää valossa-muuttujan ja lähettää tarvittaessa signaalin siirrytty_varjoon tai siirrytty_valoon.
