@@ -116,3 +116,4 @@ func journal_nakyviin():
 	sivunumero_label.visible = true
 	ohjeet_kbm.visible = false
 	ohjeet_controller.visible = false
+	paivita_sivunumero()
