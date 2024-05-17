@@ -408,7 +408,7 @@ position = Vector2(-141, 99)
 polygon = PackedVector2Array(11856, -641, 11900, -644, 12015, -632, 12067, -629, 12106, -677, 12089, -704, 12065, -719, 12023, -727, 11926, -726, 11896, -729, 11868, -731, 11814, -731, 11782, -731, 11739, -733, 11711, -733, 11658, -730, 11622, -730, 11578, -727, 11511, -724, 11477, -717, 11442, -707, 11353, -707, 11294, -704, 11265, -692, 11252, -669, 11272, -645, 11296, -637, 11462, -641, 11516, -638, 11589, -639, 11639, -641, 11715, -642, 11777, -644, 11815, -644)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1287, 832)
+position = Vector2(1344, 817)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -491,7 +491,7 @@ position = Vector2(3390.7, 227.504)
 position = Vector2(2488.01, 746.305)
 
 [node name="Kukka4" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(1808.01, 744.402)
+position = Vector2(1907.02, 740.534)
 
 [node name="Kukka5" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(2065.29, 536.743)
@@ -595,7 +595,7 @@ position = Vector2(10654.4, -320.849)
 [node name="Journalit" type="Node2D" parent="."]
 
 [node name="JournalPickup" parent="Journalit" instance=ExtResource("10_gl8wc")]
-position = Vector2(1627, 645)
+position = Vector2(1626, 720)
 
 [node name="Day 1" parent="Journalit/JournalPickup" instance=ExtResource("10_s3bjw")]
 visible = false
@@ -606,7 +606,7 @@ sivunumero = 1
 visible = false
 
 [node name="Day 2" parent="Journalit" instance=ExtResource("10_s3bjw")]
-position = Vector2(1744, 686)
+position = Vector2(1985, 684)
 otsikko = "Day 2"
 sivunumero = 2
 
@@ -614,7 +614,7 @@ sivunumero = 2
 visible = false
 
 [node name="Day 3" parent="Journalit" instance=ExtResource("10_s3bjw")]
-position = Vector2(1777, 700)
+position = Vector2(2077, 490)
 otsikko = "Day 3"
 sivunumero = 3
 
@@ -622,7 +622,7 @@ sivunumero = 3
 visible = false
 
 [node name="Day 4" parent="Journalit" instance=ExtResource("10_s3bjw")]
-position = Vector2(1816, 687)
+position = Vector2(2823, 168)
 otsikko = "Day 4"
 sivunumero = 4
 
@@ -630,15 +630,23 @@ sivunumero = 4
 visible = false
 
 [node name="Day 5" parent="Journalit" instance=ExtResource("10_s3bjw")]
-position = Vector2(1864, 702)
+position = Vector2(6580, -895)
 otsikko = "Day 5"
 sivunumero = 5
 
 [node name="SivunSisalto" parent="Journalit/Day 5" instance=ExtResource("18_yghk6")]
 visible = false
 
+[node name="Day 5 (2)" parent="Journalit" instance=ExtResource("10_s3bjw")]
+position = Vector2(6628, 64)
+otsikko = "Day 5"
+sivunumero = 5
+
+[node name="SivunSisalto" parent="Journalit/Day 5 (2)" instance=ExtResource("18_yghk6")]
+visible = false
+
 [node name="Day 6" parent="Journalit" instance=ExtResource("10_s3bjw")]
-position = Vector2(1914, 683)
+position = Vector2(6761, 1039)
 otsikko = "Day 6"
 sivunumero = 6
 
@@ -646,7 +654,7 @@ sivunumero = 6
 visible = false
 
 [node name="Day 7" parent="Journalit" instance=ExtResource("10_s3bjw")]
-position = Vector2(1956, 708)
+position = Vector2(4723, 24)
 otsikko = "Day 7"
 sivunumero = 7
 
@@ -654,7 +662,7 @@ sivunumero = 7
 visible = false
 
 [node name="Day 8" parent="Journalit" instance=ExtResource("10_s3bjw")]
-position = Vector2(2006, 696)
+position = Vector2(9720, -493)
 otsikko = "Day 8"
 sivunumero = 8
 
@@ -2161,7 +2169,7 @@ texture = ExtResource("49_3g1ao")
 [node name="KukkienVarret" type="Node2D" parent="Muuta/TaustaElementit/Kasvillisuus"]
 
 [node name="Varsi" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
-position = Vector2(1817, 722)
+position = Vector2(1917, 714)
 texture = ExtResource("59_uc2mr")
 
 [node name="Varsi2" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
@@ -2875,6 +2883,24 @@ rotation = -3.0906
 scale = Vector2(0.480521, -0.389236)
 texture = ExtResource("62_b454l")
 
+[node name="myrkkysieni" parent="Muuta" instance=ExtResource("56_7csj5")]
+position = Vector2(5133, 82)
+
+[node name="myrkkysieni2" parent="Muuta" instance=ExtResource("56_7csj5")]
+position = Vector2(5187, 91)
+
+[node name="myrkkysieni3" parent="Muuta" instance=ExtResource("56_7csj5")]
+position = Vector2(5269, 95)
+
+[node name="myrkkysieni4" parent="Muuta" instance=ExtResource("56_7csj5")]
+position = Vector2(5435, 100)
+
+[node name="myrkkysieni5" parent="Muuta" instance=ExtResource("56_7csj5")]
+position = Vector2(5352, 95)
+
+[node name="myrkkysieni6" parent="Muuta" instance=ExtResource("56_7csj5")]
+position = Vector2(5626, 110)
+
 [node name="Tasot" type="Area2D" parent="."]
 visible = false
 
@@ -2922,10 +2948,6 @@ unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("37_khmdb")
 bus = &"Musiikki"
-
-[node name="myrkkysieni" parent="." instance=ExtResource("56_7csj5")]
-position = Vector2(1501, 747)
-rotation = -0.259625
 
 [connection signal="transitio" from="Pelaaja" to="KayttoLiittyma/Transitio" method="_on_pelaaja_transitio"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]
