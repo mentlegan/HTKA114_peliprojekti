@@ -66,19 +66,20 @@ offset_bottom = 431.0
 text = "The vines here seem to have two sides. On one side they look as if they were dead. As I approached the vines, the healthy side reacted to the pollen I am carrying with me. I wonder if the color of the flowers on those vines has any connection to how they behave when exposed to the pollen? "
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="." index="6"]
+[node name="Label2" type="RichTextLabel" parent="." index="6"]
 auto_translate_mode = 1
-modulate = Color(0.180392, 0.12549, 0.0823529, 1)
 layout_mode = 0
 offset_left = 500.0
 offset_top = 53.0
 offset_right = 919.0
 offset_bottom = 354.0
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
+bbcode_enabled = true
 text = "After running some experiments, I discovered the logic behind the vines and their colors! 
 
-Red flowers affect red and purple flowers 
-Purple flowers affect all flowers 
-Blue flowers affect blue and purple flowers "
+[shake][color=red]Red[/color][/shake] flowers affect [tornado][color=red]red[/color][/tornado] and [wave][color=purple]purple[/color][/wave] flowers 
+[color=purple]Purple[/color] flowers affect [color=darkgreen]all flowers[/color]
+[color=blue]Blue flowers[/color] affect [color=blue]blue[/color] and [color=purple]purple[/color] flowers "
 autowrap_mode = 2
 
 [node name="Label7" type="Label" parent="." index="7"]
