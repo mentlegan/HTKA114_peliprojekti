@@ -20,13 +20,14 @@ animations = [{
 
 [node name="SivunSisalto" instance=ExtResource("1_5lwj2")]
 
-[node name="Label2" type="Label" parent="." index="1"]
+[node name="Label2" type="RichTextLabel" parent="." index="1"]
 auto_translate_mode = 1
-modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 50.0
 offset_top = 80.0
 offset_right = 465.0
 offset_bottom = 210.0
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
 text = "I have come to the conclusion that these butterflies inside this have gained the ability to emit light by ingesting the luminescent pollen from the flowers. Most fascinating indeed. Maybe this discovery will aid in uncovering the secret behind the dense darkness of this mine. 
 
 

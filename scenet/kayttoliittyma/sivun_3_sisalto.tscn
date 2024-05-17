@@ -9,6 +9,7 @@
 [node name="Label2" type="Label" parent="." index="1"]
 auto_translate_mode = 1
 modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 50.0
 offset_top = 80.0
 offset_right = 465.0
@@ -17,25 +18,29 @@ text = "By the gods! I was not dreaming when I thought something lives inside th
 "
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="." index="2"]
+[node name="Label3" type="RichTextLabel" parent="." index="2"]
 auto_translate_mode = 1
-modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 50.0
 offset_top = 332.0
 offset_right = 465.0
 offset_bottom = 409.0
-text = "It was some kind of a large worm with insect-like features, but I was unable to get a better look as it burrowed back underground as soon as the light from the pollen hit it, leaving behind a massive hole and purple slime. Luckily they avoid light, but as soon as darkness falls, they get active and seek to hunt me down.  
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
+bbcode_enabled = true
+text = "It was some kind of a large worm with insect-like features, but I was unable to get a better look as it burrowed back underground as soon as the light from the pollen hit it, leaving behind a massive hole and purple slime. Luckily they [outline_size=4][outline_color=black][color=white]avoid light[/color][/outline_color][/outline_size], but as soon as darkness falls, they get active and seek to hunt me down.  
 "
 autowrap_mode = 2
 
-[node name="Label4" type="Label" parent="." index="3"]
+[node name="Label4" type="RichTextLabel" parent="." index="3"]
 auto_translate_mode = 1
-modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 499.0
 offset_top = 240.0
 offset_right = 914.0
 offset_bottom = 317.0
-text = "I dare not see what happens if I wander too deep in the darkness. My hands are still shaking from that encounter. I must carry the pollen with me at all times and take extra caution around areas littered with purple slime.  
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
+bbcode_enabled = true
+text = "I dare not see what happens if I wander too deep in the darkness. My hands are still shaking from that encounter. I must carry the pollen with me at all times and take extra caution around [outline_size=4][outline_color=black][color=white]areas littered with[/color][/outline_color][/outline_size] [outline_size=4][outline_color=purple][color=white]violet slime[/color][/outline_color][/outline_size].  
 "
 autowrap_mode = 2
 

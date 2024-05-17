@@ -20,14 +20,16 @@ animations = [{
 
 [node name="SivunSisalto" instance=ExtResource("1_wbek2")]
 
-[node name="Label2" type="Label" parent="." index="1"]
+[node name="Label2" type="RichTextLabel" parent="." index="1"]
 auto_translate_mode = 1
-modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 50.0
 offset_top = 80.0
 offset_right = 465.0
 offset_bottom = 210.0
-text = "Another dangerous discovery. Some of the mushrooms look to be corrupted by the foul nature of this darkness. Spores from them cause intense irritation and pain in my airways when inhaled. I cannot linger around these parts for too long. I need to dash pass the poisonous mushrooms swiftly."
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
+bbcode_enabled = true
+text = "Another dangerous discovery. Some of the mushrooms look to be corrupted by the foul nature of this darkness. Spores from them cause intense irritation and pain in my airways when inhaled. I cannot linger around these parts for too long. I need to dash pass the [outline_size=4][outline_color=darkyellow][color=white]poisonous mushrooms[/color][/outline_color][/outline_size] swiftly."
 autowrap_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]

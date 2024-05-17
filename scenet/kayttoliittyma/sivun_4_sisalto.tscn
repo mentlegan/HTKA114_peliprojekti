@@ -6,25 +6,30 @@
 
 [node name="SivunSisalto" instance=ExtResource("1_5cbue")]
 
-[node name="Label2" type="Label" parent="." index="1"]
+[node name="Label2" type="RichTextLabel" parent="." index="1"]
 auto_translate_mode = 1
-modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 50.0
 offset_top = 236.0
 offset_right = 465.0
 offset_bottom = 366.0
-text = "This is probably my fourth day down here. I'm making steady progress. Today I found giant mushroom that lit up when I got close to it. I noticed the light from them also repels those soil-dwelling monsters from yesterday. This will make a great temporary base to explore further from. Perhaps the lighting from this cave has some special properties as my conventional light sources are unable to pierce through the darkness here. 
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
+bbcode_enabled = true
+text = "This is probably my fourth day down here. I'm making steady progress, but the [outline_size=4][outline_color=black][color=white]path diverges[/color][/outline_color][/outline_size] from here. One path leads [outline_size=4][outline_color=black][color=white]straight up[/color][/outline_color][/outline_size], and one runs deep down with the [outline_size=4][outline_color=black][color=white]water stream[/color][/outline_color][/outline_size]. As I walked towards the stream of water, I passed a giant [outline_size=4][outline_color=black][color=white]mushroom[/color][/outline_color][/outline_size] that lit up when I got close to it. That will make a great place for a camp where I can explore further from. I am also certain that the lighting it provides also [outline_size=4][outline_color=black][color=white]repels[/color][/outline_color][/outline_size] those soil-dwelling monsters from yesterday. Just like the yellow flowers. Perhaps the lighting from this cave has some special properties as my conventional light sources are unable to pierce through the darkness here. 
 "
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="." index="2"]
+[node name="Label3" type="RichTextLabel" parent="." index="2"]
 auto_translate_mode = 1
-modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 498.0
 offset_top = 312.0
 offset_right = 913.0
 offset_bottom = 442.0
-text = "After I finished setting up my camp, I took a seat by the campfire and played my old flute. To my surprise the whole cave appeared to resonate with the music. When I get close enough, the yellow flower resonates strongly with low tones by amplifying their illumination while the vines react to higher notes. The vines even reverberated in response to my flute! That is a great help when locating them.  
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
+bbcode_enabled = true
+text = "After I finished setting up my camp, I took a seat by the campfire and played my old [outline_size=4][outline_color=black][color=white]flute[/color][/outline_color][/outline_size]. To my surprise the whole cave appeared to resonate with the music. When I went close enough, the [outline_size=4][outline_color=orange][color=white]yellow flower[/color][/outline_color][/outline_size] resonated strongly with [outline_size=4][outline_color=orange][color=white]low tones[/color][/outline_color][/outline_size] and their illumination got amplified while the [outline_size=4][outline_color=darkgreen][color=white]vines[/color][/outline_color][/outline_size] reacted to [outline_size=4][outline_color=darkgreen][color=white]higher tones[/color][/outline_color][/outline_size] and reverberated in response to my flute! I should use that to my advantage next time I come across those vines blocking my way.  
+
 "
 autowrap_mode = 2
 

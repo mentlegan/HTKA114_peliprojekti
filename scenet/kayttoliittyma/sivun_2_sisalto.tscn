@@ -54,7 +54,7 @@ offset_right = 466.0
 offset_bottom = 433.0
 theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
 bbcode_enabled = true
-text = "This cave seems to house an ecosystem of its own. Not once in my days have I seen this type of flora before. Their unique properties are most fascinating. This [wave][outline_size=4][outline_color=orange][color=white]yellow flower[/color][/outline_color][/outline_size][/wave] contains [wave][outline_size=4][outline_color=orange][color=white]luminescent pollen[/color][/outline_color][/outline_size][/wave]. I will take some of it with me. It should prove quite useful while exploring.  "
+text = "This cave seems to house an ecosystem of its own. Not once in my days have I seen this type of flora before. Their unique properties are most fascinating. This [outline_size=4][outline_color=orange][color=white]yellow flower[/color][/outline_color][/outline_size] contains [outline_size=4][outline_color=orange][color=white]luminescent pollen[/color][/outline_color][/outline_size]. I will take some of it with me. It should prove quite useful while exploring.  "
 autowrap_mode = 2
 
 [node name="Label4" type="RichTextLabel" parent="." index="5"]
@@ -66,7 +66,7 @@ offset_right = 346.0
 offset_bottom = 431.0
 theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
 bbcode_enabled = true
-text = "The vines here seem to have [wave][outline_size=4][outline_color=black][color=white]two sides[/color][/outline_color][/outline_size][/wave]. On one side they look as if they were dead. As I approached the vines, the [wave][outline_size=4][outline_color=black][color=white]healthy side[/color][/outline_color][/outline_size][/wave] reacted to the [wave][outline_size=4][outline_color=orange][color=white]pollen[/color][/outline_color][/outline_size][/wave] I am carrying with me. I wonder if the color of the flowers on those vines has any connection to how they behave when exposed to the pollen? "
+text = "The vines here seem to have [outline_size=4][outline_color=black][color=white]two sides[/color][/outline_color][/outline_size]. On one side they look as if they were dead. As I approached the vines, the [outline_size=4][outline_color=black][color=white]healthy side[/color][/outline_color][/outline_size] reacted to the [outline_size=4][outline_color=orange][color=white]pollen[/color][/outline_color][/outline_size] I am carrying with me. I wonder if the color of the flowers on those vines has any connection to how they behave when exposed to the pollen? "
 autowrap_mode = 2
 
 [node name="Label2" type="RichTextLabel" parent="." index="6"]
@@ -80,9 +80,9 @@ theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
 bbcode_enabled = true
 text = "After running some experiments, I discovered the logic behind the vines and their colors! 
 
-[wave][outline_size=4][outline_color=red][color=white]Red[/color][/outline_color][/outline_size][/wave] flowers affect [wave][outline_size=4][outline_color=red][color=white]red[/color][/outline_color][/outline_size][/wave] and [wave][outline_size=4][outline_color=purple][color=white]purple[/color][/outline_color][/outline_size][/wave] flowers 
-[wave][outline_size=4][outline_color=purple][color=white]Purple[/color][/outline_color][/outline_size][/wave] flowers affect [wave][outline_size=4][outline_color=darkgreen][color=white]all flowers[/color][/outline_color][/outline_size][/wave]
-[wave][outline_size=4][outline_color=blue][color=white]Blue[/color][/outline_color][/outline_size][/wave] flowers affect [wave][outline_size=4][outline_color=blue][color=white]blue[/color][/outline_color][/outline_size][/wave] and [wave][outline_size=4][outline_color=purple][color=white]purple[/color][/outline_color][/outline_size][/wave] flowers "
+[outline_size=4][outline_color=red][color=white]Red[/color][/outline_color][/outline_size] flowers affect [outline_size=4][outline_color=red][color=white]red[/color][/outline_color][/outline_size] and [outline_size=4][outline_color=purple][color=white]purple[/color][/outline_color][/outline_size] flowers 
+[outline_size=4][outline_color=purple][color=white]Purple[/color][/outline_color][/outline_size] flowers affect [outline_size=4][outline_color=darkgreen][color=white]all flowers[/color][/outline_color][/outline_size]
+[outline_size=4][outline_color=blue][color=white]Blue[/color][/outline_color][/outline_size] flowers affect [outline_size=4][outline_color=blue][color=white]blue[/color][/outline_color][/outline_size] and [outline_size=4][outline_color=purple][color=white]purple[/color][/outline_color][/outline_size] flowers "
 autowrap_mode = 2
 
 [node name="Label7" type="Label" parent="." index="7"]

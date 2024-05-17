@@ -5,14 +5,16 @@
 
 [node name="SivunSisalto" instance=ExtResource("1_x8jlr")]
 
-[node name="Label2" type="Label" parent="." index="1"]
+[node name="Label2" type="RichTextLabel" parent="." index="1"]
 auto_translate_mode = 1
-modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 50.0
 offset_top = 80.0
 offset_right = 465.0
 offset_bottom = 210.0
-text = "There is no way around. I must cross these pits filled with spikes, running so deep one cannot see the bottom. I sure hope the vines are able to support my weight. One slip up and it is over.  
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
+bbcode_enabled = true
+text = "There is no way around. I must cross these pits filled with [outline_size=4][outline_color=black][color=white]spikes[/color][/outline_color][/outline_size], running so deep one cannot see the bottom. I sure hope the vines are able to support my weight. One slip up and it is over.  
  
 Once I get past these deadly pits, I have to search a safe place for another camp. My supplies are running low. I should have been more prepared and not let greed get the better of me. 
 "

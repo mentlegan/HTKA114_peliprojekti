@@ -5,26 +5,30 @@
 
 [node name="SivunSisalto" instance=ExtResource("1_sugkt")]
 
-[node name="Label2" type="Label" parent="." index="1"]
+[node name="Label2" type="RichTextLabel" parent="." index="1"]
 auto_translate_mode = 1
-modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 50.0
 offset_top = 80.0
 offset_right = 465.0
 offset_bottom = 210.0
-text = "I am unable to progress any further with the vines blocking my way. There must be more vines somewhere. Using my flute to resonate with the vines confirmed my suspicions. There is indeed a second passage that is connected with this one. It contains the last color of flowers needed to clear the way, but the narrow passage is blocked by more vines. There must be another entrance... "
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
+bbcode_enabled = true
+text = "I am unable to progress any further with the vines blocking my way. There must be [outline_size=4][outline_color=black][color=white]more[/color][/outline_color][/outline_size] vines somewhere. Using my flute to [outline_size=4][outline_color=darkgreen][color=white]resonate[/color][/outline_color][/outline_size] with the [outline_size=4][outline_color=darkgreen][color=white]vines[/color][/outline_color][/outline_size] confirmed my suspicions. There is indeed a [outline_size=4][outline_color=black][color=white]second passage[/color][/outline_color][/outline_size] that is connected with this one. It contains the last color of flowers needed to clear the way, but the narrow passage is blocked by more vines. There must be [outline_size=4][outline_color=black][color=white]another entrance...[/color][/outline_color][/outline_size]"
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="." index="2"]
+[node name="Label3" type="RichTextLabel" parent="." index="2"]
 auto_translate_mode = 1
-modulate = Color(0.180392, 0.12549, 0.0823529, 1)
+layout_mode = 0
 offset_left = 50.0
 offset_top = 188.0
 offset_right = 465.0
 offset_bottom = 318.0
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
+bbcode_enabled = true
 text = "The minecarts here makes it obvious that this cave system used to be a mine. Long since abandoned. The tracks here have stood the test of time rather well and appear to be safe to use.  
  
-If my memory serves me right, I remember seeing the other end of this railroad near my camp. I should use this minecart to return there and find another way to the other side. 
+If my memory serves me right, I remember seeing the other end of this railroad near my camp. [outline_size=4][outline_color=black][color=white]I should use this minecart[/color][/outline_color][/outline_size] to return there and find another way to the other side. 
 "
 autowrap_mode = 2
 
