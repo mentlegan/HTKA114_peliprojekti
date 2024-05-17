@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dblh5xu0yehdg"]
+[gd_scene load_steps=9 format=3 uid="uid://dblh5xu0yehdg"]
 
 [ext_resource type="PackedScene" uid="uid://gwu1iltp7oef" path="res://scenet/kayttoliittyma/sivun_sisalto.tscn" id="1_q2b2e"]
 [ext_resource type="Texture2D" uid="uid://j864gn0weaat" path="res://grafiikka/LightFlowerDrawing.png" id="2_fiul2"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cgmuh7gg1t5qv" path="res://grafiikka/BlueFlowerDrawing.png" id="4_jxq7q"]
 [ext_resource type="Texture2D" uid="uid://cj33hgwp56alb" path="res://grafiikka/PurpleFlowerDrawing.png" id="5_dpuby"]
 [ext_resource type="Texture2D" uid="uid://dq1eu020uxprn" path="res://grafiikka/RedFlowerDrawing.png" id="6_tcv1f"]
+[ext_resource type="Texture2D" uid="uid://cp32mcnwy33yn" path="res://grafiikka/Arrow2.png" id="7_q7e0i"]
+[ext_resource type="Texture2D" uid="uid://csdkbegodiw75" path="res://grafiikka/Arrow1.png" id="8_fdak7"]
 
 [node name="SivunSisalto" instance=ExtResource("1_q2b2e")]
 
@@ -112,132 +114,161 @@ offset_bottom = 553.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_vh4dj")
 
-[node name="TextureRect3" type="TextureRect" parent="." index="10"]
+[node name="TextureRect6" type="TextureRect" parent="." index="10"]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 544.0
-offset_top = 168.0
-offset_right = 672.0
-offset_bottom = 424.0
+offset_left = 809.0
+offset_top = 169.0
+offset_right = 937.0
+offset_bottom = 297.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_vh4dj")
+texture = ExtResource("4_jxq7q")
 
-[node name="TextureRect4" type="TextureRect" parent="." index="11"]
+[node name="TextureRect7" type="TextureRect" parent="." index="11"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 799.0
+offset_top = 207.0
+offset_right = 927.0
+offset_bottom = 335.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_jxq7q")
+
+[node name="TextureRect8" type="TextureRect" parent="." index="12"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 811.0
+offset_top = 243.0
+offset_right = 939.0
+offset_bottom = 371.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_jxq7q")
+
+[node name="TextureRect9" type="TextureRect" parent="." index="13"]
 auto_translate_mode = 1
 layout_mode = 0
 offset_left = 666.0
-offset_top = 168.0
+offset_top = 165.0
 offset_right = 794.0
-offset_bottom = 424.0
+offset_bottom = 293.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_vh4dj")
-
-[node name="TextureRect5" type="TextureRect" parent="." index="12"]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 802.0
-offset_top = 168.0
-offset_right = 930.0
-offset_bottom = 424.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_vh4dj")
-
-[node name="TextureRect6" type="TextureRect" parent="." index="13"]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 837.0
-offset_top = 181.0
-offset_right = 965.0
-offset_bottom = 309.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_jxq7q")
-
-[node name="TextureRect7" type="TextureRect" parent="." index="14"]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 827.0
-offset_top = 219.0
-offset_right = 955.0
-offset_bottom = 347.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_jxq7q")
-
-[node name="TextureRect8" type="TextureRect" parent="." index="15"]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 839.0
-offset_top = 255.0
-offset_right = 967.0
-offset_bottom = 383.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_jxq7q")
-
-[node name="TextureRect9" type="TextureRect" parent="." index="16"]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 694.0
-offset_top = 177.0
-offset_right = 822.0
-offset_bottom = 305.0
-scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_dpuby")
 
-[node name="TextureRect10" type="TextureRect" parent="." index="17"]
+[node name="TextureRect10" type="TextureRect" parent="." index="14"]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 704.0
-offset_top = 215.0
-offset_right = 832.0
-offset_bottom = 343.0
-scale = Vector2(0.25, 0.25)
+offset_left = 676.0
+offset_top = 203.0
+offset_right = 804.0
+offset_bottom = 331.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_dpuby")
 
-[node name="TextureRect11" type="TextureRect" parent="." index="18"]
+[node name="TextureRect11" type="TextureRect" parent="." index="15"]
 auto_translate_mode = 1
 layout_mode = 0
-offset_left = 692.0
+offset_left = 664.0
+offset_top = 240.0
+offset_right = 792.0
+offset_bottom = 368.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_dpuby")
+
+[node name="TextureRect12" type="TextureRect" parent="." index="16"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 553.0
+offset_top = 162.0
+offset_right = 681.0
+offset_bottom = 290.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_tcv1f")
+
+[node name="TextureRect13" type="TextureRect" parent="." index="17"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 545.0
+offset_top = 206.0
+offset_right = 673.0
+offset_bottom = 334.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_tcv1f")
+
+[node name="TextureRect15" type="TextureRect" parent="." index="18"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 546.0
 offset_top = 252.0
-offset_right = 820.0
+offset_right = 674.0
 offset_bottom = 380.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_dpuby")
-
-[node name="TextureRect12" type="TextureRect" parent="." index="19"]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 581.0
-offset_top = 174.0
-offset_right = 709.0
-offset_bottom = 302.0
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("6_tcv1f")
 
-[node name="TextureRect13" type="TextureRect" parent="." index="20"]
+[node name="TextureRect16" type="TextureRect" parent="." index="19"]
 auto_translate_mode = 1
+modulate = Color(0.67, 0.067, 0.067, 1)
 layout_mode = 0
-offset_left = 573.0
-offset_top = 218.0
-offset_right = 701.0
-offset_bottom = 346.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_tcv1f")
+offset_left = 597.0
+offset_top = 264.0
+offset_right = 725.0
+offset_bottom = 392.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_q7e0i")
 
-[node name="TextureRect14" type="TextureRect" parent="." index="21"]
+[node name="TextureRect18" type="TextureRect" parent="." index="20"]
 auto_translate_mode = 1
+modulate = Color(0.67, 0.067, 0.067, 1)
 layout_mode = 0
-offset_left = 580.0
+offset_left = 614.0
+offset_top = 206.0
+offset_right = 742.0
+offset_bottom = 334.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_fdak7")
+
+[node name="TextureRect19" type="TextureRect" parent="." index="21"]
+auto_translate_mode = 1
+modulate = Color(0.670588, 0.12549, 0.505882, 1)
+layout_mode = 0
+offset_left = 738.0
+offset_top = 171.0
+offset_right = 866.0
+offset_bottom = 299.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_fdak7")
+
+[node name="TextureRect20" type="TextureRect" parent="." index="22"]
+auto_translate_mode = 1
+modulate = Color(0.201, 0.349517, 0.67, 1)
+layout_mode = 0
+offset_left = 741.0
+offset_top = 211.0
+offset_right = 869.0
+offset_bottom = 339.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_fdak7")
+flip_h = true
+
+[node name="TextureRect21" type="TextureRect" parent="." index="23"]
+auto_translate_mode = 1
+modulate = Color(0.67, 0.1273, 0.50719, 1)
+layout_mode = 0
+offset_left = 613.0
+offset_top = 163.0
+offset_right = 741.0
+offset_bottom = 291.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_fdak7")
+flip_h = true
+
+[node name="TextureRect17" type="TextureRect" parent="." index="24"]
+auto_translate_mode = 1
+modulate = Color(0.2, 0.34902, 0.670588, 1)
+layout_mode = 0
+offset_left = 770.0
 offset_top = 263.0
-offset_right = 708.0
+offset_right = 898.0
 offset_bottom = 391.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_tcv1f")
-
-[node name="TextureRect15" type="TextureRect" parent="." index="22"]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 580.0
-offset_top = 263.0
-offset_right = 708.0
-offset_bottom = 391.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("6_tcv1f")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_q7e0i")
+flip_h = true
