@@ -76,7 +76,6 @@ func _ready():
 	remotetransform.set_remote_node(raycast.get_path())
 
 
-
 ## Kutsutaan joka physics framella
 func _physics_process(_delta):
 	# Lähetetään tarvittaessa signaalit

@@ -10,6 +10,7 @@ var kbm_ui = Array()
 func _ready():
 	visible = false
 	kategorisoi_ui()
+	vaihda_ui(true)
 
 
 ## Vaihtaa UI-elementtejen näkyvyyden käytettävissä annetun ohjaimen mukaan.

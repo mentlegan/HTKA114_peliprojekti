@@ -15,10 +15,17 @@ var otsikot = {}
 var viimeisin_sivu = 1
 var nykyinen_sivu = 1
 
+var sivun_vaihto_ajastin: Timer
+
 
 func _ready():
 	paivita_sivunumero()
 	journal_nakyviin()
+
+	sivun_vaihto_ajastin = Timer.new()
+	sivun_vaihto_ajastin.wait_time = 0.05
+	sivun_vaihto_ajastin.one_shot = true
+	self.add_child(sivun_vaihto_ajastin)
 
 
 ## Lisää journaliin tekstipätkän annettuun sivunumeroon. Sivunumeron on oltava >= 1.
@@ -72,6 +79,10 @@ func _input(_event: InputEvent) -> void:
 ## Vaihtaa sivua eteen- tai taaksepäin annetun kokonaisluvun verran.
 ## Vaihtaa samalla sivun spriteä.
 func vaihda_sivua(delta):
+	if not sivun_vaihto_ajastin.is_stopped():
+		return
+	sivun_vaihto_ajastin.start()
+
 	var viime_sivu = nykyinen_sivu
 
 	nykyinen_sivu = clamp(nykyinen_sivu + delta, 1, viimeisin_sivu)
