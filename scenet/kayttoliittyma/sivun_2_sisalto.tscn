@@ -33,7 +33,7 @@ offset_bottom = 346.0
 text = "healthy"
 autowrap_mode = 2
 
-[node name="Label6" type="Label" parent="." index="3"]
+[node name="Label6" type="RichTextLabel" parent="." index="3"]
 auto_translate_mode = 1
 modulate = Color(0.180392, 0.12549, 0.0823529, 1)
 layout_mode = 0
@@ -41,6 +41,7 @@ offset_left = 334.0
 offset_top = 394.0
 offset_right = 442.0
 offset_bottom = 420.0
+bbcode_enabled = true
 text = "dead?"
 autowrap_mode = 2
 
@@ -77,9 +78,9 @@ theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
 bbcode_enabled = true
 text = "After running some experiments, I discovered the logic behind the vines and their colors! 
 
-[shake][color=red]Red[/color][/shake] flowers affect [tornado][color=red]red[/color][/tornado] and [wave][color=purple]purple[/color][/wave] flowers 
-[color=purple]Purple[/color] flowers affect [color=darkgreen]all flowers[/color]
-[color=blue]Blue flowers[/color] affect [color=blue]blue[/color] and [color=purple]purple[/color] flowers "
+[wave][outline_size=4][outline_color=red][color=white]Red[/color][/outline_color][/outline_size][/wave] flowers affect [wave][outline_size=4][outline_color=red][color=white]red[/color][/outline_color][/outline_size][/wave] and [wave][outline_size=4][outline_color=purple][color=white]purple[/color][/outline_color][/outline_size][/wave] flowers 
+[wave][outline_size=4][outline_color=purple][color=white]Purple[/color][/outline_color][/outline_size][/wave] flowers affect [wave][outline_size=4][outline_color=darkgreen][color=white]all flowers[/color][/outline_color][/outline_size][/wave]
+[wave][outline_size=4][outline_color=blue][color=white]Blue[/color][/outline_color][/outline_size][/wave] flowers affect [wave][outline_size=4][outline_color=blue][color=white]blue[/color][/outline_color][/outline_size][/wave] and [wave][outline_size=4][outline_color=purple][color=white]purple[/color][/outline_color][/outline_size][/wave] flowers "
 autowrap_mode = 2
 
 [node name="Label7" type="Label" parent="." index="7"]
