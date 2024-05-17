@@ -423,6 +423,7 @@ func myrkky_damage():
 ## Myrkky damagen timeri päälle
 func myrkky_timer():
 	if myrkky_ajastin.time_left == 0:
+		myrkky_damage()
 		myrkky_ajastin.start(myrkyn_damage_nopeus)
 
 ## Vaihdetaan kameran tärinän arvoa
