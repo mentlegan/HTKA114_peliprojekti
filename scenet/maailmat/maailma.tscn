@@ -413,7 +413,7 @@ rotation = 0.0886193
 polygon = PackedVector2Array(49.0977, -57.5713, 13, -60, -48, -67, -73.752, -61.7148, -76.8506, -51.4001, -79, -27, -82, 5, -78, 25, -57, 26, -13, 31, 34, 29, 50.29, 23.6421, 54, 8, 54.3203, -43.9802)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1296, 825)
+position = Vector2(1299, 831)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -1406,26 +1406,26 @@ position = Vector2(6237.71, 535.19)
 
 [node name="Ovet_4" type="Node2D" parent="Koynnosovet"]
 
-[node name="Ovi_x" type="Node2D" parent="Koynnosovet/Ovet_4" groups=["0", "oviV", "x"]]
+[node name="Ovi_x" type="Node2D" parent="Koynnosovet/Ovet_4" groups=["0", "ei_resetoi", "oviV", "x"]]
 position = Vector2(6440.98, 16.6841)
 rotation = -1.90561
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_4/Ovi_x" instance=ExtResource("16_8728b")]
 
-[node name="Ovi_x2" type="Node2D" parent="Koynnosovet/Ovet_4" groups=["0", "oviV", "x"]]
+[node name="Ovi_x2" type="Node2D" parent="Koynnosovet/Ovet_4" groups=["0", "ei_resetoi", "oviV", "x"]]
 position = Vector2(6574.86, 65.01)
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_4/Ovi_x2" instance=ExtResource("16_8728b")]
 position = Vector2(-2.6226e-06, 1.90735e-06)
 rotation = 0.00887834
 
-[node name="Ovi_z" type="Node2D" parent="Koynnosovet/Ovet_4" groups=["0", "oviV", "z"]]
+[node name="Ovi_z" type="Node2D" parent="Koynnosovet/Ovet_4" groups=["0", "ei_resetoi", "oviV", "z"]]
 position = Vector2(6274.96, -796.723)
 rotation = 1.5247
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_4/Ovi_z" instance=ExtResource("13_vnqp0")]
 
-[node name="Ovi_z2" type="Node2D" parent="Koynnosovet/Ovet_4" groups=["0", "oviV", "z"]]
+[node name="Ovi_z2" type="Node2D" parent="Koynnosovet/Ovet_4" groups=["0", "ei_resetoi", "oviV", "z"]]
 position = Vector2(6503.2, -895.167)
 
 [node name="Ovi_vasen" parent="Koynnosovet/Ovet_4/Ovi_z2" instance=ExtResource("13_vnqp0")]

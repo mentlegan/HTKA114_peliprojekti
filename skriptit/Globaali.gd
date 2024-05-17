@@ -345,6 +345,9 @@ func alusta_koynnosovet():
 						collisionit.append(oven_lapsi.get_child(0))
 				# Jos 0 eli kiinni
 				if lapsenlapsi.is_in_group("0") and !lapsenlapsi.is_in_group("risti"):
+					# Ei resetoida ennen ovipuzzlea olevia neljää ovea
+					if lapsenlapsi.is_in_group("ei_resetoi"):
+						continue
 					# Kiinni
 					lapsenlapsi.get_child(0).get_node("AnimatedSprite2D").play_backwards("change")
 					for collision in collisionit:
