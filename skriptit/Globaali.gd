@@ -122,7 +122,9 @@ func _ready():
 	pelaaja_aloitus = pelaaja.position
 	
 	# Lisätään sceneen tausta
-	self.add_child(tausta.instantiate())
+	var tausta_node = tausta.instantiate()
+	tausta_node.z_index = -10
+	self.add_child(tausta_node)
 	
 	# Aloitetaan musiikki 
 	musiikki.play()

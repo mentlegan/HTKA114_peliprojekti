@@ -1992,6 +1992,7 @@ max_distance = 450.0
 parameters/looping = true
 
 [node name="TaustaElementit" type="Node2D" parent="Muuta"]
+z_index = -5
 
 [node name="VihollisRihmasto" type="Node2D" parent="Muuta/TaustaElementit"]
 
