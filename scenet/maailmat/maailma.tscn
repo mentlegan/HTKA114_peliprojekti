@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=117 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
@@ -76,6 +76,7 @@
 [ext_resource type="Texture2D" uid="uid://po5f826mnppq" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
 [ext_resource type="Texture2D" uid="uid://pgblpv3cr708" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
 [ext_resource type="Texture2D" uid="uid://c23ir3101imyc" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
+[ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="75_4248i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
 atlas = ExtResource("9_75e1e")
@@ -258,6 +259,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_5p3ni"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8qypm"]
+gradient = SubResource("Gradient_5p3ni")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.986239, 0.522936)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bnuep"]
+radius = 619.427
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2lsd"]
 size = Vector2(2383.5, 805)
 
@@ -272,6 +287,18 @@ size = Vector2(2219, 1257)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1v6da"]
 size = Vector2(2146, 1158)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gkwfk"]
+polygon = PackedVector2Array(1.98438, -90.439, -2.01562, -88.439, -1.01562, -81.439)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_die24"]
+polygon = PackedVector2Array(12386, -1544, 12384, -1538, 12388, -1540)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u14n4"]
+polygon = PackedVector2Array(12374, -1548, 12374, -1542, 12380, -1558)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n2nwd"]
+polygon = PackedVector2Array(12404, -1540, 12404, -1538, 12405, -1540)
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 
@@ -398,10 +425,10 @@ polygon = PackedVector2Array(3282, -101, 3270, -99, 3267, -95, 3266, -84, 3266, 
 
 [node name="Polygon2D11_5" type="Polygon2D" parent="Tiilet"]
 position = Vector2(-8, 15)
-polygon = PackedVector2Array(9476, -693, 9497, -670, 9548, -634, 9558, -622, 9566, -609, 9573, -586, 9577, -578, 9590, -576, 9596, -574, 9598, -639, 9728, -634, 9724, -570, 9732, -570, 9740, -580, 9751, -590, 9793, -607, 9900, -605, 9952, -612, 10064, -631, 10246, -614, 10263, -608, 10272, -608, 10278, -618, 10289, -692, 10331, -700, 10351, -745, 10365, -799, 10382, -870, 10436, -974, 10499, -1165, 10575, -1263, 10665, -1291, 10878, -1330, 11062, -1368, 11336, -1379, 11533, -1398, 11863, -1408, 12099, -1415, 12177, -1493, 12160, -1595, 12084, -1690, 11802, -1788, 11522, -1792, 10969, -1811, 10308, -1794, 9844, -1760, 9414, -1731, 9107, -1663, 9100, -1633)
+polygon = PackedVector2Array(9476, -693, 9497, -670, 9548, -634, 9558, -622, 9566, -609, 9573, -586, 9577, -578, 9590, -576, 9596, -574, 9598, -639, 9728, -634, 9724, -570, 9732, -570, 9740, -580, 9751, -590, 9793, -607, 9900, -605, 9952, -612, 10064, -631, 10246, -614, 10263, -608, 10272, -608, 10278, -618, 10289, -692, 10331, -700, 10351, -745, 10365, -799, 10382, -870, 10436, -974, 10499, -1165, 10575, -1263, 10665, -1291, 10878, -1330, 11062, -1368, 11336, -1379, 11533, -1398, 11863, -1408, 12099, -1415, 12321, -1467, 12369, -1527, 12416, -2477, 11601, -2489, 11307, -2277, 10646, -2307, 10123, -2178, 9600, -2093, 9338, -1821, 9107, -1663, 9100, -1633)
 
 [node name="Polygon2D12_5" type="Polygon2D" parent="Tiilet"]
-polygon = PackedVector2Array(9504, -427, 9562, -424, 9638, -417, 9733, -415, 9783, -403, 9799, -396, 9803, -382, 9803, -336, 9814, -296, 9818, -210, 9823, -127, 9821, -49, 9821, -11, 9818, 30, 9823, 118, 9830, 151, 9887, 158, 9933, 164, 9979, 172, 10028, 125, 10054, 77, 10068, 26, 10082, -25, 10092, -77, 10105, -153, 10117, -223, 10130, -293, 10152, -355, 10183, -362, 10206, -357, 10221, -335, 10220, -306, 10221, -277, 10229, -236, 10243, -163, 10236, -79, 10240, -9, 10232, 69, 10251, 148, 10290, 190, 10362, 198, 10430, 212, 10465, 183, 10520, 166, 10548, 109, 10571, 39, 10577, -48, 10587, -154, 10611, -278, 10614, -307, 10630, -316, 10657, -321, 10684, -313, 10701, -303, 10702, -286, 10705, -256, 10714, -216, 10717, -149, 10720, -82, 10715, 11, 10712, 84, 10733, 162, 10806, 189, 10870, 195, 10932, 190, 10975, 185, 11009, 124, 11024, 60, 11037, -12, 11044, -82, 11051, -157, 11064, -226, 11080, -281, 11182, -323, 11417, -356, 11667, -348, 11800, -341, 11892, -344, 11971, -351, 12061, -415, 12092, -463, 12121, -591, 12118, -677, 12099, -741, 12065, -780, 12037, -816, 11975, -840, 11891, -850, 11753, -830, 11619, -824, 11491, -816, 11357, -808, 11213, -810, 11205, -795, 11187, -785, 11163, -777, 11153, -780, 11151, -869, 11028, -872, 10837, -870, 10834, -833, 10834, -812, 10832, -798, 10831, -791, 10831, -777, 10883, -774, 10895, -771, 10903, -759, 10901, -747, 10889, -738, 10881, -723, 10872, -713, 10843, -713, 10823, -717, 10801, -739, 10776, -736, 10749, -749, 10718, -747, 10679, -749, 10639, -756, 10596, -759, 10569, -755, 10552, -765, 10552, -789, 10564, -809, 10590, -831, 10666, -859, 10693, -882, 10732, -906, 10773, -920, 10789, -939, 10839, -960, 10898, -1000, 11058, -1026, 11146, -1057, 11307, -1083, 11476, -1117, 11728, -1143, 11897, -1143, 12052, -1133, 12187, -1105, 12266, -1086, 12425, -1079, 12649, -1095, 12794, -1076, 12887, -1019, 12915, -919, 12898, -662, 12822, -301, 12713, -39, 12520, 294, 12323, 384, 12049, 470, 11842, 539, 11628, 596, 11398, 658, 11224, 677, 10965, 722, 10551, 729, 10227, 705, 9942, 667, 9745, 636, 9538, 632, 9336, 620, 9179, 605, 9048, 544, 8938, 408, 9490, 65)
+polygon = PackedVector2Array(9504, -427, 9562, -424, 9638, -417, 9733, -415, 9783, -403, 9799, -396, 9803, -382, 9803, -336, 9814, -296, 9818, -210, 9823, -127, 9821, -49, 9821, -11, 9818, 30, 9823, 118, 9830, 151, 9887, 158, 9933, 164, 9979, 172, 10028, 125, 10054, 77, 10068, 26, 10082, -25, 10092, -77, 10105, -153, 10117, -223, 10130, -293, 10152, -355, 10183, -362, 10206, -357, 10221, -335, 10220, -306, 10221, -277, 10229, -236, 10243, -163, 10236, -79, 10240, -9, 10232, 69, 10251, 148, 10290, 190, 10362, 198, 10430, 212, 10465, 183, 10520, 166, 10548, 109, 10571, 39, 10577, -48, 10587, -154, 10611, -278, 10614, -307, 10630, -316, 10657, -321, 10684, -313, 10701, -303, 10702, -286, 10705, -256, 10714, -216, 10717, -149, 10720, -82, 10715, 11, 10712, 84, 10733, 162, 10806, 189, 10870, 195, 10932, 190, 10975, 185, 11009, 124, 11024, 60, 11037, -12, 11044, -82, 11051, -157, 11064, -226, 11080, -281, 11182, -323, 11417, -356, 11667, -348, 11800, -341, 11892, -344, 11971, -351, 12061, -415, 12092, -463, 12121, -591, 12118, -677, 12099, -741, 12065, -780, 12037, -816, 11975, -840, 11891, -850, 11753, -830, 11619, -824, 11491, -816, 11357, -808, 11213, -810, 11205, -795, 11187, -785, 11163, -777, 11153, -780, 11151, -869, 11028, -872, 10837, -870, 10834, -833, 10834, -812, 10832, -798, 10831, -791, 10831, -777, 10883, -774, 10895, -771, 10903, -759, 10901, -747, 10889, -738, 10881, -723, 10872, -713, 10843, -713, 10823, -717, 10801, -739, 10776, -736, 10749, -749, 10718, -747, 10679, -749, 10639, -756, 10596, -759, 10569, -755, 10552, -765, 10552, -789, 10564, -809, 10590, -831, 10666, -859, 10693, -882, 10732, -906, 10773, -920, 10789, -939, 10839, -960, 10898, -1000, 11058, -1026, 11146, -1057, 11307, -1083, 11476, -1117, 11728, -1143, 11897, -1143, 12052, -1133, 12187, -1105, 12266, -1086, 12409, -1129, 12560, -1230, 12552, -1348, 12432, -1449, 12425.7, -1761.96, 12403, -2421, 14360, -2825, 14190, -1227, 14142, -757, 14145, -367, 12822, -301, 12713, -39, 12520, 294, 12323, 384, 12049, 470, 11842, 539, 11628, 596, 11398, 658, 11224, 677, 10965, 722, 10551, 729, 10227, 705, 9942, 667, 9745, 636, 9538, 632, 9336, 620, 9179, 605, 9048, 544, 8938, 408, 9490, 65)
 
 [node name="Polygon2D13_5" type="Polygon2D" parent="Tiilet"]
 position = Vector2(-141, 99)
@@ -413,7 +440,7 @@ rotation = 0.0886193
 polygon = PackedVector2Array(49.0977, -57.5713, 13, -60, -48, -67, -73.752, -61.7148, -76.8506, -51.4001, -79, -27, -82, 5, -78, 25, -57, 26, -13, 31, 34, 29, 50.29, 23.6421, 54, 8, 54.3203, -43.9802)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1337, 843)
+position = Vector2(11186, -1162)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -2910,6 +2937,30 @@ position = Vector2(5352, 95)
 [node name="myrkkysieni6" parent="Muuta" instance=ExtResource("56_7csj5")]
 position = Vector2(5626, 110)
 
+[node name="Area2D" type="Area2D" parent="Muuta" groups=["valonlahde"]]
+position = Vector2(12401, -1614)
+collision_layer = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="Muuta/Area2D"]
+texture_filter = 2
+position = Vector2(-2, -69)
+energy = 5.26
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_8qypm")
+texture_scale = 5.27
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muuta/Area2D"]
+shape = SubResource("CircleShape2D_bnuep")
+
+[node name="Label" type="Label" parent="Muuta"]
+z_index = 99
+material = ExtResource("75_4248i")
+offset_left = 12272.0
+offset_top = -1279.0
+offset_right = 12442.0
+offset_bottom = -1256.0
+text = "Thank you for playing!"
+
 [node name="Tasot" type="Area2D" parent="."]
 visible = false
 
@@ -2957,6 +3008,24 @@ unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("37_khmdb")
 bus = &"Musiikki"
+
+[node name="Varjot" type="Node2D" parent="."]
+
+[node name="Polygon2D8" type="LightOccluder2D" parent="Varjot"]
+position = Vector2(12414, -1490.56)
+occluder = SubResource("OccluderPolygon2D_gkwfk")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Varjot"]
+position = Vector2(6, -39)
+occluder = SubResource("OccluderPolygon2D_die24")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Varjot"]
+position = Vector2(6, -39)
+occluder = SubResource("OccluderPolygon2D_u14n4")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Varjot"]
+position = Vector2(6, -39)
+occluder = SubResource("OccluderPolygon2D_n2nwd")
 
 [connection signal="transitio" from="Pelaaja" to="KayttoLiittyma/Transitio" method="_on_pelaaja_transitio"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]
