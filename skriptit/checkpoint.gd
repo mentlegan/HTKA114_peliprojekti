@@ -26,4 +26,3 @@ func _on_body_entered(body):
 		tween.tween_property($Area2D/CollisionShape2D, "scale", Vector2(3, 3), 2)
 		tween.tween_property($Area2D/PointLight2D, "energy", 1.2, 2)
 		$Area2D/PointLight2D.visible = true
-		$Area2D.add_to_group("valonlahde")
