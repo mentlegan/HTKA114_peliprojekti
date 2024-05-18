@@ -459,7 +459,10 @@ func _game_over():
 	pelaaja.animaatio.visible = false
 	pelaaja.pauseAnimaatiot.visible = true
 	pelaaja.pauseAnimaatiot.play("kuolema")
-	pelaaja.siirrytty_valoon()
+	pelaaja.kuolema_tween.kill()
+	pelaaja.audio_pimeyskuolema.stop()
+	pelaaja.pimeyskuolema.stop()
+	pelaaja.pimeyskuolema.modulate.a = 0.0
 	get_tree().paused = true # Peli pauselle, kun se päättyy. Voi hienojen animaatioiden kanssa tietysti myös jättää pausettamatta,
 	# tai pausettaa peli muuten, mutta hienot kuolema-animaatiot silti toimivat normaalisti
 	await get_tree().create_timer(2,5).timeout # Pieni ajastin, että game over ei ihan heti tule
