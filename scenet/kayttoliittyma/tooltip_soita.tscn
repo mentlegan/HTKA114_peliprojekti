@@ -1,25 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6cgaubnivnjh"]
+[gd_scene load_steps=6 format=3 uid="uid://b6cgaubnivnjh"]
 
 [ext_resource type="PackedScene" uid="uid://mch12jl02nqd" path="res://scenet/kayttoliittyma/tooltip.tscn" id="1_5egfl"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="2_sna2d"]
 [ext_resource type="Texture2D" uid="uid://bl2oyqscnuv4b" path="res://grafiikka/OhjainTooltipRT.png" id="3_l6hvu"]
 [ext_resource type="Texture2D" uid="uid://dia3pj1ms5s84" path="res://grafiikka/HiiriTooltipR.png" id="3_n2f5a"]
+[ext_resource type="Texture2D" uid="uid://hfy2jjb4o2eu" path="res://grafiikka/OhjainTooltipTattiL.png" id="4_valhm"]
 
 [node name="TooltipSoita" instance=ExtResource("1_5egfl")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 material = ExtResource("2_sna2d")
 use_parent_material = true
-position = Vector2(-18, 7)
+position = Vector2(-18, 39)
 texture = ExtResource("3_l6hvu")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." index="2"]
+[node name="Sprite2D3" type="Sprite2D" parent="." index="2"]
 material = ExtResource("2_sna2d")
 use_parent_material = true
-position = Vector2(20, 7)
-texture = ExtResource("3_n2f5a")
+position = Vector2(-18, 10)
+texture = ExtResource("4_valhm")
 
-[node name="Label" type="Label" parent="Sprite2D2" index="0"]
+[node name="Label2" type="Label" parent="." index="3"]
 auto_translate_mode = 1
 texture_filter = 1
 material = ExtResource("2_sna2d")
@@ -29,17 +30,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -27.5
-offset_right = 4.0
-offset_bottom = -4.5
+offset_left = -37.0
+offset_top = 13.0
+offset_right = 3.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
+text = "+"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="." index="3"]
+[node name="Sprite2D2" type="Sprite2D" parent="." index="4"]
+material = ExtResource("2_sna2d")
+use_parent_material = true
+position = Vector2(20, 7)
+texture = ExtResource("3_n2f5a")
+
+[node name="Label" type="Label" parent="." index="5"]
 auto_translate_mode = 1
 texture_filter = 1
 material = ExtResource("2_sna2d")
