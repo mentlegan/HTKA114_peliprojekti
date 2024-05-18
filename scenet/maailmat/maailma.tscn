@@ -440,7 +440,7 @@ rotation = 0.0886193
 polygon = PackedVector2Array(49.0977, -57.5713, 13, -60, -48, -67, -73.752, -61.7148, -76.8506, -51.4001, -79, -27, -82, 5, -78, 25, -57, 26, -13, 31, 34, 29, 50.29, 23.6421, 54, 8, 54.3203, -43.9802)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(11186, -1162)
+position = Vector2(1342, 811)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -2922,17 +2922,11 @@ texture = ExtResource("62_b454l")
 [node name="myrkkysieni" parent="Muuta" instance=ExtResource("56_7csj5")]
 position = Vector2(5133, 82)
 
-[node name="myrkkysieni2" parent="Muuta" instance=ExtResource("56_7csj5")]
-position = Vector2(5187, 91)
-
 [node name="myrkkysieni3" parent="Muuta" instance=ExtResource("56_7csj5")]
 position = Vector2(5269, 95)
 
 [node name="myrkkysieni4" parent="Muuta" instance=ExtResource("56_7csj5")]
 position = Vector2(5435, 100)
-
-[node name="myrkkysieni5" parent="Muuta" instance=ExtResource("56_7csj5")]
-position = Vector2(5352, 95)
 
 [node name="myrkkysieni6" parent="Muuta" instance=ExtResource("56_7csj5")]
 position = Vector2(5626, 110)
