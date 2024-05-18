@@ -426,7 +426,7 @@ func toggle_journal(avaa_valosta_riippumatta = false):
 func lisaa_sivu(sivun_sisalto: SivunSisalto, otsikko: String, sivunumero: int):
 	journal.lisaa_sivu(sivun_sisalto, otsikko, sivunumero)
 	journal.nykyinen_sivu = sivunumero
-	toggle_journal(true)
+	#toggle_journal(true)
 
 
 ## Yleinen funktio pelaajan teleporttaamiseen päämäärään, jossa poistetaan fall-damage ongelmat
