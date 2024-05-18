@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://dskh1b4twfo2c" path="res://scenet/kayttoliittyma/journal.tscn" id="4_sg152"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="4_udkay"]
-[ext_resource type="AudioStream" uid="uid://c7jun7xenep5t" path="res://audio/journal/journal.mp3" id="5_fl043"]
+[ext_resource type="AudioStream" uid="uid://bw1uo5wld4fau" path="res://audio/journal/journal.mp3" id="5_fl043"]
 [ext_resource type="PackedScene" uid="uid://dd71njcqglaep" path="res://scenet/transitio.tscn" id="7_f6xdr"]
 [ext_resource type="Texture2D" uid="uid://lxurmqd1rdhq" path="res://grafiikka/Timer-Sheet.png" id="9_75e1e"]
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://scenet/kayttoliittyma/game_over_ruutu.tscn" id="9_er4wh"]
@@ -42,7 +42,7 @@
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
-[ext_resource type="AudioStream" uid="uid://cpmfj4bjtbdwp" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
+[ext_resource type="AudioStream" uid="uid://bdovrao6gdchs" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
 [ext_resource type="PackedScene" uid="uid://o1g7x7mnf5b" path="res://scenet/ovet/ovi_oikea_y.tscn" id="28_1m8ka"]
@@ -53,29 +53,29 @@
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="32_a8tci"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="33_y2rdp"]
 [ext_resource type="PackedScene" uid="uid://4ehb4n76ts5g" path="res://scenet/checkpoint.tscn" id="35_je5yh"]
-[ext_resource type="AudioStream" uid="uid://cy61u33b2kl6n" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
+[ext_resource type="AudioStream" uid="uid://cbsj1meo6popj" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
 [ext_resource type="AudioStream" uid="uid://bw6cpa2qyrfll" path="res://audio/musiikki/ambient1_2_loop.wav" id="37_khmdb"]
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
 [ext_resource type="Script" path="res://skriptit/vesiputous.gd" id="45_dq3qu"]
 [ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="45_ocnt8"]
-[ext_resource type="Texture2D" uid="uid://co71a2xv44bg1" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
-[ext_resource type="Texture2D" uid="uid://b46k13q3hkyx8" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
-[ext_resource type="Texture2D" uid="uid://frflut5b4aoy" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
-[ext_resource type="AudioStream" uid="uid://bimt6c8kr6sd0" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
+[ext_resource type="Texture2D" uid="uid://clttu8e303a06" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
+[ext_resource type="Texture2D" uid="uid://dtlfy6r075w4f" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
+[ext_resource type="Texture2D" uid="uid://dwuo2xlogt6p7" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
+[ext_resource type="AudioStream" uid="uid://btexh0h4wnc6h" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
 [ext_resource type="PackedScene" uid="uid://3oa14w4m8khu" path="res://scenet/Animatic.tscn" id="55_a4dph"]
 [ext_resource type="PackedScene" uid="uid://bbxindymh45dn" path="res://scenet/myrkkysieni.tscn" id="56_7csj5"]
-[ext_resource type="Texture2D" uid="uid://dbc2lbjojgejm" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
-[ext_resource type="Texture2D" uid="uid://bsii6oep4kswp" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
-[ext_resource type="Texture2D" uid="uid://v6uvyjhjrtml" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
-[ext_resource type="Texture2D" uid="uid://1kmqcttb0r8n" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
-[ext_resource type="Texture2D" uid="uid://rh2h1s46i0y4" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
-[ext_resource type="Texture2D" uid="uid://cmoj5qy8b3nvq" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
-[ext_resource type="Texture2D" uid="uid://bi678rmv41o0h" path="res://grafiikka/TaustaElementit/SmallRocks.png" id="61_u2j4x"]
-[ext_resource type="Texture2D" uid="uid://po5f826mnppq" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
-[ext_resource type="Texture2D" uid="uid://pgblpv3cr708" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
-[ext_resource type="Texture2D" uid="uid://c23ir3101imyc" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
+[ext_resource type="Texture2D" uid="uid://dibmrmlueeoxv" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
+[ext_resource type="Texture2D" uid="uid://ct3jeqqoqqcfl" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
+[ext_resource type="Texture2D" uid="uid://d1vj045ihnv6q" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
+[ext_resource type="Texture2D" uid="uid://bkegxuidgaddh" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
+[ext_resource type="Texture2D" uid="uid://ddfy6iapophuy" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
+[ext_resource type="Texture2D" uid="uid://efgmq08w2dar" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
+[ext_resource type="Texture2D" uid="uid://bqvv7pe310mt4" path="res://grafiikka/TaustaElementit/SmallRocks.png" id="61_u2j4x"]
+[ext_resource type="Texture2D" uid="uid://n0e6sfnnd67x" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
+[ext_resource type="Texture2D" uid="uid://b7oikkf6mf46a" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
+[ext_resource type="Texture2D" uid="uid://2xtt51sh1yty" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="75_4248i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
@@ -365,7 +365,7 @@ polygon = PackedVector2Array(2051, 317, 2608, 514, 2638, 525, 2668, 542, 2734, 5
 
 [node name="Polygon2D4_2" type="Polygon2D" parent="Tiilet"]
 position = Vector2(1764, -1905)
-polygon = PackedVector2Array(1432, 791, 2061, 801, 2143, 809, 2218, 846, 2245, 938, 2242, 982, 2231, 993, 1836, 965, 1837, 1206, 1997, 1229, 2124, 1271, 2187, 1300, 2219, 1315, 2300, 1337, 2440, 1340, 2633, 1339, 3033, 1316, 3197, 1315, 3253, 1312, 3401, 1299, 3471, 1289, 3504, 1274, 3523, 1265, 3534, 1258, 3545, 1246, 3549, 1239, 3550, 1228, 3548, 1223, 3542, 1220, 3533, 1218, 3520, 1208, 3517, 1197, 3525, 1189, 3539, 1188, 3550, 1186, 3579, 1164, 3585, 1153, 3583, 1141, 3578, 1131, 3570, 1114, 3559, 1108, 3555, 1103, 3527, 1104, 3520, 1109, 3517, 1099, 3522, 1092, 3531, 1085, 3583, 1080, 3684, 1075, 3808, 1074, 3994, 1074, 4164, 1071, 4313, 1067, 4412, 1062, 4424, 1062, 4434, 1064, 4439, 1066, 4443, 1070, 4447, 1094, 4455, 1126, 4477, 1376, 4489, 1435, 4496, 1538, 4511, 1683, 4517, 1810, 4521, 1855, 4524, 1873, 4529, 1901, 4532, 1908, 4537, 1912, 4544, 1916, 4554, 1919, 4562, 1922, 4571, 1924, 4583, 1925, 4600, 1927, 4617, 1929, 4620, 1932, 4623, 1939, 4627, 1948, 4625, 1951, 4621, 1953, 4614, 1952, 4603, 1951, 4587, 1947, 4565, 1943, 4546, 1943, 4533, 1940, 4520, 1929, 4497, 1923, 4459, 1920, 4417, 1908, 4350, 1902, 4269, 1899, 4240, 1911, 4190, 1912, 4149, 1908, 4121, 1920, 4088, 1931, 4044, 1929, 3986, 1932, 3916, 1929, 3822, 1903, 3688, 1912, 3653, 1922, 3613, 1919, 3545, 1897, 3473, 1867, 3341, 1852, 3214, 1858, 3096, 1858, 2915, 1843, 2770, 1822, 2627, 1798, 2552, 1831, 2504, 1849, 2468, 1879, 1845, 2361, 1826, 2278, 1803, 2245, 1784, 2211, 1745, 2128, 1732, 2090, 1679, 1998, 1669, 1977, 1663, 1968, 1648, 1962, 1633, 1965, 1617, 1961, 1574, 1968, 1554, 1976, 1492, 1981, 1457, 1990, 1400, 1995, 1340, 1978, 1302, 1967, 1267, 1953, 1233, 1953, 1201, 1944, 1181, 1935, 1161, 1922, 1157, 1889, 1171, 1849, 1172, 1792, 1170, 1752, 1165, 1733, 1168, 1718, 1177, 1708, 1197, 1699, 1218, 1680, 1235, 1662, 1250, 1646, 1256, 1617, 1262, 1578, 1326, 1045, 1351, 924, 1382, 826)
+polygon = PackedVector2Array(1432, 791, 2061, 801, 2143, 809, 2218, 846, 2245, 938, 2242, 982, 2231, 993, 1836, 965, 1837, 1206, 1997, 1229, 2124, 1271, 2187, 1300, 2219, 1315, 2300, 1337, 2440, 1340, 2633, 1339, 3033, 1316, 3197, 1315, 3253, 1312, 3401, 1299, 3471, 1289, 3504, 1274, 3523, 1265, 3534, 1258, 3545, 1246, 3549, 1239, 3550, 1228, 3548, 1223, 3542, 1220, 3533, 1218, 3520, 1208, 3517, 1197, 3525, 1189, 3539, 1188, 3550, 1186, 3579, 1164, 3585, 1153, 3583, 1141, 3578, 1131, 3570, 1114, 3559, 1108, 3555, 1103, 3527, 1104, 3524, 1103, 3523, 1098, 3522, 1092, 3531, 1085, 3583, 1080, 3684, 1075, 3808, 1074, 3994, 1074, 4164, 1071, 4313, 1067, 4412, 1062, 4424, 1062, 4434, 1064, 4439, 1066, 4443, 1070, 4447, 1094, 4455, 1126, 4477, 1376, 4489, 1435, 4496, 1538, 4511, 1683, 4517, 1810, 4521, 1855, 4524, 1873, 4529, 1901, 4532, 1908, 4537, 1912, 4544, 1916, 4554, 1919, 4562, 1922, 4571, 1924, 4583, 1925, 4600, 1927, 4617, 1929, 4620, 1932, 4623, 1939, 4627, 1948, 4625, 1951, 4621, 1953, 4614, 1952, 4603, 1951, 4587, 1947, 4565, 1943, 4546, 1943, 4533, 1940, 4520, 1929, 4497, 1923, 4459, 1920, 4417, 1908, 4350, 1902, 4269, 1899, 4240, 1911, 4190, 1912, 4149, 1908, 4121, 1920, 4088, 1931, 4044, 1929, 3986, 1932, 3916, 1929, 3822, 1903, 3688, 1912, 3653, 1922, 3613, 1919, 3545, 1897, 3473, 1867, 3341, 1852, 3214, 1858, 3096, 1858, 2915, 1843, 2770, 1822, 2627, 1798, 2552, 1831, 2504, 1849, 2468, 1879, 1845, 2361, 1826, 2278, 1803, 2245, 1784, 2211, 1745, 2128, 1732, 2090, 1679, 1998, 1669, 1977, 1663, 1968, 1648, 1962, 1633, 1965, 1617, 1961, 1574, 1968, 1554, 1976, 1492, 1981, 1457, 1990, 1400, 1995, 1340, 1978, 1302, 1967, 1267, 1953, 1233, 1953, 1201, 1944, 1181, 1935, 1161, 1922, 1157, 1889, 1171, 1849, 1172, 1792, 1170, 1752, 1165, 1733, 1168, 1718, 1177, 1708, 1197, 1699, 1218, 1680, 1235, 1662, 1250, 1646, 1256, 1617, 1262, 1578, 1326, 1045, 1351, 924, 1382, 826)
 
 [node name="Polygon2D5_2" type="Polygon2D" parent="Tiilet"]
 position = Vector2(1766, -1914)
@@ -440,7 +440,7 @@ rotation = 0.0886193
 polygon = PackedVector2Array(49.0977, -57.5713, 13, -60, -48, -67, -73.752, -61.7148, -76.8506, -51.4001, -79, -27, -82, 5, -78, 25, -57, 26, -13, 31, 34, 29, 50.29, 23.6421, 54, 8, 54.3203, -43.9802)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1342, 811)
+position = Vector2(1314, 834)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
