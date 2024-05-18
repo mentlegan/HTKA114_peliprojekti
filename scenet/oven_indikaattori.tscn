@@ -5,8 +5,8 @@
 
 [sub_resource type="Curve" id="Curve_1fobu"]
 max_value = 2.0
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.133159, 1.86935), 6.64413, 6.64413, 0, 0, Vector2(0.174935, 2), 0.0, 0.0, 0, 0, Vector2(0.503916, 1.71256), 0.0, 0.0, 0, 0, Vector2(1, 1.71256), 0.0, 0.0, 0, 0]
-point_count = 5
+_data = [Vector2(0, 2), 0.0, -1.6, 0, 1, Vector2(0.5, 1.2), 0.0, 0.0, 0, 0, Vector2(1, 1.18681), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_n5bcw"]
 offsets = PackedFloat32Array(0, 0.577465, 0.949296, 1)
