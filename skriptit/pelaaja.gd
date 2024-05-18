@@ -65,7 +65,6 @@ var valossa = false
 ## Huilun äänet
 @onready var huilun_aanet = [
 	$HuiluAaniA,
-	$HuiluAaniC,
 	$HuiluAaniE,
 ]
 
@@ -73,13 +72,12 @@ var valossa = false
 @onready var huilun_partikkelit = $Huilu/Partikkelit
 
 ## Äänen taajuus
-var aanen_taajuus = 2
+var aanen_taajuus = 1
 const AANEN_TAAJUUS_MIN = 1
-const AANEN_TAAJUUS_MAX = 3
+const AANEN_TAAJUUS_MAX = 2
 const AANEN_TAAJUUS_VARIT = [
 	Color.YELLOW,
-	Color.GREEN,
-	Color.BLUE
+	Color.GREEN
 ]
 
 ## UI:n ja kukan keräyksen animaatiota varten
@@ -838,7 +836,7 @@ func aseta_ui_nakyvyys(nakyvissa):
 ## Kun huiluun osuu rigid/staticbody, tarkistetaan onko se ovi.
 ## Jos on, vaihdetaan kameraa ja näytetään tason ovet hetkeksi.
 func _on_huilu_body_entered(body):
-	if aanen_taajuus == 3:
+	if aanen_taajuus == 2:
 		var nimi = body.get_name()
 		# Testataan näin, miten toimii
 		# Alkuperäisellä tavalla kutsuu kahdesti
