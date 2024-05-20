@@ -459,7 +459,8 @@ func _game_over():
 	pelaaja.animaatio.visible = false
 	pelaaja.pauseAnimaatiot.visible = true
 	pelaaja.pauseAnimaatiot.play("kuolema")
-	pelaaja.kuolema_tween.kill()
+	if not pelaaja.kuolema_tween == null:
+		pelaaja.kuolema_tween.kill()
 	pelaaja.audio_pimeyskuolema.stop()
 	pelaaja.pimeyskuolema.stop()
 	pelaaja.pimeyskuolema.modulate.a = 0.0

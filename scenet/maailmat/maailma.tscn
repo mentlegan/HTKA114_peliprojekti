@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=118 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
@@ -154,6 +154,12 @@ _data = {
 "points": PackedVector2Array(-5.65685, 27.5772, 5.65685, -27.5772, 0, -1, -65.5159, -0.629961, 65.5159, 0.629961, 36, 49, -31.5111, -0.756618, 31.5111, 0.756618, 229, 40, 0, 0, 0, 0, 344, 36, 0, 0, 0, 0, 478, 28, 0, 0, 0, 0, 610, 16, 0, 0, 0, 0, 750, 12, 0, 0, 0, 0, 891, 8, -68.646, 10.8847, 68.646, -10.8847, 1038, -1, 0, 0, 0, 0, 1102, -20, 0, 0, 0, 0, 1116, -32, 0, 0, 0, 0, 1108, -44, 62.6757, 15.8955, -62.6757, -15.8955, 1065, -53, 0, 0, 0, 0, 902, -33, 86.429, 4.79626, -86.429, -4.79626, 775, -32, 0, 0, 0, 0, 699, -28, 84.8528, -3.53555, -84.8528, 3.53555, 476, -20, 73.2334, 1.77742, -73.2334, -1.77742, 111, -18, 0, 0, 0, 0, 37, -19, 0, 0, 0, 0, 15, -20, 0, 0, 0, 0, 0, -1)
 }
 point_count = 21
+
+[sub_resource type="Curve2D" id="Curve2D_lnqf1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 45, -18, 0, 0, 0, 0, 54, -15, 0, 0, 0, 0, 78, -15, 0, 0, 0, 0, 139, -15, 0, 0, 0, 0, 206, -22, 0, 0, 0, 0, 222, -38, 0, 0, 0, 0, 234, -52, 0, 0, 0, 0, 240, -75, 0, 0, 0, 0, 244, -94, 0, 0, 0, 0, 246, -122, 0, 0, 0, 0, 238, -147, 0, 0, 0, 0, 224, -155, 0, 0, 0, 0, 190, -163, 0, 0, 0, 0, 166, -164, 0, 0, 0, 0, 139, -158, 0, 0, 0, 0, 125, -165, 0, 0, 0, 0, 127, -177, 0, 0, 0, 0, 131, -183, 0, 0, 0, 0, 164, -184, 0, 0, 0, 0, 187, -182, 0, 0, 0, 0, 224, -179, 0, 0, 0, 0, 232, -175, 0, 0, 0, 0, 243, -171, 0, 0, 0, 0, 252, -156, 0, 0, 0, 0, 255, -132, 0, 0, 0, 0, 261, -103, 0, 0, 0, 0, 254, -70, 0, 0, 0, 0, 240, -34, 0, 0, 0, 0, 223, -14, 0, 0, 0, 0, 196, -8, 0, 0, 0, 0, 162, 0, 0, 0, 0, 0, 128, 3, 0, 0, 0, 0, 88, 7, 0, 0, 0, 0, 48, 10, 0, 0, 0, 0, -6, 19, 0, 0, 0, 0, -29, 12, 0, 0, 0, 0, -39, -5, 0, 0, 0, 0, -30, -25, 0, 0, 0, 0, -4, -29, 0, 0, 0, 0, 13, -26, 0, 0, 0, 0, 23, -25, 0, 0, 0, 0, 44, -19)
+}
+point_count = 42
 
 [sub_resource type="Curve2D" id="Curve2D_eypsu"]
 _data = {
@@ -480,6 +486,13 @@ curve = SubResource("Curve2D_mw22o")
 [node name="Perhonen6" parent="Perhoset" instance=ExtResource("13_ufso7")]
 position = Vector2(1626.09, 684.16)
 rotation = 0.00132818
+
+[node name="Perhonen10" parent="Perhoset" instance=ExtResource("13_ufso7")]
+position = Vector2(2860.07, 699.799)
+rotation = 0.00132818
+
+[node name="Path2D" type="Path2D" parent="Perhoset/Perhonen10"]
+curve = SubResource("Curve2D_lnqf1")
 
 [node name="Perhonen7" parent="Perhoset" instance=ExtResource("13_ufso7")]
 position = Vector2(7061.22, -913.622)
