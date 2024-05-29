@@ -5,10 +5,21 @@ class_name Tooltip
 var ohjain_ui = Array()
 var kbm_ui = Array()
 
+var tween: Tween
+
+var aloitus_sijainti: Vector2
+
+const ANIMAATIO_SIJAINNIN_SIIRROS = Vector2(0, -10)
+const ANIMAATIO_KESTO = 0.5
+const ANIMAATIO_TWEEN = Tween.TRANS_CUBIC
+const ANIMAATIO_EASE = Tween.EASE_OUT
+
 
 ## Piilotetaan tooltip pelin alussa
 func _ready():
-	visible = false
+	modulate.a = 0
+	aloitus_sijainti = position
+	position += ANIMAATIO_SIJAINNIN_SIIRROS
 	kategorisoi_ui()
 	vaihda_ui(true)
 
@@ -57,13 +68,32 @@ func keskipiste(node):
 	return Vector2(0, 0)
 
 
+## Asettaa tooltipille uuden läpinäkyvyyden ja sijainnin Tween-animaation avulla
+func aseta_lapinakyvyys(lapinakyvyys):
+	if tween:
+		tween.kill()
+	
+	tween = create_tween().set_parallel(true).set_trans(ANIMAATIO_TWEEN)
+	tween.set_ease(ANIMAATIO_EASE)
+	
+	tween.tween_property(
+		self, "modulate:a", lapinakyvyys, ANIMAATIO_KESTO
+	)
+	tween.tween_property(
+		self,
+		"position",
+		aloitus_sijainti + (1 - lapinakyvyys) * ANIMAATIO_SIJAINNIN_SIIRROS,
+		ANIMAATIO_KESTO
+	)
+
+
 ## Asetetaan tooltip näkyviin, kun pelaaja astuu sen alueelle
 func _on_body_entered(body):
 	if body is Pelaaja:
-		visible = true
+		aseta_lapinakyvyys(1)
 
 
 ## Piilotetaan tooltip, kun pelaaja poistuu sen alueelta
 func _on_body_exited(body):
 	if body is Pelaaja:
-		visible = false
+		aseta_lapinakyvyys(0)
