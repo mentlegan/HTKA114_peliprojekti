@@ -1,4 +1,4 @@
-## Harri 7.5.2024
+## Harri 30.5.2024
 ## Elias 22.4.2024 äänenkorkeuden muutos
 ## Elias 6.5.2024 äänilähteen vaihtuminen aktiivisen alueen mukaan
 ## Vanhan vihollisen saa takaisin: noden Inspector - process - disabled -> inherit

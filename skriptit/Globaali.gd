@@ -1,4 +1,4 @@
-## Harri 16.5.4.2024
+## Harri 30.5.2024
 ## Paavo 22.4.2024
 ## Elias 22.4.2024
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
@@ -126,8 +126,6 @@ func _ready():
 	tausta_node.z_index = -10
 	self.add_child(tausta_node)
 	
-	# Aloitetaan musiikki 
-	musiikki.play()
 	
 	# Lisätään UI-ajastin
 	self.add_child(ui_ajastin)
@@ -157,6 +155,11 @@ func soita_animatic():
 	get_tree().paused = true # Peli pauselle
 	animatic.visible = true # Animaticin interface ja kuvat näkyviin
 	
+
+
+func soita_musiikki():
+	musiikki.play()
+
 
 ## Poistaa minecart-tooltipit
 func poista_minecart_tooltipit():

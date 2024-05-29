@@ -1,4 +1,4 @@
-## Harri 16.5.2024
+## Harri 30.5.2024
 ## Alkuanimaticia hoitava script
 ## TODO: Voisi vielä laittaa äänet pysähtymään, kun kuvaa vaihtaa, jos ihmiset kokevat sen häiritsevänä
 extends Control
@@ -6,12 +6,15 @@ extends Control
 ## Alustetaan kuvat ja äänet
 @onready var kuvat = %kuvat.get_children()
 @onready var aanet = %aanet.get_children()
+@onready var animatic_musiikki = %animatic_musiikki
+@onready var title_musiikki = %title_musiikki
 
 @onready var nykyinen_kuva = 0 ## Nykyisen kuvan indeksi
 @onready var soitetaanko = Globaali.soitetaan_animatic ## Otetaan globaalilta varmistus
 
 ## Ready tapahtuu, kun scene avautuu
 func _ready():
+	animatic_musiikki.play()
 	# Kysytään globaalilta, että halutaanko animatic soittaa
 	if soitetaanko != null and soitetaanko == true:
 		aanet[0].play() # Soitetaan ensimmäinen ääni ..
@@ -30,7 +33,9 @@ func _on_next_nappi_pressed():
 
 ## Vaihtaa kuvan ja soitaa äänen indeksin perusteella
 func vaihda_kuva(indeksi):
-	if kuvat[nykyinen_kuva] != kuvat[5]: # Varmistetaan, että ei olla viimeisessä kuvassa
+	if kuvat[nykyinen_kuva] == kuvat[5]: # Jos tullaan title-screeniin..
+		animatic_musiikki.stop() # ..lopetetaan aiempi musiikki toisen tieltä
+	if kuvat[nykyinen_kuva] != kuvat[6]: # Varmistetaan, että ei olla viimeisessä kuvassa
 		kuvat[nykyinen_kuva].visible = false # Nykyinen kuva suljetaan
 		kuvat[indeksi].visible = true # Otetaan indeksin kuva, ja esitetään se
 		aanet[indeksi].play() # Soitetaan oikea ääni
@@ -53,6 +58,9 @@ func skippaa():
 		if n.is_playing(): # Jos ääni soi ..
 			n.stop() # .. pysäytetään se
 	get_tree().paused = false # Peli pois pauselta
+	animatic_musiikki.stop()
+	title_musiikki.stop()
+	Globaali.soita_musiikki()
 
 
 ## Kun painetaan quit-nappia

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://3oa14w4m8khu"]
+[gd_scene load_steps=23 format=3 uid="uid://3oa14w4m8khu"]
 
 [ext_resource type="Script" path="res://skriptit/animatic.gd" id="1_ktwnp"]
 [ext_resource type="AudioStream" uid="uid://cns3r7mnoy6l6" path="res://audio/animatic/frame1.mp3" id="2_etvig"]
@@ -12,9 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://c3sk78qaxc5pw" path="res://grafiikka/Frame2.png" id="8_wa757"]
 [ext_resource type="Texture2D" uid="uid://15thstvwtsdy" path="res://grafiikka/Frame3.png" id="9_iif62"]
 [ext_resource type="Texture2D" uid="uid://c7ajfkg1k06m" path="res://grafiikka/Frame4.png" id="10_q0cmt"]
+[ext_resource type="Texture2D" uid="uid://g5biqyufvfxk" path="res://grafiikka/TitleScreen.png" id="10_xrtko"]
 [ext_resource type="Texture2D" uid="uid://ve0s0nsbn83y" path="res://grafiikka/Frame5.png" id="11_7xswd"]
 [ext_resource type="Texture2D" uid="uid://cjypqxwnvuymg" path="res://grafiikka/Frame6.png" id="12_xycnc"]
 [ext_resource type="AudioStream" uid="uid://kyv5pcaicv3d" path="res://audio/pelaaja/falldamage.mp3" id="13_oygfy"]
+[ext_resource type="AudioStream" uid="uid://2qbg0dgs1cfc" path="res://audio/musiikki/title_musiikki.mp3" id="16_l5qh4"]
+[ext_resource type="AudioStream" uid="uid://jjcf2cj8m147" path="res://audio/musiikki/Beneath_the_Mines.mp3" id="17_b6yh4"]
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_qf5wa"]
 pressed = true
@@ -108,7 +111,7 @@ unique_name_in_owner = true
 visible = false
 light_mask = 2
 visibility_layer = 2
-position = Vector2(481, 226)
+position = Vector2(481, 218)
 texture = ExtResource("7_a623f")
 
 [node name="kuva2" type="Sprite2D" parent="kuvat"]
@@ -136,6 +139,12 @@ visible = false
 position = Vector2(480, 220)
 texture = ExtResource("12_xycnc")
 
+[node name="title_screen" type="Sprite2D" parent="kuvat"]
+visible = false
+position = Vector2(480.5, 245)
+scale = Vector2(1.00104, 0.907407)
+texture = ExtResource("10_xrtko")
+
 [node name="aanet" type="Node" parent="."]
 unique_name_in_owner = true
 
@@ -156,6 +165,14 @@ stream = ExtResource("6_tyjhu")
 
 [node name="frame6" type="AudioStreamPlayer" parent="aanet"]
 stream = ExtResource("13_oygfy")
+
+[node name="title_musiikki" type="AudioStreamPlayer" parent="aanet"]
+unique_name_in_owner = true
+stream = ExtResource("16_l5qh4")
+
+[node name="animatic_musiikki" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("17_b6yh4")
 
 [connection signal="pressed" from="Panel/next_nappi" to="." method="_on_next_nappi_pressed"]
 [connection signal="pressed" from="Panel/skip_nappi" to="." method="_on_skip_nappi_pressed"]
