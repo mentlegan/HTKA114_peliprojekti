@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=112 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d1oyqkmwe7p1i" path="res://grafiikka/OhjainTooltipSelect.png" id="6_uircd"]
 [ext_resource type="Texture2D" uid="uid://csjbkgti5474u" path="res://grafiikka/PelaajaKuolema-Sheet.png" id="7_dc5pa"]
 [ext_resource type="Texture2D" uid="uid://dgpptf7h5t4y5" path="res://grafiikka/WallClimb-Sheet.png" id="7_prghi"]
+[ext_resource type="Texture2D" uid="uid://d13aocdm7egjp" path="res://grafiikka/PelaajaKuolemaVihollinen-Sheet.png" id="9_grh8j"]
 [ext_resource type="AudioStream" uid="uid://eqsig3hl534a" path="res://audio/pelaaja/kavely2_pitka_mono.wav" id="10_uhji0"]
 [ext_resource type="AudioStream" uid="uid://37o042m8fj2j" path="res://audio/pelaaja/juoksu_mono.wav" id="11_kteua"]
 [ext_resource type="Texture2D" uid="uid://dn4q2iyjfh52y" path="res://grafiikka/LightBall2.png" id="11_p47gp"]
@@ -21,21 +22,21 @@
 [ext_resource type="AudioStream" uid="uid://bjbaqnxkgke0l" path="res://audio/pelaaja/walljump1_mono.wav" id="15_bxt80"]
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="16_4n4el"]
 [ext_resource type="Texture2D" uid="uid://dj3c6nkmnxha2" path="res://grafiikka/Valo256.png" id="20_8tpmo"]
-[ext_resource type="AudioStream" uid="uid://d3wv50rjheox6" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
-[ext_resource type="AudioStream" uid="uid://1vbvs18sp8ho" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
+[ext_resource type="AudioStream" uid="uid://kyv5pcaicv3d" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
+[ext_resource type="AudioStream" uid="uid://b5xymqblb7j03" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
 [ext_resource type="Texture2D" uid="uid://cbatwxsibovo" path="res://grafiikka/AanenTaajuus1.png" id="22_7od7w"]
 [ext_resource type="Texture2D" uid="uid://bh2dveepeu0so" path="res://grafiikka/Nuotti.png" id="22_fot2n"]
 [ext_resource type="AudioStream" uid="uid://pywxdhvql574" path="res://audio/pelaaja/huilu/huiluaani_A.wav" id="23_elvmw"]
-[ext_resource type="AudioStream" uid="uid://dcv4ga2nt5b8i" path="res://audio/valopallo/valopallon_poimiminenAm.mp3" id="24_7f2m0"]
+[ext_resource type="AudioStream" uid="uid://dkamq2oukth2u" path="res://audio/valopallo/valopallon_poimiminenAm.mp3" id="24_7f2m0"]
 [ext_resource type="Texture2D" uid="uid://cp4f2v1euxr6b" path="res://grafiikka/AanenTaajuus3.png" id="24_7n80x"]
 [ext_resource type="AudioStream" uid="uid://dw75jyosgto66" path="res://audio/pelaaja/huilu/huiluaani_C.wav" id="24_xxdxr"]
-[ext_resource type="AudioStream" uid="uid://5r4qxkdyyea1" path="res://audio/ambient/tuulen_humina.mp3" id="25_byydo"]
+[ext_resource type="AudioStream" uid="uid://blwy8nwp0lofn" path="res://audio/ambient/tuulen_humina.mp3" id="25_byydo"]
 [ext_resource type="AudioStream" uid="uid://diri4jc7100fi" path="res://audio/pelaaja/huilu/huiluaani_E.wav" id="25_qars5"]
 [ext_resource type="Script" path="res://skriptit/huilu.gd" id="26_v60w7"]
 [ext_resource type="AudioStream" uid="uid://7tjeefooail4" path="res://audio/pelaaja/creeping_darkness_2.mp3" id="32_1qpma"]
-[ext_resource type="Texture2D" uid="uid://d1p2w4s3p578t" path="res://grafiikka/HealthbarEmpty.png" id="34_tun23"]
-[ext_resource type="Texture2D" uid="uid://cgjtjxwoeoxos" path="res://grafiikka/HealthbarOutline.png" id="35_m6how"]
-[ext_resource type="Texture2D" uid="uid://c207a238s1s1r" path="res://grafiikka/HealthbarFull.png" id="35_x5jxm"]
+[ext_resource type="Texture2D" uid="uid://vn1qds24dgbc" path="res://grafiikka/HealthbarEmpty.png" id="34_tun23"]
+[ext_resource type="Texture2D" uid="uid://mll3xj0lti8x" path="res://grafiikka/HealthbarOutline.png" id="35_m6how"]
+[ext_resource type="Texture2D" uid="uid://bna2kxhocp4do" path="res://grafiikka/HealthbarFull.png" id="35_x5jxm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -323,6 +324,94 @@ region = Rect2(704, 0, 64, 64)
 atlas = ExtResource("7_dc5pa")
 region = Rect2(768, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_12b3n"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_550kf"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svpye"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv5fc"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72884"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r7vg"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq2qv"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh05n"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g2ty"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrdto"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jy1f"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmuv5"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xch3v"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iujjw"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwyap"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2trp8"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(960, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if4o6"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(1024, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wygsn"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(1088, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f47ux"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(1152, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqrwq"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(1216, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w1y5"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(1280, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfr41"]
+atlas = ExtResource("9_grh8j")
+region = Rect2(1344, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bkpot"]
 animations = [{
 "frames": [{
@@ -368,6 +457,77 @@ animations = [{
 "loop": true,
 "name": &"kuolema",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12b3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_550kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svpye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv5fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72884")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r7vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pq2qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh05n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g2ty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrdto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jy1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmuv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xch3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iujjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwyap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2trp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if4o6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wygsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f47ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqrwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w1y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfr41")
+}],
+"loop": true,
+"name": &"vihollis_kuolema",
+"speed": 9.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qv5js"]
@@ -444,10 +604,10 @@ animation = &"huilu"
 
 [node name="PauseAnimaatiot" type="AnimatedSprite2D" parent="."]
 process_mode = 2
-position = Vector2(2, -4)
+position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_bkpot")
-animation = &"kuolema"
-frame_progress = 0.264938
+animation = &"vihollis_kuolema"
+frame_progress = 0.909982
 
 [node name="ValonTarkistus" parent="." instance=ExtResource("4_5hfdk")]
 collision_mask = 30

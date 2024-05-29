@@ -18,7 +18,7 @@ var aika_vali = 1.0
 var aika = 0
 ## UI-näkyvyyden ajastin
 var ui_ajastin = Timer.new()
-
+var kuoltiinko_viholliseen
 ## Taulukko tooltipeille
 @onready var tooltip_node = get_node("/root/Maailma/Tooltipit")
 var tooltipit = Array()
@@ -144,7 +144,9 @@ func _ready():
 	
 	# Alustetaan köynnösovet
 	alusta_koynnosovet()
-
+	
+	kuoltiinko_viholliseen = false
+	
 	# Journal pois näkyvistä
 	journal.visible = false
 
@@ -393,6 +395,8 @@ func respawn():
 	pimeyskuolema_animaatio.stop()
 	pelaaja.siirrytty_varjoon()
 	pelaaja.palloja_label_paivita()
+	
+	kuoltiinko_viholliseen = false # resetoidaan viholliseen kuolemisen tarkistava muuttuja
 
 
 ## "Kerää" journalin, jotta pelaaja voisi sitä käyttää
@@ -452,13 +456,20 @@ func jatkaPelia():
 	pauseruutu.visible = false
 
 
+## Hallitaan, että mikä kuolema-animaatio soitetaan
+func soita_kuolema_animaatio():
+	if kuoltiinko_viholliseen == false: # normaalisti tämä on false.. 
+		pelaaja.pauseAnimaatiot.play("kuolema") # ..että normaali kuolema-animaatio soitetaan
+	else: pelaaja.pauseAnimaatiot.play("vihollis_kuolema") # muutoin soitetaan viholliseen kuolemisen animaatio
+
+
 ## Yleinen game over funktio signaaleista. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai
 ## käynnistää peli uudelleen kutsumalla tämän skriptin respawn() funktiota
 func _game_over():
 	# Soitetaan pelaajan animaatioita täällä pausen takia
 	pelaaja.animaatio.visible = false
 	pelaaja.pauseAnimaatiot.visible = true
-	pelaaja.pauseAnimaatiot.play("kuolema")
+	soita_kuolema_animaatio()
 	if not pelaaja.kuolema_tween == null:
 		pelaaja.kuolema_tween.kill()
 	pelaaja.audio_pimeyskuolema.stop()

@@ -81,6 +81,7 @@ func _process(_delta):
 
 ## Kollektiivinen kuolema-funktio ..
 func kuolema():
+	Globaali.kuoltiinko_viholliseen = true
 	pelaaja_kuollut.emit() # ..joka lähettää signaalin Globaalille
 
 
