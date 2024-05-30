@@ -1,19 +1,19 @@
 [gd_scene load_steps=37 format=3 uid="uid://dskh1b4twfo2c"]
 
 [ext_resource type="Script" path="res://skriptit/journal.gd" id="1_s3r3l"]
-[ext_resource type="Texture2D" uid="uid://bblg2tyxhpvdk" path="res://grafiikka/Journal1.png" id="2_r7j1j"]
-[ext_resource type="Texture2D" uid="uid://bvkc4ns16k6xl" path="res://grafiikka/Journal2.png" id="3_0g2au"]
-[ext_resource type="Texture2D" uid="uid://byscs6abpv2o5" path="res://grafiikka/Journal3.png" id="4_o8o2m"]
-[ext_resource type="Texture2D" uid="uid://dwjybvugig12k" path="res://grafiikka/JournalDrawings.png" id="5_b6luv"]
-[ext_resource type="Texture2D" uid="uid://ds743e1ob8r8s" path="res://grafiikka/JournalDrawingsController.png" id="6_kgf51"]
-[ext_resource type="Texture2D" uid="uid://de172dnyt3ukv" path="res://grafiikka/JournalArrowLeft.png" id="6_xo6a1"]
-[ext_resource type="Texture2D" uid="uid://ttbqnt3bnvld" path="res://grafiikka/JournalArrowRight.png" id="7_hkych"]
+[ext_resource type="Texture2D" uid="uid://cmdg2bttubmpp" path="res://grafiikka/Journal1.png" id="2_r7j1j"]
+[ext_resource type="Texture2D" uid="uid://d3dpw7cl5yr3j" path="res://grafiikka/Journal2.png" id="3_0g2au"]
+[ext_resource type="Texture2D" uid="uid://jrf4vlkjnydf" path="res://grafiikka/Journal3.png" id="4_o8o2m"]
+[ext_resource type="Texture2D" uid="uid://c2fj4rgp3lash" path="res://grafiikka/JournalDrawings.png" id="5_b6luv"]
+[ext_resource type="Texture2D" uid="uid://vees4seg8sxx" path="res://grafiikka/JournalDrawingsController.png" id="6_kgf51"]
+[ext_resource type="Texture2D" uid="uid://d3hngcsf0iqwv" path="res://grafiikka/JournalArrowLeft.png" id="6_xo6a1"]
+[ext_resource type="Texture2D" uid="uid://eruq6bm04853" path="res://grafiikka/JournalArrowRight.png" id="7_hkych"]
 [ext_resource type="Theme" uid="uid://dgo8yhibhuxoi" path="res://tres-tiedostot/fontti_journal.tres" id="7_ms4bj"]
-[ext_resource type="Texture2D" uid="uid://btdxlsnnvvfu7" path="res://grafiikka/BookmarkRed.png" id="9_i6ai5"]
-[ext_resource type="AudioStream" uid="uid://xkrxu6jsgxg6" path="res://audio/journal/journal_sivu1.mp3" id="9_sjkug"]
-[ext_resource type="Texture2D" uid="uid://we4w566k8tv3" path="res://grafiikka/BookmarkBlue.png" id="10_vvwl4"]
-[ext_resource type="AudioStream" uid="uid://cn2a5vxqabu78" path="res://audio/journal/journal_sivu2.mp3" id="10_wtfct"]
-[ext_resource type="AudioStream" uid="uid://bmsge5tvh6wg6" path="res://audio/journal/journal_sivu3.mp3" id="11_li8cs"]
+[ext_resource type="Texture2D" uid="uid://blgm1dvxgd1ay" path="res://grafiikka/BookmarkRed.png" id="9_i6ai5"]
+[ext_resource type="AudioStream" uid="uid://bqkplh55e4ew5" path="res://audio/journal/journal_sivu1.mp3" id="9_sjkug"]
+[ext_resource type="Texture2D" uid="uid://b1kpq7d6rek4o" path="res://grafiikka/BookmarkBlue.png" id="10_vvwl4"]
+[ext_resource type="AudioStream" uid="uid://bjtthv0d57wmc" path="res://audio/journal/journal_sivu2.mp3" id="10_wtfct"]
+[ext_resource type="AudioStream" uid="uid://dne2i2xhjmjts" path="res://audio/journal/journal_sivu3.mp3" id="11_li8cs"]
 [ext_resource type="Texture2D" uid="uid://cdfagul7y1yqw" path="res://grafiikka/OhjainTooltipL.png" id="12_o5dm7"]
 [ext_resource type="Texture2D" uid="uid://bkfapoux2ssdt" path="res://grafiikka/OhjainTooltipR.png" id="13_77uy5"]
 [ext_resource type="Texture2D" uid="uid://6q5dd85a3p8q" path="res://grafiikka/DpadVasen.png" id="13_vg2nc"]
@@ -176,6 +176,7 @@ theme_override_colors/font_color = Color(0.180392, 0.12549, 0.0823529, 1)
 text = "0/0"
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 701.0
 offset_top = -3.0
 offset_right = 741.0
@@ -185,6 +186,7 @@ stretch_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 auto_translate_mode = 1
+layout_mode = 0
 offset_left = 908.0
 offset_top = -4.0
 offset_right = 948.0
@@ -198,10 +200,10 @@ polygon = PackedVector2Array(636, 16, 655, 16, 698, 21, 722, 24, 773, 31, 794, 3
 
 [node name="ControlsButton" type="TextureButton" parent="Polygon2D"]
 auto_translate_mode = 1
-offset_left = 792.0
-offset_top = -14.0
-offset_right = 920.0
-offset_bottom = 50.0
+offset_left = 816.0
+offset_top = 1.0
+offset_right = 897.0
+offset_bottom = 33.0
 scale = Vector2(1.16, 1)
 theme = SubResource("Theme_y2s0l")
 shortcut = SubResource("Shortcut_rbprs")
@@ -210,10 +212,10 @@ shortcut_in_tooltip = false
 texture_normal = ExtResource("9_i6ai5")
 
 [node name="JournalButton" type="TextureButton" parent="Polygon2D"]
-offset_left = 713.0
-offset_top = -13.0
-offset_right = 841.0
-offset_bottom = 51.0
+offset_left = 732.0
+offset_top = 2.0
+offset_right = 813.0
+offset_bottom = 34.0
 theme = SubResource("Theme_y2s0l")
 shortcut = SubResource("Shortcut_rq3n3")
 shortcut_feedback = false
