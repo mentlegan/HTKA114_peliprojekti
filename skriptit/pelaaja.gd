@@ -539,7 +539,7 @@ func _physics_process(delta):
 	var aiempi_hiiren_tila = hiiri_kaytossa
 	
 	# Ohjaimen tatin arvot
-	# CONTROLLER LEFT STICK
+	# CONTROLLER RIGHT STICK
 	var ohjain_tahtays = Vector2(
 		Input.get_axis("tahtaa_vasen", "tahtaa_oikea"),
 		Input.get_axis("tahtaa_ylos", "tahtaa_alas")
@@ -548,11 +548,6 @@ func _physics_process(delta):
 	# Otetaan pelaajan liikkeen haluttu suunta
 	# PC vasen: A, oikea: D
 	suunta = Input.get_axis("liiku_vasen", "liiku_oikea")
-	
-	if (ohjain_tahtays != Vector2.ZERO
-	and Input.is_action_pressed("ohjain_tahtaa")
-	and is_on_floor()):
-		suunta = 0
 	
 	# Tästä painovoima
 	if not (is_on_floor() or is_on_wall()):
@@ -753,10 +748,12 @@ func _physics_process(delta):
 	if hiiri_kaytossa:
 		valon_kohde = hiiren_sijainti
 	else:
-		tahtain.visible = Input.is_action_pressed("ohjain_tahtaa")
+		tahtain.visible = ohjain_tahtays.length() > 0.2
 	
 	# PC LEFT_CLICK
-	if Input.is_action_just_pressed("painike_vasen") or Input.is_action_just_released("ohjain_tahtaa"):
+	if Input.is_action_just_pressed("painike_vasen") and (
+		hiiri_kaytossa or tahtain.visible
+	):
 		# Tällä hetkellä 2 maksimissaan
 		if Globaali.nykyiset_pallot < 2 and Globaali.palloja > 0:
 			# Valon synnyttäminen
