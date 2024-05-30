@@ -36,6 +36,10 @@ var tahtaimen_lapset = []
 ## Totuusarvo valossa olemiselle
 var valossa = false
 
+# Editorissa vaihdettavat nodet KBM:n ja ohjaimen tooltipeille
+@export var ohjain_tooltipit: Array[Node]
+@export var kbm_tooltipit: Array[Node]
+
 ## Ääniefektit
 @onready var audio_kavely = $AudioKavely
 @onready var audio_juoksu = $AudioJuoksu
@@ -242,6 +246,18 @@ func _ready():
 
 	if not Globaali.journal_keratty:
 		apua_label.visible = false
+	
+	# Asetetaan HUD:in tooltipit vastaamaan näppäimistöä
+	kbm_tooltipit_nakyviin(true)
+
+
+## Asettaa journalin tooltipit näkyviin näppäimistölle ja hiirelle.
+## Jos kbm_kaytossa on false, ohjaimen tooltipit asetetaan näkyviin kbm sijaan.
+func kbm_tooltipit_nakyviin(kbm_kaytossa):
+	for node in ohjain_tooltipit:
+		node.visible = not kbm_kaytossa
+	for node in kbm_tooltipit:
+		node.visible = kbm_kaytossa
 
 
 ## Asettaa journalin info-labelin hetkeksi näkyviin.
@@ -782,6 +798,7 @@ func _physics_process(delta):
 	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
 	if hiiri_kaytossa != aiempi_hiiren_tila:
 		Globaali.vaihda_tooltip_ui(hiiri_kaytossa)
+		kbm_tooltipit_nakyviin(hiiri_kaytossa)
 	
 	if tahtain.visible:
 		paivita_tahtaimen_lentorata()
