@@ -430,7 +430,7 @@ func toggle_journal(avaa_valosta_riippumatta = false):
 	journal.visible = not journal.visible
 	journal.journal_nakyviin()
 	audio_journal.play()
-	get_viewport().set_input_as_handled()
+	#get_viewport().set_input_as_handled()
 	get_tree().paused = journal.visible
 
 
