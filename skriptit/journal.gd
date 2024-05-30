@@ -1,12 +1,12 @@
 extends Control
 
 
-@onready var sivut_sprite = $Sivut
-@onready var sivunumero_label = $SivuLabel
-@onready var ohjeet_kbm = $OhjeetKBM
-@onready var ohjeet_controller = $OhjeetController
-
-@onready var audio_sivunvaihto = $AudioSivunvaihto
+@export var sivut_sprite: TextureRect
+@export var sivu_label: Label
+@export var ohjeet: Node2D
+@export var audio_sivunvaihto: AudioStreamPlayer
+@export var ohjain_tooltipit: Array[Node]
+@export var kbm_tooltipit: Array[Node]
 
 var sivut = {}
 var otsikot = {}
@@ -19,11 +19,22 @@ var sivun_vaihto_ajastin: Timer
 func _ready():
 	paivita_sivunumero()
 	journal_nakyviin()
+	
+	kbm_tooltipit_nakyviin(true)
 
 	sivun_vaihto_ajastin = Timer.new()
 	sivun_vaihto_ajastin.wait_time = 0.05
 	sivun_vaihto_ajastin.one_shot = true
 	self.add_child(sivun_vaihto_ajastin)
+
+
+## Asettaa journalin tooltipit näkyviin näppäimistölle ja hiirelle.
+## Jos kbm_kaytossa on false, ohjaimen tooltipit asetetaan näkyviin kbm sijaan.
+func kbm_tooltipit_nakyviin(kbm_kaytossa):
+	for node in ohjain_tooltipit:
+		node.visible = not kbm_kaytossa
+	for node in kbm_tooltipit:
+		node.visible = kbm_kaytossa
 
 
 ## Lisää journaliin tekstipätkän annettuun sivunumeroon. Sivunumeron on oltava >= 1.
@@ -49,7 +60,7 @@ func paivita_sivunumero():
 	if otsikot.has(nykyinen_sivu):
 		otsikko = otsikot[nykyinen_sivu]
 
-	sivunumero_label.set_text("%s/%s - %s" % [nykyinen_sivu, viimeisin_sivu, otsikko])
+	sivu_label.set_text("%s/%s - %s" % [nykyinen_sivu, viimeisin_sivu, otsikko])
 
 	for i in range(1, viimeisin_sivu + 1):
 		if not sivut.has(i):
@@ -60,7 +71,7 @@ func paivita_sivunumero():
 
 
 ## Käsitellään input journalin ollessa aktiivinen
-func _input(_event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	# Peli jatkumaan J:llä
 	if (Input.is_action_just_pressed("journal")
 	or (self.visible and (
@@ -70,6 +81,11 @@ func _input(_event: InputEvent) -> void:
 		Globaali.toggle_journal()
 	
 	if visible:
+		if (event is InputEventKey or event is InputEventMouseButton):
+			kbm_tooltipit_nakyviin(true)
+		elif (event is InputEventJoypadButton or event is InputEventJoypadMotion):
+			kbm_tooltipit_nakyviin(false)
+
 		if Input.is_action_just_pressed("liiku_vasen"):
 			vaihda_sivua(-1)
 		if Input.is_action_just_pressed("liiku_oikea"):
@@ -79,7 +95,7 @@ func _input(_event: InputEvent) -> void:
 ## Vaihtaa sivua eteen- tai taaksepäin annetun kokonaisluvun verran.
 ## Vaihtaa samalla sivun spriteä.
 func vaihda_sivua(delta):
-	if ohjeet_kbm.visible or ohjeet_controller.visible:
+	if ohjeet.visible:
 		return
 	if not sivun_vaihto_ajastin.is_stopped():
 		return
@@ -100,20 +116,14 @@ func vaihda_sivua(delta):
 
 ## Asettaa ohjeet näkyviin
 func ohjeet_nakyviin():
-	sivunumero_label.visible = false
+	sivu_label.visible = false
 	for i in range(1, viimeisin_sivu + 1):
 		sivut[i].visible = false
-	if Globaali.pelaaja.hiiri_kaytossa:
-		ohjeet_kbm.visible = true
-		ohjeet_controller.visible = false
-	else:
-		ohjeet_kbm.visible = false
-		ohjeet_controller.visible = true
+	ohjeet.visible = true
 
 
 ## Asettaa journalin näkyviin
 func journal_nakyviin():
-	sivunumero_label.visible = true
-	ohjeet_kbm.visible = false
-	ohjeet_controller.visible = false
+	sivu_label.visible = true
+	ohjeet.visible = false
 	paivita_sivunumero()
