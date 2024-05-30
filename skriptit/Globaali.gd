@@ -417,6 +417,11 @@ func toggle_journal(avaa_valosta_riippumatta = false):
 		pelaaja.nayta_journal_info()
 		return
 	
+	if pelaaja.sivu_info_tween:
+		pelaaja.sivu_info_tween.kill()
+		pelaaja.sivu_info_label.modulate.a = 0
+		pelaaja.sivu_info_label.position.y = -180
+	
 	if pelaaja.journal_info_tween:
 		pelaaja.journal_info_tween.kill()
 		pelaaja.journal_info_label.modulate.a = 0
@@ -433,6 +438,8 @@ func toggle_journal(avaa_valosta_riippumatta = false):
 func lisaa_sivu(sivun_sisalto: SivunSisalto, otsikko: String, sivunumero: int):
 	journal.lisaa_sivu(sivun_sisalto, otsikko, sivunumero)
 	journal.nykyinen_sivu = sivunumero
+	if sivunumero > 1:
+		pelaaja.nayta_sivu_info()
 	#toggle_journal(true)
 
 

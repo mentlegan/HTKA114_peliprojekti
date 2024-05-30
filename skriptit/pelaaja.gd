@@ -29,6 +29,7 @@ var tahtaimen_lapset = []
 @onready var palloja_label = get_node("HUD/Palloja")
 @onready var apua_label = get_node("HUD/ApuaLabel")
 @onready var journal_info_label = get_node("JournalInfo")
+@onready var sivu_info_label = get_node("SivuInfo")
 
 ## Pelaajan kamera
 @onready var kamera = get_node("Camera2D")
@@ -89,6 +90,7 @@ var tween: Tween
 var kukan_kerays_tween: Tween
 var kuolema_tween: Tween
 var journal_info_tween: Tween
+var sivu_info_tween: Tween
 
 ## Ajastin pimeässä selviämiselle: kuinka kauan pimeässä selvitään ennen respawn()-kutsua
 @onready var ajastin_pimeassa = $AjastinPimealle
@@ -241,6 +243,9 @@ func _ready():
 	
 	palloja_label_paivita()
 
+	sivu_info_label.modulate.a = 0
+	sivu_info_label.position.y = -160
+
 	journal_info_label.modulate.a = 0
 	journal_info_label.position.y = -80
 
@@ -258,6 +263,31 @@ func kbm_tooltipit_nakyviin(kbm_kaytossa):
 		node.visible = not kbm_kaytossa
 	for node in kbm_tooltipit:
 		node.visible = kbm_kaytossa
+
+
+## Asettaa sivun info-labelin hetkeksi näkyviin.
+func nayta_sivu_info():
+	if sivu_info_tween is Tween and sivu_info_tween.is_running():
+			return
+	
+	sivu_info_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	sivu_info_tween.set_parallel(true)
+
+	sivu_info_tween.tween_property(sivu_info_label, "position:y", -180, 1)
+	sivu_info_tween.tween_property(sivu_info_label, "modulate:a", 1, 1)
+
+	await sivu_info_tween.finished
+	await get_tree().create_timer(3).timeout
+	sivu_info_tween.kill()
+
+	sivu_info_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	sivu_info_tween.set_parallel(true)
+
+	sivu_info_tween.tween_property(sivu_info_label, "position:y", -160, 1)
+	sivu_info_tween.tween_property(sivu_info_label, "modulate:a", 0, 1)
+
+	await sivu_info_tween.finished
+	sivu_info_tween.kill()
 
 
 ## Asettaa journalin info-labelin hetkeksi näkyviin.
@@ -284,7 +314,6 @@ func nayta_journal_info():
 
 	await journal_info_tween.finished
 	journal_info_tween.kill()
-	print(journal_info_tween.is_running())
 
 
 

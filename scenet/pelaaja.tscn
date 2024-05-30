@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=114 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://ctt5u7sdmswe4" path="res://grafiikka/HealthbarOutline.png" id="35_m6how"]
 [ext_resource type="Texture2D" uid="uid://b6s4jdsu4j23h" path="res://grafiikka/HealthbarFull.png" id="35_x5jxm"]
 [ext_resource type="Texture2D" uid="uid://carqststa41k" path="res://grafiikka/OhjainTooltipNappaimisto.png" id="38_fvlae"]
+[ext_resource type="Texture2D" uid="uid://tybefdmdsudb" path="res://grafiikka/Arrow1.png" id="39_06las"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -856,9 +857,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -22.0
-offset_top = -25.0
+offset_top = -26.0
 offset_right = -10.0
-offset_bottom = -7.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "J"
@@ -880,6 +881,33 @@ grow_vertical = 0
 text = "It's too dark to read the journal"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SivuInfo" type="Label" parent="."]
+auto_translate_mode = 1
+z_index = 100
+material = ExtResource("5_gdn2h")
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 273.0
+offset_top = -178.0
+offset_right = 453.0
+offset_bottom = -160.0
+grow_horizontal = 0
+text = "New page found!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="SivuInfo"]
+z_index = 99
+material = ExtResource("5_gdn2h")
+layout_mode = 0
+offset_left = 128.0
+offset_top = -7.0
+offset_right = 168.0
+offset_bottom = 33.0
+rotation = 4.71239
+texture = ExtResource("39_06las")
 
 [connection signal="body_entered" from="keho" to="." method="_on_keho_body_entered"]
 [connection signal="siirrytty_valoon" from="ValonTarkistus" to="." method="siirrytty_valoon"]
