@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjlmhrkdv4ei5"]
+
+[ext_resource type="Script" path="res://scenet/kayttoliittyma/credits.gd" id="1_71kqe"]
+[ext_resource type="Texture2D" uid="uid://dxfirkfl164d1" path="res://grafiikka/Credits.png" id="2_4yc7k"]
+[ext_resource type="Texture2D" uid="uid://b8cydfpi4ba6r" path="res://grafiikka/OhjainTooltipB.png" id="2_lrm4t"]
+[ext_resource type="Texture2D" uid="uid://c5p1ek3mg2uwa" path="res://grafiikka/LoppuFrame1.png" id="4_4bey7"]
+[ext_resource type="Texture2D" uid="uid://b1totmomv3kmv" path="res://grafiikka/LoppuFrame2.png" id="5_kpm05"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0oi50"]
+font_size = 80
+
+[node name="Credits" type="Control" groups=["Credits"]]
+auto_translate_mode = 1
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_71kqe")
+
+[node name="Credits_tausta" type="Sprite2D" parent="."]
+texture = ExtResource("2_4yc7k")
+centered = false
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credits" type="Label" parent="Panel"]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -441.0
+offset_top = 24.0
+offset_right = 1486.0
+offset_bottom = 1131.0
+grow_horizontal = 2
+scale = Vector2(0.441052, 0.431915)
+text = "Producer:
+Samiin Agampodi
+
+Game Designers: 
+Patrik Hägg, Juuso Piippo
+
+Programmers:
+Paavo Pörhö, Harri Keränen,
+Patrik Hägg, Juuso Piippo
+
+Artist:
+Heidi Hakala
+
+Sound designer:
+Elias Lehtinen"
+label_settings = SubResource("LabelSettings_0oi50")
+
+[node name="LopetaNappi" type="Button" parent="Panel"]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -490.0
+offset_top = -98.0
+offset_right = -314.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Quit
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(449, 493)
+texture = ExtResource("2_lrm4t")
+
+[node name="Kuvat" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Kuva1" type="Sprite2D" parent="Kuvat"]
+visible = false
+texture = ExtResource("4_4bey7")
+centered = false
+
+[node name="Kuva2" type="Sprite2D" parent="Kuvat"]
+visible = false
+texture = ExtResource("5_kpm05")
+centered = false
+
+[connection signal="pressed" from="Panel/LopetaNappi" to="." method="_on_lopeta_nappi_pressed"]

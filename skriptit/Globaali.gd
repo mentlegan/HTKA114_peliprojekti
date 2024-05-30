@@ -75,6 +75,7 @@ var pystyssa = true
 ## oikea näppäin ja % merkillä oleva valinta Access as unique name 
 ## ja kutsua sitä % merkillä scriptissä, kuten alla:
 @onready var gameover_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%GameOverRuutu")
+@onready var credits = get_node("/root/Maailma/%KayttoLiittyma/%Credits")
 @onready var journal = get_node("/root/Maailma/%KayttoLiittyma/Journal")
 @onready var pauseruutu = get_node("/root/Maailma/%KayttoLiittyma/%pause_ruutu")
 @onready var pimeyskuolema_animaatio = get_node("/root/Maailma/%KayttoLiittyma/%PimeysKuolema")
@@ -111,6 +112,10 @@ func _ready():
 	# Signaalikäsittelyä mm. pelaajan kuolemisesta
 	pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
 	pelaaja.kuollut.connect(_game_over) # Yhdistetään signaali pelaajasta
+	
+	# Signaali creditsien näyttämisestä
+	credits = get_tree().get_first_node_in_group("Credits")
+	credits.show_credits.connect(_show_credits)
 	
 	# Yhdistetään kuolema kaikkiin uusiin vihollisiin
 	for uusiVihu in uudetViholliset:
@@ -489,3 +494,14 @@ func _game_over():
 	# tai pausettaa peli muuten, mutta hienot kuolema-animaatiot silti toimivat normaalisti
 	await get_tree().create_timer(2,5).timeout # Pieni ajastin, että game over ei ihan heti tule
 	gameover_ruutu.visible = true
+	
+func _show_credits():
+	## Lopetetaan kaikki taustalta, niin kuin game overissakin
+	pelaaja.animaatio.visible = false
+	pelaaja.pauseAnimaatiot.visible = true
+	if not pelaaja.kuolema_tween == null:
+		pelaaja.kuolema_tween.kill()
+	pelaaja.audio_pimeyskuolema.stop()
+	pelaaja.pimeyskuolema.stop()
+	pelaaja.pimeyskuolema.modulate.a = 0.0
+	get_tree().paused = true
