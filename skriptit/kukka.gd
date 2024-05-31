@@ -17,6 +17,8 @@ extends Area2D
 
 @onready var partikkelit = $CPUParticles2D
 
+@onready var animaatio = $AnimatedSprite2D
+
 ## Muuttuja sille, onko valo asetettu päälle valopallolla
 var valo_paalla_pysyvasti = false
 ## Cooldownia varten
@@ -28,7 +30,6 @@ var tween: Tween
 
 ## Asetetaan ajastimien timeout-funktiot ja valon tekstuuri
 func _ready():
-	point_light.set_energy(0)
 	# Yhdistetään ajastimet huilun ominaisuuksilta palautumiseen
 	huilu_ajastin.timeout.connect(sulje_valo)
 	
@@ -36,19 +37,33 @@ func _ready():
 	partikkelit.emitting = false
 	
 	kerays_cooldown.timeout.connect(vaihda_kerays)
-	$AnimatedSprite2D.play("default")
+	animaatio.play("default")
+	animaatio.animation_looped.connect(vaihda_animaatio)
 
-	# Suljetaan valo pelin alussa
-	sulje_valo()
+
+## Vaihtaa / pysäyttää animaation, jos ei olla default-animaatiossa
+func vaihda_animaatio():
+	match animaatio.get_animation():
+		"default":
+			return
+		"disable":
+			animaatio.pause()
+			animaatio.set_frame(4)
+		"enable":
+			animaatio.play("default")
 
 
 func aloita_kerays():
 	kerays_cooldown.start()
 	voiko_kerata = false
+	sulje_valo()
+	animaatio.play("disable")
 
 
 func vaihda_kerays():
 	voiko_kerata = true
+	aseta_valon_skaala(1)
+	animaatio.play("enable")
 
 
 func aloita_animaatio(skaala, valon_energia, kesto):
