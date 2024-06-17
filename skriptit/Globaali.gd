@@ -1,4 +1,4 @@
-## Harri 30.5.2024
+## Harri 18.6.2024
 ## Paavo 22.4.2024
 ## Elias 22.4.2024
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
@@ -107,7 +107,7 @@ var t2 = preload("res://maailma2.tscn")
 ## Yleinen ready
 func _ready():
 	# Soitetaan alkuanimatic. Seuraavan rivin voi dokumentoida pois, jos haluaa testata peliä ilman sitä
-	soita_animatic()
+	#soita_animatic()
 	
 	# Signaalikäsittelyä mm. pelaajan kuolemisesta
 	pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
@@ -148,7 +148,7 @@ func _ready():
 	# Alustetaan köynnösovet
 	alusta_koynnosovet()
 	
-	kuoltiinko_viholliseen = false
+	kuoltiinko_viholliseen = false # Tällä katsotaan, että kuoltiinko viholliseen tai pimeyteen
 	
 	# Journal pois näkyvistä
 	journal.visible = false
@@ -404,7 +404,7 @@ func respawn():
 	pelaaja.siirrytty_varjoon()
 	pelaaja.palloja_label_paivita()
 	
-	kuoltiinko_viholliseen = false # resetoidaan viholliseen kuolemisen tarkistava muuttuja
+	kuoltiinko_viholliseen = false # resetoidaan viholliseen/pimeyteen kuolemisen tarkistava muuttuja
 
 
 ## "Kerää" journalin, jotta pelaaja voisi sitä käyttää
@@ -475,7 +475,7 @@ func jatkaPelia():
 func soita_kuolema_animaatio():
 	if kuoltiinko_viholliseen == false: # normaalisti tämä on false.. 
 		pelaaja.pauseAnimaatiot.play("kuolema") # ..että normaali kuolema-animaatio soitetaan
-	else: pelaaja.pauseAnimaatiot.play("vihollis_kuolema") # muutoin soitetaan viholliseen kuolemisen animaatio
+	else: pelaaja.pauseAnimaatiot.play("vihollis_kuolema") # muutoin soitetaan viholliseen/pimeyteen kuolemisen animaatio
 
 
 ## Yleinen game over funktio signaaleista. Avaa game over ikkunan pelaajalle, josta sitten voi lopettaa pelin tai

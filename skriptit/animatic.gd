@@ -1,4 +1,4 @@
-## Harri 30.5.2024
+## Harri 18.6.2024
 ## Alkuanimaticia hoitava script
 ## TODO: Voisi vielä laittaa äänet pysähtymään, kun kuvaa vaihtaa, jos ihmiset kokevat sen häiritsevänä
 extends Control
@@ -14,11 +14,12 @@ extends Control
 
 ## Ready tapahtuu, kun scene avautuu
 func _ready():
-	animatic_musiikki.play()
 	# Kysytään globaalilta, että halutaanko animatic soittaa
 	if soitetaanko != null and soitetaanko == true:
+		animatic_musiikki.play()
 		aanet[0].play() # Soitetaan ensimmäinen ääni ..
 		kuvat[0].visible = true # .. ja näytetään ensimmäinen kuva
+	else: Globaali.soita_musiikki()
 
 
 ## Delta kutsutaan joka framella. Tässä scriptissä ei taida tarvita, mutta jätetään tältä erää, jos tuleekin myöhemmin tarvetta
@@ -41,7 +42,6 @@ func vaihda_kuva(indeksi):
 		aanet[indeksi].play() # Soitetaan oikea ääni
 		nykyinen_kuva+=1 # Nykyinen kuva on nyt seuraava kuva
 	else: skippaa() # Muuten tehdään sama, kuin cutscenen skippaus
-	
 
 
 ## Kun painetaan skip-nappia

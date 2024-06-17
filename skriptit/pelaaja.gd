@@ -1,10 +1,9 @@
-## Harri 30.5.2024
+## Harri 18.6.2024
 ## Juuso 10.4.2024
 ## Paavo 17.3.2024
 ## Elias 17.3.2024 - Pelaajan äänet
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 ## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
-## TODO: pimeässä kuolemiselle animaatio / visuaalista palautetta ennen yhtäkkistä respawn()-kutsua
 ## TODO: valokukkien kerääminen signaaleilla get_overlapping_areas()-kutsun sijaan
 extends CharacterBody2D
 class_name Pelaaja
@@ -377,6 +376,7 @@ func pimeaKuoleminen():
 	kuolema_tween = create_tween()
 	kuolema_tween.set_trans(Tween.TRANS_CUBIC)
 	kuolema_tween.tween_property(pimeyskuolema, "modulate:a", 1, 5)
+	Globaali.kuoltiinko_viholliseen = true # Laitetaan globaalissa oleva tarkistin trueksi oikean animaation saamiseksi
 
 
 ## Tähän lisätty signaalin emit
