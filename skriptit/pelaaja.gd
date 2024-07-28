@@ -66,6 +66,9 @@ var valossa = false
 @onready var aanen_taajuus_sprite = $AanenTaajuus
 @onready var aanen_taajuus_ajastin = $AanenTaajuus/Ajastin
 
+## Partikkelit kuplille, kun ollaan vedessä. (Osittain testailua varten, voi poistaa myöhemmin)
+@onready var kuplat = $Kuplat
+
 ## Huilun äänet
 @onready var huilun_aanet = [
 	$HuiluAaniA,
@@ -126,6 +129,9 @@ var suunta = Vector2.ZERO
 
 ## Ohjaintähtäimen maksimietäisyys näytöllä
 const MAX_TAHTAIN_ETAISYYS = 128
+
+## Totuusarvo vedessä olemiselle
+var vedessa = false
 
 ## Get the gravity from the project settings to be synced with RigidBody nodes.
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
@@ -325,6 +331,18 @@ func lopeta_huilu_animaatio():
 	huilun_partikkelit.set_emitting(false)
 	huilun_collision.set_disabled(true)
 	huilun_raycast.set_enabled(false)
+
+
+## Kutsutaan, kun pelaaja poistuu vedestä
+func poistuttu_vedesta():
+	kuplat.emitting = false
+	vedessa = false
+
+
+## Kutsutaan, kun pelaaja siirtyy veteen
+func siirrytty_veteen():
+	kuplat.emitting = true
+	vedessa = true
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
@@ -879,3 +897,17 @@ func _on_huilu_body_entered(body):
 		# Alkuperäisellä tavalla kutsuu kahdesti
 		if nimi == "Osuu" and not huilu.osuu_terrainiin(body): # or nimi == "Kimpoaa":
 			Globaali.nayta_tason_ovet_ja_resonoi(body)
+
+
+## Kun pelaaja poistuu Area2D-nodesta.
+func _on_keho_area_exited(area):
+	# Jos on osuttu veteen, päivitetään pelaajan muuttuja
+	if area is Vesi2D and vedessa:
+		poistuttu_vedesta()
+
+
+## Kun pelaaja osuu Area2D-nodeen.
+func _on_keho_area_entered(area):
+	# Jos on osuttu veteen, päivitetään pelaajan muuttuja
+	if area is Vesi2D:
+		siirrytty_veteen()

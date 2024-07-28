@@ -9,7 +9,6 @@ texture_repeat = 2
 
 [node name="Vesi2D" type="Area2D" node_paths=PackedStringArray("vedenpinta")]
 z_index = -1
-collision_layer = 4
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_wbm3t")
