@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://m8uw4ve6isqh"]
+
+[ext_resource type="Shader" path="res://shaderit/vedenpinta.gdshader" id="1_e7aig"]
+
+[resource]
+shader = ExtResource("1_e7aig")

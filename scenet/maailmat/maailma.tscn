@@ -561,7 +561,7 @@ position = Vector2(-55.2298, 925.927)
 curve = SubResource("Curve2D_x65vv")
 
 [node name="Perhonen3" parent="Perhoset" instance=ExtResource("13_ufso7")]
-position = Vector2(-449.295, 974.404)
+position = Vector2(-484.405, 1057.36)
 
 [node name="Kukat" type="Node2D" parent="."]
 unique_name_in_owner = true
