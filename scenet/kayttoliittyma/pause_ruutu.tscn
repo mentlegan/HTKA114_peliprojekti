@@ -21,29 +21,31 @@ scale = Vector2(960, 540)
 color = Color(0.215902, 0.215902, 0.215902, 1)
 
 [node name="Paneeli" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 292.0
-offset_top = 155.0
-offset_right = 642.0
-offset_bottom = 425.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Sprite2D2" type="Sprite2D" parent="Paneeli"]
+[node name="jatkaSprite" type="Sprite2D" parent="Paneeli"]
 texture_filter = 1
-position = Vector2(143, 217)
+position = Vector2(503, 91)
 texture = ExtResource("3_x5uac")
 
-[node name="Sprite2D" type="Sprite2D" parent="Paneeli"]
+[node name="quitSprite" type="Sprite2D" parent="Paneeli"]
 texture_filter = 1
-position = Vector2(204, 218)
+position = Vector2(511, 476)
 texture = ExtResource("3_h2m3w")
 
 [node name="pauseTeksti" type="Label" parent="Paneeli"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 80.0
-offset_top = 66.0
-offset_right = 268.0
-offset_bottom = 104.0
+offset_left = 375.0
+offset_top = 16.0
+offset_right = 563.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 32
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -51,22 +53,31 @@ vertical_alignment = 1
 [node name="jatkaNappi" type="Button" parent="Paneeli"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 22.0
-offset_top = 189.0
-offset_right = 117.0
-offset_bottom = 244.0
+offset_left = 375.0
+offset_top = 66.0
+offset_right = 479.0
+offset_bottom = 121.0
 text = "Continue"
 
 [node name="lopetaNappi" type="Button" parent="Paneeli"]
 auto_translate_mode = 1
 texture_filter = 1
 layout_mode = 0
-offset_left = 224.0
-offset_top = 191.0
-offset_right = 319.0
-offset_bottom = 246.0
+offset_left = 375.0
+offset_top = 448.0
+offset_right = 479.0
+offset_bottom = 503.0
 text = "Quit"
+
+[node name="asetuksetNappi" type="Button" parent="Paneeli"]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 245.0
+offset_right = 479.0
+offset_bottom = 300.0
+text = "Options"
 
 [connection signal="pressed" from="Paneeli/jatkaNappi" to="." method="_on_jatka_nappi_pressed"]
 [connection signal="pressed" from="Paneeli/lopetaNappi" to="." method="_on_lopeta_nappi_pressed"]
 [connection signal="pressed" from="Paneeli/lopetaNappi" to="." method="_on_jatka_nappi_pressed"]
+[connection signal="pressed" from="Paneeli/asetuksetNappi" to="." method="_on_asetukset_nappi_pressed"]

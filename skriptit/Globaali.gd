@@ -78,6 +78,7 @@ var pystyssa = true
 @onready var credits = get_node("/root/Maailma/%KayttoLiittyma/%Credits")
 @onready var journal = get_node("/root/Maailma/%KayttoLiittyma/Journal")
 @onready var pauseruutu = get_node("/root/Maailma/%KayttoLiittyma/%pause_ruutu")
+@onready var asetuksetruutu = get_node("/root/Maailma/%KayttoLiittyma/%asetukset_ruutu")
 @onready var pimeyskuolema_animaatio = get_node("/root/Maailma/%KayttoLiittyma/%PimeysKuolema")
 @onready var uudetViholliset = get_node("/root/Maailma/%uudetViholliset").get_children()
 @onready var kukat = get_node("/root/Maailma/%Kukat").get_children()

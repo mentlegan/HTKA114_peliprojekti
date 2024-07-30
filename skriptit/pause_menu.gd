@@ -1,6 +1,8 @@
-## Harri 17.3.2024
+## Harri 30.7.2024 - Asetus-ruudulle nappitoiminnallisuus. Skaalaus muutettu scenessä
 ## Pelin pauseruudun nappien toiminta
 extends Control
+
+@onready var asetukset = Globaali.asetuksetruutu
 
 ## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process
 ## Kutsutaan vain kun painetaan jotain
@@ -34,3 +36,8 @@ func _on_jatka_nappi_pressed():
 ## CONTROLLER RIGHT
 func _on_lopeta_nappi_pressed():
 	get_tree().quit() # Napataan tree ja peli loppuu quitilla
+
+
+## Kun painetaan Options-nappulaa, avataan asetuksien käyttöliittymä
+func _on_asetukset_nappi_pressed():
+	asetukset.visible = true

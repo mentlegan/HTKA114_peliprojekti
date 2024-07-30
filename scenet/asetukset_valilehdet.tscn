@@ -1,0 +1,195 @@
+[gd_scene format=3 uid="uid://dl8i0jom7iver"]
+
+[node name="asetukset_valilehdet" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+current_tab = 2
+
+[node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Sound/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="Label2" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Sound Effects"
+
+[node name="Label3" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Player Movement"
+
+[node name="Label4" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Ambience"
+
+[node name="Graphics" type="TabBar" parent="TabContainer"]
+auto_translate_mode = 1
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Graphics1"
+
+[node name="Label2" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Graphics2"
+
+[node name="Label3" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Graphics3
+"
+
+[node name="Label4" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Graphics4"
+
+[node name="Controls" type="TabBar" parent="TabContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Tänne kaikki kontrollit sit, varmaan rullattavalla menulla"
+
+[node name="Label2" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Control1"
+
+[node name="Label3" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Control2"
+
+[node name="Label4" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Control3"
+
+[node name="Accessibility" type="TabBar" parent="TabContainer"]
+auto_translate_mode = 1
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Accessibility"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Accessibility/MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="Label" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Accessibility1"
+
+[node name="Label2" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Accessibility2"
+
+[node name="Label3" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Accessibility3"
+
+[node name="Label4" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Accessibility4"
