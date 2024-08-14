@@ -41,3 +41,13 @@ func _on_lopeta_nappi_pressed():
 ## Kun painetaan Options-nappulaa, avataan asetuksien käyttöliittymä
 func _on_asetukset_nappi_pressed():
 	asetukset.visible = true
+
+
+## Ladataan peli
+func _on_lataa_nappi_pressed():
+	Globaali.lataa()
+
+
+## Tallennetaan peli
+func _on_tallenna_nappi_pressed():
+	Globaali.tallenna()

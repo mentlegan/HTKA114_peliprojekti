@@ -69,15 +69,37 @@ offset_right = 479.0
 offset_bottom = 503.0
 text = "Quit"
 
+[node name="tallennaNappi" type="Button" parent="Paneeli"]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 324.0
+offset_top = 187.0
+offset_right = 415.0
+offset_bottom = 242.0
+text = "Save"
+
+[node name="lataaNappi" type="Button" parent="Paneeli"]
+auto_translate_mode = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 450.0
+offset_top = 187.0
+offset_right = 541.0
+offset_bottom = 242.0
+text = "Load"
+
 [node name="asetuksetNappi" type="Button" parent="Paneeli"]
 layout_mode = 0
 offset_left = 375.0
-offset_top = 245.0
+offset_top = 312.0
 offset_right = 479.0
-offset_bottom = 300.0
+offset_bottom = 367.0
 text = "Options"
 
 [connection signal="pressed" from="Paneeli/jatkaNappi" to="." method="_on_jatka_nappi_pressed"]
 [connection signal="pressed" from="Paneeli/lopetaNappi" to="." method="_on_lopeta_nappi_pressed"]
 [connection signal="pressed" from="Paneeli/lopetaNappi" to="." method="_on_jatka_nappi_pressed"]
+[connection signal="pressed" from="Paneeli/tallennaNappi" to="." method="_on_tallenna_nappi_pressed"]
+[connection signal="pressed" from="Paneeli/lataaNappi" to="." method="_on_lataa_nappi_pressed"]
 [connection signal="pressed" from="Paneeli/asetuksetNappi" to="." method="_on_asetukset_nappi_pressed"]

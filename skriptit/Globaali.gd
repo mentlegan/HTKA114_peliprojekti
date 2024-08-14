@@ -96,6 +96,9 @@ var tausta = preload("res://scenet/tausta.tscn")
 var journal_keratty = false
 var minecart_kaytetty = false
 
+# Pelin tallennustiedosto
+# Sijainti: %APPDATA%\Godot\app_userdata\Beneath the Mines\save_file.json
+const TALLENNUSTIEDOSTO = "user://save_file.json"
 
 ## Scenen vaihtamiseen, ei luultavasti tarvita
 """
@@ -506,3 +509,48 @@ func _show_credits():
 	pelaaja.pimeyskuolema.stop()
 	pelaaja.pimeyskuolema.modulate.a = 0.0
 	get_tree().paused = true
+
+
+# Tallentaa pelin nykyisen tilan JSON-tiedostoon.
+# Ottaa tallentaessa huomioon pelkästään 'tallenna'-ryhmään kuuluvat nodet,
+# jotka on instanssoitu (scenet/*.tscn).
+func tallenna():
+	# Mallia otettu Godotin dokumentaatiosta:
+	# https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
+	# Godot tukee serialisointia myös binäärimuodossa. Käytetään kuitenkin
+	# helpon luettavuuden takia JSON:ia.
+
+	# Base64-enkoodaus voisi hiukan vaikeuttaa tallennustiedoston muokkaamista,
+	# jos sitä kaivataan:
+	# https://docs.godotengine.org/en/stable/classes/class_marshalls.html
+	
+	var tallennustiedosto = FileAccess.open(TALLENNUSTIEDOSTO, FileAccess.READ_WRITE)
+	
+	# Tallennetaan pelkästään nodet, jotka kuuluvat ryhmään 'tallenna'
+	var nodet = get_tree().get_nodes_in_group("tallenna")
+
+	for node in nodet:
+		# Tallennettavan noden on oltava instanssoitu (scenet/*.tscn), jotta
+		# se voidaan luoda peliä ladattaessa.
+		if node.scene_file_path.is_empty():
+			print("Nodea '%s' ei ole instanssoitu scenet-kansioon, skipataan" % node.name)
+			continue
+		
+		# Tallennetaan vain, jos nodella on tallenna-funktio.
+		if not node.has_method("tallenna"):
+			print("Nodella '%s' ei ole funktiota tallenna(), skipataan" % node.name)
+			continue
+		
+		# Haetaan noden tiedot ja lisätään se data-taulukkoon
+		var data = node.call("tallenna")
+
+		# Muunnetaan tiedot JSON-muotoon
+		var json = JSON.stringify(data)
+		
+		# Lisätään JSON-rivi tallennustiedostoon
+		tallennustiedosto.store_line(json)
+
+
+# Lataa pelin aiemman tilan tallennustiedostosta
+func lataa():
+	pass

@@ -59,6 +59,7 @@ nykyisetAlueet=""
 0="Aluksi ovi, käytetään respawnatessa resetointiin"
 valonlahde=""
 ei_resetoi="Neljalle ovelle ennen ovipuzzlea"
+tallenna="Tallentuva node, jolla on oltava funktio tallenna()"
 
 [gui]
 
