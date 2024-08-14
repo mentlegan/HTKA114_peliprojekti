@@ -127,6 +127,9 @@ const SEINA_HYPPY = 100.0
 const SEINA_HYPPY_KORKEUS = -400.0
 var suunta = Vector2.ZERO
 
+## Uinnin nopeus
+const UINTI_NOPEUS = 120.0
+
 ## Ohjaintähtäimen maksimietäisyys näytöllä
 const MAX_TAHTAIN_ETAISYYS = 128
 
@@ -563,12 +566,20 @@ func _physics_process(delta):
 		Input.get_axis("tahtaa_ylos", "tahtaa_alas")
 	)
 	
-	# Otetaan pelaajan liikkeen haluttu suunta
-	# PC vasen: A, oikea: D
+	# Otetaan pelaajan liikkeen halutut suunnat
+	# PC vasen: A, oikea: D, ylös: W, alas: S
+	var uinnin_velocity = Input.get_vector("liiku_vasen", "liiku_oikea", "kiipea", "putoa")
 	suunta = Input.get_axis("liiku_vasen", "liiku_oikea")
 	
+	# Uinnin movement
+	if vedessa:
+		if uinnin_velocity.length() > 0.1:
+			velocity = uinnin_velocity.normalized() * UINTI_NOPEUS
+		else:
+			velocity = uinnin_velocity.normalized() * 0
+	
 	# Tästä painovoima
-	if not (is_on_floor() or is_on_wall()):
+	if not (is_on_floor() or is_on_wall()) and not vedessa:
 		if oli_seinalla and hyppy_ajastin_seinalla.is_stopped():
 			hyppy_ajastin_seinalla.start(SEINAHYPPY_BUFFER)
 		elif oli_maassa and hyppy_ajastin_maassa.is_stopped():
@@ -586,7 +597,7 @@ func _physics_process(delta):
 			putoamis_huippu = get_global_position().y
 		# Seinää vasten liikkuessa kiipeää tai tippuu
 		# PC kiipeä: W, pudottaudu: S
-	elif (oli_seinalla or is_on_wall()) and Input.is_action_pressed("kiipea"):
+	elif (oli_seinalla or is_on_wall()) and Input.is_action_pressed("kiipea") and not vedessa:
 		velocity.y = -gravity * delta * 6
 		animaatio.play("seinakiipeaminen")
 		if not audio_seinahyppy.playing:
@@ -597,7 +608,7 @@ func _physics_process(delta):
 		elif not suunta < 0:
 			velocity.x = 300
 		seinalla()
-	elif is_on_wall() and Input.is_action_pressed("putoa"):
+	elif is_on_wall() and Input.is_action_pressed("putoa") and not vedessa:
 		velocity.y = gravity * delta * 6
 		animaatio.play("seinakiipeaminen")
 		if not audio_seinahyppy.playing:
@@ -609,7 +620,7 @@ func _physics_process(delta):
 			velocity.x = 300
 		seinalla()
 	# Ei tipu seinältä kun on paikallaan
-	else:
+	elif not vedessa:
 		velocity.y = 0
 		if is_on_wall():
 			animaatio.play("seinakiipeaminen")
@@ -618,7 +629,7 @@ func _physics_process(delta):
 		seinalla()
 	
 	# Hyppy takaisin kun maassa
-	if is_on_floor():
+	if is_on_floor() and not vedessa:
 		hyppyjen_maara = 0
 		oli_maassa = true
 		oli_seinalla = false
@@ -637,19 +648,19 @@ func _physics_process(delta):
 	
 	# Tehdään hyppy
 	# PC SPACE_BAR
-	if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and oli_maassa and hyppyjen_maara < 1:
+	if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and oli_maassa and hyppyjen_maara < 1 and not vedessa:
 		hyppyjen_maara += 1
 		velocity.y = JUOKSU_HYPPY_KORKEUS
 		if is_on_floor():
 			velocity.x = JUOKSU_HYPPY_NOPEUS * velocity.x
 		animaatio.scale = Vector2(0.9, 1.1)
 		audio_hyppy.play()
-	elif Input.is_action_just_pressed("hyppaa") and oli_maassa and hyppyjen_maara < 1:
+	elif Input.is_action_just_pressed("hyppaa") and oli_maassa and hyppyjen_maara < 1 and not vedessa:
 		hyppyjen_maara += 1
 		velocity.y = HYPPY_VELOCITY
 		animaatio.scale = Vector2(0.9, 1.1)
 		audio_hyppy.play()
-	elif oli_seinalla and Input.is_action_just_pressed("hyppaa"):
+	elif oli_seinalla and Input.is_action_just_pressed("hyppaa") and not vedessa:
 		hyppyjen_maara = 0
 		velocity.y = SEINA_HYPPY_KORKEUS
 		animaatio.scale = Vector2(0.9, 1.1)
@@ -665,7 +676,7 @@ func _physics_process(delta):
 	
 	## input-kontrollit
 	var nopeus = 0
-	if suunta != 0:
+	if suunta != 0 and not vedessa:
 		# Juostessa eri nopeus
 		# PC SHIFT
 		if Input.is_action_pressed("juoksu"):
@@ -686,10 +697,10 @@ func _physics_process(delta):
 			animaatio.rotation = move_toward(animaatio.rotation, 0, delta * 0.4)
 			
 	# Hidastetaan kun ei liikuta mihinkään suuntaan
-	else:
+	elif not vedessa:
 		velocity.x = move_toward(velocity.x, 0, KITKA)
 	
-	if velocity.x > -MAX_NOPEUS and velocity.x < MAX_NOPEUS:
+	if velocity.x > -MAX_NOPEUS and velocity.x < MAX_NOPEUS and not vedessa:
 		animaatio.rotation = move_toward(animaatio.rotation, 0, delta)
 	# Liikutetaan pelaajaa
 	move_and_slide()
@@ -698,7 +709,7 @@ func _physics_process(delta):
 	# Tällöin pelaajan kävely/juoksuanimaatio ei jatku jos pelaaja kulkee seinää
 	# päin.
 	
-	if animaatio.get_animation() != "huilu":
+	if animaatio.get_animation() != "huilu" and not vedessa:
 		if is_on_floor():
 			# Jos pelaaja on maassa eikä liiku, aloitetaan idle-animaatio
 			if velocity.x == 0:
