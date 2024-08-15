@@ -224,11 +224,8 @@ animations = [{
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7b0f1"]
 streams_count = 3
 stream_0/stream = ExtResource("27_5yynh")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("28_lynst")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("29_bv82b")
-stream_2/weight = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glbb0"]
 size = Vector2(75, 48)
@@ -350,14 +347,8 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[node name="Journal" parent="KayttoLiittyma" node_paths=PackedStringArray("sivut_sprite", "sivu_label", "ohjeet", "audio_sivunvaihto", "ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_sg152")]
+[node name="Journal" parent="KayttoLiittyma" instance=ExtResource("4_sg152")]
 visible = false
-sivut_sprite = NodePath("SivutSprite")
-sivu_label = NodePath("SivuLabel")
-ohjeet = NodePath("Ohjeet")
-audio_sivunvaihto = NodePath("AudioSivunvaihto")
-ohjain_tooltipit = [NodePath("Ohjeet/OhjeetController"), NodePath("NuoliOikealle/Ohjain"), NodePath("NuoliVasemmalle/Ohjain"), NodePath("KirjanmerkkiOhjainL"), NodePath("KirjanmerkkiOhjainR")]
-kbm_tooltipit = [NodePath("Ohjeet/OhjeetKBM"), NodePath("NuoliOikealle/KBM"), NodePath("NuoliVasemmalle/KBM")]
 
 [node name="PimeysKuolema" type="AnimatedSprite2D" parent="KayttoLiittyma"]
 unique_name_in_owner = true
@@ -480,14 +471,12 @@ polygon = PackedVector2Array(49.0977, -57.5713, 13, -60, -48, -67, -73.752, -61.
 [node name="Polygon2D8" type="Polygon2D" parent="Tiilet"]
 polygon = PackedVector2Array(-641, 1047, -583, 1053, -589, 1224, -427, 1221, -406, 1056, -297, 1059, -267, 1258, -169, 1271, 87, 1258, 91, 1050, 329, 1018, 348, 1351, -654, 1340)
 
-[node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
+[node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
 position = Vector2(-347, 1020)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
 floor_snap_length = 14.0
-ohjain_tooltipit = [NodePath("HUD/ApuaLabel/Ohjain")]
-kbm_tooltipit = [NodePath("HUD/ApuaLabel/KBM")]
 
 [node name="Perhoset" type="Node2D" parent="."]
 rotation = -0.00132818
@@ -3093,17 +3082,15 @@ occluder = SubResource("OccluderPolygon2D_n2nwd")
 
 [node name="Vesialueet" type="Node2D" parent="."]
 
-[node name="Vesi2D" parent="Vesialueet" node_paths=PackedStringArray("vedenpinta") instance=ExtResource("80_eho0u")]
+[node name="Vesi2D" parent="Vesialueet" instance=ExtResource("80_eho0u")]
 position = Vector2(-176, 1160)
-vedenpinta = NodePath("Vedenpinta")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vesialueet/Vesi2D"]
 position = Vector2(82.5, 16.5)
 shape = SubResource("RectangleShape2D_oefff")
 
-[node name="Vesi2D2" parent="Vesialueet" node_paths=PackedStringArray("vedenpinta") instance=ExtResource("80_eho0u")]
+[node name="Vesi2D2" parent="Vesialueet" instance=ExtResource("80_eho0u")]
 position = Vector2(-517, 1090)
-vedenpinta = NodePath("Vedenpinta")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vesialueet/Vesi2D2"]
 position = Vector2(17, 58)

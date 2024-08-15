@@ -543,11 +543,8 @@ light_mode = 1
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wrish"]
 streams_count = 3
 stream_0/stream = ExtResource("12_k2yxh")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("13_rny7p")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("14_yxy1y")
-stream_2/weight = 1.0
 
 [sub_resource type="Gradient" id="Gradient_d4qav"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
