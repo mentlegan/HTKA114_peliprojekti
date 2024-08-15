@@ -60,6 +60,7 @@ nykyisetAlueet=""
 valonlahde=""
 ei_resetoi="Neljalle ovelle ennen ovipuzzlea"
 tallenna="Tallentuva node, jolla on oltava funktio tallenna()"
+mute_napit=""
 
 [gui]
 

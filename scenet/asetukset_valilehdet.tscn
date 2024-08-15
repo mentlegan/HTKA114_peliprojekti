@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dl8i0jom7iver"]
+[gd_scene load_steps=2 format=3 uid="uid://dl8i0jom7iver"]
+
+[ext_resource type="Script" path="res://skriptit/asetukset.gd" id="1_bomdo"]
 
 [node name="asetukset_valilehdet" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_bomdo")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -20,10 +23,9 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Sound"]
@@ -43,24 +45,52 @@ layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+[node name="sound_musiikki" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Music"
 
-[node name="Label2" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+[node name="musiikki_mute" type="CheckButton" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_musiikki" groups=["mute_napit"]]
+layout_mode = 0
+offset_left = 60.0
+offset_right = 104.0
+offset_bottom = 24.0
+button_pressed = true
+
+[node name="sound_efektit" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 text = "Sound Effects"
 
-[node name="Label3" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+[node name="efektit_mute" type="CheckButton" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_efektit" groups=["mute_napit"]]
+layout_mode = 0
+offset_left = 156.0
+offset_right = 200.0
+offset_bottom = 24.0
+button_pressed = true
+
+[node name="sound_pelaaja" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 text = "Player Movement"
 
-[node name="Label4" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+[node name="pelaaja_mute" type="CheckButton" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_pelaaja" groups=["mute_napit"]]
+layout_mode = 0
+offset_left = 179.0
+offset_right = 223.0
+offset_bottom = 24.0
+button_pressed = true
+
+[node name="sound_tausta" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 text = "Ambience"
+
+[node name="tausta_mute" type="CheckButton" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_tausta" groups=["mute_napit"]]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 148.0
+offset_bottom = 24.0
+button_pressed = true
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
 auto_translate_mode = 1
@@ -86,10 +116,10 @@ layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+[node name="Fullscreen" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-text = "Graphics1"
+text = "Fullscreen"
 
 [node name="Label2" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
@@ -109,6 +139,7 @@ text = "Graphics4"
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
 auto_translate_mode = 1
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
@@ -193,3 +224,8 @@ text = "Accessibility3"
 auto_translate_mode = 1
 layout_mode = 2
 text = "Accessibility4"
+
+[connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_musiikki/musiikki_mute" to="." method="_on_musiikki_mute_toggled"]
+[connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_efektit/efektit_mute" to="." method="_on_efektit_mute_toggled"]
+[connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_pelaaja/pelaaja_mute" to="." method="_on_pelaaja_mute_toggled"]
+[connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_tausta/tausta_mute" to="." method="_on_tausta_mute_toggled"]
