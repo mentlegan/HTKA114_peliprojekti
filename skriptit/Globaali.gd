@@ -464,14 +464,14 @@ func pausePeli():
 	if gameover_ruutu.visible:
 		return
 
-	pelaaja.pimeyskuolema.pause()
+	#pelaaja.pimeyskuolema.pause()
 	get_tree().paused = true
 	pauseruutu.visible = true
 
 
 ## Jatkaa peliä pauseruudulta
 func jatkaPelia():
-	pelaaja.pimeyskuolema.play()
+	#pelaaja.pimeyskuolema.play()
 	pauseruutu.visible = false
 
 

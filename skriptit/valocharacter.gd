@@ -221,8 +221,8 @@ func _physics_process(delta):
 			pallon_siirto_tween.set_ease(Tween.EASE_IN_OUT)
 			pallon_siirto_tween.tween_property(self, "position", parent.global_position, 1)
 			audio_koynnos_ovi.play()
-			audio_valopallo_hajoaa.play() # TODO: Jostain syystä ei soi
-			await get_tree().create_timer(0.2).timeout
+			audio_valopallo_hajoaa.play()
+			await get_tree().create_timer(0.2, false).timeout
 			start_destroy()
 			
 		else: # Kimpoaminen

@@ -285,7 +285,7 @@ func nayta_sivu_info():
 	sivu_info_tween.tween_property(sivu_info_label, "modulate:a", 1, 1)
 
 	await sivu_info_tween.finished
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(3, false).timeout
 	sivu_info_tween.kill()
 
 	sivu_info_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
@@ -310,7 +310,7 @@ func nayta_journal_info():
 	journal_info_tween.tween_property(journal_info_label, "modulate:a", 1, 1)
 
 	await journal_info_tween.finished
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1, false).timeout
 	journal_info_tween.kill()
 
 
@@ -356,17 +356,17 @@ func siirrytty_valoon():
 	# Lopetetaan kaikki, jos pelaa esim. respawnatessa
 	kuolema_tween = create_tween()
 	kuolema_tween.set_trans(Tween.TRANS_CUBIC)
-	kuolema_tween.tween_property(pimeyskuolema, "modulate:a", 0, 4)
+	kuolema_tween.tween_property(pimeyskuolema, "modulate:a", 0, 5)
 	var tween_pimeys_audio = get_tree().create_tween()
 	tween_pimeys_audio.set_trans(Tween.TRANS_EXPO)
 	tween_pimeys_audio.set_ease(Tween.EASE_IN)
 	tween_pimeys_audio.tween_property(audio_pimeyskuolema, "volume_db", -60, 2)
 	pimeyskuolema.pause()
 	# Animaatio alkamaan nykyisestä kohdasta taaksepäin
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	pimeyskuolema.play_backwards("PimeysKuolema")
 	print("Valossa: " + str(valossa))
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(4, false).timeout
 	audio_pimeyskuolema.stop()
 	audio_pimeyskuolema.volume_db = 3
 	pimeyskuolema.stop()
@@ -385,7 +385,7 @@ func siirrytty_varjoon():
 	ajastin_pimeassa.start()
 	ajastin_pimeassa_audio.start()
 	print("Valossa: " + str(valossa))
-	await get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(2.5, false).timeout
 	audio_ambient.play()
 
 
@@ -455,7 +455,7 @@ func meneta_elamia(maara):
 		audio_pelaaja_fall_damage.play()
 		elama_regen_ajastin.start(elamat_regen_nopeus)
 		animaatio.modulate = Color.RED
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.1, false).timeout
 		animaatio.modulate = Color.WHITE
 	else:
 		pelaajan_elamat = 0
@@ -472,7 +472,7 @@ func myrkky_damage():
 		elama_regen_ajastin.start(elamat_regen_nopeus)
 		animaatio.modulate = Color.BLUE_VIOLET
 		elama_mittari_kuvalla.modulate = Color.BLUE_VIOLET
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.2, false).timeout
 		animaatio.modulate = Color.WHITE
 		elama_mittari_kuvalla.modulate = Color.WHITE
 	else:
@@ -592,9 +592,11 @@ func _physics_process(delta):
 			velocity.y += (gravity * delta) + velocity.y / 50
 		else:
 			velocity.y += gravity * delta
+			#print("VELOCITY.Y: ", velocity.y)
 		if not putoamis_vahinko:
 			putoamis_vahinko = true
 			putoamis_huippu = get_global_position().y
+			print(putoamis_huippu)
 		# Seinää vasten liikkuessa kiipeää tai tippuu
 		# PC kiipeä: W, pudottaudu: S
 	elif (oli_seinalla or is_on_wall()) and Input.is_action_pressed("kiipea") and not vedessa:
@@ -704,6 +706,8 @@ func _physics_process(delta):
 		animaatio.rotation = move_toward(animaatio.rotation, 0, delta)
 	# Liikutetaan pelaajaa
 	move_and_slide()
+	
+	#print("VELOCITY.Y: ", velocity.y)
 	
 	# Käynnistetään / pysäytetään pelaajan animaatio vasta liikkumisen jälkeen.
 	# Tällöin pelaajan kävely/juoksuanimaatio ei jatku jos pelaaja kulkee seinää
@@ -842,7 +846,7 @@ func _physics_process(delta):
 				# Tehty nyt täällä, myöhemmin kerkiää optimoida
 				Globaali.minecart_kaytetty = true
 				transitio.emit()
-				await get_tree().create_timer(0.8).timeout
+				await get_tree().create_timer(0.8, false).timeout
 				Globaali.minecartit.queue_free()
 				Globaali.poista_minecart_tooltipit()
 	

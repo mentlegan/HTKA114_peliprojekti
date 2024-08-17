@@ -18,11 +18,8 @@ radius = 258.002
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ekjm1"]
 streams_count = 3
 stream_0/stream = ExtResource("5_35uxy")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("6_k58co")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("7_8xih3")
-stream_2/weight = 1.0
 
 [node name="ValoCharacter" type="CharacterBody2D" groups=["valopallo"]]
 light_mask = 2
