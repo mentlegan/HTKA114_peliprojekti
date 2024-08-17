@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjlmhrkdv4ei5"]
 
-[ext_resource type="Script" path="res://scenet/kayttoliittyma/credits.gd" id="1_71kqe"]
-[ext_resource type="Texture2D" uid="uid://dxfirkfl164d1" path="res://grafiikka/Credits.png" id="2_4yc7k"]
+[ext_resource type="Script" path="res://skriptit/credits.gd" id="1_71kqe"]
+[ext_resource type="Texture2D" uid="uid://bck0ks7j5tdqp" path="res://grafiikka/Credits.png" id="2_4yc7k"]
 [ext_resource type="Texture2D" uid="uid://b8cydfpi4ba6r" path="res://grafiikka/OhjainTooltipB.png" id="2_lrm4t"]
-[ext_resource type="Texture2D" uid="uid://c5p1ek3mg2uwa" path="res://grafiikka/LoppuFrame1.png" id="4_4bey7"]
-[ext_resource type="Texture2D" uid="uid://b1totmomv3kmv" path="res://grafiikka/LoppuFrame2.png" id="5_kpm05"]
+[ext_resource type="Texture2D" uid="uid://bu0u0jwo8yp1i" path="res://grafiikka/LoppuFrame1.png" id="4_4bey7"]
+[ext_resource type="Texture2D" uid="uid://rcd18ijh5242" path="res://grafiikka/LoppuFrame2.png" id="5_kpm05"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0oi50"]
 font_size = 80
