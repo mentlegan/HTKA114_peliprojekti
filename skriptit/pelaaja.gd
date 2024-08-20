@@ -938,14 +938,14 @@ func _on_huilu_body_entered(body):
 
 
 ## Kun pelaaja poistuu Area2D-nodesta.
-func _on_keho_area_exited(area):
+func _on_veden_tarkistus_area_exited(area):
 	# Jos on osuttu veteen, päivitetään pelaajan muuttuja
 	if area is Vesi2D and vedessa:
 		poistuttu_vedesta()
 
 
 ## Kun pelaaja osuu Area2D-nodeen.
-func _on_keho_area_entered(area):
+func _on_veden_tarkistus_area_entered(area):
 	# Jos on osuttu veteen, päivitetään pelaajan muuttuja
 	if area is Vesi2D:
 		siirrytty_veteen()

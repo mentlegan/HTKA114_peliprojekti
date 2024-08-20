@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=116 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d1oyqkmwe7p1i" path="res://grafiikka/OhjainTooltipSelect.png" id="6_uircd"]
 [ext_resource type="Texture2D" uid="uid://csjbkgti5474u" path="res://grafiikka/PelaajaKuolema-Sheet.png" id="7_dc5pa"]
 [ext_resource type="Texture2D" uid="uid://dgpptf7h5t4y5" path="res://grafiikka/WallClimb-Sheet.png" id="7_prghi"]
-[ext_resource type="Texture2D" uid="uid://bl1d8010t8jpp" path="res://grafiikka/PelaajaKuolemaVihollinen-Sheet.png" id="9_grh8j"]
+[ext_resource type="Texture2D" uid="uid://dtwqxa8ywct1k" path="res://grafiikka/PelaajaKuolemaVihollinen-Sheet.png" id="9_grh8j"]
 [ext_resource type="AudioStream" uid="uid://eqsig3hl534a" path="res://audio/pelaaja/kavely2_pitka_mono.wav" id="10_uhji0"]
 [ext_resource type="AudioStream" uid="uid://37o042m8fj2j" path="res://audio/pelaaja/juoksu_mono.wav" id="11_kteua"]
 [ext_resource type="Texture2D" uid="uid://dn4q2iyjfh52y" path="res://grafiikka/LightBall2.png" id="11_p47gp"]
@@ -22,24 +22,24 @@
 [ext_resource type="AudioStream" uid="uid://bjbaqnxkgke0l" path="res://audio/pelaaja/walljump1_mono.wav" id="15_bxt80"]
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="16_4n4el"]
 [ext_resource type="Texture2D" uid="uid://dj3c6nkmnxha2" path="res://grafiikka/Valo256.png" id="20_8tpmo"]
-[ext_resource type="AudioStream" uid="uid://xbwdpjb83uco" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
-[ext_resource type="AudioStream" uid="uid://dmtg34jhamrpm" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
+[ext_resource type="AudioStream" uid="uid://blcgihddqpvmc" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
+[ext_resource type="AudioStream" uid="uid://dans7634kd2jt" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
 [ext_resource type="Texture2D" uid="uid://cbatwxsibovo" path="res://grafiikka/AanenTaajuus1.png" id="22_7od7w"]
 [ext_resource type="Texture2D" uid="uid://bh2dveepeu0so" path="res://grafiikka/Nuotti.png" id="22_fot2n"]
 [ext_resource type="AudioStream" uid="uid://pywxdhvql574" path="res://audio/pelaaja/huilu/huiluaani_A.wav" id="23_elvmw"]
-[ext_resource type="AudioStream" uid="uid://bsmp8p2f6nrl1" path="res://audio/valopallo/valopallon_poimiminenAm.mp3" id="24_7f2m0"]
+[ext_resource type="AudioStream" uid="uid://cpjwo5mr8va2c" path="res://audio/valopallo/valopallon_poimiminenAm.mp3" id="24_7f2m0"]
 [ext_resource type="Texture2D" uid="uid://cp4f2v1euxr6b" path="res://grafiikka/AanenTaajuus3.png" id="24_7n80x"]
 [ext_resource type="AudioStream" uid="uid://dw75jyosgto66" path="res://audio/pelaaja/huilu/huiluaani_C.wav" id="24_xxdxr"]
-[ext_resource type="AudioStream" uid="uid://cp6dkr6x4wbqa" path="res://audio/ambient/tuulen_humina.mp3" id="25_byydo"]
+[ext_resource type="AudioStream" uid="uid://dnm2hw7nwh5ff" path="res://audio/ambient/tuulen_humina.mp3" id="25_byydo"]
 [ext_resource type="AudioStream" uid="uid://diri4jc7100fi" path="res://audio/pelaaja/huilu/huiluaani_E.wav" id="25_qars5"]
 [ext_resource type="Script" path="res://skriptit/huilu.gd" id="26_v60w7"]
 [ext_resource type="AudioStream" uid="uid://7tjeefooail4" path="res://audio/pelaaja/creeping_darkness_2.mp3" id="32_1qpma"]
-[ext_resource type="Texture2D" uid="uid://cc0ruxmm0fvpm" path="res://grafiikka/HealthbarEmpty.png" id="34_tun23"]
-[ext_resource type="Texture2D" uid="uid://c4xxipuqjmcay" path="res://grafiikka/HealthbarOutline.png" id="35_m6how"]
-[ext_resource type="Texture2D" uid="uid://bwl0e7t423lay" path="res://grafiikka/HealthbarFull.png" id="35_x5jxm"]
+[ext_resource type="Texture2D" uid="uid://bw3okq7geul8m" path="res://grafiikka/HealthbarEmpty.png" id="34_tun23"]
+[ext_resource type="Texture2D" uid="uid://ctt5u7sdmswe4" path="res://grafiikka/HealthbarOutline.png" id="35_m6how"]
+[ext_resource type="Texture2D" uid="uid://b6s4jdsu4j23h" path="res://grafiikka/HealthbarFull.png" id="35_x5jxm"]
 [ext_resource type="Texture2D" uid="uid://carqststa41k" path="res://grafiikka/OhjainTooltipNappaimisto.png" id="38_fvlae"]
-[ext_resource type="Texture2D" uid="uid://b2dticqxto3u" path="res://grafiikka/Arrow1.png" id="39_06las"]
-[ext_resource type="Texture2D" uid="uid://c5wrkbgvlvbfr" path="res://grafiikka/kupla.png" id="40_2fdq1"]
+[ext_resource type="Texture2D" uid="uid://tybefdmdsudb" path="res://grafiikka/Arrow1.png" id="39_06las"]
+[ext_resource type="Texture2D" uid="uid://dhbbp1wkvquld" path="res://grafiikka/kupla.png" id="40_2fdq1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -566,6 +566,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffkin"]
+size = Vector2(46, 22)
+
 [node name="Pelaaja" type="CharacterBody2D" node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") groups=["Pelaaja", "tallenna"]]
 collision_layer = 2
 script = ExtResource("1_ypfv3")
@@ -919,10 +922,16 @@ gravity = Vector2(0, -100)
 linear_accel_min = -29.75
 linear_accel_max = 18.18
 
-[connection signal="area_entered" from="keho" to="." method="_on_keho_area_entered"]
-[connection signal="area_exited" from="keho" to="." method="_on_keho_area_exited"]
+[node name="VedenTarkistus" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VedenTarkistus"]
+position = Vector2(0, -22)
+shape = SubResource("RectangleShape2D_ffkin")
+
 [connection signal="siirrytty_valoon" from="ValonTarkistus" to="." method="siirrytty_valoon"]
 [connection signal="siirrytty_varjoon" from="ValonTarkistus" to="." method="siirrytty_varjoon"]
 [connection signal="body_entered" from="Huilu" to="." method="_on_huilu_body_entered"]
 [connection signal="timeout" from="AjastinPimealle" to="." method="kuolema"]
 [connection signal="timeout" from="AjastinPimealleAudio" to="." method="pimeaKuoleminen"]
+[connection signal="area_entered" from="VedenTarkistus" to="." method="_on_veden_tarkistus_area_entered"]
+[connection signal="area_exited" from="VedenTarkistus" to="." method="_on_veden_tarkistus_area_exited"]
