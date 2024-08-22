@@ -130,7 +130,6 @@ offset_left = -7.0
 offset_top = 20.0
 offset_right = 705.0
 offset_bottom = 46.0
-selected = 0
 
 [node name="Label2" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1

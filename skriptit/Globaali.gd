@@ -498,7 +498,9 @@ func _game_over():
 	# tai pausettaa peli muuten, mutta hienot kuolema-animaatiot silti toimivat normaalisti
 	await get_tree().create_timer(2,5).timeout # Pieni ajastin, että game over ei ihan heti tule
 	gameover_ruutu.visible = true
-	
+
+
+## Tämä pitäisi kommentoida
 func _show_credits():
 	## Lopetetaan kaikki taustalta, niin kuin game overissakin
 	pelaaja.animaatio.visible = false
@@ -511,9 +513,9 @@ func _show_credits():
 	get_tree().paused = true
 
 
-# Tallentaa pelin nykyisen tilan JSON-tiedostoon.
-# Ottaa tallentaessa huomioon pelkästään 'tallenna'-ryhmään kuuluvat nodet,
-# jotka on instanssoitu (scenet/*.tscn).
+## Tallentaa pelin nykyisen tilan JSON-tiedostoon.
+## Ottaa tallentaessa huomioon pelkästään 'tallenna'-ryhmään kuuluvat nodet,
+## jotka on instanssoitu (scenet/*.tscn).
 func tallenna():
 	# Mallia otettu Godotin dokumentaatiosta:
 	# https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
@@ -551,6 +553,6 @@ func tallenna():
 		tallennustiedosto.store_line(json)
 
 
-# Lataa pelin aiemman tilan tallennustiedostosta
+## Lataa pelin aiemman tilan tallennustiedostosta
 func lataa():
 	pass

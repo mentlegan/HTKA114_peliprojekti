@@ -1,10 +1,11 @@
-## Harri 18.6.2024
+## Harri 22.8.2024 - Pelaajan happimekaniikat ja dokumentaation korjausta
 ## Juuso 10.4.2024
 ## Paavo 17.3.2024
 ## Elias 17.3.2024 - Pelaajan äänet
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
 ## TODO: tallennuspisteet, joihin pelaaja siirretään respawn()-kutsun aikana
 ## TODO: valokukkien kerääminen signaaleilla get_overlapping_areas()-kutsun sijaan
+## TODO: kuolemat pitäisi tehdä paremmin: tehdä vaikkapa kuolema-funktiolle perus bool-tarkistus, jonka perusteella käsitellään eri kuolemat
 extends CharacterBody2D
 class_name Pelaaja
 
@@ -25,6 +26,7 @@ var tahtaimen_lapset = []
 ## Pelaajan labelit
 @onready var hud = get_node("HUD")
 @onready var elama_mittari_kuvalla = get_node("HUD/ElamaMittariKuvalla")
+@onready var happi_mittari = get_node("HUD/Happi")
 @onready var palloja_label = get_node("HUD/Palloja")
 @onready var apua_label = get_node("HUD/ApuaLabel")
 @onready var journal_info_label = get_node("JournalInfo")
@@ -159,6 +161,11 @@ var elamat_regen_nopeus = 8
 ## Kuinka paljon elamia pelaaja saa takaisin
 var elamat_regen_maara = 1
 
+## Pelaajan happitason asiat
+const pelaajan_happi_max = 15
+var pelaajan_happi = pelaajan_happi_max
+@onready var happi_ajastin = $HappiAjastin
+
 ## Myrkylle timer
 var myrkky_ajastin = Timer.new()
 var myrkyn_vahinko_maara = 0.5
@@ -205,6 +212,10 @@ func _ready():
 	# Lisätään pelaajan hp labeliin elamat
 	elama_mittari_kuvalla.max_value = pelaajan_elamat_max
 	elamat_label_paivita()
+	
+	# Käsitellään happi-mittarin asiat
+	happi_mittari.max_value = pelaajan_happi_max
+	happi_mittari_paivita()
 	
 	# Hyppy mahdollisuus pois jos liian kauan pois seinältä
 	hyppy_ajastin_seinalla.timeout.connect(hyppy_buffer_seinalla)
@@ -342,14 +353,31 @@ func lopeta_huilu_animaatio():
 
 ## Kutsutaan, kun pelaaja poistuu vedestä
 func poistuttu_vedesta():
-	kuplat.emitting = false
+	kuplat.emitting = false # Hassuja kuplia ei tule
 	vedessa = false
+	happi_ajastin.stop() # Ajastin ei enää pyöri, joten happea ei lähde
+	pelaajan_happi = pelaajan_happi_max # Asetetaan pelaajan happi takaisin normaaliksi..
+	happi_mittari_paivita() # .. ja päivitetään mittari peruslukemaan
+	happi_mittari.visible = false # lopuksi mittari piiloon, koska sitä ei enää tarvita
 
 
 ## Kutsutaan, kun pelaaja siirtyy veteen
 func siirrytty_veteen():
-	kuplat.emitting = true
-	vedessa = true
+	kuplat.emitting = true # Hassuja kuplia tulee
+	vedessa = true 
+	happi_mittari.visible = true # Laitetaan hapen tasoa indikoiva mittari näkyviin vedessä
+	happi_ajastin.start() # Aloitetaan ajastin, joka määrää hapen menetyksen
+
+
+## Funktio, joka määrää pelaajan hapen menetyksen
+## Aiemmin koodissa on säädetty, että maksimihappitaso on 15
+## Hapen ajastimelle on node insprectorissa säädetty, että wait time on 1 ..
+## .. eli kääpiöukkeli voi pidättää hengitystään 15 sekuntia
+func _on_happi_ajastin_timeout():
+	if pelaajan_happi != 0: # Tarkistetaan, että hapen taso ei ole 0
+		pelaajan_happi -= 1 # Vähennetään happea yhdellä
+		happi_mittari_paivita() # Päivitetään mittari
+	else: kuolema() # Jos pelaajan happitaso on 0, pelaaja kuolee
 
 
 ## Kun siirrytään valoon, lopetetaan ajastin
@@ -411,7 +439,7 @@ func kuolema():
 	elamat_label_paivita()
 	pimeyskuolema.stop()
 	kuollut.emit()
-	print_debug("Kuolit PIIKKIIN TAI PIMEYTEEN")
+	print_debug("Kuolit PIIKKIIN TAI PIMEYTEEN TAI HUKUIT")
 
 
 ## Kuolema pitäisi toteuttaa paremmin, mutta tässä nyt hätäratkaisuna
@@ -432,6 +460,11 @@ func get_elamat():
 ## Päivitetään pelaajan elamat label
 func elamat_label_paivita():
 	elama_mittari_kuvalla.value = pelaajan_elamat
+
+
+## Päivitetään hapen tason mittari
+func happi_mittari_paivita():
+	happi_mittari.value = pelaajan_happi
 
 
 ## Lisätään pelaajalle elämiä ja jatketaan regenia, jos ei vielä täydet elämät
@@ -465,7 +498,8 @@ func meneta_elamia(maara):
 		pelaajan_elamat = 0
 		kuolema_fall_damageen()
 	elamat_label_paivita()
-	
+
+
 ## Myrkky damage (oma funktio tulevaisuutta varten, jos tulee suuria muutoksia meneta_elamia() verrattuna)
 func myrkky_damage():
 	if pelaajan_elamat - myrkyn_vahinko_maara > 0:
@@ -483,12 +517,14 @@ func myrkky_damage():
 		pelaajan_elamat = 0
 		kuolema_fall_damageen()
 	elamat_label_paivita()
-	
+
+
 ## Myrkky damagen timeri päälle
 func myrkky_timer():
 	if myrkky_ajastin.time_left == 0:
 		myrkky_damage()
 		myrkky_ajastin.start(myrkyn_damage_nopeus)
+
 
 ## Vaihdetaan kameran tärinän arvoa
 func elamamittari_tarina():

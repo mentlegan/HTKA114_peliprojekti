@@ -3,6 +3,7 @@
 ## Mutenapit toimivat suomeksi näin: 
 ##	nappi on pohjassa, jos jokin ääni halutaan peliin mukaan
 ## TODO: Grafiikoiden borderless-optiot voisi korjata myöhemmin toimiviksi, tai poistaa
+## TODO: nimiä voisi vaihdella fiksummiksi
 
 extends Control
 
@@ -24,7 +25,7 @@ const kuvakokotaulukko : Array[String] = [
 func _ready():
 	taytaKuvakokojenValinta()
 	kuvakokoValinta.item_selected.connect(on_window_mode_selected)
-	
+
 
 ##
 ## ÄÄNET
