@@ -46,6 +46,7 @@ func _process(_delta):
 		for raycast in raycasts.get_children():
 			if raycast.is_colliding():
 				player.velocity.y = bounce_velocity_y
-				player.putoamis_huippu = player.global_position.y
+				# Resetoidaan putoamis_vahinko, jotta huippu lasketaan uudelleen
+				player.putoamis_vahinko = false
 				#print(player.velocity.y)
 				break

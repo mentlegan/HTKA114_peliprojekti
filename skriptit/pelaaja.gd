@@ -129,6 +129,7 @@ var suunta = Vector2.ZERO
 
 ## Uinnin nopeus
 const UINTI_NOPEUS = 120.0
+const UINTI_JUOKSU_NOPEUS = 200.0
 
 ## Ohjaintähtäimen maksimietäisyys näytöllä
 const MAX_TAHTAIN_ETAISYYS = 128
@@ -169,6 +170,9 @@ var elama_regen_ajastin = Timer.new()
 var putoamis_raja_1 = 200
 var putoamis_raja_2 = 300
 var putoamis_raja_3 = 400
+"var putoamis_raja_1 = 200
+var putoamis_raja_2 = 325 ## Uusia arvoja voi testata pomppusienen kanssa
+var putoamis_raja_3 = 400"
 ## Miten paljon vahinkoa kustakin korkeudesta ottaa
 var putoamis_raja_1_dmg = 1
 var putoamis_raja_2_dmg = 3
@@ -574,7 +578,10 @@ func _physics_process(delta):
 	# Uinnin movement
 	if vedessa:
 		if uinnin_velocity.length() > 0.1:
-			velocity = uinnin_velocity.normalized() * UINTI_NOPEUS
+			if Input.is_action_pressed("juoksu"):
+				velocity = uinnin_velocity.normalized() * UINTI_JUOKSU_NOPEUS
+			else:
+				velocity = uinnin_velocity.normalized() * UINTI_NOPEUS
 		else:
 			velocity = uinnin_velocity.normalized() * 0
 	
@@ -592,8 +599,9 @@ func _physics_process(delta):
 			velocity.y += (gravity * delta) + velocity.y / 50
 		else:
 			velocity.y += gravity * delta
-			#print("VELOCITY.Y: ", velocity.y)
-		if not putoamis_vahinko:
+		#print("VELOCITY.Y: ", velocity.y)
+		# Tallennetaan todellinen huippu
+		if not putoamis_vahinko and velocity.y > 0:
 			putoamis_vahinko = true
 			putoamis_huippu = get_global_position().y
 			print(putoamis_huippu)
@@ -637,7 +645,7 @@ func _physics_process(delta):
 		oli_seinalla = false
 		if putoamis_vahinko:
 			animaatio.scale = Vector2(1.1, 0.9)
-			print(get_global_position().y - putoamis_huippu)
+			print("EROTUS: ", get_global_position().y - putoamis_huippu)
 			if (get_global_position().y - putoamis_huippu) > putoamis_raja_3:
 				meneta_elamia(putoamis_raja_3_dmg)
 			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_2:
@@ -788,7 +796,7 @@ func _physics_process(delta):
 		hiiri_kaytossa or tahtain.visible
 	):
 		# Tällä hetkellä 2 maksimissaan
-		if Globaali.nykyiset_pallot < 2 and Globaali.palloja > 0:
+		if Globaali.nykyiset_pallot < 2 and Globaali.palloja > 0 and not vedessa:
 			# Valon synnyttäminen
 			var l = valopallo.instantiate()
 			# Liikkuminen valon scriptissä
