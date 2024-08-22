@@ -1,11 +1,11 @@
-[gd_scene load_steps=127 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=129 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://dskh1b4twfo2c" path="res://scenet/kayttoliittyma/journal.tscn" id="4_sg152"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="4_udkay"]
-[ext_resource type="AudioStream" uid="uid://4ori5nw5uu3d" path="res://audio/journal/journal.mp3" id="5_fl043"]
+[ext_resource type="AudioStream" uid="uid://bmafpn4g1fabn" path="res://audio/journal/journal.mp3" id="5_fl043"]
 [ext_resource type="PackedScene" uid="uid://dsy33jkmnrijr" path="res://scenet/asetukset_ruutu.tscn" id="5_qkdva"]
 [ext_resource type="PackedScene" uid="uid://dd71njcqglaep" path="res://scenet/transitio.tscn" id="7_f6xdr"]
 [ext_resource type="Texture2D" uid="uid://lxurmqd1rdhq" path="res://grafiikka/Timer-Sheet.png" id="9_75e1e"]
@@ -44,7 +44,7 @@
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
-[ext_resource type="AudioStream" uid="uid://dj7e0qof8l61h" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
+[ext_resource type="AudioStream" uid="uid://65annnivsadg" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
 [ext_resource type="PackedScene" uid="uid://o1g7x7mnf5b" path="res://scenet/ovet/ovi_oikea_y.tscn" id="28_1m8ka"]
@@ -55,30 +55,30 @@
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="32_a8tci"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="33_y2rdp"]
 [ext_resource type="PackedScene" uid="uid://4ehb4n76ts5g" path="res://scenet/checkpoint.tscn" id="35_je5yh"]
-[ext_resource type="AudioStream" uid="uid://4baa6pnq6xjy" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
+[ext_resource type="AudioStream" uid="uid://jmdai4le1e0y" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
 [ext_resource type="AudioStream" uid="uid://bw6cpa2qyrfll" path="res://audio/musiikki/ambient1_2_loop.wav" id="37_khmdb"]
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
 [ext_resource type="Script" path="res://skriptit/vesiputous.gd" id="45_dq3qu"]
 [ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="45_ocnt8"]
-[ext_resource type="Texture2D" uid="uid://e40h0pytoui6" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
-[ext_resource type="Texture2D" uid="uid://b8nedmfv438k0" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
-[ext_resource type="Texture2D" uid="uid://clgvrklxk5kch" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
-[ext_resource type="AudioStream" uid="uid://dnn2ckohlpv2e" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
+[ext_resource type="Texture2D" uid="uid://2remnqioy01q" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
+[ext_resource type="Texture2D" uid="uid://waj8yrwtmw58" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
+[ext_resource type="Texture2D" uid="uid://bu48mwj61n7g5" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
+[ext_resource type="AudioStream" uid="uid://c86pmsr8e0pqp" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
 [ext_resource type="PackedScene" uid="uid://3oa14w4m8khu" path="res://scenet/Animatic.tscn" id="55_a4dph"]
-[ext_resource type="PackedScene" path="res://scenet/myrkkysieni.tscn" id="56_7csj5"]
-[ext_resource type="Texture2D" uid="uid://n5nu80nnrujh" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
-[ext_resource type="Texture2D" uid="uid://s7psi8gx0tx5" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
-[ext_resource type="Texture2D" uid="uid://bdm3ohfpqxj4i" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
+[ext_resource type="PackedScene" uid="uid://bbxindymh45dn" path="res://scenet/myrkkysieni.tscn" id="56_7csj5"]
+[ext_resource type="Texture2D" uid="uid://d4e3hkybfx4ek" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
+[ext_resource type="Texture2D" uid="uid://0yxb7655jbcm" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
+[ext_resource type="Texture2D" uid="uid://y0nqot4oyiky" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
 [ext_resource type="Script" path="res://skriptit/CreditsAlue.gd" id="59_80cq2"]
-[ext_resource type="Texture2D" uid="uid://dvmyaj48c04hf" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
-[ext_resource type="Texture2D" uid="uid://crhi0jtecxnoc" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
-[ext_resource type="Texture2D" uid="uid://btrxuyopmbdu5" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
-[ext_resource type="Texture2D" uid="uid://bs4h5x1d02acf" path="res://grafiikka/TaustaElementit/SmallRocks.png" id="61_u2j4x"]
-[ext_resource type="Texture2D" uid="uid://b2hanbywhc3e3" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
-[ext_resource type="Texture2D" uid="uid://0y3p6bh7i4ab" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
-[ext_resource type="Texture2D" uid="uid://166ewhddgwe0" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
+[ext_resource type="Texture2D" uid="uid://rcc6ypsu70lm" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
+[ext_resource type="Texture2D" uid="uid://d00r25p2c8enu" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
+[ext_resource type="Texture2D" uid="uid://cvqvm0g8eomsi" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
+[ext_resource type="Texture2D" uid="uid://vkl61irhl2g1" path="res://grafiikka/TaustaElementit/SmallRocks.png" id="61_u2j4x"]
+[ext_resource type="Texture2D" uid="uid://fuelm63jo1j0" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
+[ext_resource type="Texture2D" uid="uid://mnwtbpfx6eu8" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
+[ext_resource type="Texture2D" uid="uid://dibggsljssm6v" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="75_4248i"]
 [ext_resource type="PackedScene" uid="uid://dpgfqmcthph48" path="res://scenet/vesi2d.tscn" id="80_eho0u"]
 [ext_resource type="PackedScene" uid="uid://d1adle7m7mnv3" path="res://scenet/pomppusieni.tscn" id="82_imok5"]
@@ -318,7 +318,13 @@ polygon = PackedVector2Array(12374, -1548, 12374, -1542, 12380, -1558)
 polygon = PackedVector2Array(12404, -1540, 12404, -1538, 12405, -1540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oefff"]
-size = Vector2(429, 213)
+size = Vector2(143.5, 214)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjmae"]
+size = Vector2(143.5, 212)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g01hc"]
+size = Vector2(143.5, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7m7nv"]
 size = Vector2(192, 162)
@@ -473,6 +479,12 @@ polygon = PackedVector2Array(49.0977, -57.5713, 13, -60, -48, -67, -73.752, -61.
 [node name="Polygon2D8" type="Polygon2D" parent="Tiilet"]
 polygon = PackedVector2Array(-641, 1047, -583, 1053, -589, 1224, -427, 1221, -406, 1056, -297, 1059, -267, 1258, -169, 1271, 87, 1258, 91, 1050, 329, 1018, 348, 1351, -654, 1340)
 
+[node name="Polygon2D9" type="Polygon2D" parent="Tiilet"]
+polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
+
+[node name="Polygon2D10" type="Polygon2D" parent="Tiilet"]
+polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
+
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
 position = Vector2(268, 971)
 floor_stop_on_slope = false
@@ -557,7 +569,7 @@ position = Vector2(-55.2298, 925.927)
 curve = SubResource("Curve2D_x65vv")
 
 [node name="Perhonen3" parent="Perhoset" instance=ExtResource("13_ufso7")]
-position = Vector2(-484.405, 1057.36)
+position = Vector2(-435.389, 1045.42)
 
 [node name="Kukat" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -3092,8 +3104,20 @@ occluder = SubResource("OccluderPolygon2D_n2nwd")
 position = Vector2(-176, 1160)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vesialueet/Vesi2D"]
-position = Vector2(82.5, 16.5)
+position = Vector2(-63.75, 15)
 shape = SubResource("RectangleShape2D_oefff")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Vesialueet/Vesi2D"]
+position = Vector2(198, 4)
+shape = SubResource("RectangleShape2D_bjmae")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Vesialueet/Vesi2D"]
+position = Vector2(68, 63)
+shape = SubResource("RectangleShape2D_g01hc")
+
+[node name="Marker2D" type="Marker2D" parent="Vesialueet/Vesi2D"]
+position = Vector2(69, -27)
+gizmo_extents = 107.7
 
 [node name="Vesi2D2" parent="Vesialueet" instance=ExtResource("80_eho0u")]
 position = Vector2(-517, 1090)
@@ -3101,6 +3125,10 @@ position = Vector2(-517, 1090)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vesialueet/Vesi2D2"]
 position = Vector2(17, 58)
 shape = SubResource("RectangleShape2D_7m7nv")
+
+[node name="Marker2D" type="Marker2D" parent="Vesialueet/Vesi2D2"]
+position = Vector2(22, 41)
+gizmo_extents = 62.6
 
 [node name="Pomppusieni" parent="." instance=ExtResource("82_imok5")]
 position = Vector2(149, 1014)

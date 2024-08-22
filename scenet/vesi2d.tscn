@@ -1,24 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpgfqmcthph48"]
+[gd_scene load_steps=2 format=3 uid="uid://dpgfqmcthph48"]
 
 [ext_resource type="Script" path="res://skriptit/vesi2d.gd" id="1_wbm3t"]
-[ext_resource type="Material" uid="uid://m8uw4ve6isqh" path="res://tres-tiedostot/vedenpinta.tres" id="2_1hswe"]
-[ext_resource type="Texture2D" uid="uid://bfv33rypj42i4" path="res://grafiikka/vedenpinta.png" id="2_1od10"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_esc6t"]
-diffuse_texture = ExtResource("2_1od10")
-texture_repeat = 2
-
-[node name="Vesi2D" type="Area2D" node_paths=PackedStringArray("vedenpinta")]
+[node name="Vesi2D" type="Area2D"]
 z_index = -1
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_wbm3t")
-vedenpinta = NodePath("Vedenpinta")
-
-[node name="Vedenpinta" type="Sprite2D" parent="."]
-visible = false
-z_index = 2
-material = ExtResource("2_1hswe")
-texture = SubResource("CanvasTexture_esc6t")
-region_enabled = true
-region_rect = Rect2(0, 0, 100, 16)
