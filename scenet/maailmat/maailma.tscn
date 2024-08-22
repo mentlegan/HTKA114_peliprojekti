@@ -486,7 +486,7 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(254, 990)
+position = Vector2(-321, 1020)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173

@@ -339,7 +339,6 @@ func nayta_journal_info():
 	journal_info_tween.kill()
 
 
-
 ## Lopettaa huilu-animaation
 func lopeta_huilu_animaatio():
 	if animaatio.get_animation() == "huilu":
