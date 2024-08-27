@@ -132,6 +132,7 @@ var suunta = Vector2.ZERO
 ## Uinnin nopeus
 const UINTI_NOPEUS = 120.0
 const UINTI_JUOKSU_NOPEUS = 200.0
+const UPPOAMIS_NOPEUS = 6
 
 ## Ohjaintähtäimen maksimietäisyys näytöllä
 const MAX_TAHTAIN_ETAISYYS = 128
@@ -612,13 +613,15 @@ func _physics_process(delta):
 	
 	# Uinnin movement
 	if vedessa:
+		animaatio.play("uinti")
 		if uinnin_velocity.length() > 0.1:
 			if Input.is_action_pressed("juoksu"):
 				velocity = uinnin_velocity.normalized() * UINTI_JUOKSU_NOPEUS
 			else:
 				velocity = uinnin_velocity.normalized() * UINTI_NOPEUS
 		else:
-			velocity = uinnin_velocity.normalized() * 0
+			velocity.x = 0
+			velocity.y = UPPOAMIS_NOPEUS
 	
 	# Tästä painovoima
 	if not (is_on_floor() or is_on_wall()) and not vedessa:
