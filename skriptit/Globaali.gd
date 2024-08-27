@@ -526,7 +526,7 @@ func tallenna():
 	# jos sitä kaivataan:
 	# https://docs.godotengine.org/en/stable/classes/class_marshalls.html
 	
-	var tallennustiedosto = FileAccess.open(TALLENNUSTIEDOSTO, FileAccess.READ_WRITE)
+	var tallennustiedosto = FileAccess.open(TALLENNUSTIEDOSTO, FileAccess.WRITE_READ)
 	
 	# Tallennetaan pelkästään nodet, jotka kuuluvat ryhmään 'tallenna'
 	var nodet = get_tree().get_nodes_in_group("tallenna")
