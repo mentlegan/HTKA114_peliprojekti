@@ -3,6 +3,8 @@ class_name Vesi2D
 ## Alue, jonka CollisionShape2D-nodeilla on vettä.
 ## Vedenpinta voidaan asettaa funktiolla aseta_vedenpinta(0..1) tai aseta_vedenpinta_merkkiin()
 
+## TODO: Käsittele päällekkäisten CollisionShape2D-nodejen aiheuttamat vesi-shaderin viat
+
 
 ## Vesialueen CollisionShape2D:t, määrittää missä ja kuinka korkealla vesi on.
 var collision_shapet = []
@@ -16,6 +18,8 @@ var vedenpinnan_merkit = []
 var ensimmainen_merkki = null
 ## Vedenpinnan vaihtamisen Tween
 var tween: Tween
+## Veden shaderi
+var vesi_shader = preload("res://tres-tiedostot/vesi.tres")
 
 
 func _ready():
@@ -23,11 +27,28 @@ func _ready():
 	for lapsi in get_children():
 		if lapsi is CollisionShape2D:
 			if lapsi.shape is RectangleShape2D:
+				# Luodaan sprite2d, joka sisältää shaderin
+				var sprite2d = Sprite2D.new()
+				var canvas_texture = CanvasTexture.new()
+
+				# Asetetaan Sprite2D:n sijainti ja koko vastaamaan CollisionShape2D:ta
+				# ja asetetaan sille tyhjä CanvasTexture
+				sprite2d.set_texture(canvas_texture)
+				sprite2d.set_region_enabled(true)
+				sprite2d.set_region_rect(Rect2(0, 0, 1, 1))
+				sprite2d.set_z_index(10)
+				sprite2d.set_material(vesi_shader)
+				sprite2d.position = lapsi.position
+				sprite2d.scale = lapsi.shape.size
+
+				self.add_child(sprite2d)
+
 				collision_shapet.append({
 					"collision_shape": lapsi,
 					"vedenpohja": lapsi.global_position.y + lapsi.shape.size.y * 0.5,
 					"vedenpinta": lapsi.global_position.y - lapsi.shape.size.y * 0.5,
-					"korkeus": lapsi.shape.size.y
+					"korkeus": lapsi.shape.size.y,
+					"sprite2d": sprite2d
 				})
 			else:
 				print_debug("Vesi2D nodella (%s) ei ole RectangleShape2D:ta, skipataan" % lapsi.name)
@@ -71,10 +92,6 @@ func aseta_vedenpinta(korkeus: float):
 	# Vedenpinnan uusi y-koordinaatti, johon jokainen CollisionShape2D pyrkii siirtymään
 	var uusi_vedenpinta = vedenpohja - (vedenpohja - vedenpinta) * korkeus
 	
-	print("vedenpinta: %s" % vedenpinta)
-	print("vedenpohja: %s" % vedenpohja)
-	print("uusi_vedenpinta: %s" % uusi_vedenpinta)
-	
 	if tween:
 		tween.kill()
 	tween = create_tween().set_parallel(true)
@@ -85,9 +102,8 @@ func aseta_vedenpinta(korkeus: float):
 
 		var uusi_korkeus = obj_vedenpohja - obj_vedenpinta
 		var uusi_sijainti = obj_vedenpohja - (obj_vedenpohja - obj_vedenpinta) * 0.5
-		
-		print("uusi_korkeus: %s" % uusi_korkeus)
-		print("uusi_sijainti: %s" % uusi_sijainti)
 
 		tween.tween_property(obj["collision_shape"], "shape:size:y", uusi_korkeus, 10)
+		tween.tween_property(obj["sprite2d"], "scale:y", uusi_korkeus, 10)
 		tween.tween_property(obj["collision_shape"], "global_position:y", uusi_sijainti, 10)
+		tween.tween_property(obj["sprite2d"], "global_position:y", uusi_sijainti, 10)
