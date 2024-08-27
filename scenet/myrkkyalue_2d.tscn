@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciaug8px7wrrg"]
+
+[ext_resource type="Script" path="res://skriptit/myrkkyalue_2d.gd" id="1_yipa4"]
+[ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://grafiikka/icon.svg" id="2_yg7ku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfven"]
+
+[node name="Myrkkyalue2D" type="Area2D"]
+modulate = Color(0.329412, 0.811765, 0.317647, 0.392157)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_yipa4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nfven")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(-0.155644, 0.157434)
+texture = ExtResource("2_yg7ku")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
