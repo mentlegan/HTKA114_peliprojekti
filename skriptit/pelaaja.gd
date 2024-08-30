@@ -92,7 +92,8 @@ const AANEN_TAAJUUS_VARIT = [
 ## UI:n ja kukan keräyksen animaatiota varten
 var tween: Tween
 var kukan_kerays_tween: Tween
-var kuolema_tween: Tween
+var kuolema_aloita_tween: Tween
+var kuolema_lopeta_tween: Tween
 var journal_info_tween: Tween
 var sivu_info_tween: Tween
 
@@ -380,30 +381,6 @@ func _on_happi_ajastin_timeout():
 	else: kuolema() # Jos pelaajan happitaso on 0, pelaaja kuolee
 
 
-## Kun siirrytään valoon, lopetetaan ajastin
-func siirrytty_valoon():
-	valossa = true
-	ajastin_pimeassa.stop()
-	ajastin_pimeassa_audio.stop()
-	# Lopetetaan kaikki, jos pelaa esim. respawnatessa
-	kuolema_tween = create_tween()
-	kuolema_tween.set_trans(Tween.TRANS_CUBIC)
-	kuolema_tween.tween_property(pimeyskuolema, "modulate:a", 0, 5)
-	var tween_pimeys_audio = get_tree().create_tween()
-	tween_pimeys_audio.set_trans(Tween.TRANS_EXPO)
-	tween_pimeys_audio.set_ease(Tween.EASE_IN)
-	tween_pimeys_audio.tween_property(audio_pimeyskuolema, "volume_db", -60, 2)
-	pimeyskuolema.pause()
-	# Animaatio alkamaan nykyisestä kohdasta taaksepäin
-	await get_tree().create_timer(0.5, false).timeout
-	pimeyskuolema.play_backwards("PimeysKuolema")
-	print("Valossa: " + str(valossa))
-	await get_tree().create_timer(4, false).timeout
-	audio_pimeyskuolema.stop()
-	audio_pimeyskuolema.volume_db = 3
-	pimeyskuolema.stop()
-
-
 func paivita_tahtaimen_lentorata():
 	var n: float = tahtaimen_lapset.size()
 	for i in range(n):
@@ -421,14 +398,41 @@ func siirrytty_varjoon():
 	audio_ambient.play()
 
 
+## Kun siirrytään valoon, lopetetaan ajastin
+func siirrytty_valoon():
+	valossa = true
+	ajastin_pimeassa.stop()
+	ajastin_pimeassa_audio.stop()
+	# Jos vasta aloitettu animaatio
+	if kuolema_aloita_tween and kuolema_aloita_tween.is_running():
+		kuolema_aloita_tween.stop()
+	# Jos ollaan jo lopettamassa
+	if kuolema_lopeta_tween and kuolema_lopeta_tween.is_running():
+		return
+	kuolema_lopeta_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	kuolema_lopeta_tween.tween_property(pimeyskuolema, "modulate:a", 0, 5)
+	pimeyskuolema.pause()
+	var tween_pimeys_audio = get_tree().create_tween()
+	tween_pimeys_audio.set_trans(Tween.TRANS_CUBIC)
+	tween_pimeys_audio.set_ease(Tween.EASE_IN)
+	tween_pimeys_audio.tween_property(audio_pimeyskuolema, "volume_db", -60, 3)
+	# Animaatio alkamaan nykyisestä kohdasta taaksepäin
+	await get_tree().create_timer(0.5, false).timeout
+	pimeyskuolema.play_backwards("PimeysKuolema")
+	print("Valossa: " + str(valossa))
+	await get_tree().create_timer(4, false).timeout
+	audio_pimeyskuolema.stop()
+	audio_pimeyskuolema.volume_db = 3
+	pimeyskuolema.stop()
+
+
 ## Toistaa pimeäkuoleman äänen kun oltu pimeässä 12 sekuntia.
 ## Pimeyskuoleman indikaattorin käsittelyä
 func pimeaKuoleminen():
 	audio_pimeyskuolema.play()
 	pimeyskuolema.play("PimeysKuolema")
-	kuolema_tween = create_tween()
-	kuolema_tween.set_trans(Tween.TRANS_CUBIC)
-	kuolema_tween.tween_property(pimeyskuolema, "modulate:a", 1, 5)
+	kuolema_aloita_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	kuolema_aloita_tween.tween_property(pimeyskuolema, "modulate:a", 1, 5)
 	Globaali.kuoltiinko_viholliseen = true # Laitetaan globaalissa oleva tarkistin trueksi oikean animaation saamiseksi
 
 
@@ -450,6 +454,14 @@ func kuolema_fall_damageen():
 	pimeyskuolema.stop()
 	kuollut.emit()
 	print_debug("Kuolit FALL DAMAGEEN")
+
+
+## Kutsutaan globaalissa, kun game over tai credits screen
+func lopeta_kuolema_tweenit():
+	if kuolema_aloita_tween:
+		kuolema_aloita_tween.kill()
+	if kuolema_lopeta_tween:
+		kuolema_lopeta_tween.kill()
 
 
 ## Haetaan pelaajan elamat
@@ -649,6 +661,7 @@ func _physics_process(delta):
 		velocity.y = -gravity * delta * 6
 		animaatio.play("seinakiipeaminen")
 		if not audio_seinahyppy.playing:
+			audio_seinahyppy.pitch_scale = randf_range(0.96, 1.04)
 			audio_seinahyppy.play()
 		oikein_seinalla()
 		if animaatio.is_flipped_h() and not suunta > 0:
@@ -660,6 +673,7 @@ func _physics_process(delta):
 		velocity.y = gravity * delta * 6
 		animaatio.play("seinakiipeaminen")
 		if not audio_seinahyppy.playing:
+			audio_seinahyppy.pitch_scale = randf_range(0.96, 1.04)
 			audio_seinahyppy.play()
 		oikein_seinalla()
 		if animaatio.is_flipped_h() and not suunta > 0:
@@ -712,6 +726,7 @@ func _physics_process(delta):
 		hyppyjen_maara = 0
 		velocity.y = SEINA_HYPPY_KORKEUS
 		animaatio.scale = Vector2(0.9, 1.1)
+		audio_seinahyppy.pitch_scale = randf_range(0.96, 1.04)
 		audio_seinahyppy.play()
 		if velocity.x == 0:
 			if animaatio.is_flipped_h():
@@ -861,7 +876,7 @@ func _physics_process(delta):
 	# PC RIGHT_CLICK
 	if Input.is_action_just_pressed("painike_oikea"):
 		# Käynnistetään huilun animaatio
-		if huilun_cd_ajastin.is_stopped() and huilun_ajastin.is_stopped():
+		if huilun_cd_ajastin.is_stopped() and huilun_ajastin.is_stopped() and not vedessa:
 			soita_huilua()
 	
 	# Kukkien kerääminen JA MINECARTIN KÄYTTÄMINEN

@@ -489,8 +489,9 @@ func _game_over():
 	pelaaja.animaatio.visible = false
 	pelaaja.pauseAnimaatiot.visible = true
 	soita_kuolema_animaatio()
-	if not pelaaja.kuolema_tween == null:
-		pelaaja.kuolema_tween.kill()
+	#if not pelaaja.kuolema_tween == null:
+		#pelaaja.kuolema_tween.kill()
+	pelaaja.lopeta_kuolema_tweenit()
 	pelaaja.audio_pimeyskuolema.stop()
 	pelaaja.pimeyskuolema.stop()
 	pelaaja.pimeyskuolema.modulate.a = 0.0
@@ -505,8 +506,9 @@ func _show_credits():
 	## Lopetetaan kaikki taustalta, niin kuin game overissakin
 	pelaaja.animaatio.visible = false
 	pelaaja.pauseAnimaatiot.visible = true
-	if not pelaaja.kuolema_tween == null:
-		pelaaja.kuolema_tween.kill()
+	#if not pelaaja.kuolema_tween == null:
+		#pelaaja.kuolema_tween.kill()
+	pelaaja.lopeta_kuolema_tweenit()
 	pelaaja.audio_pimeyskuolema.stop()
 	pelaaja.pimeyskuolema.stop()
 	pelaaja.pimeyskuolema.modulate.a = 0.0
