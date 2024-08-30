@@ -1,9 +1,10 @@
-## Juuso 16.5.2024
+## Juuso 30.8.2024
 ## Vesiputouksen toiminta
-
 extends Area2D
 
-signal transitio
+signal transitio(mihin_tp: Vector2)
+
+@export var mihin_tp: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +15,7 @@ func _ready() -> void:
 
 func _on_body_entered(body) -> void:
 	if body is Pelaaja:
-		transitio.emit()
+		transitio.emit(mihin_tp.global_position)
 		self.set_collision_mask_value(2, false)
 		# Teleportataan kuilun alas transitiolla, ruutu mustaksi esim.
 	# Jos valopallo

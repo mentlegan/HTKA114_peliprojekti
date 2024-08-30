@@ -1,3 +1,4 @@
+## Juuso 30.8.2024 - Transitioon teleportin sijainti
 ## Harri 22.8.2024 - Pelaajan happimekaniikat ja dokumentaation korjausta
 ## Juuso 10.4.2024
 ## Paavo 17.3.2024
@@ -11,7 +12,7 @@ class_name Pelaaja
 
 ## Tästä signaalit, jotka lähtetään, kun jotain tapahtuu. Muut koodit osaavat ottaa nämä signaalit, ja käyttää niitä
 signal kuollut
-signal transitio
+signal transitio(mihin_tp: Vector2)
 
 ## Pelaajan hitbox
 @onready var polygon = get_node("CollisionShape2D")
@@ -905,11 +906,16 @@ func _physics_process(delta):
 		for alue in alueet:
 			if alue.is_in_group("minecart"):
 				# Tehty nyt täällä, myöhemmin kerkiää optimoida
-				Globaali.minecart_kaytetty = true
-				transitio.emit()
+				#Globaali.minecart_kaytetty = true
+				# Tp sijainti
+				var tp = alue.mihin_tp.global_position
+				transitio.emit(tp)
 				await get_tree().create_timer(0.8, false).timeout
-				Globaali.minecartit.queue_free()
-				Globaali.poista_minecart_tooltipit()
+				if Globaali.minecart_kaytetty == false:
+					# TODO: vesialueella voi käyttää moneen kertaan
+					Globaali.minecart_kaytetty = true
+					Globaali.minecartit.queue_free()
+					Globaali.poista_minecart_tooltipit()
 	
 	# player.visible = ! (raycast.is_colliding())
 	

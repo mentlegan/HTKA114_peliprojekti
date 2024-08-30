@@ -1,11 +1,11 @@
-## Juuso 16.5.2024
-## Vesiputouksen ja minecartin transitio
-
+## Juuso 30.8.2024
+## Minkä tahansa minecartin ja vesiputouksen transitio
 extends Control
 
 @onready var color_rect = $ColorRect
 @onready var animation_player = $AnimationPlayer
 
+var mihin_tp = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +13,11 @@ func _ready():
 	animation_player.animation_finished.connect(_fade_reset)
 
 
-func _on_vesiputous_transitio():
+func _on_transitio(tp):
+	if tp == null:
+		printerr("EI KERROTTU MIHIN TP")
+	else:
+		mihin_tp = tp
 	color_rect.visible = true
 	animation_player.play("fade_black")
 	Globaali.pelaaja.process_mode = Node.PROCESS_MODE_DISABLED
@@ -22,17 +26,15 @@ func _on_vesiputous_transitio():
 func _fade_reset(anim_name):
 	if anim_name == "fade_black":
 		await get_tree().create_timer(1, false).timeout
-		if Globaali.minecart_kaytetty == true:
-			Globaali.teleporttaa_pelaaja(Globaali.taso1_loppu)
-			Globaali.minecart_kaytetty = false
-		else:
-			Globaali.teleporttaa_pelaaja(Globaali.vesiputous_tp)
+		#if Globaali.minecart_kaytetty == true:
+			#Globaali.teleporttaa_pelaaja(Globaali.taso1_loppu)
+		Globaali.teleporttaa_pelaaja(mihin_tp)
+			#Globaali.minecart_kaytetty = false
+		#else:
+			#Globaali.teleporttaa_pelaaja(Globaali.vesiputous_tp)
+			#Globaali.teleporttaa_pelaaja(mihin_tp)
 		animation_player.play("fade_reset")
 		await get_tree().create_timer(0.5, false).timeout
 		Globaali.pelaaja.process_mode = Node.PROCESS_MODE_INHERIT
 	elif anim_name == "fade_reset":
 		color_rect.visible = false
-
-
-func _on_pelaaja_transitio():
-	_on_vesiputous_transitio()
