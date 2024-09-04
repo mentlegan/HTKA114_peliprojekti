@@ -1,4 +1,4 @@
-## Harri 18.6.2024
+## Harri 4.9.2024
 ## Paavo 22.4.2024
 ## Elias 22.4.2024
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä muuttujia ja funktioita käytettäväksi muissa scripteissä
@@ -13,6 +13,7 @@ var nykyiset_pallot = 0
 ## Signaaleja varten
 var pelaaja = null
 var uusi_vihollinen = null
+var tutoriaali = null
 ## Sekunnissa päivittämiseen käytettävät muuttujat (kts. process delta)
 var aika_vali = 1.0
 var aika = 0
@@ -35,7 +36,6 @@ var soitetaan_animatic
 @onready var pelaaja_taso45 = get_node("/root/Maailma/%Muuta/%Taso45Teleport").position
 @onready var taso1_loppu = get_node("/root/Maailma/%Muuta/%Kentan1_loppu").position
 @onready var vesiputous_tp = get_node("/root/Maailma/%Muuta/%VesiputousTeleport").position
-
 
 ## Valot ja indikaattorit köynnösoville ja niiden taulukko
 var oven_valo = preload("res://scenet/oven_valo.tscn")
@@ -83,6 +83,8 @@ var pystyssa = true
 @onready var uudetViholliset = get_node("/root/Maailma/%uudetViholliset").get_children()
 @onready var kukat = get_node("/root/Maailma/%Kukat").get_children()
 @onready var piikit = get_node("/root/Maailma/%Piikit").get_children()
+@onready var tutoriaali_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%Tutoriaali")
+var tutorial_paalla = false
 ## Musiikit:
 @onready var musiikki = get_node("/root/Maailma/%Musiikki")
 @onready var audio_journal = get_node("/root/Maailma/%KayttoLiittyma/Journal/%AudioJournal")
@@ -166,6 +168,7 @@ func soita_animatic():
 	
 
 
+## Soittaa musiikkia
 func soita_musiikki():
 	musiikki.play()
 
@@ -513,6 +516,20 @@ func _show_credits():
 	pelaaja.pimeyskuolema.stop()
 	pelaaja.pimeyskuolema.modulate.a = 0.0
 	get_tree().paused = true
+
+
+## Näyttää tutoriaalin
+func nayta_tutorial():
+	tutoriaali_ruutu.visible = true
+	tutorial_paalla = true
+	get_tree().paused = true
+
+
+## Sulkee tutoriaalin
+func sulje_tutorial():
+	tutoriaali_ruutu.visible = false
+	tutorial_paalla = false
+	get_tree().paused = false
 
 
 ## Tallentaa pelin nykyisen tilan JSON-tiedostoon.

@@ -1,4 +1,4 @@
-## Harri 22.8.2024
+## Harri 4.9.2024
 ## Tässä säädetään pelin asetuksia pelaajan syötteistä
 ## Mutenapit toimivat suomeksi näin: 
 ##	nappi on pohjassa, jos jokin ääni halutaan peliin mukaan
@@ -30,7 +30,7 @@ var asetetaan_control = false
 var toiminto_asettamiseen = null
 var asettava_nappi = null
 ## Emme suinkaan halua, että ihan kaikki kontrollit ovat suomeksi, tai voidaan edes muuttaa, joten tämä lista kääntää englanniksi ja filtteröi
-var muutettavat_toiminnot = { ## Tänne voi siis lisätä kontrolleja sitä mukaa, kun niitä tulee ilmi
+var muutettavat_toiminnot = { ## Tänne voi siis lisätä kontrolleja sitä mukaa, kun niitä tulee
 	"liiku_vasen": "Move Left",
 	"liiku_oikea": "Move Right",
 	"hyppaa": "Jump",
@@ -40,7 +40,8 @@ var muutettavat_toiminnot = { ## Tänne voi siis lisätä kontrolleja sitä muka
 	"putoa": "Climb/Swim Down",
 	"kiipeamis_toggle": "Climb Toggle",
 	"nosta_taajuutta": "Flute Frequency",
-	"journal": "Journal"
+	"journal": "Journal",
+	"tutorial": "Tutorial"
 }
 
 
@@ -119,10 +120,9 @@ func on_window_mode_selected(index : int) -> void:
 ## KONTROLLIT
 ##
 
-
-## Luo toiminnoille listan, tai resetoi sen
+## Luo input-menun toiminnoille listan, tai resetoi sen
 func _luo_toiminto_lista():
-	InputMap.load_from_project_settings() # Ladataan vakio input-asetukset
+	InputMap.load_from_project_settings() # Ladataan projektin vakio input-asetukset
 	for i in toimintolista.get_children(): # Iteroidaan node läpi..
 		i.queue_free() # .. ja poistetaan turhat nodet, jotka toimivat referenssinä, tai jotka on asetettu uudelleen aiemmin
 	
@@ -146,7 +146,7 @@ func _on_input_button_pressed(nappi, toiminto):
 	if !asetetaan_control: # Katsotaan, että eihän kontrollin asetus ole jostain muusta päällä, eli kahta kontrollia ei voi asettaa samaan aikaan
 		asetetaan_control = true # Asetetaan yllä mainittu tarkistus päälle, koska nyt ollaan asettamassa uutta inputtia
 		toiminto_asettamiseen = toiminto # Mikä toiminto halutaan asettaa
-		asettava_nappi = nappi # Mikä nappula asetetaan toiminnolle
+		asettava_nappi = nappi # Mikä nappula asettaa keybindin toiminnolle
 		nappi.find_child("LabelInput").text = "Press key to bind..." # Asetetaan input-keyn kohdalle teksti, jossa pelaajalle kerrotaan, että nyt voi asettaa halutun keyn
 
 

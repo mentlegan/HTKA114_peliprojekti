@@ -1,5 +1,5 @@
 ## Juuso 30.8.2024 - Transitioon teleportin sijainti
-## Harri 22.8.2024 - Pelaajan happimekaniikat ja dokumentaation korjausta
+## Harri 4.9.2024 - Tutoriaalimenun kontrolliksi H-näppäin
 ## Juuso 10.4.2024
 ## Paavo 17.3.2024
 ## Elias 17.3.2024 - Pelaajan äänet
@@ -879,6 +879,10 @@ func _physics_process(delta):
 		# Käynnistetään huilun animaatio
 		if huilun_cd_ajastin.is_stopped() and huilun_ajastin.is_stopped() and not vedessa:
 			soita_huilua()
+	
+	# PC H
+	if Input.is_action_just_pressed("tutorial"):
+		Globaali.nayta_tutorial()
 	
 	# Kukkien kerääminen JA MINECARTIN KÄYTTÄMINEN
 	# TODO: tämä myöhemmin signaaleilla

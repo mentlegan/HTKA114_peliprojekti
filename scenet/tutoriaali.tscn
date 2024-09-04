@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr7y1vhh82ot0"]
+
+[ext_resource type="Script" path="res://skriptit/tutoriaali.gd" id="1_4me1l"]
+
+[node name="Tutoriaali" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4me1l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 948.0
+offset_bottom = 487.0
+color = Color(0.215902, 0.215902, 0.215902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+
+[node name="ItemList" type="ItemList" parent="ColorRect/MarginContainer/GridContainer/ScrollContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+item_count = 2
+item_0/text = "stuff"
+item_1/text = "stuff"
+
+[node name="Tutoriaalitekstit" type="Control" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+
+[node name="Teksti" type="Label" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.115
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.119995
+offset_top = -114.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "tähän tutoriaalitekstiä niin paljon kuin huvittaa"
+autowrap_mode = 2
+
+[node name="Tutoriaalikuvat" type="Control" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Kuva1" type="Sprite2D" parent="ColorRect/MarginContainer/Tutoriaalikuvat"]
+position = Vector2(-167, 147)
+
+[node name="Kuva2" type="Sprite2D" parent="ColorRect/MarginContainer/Tutoriaalikuvat"]
+position = Vector2(270, 147)
+
+[node name="takaisin_nappi" type="Button" parent="ColorRect"]
+layout_mode = 2
+offset_left = 12.0
+offset_top = 478.0
+offset_right = 67.0
+offset_bottom = 504.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Back"
+
+[connection signal="item_selected" from="ColorRect/MarginContainer/GridContainer/ScrollContainer/ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="ColorRect/takaisin_nappi" to="." method="_on_takaisin_nappi_pressed"]
