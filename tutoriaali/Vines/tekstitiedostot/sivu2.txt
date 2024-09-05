@@ -1,0 +1,1 @@
+Some VINE DOORS are connected to each other and activating one of them might cause a reaction elsewhere. The reactions can be determined by the color of the flowers on the vines.

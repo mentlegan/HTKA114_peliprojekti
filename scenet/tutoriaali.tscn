@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dr7y1vhh82ot0"]
+[gd_scene load_steps=3 format=3 uid="uid://dr7y1vhh82ot0"]
 
 [ext_resource type="Script" path="res://skriptit/tutoriaali.gd" id="1_4me1l"]
+[ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="2_2d3wx"]
 
 [node name="Tutoriaali" type="Control"]
 layout_mode = 3
@@ -37,21 +38,27 @@ layout_mode = 2
 columns = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 3
 
 [node name="ItemList" type="ItemList" parent="ColorRect/MarginContainer/GridContainer/ScrollContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 3
-item_count = 2
-item_0/text = "stuff"
-item_1/text = "stuff"
+item_count = 7
+item_0/text = "aihe1"
+item_1/text = "aihe2"
+item_2/text = "jne.."
+item_3/text = "nämä"
+item_4/text = "poistuvat"
+item_5/text = "kun scene"
+item_6/text = "alkaa"
 
 [node name="Tutoriaalitekstit" type="Control" parent="ColorRect/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 10
@@ -62,13 +69,68 @@ anchors_preset = -1
 anchor_left = 0.115
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.119995
-offset_top = -114.0
-offset_bottom = 9.0
+offset_left = 49.12
+offset_top = -132.0
+offset_right = 10.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "tähän tutoriaalitekstiä niin paljon kuin huvittaa"
+text = "tähän tulee tutoriaalitekstiä tekstitiedostosta niin paljon kuin huvittaa"
 autowrap_mode = 2
+
+[node name="oikealle_nuoli" type="Button" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+layout_mode = 0
+offset_left = 502.0
+offset_top = -20.0
+offset_right = 522.0
+offset_bottom = 6.0
+text = ">"
+
+[node name="vasemmalle_nuoli" type="Button" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+layout_mode = 0
+offset_left = 358.0
+offset_top = -20.0
+offset_right = 378.0
+offset_bottom = 6.0
+text = "<"
+
+[node name="sivu1" type="Sprite2D" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+position = Vector2(400, -8)
+scale = Vector2(1.117, 1)
+texture = ExtResource("2_2d3wx")
+
+[node name="sivu2" type="Sprite2D" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+visible = false
+position = Vector2(440, -8)
+scale = Vector2(1.247, 1)
+texture = ExtResource("2_2d3wx")
+
+[node name="sivu3" type="Sprite2D" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+visible = false
+position = Vector2(480, -8)
+scale = Vector2(1.393, 1)
+texture = ExtResource("2_2d3wx")
+
+[node name="sivu1label" type="Label" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+offset_left = 394.0
+offset_top = -19.0
+offset_right = 434.0
+offset_bottom = -1.0
+text = "o"
+
+[node name="sivu2label" type="Label" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+offset_left = 434.0
+offset_top = -19.0
+offset_right = 474.0
+offset_bottom = -1.0
+text = "o"
+
+[node name="sivu3label" type="Label" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+offset_left = 474.0
+offset_top = -19.0
+offset_right = 514.0
+offset_bottom = -1.0
+text = "o"
 
 [node name="Tutoriaalikuvat" type="Control" parent="ColorRect/MarginContainer"]
 layout_mode = 2
@@ -91,4 +153,6 @@ size_flags_vertical = 8
 text = "Back"
 
 [connection signal="item_selected" from="ColorRect/MarginContainer/GridContainer/ScrollContainer/ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="pressed" from="ColorRect/MarginContainer/Tutoriaalitekstit/oikealle_nuoli" to="." method="_on_oikealle_nuoli_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/Tutoriaalitekstit/vasemmalle_nuoli" to="." method="_on_vasemmalle_nuoli_pressed"]
 [connection signal="pressed" from="ColorRect/takaisin_nappi" to="." method="_on_takaisin_nappi_pressed"]
