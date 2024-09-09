@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Tarkistetaan, löytyykö seuraavia binäärejä.
-if ! which readlink > /dev/null; then
+if ! which readlink dirname find perl > /dev/null; then
     echo "Tarvittavia binäärejä ei löytynyt, lopetetaan..."
     exit 1
 fi
