@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3275w50mg1i2"]
+
+[ext_resource type="Script" path="res://skriptit/lumme.gd" id="1_hsthi"]
+
+[sub_resource type="Gradient" id="Gradient_krp0h"]
+colors = PackedColorArray(0.28, 0.134213, 0.0812, 1, 0.770628, 0.469362, 0.335, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_povj5"]
+gradient = SubResource("Gradient_krp0h")
+width = 16
+height = 32
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gmhd7"]
+diffuse_texture = SubResource("GradientTexture2D_povj5")
+texture_repeat = 2
+
+[sub_resource type="Gradient" id="Gradient_ik78p"]
+colors = PackedColorArray(6.01634e-07, 0.587142, 0, 1, 0.299971, 0.67176, 0.396092, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ue653"]
+gradient = SubResource("Gradient_ik78p")
+height = 8
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76ks1"]
+size = Vector2(52, 8)
+
+[node name="Lumme" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_hsthi")
+
+[node name="Varsi" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 32)
+texture = SubResource("CanvasTexture_gmhd7")
+region_enabled = true
+region_rect = Rect2(0, 0, 8, 64)
+
+[node name="Lehti" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 0)
+scale = Vector2(0.796875, 1)
+texture = SubResource("GradientTexture2D_ue653")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_76ks1")

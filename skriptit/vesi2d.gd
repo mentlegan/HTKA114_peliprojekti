@@ -2,8 +2,10 @@ extends Area2D
 class_name Vesi2D
 ## Alue, jonka CollisionShape2D-nodeilla on vettä.
 ## Vedenpinta voidaan asettaa funktiolla aseta_vedenpinta(0..1) tai aseta_vedenpinta_merkkiin()
+## Lumpeita voi lisätä asettamalla niitä CollisionShape2D-nodejen lapsiksi.
 
 ## TODO: Käsittele päällekkäisten CollisionShape2D-nodejen aiheuttamat vesi-shaderin viat
+## TODO: Vaihda lumpeen varren pituutta
 
 
 ## Vesialueen CollisionShape2D:t, määrittää missä ja kuinka korkealla vesi on.
@@ -43,12 +45,25 @@ func _ready():
 
 				self.add_child(sprite2d)
 
+				# Tarkistetaan, onko vesialueen lapseksi asetettu lumpeita
+				var lumpeet = []
+				for lapsenlapsi in lapsi.get_children():
+					if lapsenlapsi is Lumme:
+						var sijainti = lapsenlapsi.global_position
+						lapsi.remove_child(lapsenlapsi)
+						self.add_child(lapsenlapsi)
+						lapsenlapsi.global_position = sijainti
+						#lapsenlapsi.varsi.region_rect.size.y = lapsi.shape.size.y
+						lapsenlapsi.global_position.y = lapsi.global_position.y - lapsi.shape.size.y * 0.5
+						lumpeet.append(lapsenlapsi)
+
 				collision_shapet.append({
 					"collision_shape": lapsi,
 					"vedenpohja": lapsi.global_position.y + lapsi.shape.size.y * 0.5,
 					"vedenpinta": lapsi.global_position.y - lapsi.shape.size.y * 0.5,
 					"korkeus": lapsi.shape.size.y,
-					"sprite2d": sprite2d
+					"sprite2d": sprite2d,
+					"lumpeet": lumpeet
 				})
 			else:
 				print_debug("Vesi2D nodella (%s) ei ole RectangleShape2D:ta, skipataan" % lapsi.name)
@@ -107,3 +122,5 @@ func aseta_vedenpinta(korkeus: float):
 		tween.tween_property(obj["sprite2d"], "scale:y", uusi_korkeus, 10)
 		tween.tween_property(obj["collision_shape"], "global_position:y", uusi_sijainti, 10)
 		tween.tween_property(obj["sprite2d"], "global_position:y", uusi_sijainti, 10)
+		for lumme in obj["lumpeet"]:
+			tween.tween_property(lumme, "global_position:y", obj_vedenpinta, 10)
