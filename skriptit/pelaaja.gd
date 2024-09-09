@@ -165,7 +165,8 @@ var elamat_regen_nopeus = 8
 var elamat_regen_maara = 1
 
 ## Pelaajan happitason asiat
-const pelaajan_happi_max = 15
+const pelaajan_happi_max = 10
+const HUKKUMIS_DAMAGE = 1
 var pelaajan_happi = pelaajan_happi_max
 @onready var happi_ajastin = $HappiAjastin
 
@@ -386,7 +387,7 @@ func _on_happi_ajastin_timeout():
 	if pelaajan_happi != 0: # Tarkistetaan, että hapen taso ei ole 0
 		pelaajan_happi -= 1 # Vähennetään happea yhdellä
 		happi_mittari_paivita() # Päivitetään mittari
-	else: meneta_elamia(20, "normaali") # Jos pelaajan happitaso on 0, pelaaja kuolee
+	else: meneta_elamia(HUKKUMIS_DAMAGE, "normaali") # Jos pelaajan happitaso on 0, pelaaja kuolee
 
 
 func paivita_tahtaimen_lentorata():
