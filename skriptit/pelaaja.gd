@@ -134,7 +134,7 @@ var suunta = Vector2.ZERO
 ## Uinnin nopeus
 const UINTI_NOPEUS = 120.0
 const UINTI_JUOKSU_NOPEUS = 200.0
-const UPPOAMIS_NOPEUS = 6
+const UPPOAMIS_NOPEUS = 12
 
 ## Ohjaintähtäimen maksimietäisyys näytöllä
 const MAX_TAHTAIN_ETAISYYS = 128
