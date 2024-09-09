@@ -504,16 +504,29 @@ func saa_elamia(maara):
 
 
 ## Vähennetään pelaajan elämiä
-func meneta_elamia(maara):
+func meneta_elamia(maara, damage_type):
 	if pelaajan_elamat - maara > 0:
 		pelaajan_elamat -= maara
 		kamera_tarisee = true
 		kamera_tarina_ajastin.start(kamera_tarinan_pituus)
 		audio_pelaaja_fall_damage.play()
 		elama_regen_ajastin.start(elamat_regen_nopeus)
-		animaatio.modulate = Color.RED
-		await get_tree().create_timer(0.1, false).timeout
-		animaatio.modulate = Color.WHITE
+		if damage_type == "normaali":
+			animaatio.modulate = Color.RED
+			await get_tree().create_timer(0.1, false).timeout
+			animaatio.modulate = Color.WHITE
+		elif damage_type == "myrkky":
+			animaatio.modulate = Color.BLUE_VIOLET
+			elama_mittari_kuvalla.modulate = Color.BLUE_VIOLET
+			await get_tree().create_timer(0.2, false).timeout
+			animaatio.modulate = Color.WHITE
+			elama_mittari_kuvalla.modulate = Color.WHITE
+		elif damage_type == "myrkkyalue":
+			animaatio.modulate = Color.WEB_GREEN
+			elama_mittari_kuvalla.modulate = Color.GREEN
+			await get_tree().create_timer(0.2, false).timeout
+			animaatio.modulate = Color.WHITE
+			elama_mittari_kuvalla.modulate = Color.WHITE
 	else:
 		pelaajan_elamat = 0
 		kuolema_fall_damageen()
@@ -522,21 +535,7 @@ func meneta_elamia(maara):
 
 ## Myrkky damage (oma funktio tulevaisuutta varten, jos tulee suuria muutoksia meneta_elamia() verrattuna)
 func myrkky_damage():
-	if pelaajan_elamat - myrkyn_vahinko_maara > 0:
-		pelaajan_elamat -= myrkyn_vahinko_maara
-		kamera_tarisee = true
-		kamera_tarina_ajastin.start(kamera_tarinan_pituus)
-		audio_pelaaja_fall_damage.play()
-		elama_regen_ajastin.start(elamat_regen_nopeus)
-		animaatio.modulate = Color.BLUE_VIOLET
-		elama_mittari_kuvalla.modulate = Color.BLUE_VIOLET
-		await get_tree().create_timer(0.2, false).timeout
-		animaatio.modulate = Color.WHITE
-		elama_mittari_kuvalla.modulate = Color.WHITE
-	else:
-		pelaajan_elamat = 0
-		kuolema_fall_damageen()
-	elamat_label_paivita()
+	meneta_elamia(myrkyn_vahinko_maara, "myrkky")
 
 
 ## Myrkky damagen timeri päälle
@@ -548,21 +547,7 @@ func myrkky_timer():
 
 ## Myrkkyalueen damage
 func myrkkyalueen_damage():
-	if pelaajan_elamat - myrkkyalueen_vahinko_maara > 0:
-		pelaajan_elamat -= myrkkyalueen_vahinko_maara
-		kamera_tarisee = true
-		kamera_tarina_ajastin.start(kamera_tarinan_pituus)
-		audio_pelaaja_fall_damage.play()
-		elama_regen_ajastin.start(elamat_regen_nopeus)
-		animaatio.modulate = Color.WEB_GREEN
-		elama_mittari_kuvalla.modulate = Color.GREEN
-		await get_tree().create_timer(0.2, false).timeout
-		animaatio.modulate = Color.WHITE
-		elama_mittari_kuvalla.modulate = Color.WHITE
-	else:
-		pelaajan_elamat = 0
-		kuolema_fall_damageen()
-	elamat_label_paivita()
+	meneta_elamia(myrkkyalueen_vahinko_maara, "myrkkyalue")
 
 
 ## Myrkkyalueen damagen timeri päälle
@@ -732,11 +717,11 @@ func _physics_process(delta):
 			animaatio.scale = Vector2(1.1, 0.9)
 			print("EROTUS: ", get_global_position().y - putoamis_huippu)
 			if (get_global_position().y - putoamis_huippu) > putoamis_raja_3:
-				meneta_elamia(putoamis_raja_3_dmg)
+				meneta_elamia(putoamis_raja_3_dmg, "normaali")
 			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_2:
-				meneta_elamia(putoamis_raja_2_dmg)
+				meneta_elamia(putoamis_raja_2_dmg, "normaali")
 			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_1:
-				meneta_elamia(putoamis_raja_1_dmg)
+				meneta_elamia(putoamis_raja_1_dmg, "normaali")
 			else:
 				audio_pelaaja_tomahdys.play()
 			putoamis_vahinko = false
