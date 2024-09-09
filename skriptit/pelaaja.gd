@@ -169,10 +169,15 @@ const pelaajan_happi_max = 15
 var pelaajan_happi = pelaajan_happi_max
 @onready var happi_ajastin = $HappiAjastin
 
-## Myrkylle timer
+## Myrkyille timerit
 var myrkky_ajastin = Timer.new()
 var myrkyn_vahinko_maara = 0.5
 var myrkyn_damage_nopeus = 1
+
+var myrkkyalue_ajastin = Timer.new()
+var myrkkyalueen_vahinko_maara = 0.5
+var myrkkyalueen_damage_nopeus = 1
+
 ## Elämä regen ajastin
 var elama_regen_ajastin = Timer.new()
 
@@ -211,6 +216,7 @@ func _ready():
 	self.add_child(elama_regen_ajastin)
 	self.add_child(kamera_tarina_ajastin)
 	self.add_child(myrkky_ajastin)
+	self.add_child(myrkkyalue_ajastin)
 	
 	# Lisätään pelaajan hp labeliin elamat
 	elama_mittari_kuvalla.max_value = pelaajan_elamat_max
@@ -228,8 +234,9 @@ func _ready():
 	# Pelaajan elämä regeneraatio
 	elama_regen_ajastin.timeout.connect(elama_regen)
 	
-	# Myrkyn damage
+	# Myrkkyjen damaget
 	myrkky_ajastin.timeout.connect(myrkky_damage)
+	myrkkyalue_ajastin.timeout.connect(myrkkyalueen_damage)
 	
 	# Kamera tarinan lopetus
 	kamera_tarina_ajastin.timeout.connect(tarinan_lopetus)
@@ -538,6 +545,31 @@ func myrkky_timer():
 		myrkky_damage()
 		myrkky_ajastin.start(myrkyn_damage_nopeus)
 
+
+## Myrkkyalueen damage
+func myrkkyalueen_damage():
+	if pelaajan_elamat - myrkkyalueen_vahinko_maara > 0:
+		pelaajan_elamat -= myrkkyalueen_vahinko_maara
+		kamera_tarisee = true
+		kamera_tarina_ajastin.start(kamera_tarinan_pituus)
+		audio_pelaaja_fall_damage.play()
+		elama_regen_ajastin.start(elamat_regen_nopeus)
+		animaatio.modulate = Color.WEB_GREEN
+		elama_mittari_kuvalla.modulate = Color.GREEN
+		await get_tree().create_timer(0.2, false).timeout
+		animaatio.modulate = Color.WHITE
+		elama_mittari_kuvalla.modulate = Color.WHITE
+	else:
+		pelaajan_elamat = 0
+		kuolema_fall_damageen()
+	elamat_label_paivita()
+
+
+## Myrkkyalueen damagen timeri päälle
+func myrkkyalue_timer():
+	if myrkkyalue_ajastin.time_left == 0:
+		myrkkyalueen_damage()
+		myrkkyalue_ajastin.start(myrkkyalueen_damage_nopeus)
 
 ## Vaihdetaan kameran tärinän arvoa
 func elamamittari_tarina():
