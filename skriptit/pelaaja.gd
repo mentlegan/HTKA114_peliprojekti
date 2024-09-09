@@ -386,7 +386,7 @@ func _on_happi_ajastin_timeout():
 	if pelaajan_happi != 0: # Tarkistetaan, että hapen taso ei ole 0
 		pelaajan_happi -= 1 # Vähennetään happea yhdellä
 		happi_mittari_paivita() # Päivitetään mittari
-	else: kuolema() # Jos pelaajan happitaso on 0, pelaaja kuolee
+	else: meneta_elamia(20, "normaali") # Jos pelaajan happitaso on 0, pelaaja kuolee
 
 
 func paivita_tahtaimen_lentorata():
@@ -451,7 +451,7 @@ func kuolema():
 	elamat_label_paivita()
 	pimeyskuolema.stop()
 	kuollut.emit()
-	print_debug("Kuolit PIIKKIIN TAI PIMEYTEEN TAI HUKUIT")
+	print_debug("Kuolit PIMEYTEEN")
 
 
 ## Kuolema pitäisi toteuttaa paremmin, mutta tässä nyt hätäratkaisuna
