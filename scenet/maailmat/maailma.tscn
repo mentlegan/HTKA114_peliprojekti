@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=133 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dfcuf6ogfruj6" path="res://scenet/kukka.tscn" id="14_332fg"]
 [ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/sivun_1_sisalto.tscn" id="14_fygqw"]
 [ext_resource type="Texture2D" uid="uid://knwtrb12rya4" path="res://grafiikka/EnemyDirt-Sheet.png" id="14_j1sri"]
+[ext_resource type="PackedScene" uid="uid://cddsdhy134cjk" path="res://scenet/happikukka.tscn" id="15_2bilk"]
 [ext_resource type="PackedScene" uid="uid://8dvswt3oh3iq" path="res://scenet/ovet/ovi_pysty_oikea.tscn" id="15_bna8j"]
 [ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/sivun_2_sisalto.tscn" id="15_eefdw"]
 [ext_resource type="PackedScene" uid="uid://b6cwc10i6c0w4" path="res://scenet/kuoppa.tscn" id="15_nofhg"]
@@ -492,12 +493,14 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 [node name="Polygon2D10" type="Polygon2D" parent="Tiilet"]
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
-[node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
+[node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
 position = Vector2(-332, 1016)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
 floor_snap_length = 14.0
+ohjain_tooltipit = []
+kbm_tooltipit = []
 
 [node name="Perhoset" type="Node2D" parent="."]
 rotation = -0.00132818
@@ -700,6 +703,14 @@ rotation = 0.00132818
 [node name="Kukka40" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(207.646, 1019.28)
 rotation = 0.00132818
+
+[node name="Happikukat" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1916, 892)
+
+[node name="Happikukka" parent="Happikukat" instance=ExtResource("15_2bilk")]
+position = Vector2(-2161, 344)
+scale = Vector2(0.416464, 0.402379)
 
 [node name="Journalit" type="Node2D" parent="."]
 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cddsdhy134cjk"]
+
+[ext_resource type="Script" path="res://skriptit/happikukka.gd" id="1_bshdl"]
+[ext_resource type="Texture2D" uid="uid://c3cmi8473wmli" path="res://grafiikka/BlueFlowerDrawing.png" id="2_umyk3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tgqtc"]
+
+[node name="Happikukka" type="Area2D"]
+script = ExtResource("1_bshdl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_tgqtc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_umyk3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
