@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjrujir82taha"]
+
+[ext_resource type="Script" path="res://skriptit/tutorial_unlock.gd" id="1_3rw0v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms81s"]
+size = Vector2(27, 113)
+
+[node name="tutorial_unlock" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3rw0v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ms81s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

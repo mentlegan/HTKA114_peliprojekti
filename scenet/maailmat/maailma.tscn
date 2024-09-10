@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=134 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://scenet/ovet/ovi_vasen_x.tscn" id="16_8728b"]
 [ext_resource type="PackedScene" uid="uid://dj16g605n5277" path="res://scenet/ovet/ovi_vasen_y.tscn" id="16_et2f6"]
 [ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/sivun_3_sisalto.tscn" id="16_r1qfx"]
-[ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/sivun_4_sisalto.tscn" id="17_ik3il"]
+[ext_resource type="PackedScene" uid="uid://f5uh3uue4ry2" path="res://scenet/kayttoliittyma/sivun_4_sisalto.tscn" id="17_ik3il"]
 [ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/sivun_5_sisalto.tscn" id="18_yghk6"]
 [ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://scenet/kayttoliittyma/tooltip_liiku.tscn" id="18_yqpof"]
 [ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/sivun_6_sisalto.tscn" id="19_fwfgn"]
@@ -86,6 +86,7 @@
 [ext_resource type="PackedScene" uid="uid://dpgfqmcthph48" path="res://scenet/vesi2d.tscn" id="80_eho0u"]
 [ext_resource type="PackedScene" uid="uid://ciaug8px7wrrg" path="res://scenet/myrkkyalue_2d.tscn" id="82_2dvj4"]
 [ext_resource type="PackedScene" uid="uid://d1adle7m7mnv3" path="res://scenet/pomppusieni.tscn" id="82_imok5"]
+[ext_resource type="PackedScene" uid="uid://cjrujir82taha" path="res://scenet/tutorial_unlock.tscn" id="87_d1roi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
 atlas = ExtResource("9_75e1e")
@@ -494,7 +495,7 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
 [node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
-position = Vector2(-332, 1016)
+position = Vector2(-329, 1018)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -2273,14 +2274,15 @@ scale = Vector2(3.51276, 2.38358)
 texture = ExtResource("47_8pqee")
 
 [node name="Rihmasto24" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
-position = Vector2(6247.72, -4370.77)
-scale = Vector2(1.32948, 3.33888)
+position = Vector2(5033, 1236)
+rotation = 1.57079
+scale = Vector2(0.519945, 0.403409)
 texture = ExtResource("48_ky2yn")
 
 [node name="Rihmasto25" type="Sprite2D" parent="Muuta/TaustaElementit/VihollisRihmasto"]
-position = Vector2(6467.08, -4177.12)
+position = Vector2(5929, -920)
 rotation = -2.16359e-05
-scale = Vector2(1.92265, 21.3955)
+scale = Vector2(0.783653, 2.28506)
 skew = 1.5974e-05
 texture = ExtResource("48_ky2yn")
 
@@ -3168,6 +3170,30 @@ scale = Vector2(8.57361, 1.13275)
 
 [node name="Pomppusieni" parent="." instance=ExtResource("82_imok5")]
 position = Vector2(149, 1014)
+
+[node name="TutoriaaliUnlock" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Checkpoint" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(2862, 170)
+
+[node name="Darkness" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(1654, 704)
+
+[node name="Flute" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(2862, 170)
+
+[node name="Light Balls" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(1880, 700)
+
+[node name="Minecart" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(6618, 54)
+
+[node name="Minecart2" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(6542, -902)
+
+[node name="Vines" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(2402, 695)
 
 [connection signal="transitio" from="Pelaaja" to="KayttoLiittyma/Transitio" method="_on_transitio"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]

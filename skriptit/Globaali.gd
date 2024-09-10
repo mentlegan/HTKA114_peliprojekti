@@ -84,7 +84,9 @@ var pystyssa = true
 @onready var kukat = get_node("/root/Maailma/%Kukat").get_children()
 @onready var piikit = get_node("/root/Maailma/%Piikit").get_children()
 @onready var tutoriaali_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%Tutoriaali")
+@onready var tutoriaali_alueet = get_node("/root/Maailma/%TutoriaaliUnlock").get_children()
 var tutorial_paalla = false
+var uusi_tutorial = false
 ## Musiikit:
 @onready var musiikki = get_node("/root/Maailma/%Musiikki")
 @onready var audio_journal = get_node("/root/Maailma/%KayttoLiittyma/Journal/%AudioJournal")
@@ -575,3 +577,14 @@ func tallenna():
 ## Lataa pelin aiemman tilan tallennustiedostosta
 func lataa():
 	pass
+
+
+## Avaa uuden tutoriaalin pelaajan tarkisteltavaksi
+func unlock_tutorial(nimi):
+	uusi_tutorial = true # Indikoi, että pelaaja on avannut uuden tutoriaalin
+	pelaaja.paivita_tutorial_label() # Päivittää tutoriaalin labelin visuaaliseksi indikoimiseksi
+	tutoriaali_ruutu.paivita_valikko(nimi) # Päivittää valikon tutoriaalissa
+	print("Tutoriaali avattu: " + nimi)
+	for alue in tutoriaali_alueet: # Tämä ei ilmeisesti jostain syystä toimi
+		if nimi == alue.name:
+			alue.process_mode = Node.PROCESS_MODE_DISABLED # Yrityksenä siis laittaa pois päältä jo napatut alueet, joka ratkaisisi monta ongelmaa

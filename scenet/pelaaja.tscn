@@ -920,6 +920,37 @@ offset_bottom = 20.5
 scale = Vector2(0.740387, 1.33109)
 text = "Oxygen:"
 
+[node name="TutorialLabel" type="Label" parent="HUD"]
+z_index = 99
+texture_filter = 1
+material = ExtResource("5_gdn2h")
+offset_left = 336.0
+offset_top = -131.0
+offset_right = 441.0
+offset_bottom = -108.0
+text = "Tutorial:"
+
+[node name="KBM" type="Sprite2D" parent="HUD/TutorialLabel"]
+texture_filter = 1
+material = ExtResource("5_gdn2h")
+position = Vector2(114, 10)
+texture = ExtResource("38_fvlae")
+
+[node name="Label" type="Label" parent="HUD/TutorialLabel/KBM"]
+material = ExtResource("5_gdn2h")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -26.0
+offset_right = -10.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "H"
+
 [node name="JournalInfo" type="Label" parent="."]
 z_index = 100
 material = ExtResource("5_gdn2h")
@@ -945,10 +976,10 @@ material = ExtResource("5_gdn2h")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 273.0
-offset_top = -178.0
-offset_right = 453.0
-offset_bottom = -160.0
+offset_left = 299.0
+offset_top = -158.0
+offset_right = 479.0
+offset_bottom = -140.0
 grow_horizontal = 0
 text = "New page found!"
 horizontal_alignment = 1
@@ -962,7 +993,35 @@ offset_left = 128.0
 offset_top = -7.0
 offset_right = 168.0
 offset_bottom = 33.0
-rotation = 4.71239
+rotation = 4.71238
+texture = ExtResource("39_06las")
+
+[node name="TutorialInfo" type="Label" parent="."]
+auto_translate_mode = 1
+visible = false
+z_index = 100
+material = ExtResource("5_gdn2h")
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 299.0
+offset_top = -62.0
+offset_right = 479.0
+offset_bottom = -44.0
+grow_horizontal = 0
+text = "New tutorial!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TutorialInfo"]
+z_index = 99
+material = ExtResource("5_gdn2h")
+layout_mode = 0
+offset_left = 128.0
+offset_top = -7.0
+offset_right = 168.0
+offset_bottom = 33.0
+rotation = 4.71238
 texture = ExtResource("39_06las")
 
 [node name="Kuplat" type="CPUParticles2D" parent="."]
@@ -984,6 +1043,8 @@ linear_accel_max = 18.18
 position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_ffkin")
 
+[connection signal="area_entered" from="keho" to="." method="_on_keho_area_entered"]
+[connection signal="body_entered" from="keho" to="." method="_on_keho_body_entered"]
 [connection signal="siirrytty_valoon" from="ValonTarkistus" to="." method="siirrytty_valoon"]
 [connection signal="siirrytty_varjoon" from="ValonTarkistus" to="." method="siirrytty_varjoon"]
 [connection signal="body_entered" from="Huilu" to="." method="_on_huilu_body_entered"]

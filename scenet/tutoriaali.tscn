@@ -112,6 +112,7 @@ scale = Vector2(1.393, 1)
 texture = ExtResource("2_2d3wx")
 
 [node name="sivu1label" type="Label" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+layout_mode = 0
 offset_left = 394.0
 offset_top = -19.0
 offset_right = 434.0
@@ -119,6 +120,7 @@ offset_bottom = -1.0
 text = "o"
 
 [node name="sivu2label" type="Label" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+layout_mode = 0
 offset_left = 434.0
 offset_top = -19.0
 offset_right = 474.0
@@ -126,6 +128,7 @@ offset_bottom = -1.0
 text = "o"
 
 [node name="sivu3label" type="Label" parent="ColorRect/MarginContainer/Tutoriaalitekstit"]
+layout_mode = 0
 offset_left = 474.0
 offset_top = -19.0
 offset_right = 514.0

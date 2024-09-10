@@ -32,6 +32,7 @@ var tahtaimen_lapset = []
 @onready var apua_label = get_node("HUD/ApuaLabel")
 @onready var journal_info_label = get_node("JournalInfo")
 @onready var sivu_info_label = get_node("SivuInfo")
+@onready var tutorial_info_label = get_node("TutorialInfo")
 
 ## Pelaajan kamera
 @onready var kamera = get_node("Camera2D")
@@ -898,6 +899,8 @@ func _physics_process(delta):
 	# PC H
 	if Input.is_action_just_pressed("tutorial"):
 		Globaali.nayta_tutorial()
+		Globaali.uusi_tutorial = false
+		paivita_tutorial_label()
 	
 	# Kukkien kerääminen JA MINECARTIN KÄYTTÄMINEN
 	# TODO: tämä myöhemmin signaaleilla
@@ -1047,3 +1050,9 @@ func tayta_happi():
 	pelaajan_happi = pelaajan_happi_max # Asetetaan pelaajan happi takaisin normaaliksi..
 	happi_mittari_paivita() # .. ja päivitetään mittari peruslukemaan
 	happi_mittari.visible = false # Lopuksi mittari piiloon, koska sitä ei enää tarvita
+
+
+func paivita_tutorial_label():
+	if Globaali.uusi_tutorial == true:
+		tutorial_info_label.visible = true
+	else: tutorial_info_label.visible = false

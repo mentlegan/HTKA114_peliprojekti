@@ -4,17 +4,17 @@
 ## TODO: kuvien lisäys
 ## TODO: eri tutoriaalien avaus eri alueilta, ne pitäisi laittaa unlock-järjestykseen
 ## TODO: kontrollit vielä lisätä teksteineen kansionrakenteeseen
+## TODO: värikoodaus ja muu tekstin muotoilu, vähän kuten journalissa nyt on
 
 extends Control
 
 ## Muuttujat, joilla käsitellään asioita
-var aiheet = null ## Tyhjä lista tutoriaaliaiheista, mikä myöhemmin määräytyy tutoriaalit/tekstitiedostot-kansion mukaan
+var aiheet = [] ## Tyhjä lista tutoriaaliaiheista, mikä myöhemmin määräytyy tutoriaalit/tekstitiedostot-kansion mukaan
 var sivumaara = 1 ## Vakiona sivumäärä on 1..
 var sivu = 1 ## .. ja sivujakin on vain 1
 var aihekansioiden_polku = "res://tutoriaali/" ## Aihekansioiden polku vähän enemmän suomen kielellä
-var valittu_aihe = "Checkpoint/" ## Vakio aihe on aakkoslistan eka
+var valittu_aihe = "Tutorial/" ## Vakio aihe on ensimmäisenä avattu
 var tekstitiedostojen_polku = aihekansioiden_polku + valittu_aihe + "tekstitiedostot/" ## Kerrotaan tekstitiedostojen polku suomeksi
-
 
 ## Tarvittavat nodet
 @onready var nappilista = $ColorRect/MarginContainer/GridContainer/ScrollContainer/ItemList ## Itemlist, josta valitaan aihe
@@ -24,7 +24,8 @@ var tekstitiedostojen_polku = aihekansioiden_polku + valittu_aihe + "tekstitiedo
 
 ## Ready tapahtuu, kun scene avautuu
 func _ready():
-	aiheet = luo_tiedostolista(aihekansioiden_polku) # Luo tutoriaalin aiheista listan kansioiden mukaan
+	#aiheet = luo_tiedostolista(aihekansioiden_polku) # Luo tutoriaalin aiheista listan kansioiden mukaan
+	aiheet.append("Tutorial") # Lisätään vakiodata, eli tutoriaalin tutoriaali listaan
 	luo_valikko() # Luo valikon valinnat aiheiden mukaan
 	muokkaa_valikkoa() # Muokkaa valikon nappuloita ja grafiikkaa aiheen sivujen mukaisesti
 	vaihda_sivua() # Vaihtaa sivun automaattisesti vakioiden mukaan
@@ -56,6 +57,16 @@ func luo_valikko():
 	nappilista.clear() # Ensin puhdistetaan nappivalikko, ettei referenssidata jää sinne
 	for kansion_nimi in aiheet: # Käydään tutoriaaliaiheet läpi
 		nappilista.add_item(kansion_nimi,null,true) # Luodaan itemlistin valikkoon lista aiheesta
+
+
+## Päivittää listaan nimen mukaisen aiheen. Kevyempi funktio kuin luo_valikko
+func paivita_valikko(nimi):
+	for aihe in aiheet:
+		if aihe == nimi:
+			return
+	aiheet.append(nimi)
+	nappilista.add_item(nimi,null,true)
+	print("listan pitäisi päivittyä")
 
 
 ## Valintalistan toimintaa
