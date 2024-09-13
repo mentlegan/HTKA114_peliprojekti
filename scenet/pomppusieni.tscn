@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1adle7m7mnv3"]
+[gd_scene load_steps=6 format=3 uid="uid://d1adle7m7mnv3"]
 
 [ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://grafiikka/icon.svg" id="1_dwope"]
 [ext_resource type="Script" path="res://skriptit/pomppusieni.gd" id="1_qf01o"]
+[ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="3_ni1tx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3dygs"]
 radius = 14.0
 height = 36.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btjwp"]
+size = Vector2(44, 50)
 
 [node name="Pomppusieni" type="StaticBody2D"]
 collision_layer = 0
@@ -13,6 +17,7 @@ collision_mask = 0
 script = ExtResource("1_qf01o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.475617, 0.0936754, 0.10021, 1)
 scale = Vector2(0.35, 0.4)
 texture = ExtResource("1_dwope")
 
@@ -41,5 +46,27 @@ position = Vector2(-10, -3)
 target_position = Vector2(0, -25)
 collision_mask = 2
 
+[node name="Area2DHuilu" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DHuilu"]
+shape = SubResource("RectangleShape2D_btjwp")
+
+[node name="LabelVoima" type="Label" parent="."]
+material = ExtResource("3_ni1tx")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 6.0
+offset_right = 23.0
+offset_bottom = 24.0
+grow_horizontal = 2
+text = "-900"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="Area2DHuilu" to="." method="_on_huilu_area_entered"]
