@@ -372,6 +372,9 @@ func poistuttu_vedesta():
 	vedessa = false
 	tayta_happi()
 
+	# Vaihdetaan illuusio IlluusioVaihtaja-nodeilla
+	get_tree().call_group("illuusio", "vaihda_illuusio", vedessa)
+
 
 ## Kutsutaan, kun pelaaja siirtyy veteen
 func siirrytty_veteen():
@@ -379,6 +382,9 @@ func siirrytty_veteen():
 	vedessa = true 
 	happi_mittari.visible = true # Laitetaan hapen tasoa indikoiva mittari näkyviin vedessä
 	happi_ajastin.start() # Aloitetaan ajastin, joka määrää hapen menetyksen
+
+	# Vaihdetaan illuusio IlluusioVaihtaja-nodeilla
+	get_tree().call_group("illuusio", "vaihda_illuusio", vedessa)
 
 
 ## Funktio, joka määrää pelaajan hapen menetyksen
