@@ -58,8 +58,8 @@ func _on_huilu_area_entered(area) -> void:
 
 
 func _process(_delta):
-	# Jos pelaaja alueella ja putoamassa
-	if player and player.velocity.y > 0:
+	# Jos pelaaja alueella ja putoamassa ja ei ole vedessä
+	if player and player.velocity.y > 0 and player.vedessa == false:
 		# Jos jokin raycasti osuu
 		for raycast in raycasts.get_children():
 			if raycast.is_colliding():
