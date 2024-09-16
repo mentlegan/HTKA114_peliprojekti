@@ -382,6 +382,8 @@ func siirrytty_veteen():
 	vedessa = true 
 	happi_mittari.visible = true # Laitetaan hapen tasoa indikoiva mittari näkyviin vedessä
 	happi_ajastin.start() # Aloitetaan ajastin, joka määrää hapen menetyksen
+	if not audio_pelaaja_veteen.playing: # Molskahdus kun pelaaja menee veteen
+		audio_pelaaja_veteen.play()
 	if not audio_uinti.playing: # Uimisen ääni
 		audio_uinti.play()
 
