@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://scenet/ovet/ovi_vasen_x.tscn" id="16_8728b"]
 [ext_resource type="PackedScene" uid="uid://dj16g605n5277" path="res://scenet/ovet/ovi_vasen_y.tscn" id="16_et2f6"]
 [ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/sivun_3_sisalto.tscn" id="16_r1qfx"]
-[ext_resource type="PackedScene" uid="uid://f5uh3uue4ry2" path="res://scenet/kayttoliittyma/sivun_4_sisalto.tscn" id="17_ik3il"]
+[ext_resource type="PackedScene" uid="uid://ircp8yyh6jwk" path="res://scenet/kayttoliittyma/sivun_4_sisalto.tscn" id="17_ik3il"]
 [ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/sivun_5_sisalto.tscn" id="18_yghk6"]
 [ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://scenet/kayttoliittyma/tooltip_liiku.tscn" id="18_yqpof"]
 [ext_resource type="PackedScene" path="res://scenet/kayttoliittyma/sivun_6_sisalto.tscn" id="19_fwfgn"]
@@ -495,7 +495,7 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
 [node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
-position = Vector2(-329, 1018)
+position = Vector2(-175, 1008)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -3187,9 +3187,6 @@ position = Vector2(2862, 170)
 position = Vector2(1880, 700)
 
 [node name="Minecart" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
-position = Vector2(6618, 54)
-
-[node name="Minecart2" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
 position = Vector2(6542, -902)
 
 [node name="Vines" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]

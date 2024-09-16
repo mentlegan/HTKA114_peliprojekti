@@ -1,15 +1,11 @@
-## Harri 10.9.2024
+## Harri 16.9.2024
+## Käsitellään tutoriaalin avaavaa nodea. Tehty lähinnä nimen tarkistuksen takia
 extends Area2D
 
 
-# Called when the node enters the scene tree for the first time.
+## Ready tapahtuu, kun scene avautuu
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+	pass
 
 
 ## Otetaan merkkijono viimeinen merkki, ja katsotaan, että onko se numero vai ei, ja otetaan se pois, jos on
@@ -24,5 +20,5 @@ func parseString(string) -> String:
 ## Kun pelaaja osuu tutoriaalin unlockaavaan alueeseen
 func _on_body_entered(body):
 	if body is Pelaaja:
-		#Globaali.unlock_tutorial(parseString(self.name))
-		Globaali.unlock_tutorial(self.name.rstrip("2")) # So far meillä on vain yksi tapaus, jossa tutoriaalin voi avata kahdesta paikasta
+		Globaali.unlock_tutorial(self.name)
+		#Globaali.unlock_tutorial(self.name.rstrip("2")) # So far meillä oli vain yksi tapaus, jossa tutoriaalin voi avata kahdesta paikasta

@@ -27,7 +27,7 @@ var tahtaimen_lapset = []
 ## Pelaajan labelit
 @onready var hud = get_node("HUD")
 @onready var elama_mittari_kuvalla = get_node("HUD/ElamaMittariKuvalla")
-@onready var happi_mittari = get_node("HUD/Happi")
+@onready var happi_mittari = get_node("HUD/HappiMittari")
 @onready var palloja_label = get_node("HUD/Palloja")
 @onready var apua_label = get_node("HUD/ApuaLabel")
 @onready var journal_info_label = get_node("JournalInfo")
@@ -1054,7 +1054,8 @@ func tayta_happi():
 	happi_mittari.visible = false # Lopuksi mittari piiloon, koska sitä ei enää tarvita
 
 
+## Päivitetään tutoriaalin ui-label näkyväksi tai piiloon
 func paivita_tutorial_label():
-	if Globaali.uusi_tutorial == true:
-		tutorial_info_label.visible = true
-	else: tutorial_info_label.visible = false
+	if Globaali.uusi_tutorial == true: # Katsotaan globaalista, että onko meillä uusi tutoriaali avattu
+		tutorial_info_label.visible = true # Laitetaan tutoriaali label näkyväksi
+	else: tutorial_info_label.visible = false # Muutoin piiloon

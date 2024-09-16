@@ -282,7 +282,6 @@ func nykyisen_tason_collision_shape(node: Node) -> Rect2:
 	return Rect2()
 
 
-
 ## Näyttää ovet tasosta, johon annetut koordinaatit sijoittuvat
 ## Samalla tehdään resonointipartikkelit
 func nayta_tason_ovet_ja_resonoi(_ovi_vaikutettu):
@@ -585,8 +584,7 @@ func unlock_tutorial(nimi):
 	pelaaja.paivita_tutorial_label() # Päivittää tutoriaalin labelin visuaaliseksi indikoimiseksi
 	tutoriaali_ruutu.paivita_valikko(nimi) # Päivittää valikon tutoriaalissa
 	print("Tutoriaali avattu: " + nimi)
-	for alue in tutoriaali_alueet.get_children(): # Tämä ei ilmeisesti jostain syystä toimi
-		if nimi == alue.name:
+	for alue in tutoriaali_alueet.get_children(): # Käväistään läpi tutoriaalien unlock-alueet
+		if nimi == alue.name: # Tarkistetaan, että kyseessä on oikea alue
 			#alue.process_mode = Node.PROCESS_MODE_DISABLED # Yrityksenä siis laittaa pois päältä jo napatut alueet, joka ratkaisisi monta ongelmaa
-			print(alue)
-			alue.queue_free()
+			alue.queue_free() # Tuhotaan alueen node, että sen kanssa ei voi enää toimia, ja tämähän ratkaisee ne monta ongelmaa

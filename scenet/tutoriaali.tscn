@@ -143,7 +143,10 @@ size_flags_horizontal = 4
 position = Vector2(-167, 147)
 
 [node name="Kuva2" type="Sprite2D" parent="ColorRect/MarginContainer/Tutoriaalikuvat"]
-position = Vector2(270, 147)
+position = Vector2(43, 158)
+
+[node name="Kuva3" type="Sprite2D" parent="ColorRect/MarginContainer/Tutoriaalikuvat"]
+position = Vector2(278, 144)
 
 [node name="takaisin_nappi" type="Button" parent="ColorRect"]
 layout_mode = 2

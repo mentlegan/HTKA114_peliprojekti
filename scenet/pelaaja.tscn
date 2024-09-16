@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=124 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -40,7 +40,10 @@
 [ext_resource type="Texture2D" uid="uid://bna2kxhocp4do" path="res://grafiikka/HealthbarFull.png" id="35_x5jxm"]
 [ext_resource type="Texture2D" uid="uid://carqststa41k" path="res://grafiikka/OhjainTooltipNappaimisto.png" id="38_fvlae"]
 [ext_resource type="Texture2D" uid="uid://cb0n0ji2qacxe" path="res://grafiikka/Arrow1.png" id="39_06las"]
+[ext_resource type="Texture2D" uid="uid://2ahad8ki508b" path="res://grafiikka/BubblesEmpty.png" id="40_1pcue"]
 [ext_resource type="Texture2D" uid="uid://b72m8odq34ybw" path="res://grafiikka/kupla.png" id="40_2fdq1"]
+[ext_resource type="Texture2D" uid="uid://befdkq6f2jwum" path="res://grafiikka/BubblesOutline.png" id="41_f03c5"]
+[ext_resource type="Texture2D" uid="uid://co6xv3a420rol" path="res://grafiikka/BubblesFull.png" id="42_8suin"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -900,30 +903,25 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "J"
 
-[node name="Happi" type="ProgressBar" parent="HUD"]
+[node name="HappiMittari" type="TextureProgressBar" parent="HUD"]
 visible = false
+z_index = 99
+material = ExtResource("5_gdn2h")
 layout_mode = 0
-offset_left = -16.0
-offset_top = -49.0
-offset_right = 67.0
-offset_bottom = -16.0
-scale = Vector2(0.64, 0.4)
-max_value = 15.0
-step = 1.0
-
-[node name="HappiLabel" type="Label" parent="HUD/Happi"]
-layout_mode = 0
-offset_left = -60.9375
-offset_top = 2.5
-offset_right = 21.0625
-offset_bottom = 20.5
-scale = Vector2(0.740387, 1.33109)
-text = "Oxygen:"
+offset_left = -384.0
+offset_top = -198.0
+offset_right = -315.0
+offset_bottom = -163.0
+scale = Vector2(2.82806, 2.8)
+texture_under = ExtResource("40_1pcue")
+texture_over = ExtResource("41_f03c5")
+texture_progress = ExtResource("42_8suin")
 
 [node name="TutorialLabel" type="Label" parent="HUD"]
 z_index = 99
 texture_filter = 1
 material = ExtResource("5_gdn2h")
+layout_mode = 0
 offset_left = 336.0
 offset_top = -131.0
 offset_right = 441.0
