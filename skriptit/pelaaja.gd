@@ -56,6 +56,10 @@ var valossa = false
 @onready var audio_ambient = $AudioAmbient
 @onready var audio_pimeyskuolema = $AudioPimeyskuolema
 @onready var audio_valopallon_keraaminen = $AudioValopallonKeraaminen
+@onready var audio_hapen_otto = $AudioHapenOtto
+@onready var audio_hukkuminen = $AudioHukkuminen
+@onready var audio_uinti = $AudioUinti
+@onready var audio_pelaaja_veteen = $AudioPelaajaVeteen
 
 ## Näyttöä pimentävät valot
 @onready var pimea_valo = $PimeaValo
@@ -1048,6 +1052,8 @@ func _on_veden_tarkistus_area_entered(area):
 
 ## Täytetään pelaajan happitaso
 func tayta_happi():
+	if not audio_hapen_otto.playing:
+		audio_hapen_otto.play()
 	happi_ajastin.stop() # Ajastin ei enää pyöri, joten happea ei lähde
 	pelaajan_happi = pelaajan_happi_max # Asetetaan pelaajan happi takaisin normaaliksi..
 	happi_mittari_paivita() # .. ja päivitetään mittari peruslukemaan
