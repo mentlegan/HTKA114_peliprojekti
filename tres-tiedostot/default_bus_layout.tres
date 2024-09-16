@@ -1,4 +1,9 @@
-[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://uis8rpe4ftxv"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://uis8rpe4ftxv"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_2sycc"]
+resource_name = "LowPassFilter"
+cutoff_hz = 550.0
+resonance = 0.4
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_wdq3c"]
 resource_name = "Reverb"
@@ -22,35 +27,43 @@ resource_name = "Compressor"
 resource_name = "Chorus"
 
 [resource]
-bus/1/name = &"Kaiku"
+bus/1/name = &"Veden_alla"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -0.130497
-bus/1/send = &""
-bus/1/effect/0/effect = SubResource("AudioEffectReverb_wdq3c")
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectLowPassFilter_2sycc")
 bus/1/effect/0/enabled = true
-bus/2/name = &"Vihollinen"
+bus/2/name = &"Kaiku"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = 0.0
-bus/2/send = &"Kaiku"
-bus/2/effect/0/effect = SubResource("AudioEffectPitchShift_l26j5")
+bus/2/volume_db = -0.130497
+bus/2/send = &""
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_wdq3c")
 bus/2/effect/0/enabled = true
-bus/2/effect/1/effect = SubResource("AudioEffectCompressor_x7wt5")
-bus/2/effect/1/enabled = true
-bus/2/effect/2/effect = SubResource("AudioEffectChorus_byvce")
-bus/2/effect/2/enabled = true
-bus/3/name = &"Pelaaja"
+bus/3/name = &"Vihollinen"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = -1.51925
+bus/3/volume_db = 0.0
 bus/3/send = &"Kaiku"
-bus/4/name = &"Musiikki"
+bus/3/effect/0/effect = SubResource("AudioEffectPitchShift_l26j5")
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectCompressor_x7wt5")
+bus/3/effect/1/enabled = true
+bus/3/effect/2/effect = SubResource("AudioEffectChorus_byvce")
+bus/3/effect/2/enabled = true
+bus/4/name = &"Pelaaja"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
-bus/4/volume_db = -2.11474
-bus/4/send = &"Master"
+bus/4/volume_db = -1.51925
+bus/4/send = &"Kaiku"
+bus/5/name = &"Musiikki"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -2.11474
+bus/5/send = &"Master"

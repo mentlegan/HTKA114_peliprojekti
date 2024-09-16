@@ -284,7 +284,7 @@ func muuta_aanenkorkeutta():
 	aanenkorkeuden_kerroin = (korkeuksien_erotus / y_vaihteluvali) + 1
 	# Vihollinen -äänikanavan pitch shift efekti
 	# VAROITUS: Hajoaa jos äänikanavien tai efektien järjestystä muuttaa!!!
-	var vihollinen_pitch_shift = AudioServer.get_bus_effect(2, 0)
+	var vihollinen_pitch_shift = AudioServer.get_bus_effect(3, 0)
 	var aanenkorkeuden_kerroin_final = aanenkorkeuden_kerroin * aanenkorkeuden_muutosnopeus
 	# Varmistetaan että pitch_scale > 0
 	if (aanenkorkeuden_kerroin_final < 0.1):

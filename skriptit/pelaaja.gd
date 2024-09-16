@@ -371,6 +371,8 @@ func poistuttu_vedesta():
 	kuplat.emitting = false # Hassuja kuplia ei tule
 	vedessa = false
 	tayta_happi()
+	AudioServer.set_bus_send(2, "Master") # Asetetaan pelaajan äänet kulkemaan "Kaiku" audioväylään
+	AudioServer.set_bus_send(5, "Master") # Asetetaan musiikki kulkemaan "Master" audioväylään
 
 	# Vaihdetaan illuusio IlluusioVaihtaja-nodeilla
 	get_tree().call_group("illuusio", "vaihda_illuusio", vedessa)
@@ -386,6 +388,8 @@ func siirrytty_veteen():
 		audio_pelaaja_veteen.play()
 	if not audio_uinti.playing: # Uimisen ääni
 		audio_uinti.play()
+	AudioServer.set_bus_send(2, "Veden_alla") # Viedään "Kaiku"-audioväylän
+	AudioServer.set_bus_send(5, "Veden_alla") # ja musiikin äänet "Veden_alla" audioväylän läpi
 
 	# Vaihdetaan illuusio IlluusioVaihtaja-nodeilla
 	get_tree().call_group("illuusio", "vaihda_illuusio", vedessa)
