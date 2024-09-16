@@ -528,6 +528,8 @@ func meneta_elamia(maara, damage_type):
 			elama_mittari_kuvalla.modulate = Color.WHITE
 	else:
 		pelaajan_elamat = 0
+		myrkky_ajastin.stop()
+		myrkkyalue_ajastin.stop()
 		kuolema_fall_damageen()
 	elamat_label_paivita()
 
