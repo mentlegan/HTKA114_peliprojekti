@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://gcmk6sen85wg"]
+
+[ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="1_4o0jo"]
+[ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://grafiikka/icon.svg" id="1_s1clu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6k23d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dv7bj"]
+radius = 159.154
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6k23d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.125076, 0.117687)
+texture = ExtResource("1_s1clu")
+
+[node name="Area2D" type="Area2D" parent="." groups=["valonlahde"]]
+collision_layer = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="Area2D"]
+texture_filter = 2
+position = Vector2(0.500004, 0.999998)
+scale = Vector2(2.44531, 2.4375)
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("1_4o0jo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 0.0173222
+shape = SubResource("CircleShape2D_dv7bj")
