@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7k4sldt6k60y"]
+
+[ext_resource type="Script" path="res://skriptit/illuusion_vaihtaja.gd" id="1_8qs7i"]
+
+[node name="IlluusionVaihtaja" type="Node"]
+script = ExtResource("1_8qs7i")
