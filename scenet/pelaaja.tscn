@@ -763,17 +763,19 @@ stream = ExtResource("32_1qpma")
 volume_db = 3.0
 bus = &"Musiikki"
 
-[node name="AudioHapenOtto" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioHapenotto" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_8rdnm")
 volume_db = -3.0
 bus = &"Pelaaja"
 
 [node name="AudioHukkuminen" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("30_t3ogw")
+volume_db = 20.0
 bus = &"Pelaaja"
 
 [node name="AudioUinti" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("31_vg3lb")
+volume_db = 5.0
 bus = &"Pelaaja"
 
 [node name="AudioPelaajaVeteen" type="AudioStreamPlayer2D" parent="."]

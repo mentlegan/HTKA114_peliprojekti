@@ -56,7 +56,7 @@ var valossa = false
 @onready var audio_ambient = $AudioAmbient
 @onready var audio_pimeyskuolema = $AudioPimeyskuolema
 @onready var audio_valopallon_keraaminen = $AudioValopallonKeraaminen
-@onready var audio_hapen_otto = $AudioHapenOtto
+@onready var audio_hapenotto = $AudioHapenotto
 @onready var audio_hukkuminen = $AudioHukkuminen
 @onready var audio_uinti = $AudioUinti
 @onready var audio_pelaaja_veteen = $AudioPelaajaVeteen
@@ -379,6 +379,8 @@ func siirrytty_veteen():
 	vedessa = true 
 	happi_mittari.visible = true # Laitetaan hapen tasoa indikoiva mittari näkyviin vedessä
 	happi_ajastin.start() # Aloitetaan ajastin, joka määrää hapen menetyksen
+	if not audio_uinti.playing: # Uimisen ääni
+		audio_uinti.play()
 
 
 ## Funktio, joka määrää pelaajan hapen menetyksen
@@ -389,6 +391,8 @@ func _on_happi_ajastin_timeout():
 	if pelaajan_happi != 0: # Tarkistetaan, että hapen taso ei ole 0
 		pelaajan_happi -= 1 # Vähennetään happea yhdellä
 		happi_mittari_paivita() # Päivitetään mittari
+		if (pelaajan_happi <=3 and not audio_hukkuminen.playing):
+			audio_hukkuminen.play() # Aloitetaan hukkumisääni 2 sekuntia ennen hapen loppumista
 	else: meneta_elamia(HUKKUMIS_DAMAGE, "normaali") # Jos pelaajan happitaso on 0, pelaaja kuolee
 
 
@@ -1052,9 +1056,10 @@ func _on_veden_tarkistus_area_entered(area):
 
 ## Täytetään pelaajan happitaso
 func tayta_happi():
-	if not audio_hapen_otto.playing:
-		audio_hapen_otto.play()
+	if not audio_hapenotto.playing: # Hapenottoääni
+		audio_hapenotto.play()
 	happi_ajastin.stop() # Ajastin ei enää pyöri, joten happea ei lähde
+	audio_hukkuminen.stop() # Pysäytetään hukkumisen ääni, jos se soi
 	pelaajan_happi = pelaajan_happi_max # Asetetaan pelaajan happi takaisin normaaliksi..
 	happi_mittari_paivita() # .. ja päivitetään mittari peruslukemaan
 	happi_mittari.visible = false # Lopuksi mittari piiloon, koska sitä ei enää tarvita
