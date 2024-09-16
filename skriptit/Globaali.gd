@@ -84,7 +84,7 @@ var pystyssa = true
 @onready var kukat = get_node("/root/Maailma/%Kukat").get_children()
 @onready var piikit = get_node("/root/Maailma/%Piikit").get_children()
 @onready var tutoriaali_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%Tutoriaali")
-@onready var tutoriaali_alueet = get_node("/root/Maailma/%TutoriaaliUnlock").get_children()
+@onready var tutoriaali_alueet = get_node("/root/Maailma/%TutoriaaliUnlock")
 var tutorial_paalla = false
 var uusi_tutorial = false
 ## Musiikit:
@@ -585,6 +585,8 @@ func unlock_tutorial(nimi):
 	pelaaja.paivita_tutorial_label() # Päivittää tutoriaalin labelin visuaaliseksi indikoimiseksi
 	tutoriaali_ruutu.paivita_valikko(nimi) # Päivittää valikon tutoriaalissa
 	print("Tutoriaali avattu: " + nimi)
-	for alue in tutoriaali_alueet: # Tämä ei ilmeisesti jostain syystä toimi
+	for alue in tutoriaali_alueet.get_children(): # Tämä ei ilmeisesti jostain syystä toimi
 		if nimi == alue.name:
-			alue.process_mode = Node.PROCESS_MODE_DISABLED # Yrityksenä siis laittaa pois päältä jo napatut alueet, joka ratkaisisi monta ongelmaa
+			#alue.process_mode = Node.PROCESS_MODE_DISABLED # Yrityksenä siis laittaa pois päältä jo napatut alueet, joka ratkaisisi monta ongelmaa
+			print(alue)
+			alue.queue_free()
