@@ -10,8 +10,8 @@ class_name IlluusionVaihtaja
 ## osaa kääntää Sprite2D:n vaakasuunnassa.
 
 
-## Esimerkki SceneTreestä:
-## Ks. IlluusionVaihtajaNakyvyys, joka vaihtaa pelkästään visible-muuttujan.
+## Käännetäänkö vaihtajan tila
+@export var invert = false
 
 
 ## Lisätään illuusio-node ryhmään.
@@ -19,7 +19,7 @@ func _ready():
 	add_to_group("illuusio")
 
 	# Pelaaja ei heti tason alkaessa ole vedessä, joten päivitetään illuusion tila.
-	vaihda_illuusio(false)
+	vaihda_illuusio(invert)
 
 
 ## Tarkistaa, onko node samassa tasossa kuin pelaaja
@@ -35,4 +35,4 @@ func vaihda_illuusio(_pelaaja_vedessa: bool):
 ## Vaihtaa illuusion jos pelaaja on samassa tasossa noden kanssa.
 func vaihda_illuusio_samassa_tasossa(pelaaja_vedessa: bool):
 	if samassa_tasossa_kuin_pelaaja():
-		vaihda_illuusio(pelaaja_vedessa)
+		vaihda_illuusio(pelaaja_vedessa != invert)

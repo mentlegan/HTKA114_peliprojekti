@@ -3079,6 +3079,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("82_xwo5p")
 
 [node name="IlluusionVaihtajaVisible" parent="Muuta/IlluusionVaihtamisenTesti" instance=ExtResource("83_0gbej")]
+invert = true
 
 [node name="Tasot" type="Area2D" parent="."]
 visible = false
