@@ -59,6 +59,7 @@ valonlahde=""
 ei_resetoi="Neljalle ovelle ennen ovipuzzlea"
 tallenna="Tallentuva node, jolla on oltava funktio tallenna()"
 mute_napit=""
+potionin_osa="Potionin osa aluetta 2 varten"
 
 [gui]
 

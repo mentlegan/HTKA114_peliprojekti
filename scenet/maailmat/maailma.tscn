@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=141 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
@@ -89,6 +89,10 @@
 [ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://grafiikka/icon.svg" id="82_xwo5p"]
 [ext_resource type="PackedScene" uid="uid://cbufj630idhw" path="res://scenet/illuusion_vaihtaja_visible.tscn" id="83_0gbej"]
 [ext_resource type="PackedScene" uid="uid://cjrujir82taha" path="res://scenet/tutorial_unlock.tscn" id="87_d1roi"]
+[ext_resource type="PackedScene" uid="uid://u0o5quv7kir7" path="res://scenet/potionin_osa.tscn" id="90_e0hgj"]
+[ext_resource type="Texture2D" uid="uid://dh3vdfbsl5o65" path="res://addons/rmsmartshape/assets/icon_editor_handle_selected.svg" id="91_20a3b"]
+[ext_resource type="Texture2D" uid="uid://dgcshah05p0bm" path="res://addons/rmsmartshape/assets/icon_editor_handle_control.svg" id="92_i3lv8"]
+[ext_resource type="Texture2D" uid="uid://cycko7tpd5xk5" path="res://addons/rmsmartshape/assets/icon_editor_handle_bezier.svg" id="93_lxyn5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
 atlas = ExtResource("9_75e1e")
@@ -499,14 +503,12 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 [node name="Polygon2D10" type="Polygon2D" parent="Tiilet"]
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
-[node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
+[node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
 position = Vector2(-175, 1008)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
 floor_snap_length = 14.0
-ohjain_tooltipit = []
-kbm_tooltipit = []
 
 [node name="Perhoset" type="Node2D" parent="."]
 rotation = -0.00132818
@@ -3217,6 +3219,24 @@ position = Vector2(6542, -902)
 
 [node name="Vines" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
 position = Vector2(2402, 695)
+
+[node name="PotioninOsa" parent="." instance=ExtResource("90_e0hgj")]
+position = Vector2(-330, 1018)
+
+[node name="Sprite2D" type="Sprite2D" parent="PotioninOsa"]
+texture = ExtResource("91_20a3b")
+
+[node name="PotioninOsa2" parent="." instance=ExtResource("90_e0hgj")]
+position = Vector2(104, 983)
+
+[node name="Sprite2D" type="Sprite2D" parent="PotioninOsa2"]
+texture = ExtResource("92_i3lv8")
+
+[node name="PotioninOsa3" parent="." instance=ExtResource("90_e0hgj")]
+position = Vector2(-607, 983)
+
+[node name="Sprite2D" type="Sprite2D" parent="PotioninOsa3"]
+texture = ExtResource("93_lxyn5")
 
 [connection signal="transitio" from="Pelaaja" to="KayttoLiittyma/Transitio" method="_on_transitio"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]

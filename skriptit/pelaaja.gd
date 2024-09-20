@@ -108,6 +108,14 @@ var sivu_info_tween: Tween
 ## Kuinka monta sekuntia odotetaan pimeässä ennen pimeäkuoleman audion toistamista
 @onready var ajastin_pimeassa_audio = $AjastinPimealleAudio
 
+## Kerättyjen potionin osien määrä
+var potionin_osia_keratty = 0
+## Keräämättä jääneiden osien määrä
+var potionin_osia_keraamatta = -1
+## Potionin osien HUD label ja sprite
+@onready var potion_label = $HUD/PotionSprite/PotionLabel
+@onready var potion_sprite = $HUD/PotionSprite
+
 ## Valopallon kohde, jonne se heitetään, pelaajasta nähden.
 ## Joko hiiren global_position tai ohjaimen tatin suunta
 var valon_kohde = Vector2(0, 0)
@@ -293,6 +301,9 @@ func _ready():
 	
 	# Asetetaan HUD:in tooltipit vastaamaan näppäimistöä
 	kbm_tooltipit_nakyviin(true)
+
+	# Päivitetään potionin osien label
+	keraa_potionin_osa(null)
 
 
 ## Asettaa journalin tooltipit näkyviin näppäimistölle ja hiirelle.
@@ -1084,3 +1095,20 @@ func paivita_tutorial_label():
 	if Globaali.uusi_tutorial == true: # Katsotaan globaalista, että onko meillä uusi tutoriaali avattu
 		tutorial_info_label.visible = true # Laitetaan tutoriaali label näkyväksi
 	else: tutorial_info_label.visible = false # Muutoin piiloon
+
+
+## Kerää potionin osan ja päivittää HUD-labelin
+func keraa_potionin_osa(potion):
+	if potion:
+		potionin_osia_keratty += 1
+		potionin_osia_keraamatta = potion.keraa()
+	
+	potion_sprite.visible = potionin_osia_keraamatta != -1
+	potion_label.text = str(potionin_osia_keratty) \
+		+ "/" + str(potionin_osia_keraamatta + potionin_osia_keratty)
+
+
+## Potionin osan kerääminen
+func _on_keho_area_entered(area):
+	if area is PotioninOsa and area.is_in_group("potionin_osa"):
+		keraa_potionin_osa(area)
