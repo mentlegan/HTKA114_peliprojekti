@@ -24,7 +24,7 @@ func _ready():
 
 ## Tarkistaa, onko node samassa tasossa kuin pelaaja
 func samassa_tasossa_kuin_pelaaja():
-	return Globaali.samassa_tasossa_kuin_pelaaja(self)
+	return Globaali.samassa_tasossa_kuin_pelaaja(get_parent())
 
 
 ## Uudelleenkirjoitettava funktio, jota kutsumalla illuusion muutos tulee näkyviin.

@@ -376,7 +376,7 @@ func poistuttu_vedesta():
 	AudioServer.set_bus_send(AudioServer.get_bus_index("Musiikki"), "Master")
 
 	# Vaihdetaan illuusio IlluusioVaihtaja-nodeilla
-	get_tree().call_group("illuusio", "vaihda_illuusio", vedessa)
+	get_tree().call_group("illuusio", "vaihda_illuusio_samassa_tasossa", vedessa)
 
 
 ## Kutsutaan, kun pelaaja siirtyy veteen
@@ -394,7 +394,7 @@ func siirrytty_veteen():
 	AudioServer.set_bus_send(AudioServer.get_bus_index("Musiikki"), "Veden_alla")
 
 	# Vaihdetaan illuusio IlluusioVaihtaja-nodeilla
-	get_tree().call_group("illuusio", "vaihda_illuusio", vedessa)
+	get_tree().call_group("illuusio", "vaihda_illuusio_samassa_tasossa", vedessa)
 
 
 ## Funktio, joka määrää pelaajan hapen menetyksen
