@@ -22,6 +22,14 @@ var ensimmainen_merkki = null
 var tween: Tween
 ## Veden shaderi
 var vesi_shader = preload("res://tres-tiedostot/vesi.tres")
+## Veden valo
+var vesi_pointlight = preload("res://scenet/vesi2d_pointlight2d.tscn")
+## Vedenpinnan muuttumisen kesto
+@export var animaation_kesto: float = 10
+## Animaation TransitionType
+@export var transition_type: Tween.TransitionType = Tween.TRANS_CUBIC
+## Animaation EaseType
+@export var ease_type: Tween.EaseType = Tween.EASE_IN
 
 
 func _ready():
@@ -32,6 +40,7 @@ func _ready():
 				# Luodaan sprite2d, joka sisältää shaderin
 				var sprite2d = Sprite2D.new()
 				var canvas_texture = CanvasTexture.new()
+				var pointlight = vesi_pointlight.instantiate()
 
 				# Asetetaan Sprite2D:n sijainti ja koko vastaamaan CollisionShape2D:ta
 				# ja asetetaan sille tyhjä CanvasTexture
@@ -43,7 +52,11 @@ func _ready():
 				sprite2d.position = lapsi.position
 				sprite2d.scale = lapsi.shape.size
 
+				pointlight.scale = sprite2d.scale
+				pointlight.position = sprite2d.position
+
 				self.add_child(sprite2d)
+				self.add_child(pointlight)
 
 				# Tarkistetaan, onko vesialueen lapseksi asetettu lumpeita
 				var lumpeet = []
@@ -63,6 +76,7 @@ func _ready():
 					"vedenpinta": lapsi.global_position.y - lapsi.shape.size.y * 0.5,
 					"korkeus": lapsi.shape.size.y,
 					"sprite2d": sprite2d,
+					"pointlight": pointlight,
 					"lumpeet": lumpeet
 				})
 			else:
@@ -110,6 +124,7 @@ func aseta_vedenpinta(korkeus: float):
 	if tween:
 		tween.kill()
 	tween = create_tween().set_parallel(true)
+	tween.set_trans(transition_type).set_ease(ease_type)
 
 	for obj in collision_shapet:
 		var obj_vedenpinta = max(obj["vedenpinta"], uusi_vedenpinta)
@@ -118,9 +133,14 @@ func aseta_vedenpinta(korkeus: float):
 		var uusi_korkeus = obj_vedenpohja - obj_vedenpinta
 		var uusi_sijainti = obj_vedenpohja - (obj_vedenpohja - obj_vedenpinta) * 0.5
 
-		tween.tween_property(obj["collision_shape"], "shape:size:y", uusi_korkeus, 10)
-		tween.tween_property(obj["sprite2d"], "scale:y", uusi_korkeus, 10)
-		tween.tween_property(obj["collision_shape"], "global_position:y", uusi_sijainti, 10)
-		tween.tween_property(obj["sprite2d"], "global_position:y", uusi_sijainti, 10)
+		tween.tween_property(obj["collision_shape"], "shape:size:y", uusi_korkeus, animaation_kesto)
+		tween.tween_property(obj["collision_shape"], "global_position:y", uusi_sijainti, animaation_kesto)
+
+		tween.tween_property(obj["sprite2d"], "global_position:y", uusi_sijainti, animaation_kesto)
+		tween.tween_property(obj["sprite2d"], "scale:y", uusi_korkeus, animaation_kesto)
+
+		tween.tween_property(obj["pointlight"], "global_position:y", uusi_sijainti, animaation_kesto)
+		tween.tween_property(obj["pointlight"], "scale:y", uusi_korkeus, animaation_kesto)
+
 		for lumme in obj["lumpeet"]:
-			tween.tween_property(lumme, "global_position:y", obj_vedenpinta, 10)
+			tween.tween_property(lumme, "global_position:y", obj_vedenpinta, animaation_kesto)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bof847o1s3pus"]
+
+[sub_resource type="Gradient" id="Gradient_5r1v8"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jgjm0"]
+gradient = SubResource("Gradient_5r1v8")
+width = 1
+height = 1
+
+[node name="Vesi2DPointLight2D" type="PointLight2D"]
+energy = 1.2
+blend_mode = 2
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_jgjm0")
