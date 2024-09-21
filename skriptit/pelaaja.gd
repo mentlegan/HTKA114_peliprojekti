@@ -389,9 +389,19 @@ func poistuttu_vedesta():
 	# Vaihdetaan illuusio IlluusioVaihtaja-nodeilla
 	get_tree().call_group("illuusio", "vaihda_illuusio_samassa_tasossa", vedessa)
 
+	# Kutsutaan suoraan _on_valossa(), koska valon_tarkistuksen aiempia signaaleja ei
+	# otettu huomioon
+	if valon_tarkistus._on_valossa():
+		siirrytty_valoon()
+	else:
+		siirrytty_varjoon()
+
 
 ## Kutsutaan, kun pelaaja siirtyy veteen
 func siirrytty_veteen():
+	# "Siirrytään" vedessä valoon
+	siirrytty_valoon()
+
 	kuplat.emitting = true # Hassuja kuplia tulee
 	vedessa = true 
 	happi_mittari.visible = true # Laitetaan hapen tasoa indikoiva mittari näkyviin vedessä
@@ -430,6 +440,10 @@ func paivita_tahtaimen_lentorata():
 
 ## Kun siirrytään varjoon, aloitetaan ajastin
 func siirrytty_varjoon():
+	# Ohitetaan, jos ollaan vedessä
+	if vedessa:
+		return
+
 	valossa = false
 	ajastin_pimeassa.start()
 	ajastin_pimeassa_audio.start()
