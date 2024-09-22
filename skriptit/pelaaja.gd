@@ -239,6 +239,7 @@ func _ready():
 	# Käsitellään happi-mittarin asiat
 	happi_mittari.max_value = pelaajan_happi_max
 	happi_mittari_paivita()
+	happi_mittari.visible = false
 	
 	# Hyppy mahdollisuus pois jos liian kauan pois seinältä
 	hyppy_ajastin_seinalla.timeout.connect(hyppy_buffer_seinalla)
@@ -382,6 +383,7 @@ func poistuttu_vedesta():
 	kuplat.emitting = false # Hassuja kuplia ei tule
 	vedessa = false
 	tayta_happi()
+	happi_mittari.visible = false
 	# Asetetaan äänet kulkemaan Master väylään "Veden_alla" -väylän sijasta
 	AudioServer.set_bus_send(AudioServer.get_bus_index("Kaiku"), "Master")
 	AudioServer.set_bus_send(AudioServer.get_bus_index("Musiikki"), "Master")
@@ -1101,7 +1103,7 @@ func tayta_happi():
 	audio_hukkuminen.stop() # Pysäytetään hukkumisen ääni, jos se soi
 	pelaajan_happi = pelaajan_happi_max # Asetetaan pelaajan happi takaisin normaaliksi..
 	happi_mittari_paivita() # .. ja päivitetään mittari peruslukemaan
-	happi_mittari.visible = false # Lopuksi mittari piiloon, koska sitä ei enää tarvita
+	#happi_mittari.visible = false # Lopuksi mittari piiloon, koska sitä ei enää tarvita
 
 
 ## Päivitetään tutoriaalin ui-label näkyväksi tai piiloon

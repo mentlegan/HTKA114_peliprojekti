@@ -4,7 +4,7 @@ extends Node2D
 
 
 ## SmartShape2D-materiaalit
-var ss2d_materiaali = preload("res://tres-tiedostot/smart_shape_tiili.tres")
+@export var ss2d_materiaali: Resource
 
 
 ## Kutsutaan, kun pääsee sceneen
