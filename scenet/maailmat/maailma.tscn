@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=145 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
@@ -348,6 +348,9 @@ size = Vector2(192, 162)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_re3tf"]
 size = Vector2(75, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61u0d"]
+size = Vector2(385.25, 225.5)
+
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 
 [node name="KayttoLiittyma" type="CanvasLayer" parent="." groups=["UI"]]
@@ -510,7 +513,7 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(-386, 1018)
+position = Vector2(2367, 5224)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -3365,6 +3368,232 @@ position = Vector2(8026, 5232)
 
 [node name="TutoriaaliTP2" type="Node2D" parent="Taso2/Muuta"]
 position = Vector2(13601, 5232)
+
+[node name="VesialueetTaso2" type="Node2D" parent="Taso2"]
+
+[node name="Vesi2D" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
+position = Vector2(683, 5676)
+animaation_kesto = 2.0
+transition_type = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
+position = Vector2(1204.63, -212.75)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
+position = Vector2(1143, 5)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
+position = Vector2(1057, 219)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
+position = Vector2(913, 389)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
+position = Vector2(541, 407)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
+position = Vector2(219, 365)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
+position = Vector2(147, 151)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
+position = Vector2(33, -43)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
+position = Vector2(13, -253)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
+position = Vector2(13, -469)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
+position = Vector2(7, -687)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="Vesi2D2" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
+position = Vector2(6258, 5676)
+animaation_kesto = 2.0
+transition_type = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
+position = Vector2(1204.63, -212.75)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
+position = Vector2(1143, 5)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
+position = Vector2(1057, 219)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
+position = Vector2(913, 389)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
+position = Vector2(541, 407)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
+position = Vector2(219, 365)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
+position = Vector2(147, 151)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
+position = Vector2(33, -43)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
+position = Vector2(13, -253)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
+position = Vector2(13, -469)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
+position = Vector2(7, -687)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="Vesi2D3" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
+position = Vector2(11833, 5676)
+animaation_kesto = 2.0
+transition_type = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
+position = Vector2(1204.63, -212.75)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
+position = Vector2(1143, 5)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
+position = Vector2(1057, 219)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
+position = Vector2(913, 389)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
+position = Vector2(541, 407)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
+position = Vector2(219, 365)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
+position = Vector2(147, 151)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
+position = Vector2(33, -43)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
+position = Vector2(13, -253)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
+position = Vector2(13, -469)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
+position = Vector2(7, -687)
+shape = SubResource("RectangleShape2D_61u0d")
+
+[node name="HappikukatTaso2" type="Node2D" parent="Taso2"]
+
+[node name="Happikukka" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(1744, 5548)
+rotation = 1.86774
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka2" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(1472, 5998)
+rotation = -3.11192
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka3" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(749, 5333)
+rotation = -1.1756
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka4" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(746, 5855)
+rotation = 1.1266
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka5" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(1050, 6145)
+rotation = 0.655867
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka6" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(7319, 5548)
+rotation = 1.86774
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka7" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(7047, 5998)
+rotation = -3.11192
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka8" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(6324, 5333)
+rotation = -1.1756
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka9" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(6321, 5855)
+rotation = 1.1266
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka10" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(6625, 6145)
+rotation = 0.655867
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka11" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(12894, 5548)
+rotation = 1.86774
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka12" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(12622, 5998)
+rotation = -3.11192
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka13" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(11899, 5333)
+rotation = -1.1756
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka14" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(11896, 5855)
+rotation = 1.1266
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka15" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(12200, 6145)
+rotation = 0.655867
+scale = Vector2(0.416464, 0.402379)
 
 [connection signal="transitio" from="Pelaaja" to="KayttoLiittyma/Transitio" method="_on_transitio"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]

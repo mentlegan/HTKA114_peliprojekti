@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="1_gbwls"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="2_txlra"]
-[ext_resource type="Texture2D" uid="uid://n5nu80nnrujh" path="res://grafiikka/TaustaElementit/Grass.png" id="3_ieil8"]
+[ext_resource type="Texture2D" uid="uid://b1j5ig1pk84gn" path="res://grafiikka/TaustaElementit2/GrassLVL2.png" id="3_y0xi2"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="4_wtgg3"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="5_5uktw"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_g67b0"]
-diffuse_texture = ExtResource("3_ieil8")
+[sub_resource type="CanvasTexture" id="CanvasTexture_q33ay"]
+diffuse_texture = ExtResource("3_y0xi2")
 texture_filter = 1
 texture_repeat = 2
 
-[sub_resource type="Resource" id="Resource_53jl3"]
+[sub_resource type="Resource" id="Resource_lc48h"]
 script = ExtResource("2_txlra")
-textures = Array[Texture2D]([SubResource("CanvasTexture_g67b0")])
+textures = Array[Texture2D]([SubResource("CanvasTexture_q33ay")])
 textures_corner_outer = Array[Texture2D]([null])
 textures_corner_inner = Array[Texture2D]([])
 textures_taper_left = Array[Texture2D]([])
@@ -23,16 +23,16 @@ use_corner_texture = false
 use_taper_texture = true
 fit_mode = 1
 
-[sub_resource type="Resource" id="Resource_7iv60"]
+[sub_resource type="Resource" id="Resource_1bn8k"]
 script = ExtResource("4_wtgg3")
 begin = 0.0
 distance = 360.0
 edgeRendering = Vector2(0, 0)
 
-[sub_resource type="Resource" id="Resource_6usvh"]
+[sub_resource type="Resource" id="Resource_xj5cu"]
 script = ExtResource("1_gbwls")
-edge_material = SubResource("Resource_53jl3")
-normal_range = SubResource("Resource_7iv60")
+edge_material = SubResource("Resource_lc48h")
+normal_range = SubResource("Resource_1bn8k")
 weld = false
 render = true
 z_index = 0
@@ -41,7 +41,7 @@ offset = 0.7
 
 [resource]
 script = ExtResource("5_5uktw")
-_edge_meta_materials = Array[ExtResource("1_gbwls")]([SubResource("Resource_6usvh")])
+_edge_meta_materials = Array[ExtResource("1_gbwls")]([SubResource("Resource_xj5cu")])
 fill_textures = Array[Texture2D]([])
 fill_texture_z_index = -10
 fill_texture_show_behind_parent = false

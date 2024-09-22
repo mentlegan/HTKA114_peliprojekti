@@ -693,6 +693,9 @@ func _physics_process(delta):
 	
 	# Uinnin movement
 	if vedessa:
+		animaatio.rotation = 0
+		audio_kavely.stop()
+		audio_juoksu.stop()
 		animaatio.play("uinti")
 		if uinnin_velocity.length() > 0.1:
 			if Input.is_action_pressed("juoksu"):
