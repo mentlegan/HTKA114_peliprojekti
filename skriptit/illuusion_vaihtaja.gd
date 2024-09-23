@@ -8,18 +8,20 @@ class_name IlluusionVaihtaja
 ## IlluusionVaihtaja[Visible/Flip/jne] on asetettava sen noden alle,
 ## johon halutaan IlluusionVaihtajalla vaikuttaa. Esim. illuusion_vaihtaja_flip
 ## osaa kääntää Sprite2D:n vaakasuunnassa.
+# Juuso 23.9.2024
 
 
 ## Käännetäänkö vaihtajan tila
 @export var invert = false
-
 
 ## Lisätään illuusio-node ryhmään.
 func _ready():
 	add_to_group("illuusio")
 
 	# Pelaaja ei heti tason alkaessa ole vedessä, joten päivitetään illuusion tila.
-	vaihda_illuusio(invert)
+	#vaihda_illuusio(invert)
+	# Kutsutaan aina falsena, sillä pelaaja ei ole ikinä vedessä alussa
+	vaihda_illuusio(false)
 
 
 ## Tarkistaa, onko node samassa tasossa kuin pelaaja

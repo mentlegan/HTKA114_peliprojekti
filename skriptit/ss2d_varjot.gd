@@ -6,6 +6,7 @@ extends Node2D
 ## SmartShape2D-materiaalit
 @export var ss2d_materiaali: Resource
 
+const ILLUUSION_VAIHTAJA_VISIBLE = preload("res://scenet/illuusion_vaihtaja_visible.tscn")
 
 ## Kutsutaan, kun pääsee sceneen
 func _ready():
@@ -66,7 +67,10 @@ func lisaa_varjot_ja_collisionit():
 
 			# Kutsutaan vielä varulta _points_modified
 			ss2d._points_modified()
-
+			if lapsi.is_in_group("oviseina"):
+				ss2d.add_to_group("oviseina")
+				if lapsi.is_in_group("avaaoviseina"):
+					ss2d.add_to_group("avaaoviseina")
 			# Lisätään SS2D lapseksi ja poistetaan Polygon2D
 			self.add_child(ss2d)
 			lapsi.queue_free()
@@ -109,7 +113,13 @@ func lisaa_varjot_ja_collisionit():
 			# Lisätään varjot ja collisionit StaticBody2D:n lapsiksi
 			static_body.add_child(occluder)
 			static_body.add_child(collision_polygon)
-
+			if lapsi.is_in_group("oviseina"):
+				static_body.add_to_group("oviseina")
+				var vaihtaja = ILLUUSION_VAIHTAJA_VISIBLE.instantiate()
+				if lapsi.is_in_group("avaaoviseina"):
+					vaihtaja.invert = true
+					static_body.add_to_group("avaaoviseina")
+				static_body.add_child(vaihtaja)
 			# Asetetaan light_mask, jotta reunat renderöidään kauempaa
 			lapsi.light_mask = 2
 			# Nostetaan SS2D node yleisten tasoelementtien ylle
@@ -117,4 +127,5 @@ func lisaa_varjot_ja_collisionit():
 
 			# Lisätään lopuksi StaticBody2D ja SS2D Tiilet-noden lapseksi
 			self.add_child(static_body)
+			print(static_body.get_groups())
 			#self.add_child(ss2d)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://gcmk6sen85wg"]
 
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="1_4o0jo"]
-[ext_resource type="Texture2D" uid="uid://dtnmvl7x6iyyj" path="res://grafiikka/TaustaElementit2/Kristalli.png" id="1_r1rsn"]
+[ext_resource type="Texture2D" uid="uid://dodr50nc7m0p4" path="res://grafiikka/TaustaElementit2/Kristalli.png" id="1_r1rsn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6k23d"]
 
@@ -44,7 +44,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_dv7bj"]
 radius = 159.154
 
-[node name="Area2D" type="Area2D"]
+[node name="IsompiValo" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6k23d")

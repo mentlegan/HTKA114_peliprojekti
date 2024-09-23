@@ -60,6 +60,8 @@ ei_resetoi="Neljalle ovelle ennen ovipuzzlea"
 tallenna="Tallentuva node, jolla on oltava funktio tallenna()"
 mute_napit=""
 potionin_osa="Potionin osa aluetta 2 varten"
+oviseina="oviseinia varten, asetetaan ss2d staticbodylle"
+avaaoviseina="oviseinalle, jonka voi avata"
 
 [gui]
 
@@ -264,6 +266,11 @@ tutorial={
 vesitutoriaali={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194337,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+vesitutoriaalilapi={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194338,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 

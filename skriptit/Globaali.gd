@@ -38,6 +38,10 @@ var soitetaan_animatic
 @onready var vesiputous_tp = get_node("/root/Maailma/%Muuta/%VesiputousTeleport").position
 
 @onready var pelaaja_vesitutoriaali = get_node("/root/Maailma/Taso2/%VesitutoriaaliTP").position
+@onready var pelaaja_vesitutoriaalilapi = get_node("/root/Maailma/Taso2/%VesitutoriaaliLapiTP").position
+
+@onready var tiilet_taso_2 = get_node("/root/Maailma/Taso2/%TiiletTaso2")
+@onready var ovi_seina_2 = get_node("/root/Maailma/Taso2/%OviSeina2")
 
 ## Valot ja indikaattorit köynnösoville ja niiden taulukko
 var oven_valo = preload("res://scenet/oven_valo.tscn")
@@ -105,12 +109,6 @@ var minecart_kaytetty = false
 # Pelin tallennustiedosto
 # Sijainti: %APPDATA%\Godot\app_userdata\Beneath the Mines\save_file.json
 const TALLENNUSTIEDOSTO = "user://save_file.json"
-
-## Scenen vaihtamiseen, ei luultavasti tarvita
-"""
-@export var taso2 = preload("res://maailma2.tscn")
-var t2 = preload("res://maailma2.tscn")
-"""
 
 @onready var animatic = get_node("/root/Maailma/%KayttoLiittyma/%Animatic")
 
@@ -329,8 +327,13 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("taso45"):
 		teleporttaa_pelaaja(pelaaja_taso45)
 	
+	# PC F6
 	if Input.is_action_just_pressed("vesitutoriaali"):
 		teleporttaa_pelaaja(pelaaja_vesitutoriaali)
+	
+	# PC F7
+	if Input.is_action_just_pressed("vesitutoriaalilapi"):
+		teleporttaa_pelaaja(pelaaja_vesitutoriaalilapi)
 	
 	# Pelin keskeytys
 	# PC ESCAPE
@@ -593,3 +596,10 @@ func unlock_tutorial(nimi):
 		if nimi == alue.name: # Tarkistetaan, että kyseessä on oikea alue
 			#alue.process_mode = Node.PROCESS_MODE_DISABLED # Yrityksenä siis laittaa pois päältä jo napatut alueet, joka ratkaisisi monta ongelmaa
 			alue.queue_free() # Tuhotaan alueen node, että sen kanssa ei voi enää toimia, ja tämähän ratkaisee ne monta ongelmaa
+
+
+func avaa_seinaovi():
+	for static_body in tiilet_taso_2.get_children():
+		if static_body.is_in_group("avaaoviseina"):
+			static_body.queue_free()
+	ovi_seina_2.queue_free()

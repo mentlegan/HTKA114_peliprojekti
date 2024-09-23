@@ -3,4 +3,6 @@ extends IlluusionVaihtaja
 
 
 func vaihda_illuusio(pelaaja_vedessa: bool):
-	get_parent().visible = pelaaja_vedessa
+	# Jos kutsutaan aina _ready() -> vaihda_illuusio(invert)
+	# pelaaja_vedessa == invert AINA, jolloin kaikki piilossa aluksi
+	get_parent().visible = (pelaaja_vedessa != invert)
