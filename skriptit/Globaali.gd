@@ -37,6 +37,8 @@ var soitetaan_animatic
 @onready var taso1_loppu = get_node("/root/Maailma/%Muuta/%Kentan1_loppu").position
 @onready var vesiputous_tp = get_node("/root/Maailma/%Muuta/%VesiputousTeleport").position
 
+@onready var pelaaja_vesitutoriaali = get_node("/root/Maailma/Taso2/%VesitutoriaaliTP").position
+
 ## Valot ja indikaattorit köynnösoville ja niiden taulukko
 var oven_valo = preload("res://scenet/oven_valo.tscn")
 var oven_indikaattori = preload("res://scenet/oven_indikaattori.tscn")
@@ -326,6 +328,9 @@ func _input(_event: InputEvent) -> void:
 	# PC F4
 	if Input.is_action_just_pressed("taso45"):
 		teleporttaa_pelaaja(pelaaja_taso45)
+	
+	if Input.is_action_just_pressed("vesitutoriaali"):
+		teleporttaa_pelaaja(pelaaja_vesitutoriaali)
 	
 	# Pelin keskeytys
 	# PC ESCAPE

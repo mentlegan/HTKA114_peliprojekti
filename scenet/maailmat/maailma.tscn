@@ -90,7 +90,7 @@
 [ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://grafiikka/icon.svg" id="82_xwo5p"]
 [ext_resource type="PackedScene" path="res://scenet/illuusion_vaihtaja_visible.tscn" id="83_0gbej"]
 [ext_resource type="PackedScene" uid="uid://cjrujir82taha" path="res://scenet/tutorial_unlock.tscn" id="87_d1roi"]
-[ext_resource type="PackedScene" uid="uid://dh5xd3mle1g84" path="res://scenet/potionin_osa.tscn" id="90_e0hgj"]
+[ext_resource type="PackedScene" uid="uid://u0o5quv7kir7" path="res://scenet/potionin_osa.tscn" id="90_e0hgj"]
 [ext_resource type="Texture2D" uid="uid://dh3vdfbsl5o65" path="res://addons/rmsmartshape/assets/icon_editor_handle_selected.svg" id="91_20a3b"]
 [ext_resource type="Texture2D" uid="uid://dgcshah05p0bm" path="res://addons/rmsmartshape/assets/icon_editor_handle_control.svg" id="92_i3lv8"]
 [ext_resource type="Texture2D" uid="uid://cycko7tpd5xk5" path="res://addons/rmsmartshape/assets/icon_editor_handle_bezier.svg" id="93_lxyn5"]
@@ -3368,6 +3368,10 @@ position = Vector2(8026, 5232)
 
 [node name="TutoriaaliTP2" type="Node2D" parent="Taso2/Muuta"]
 position = Vector2(13601, 5232)
+
+[node name="VesitutoriaaliTP" type="Node2D" parent="Taso2/Muuta"]
+unique_name_in_owner = true
+position = Vector2(-414, 4754)
 
 [node name="VesialueetTaso2" type="Node2D" parent="Taso2"]
 
