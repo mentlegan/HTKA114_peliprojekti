@@ -37,6 +37,7 @@ var kimpoamiset = 0
 @onready var elo_aika = get_node("Timer")
 var tween: Tween
 
+const PARTIKKELIT_VALOPALLO = preload("res://scenet/partikkelit_valopallo.tscn")
 
 ## Kytketään ajastimen loppuminen valopallon tuhoamiseen
 func _ready():
@@ -143,6 +144,12 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 			Globaali.pystyssa = true
 
 
+func _on_vesi_tarkistus_area_entered(area) -> void:
+	if area is Vesi2D:
+		audio_valopallo_hajoaa.play()
+		start_destroy()
+
+
 func _physics_process(delta):
 	"""
 	if Input.is_action_just_pressed("painike_oikea"):
@@ -239,5 +246,8 @@ func _physics_process(delta):
 			velocity *= randf_range(0.8, 1.1)
 			# Lisätään kimmotusten määrää
 			kimpoamiset += 1
+			var partikkelit = PARTIKKELIT_VALOPALLO.instantiate()
+			partikkelit.global_position = self.global_position
+			get_tree().root.add_child(partikkelit)
 			if kimpoamiset >= 5:
 				start_destroy()

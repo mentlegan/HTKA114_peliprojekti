@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://713ktg8ejflv"]
+[gd_scene load_steps=14 format=3 uid="uid://713ktg8ejflv"]
 
 [ext_resource type="Script" path="res://skriptit/valocharacter.gd" id="1_0y8yp"]
 [ext_resource type="Texture2D" uid="uid://bmvtp7yssbvk2" path="res://grafiikka/Valo512.png" id="2_kid4c"]
@@ -20,6 +20,8 @@ streams_count = 3
 stream_0/stream = ExtResource("5_35uxy")
 stream_1/stream = ExtResource("6_k58co")
 stream_2/stream = ExtResource("7_8xih3")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1q7yk"]
 
 [node name="ValoCharacter" type="CharacterBody2D" groups=["valopallo"]]
 light_mask = 2
@@ -79,3 +81,11 @@ bus = &"Kaiku"
 [node name="AudioKoynnosOvi" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_g0pli")
 bus = &"Kaiku"
+
+[node name="Area2DVesiTarkistus" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DVesiTarkistus"]
+shape = SubResource("CircleShape2D_1q7yk")
+
+[connection signal="area_entered" from="Area2DVesiTarkistus" to="." method="_on_vesi_tarkistus_area_entered"]
