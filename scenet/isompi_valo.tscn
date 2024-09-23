@@ -1,9 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://gcmk6sen85wg"]
+[gd_scene load_steps=10 format=3 uid="uid://gcmk6sen85wg"]
 
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="1_4o0jo"]
-[ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://grafiikka/icon.svg" id="1_s1clu"]
+[ext_resource type="Texture2D" uid="uid://dtnmvl7x6iyyj" path="res://grafiikka/TaustaElementit2/Kristalli.png" id="1_r1rsn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6k23d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6egk7"]
+atlas = ExtResource("1_r1rsn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl37x"]
+atlas = ExtResource("1_r1rsn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5lyj"]
+atlas = ExtResource("1_r1rsn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obfbs"]
+atlas = ExtResource("1_r1rsn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7yoy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6egk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl37x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5lyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obfbs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dv7bj"]
 radius = 159.154
@@ -13,9 +49,10 @@ radius = 159.154
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6k23d")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.125076, 0.117687)
-texture = ExtResource("1_s1clu")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a7yoy")
+frame = 2
+frame_progress = 0.744403
 
 [node name="Area2D" type="Area2D" parent="." groups=["valonlahde"]]
 collision_layer = 4
