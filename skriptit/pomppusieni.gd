@@ -4,9 +4,10 @@ extends StaticBody2D
 ## TODO: Saattaa mennä rikki, jos hyppää liian korkealta
 ## TODO: putoamisvahingon muuttaminen, jotta toimii pomppusienien kanssa
 ## Putoamishuippu pitäisi varmaan ottaa pelaajaskriptissä silloin, kun velocity.y > 0
-# Juuso 13.9.2024
+# Juuso 23.9.2024
 
 @onready var raycasts = $Raycasts
+var raycast_offset = 12
 
 ## Hyppy voimat
 @export var pomppu_voimat = [-650, -800]
@@ -14,6 +15,7 @@ var nykyinen_voima
 
 @onready var label_voima = $LabelVoima
 
+@onready var anim_sprite = $AnimatedSprite2D
 ## Viite pelaajaan
 var player = null
 
@@ -22,7 +24,7 @@ func _ready() -> void:
 	#collision_platform.disabled = true
 	nykyinen_voima = pomppu_voimat[0]
 	label_voima.text = str(nykyinen_voima)
-	$Sprite2D.modulate = Color.WHITE
+	anim_sprite.play("pomppu_pieni")
 
 
 func _on_area_2d_body_entered(body):
@@ -49,12 +51,19 @@ func _on_huilu_area_entered(area) -> void:
 		if not area.osuu_terrainiin(self):
 			# Vaihtaa seuraavaan hyppy voimaan, jos ei löytynyt nykyistä -> asettaa ensimmäiseen
 			nykyinen_voima = pomppu_voimat[(pomppu_voimat.find(nykyinen_voima) + 1) % pomppu_voimat.size()]
+			if nykyinen_voima == pomppu_voimat[0]:
+				anim_sprite.play("pomppu_pieni")
+				raycasts.position.y += raycast_offset
+			else:
+				anim_sprite.play("pomppu_iso")
+				raycasts.position.y = 0
 			# Asetetaan labeliin nykyinen voima havainnollistamiseksi
 			label_voima.text = str(nykyinen_voima)
-			if $Sprite2D.modulate == Color.WHITE:
-				$Sprite2D.modulate = Color.RED
-			else:
-				$Sprite2D.modulate = Color.WHITE
+
+
+func _on_animation_finished() -> void:
+	anim_sprite.stop()
+	anim_sprite.frame = 0
 
 
 func _process(_delta):
@@ -63,6 +72,10 @@ func _process(_delta):
 		# Jos jokin raycasti osuu
 		for raycast in raycasts.get_children():
 			if raycast.is_colliding():
+				if nykyinen_voima == pomppu_voimat[0]:
+					anim_sprite.play("pomppu_pieni")
+				else:
+					anim_sprite.play("pomppu_iso")
 				player.velocity.y = nykyinen_voima
 				# Resetoidaan putoamis_vahinko, jotta huippu lasketaan uudelleen
 				player.putoamis_vahinko = false
