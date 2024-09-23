@@ -387,6 +387,8 @@ func poistuttu_vedesta():
 	# Asetetaan äänet kulkemaan Master väylään "Veden_alla" -väylän sijasta
 	AudioServer.set_bus_send(AudioServer.get_bus_index("Kaiku"), "Master")
 	AudioServer.set_bus_send(AudioServer.get_bus_index("Musiikki"), "Master")
+	if audio_uinti.playing:
+		audio_uinti.stop()
 
 	# Vaihdetaan illuusio IlluusioVaihtaja-nodeilla
 	get_tree().call_group("illuusio", "vaihda_illuusio_samassa_tasossa", vedessa)
@@ -1086,7 +1088,8 @@ func _on_veden_tarkistus_area_exited(area):
 	if area is Vesi2D and vedessa:
 		poistuttu_vedesta()
 	if area is Happikukka and vedessa:
-		siirrytty_veteen()
+		#iirrytty_veteen()
+		happi_ajastin.start()
 
 
 ## Kun pelaaja osuu Area2D-nodeen.
