@@ -138,7 +138,6 @@ func muokkaa_kuvat(sivu):
 	var s = str(sivu) # Sivunumero merkkijonoksi käsittelyä varten
 	for kuva in tutoriaalikuva_nodet: # Laitetaan aina vakiona kuvien skaala hieman pienemmäksi
 		kuva.scale = Vector2(0.4, 0.4)
-	tutoriaalikuva_nodet[3].texture = null # Nollataan isommalle kuvalle suunnatun noden texture
 	# Asetetaan joka nodelle tekstuuri
 	tutoriaalikuva_nodet[0].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva1.png")
 	tutoriaalikuva_nodet[1].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva2.png")
