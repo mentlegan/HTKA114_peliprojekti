@@ -233,7 +233,6 @@ func _physics_process(delta):
 			
 		else: # Kimpoaminen
 			velocity = velocity.bounce(collision.get_normal())
-			audio_valopallon_kimpoaminen.play()
 			if tween:
 				tween.kill()
 			tween = create_tween()
@@ -250,3 +249,5 @@ func _physics_process(delta):
 			get_tree().root.add_child(partikkelit)
 			if kimpoamiset >= 5:
 				start_destroy()
+			else:
+				audio_valopallon_kimpoaminen.play()
