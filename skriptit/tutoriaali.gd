@@ -29,6 +29,30 @@ func _ready():
 	luo_valikko() # Luo valikon valinnat aiheiden mukaan
 	muokkaa_valikkoa() # Muokkaa valikon nappuloita ja grafiikkaa aiheen sivujen mukaisesti
 	vaihda_sivua() # Vaihtaa sivun automaattisesti vakioiden mukaan
+	_on_item_list_item_selected(0)
+
+
+func _input(event: InputEvent) -> void:
+	if not event is InputEventKey:
+		return
+	# PC Escape
+	if event.is_action_pressed("pause"):
+		print("tutorial")
+		if visible:
+			_on_takaisin_nappi_pressed()
+			get_viewport().set_input_as_handled()
+	# PC H
+	elif event.is_action_pressed("tutorial"):
+		print("tutorial")
+		if not (Globaali.pauseruutu.visible or Globaali.journal.visible):
+			if visible:
+				_on_takaisin_nappi_pressed()
+				get_viewport().set_input_as_handled()
+			else:
+				Globaali.nayta_tutorial()
+				Globaali.uusi_tutorial = false
+				Globaali.pelaaja.paivita_tutorial_label()
+				get_viewport().set_input_as_handled()
 
 
 ## Ottaa kansiossa olevat tutoriaalit, ja tekee niiden kansionnimistä järjestetyn 0-n taulukon

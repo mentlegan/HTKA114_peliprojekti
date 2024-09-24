@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=154 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
@@ -361,11 +361,20 @@ size = Vector2(20, 175.882)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61u0d"]
 size = Vector2(385.25, 225.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fx2fu"]
+size = Vector2(660, 339)
+
 [sub_resource type="Curve2D" id="Curve2D_6ewyi"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -2, -2, 0, 0, 0, 0, 42, -2, 0, 0, 0, 0, 93, -10, 0, 0, 0, 0, 155, -13, 0, 0, 0, 0, 237, -25, 0, 0, 0, 0, 362, -23, 0, 0, 0, 0, 481, -32, 0, 0, 0, 0, 573, -28, 0, 0, 0, 0, 751, 7, 0, 0, 0, 0, 736, 35, 0, 0, 0, 0, 656, 21, 0, 0, 0, 0, 558, 16, 0, 0, 0, 0, 357, 14, 0, 0, 0, 0, 161, 15, 0, 0, 0, 0, 76, 31, 0, 0, 0, 0, -12, 30, 0, 0, 0, 0, -36, 26, 0, 0, 0, 0, -47, 12, 0, 0, 0, 0, -35, -5, 0, 0, 0, 0, 0, -3)
 }
 point_count = 20
+
+[sub_resource type="Curve2D" id="Curve2D_mfdu8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 12, -45, 0, 0, 0, 0, -6, -97, 0, 0, 0, 0, -41, -123, 0, 0, 0, 0, -92, -137, 0, 0, 0, 0, -160, -159, 0, 0, 0, 0, -188, -172, 0, 0, 0, 0, -204, -174, 23.9335, -14.5572, -23.9335, 14.5572, -241, -165, 0, 0, 0, 0, -253, -126, 0, 0, 0, 0, -241, -117, 0, 0, 0, 0, -224, -119, 0, 0, 0, 0, -204, -122, 0, 0, 0, 0, -189, -118, 0, 0, 0, 0, -160, -113, 0, 0, 0, 0, -130, -105, 0, 0, 0, 0, -99, -93, 0, 0, 0, 0, -80, -58, 0, 0, 0, 0, -73, -37, 0, 0, 0, 0, -77, -5, 0, 0, 0, 0, -66, 51, 0, 0, 0, 0, -56, 115, 0, 0, 0, 0, -36, 161, 0, 0, 0, 0, 15, 209, 0, 0, 0, 0, 73, 202, 0, 0, 0, 0, 116, 173, 0, 0, 0, 0, 109, 108, 0, 0, 0, 0, 72, 27, 0, 0, 0, 0, 30, -16, 0, 0, 0, 0, 12, -44)
+}
+point_count = 29
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 
@@ -529,7 +538,7 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(-334, 1009)
+position = Vector2(14366, 4586)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -3295,7 +3304,7 @@ polygon = PackedVector2Array(959, 893, 1208, 917, 1560, 939, 1641, 912, 1694, 86
 
 [node name="Polygon2D10" type="Polygon2D" parent="Taso2/TiiletTaso2"]
 position = Vector2(10304, 3729)
-polygon = PackedVector2Array(959, 893, 1208, 917, 1560, 939, 1641, 912, 1694, 865, 1708, 825, 1782, 762, 1841, 721, 1919, 694, 1986, 685, 2053, 687, 2066, 728, 2057, 761, 2045, 785, 1957, 785, 1917, 784, 1896, 794, 1870, 829, 1848, 862, 1849, 876, 1877, 866, 1975, 886, 2079, 839, 2313, 855, 2468, 854, 2588, 842, 2720, 862, 2972, 866, 3313, 881, 3496, 926, 3612, 807, 3722, 754, 3957, 674, 4213, 703, 4636, 699, 4577, 360, 1610, 256, 367, 388, -203, 755, 413, 1263, 1010, 1463, 1439, 2558, 2223, 2644, 2924, 2655, 3214, 2312, 4101, 1822, 4600, 1563, 4767, 988, 4441, 893, 4216, 882, 3978, 914, 3853, 938, 3695, 1007, 3459, 1090, 3404, 1196, 3444, 1229, 3465, 1293, 3471, 1409, 3457, 1531, 3189, 1544, 2937, 1618, 2804, 1766, 2761, 1979, 2705, 2190, 2562, 2364, 2307, 2386, 2119, 2423, 1966, 2460, 1813, 2396, 1750, 2335, 1647, 2252, 1556, 2088, 1498, 1990, 1458, 1837, 1426, 1548, 1434, 1405, 1437, 1314, 1447, 1230, 1428, 1127, 1325, 1103, 1199, 1093, 890, 1087, 530, 1078, 410, 1066, 325, 1037, 336, 979, 365, 942, 484, 925, 649, 922, 755, 913, 852, 896)
+polygon = PackedVector2Array(959, 893, 1208, 917, 1560, 939, 1641, 912, 1694, 865, 1708, 825, 1782, 762, 1841, 721, 1919, 694, 1986, 685, 2053, 687, 2066, 728, 2057, 761, 2045, 785, 1957, 785, 1917, 784, 1896, 794, 1870, 829, 1848, 862, 1849, 876, 1877, 866, 1975, 886, 2079, 839, 2313, 855, 2468, 854, 2588, 842, 2720, 862, 2972, 866, 3268, 884, 3370, 881, 3452, 873, 3502, 866, 3612, 807, 3722, 754, 3955, 736, 4198, 741, 4521, 775, 4611, 794, 4844, 820, 4996, 842, 5160, 953, 5315, 999, 5438, 978, 5537, 918, 5724, 789, 5341, 428, 4577, 360, 1610, 256, 367, 388, -203, 755, 413, 1263, 1010, 1463, 1439, 2558, 2223, 2644, 2924, 2655, 3214, 2312, 4101, 1822, 5488, 2968, 5936, 3012, 5832, 2620, 5420, 2000, 5627, 1403, 5633, 1300, 5613, 1193, 5420, 1160, 5010, 1200, 4904, 1194, 4836, 1272, 4816, 1329, 4742, 1404, 4616, 1465, 4481, 1460, 4414, 1432, 4354, 1372, 4336, 1317, 4319, 1243, 4299, 1112, 4320, 1072, 4351, 1038, 4398, 988, 4446, 943, 4505, 904, 4411, 879, 4216, 882, 3978, 914, 3853, 938, 3695, 1007, 3459, 1090, 3404, 1196, 3444, 1229, 3465, 1293, 3471, 1409, 3457, 1531, 3189, 1544, 2937, 1618, 2804, 1766, 2761, 1979, 2705, 2190, 2562, 2364, 2307, 2386, 2119, 2423, 1966, 2460, 1813, 2396, 1750, 2335, 1647, 2252, 1556, 2088, 1498, 1990, 1458, 1837, 1426, 1548, 1434, 1405, 1437, 1314, 1447, 1230, 1428, 1127, 1325, 1103, 1199, 1093, 890, 1087, 530, 1078, 410, 1066, 325, 1037, 336, 979, 365, 942, 484, 925, 649, 922, 755, 913, 852, 896)
 
 [node name="ov" type="Polygon2D" parent="Taso2/TiiletTaso2" groups=["oviseina"]]
 position = Vector2(6524, 4719)
@@ -3330,6 +3339,9 @@ position = Vector2(12552, 4750)
 
 [node name="Kukka8" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
 position = Vector2(13740, 4800)
+
+[node name="Kukka10" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(14576, 4593)
 
 [node name="MinecartitTaso2" type="Node2D" parent="Taso2"]
 
@@ -3655,6 +3667,13 @@ shape = SubResource("RectangleShape2D_61u0d")
 position = Vector2(7, -687)
 shape = SubResource("RectangleShape2D_61u0d")
 
+[node name="Vesi2D4" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
+position = Vector2(14837, 5068)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D4"]
+position = Vector2(48, 37)
+shape = SubResource("RectangleShape2D_fx2fu")
+
 [node name="HappikukatTaso2" type="Node2D" parent="Taso2"]
 
 [node name="Happikukka11" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
@@ -3745,6 +3764,12 @@ position = Vector2(12700, 4722)
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/Perhonen"]
 curve = SubResource("Curve2D_6ewyi")
+
+[node name="Perhonen2" parent="Taso2/PerhosetTaso2" instance=ExtResource("13_ufso7")]
+position = Vector2(14918, 4695)
+
+[node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/Perhonen2"]
+curve = SubResource("Curve2D_mfdu8")
 
 [node name="CheckpointitTaso2" type="Node2D" parent="Taso2"]
 

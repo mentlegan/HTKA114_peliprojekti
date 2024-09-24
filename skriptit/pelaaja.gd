@@ -956,12 +956,6 @@ func _physics_process(delta):
 		if huilun_cd_ajastin.is_stopped() and huilun_ajastin.is_stopped() and not vedessa:
 			soita_huilua()
 	
-	# PC H
-	if Input.is_action_just_pressed("tutorial"):
-		Globaali.nayta_tutorial()
-		Globaali.uusi_tutorial = false
-		paivita_tutorial_label()
-	
 	# Kukkien kerääminen JA MINECARTIN KÄYTTÄMINEN
 	# TODO: tämä myöhemmin signaaleilla
 	var kukat = valon_tarkistus.get_overlapping_areas()
