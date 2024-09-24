@@ -3242,7 +3242,7 @@ position = Vector2(2862, 170)
 position = Vector2(1654, 704)
 
 [node name="Flute" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
-position = Vector2(2862, 170)
+position = Vector2(3425, -1167)
 
 [node name="Light Balls" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
 position = Vector2(1880, 700)

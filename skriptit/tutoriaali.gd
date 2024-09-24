@@ -37,13 +37,11 @@ func _input(event: InputEvent) -> void:
 		return
 	# PC Escape
 	if event.is_action_pressed("pause"):
-		print("tutorial")
 		if visible:
 			_on_takaisin_nappi_pressed()
 			get_viewport().set_input_as_handled()
 	# PC H
 	elif event.is_action_pressed("tutorial"):
-		print("tutorial")
 		if not (Globaali.pauseruutu.visible or Globaali.journal.visible):
 			if visible:
 				_on_takaisin_nappi_pressed()

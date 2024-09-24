@@ -261,11 +261,11 @@ func haeNykyinenAlue(vihollinen):
 ## Haetaan alueen lähin kukka
 func etsi_lahin_kukka(alue) -> Node2D:
 	var lahinKukka
-	var min = Globaali.kukat[0].position - alue.position
+	var minimi = Globaali.kukat[0].position - alue.position
 	for i in Globaali.kukat:
 		var etaisyys = i.position - alue.position
-		if etaisyys < min:
-			min = etaisyys
+		if etaisyys < minimi:
+			minimi = etaisyys
 			lahinKukka = i
 	#print("Alueen " + str(alue.name) + "lahin kukka on " + str(lahinKukka))
 	return lahinKukka

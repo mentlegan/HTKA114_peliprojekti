@@ -23,7 +23,7 @@ func _ready():
 
 
 ## Delta kutsutaan joka framella. Tässä scriptissä ei taida tarvita, mutta jätetään tältä erää, jos tuleekin myöhemmin tarvetta
-func _process(delta):
+func _process(_delta):
 	pass
 
 
