@@ -1,10 +1,8 @@
-## Harri 5.9.2024
+## Harri 24.9.2024
 ## Käsittelee tutoriaaliruudun tapahtumia
-## TODO: H-input voisi olla takaisin-napin sijasta parempi, jos sellaisen saisi toimimaan
-## TODO: kuvien lisäys
-## TODO: eri tutoriaalien avaus eri alueilta, ne pitäisi laittaa unlock-järjestykseen
 ## TODO: kontrollit vielä lisätä teksteineen kansionrakenteeseen
 ## TODO: värikoodaus ja muu tekstin muotoilu, vähän kuten journalissa nyt on
+## TODO: näppäimistökontrollit
 
 extends Control
 
@@ -15,11 +13,13 @@ var sivu = 1 ## .. ja sivujakin on vain 1
 var aihekansioiden_polku = "res://tutoriaali/" ## Aihekansioiden polku vähän enemmän suomen kielellä
 var valittu_aihe = "Tutorial/" ## Vakio aihe on ensimmäisenä avattu
 var tekstitiedostojen_polku = aihekansioiden_polku + valittu_aihe + "tekstitiedostot/" ## Kerrotaan tekstitiedostojen polku suomeksi
+var kuvatiedostojen_polku = aihekansioiden_polku + valittu_aihe + "kuvat/" ## Otetaan kuvatiedostojen polku
 
 ## Tarvittavat nodet
 @onready var nappilista = $ColorRect/MarginContainer/GridContainer/ScrollContainer/ItemList ## Itemlist, josta valitaan aihe
 @onready var tutoriaaliteksti_nodet = $ColorRect/MarginContainer/Tutoriaalitekstit.get_children() ## Tämän avulla voidaan käsitellä tutoriaalitekstiin liittyvviä valikkoja
 @onready var tutoriaaliteksti = tutoriaaliteksti_nodet[0] ## Tekstikenttä, mihin tekstitiedoston sisältö kirjoitetaan pelaajan näkyville
+@onready var tutoriaalikuva_nodet = $ColorRect/MarginContainer/Tutoriaalikuvat.get_children() ## Tämän avulla muokataan kuvia
 
 
 ## Ready tapahtuu, kun scene avautuu
@@ -32,6 +32,7 @@ func _ready():
 	_on_item_list_item_selected(0)
 
 
+## Tutoriaali sulkeutuu escillä
 func _input(event: InputEvent) -> void:
 	if not event is InputEventKey:
 		return
@@ -54,6 +55,7 @@ func _input(event: InputEvent) -> void:
 
 
 ## Ottaa kansiossa olevat tutoriaalit, ja tekee niiden kansionnimistä järjestetyn 0-n taulukon
+## Käytetään lähinnä testaukseen, koska pelissä kaikki tutoriaalit eivät ole heti saatavilla
 ## param polku: luo tiedostoista taulukon kansion polun mukaan
 func luo_tiedostolista(polku) -> Array:
 	var tiedostot = [] # Tyhjä taulukko
@@ -75,6 +77,7 @@ func luo_tiedostolista(polku) -> Array:
 
 
 ## Luo nappivalikon, josta valikoidaan tarkisteltava tutoriaali, tai resettaa sen
+## Käytetään lähinnä niiden tutoriaalien laittoon, jotka ovat saatavilla pelin alkaessa
 func luo_valikko():
 	nappilista.clear() # Ensin puhdistetaan nappivalikko, ettei referenssidata jää sinne
 	for kansion_nimi in aiheet: # Käydään tutoriaaliaiheet läpi
@@ -82,13 +85,13 @@ func luo_valikko():
 
 
 ## Päivittää listaan nimen mukaisen aiheen. Kevyempi funktio kuin luo_valikko
+## param nimi: aiheen nimi, joka laitetaan listaan
 func paivita_valikko(nimi):
-	for aihe in aiheet:
-		if aihe == nimi:
-			return
-	aiheet.append(nimi)
-	nappilista.add_item(nimi,null,true)
-	print("listan pitäisi päivittyä")
+	for aihe in aiheet: # Katsotaan aihelistasta, että onko valikon aihe jo avattu. Toisaalta tämä tarkistus on turha, koska tutoriaalin avaava alue sulkeutuu, kun siitä kuljetaan ekan kerran, mutta hyvä varmistaa vielä täälläkin
+		if aihe == nimi: # Jos aihe löytyy listasta..
+			return # ..keskeytetään funktio
+	aiheet.append(nimi) # Lisätään aihe taulukkoon
+	nappilista.add_item(nimi,null,true) # Lisätään aihe myös valikon listaan
 
 
 ## Valintalistan toimintaa
@@ -101,7 +104,9 @@ func _on_item_list_item_selected(index: int):
 	valittu_aihe = aiheet[index] + "/" # Säädetään valittu aihe tutoriaalin aiheen mukaan ja laitetaan kautta-merkki, että godot osaa hakea tiedoston oikein
 	tekstitiedostojen_polku = aihekansioiden_polku + valittu_aihe + "tekstitiedostot/" # Päivitetään tekstitiedostojen polku
 	sivumaara = laskesivut(tekstitiedostojen_polku) # Lasketaan, että kuinka monta tekstitiedostosivua on jokaisessa aiheessa
+	kuvatiedostojen_polku = aihekansioiden_polku + valittu_aihe + "kuvat/" # Päivitetään kuvatiedostojen polku
 	tutoriaaliteksti.text = lue_teksti_tiedosto(tekstitiedostojen_polku + "sivu1.txt") # Vaihdetaan tutoriaalisivun teksti jo silloin, kuin aihe vaihtuu
+	muokkaa_kuvat(1)
 	muokkaa_valikkoa() # Muokkaa valikon sivumäärän mukaan
 	vaihda_sivua() # Vaihtaa sivua nuolen mukaiseen suuntaan 1-3 välillä
 
@@ -127,7 +132,27 @@ func lue_teksti_tiedosto(file) -> String:
 	return sisalto # Palautetaan merkkijonoversio
 
 
-## Menun sulkemisnappi
+## Resetoi kuvanäkymän, ja muokkaa kuvat valikkoon oikein
+## param sivu: sivunumero, jonka perusteella kuvat valitaan
+func muokkaa_kuvat(sivu):
+	var s = str(sivu) # Sivunumero merkkijonoksi käsittelyä varten
+	for kuva in tutoriaalikuva_nodet: # Laitetaan aina vakiona kuvien skaala hieman pienemmäksi
+		kuva.scale = Vector2(0.4, 0.4)
+	tutoriaalikuva_nodet[3].texture = null # Nollataan isommalle kuvalle suunnatun noden texture
+	# Asetetaan joka nodelle tekstuuri
+	tutoriaalikuva_nodet[0].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva1.png")
+	tutoriaalikuva_nodet[1].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva2.png")
+	tutoriaalikuva_nodet[2].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva3.png")
+	# Eri aiheet tarvitsevat erikoiskäsittelyä kuvien koon vuoksi
+	if valittu_aihe == "Vines/" and sivu != 1: # Vines-aiheelle oma käsittely, koska se sisältää isomman kuvan
+		tutoriaalikuva_nodet[0].texture = null # Nollataan ei-tarvittu node
+		tutoriaalikuva_nodet[1].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva1.png") # Asetetaan isompi kuva keskelle, koska se on yksin muutenkin
+		tutoriaalikuva_nodet[1].scale = Vector2(0.5, 0.5) # Tehdään iso kuva isommaksi, koska se on yksin keskellä TODO: näin voisi tehdä myös muille sivuille, jossa asia on näin
+	if valittu_aihe =="Tutorial/": # Tutoriaali-aiheessa on pienempiä kuvia
+		tutoriaalikuva_nodet[0].scale = Vector2(1, 1) # Joten teemme niistä hieman isompia
+
+
+## Menun sulkemisnapin toiminnallisuus
 func _on_takaisin_nappi_pressed():
 	Globaali.sulje_tutorial() # Kutsutaan globaalista hauskaa funktiota, joka piilottaa tutoriaalimenun
 
@@ -170,17 +195,20 @@ func vaihda_sivua():
 		tutoriaaliteksti_nodet[5].visible = false
 		tutoriaaliteksti_nodet[2].visible = false # Vasemmalle-nappia ei tarvita
 		tutoriaaliteksti.text = lue_teksti_tiedosto(tekstitiedostojen_polku + "sivu1.txt") # Otetaan oikea tekstiedosto, ja laitetaan sen sisältö tekstikenttään
+		muokkaa_kuvat(sivu) # Muokataan kuvat oikein sivun perusteella
 	if sivu == 2: # Jos ollaan sivulla 2
 		tutoriaaliteksti_nodet[3].visible = false
 		tutoriaaliteksti_nodet[4].visible = true # Haluttu sivu on korostettu
 		tutoriaaliteksti_nodet[5].visible = false
 		naytanapit() # Molempia nappeja tarvitaan aina, kun ollaan sivulla 2
 		tutoriaaliteksti.text = lue_teksti_tiedosto(tekstitiedostojen_polku + "sivu2.txt") # Otetaan oikea tekstiedosto, ja laitetaan sen sisältö tekstikenttään
+		muokkaa_kuvat(sivu) # Muokataan kuvat oikein sivun perusteella
 	if sivu == 3: # Jos ollaan sivulla 3
 		tutoriaaliteksti_nodet[3].visible = false
 		tutoriaaliteksti_nodet[4].visible = false
 		tutoriaaliteksti_nodet[5].visible = true # Haluttu sivu on korostettu
 		tutoriaaliteksti.text = lue_teksti_tiedosto(tekstitiedostojen_polku + "sivu3.txt") # Otetaan oikea tekstiedosto, ja laitetaan sen sisältö tekstikenttään
+		muokkaa_kuvat(sivu) # Muokataan kuvat oikein sivun perusteella
 	if sivu == sivumaara: # Jos tarkasteltava sivu onkin viimeinen
 		tutoriaaliteksti_nodet[1].visible = false # Ei voida siirtyä oikealle
 	else: tutoriaaliteksti_nodet[1].visible = true # Muutoin voidaan, ja pitääkin

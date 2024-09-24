@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="1_gbwls"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="2_txlra"]
-[ext_resource type="Texture2D" uid="uid://b1j5ig1pk84gn" path="res://grafiikka/TaustaElementit2/GrassLVL2.png" id="3_y0xi2"]
+[ext_resource type="Texture2D" uid="uid://cbmx0uuwv8vmp" path="res://grafiikka/TaustaElementit2/GrassLVL2.png" id="3_y0xi2"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="4_wtgg3"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="5_5uktw"]
 
