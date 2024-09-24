@@ -697,6 +697,8 @@ func _physics_process(delta):
 	
 	# Uinnin movement
 	if vedessa:
+		putoamis_huippu = 0
+		putoamis_vahinko = false
 		animaatio.rotation = 0
 		audio_kavely.stop()
 		audio_juoksu.stop()

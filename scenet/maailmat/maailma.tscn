@@ -529,7 +529,7 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(-392, 987)
+position = Vector2(-334, 1009)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -3750,6 +3750,17 @@ curve = SubResource("Curve2D_6ewyi")
 
 [node name="Checkpoint" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
 position = Vector2(12442, 4734)
+
+[node name="Tooltipit" type="CanvasGroup" parent="Taso2"]
+
+[node name="TooltipMinecart" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(1138, 4460)
+
+[node name="TooltipMinecart2" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(6713, 4460)
+
+[node name="TooltipMinecart3" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(12288, 4460)
 
 [connection signal="transitio" from="Pelaaja" to="KayttoLiittyma/Transitio" method="_on_transitio"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]

@@ -56,6 +56,7 @@ func move(_position, _mouse):
 
 ## Valopallojen tuhoamiseen liittyvä käsittely
 func start_destroy():
+	audio_valopallo_hajoaa.play()
 	# Pysäytetään valopallo
 	velocity = Vector2(0, 0)
 
@@ -146,7 +147,6 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 
 func _on_vesi_tarkistus_area_entered(area) -> void:
 	if area is Vesi2D:
-		audio_valopallo_hajoaa.play()
 		start_destroy()
 
 
@@ -228,7 +228,6 @@ func _physics_process(delta):
 			pallon_siirto_tween.set_ease(Tween.EASE_IN_OUT)
 			pallon_siirto_tween.tween_property(self, "position", parent.global_position, 1)
 			audio_koynnos_ovi.play()
-			audio_valopallo_hajoaa.play()
 			await get_tree().create_timer(0.2, false).timeout
 			start_destroy()
 			
