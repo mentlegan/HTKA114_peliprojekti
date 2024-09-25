@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3275w50mg1i2"]
+
+[ext_resource type="Script" path="res://skriptit/lumme.gd" id="1_hsthi"]
+[ext_resource type="Texture2D" uid="uid://wehnydmfjes6" path="res://grafiikka/TaustaElementit2/Lumme.png" id="3_s7sjx"]
+[ext_resource type="Texture2D" uid="uid://yh1qc3st3uw0" path="res://grafiikka/TaustaElementit2/LummeJuuri2.png" id="3_xuwhm"]
+[ext_resource type="Texture2D" uid="uid://n43vvnrjjo6i" path="res://grafiikka/TaustaElementit2/LummeKukka.png" id="4_bhhjf"]
+[ext_resource type="PackedScene" uid="uid://cbufj630idhw" path="res://scenet/illuusion_vaihtaja_visible.tscn" id="4_fi64h"]
+[ext_resource type="Texture2D" uid="uid://ddddj0caepf5j" path="res://grafiikka/TaustaElementit2/LummeJuuri1.png" id="4_gmb65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76ks1"]
+size = Vector2(120, 7)
+
+[node name="LummeJuurella" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_hsthi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 8.5)
+shape = SubResource("RectangleShape2D_76ks1")
+one_way_collision = true
+
+[node name="Kukka" type="Sprite2D" parent="."]
+position = Vector2(0, 13)
+texture = ExtResource("4_bhhjf")
+
+[node name="IlluusionVaihtajaVisible" parent="Kukka" instance=ExtResource("4_fi64h")]
+
+[node name="Juuri" type="Sprite2D" parent="Kukka"]
+texture = ExtResource("3_xuwhm")
+
+[node name="EiKukkaa" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 14)
+texture = ExtResource("3_s7sjx")
+
+[node name="IlluusionVaihtajaVisible" parent="EiKukkaa" instance=ExtResource("4_fi64h")]
+invert = true
+
+[node name="Juuri" type="Sprite2D" parent="EiKukkaa"]
+position = Vector2(0, -1)
+texture = ExtResource("4_gmb65")

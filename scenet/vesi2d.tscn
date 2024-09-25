@@ -7,6 +7,3 @@ z_index = -1
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_wbm3t")
-animaation_kesto = null
-transition_type = null
-ease_type = null

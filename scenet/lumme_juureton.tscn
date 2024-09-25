@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7j5ln7go4it4"]
+
+[ext_resource type="Script" path="res://skriptit/lumme.gd" id="1_0bw0p"]
+[ext_resource type="Texture2D" uid="uid://ddddj0caepf5j" path="res://grafiikka/TaustaElementit2/LummeJuuri1.png" id="4_cn4y1"]
+[ext_resource type="PackedScene" uid="uid://cbufj630idhw" path="res://scenet/illuusion_vaihtaja_visible.tscn" id="4_t23t7"]
+[ext_resource type="Texture2D" uid="uid://wehnydmfjes6" path="res://grafiikka/TaustaElementit2/Lumme.png" id="5_w3frm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4e8y"]
+size = Vector2(120, 7)
+
+[node name="LummeJuureton" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_0bw0p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 8.5)
+shape = SubResource("RectangleShape2D_o4e8y")
+disabled = true
+one_way_collision = true
+
+[node name="Juuri" type="Sprite2D" parent="."]
+position = Vector2(0, 13)
+texture = ExtResource("4_cn4y1")
+
+[node name="IlluusionVaihtajaVisible" parent="Juuri" instance=ExtResource("4_t23t7")]
+invert = true
+
+[node name="EiKukkaa" type="Sprite2D" parent="."]
+position = Vector2(0, 14)
+texture = ExtResource("5_w3frm")

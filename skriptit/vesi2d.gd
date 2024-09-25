@@ -66,7 +66,6 @@ func _ready():
 						lapsi.remove_child(lapsenlapsi)
 						self.add_child(lapsenlapsi)
 						lapsenlapsi.global_position = sijainti
-						#lapsenlapsi.varsi.region_rect.size.y = lapsi.shape.size.y
 						lapsenlapsi.global_position.y = lapsi.global_position.y - lapsi.shape.size.y * 0.5
 						lumpeet.append(lapsenlapsi)
 
