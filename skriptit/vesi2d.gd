@@ -18,6 +18,8 @@ var vedenpohja = null
 var vedenpinnan_merkit = []
 ## Ensimmäinen Marker2D
 var ensimmainen_merkki = null
+## Seuraavan merkin indeksi
+var seuraava_merkki = 0
 ## Vedenpinnan vaihtamisen Tween
 var tween: Tween
 ## Veden shaderi
@@ -30,6 +32,10 @@ var vesi_pointlight = preload("res://scenet/vesi2d_pointlight2d.tscn")
 @export var transition_type: Tween.TransitionType = Tween.TRANS_CUBIC
 ## Animaation EaseType
 @export var ease_type: Tween.EaseType = Tween.EASE_IN
+## Otetaanko vedenpinnan nostamisessa huomioon CollisionShape2D:n korkeus.
+## Jos true, CollisionShape2D:n vesialue ei voi nousta editorissa asetettua hitboxia korkeammalle.
+## Jos false, vedenpinnan maksimikorkeus määräytyy Vesi2D:n korkeimman CollisionShape2D:n mukaan.
+@export var maksimikorkeus_collisionshapella: bool = false
 
 
 func _ready():
@@ -95,7 +101,17 @@ func _ready():
 		if not vedenpohja or vedenpohja < obj["vedenpohja"]:
 			vedenpohja = obj["vedenpohja"]
 	
-	aseta_vedenpinta_merkkiin()
+	aseta_vedenpinta_seuraavaan_merkkiin()
+
+
+## Asettaa vedenpinnan seuraavan merkin korkeudelle.
+func aseta_vedenpinta_seuraavaan_merkkiin():
+	# Ei aseteta vedenpintaa seuraavaan merkkiin, jos merkkejä ei ole
+	if not vedenpinnan_merkit:
+		return
+
+	aseta_vedenpinta_merkkiin(vedenpinnan_merkit[seuraava_merkki])
+	seuraava_merkki = (seuraava_merkki + 1) % vedenpinnan_merkit.size()
 
 
 ## Asettaa vedenpinnan annetun merkin korkeudelle
@@ -126,7 +142,9 @@ func aseta_vedenpinta(korkeus: float):
 	tween.set_trans(transition_type).set_ease(ease_type)
 
 	for obj in collision_shapet:
-		var obj_vedenpinta = max(obj["vedenpinta"], uusi_vedenpinta)
+		var obj_vedenpinta = uusi_vedenpinta
+		if maksimikorkeus_collisionshapella:
+			obj_vedenpinta = max(obj["vedenpinta"], uusi_vedenpinta)
 		var obj_vedenpohja = obj["vedenpohja"]
 
 		var uusi_korkeus = obj_vedenpohja - obj_vedenpinta

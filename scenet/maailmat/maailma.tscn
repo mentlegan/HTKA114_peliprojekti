@@ -340,7 +340,7 @@ polygon = PackedVector2Array(12374, -1548, 12374, -1542, 12380, -1558)
 polygon = PackedVector2Array(12404, -1540, 12404, -1538, 12405, -1540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oefff"]
-size = Vector2(143.5, 214)
+size = Vector2(143.5, 205)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjmae"]
 size = Vector2(143.5, 212)
@@ -540,7 +540,7 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1347, 820)
+position = Vector2(-178, 1013)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -3198,7 +3198,7 @@ animaation_kesto = 2.0
 transition_type = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vesialueet/Vesi2D"]
-position = Vector2(-63.75, 15)
+position = Vector2(-63.75, 10.5)
 shape = SubResource("RectangleShape2D_oefff")
 
 [node name="LummeJuureton" parent="Vesialueet/Vesi2D/CollisionShape2D" instance=ExtResource("88_m1e04")]
@@ -3216,7 +3216,11 @@ position = Vector2(68, 63)
 shape = SubResource("RectangleShape2D_g01hc")
 
 [node name="Marker2D" type="Marker2D" parent="Vesialueet/Vesi2D"]
-position = Vector2(69, -27)
+position = Vector2(73, -134)
+gizmo_extents = 107.7
+
+[node name="Marker2D2" type="Marker2D" parent="Vesialueet/Vesi2D"]
+position = Vector2(81, 86)
 gizmo_extents = 107.7
 
 [node name="Vesi2D2" parent="Vesialueet" instance=ExtResource("80_eho0u")]
