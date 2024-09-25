@@ -7,7 +7,7 @@ diffuse_texture = ExtResource("1_xp1pn")
 texture_filter = 1
 texture_repeat = 2
 
-[node name="Tausta" type="Sprite2D"]
+[node name="Tausta2" type="Sprite2D"]
 z_index = -100
 texture_filter = 1
 texture = SubResource("CanvasTexture_qiphx")

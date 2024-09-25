@@ -1,11 +1,11 @@
-[gd_scene load_steps=156 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=159 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://dskh1b4twfo2c" path="res://scenet/kayttoliittyma/journal.tscn" id="4_sg152"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="4_udkay"]
-[ext_resource type="AudioStream" uid="uid://bmafpn4g1fabn" path="res://audio/journal/journal.mp3" id="5_fl043"]
+[ext_resource type="AudioStream" uid="uid://4ori5nw5uu3d" path="res://audio/journal/journal.mp3" id="5_fl043"]
 [ext_resource type="PackedScene" uid="uid://dsy33jkmnrijr" path="res://scenet/asetukset_ruutu.tscn" id="5_qkdva"]
 [ext_resource type="PackedScene" uid="uid://dd71njcqglaep" path="res://scenet/transitio.tscn" id="7_f6xdr"]
 [ext_resource type="Texture2D" uid="uid://lxurmqd1rdhq" path="res://grafiikka/Timer-Sheet.png" id="9_75e1e"]
@@ -47,7 +47,7 @@
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
-[ext_resource type="AudioStream" uid="uid://65annnivsadg" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
+[ext_resource type="AudioStream" uid="uid://dj7e0qof8l61h" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
 [ext_resource type="PackedScene" uid="uid://o1g7x7mnf5b" path="res://scenet/ovet/ovi_oikea_y.tscn" id="28_1m8ka"]
@@ -58,31 +58,31 @@
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="32_a8tci"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="33_y2rdp"]
 [ext_resource type="PackedScene" uid="uid://4ehb4n76ts5g" path="res://scenet/checkpoint.tscn" id="35_je5yh"]
-[ext_resource type="AudioStream" uid="uid://jmdai4le1e0y" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
+[ext_resource type="AudioStream" uid="uid://4baa6pnq6xjy" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
 [ext_resource type="AudioStream" uid="uid://bw6cpa2qyrfll" path="res://audio/musiikki/ambient1_2_loop.wav" id="37_khmdb"]
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
 [ext_resource type="Script" path="res://skriptit/vesiputous.gd" id="45_dq3qu"]
 [ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="45_ocnt8"]
-[ext_resource type="Texture2D" uid="uid://2remnqioy01q" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
-[ext_resource type="Texture2D" uid="uid://waj8yrwtmw58" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
-[ext_resource type="Texture2D" uid="uid://bu48mwj61n7g5" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
-[ext_resource type="AudioStream" uid="uid://c86pmsr8e0pqp" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
+[ext_resource type="Texture2D" uid="uid://e40h0pytoui6" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
+[ext_resource type="Texture2D" uid="uid://b8nedmfv438k0" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
+[ext_resource type="Texture2D" uid="uid://clgvrklxk5kch" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
+[ext_resource type="AudioStream" uid="uid://dnn2ckohlpv2e" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
 [ext_resource type="PackedScene" uid="uid://3oa14w4m8khu" path="res://scenet/Animatic.tscn" id="55_a4dph"]
-[ext_resource type="PackedScene" uid="uid://bbxindymh45dn" path="res://scenet/myrkkysieni.tscn" id="56_7csj5"]
-[ext_resource type="Texture2D" uid="uid://d4e3hkybfx4ek" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
-[ext_resource type="Texture2D" uid="uid://0yxb7655jbcm" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
-[ext_resource type="Texture2D" uid="uid://y0nqot4oyiky" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
+[ext_resource type="PackedScene" path="res://scenet/myrkkysieni.tscn" id="56_7csj5"]
+[ext_resource type="Texture2D" uid="uid://n5nu80nnrujh" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
+[ext_resource type="Texture2D" uid="uid://s7psi8gx0tx5" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
+[ext_resource type="Texture2D" uid="uid://bdm3ohfpqxj4i" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
 [ext_resource type="Script" path="res://skriptit/minecart.gd" id="58_vyc2b"]
 [ext_resource type="Script" path="res://skriptit/CreditsAlue.gd" id="59_80cq2"]
-[ext_resource type="Texture2D" uid="uid://rcc6ypsu70lm" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
-[ext_resource type="Texture2D" uid="uid://d00r25p2c8enu" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
-[ext_resource type="Texture2D" uid="uid://cvqvm0g8eomsi" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
-[ext_resource type="Texture2D" uid="uid://vkl61irhl2g1" path="res://grafiikka/TaustaElementit/SmallRocks.png" id="61_u2j4x"]
-[ext_resource type="Texture2D" uid="uid://fuelm63jo1j0" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
-[ext_resource type="Texture2D" uid="uid://mnwtbpfx6eu8" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
-[ext_resource type="Texture2D" uid="uid://dibggsljssm6v" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
+[ext_resource type="Texture2D" uid="uid://dvmyaj48c04hf" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
+[ext_resource type="Texture2D" uid="uid://crhi0jtecxnoc" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
+[ext_resource type="Texture2D" uid="uid://btrxuyopmbdu5" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
+[ext_resource type="Texture2D" uid="uid://bs4h5x1d02acf" path="res://grafiikka/TaustaElementit/SmallRocks.png" id="61_u2j4x"]
+[ext_resource type="Texture2D" uid="uid://b2hanbywhc3e3" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
+[ext_resource type="Texture2D" uid="uid://0y3p6bh7i4ab" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
+[ext_resource type="Texture2D" uid="uid://166ewhddgwe0" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="75_4248i"]
 [ext_resource type="PackedScene" uid="uid://dpgfqmcthph48" path="res://scenet/vesi2d.tscn" id="80_eho0u"]
 [ext_resource type="PackedScene" uid="uid://ciaug8px7wrrg" path="res://scenet/myrkkyalue_2d.tscn" id="82_2dvj4"]
@@ -98,9 +98,10 @@
 [ext_resource type="Texture2D" uid="uid://cycko7tpd5xk5" path="res://addons/rmsmartshape/assets/icon_editor_handle_bezier.svg" id="93_lxyn5"]
 [ext_resource type="Resource" uid="uid://cam0dd1dlekqi" path="res://tres-tiedostot/smart_shape_tiili_taso2.tres" id="94_1e3xs"]
 [ext_resource type="PackedScene" uid="uid://gcmk6sen85wg" path="res://scenet/isompi_valo.tscn" id="96_e2yjn"]
-[ext_resource type="Texture2D" uid="uid://nsk55vtsf73q" path="res://grafiikka/TaustaElementit2/GrassThinLeftLVL2.png" id="97_trk0q"]
-[ext_resource type="Texture2D" uid="uid://drrapbg51cs8v" path="res://grafiikka/TaustaElementit2/GrassThinRightLVL2.png" id="98_wxupd"]
-[ext_resource type="Script" path="res://scenet/maailmat/oviseina.gd" id="99_ned5y"]
+[ext_resource type="Texture2D" uid="uid://byc1ad1itgcj0" path="res://grafiikka/GrassThinLeft.png" id="99_lvyhb"]
+[ext_resource type="Script" path="res://skriptit/oviseina.gd" id="99_ned5y"]
+[ext_resource type="Texture2D" uid="uid://buano3qu6yeh6" path="res://grafiikka/GrassThinRight.png" id="100_tno6r"]
+[ext_resource type="Script" path="res://skriptit/onko_pelaaja_taso_2.gd" id="102_3h1h5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
 atlas = ExtResource("9_75e1e")
@@ -250,6 +251,9 @@ stream_2/stream = ExtResource("29_bv82b")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glbb0"]
 size = Vector2(75, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_re3tf"]
+size = Vector2(75, 48)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41ypk"]
 size = Vector2(432, 457)
 
@@ -351,8 +355,8 @@ size = Vector2(143.5, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7m7nv"]
 size = Vector2(192, 162)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_re3tf"]
-size = Vector2(75, 48)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ercj1"]
+polygon = PackedVector2Array(8, -108, -34, 28, -20, 77, 28, 69, 72, -94, 128, -214, 103, -220, 21, -146)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0g4ph"]
 size = Vector2(20, 82.1904)
@@ -377,6 +381,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 12, -45, 0, 0, 0, 0, -6, -97, 0, 0, 0, 0, -41, -123, 0, 0, 0, 0, -92, -137, 0, 0, 0, 0, -160, -159, 0, 0, 0, 0, -188, -172, 0, 0, 0, 0, -204, -174, 23.9335, -14.5572, -23.9335, 14.5572, -241, -165, 0, 0, 0, 0, -253, -126, 0, 0, 0, 0, -241, -117, 0, 0, 0, 0, -224, -119, 0, 0, 0, 0, -204, -122, 0, 0, 0, 0, -189, -118, 0, 0, 0, 0, -160, -113, 0, 0, 0, 0, -130, -105, 0, 0, 0, 0, -99, -93, 0, 0, 0, 0, -80, -58, 0, 0, 0, 0, -73, -37, 0, 0, 0, 0, -77, -5, 0, 0, 0, 0, -66, 51, 0, 0, 0, 0, -56, 115, 0, 0, 0, 0, -36, 161, 0, 0, 0, 0, 15, 209, 0, 0, 0, 0, 73, 202, 0, 0, 0, 0, 116, 173, 0, 0, 0, 0, 109, 108, 0, 0, 0, 0, 72, 27, 0, 0, 0, 0, 30, -16, 0, 0, 0, 0, 12, -44)
 }
 point_count = 29
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irw3x"]
+size = Vector2(37266.5, 12967)
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 
@@ -516,7 +523,7 @@ polygon = PackedVector2Array(3282, -101, 3270, -99, 3267, -95, 3266, -84, 3266, 
 
 [node name="Polygon2D11_5" type="Polygon2D" parent="Tiilet"]
 position = Vector2(-8, 15)
-polygon = PackedVector2Array(9476, -693, 9497, -670, 9548, -634, 9558, -622, 9566, -609, 9573, -586, 9577, -578, 9590, -576, 9596, -574, 9598, -639, 9728, -634, 9724, -570, 9732, -570, 9740, -580, 9751, -590, 9793, -607, 9900, -605, 9952, -612, 10064, -631, 10246, -614, 10263, -608, 10272, -608, 10278, -618, 10289, -692, 10331, -700, 10351, -745, 10365, -799, 10382, -870, 10436, -974, 10499, -1165, 10575, -1263, 10665, -1291, 10878, -1330, 11062, -1368, 11336, -1379, 11533, -1398, 11863, -1408, 12099, -1415, 12321, -1467, 12369, -1527, 12416, -2477, 11601, -2489, 11307, -2277, 10646, -2307, 10123, -2178, 9600, -2093, 9338, -1821, 9107, -1663, 9100, -1633)
+polygon = PackedVector2Array(9476, -693, 9497, -670, 9548, -634, 9558, -622, 9566, -609, 9573, -586, 9577, -578, 9590, -576, 9596, -574, 9598, -639, 9728, -634, 9724, -570, 9732, -570, 9740, -580, 9751, -590, 9793, -607, 9900, -605, 9952, -612, 10064, -631, 10246, -614, 10263, -608, 10272, -608, 10278, -618, 10289, -692, 10331, -700, 10351, -745, 10365, -799, 10382, -870, 10436, -974, 10499, -1165, 10575, -1263, 10665, -1291, 10878, -1330, 11062, -1368, 11336, -1379, 11533, -1398, 11601, -1059, 11706.1, -1403.25, 11863, -1408, 11942.8, -1410.37, 12099, -1415, 12321, -1467, 12369, -1527, 12416, -2477, 11601, -2489, 11307, -2277, 10646, -2307, 10123, -2178, 9600, -2093, 9338, -1821, 9107, -1663, 9100, -1633)
 
 [node name="Polygon2D12_5" type="Polygon2D" parent="Tiilet"]
 polygon = PackedVector2Array(9504, -427, 9562, -424, 9638, -417, 9733, -415, 9783, -403, 9799, -396, 9803, -382, 9803, -336, 9814, -296, 9818, -210, 9823, -127, 9821, -49, 9821, -11, 9818, 30, 9823, 118, 9830, 151, 9887, 158, 9933, 164, 9979, 172, 10028, 125, 10054, 77, 10068, 26, 10082, -25, 10092, -77, 10105, -153, 10117, -223, 10130, -293, 10152, -355, 10183, -362, 10206, -357, 10221, -335, 10220, -306, 10221, -277, 10229, -236, 10243, -163, 10236, -79, 10240, -9, 10232, 69, 10251, 148, 10290, 190, 10362, 198, 10430, 212, 10465, 183, 10520, 166, 10548, 109, 10571, 39, 10577, -48, 10587, -154, 10611, -278, 10614, -307, 10630, -316, 10657, -321, 10684, -313, 10701, -303, 10702, -286, 10705, -256, 10714, -216, 10717, -149, 10720, -82, 10715, 11, 10712, 84, 10733, 162, 10806, 189, 10870, 195, 10932, 190, 10975, 185, 11009, 124, 11024, 60, 11037, -12, 11044, -82, 11051, -157, 11064, -226, 11080, -281, 11182, -323, 11417, -356, 11667, -348, 11800, -341, 11892, -344, 11971, -351, 12061, -415, 12092, -463, 12121, -591, 12118, -677, 12099, -741, 12065, -780, 12037, -816, 11975, -840, 11891, -850, 11753, -830, 11619, -824, 11491, -816, 11357, -808, 11213, -810, 11205, -795, 11187, -785, 11163, -777, 11153, -780, 11151, -869, 11028, -872, 10837, -870, 10834, -833, 10834, -812, 10832, -798, 10831, -791, 10831, -777, 10883, -774, 10895, -771, 10903, -759, 10901, -747, 10889, -738, 10881, -723, 10872, -713, 10843, -713, 10823, -717, 10801, -739, 10776, -736, 10749, -749, 10718, -747, 10679, -749, 10639, -756, 10596, -759, 10569, -755, 10552, -765, 10552, -789, 10564, -809, 10590, -831, 10666, -859, 10693, -882, 10732, -906, 10773, -920, 10789, -939, 10839, -960, 10898, -1000, 11058, -1026, 11146, -1057, 11307, -1083, 11476, -1117, 11728, -1143, 11897, -1143, 12052, -1133, 12187, -1105, 12266, -1086, 12409, -1129, 12560, -1230, 12552, -1348, 12432, -1449, 12425.7, -1761.96, 12403, -2421, 14360, -2825, 14190, -1227, 14142, -757, 14145, -367, 12822, -301, 12713, -39, 12520, 294, 12323, 384, 12049, 470, 11842, 539, 11628, 596, 11398, 658, 11224, 677, 10965, 722, 10551, 729, 10227, 705, 9942, 667, 9745, 636, 9538, 632, 9336, 620, 9179, 605, 9048, 544, 8938, 408, 9490, 65)
@@ -540,7 +547,7 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(-178, 1013)
+position = Vector2(-347, 1016)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -1740,6 +1747,10 @@ position = Vector2(5707, 2112)
 [node name="TooltipTaajuus2" parent="Tooltipit" instance=ExtResource("23_k22wo")]
 position = Vector2(5860, 2112)
 
+[node name="TooltipMinecart3" parent="Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(11496, -1195)
+rotation = -0.0479157
+
 [node name="Checkpointit" type="Node2D" parent="."]
 unique_name_in_owner = true
 
@@ -1798,6 +1809,28 @@ rotation = -0.0114939
 texture = ExtResource("37_snd3d")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Minecartit/Minecart2"]
+z_index = -1
+position = Vector2(46, -8)
+scale = Vector2(0.519523, 0.676654)
+texture = ExtResource("38_c8dmk")
+
+[node name="Minecart3" type="Area2D" parent="Minecartit" node_paths=PackedStringArray("mihin_tp") groups=["minecart"]]
+position = Vector2(4865, -273)
+rotation = -0.061837
+collision_layer = 16
+script = ExtResource("58_vyc2b")
+mihin_tp = NodePath("../../Taso2/Muuta/VesitutoriaaliTP")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minecartit/Minecart3"]
+position = Vector2(-4.5, 0)
+shape = SubResource("RectangleShape2D_re3tf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Minecartit/Minecart3"]
+position = Vector2(-12, -7)
+rotation = -0.0114939
+texture = ExtResource("37_snd3d")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Minecartit/Minecart3"]
 z_index = -1
 position = Vector2(46, -8)
 scale = Vector2(0.519523, 0.676654)
@@ -3343,9 +3376,6 @@ position = Vector2(11565, 4811)
 [node name="Kukka2" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
 position = Vector2(831, 4785)
 
-[node name="Kukka4" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
-position = Vector2(5435, 4798)
-
 [node name="Kukka7" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
 position = Vector2(12552, 4750)
 
@@ -3442,77 +3472,88 @@ position = Vector2(6444, 4772)
 [node name="IsompiValo2" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
 position = Vector2(12019, 4772)
 
+[node name="IsompiValo5" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
+position = Vector2(13686, 5236)
+rotation = -0.057817
+
+[node name="IsompiValo6" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
+position = Vector2(8111, 5236)
+rotation = -0.057817
+
+[node name="IsompiValo3" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
+position = Vector2(2255, 5269)
+rotation = -0.187206
+
+[node name="IsompiValo4" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
+position = Vector2(2537, 5238)
+
 [node name="TutoriaaliOviSeinat" type="Node2D" parent="Taso2/Muuta"]
 
 [node name="OviSeina1" type="Node2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
 position = Vector2(6506, 4779)
 
-[node name="GrassThinLeftLvl2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-rotation = -1.29581
-texture = ExtResource("97_trk0q")
+[node name="GrassThinLeft" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
 
-[node name="GrassThinLeftLvl3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(14, -50)
-rotation = -1.31359
-texture = ExtResource("97_trk0q")
+[node name="GrassThinLeft2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(16, -49)
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
 
-[node name="GrassThinLeftLvl4" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(27, -93)
-rotation = -1.28234
-texture = ExtResource("97_trk0q")
+[node name="GrassThinLeft3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(33, -103)
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
 
-[node name="GrassThinRightLvl2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(69, -157)
-rotation = -0.681827
-texture = ExtResource("98_wxupd")
+[node name="GrassThinRight" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(96, -179)
+rotation = -0.70151
+texture = ExtResource("100_tno6r")
 
-[node name="GrassThinRightLvl3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(35, -117)
-rotation = -1.26263
-texture = ExtResource("98_wxupd")
-
-[node name="GrassThinRightLvl4" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(39, -127)
-rotation = -0.997296
-texture = ExtResource("98_wxupd")
+[node name="GrassThinRight2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(58, -146)
+rotation = -0.712672
+texture = ExtResource("100_tno6r")
 
 [node name="IlluusionVaihtajaVisible" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1" instance=ExtResource("83_0gbej")]
 invert = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+occluder = SubResource("OccluderPolygon2D_ercj1")
 
 [node name="OviSeina2" type="Node2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
 unique_name_in_owner = true
 position = Vector2(12081, 4779)
 
-[node name="GrassThinLeftLvl2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-rotation = -1.29581
-texture = ExtResource("97_trk0q")
+[node name="GrassThinLeft" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
 
-[node name="GrassThinLeftLvl3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(14, -50)
-rotation = -1.31359
-texture = ExtResource("97_trk0q")
+[node name="GrassThinLeft2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(16, -49)
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
 
-[node name="GrassThinLeftLvl4" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(27, -93)
-rotation = -1.28234
-texture = ExtResource("97_trk0q")
+[node name="GrassThinLeft3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(33, -103)
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
 
-[node name="GrassThinRightLvl2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(69, -157)
-rotation = -0.681827
-texture = ExtResource("98_wxupd")
+[node name="GrassThinRight" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(96, -179)
+rotation = -0.70151
+texture = ExtResource("100_tno6r")
 
-[node name="GrassThinRightLvl3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(35, -117)
-rotation = -1.26263
-texture = ExtResource("98_wxupd")
-
-[node name="GrassThinRightLvl4" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(39, -127)
-rotation = -0.997296
-texture = ExtResource("98_wxupd")
+[node name="GrassThinRight2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(58, -146)
+rotation = -0.712672
+texture = ExtResource("100_tno6r")
 
 [node name="IlluusionVaihtajaVisible" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2" instance=ExtResource("83_0gbej")]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+occluder = SubResource("OccluderPolygon2D_ercj1")
 
 [node name="OviSeinaValopallo" type="Area2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
 position = Vector2(12063, 4663)
@@ -3529,6 +3570,16 @@ shape = SubResource("RectangleShape2D_0g4ph")
 position = Vector2(13.9717, 55.3882)
 rotation = 0.279756
 shape = SubResource("RectangleShape2D_2tisf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/Muuta"]
+z_index = -1
+position = Vector2(8026, 5231)
+texture = ExtResource("38_c8dmk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Taso2/Muuta"]
+z_index = -1
+position = Vector2(13601, 5231)
+texture = ExtResource("38_c8dmk")
 
 [node name="VesialueetTaso2" type="Node2D" parent="Taso2"]
 
@@ -3775,6 +3826,7 @@ scale = Vector2(0.416464, 0.402379)
 position = Vector2(12700, 4722)
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/Perhonen"]
+position = Vector2(0, -28)
 curve = SubResource("Curve2D_6ewyi")
 
 [node name="Perhonen2" parent="Taso2/PerhosetTaso2" instance=ExtResource("13_ufso7")]
@@ -3788,6 +3840,9 @@ curve = SubResource("Curve2D_mfdu8")
 [node name="Checkpoint" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
 position = Vector2(12442, 4734)
 
+[node name="Checkpoint2" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
+position = Vector2(-309, 4767)
+
 [node name="Tooltipit" type="CanvasGroup" parent="Taso2"]
 
 [node name="TooltipMinecart" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
@@ -3798,6 +3853,16 @@ position = Vector2(6713, 4460)
 
 [node name="TooltipMinecart3" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
 position = Vector2(12288, 4460)
+
+[node name="OnkoPelaajaTaso2" type="Area2D" parent="Taso2"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("102_3h1h5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/OnkoPelaajaTaso2"]
+position = Vector2(16101.8, 9713.5)
+shape = SubResource("RectangleShape2D_irw3x")
 
 [connection signal="transitio" from="Pelaaja" to="KayttoLiittyma/Transitio" method="_on_transitio"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]
@@ -3817,3 +3882,5 @@ position = Vector2(12288, 4460)
 [connection signal="body_entered" from="Muuta/Vesiputous" to="Muuta/Vesiputous" method="_on_body_entered"]
 [connection signal="transitio" from="Muuta/Vesiputous" to="KayttoLiittyma/Transitio" method="_on_transitio"]
 [connection signal="body_entered" from="Taso2/Muuta/TutoriaaliOviSeinat/OviSeinaValopallo" to="Taso2/Muuta/TutoriaaliOviSeinat/OviSeinaValopallo" method="_on_body_entered"]
+[connection signal="body_entered" from="Taso2/OnkoPelaajaTaso2" to="Taso2/OnkoPelaajaTaso2" method="_on_body_entered"]
+[connection signal="body_exited" from="Taso2/OnkoPelaajaTaso2" to="Taso2/OnkoPelaajaTaso2" method="_on_body_exited"]

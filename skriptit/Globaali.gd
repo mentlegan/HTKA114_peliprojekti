@@ -103,6 +103,8 @@ var uusi_tutorial = false
 ## Lisätään sceneen tausta pelin alussa
 var tausta = preload("res://scenet/tausta.tscn")
 var tausta2 = preload("res://scenet/tausta2.tscn")
+var tausta_node
+var tausta2_node
 ## Totuusarvo journalin aktivoimiselle ja minecartin käytölle
 var journal_keratty = false
 var minecart_kaytetty = false
@@ -136,14 +138,18 @@ func _ready():
 	pelaaja_aloitus = pelaaja.position
 	
 	# Lisätään sceneen tausta
-	var tausta_node = tausta.instantiate()
+	var tausta_n = tausta.instantiate()
 	#tausta_node.z_index = -10
+	# Tallennetaan muuttujaan
+	tausta_node = tausta_n
 	self.add_child(tausta_node)
 	
 	# Vesialueen tausta
-	var tausta_node2 = tausta2.instantiate()
-	tausta_node2.hide()
-	self.add_child(tausta_node2)
+	var tausta2_n = tausta2.instantiate()
+	tausta2_n.hide()
+	# Tallenetaan muuttujaan
+	tausta2_node = tausta2_n
+	self.add_child(tausta2_n)
 	
 	
 	# Lisätään UI-ajastin

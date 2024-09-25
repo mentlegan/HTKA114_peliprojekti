@@ -34,7 +34,7 @@ func _fade_reset(anim_name):
 			#Globaali.teleporttaa_pelaaja(Globaali.vesiputous_tp)
 			#Globaali.teleporttaa_pelaaja(mihin_tp)
 		animation_player.play("fade_reset")
-		await get_tree().create_timer(0.5, false).timeout
+		await get_tree().create_timer(0.3, false).timeout
 		Globaali.pelaaja.process_mode = Node.PROCESS_MODE_INHERIT
 	elif anim_name == "fade_reset":
 		color_rect.visible = false
