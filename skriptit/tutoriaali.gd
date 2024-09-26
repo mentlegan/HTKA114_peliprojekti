@@ -1,4 +1,4 @@
-## Harri 24.9.2024
+## Harri 26.9.2024
 ## Käsittelee tutoriaaliruudun tapahtumia
 ## TODO: kontrollit vielä lisätä teksteineen kansionrakenteeseen
 ## TODO: värikoodaus ja muu tekstin muotoilu, vähän kuten journalissa nyt on
@@ -103,7 +103,7 @@ func _on_item_list_item_selected(index: int):
 	# Esimerkiksi: lue_teksti_tiedosto("res://tutoriaalit/tekstitiedostot/Checkpoint/" + sivu1.txt
 	valittu_aihe = aiheet[index] + "/" # Säädetään valittu aihe tutoriaalin aiheen mukaan ja laitetaan kautta-merkki, että godot osaa hakea tiedoston oikein
 	tekstitiedostojen_polku = aihekansioiden_polku + valittu_aihe + "tekstitiedostot/" # Päivitetään tekstitiedostojen polku
-	sivumaara = laskesivut(tekstitiedostojen_polku) # Lasketaan, että kuinka monta tekstitiedostosivua on jokaisessa aiheessa
+	sivumaara = laske_tiedostot(tekstitiedostojen_polku) # Lasketaan, että kuinka monta tekstitiedostosivua on jokaisessa aiheessa
 	kuvatiedostojen_polku = aihekansioiden_polku + valittu_aihe + "kuvat/" # Päivitetään kuvatiedostojen polku
 	tutoriaaliteksti.text = lue_teksti_tiedosto(tekstitiedostojen_polku + "sivu1.txt") # Vaihdetaan tutoriaalisivun teksti jo silloin, kuin aihe vaihtuu
 	muokkaa_kuvat(1)
@@ -113,7 +113,7 @@ func _on_item_list_item_selected(index: int):
 
 ## Laskee, että montako tiedostoa polun kansiossa on
 ## param polku: polku, josta tiedostojen määrä lasketaan
-func laskesivut(polku) -> int:
+func laske_tiedostot(polku) -> int:
 	var tiedostoja = 0 # Ennen laskua tiedostoja on 0
 	var dir = DirAccess.open(polku) # Avataan hakemisto
 	dir.list_dir_begin() # Aloitetaan läpikäynti
@@ -134,14 +134,22 @@ func lue_teksti_tiedosto(file) -> String:
 
 ## Resetoi kuvanäkymän, ja muokkaa kuvat valikkoon oikein
 ## param sivu: sivunumero, jonka perusteella kuvat valitaan
-func muokkaa_kuvat(sivu):
-	var s = str(sivu) # Sivunumero merkkijonoksi käsittelyä varten
+func muokkaa_kuvat(sivunumero):
+	var s = str(sivunumero) # Sivunumero merkkijonoksi käsittelyä varten
+	var sivujen_maara = laske_tiedostot(kuvatiedostojen_polku) # Lasketaan, että montako sivua on laitettu aiheeseen
+	var kuvamaara = laske_tiedostot(kuvatiedostojen_polku + "sivu"+s+"/") / 2 # Jaetaan kuvatiedostojen määrä kahdella import-tiedostojen takia
 	for kuva in tutoriaalikuva_nodet: # Laitetaan aina vakiona kuvien skaala hieman pienemmäksi
 		kuva.scale = Vector2(0.4, 0.4)
 	# Asetetaan joka nodelle tekstuuri
+	if sivujen_maara == 0: # Tarkistus tyhjien aiheiden varalta
+		return # Keskeytetään funktio
 	tutoriaalikuva_nodet[0].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva1.png")
-	tutoriaalikuva_nodet[1].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva2.png")
-	tutoriaalikuva_nodet[2].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva3.png")
+	tutoriaalikuva_nodet[1].texture = null # Nollataan ylimääräiset kuvat pois tieltä
+	tutoriaalikuva_nodet[2].texture = null
+	if kuvamaara >= 2: # Jos kuvia on kaksi tai enemmän
+		tutoriaalikuva_nodet[1].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva2.png") # Ladataan toinen kuva
+	if kuvamaara == 3: # Jos kuvia on kolme
+		tutoriaalikuva_nodet[2].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva3.png") # Ladataan kolmas kuva
 	# Eri aiheet tarvitsevat erikoiskäsittelyä kuvien koon vuoksi
 	if valittu_aihe == "Vines/" and sivu != 1: # Vines-aiheelle oma käsittely, koska se sisältää isomman kuvan
 		tutoriaalikuva_nodet[0].texture = null # Nollataan ei-tarvittu node
