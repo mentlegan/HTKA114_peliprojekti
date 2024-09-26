@@ -1,19 +1,19 @@
 [gd_scene load_steps=37 format=3 uid="uid://dskh1b4twfo2c"]
 
 [ext_resource type="Script" path="res://skriptit/journal.gd" id="1_s3r3l"]
-[ext_resource type="Texture2D" uid="uid://cmdg2bttubmpp" path="res://grafiikka/Journal1.png" id="2_r7j1j"]
-[ext_resource type="Texture2D" uid="uid://d3dpw7cl5yr3j" path="res://grafiikka/Journal2.png" id="3_0g2au"]
-[ext_resource type="Texture2D" uid="uid://jrf4vlkjnydf" path="res://grafiikka/Journal3.png" id="4_o8o2m"]
-[ext_resource type="Texture2D" uid="uid://c2fj4rgp3lash" path="res://grafiikka/JournalDrawings.png" id="5_b6luv"]
-[ext_resource type="Texture2D" uid="uid://vees4seg8sxx" path="res://grafiikka/JournalDrawingsController.png" id="6_kgf51"]
-[ext_resource type="Texture2D" uid="uid://d3hngcsf0iqwv" path="res://grafiikka/JournalArrowLeft.png" id="6_xo6a1"]
-[ext_resource type="Texture2D" uid="uid://eruq6bm04853" path="res://grafiikka/JournalArrowRight.png" id="7_hkych"]
+[ext_resource type="Texture2D" uid="uid://sd4pkwjg11hk" path="res://grafiikka/Journal1.png" id="2_r7j1j"]
+[ext_resource type="Texture2D" uid="uid://cdqqslpnr51xb" path="res://grafiikka/Journal2.png" id="3_0g2au"]
+[ext_resource type="Texture2D" uid="uid://btvnqptmb0l4n" path="res://grafiikka/Journal3.png" id="4_o8o2m"]
+[ext_resource type="Texture2D" uid="uid://ro6klrnr23i4" path="res://grafiikka/JournalDrawings.png" id="5_b6luv"]
+[ext_resource type="Texture2D" uid="uid://ccmjpar1b40ad" path="res://grafiikka/JournalDrawingsController.png" id="6_kgf51"]
+[ext_resource type="Texture2D" uid="uid://vwd7ylnetmgy" path="res://grafiikka/JournalArrowLeft.png" id="6_xo6a1"]
+[ext_resource type="Texture2D" uid="uid://c2ucgxwfyahrj" path="res://grafiikka/JournalArrowRight.png" id="7_hkych"]
 [ext_resource type="Theme" uid="uid://dgo8yhibhuxoi" path="res://tres-tiedostot/fontti_journal.tres" id="7_ms4bj"]
-[ext_resource type="Texture2D" uid="uid://blgm1dvxgd1ay" path="res://grafiikka/BookmarkRed.png" id="9_i6ai5"]
-[ext_resource type="AudioStream" uid="uid://bqkplh55e4ew5" path="res://audio/journal/journal_sivu1.mp3" id="9_sjkug"]
-[ext_resource type="Texture2D" uid="uid://b1kpq7d6rek4o" path="res://grafiikka/BookmarkBlue.png" id="10_vvwl4"]
-[ext_resource type="AudioStream" uid="uid://bjtthv0d57wmc" path="res://audio/journal/journal_sivu2.mp3" id="10_wtfct"]
-[ext_resource type="AudioStream" uid="uid://dne2i2xhjmjts" path="res://audio/journal/journal_sivu3.mp3" id="11_li8cs"]
+[ext_resource type="Texture2D" uid="uid://diaha634dm4q8" path="res://grafiikka/BookmarkRed.png" id="9_i6ai5"]
+[ext_resource type="AudioStream" uid="uid://bmyed3q3oo1hc" path="res://audio/journal/journal_sivu1.mp3" id="9_sjkug"]
+[ext_resource type="Texture2D" uid="uid://ueh7cgehn6qm" path="res://grafiikka/BookmarkBlue.png" id="10_vvwl4"]
+[ext_resource type="AudioStream" uid="uid://c3nml8fkrhfue" path="res://audio/journal/journal_sivu2.mp3" id="10_wtfct"]
+[ext_resource type="AudioStream" uid="uid://npyyt6unldbv" path="res://audio/journal/journal_sivu3.mp3" id="11_li8cs"]
 [ext_resource type="Texture2D" uid="uid://cdfagul7y1yqw" path="res://grafiikka/OhjainTooltipL.png" id="12_o5dm7"]
 [ext_resource type="Texture2D" uid="uid://bkfapoux2ssdt" path="res://grafiikka/OhjainTooltipR.png" id="13_77uy5"]
 [ext_resource type="Texture2D" uid="uid://6q5dd85a3p8q" path="res://grafiikka/DpadVasen.png" id="13_vg2nc"]
@@ -92,11 +92,8 @@ events = [SubResource("InputEventJoypadButton_lb4jm"), SubResource("InputEventJo
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wc1tt"]
 streams_count = 3
 stream_0/stream = ExtResource("9_sjkug")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("10_wtfct")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("11_li8cs")
-stream_2/weight = 1.0
 
 [node name="Journal" type="Control" node_paths=PackedStringArray("sivut_sprite", "sivu_label", "ohjeet", "audio_sivunvaihto", "ohjain_tooltipit", "kbm_tooltipit")]
 auto_translate_mode = 1

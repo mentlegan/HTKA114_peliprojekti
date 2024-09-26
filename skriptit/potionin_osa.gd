@@ -10,6 +10,9 @@ const ANIMAATION_KESTO = 2
 ## Valo
 @onready var pointlight = $PointLight2D
 
+## Äänet
+@onready var audio_potionin_osa = $AudioPotioninOsa
+
 
 func _ready():
 	# Pelin alussa lisää itsensä potionin_osa-ryhmään
@@ -20,6 +23,8 @@ func _ready():
 func keraa() -> int:
 	# Ei kerätä uudestaan, kun keräämisanimaatio on käynnissä
 	remove_from_group("potionin_osa")
+	if not audio_potionin_osa.playing:
+		audio_potionin_osa.play()
 
 	var tween = create_tween().set_parallel(true).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "modulate:a", 0, ANIMAATION_KESTO)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://skriptit/tutoriaali.gd" id="1_4me1l"]
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="2_2d3wx"]
-[ext_resource type="Texture2D" uid="uid://ts0j02e4tpux" path="res://tutoriaali/Vines/kuvat/sivu3/kuva1.png" id="3_uc4ys"]
+[ext_resource type="Texture2D" uid="uid://d1i8vmfjrcqk8" path="res://tutoriaali/Vines/kuvat/sivu3/kuva1.png" id="3_uc4ys"]
 
 [node name="Tutoriaali" type="Control"]
 layout_mode = 3
