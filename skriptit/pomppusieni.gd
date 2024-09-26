@@ -13,6 +13,9 @@ var raycast_offset = 12
 @export var pomppu_voimat = [-650, -800]
 var nykyinen_voima
 
+## Ääniefektit
+@onready var audio_pomppusieni = $AudioPomppusieni
+
 @onready var label_voima = $LabelVoima
 
 @onready var anim_sprite = $AnimatedSprite2D
@@ -57,6 +60,7 @@ func _on_huilu_area_entered(area) -> void:
 			else:
 				anim_sprite.play("pomppu_iso")
 				raycasts.position.y = 0
+			soitaAani()
 			# Asetetaan labeliin nykyinen voima havainnollistamiseksi
 			label_voima.text = str(nykyinen_voima)
 
@@ -76,8 +80,14 @@ func _process(_delta):
 					anim_sprite.play("pomppu_pieni")
 				else:
 					anim_sprite.play("pomppu_iso")
+				soitaAani()
 				player.velocity.y = nykyinen_voima
 				# Resetoidaan putoamis_vahinko, jotta huippu lasketaan uudelleen
 				player.putoamis_vahinko = false
 				#print(player.velocity.y)
 				break
+
+
+func soitaAani():
+	if not audio_pomppusieni.playing:
+		audio_pomppusieni.play();
