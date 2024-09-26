@@ -24,10 +24,9 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -48,6 +47,20 @@ layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
+[node name="sound_volume" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_volume"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 6.0
+offset_right = 584.0
+offset_bottom = 22.0
+min_value = -80.0
+max_value = 0.0
+ticks_on_borders = true
+
 [node name="sound_musiikki" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Music"
@@ -61,10 +74,12 @@ button_pressed = true
 
 [node name="sound_efektit" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
+visible = false
 layout_mode = 2
 text = "Sound Effects"
 
 [node name="efektit_mute" type="CheckButton" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_efektit" groups=["mute_napit"]]
+visible = false
 layout_mode = 0
 offset_left = 156.0
 offset_right = 200.0
@@ -151,6 +166,7 @@ text = "Graphics4"
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
 auto_translate_mode = 1
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -237,6 +253,7 @@ auto_translate_mode = 1
 layout_mode = 2
 text = "Accessibility4"
 
+[connection signal="value_changed" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_volume/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_musiikki/musiikki_mute" to="." method="_on_musiikki_mute_toggled"]
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_efektit/efektit_mute" to="." method="_on_efektit_mute_toggled"]
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_pelaaja/pelaaja_mute" to="." method="_on_pelaaja_mute_toggled"]

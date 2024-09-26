@@ -56,6 +56,11 @@ func _ready():
 ## ÄÄNET
 ##
 
+## Volume-sliderin toiminta
+func _on_volume_slider_value_changed(volume):
+	# Asetetaan Master audioväylän volumelle uusi arvo (desibeleissä)
+	AudioServer.set_bus_volume_db(0, volume) # default = 0, min = -80, max = 6
+
 ## Musiikin mykistys-napin toiminta
 func _on_musiikki_mute_toggled(button_pressed):
 	if button_pressed == true:
