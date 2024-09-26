@@ -2,6 +2,7 @@ extends Area2D
 ## Editorissa vaihdettava arvo sille, ottaako myrkystä damagea
 @export var tekeeko_damagea: bool = true
 
+
 ## Pelaajan alkaa ottamaan myrkkyä tullessaan alueelle
 func _on_body_entered(body):
 	if tekeeko_damagea:
