@@ -127,5 +127,5 @@ func lisaa_varjot_ja_collisionit():
 
 			# Lisätään lopuksi StaticBody2D ja SS2D Tiilet-noden lapseksi
 			self.add_child(static_body)
-			print(static_body.get_groups())
+			#print(static_body.get_groups())
 			#self.add_child(ss2d)

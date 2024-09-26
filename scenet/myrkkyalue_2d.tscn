@@ -1,23 +1,112 @@
-[gd_scene load_steps=5 format=3 uid="uid://ciaug8px7wrrg"]
+[gd_scene load_steps=18 format=3 uid="uid://ciaug8px7wrrg"]
 
 [ext_resource type="Script" path="res://skriptit/myrkkyalue_2d.gd" id="1_yipa4"]
-[ext_resource type="Texture2D" uid="uid://b1qx7rv863nfu" path="res://grafiikka/icon.svg" id="2_yg7ku"]
-[ext_resource type="AudioStream" uid="uid://dmhi1c7cgiiyp" path="res://audio/vesi/myrkkyvesi.mp3" id="3_htm36"]
+[ext_resource type="AudioStream" uid="uid://ctbnw8vustntm" path="res://audio/vesi/myrkkyvesi.mp3" id="3_htm36"]
+[ext_resource type="Texture2D" uid="uid://kuubnjfb14r8" path="res://grafiikka/TaustaElementit2/Myrkkyvesi.png" id="4_cofdp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfven"]
+size = Vector2(20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb3jf"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iwya"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dekfi"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypptf"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f40i"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w240q"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iotfi"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnp18"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a75xn"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hcfh"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dvl8"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3klh2"]
+atlas = ExtResource("4_cofdp")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qyis2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb3jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iwya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dekfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypptf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f40i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w240q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iotfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnp18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a75xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hcfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dvl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3klh2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Myrkkyalue2D" type="Area2D"]
-modulate = Color(0.329412, 0.811765, 0.317647, 0.392157)
+modulate = Color(0.268111, 0.469524, 0.162197, 1)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_yipa4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nfven")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(-0.155644, 0.157434)
-texture = ExtResource("2_yg7ku")
 
 [node name="AudioMyrkkyalue" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_htm36")
@@ -26,6 +115,10 @@ pitch_scale = 1.3
 autoplay = true
 max_distance = 300.0
 parameters/looping = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qyis2")
+frame_progress = 0.036732
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

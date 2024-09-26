@@ -1,11 +1,11 @@
-[gd_scene load_steps=158 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=171 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://dskh1b4twfo2c" path="res://scenet/kayttoliittyma/journal.tscn" id="4_sg152"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="4_udkay"]
-[ext_resource type="AudioStream" uid="uid://j5ps76ct0t82" path="res://audio/journal/journal.mp3" id="5_fl043"]
+[ext_resource type="AudioStream" uid="uid://4ori5nw5uu3d" path="res://audio/journal/journal.mp3" id="5_fl043"]
 [ext_resource type="PackedScene" uid="uid://dsy33jkmnrijr" path="res://scenet/asetukset_ruutu.tscn" id="5_qkdva"]
 [ext_resource type="PackedScene" uid="uid://dd71njcqglaep" path="res://scenet/transitio.tscn" id="7_f6xdr"]
 [ext_resource type="Texture2D" uid="uid://lxurmqd1rdhq" path="res://grafiikka/Timer-Sheet.png" id="9_75e1e"]
@@ -47,7 +47,7 @@
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
-[ext_resource type="AudioStream" uid="uid://dsuerutfqm4ix" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
+[ext_resource type="AudioStream" uid="uid://dj7e0qof8l61h" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
 [ext_resource type="PackedScene" uid="uid://o1g7x7mnf5b" path="res://scenet/ovet/ovi_oikea_y.tscn" id="28_1m8ka"]
@@ -58,31 +58,31 @@
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="32_a8tci"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="33_y2rdp"]
 [ext_resource type="PackedScene" uid="uid://4ehb4n76ts5g" path="res://scenet/checkpoint.tscn" id="35_je5yh"]
-[ext_resource type="AudioStream" uid="uid://bs5c221mv58ax" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
+[ext_resource type="AudioStream" uid="uid://4baa6pnq6xjy" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
 [ext_resource type="AudioStream" uid="uid://bw6cpa2qyrfll" path="res://audio/musiikki/ambient1_2_loop.wav" id="37_khmdb"]
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
 [ext_resource type="Script" path="res://skriptit/vesiputous.gd" id="45_dq3qu"]
 [ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="45_ocnt8"]
-[ext_resource type="Texture2D" uid="uid://c6yyt6nu81mnw" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
-[ext_resource type="Texture2D" uid="uid://bge4sdoyib4sa" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
-[ext_resource type="Texture2D" uid="uid://dcp2cee7tuckb" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
-[ext_resource type="AudioStream" uid="uid://imx75gbgmd0h" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
+[ext_resource type="Texture2D" uid="uid://e40h0pytoui6" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
+[ext_resource type="Texture2D" uid="uid://b8nedmfv438k0" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
+[ext_resource type="Texture2D" uid="uid://clgvrklxk5kch" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
+[ext_resource type="AudioStream" uid="uid://dnn2ckohlpv2e" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
 [ext_resource type="PackedScene" uid="uid://3oa14w4m8khu" path="res://scenet/Animatic.tscn" id="55_a4dph"]
-[ext_resource type="PackedScene" uid="uid://bbxindymh45dn" path="res://scenet/myrkkysieni.tscn" id="56_7csj5"]
-[ext_resource type="Texture2D" uid="uid://cqxy5nxi61mda" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
-[ext_resource type="Texture2D" uid="uid://c4ycfy13yfxu7" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
-[ext_resource type="Texture2D" uid="uid://cylow1t01lwk4" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
+[ext_resource type="PackedScene" path="res://scenet/myrkkysieni.tscn" id="56_7csj5"]
+[ext_resource type="Texture2D" uid="uid://n5nu80nnrujh" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
+[ext_resource type="Texture2D" uid="uid://s7psi8gx0tx5" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
+[ext_resource type="Texture2D" uid="uid://bdm3ohfpqxj4i" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
 [ext_resource type="Script" path="res://skriptit/minecart.gd" id="58_vyc2b"]
 [ext_resource type="Script" path="res://skriptit/CreditsAlue.gd" id="59_80cq2"]
-[ext_resource type="Texture2D" uid="uid://cqfqop2e88fkb" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
-[ext_resource type="Texture2D" uid="uid://d11m3hstrxdma" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
-[ext_resource type="Texture2D" uid="uid://rihgnndeuhfb" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
-[ext_resource type="Texture2D" uid="uid://b3gvpqbveffig" path="res://grafiikka/TaustaElementit/SmallRocks.png" id="61_u2j4x"]
-[ext_resource type="Texture2D" uid="uid://cjrh04f2ygq04" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
-[ext_resource type="Texture2D" uid="uid://bdvx1yoin7wij" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
-[ext_resource type="Texture2D" uid="uid://bjep2demwsb2o" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
+[ext_resource type="Texture2D" uid="uid://dvmyaj48c04hf" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
+[ext_resource type="Texture2D" uid="uid://crhi0jtecxnoc" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
+[ext_resource type="Texture2D" uid="uid://btrxuyopmbdu5" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
+[ext_resource type="Texture2D" uid="uid://bs4h5x1d02acf" path="res://grafiikka/TaustaElementit/SmallRocks.png" id="61_u2j4x"]
+[ext_resource type="Texture2D" uid="uid://b2hanbywhc3e3" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
+[ext_resource type="Texture2D" uid="uid://0y3p6bh7i4ab" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
+[ext_resource type="Texture2D" uid="uid://166ewhddgwe0" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="75_4248i"]
 [ext_resource type="PackedScene" uid="uid://dpgfqmcthph48" path="res://scenet/vesi2d.tscn" id="80_eho0u"]
 [ext_resource type="PackedScene" uid="uid://ciaug8px7wrrg" path="res://scenet/myrkkyalue_2d.tscn" id="82_2dvj4"]
@@ -93,10 +93,11 @@
 [ext_resource type="PackedScene" uid="uid://d3275w50mg1i2" path="res://scenet/lumme_juurella.tscn" id="88_qbkop"]
 [ext_resource type="PackedScene" uid="uid://u0o5quv7kir7" path="res://scenet/potionin_osa.tscn" id="90_e0hgj"]
 [ext_resource type="Texture2D" uid="uid://dh3vdfbsl5o65" path="res://addons/rmsmartshape/assets/icon_editor_handle_selected.svg" id="91_20a3b"]
-[ext_resource type="Texture2D" uid="uid://dgcshah05p0bm" path="res://addons/rmsmartshape/assets/icon_editor_handle_control.svg" id="92_i3lv8"]
-[ext_resource type="Texture2D" uid="uid://cycko7tpd5xk5" path="res://addons/rmsmartshape/assets/icon_editor_handle_bezier.svg" id="93_lxyn5"]
 [ext_resource type="Resource" uid="uid://cam0dd1dlekqi" path="res://tres-tiedostot/smart_shape_tiili_taso2.tres" id="94_1e3xs"]
+[ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="94_mc8su"]
 [ext_resource type="PackedScene" uid="uid://gcmk6sen85wg" path="res://scenet/isompi_valo.tscn" id="96_e2yjn"]
+[ext_resource type="Script" path="res://skriptit/aktivoija.gd" id="97_bognj"]
+[ext_resource type="Texture2D" uid="uid://daeyqx45kq4ia" path="res://grafiikka/TaustaElementit2/LummeKukka.png" id="97_lolct"]
 [ext_resource type="Texture2D" uid="uid://byc1ad1itgcj0" path="res://grafiikka/GrassThinLeft.png" id="99_lvyhb"]
 [ext_resource type="Script" path="res://skriptit/oviseina.gd" id="99_ned5y"]
 [ext_resource type="Texture2D" uid="uid://buano3qu6yeh6" path="res://grafiikka/GrassThinRight.png" id="100_tno6r"]
@@ -343,7 +344,7 @@ polygon = PackedVector2Array(12374, -1548, 12374, -1542, 12380, -1558)
 polygon = PackedVector2Array(12404, -1540, 12404, -1538, 12405, -1540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oefff"]
-size = Vector2(143.5, 205)
+size = Vector2(143.5, 169)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjmae"]
 size = Vector2(143.5, 212)
@@ -363,11 +364,44 @@ size = Vector2(20, 82.1904)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tisf"]
 size = Vector2(20, 175.882)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78rim"]
+size = Vector2(177, 128.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61u0d"]
 size = Vector2(385.25, 225.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fx2fu"]
-size = Vector2(660, 339)
+size = Vector2(645.25, 335.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1ejj"]
+size = Vector2(673.625, 494.688)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy7e4"]
+size = Vector2(96.0869, 566)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amira"]
+size = Vector2(94.1758, 547.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61m8c"]
+size = Vector2(331.25, 335.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iy3n"]
+size = Vector2(700.031, 612.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fka26"]
+size = Vector2(331.25, 239.688)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnc2p"]
+size = Vector2(700.031, 293.188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5exg"]
+size = Vector2(384.5, 495)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygt4k"]
+size = Vector2(384.5, 495)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vq7c8"]
+radius = 63.0079
 
 [sub_resource type="Curve2D" id="Curve2D_6ewyi"]
 _data = {
@@ -381,8 +415,14 @@ _data = {
 }
 point_count = 29
 
+[sub_resource type="Curve2D" id="Curve2D_o11av"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 25, -24, 0, 0, 0, 0, 83, -30, 0, 0, 0, 0, 176, -37, 0, 0, 0, 0, 254, -50, 0, 0, 0, 0, 300, -40, 0, 0, 0, 0, 336, -52, 0, 0, 0, 0, 342, -32, 0, 0, 0, 0, 329, -20, 0, 0, 0, 0, 299, -17, 0, 0, 0, 0, 258, -21, 0, 0, 0, 0, 202, -24, 0, 0, 0, 0, 174, -25, 0, 0, 0, 0, 132, -14, 0, 0, 0, 0, 83, 0, 0, 0, 0, 0, 42, -1, 0, 0, 0, 0, 18, 6, 0, 0, 0, 0, 13, -5, 0, 0, 0, 0, 8, -12, 0, 0, 0, 0, 9, -22, 0, 0, 0, 0, 16, -26, 0, 0, 0, 0, 24, -24)
+}
+point_count = 21
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irw3x"]
-size = Vector2(37266.5, 12967)
+size = Vector2(37266.5, 13566)
 
 [node name="Maailma" type="Node2D" groups=["valonlahde"]]
 
@@ -522,7 +562,7 @@ polygon = PackedVector2Array(3282, -101, 3270, -99, 3267, -95, 3266, -84, 3266, 
 
 [node name="Polygon2D11_5" type="Polygon2D" parent="Tiilet"]
 position = Vector2(-8, 15)
-polygon = PackedVector2Array(9476, -693, 9497, -670, 9548, -634, 9558, -622, 9566, -609, 9573, -586, 9577, -578, 9590, -576, 9596, -574, 9598, -639, 9728, -634, 9724, -570, 9732, -570, 9740, -580, 9751, -590, 9793, -607, 9900, -605, 9952, -612, 10064, -631, 10246, -614, 10263, -608, 10272, -608, 10278, -618, 10289, -692, 10331, -700, 10351, -745, 10365, -799, 10382, -870, 10436, -974, 10499, -1165, 10575, -1263, 10665, -1291, 10878, -1330, 11062, -1368, 11336, -1379, 11533, -1398, 11601, -1059, 11706.1, -1403.25, 11863, -1408, 11942.8, -1410.37, 12099, -1415, 12321, -1467, 12369, -1527, 12416, -2477, 11601, -2489, 11307, -2277, 10646, -2307, 10123, -2178, 9600, -2093, 9338, -1821, 9107, -1663, 9100, -1633)
+polygon = PackedVector2Array(9476, -693, 9497, -670, 9548, -634, 9558, -622, 9566, -609, 9573, -586, 9577, -578, 9590, -576, 9596, -574, 9598, -639, 9728, -634, 9724, -570, 9732, -570, 9740, -580, 9751, -590, 9793, -607, 9900, -605, 9952, -612, 10064, -631, 10246, -614, 10263, -608, 10272, -608, 10278, -618, 10289, -692, 10331, -700, 10351, -745, 10365, -799, 10382, -870, 10436, -974, 10499, -1165, 10575, -1263, 10665, -1291, 10878, -1330, 11062, -1368, 11336, -1379, 11533, -1398, 11601, -1059, 11619.2, -1118.48, 11706.1, -1403.25, 11863, -1408, 11942.8, -1410.37, 12099, -1415, 12321, -1467, 12369, -1527, 12416, -2477, 11601, -2489, 11307, -2277, 10646, -2307, 10123, -2178, 9600, -2093, 9338, -1821, 9107, -1663, 9100, -1633)
 
 [node name="Polygon2D12_5" type="Polygon2D" parent="Tiilet"]
 polygon = PackedVector2Array(9504, -427, 9562, -424, 9638, -417, 9733, -415, 9783, -403, 9799, -396, 9803, -382, 9803, -336, 9814, -296, 9818, -210, 9823, -127, 9821, -49, 9821, -11, 9818, 30, 9823, 118, 9830, 151, 9887, 158, 9933, 164, 9979, 172, 10028, 125, 10054, 77, 10068, 26, 10082, -25, 10092, -77, 10105, -153, 10117, -223, 10130, -293, 10152, -355, 10183, -362, 10206, -357, 10221, -335, 10220, -306, 10221, -277, 10229, -236, 10243, -163, 10236, -79, 10240, -9, 10232, 69, 10251, 148, 10290, 190, 10362, 198, 10430, 212, 10465, 183, 10520, 166, 10548, 109, 10571, 39, 10577, -48, 10587, -154, 10611, -278, 10614, -307, 10630, -316, 10657, -321, 10684, -313, 10701, -303, 10702, -286, 10705, -256, 10714, -216, 10717, -149, 10720, -82, 10715, 11, 10712, 84, 10733, 162, 10806, 189, 10870, 195, 10932, 190, 10975, 185, 11009, 124, 11024, 60, 11037, -12, 11044, -82, 11051, -157, 11064, -226, 11080, -281, 11182, -323, 11417, -356, 11667, -348, 11800, -341, 11892, -344, 11971, -351, 12061, -415, 12092, -463, 12121, -591, 12118, -677, 12099, -741, 12065, -780, 12037, -816, 11975, -840, 11891, -850, 11753, -830, 11619, -824, 11491, -816, 11357, -808, 11213, -810, 11205, -795, 11187, -785, 11163, -777, 11153, -780, 11151, -869, 11028, -872, 10837, -870, 10834, -833, 10834, -812, 10832, -798, 10831, -791, 10831, -777, 10883, -774, 10895, -771, 10903, -759, 10901, -747, 10889, -738, 10881, -723, 10872, -713, 10843, -713, 10823, -717, 10801, -739, 10776, -736, 10749, -749, 10718, -747, 10679, -749, 10639, -756, 10596, -759, 10569, -755, 10552, -765, 10552, -789, 10564, -809, 10590, -831, 10666, -859, 10693, -882, 10732, -906, 10773, -920, 10789, -939, 10839, -960, 10898, -1000, 11058, -1026, 11146, -1057, 11307, -1083, 11476, -1117, 11728, -1143, 11897, -1143, 12052, -1133, 12187, -1105, 12266, -1086, 12409, -1129, 12560, -1230, 12552, -1348, 12432, -1449, 12425.7, -1761.96, 12403, -2421, 14360, -2825, 14190, -1227, 14142, -757, 14145, -367, 12822, -301, 12713, -39, 12520, 294, 12323, 384, 12049, 470, 11842, 539, 11628, 596, 11398, 658, 11224, 677, 10965, 722, 10551, 729, 10227, 705, 9942, 667, 9745, 636, 9538, 632, 9336, 620, 9179, 605, 9048, 544, 8938, 408, 9490, 65)
@@ -546,7 +586,7 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(-359, 1005)
+position = Vector2(1324, 842)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -1818,7 +1858,7 @@ position = Vector2(4865, -273)
 rotation = -0.061837
 collision_layer = 16
 script = ExtResource("58_vyc2b")
-mihin_tp = NodePath("../../Taso2/Muuta/VesitutoriaaliTP")
+mihin_tp = NodePath("../../Taso2/Muuta/VesitutoriaaliEnnenTP")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Minecartit/Minecart3"]
 position = Vector2(-4.5, 0)
@@ -3220,7 +3260,7 @@ animaation_kesto = 2.0
 transition_type = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vesialueet/Vesi2D"]
-position = Vector2(-63.75, 10.5)
+position = Vector2(-63.75, 28.5)
 shape = SubResource("RectangleShape2D_oefff")
 
 [node name="LummeJuureton" parent="Vesialueet/Vesi2D/CollisionShape2D" instance=ExtResource("88_m1e04")]
@@ -3261,7 +3301,7 @@ gizmo_extents = 62.6
 
 [node name="Myrkkyalue2D" parent="Vesialueet" instance=ExtResource("82_2dvj4")]
 position = Vector2(-501, 1140)
-scale = Vector2(8.57361, 1.13275)
+scale = Vector2(2.84882, 1.05279)
 
 [node name="Pomppusieni" parent="." instance=ExtResource("82_imok5")]
 position = Vector2(149, 1014)
@@ -3287,24 +3327,6 @@ position = Vector2(6542, -902)
 [node name="Vines" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
 position = Vector2(2402, 695)
 
-[node name="PotioninOsa" parent="." instance=ExtResource("90_e0hgj")]
-position = Vector2(-330, 1018)
-
-[node name="Sprite2D" type="Sprite2D" parent="PotioninOsa"]
-texture = ExtResource("91_20a3b")
-
-[node name="PotioninOsa2" parent="." instance=ExtResource("90_e0hgj")]
-position = Vector2(104, 983)
-
-[node name="Sprite2D" type="Sprite2D" parent="PotioninOsa2"]
-texture = ExtResource("92_i3lv8")
-
-[node name="PotioninOsa3" parent="." instance=ExtResource("90_e0hgj")]
-position = Vector2(-607, 983)
-
-[node name="Sprite2D" type="Sprite2D" parent="PotioninOsa3"]
-texture = ExtResource("93_lxyn5")
-
 [node name="Taso2" type="Node2D" parent="."]
 
 [node name="TiiletTaso2" type="CanvasGroup" parent="Taso2"]
@@ -3313,68 +3335,129 @@ script = ExtResource("2_a4qf7")
 ss2d_materiaali = ExtResource("94_1e3xs")
 
 [node name="Polygon2D2" type="Polygon2D" parent="Taso2/TiiletTaso2"]
-position = Vector2(968, 4766)
+position = Vector2(968, 8735)
 polygon = PackedVector2Array(-210, 359, -180, 452, -220, 642, -172, 885, 12, 1083, 49, 1198, 221, 1233, 577, 1213, 719, 976, 761, 755, 972, 504, 1080, 428, 1225, 393, 1340, 323, 1433, 268, 1588, 323, 1671, 393, 1684, 63, 1572, 42, 1529, 36, 1333, 35, 937, -12, 401, -1, 24, 38, -69, 34, -164, 34, -215, 47, -232, 74, -223, 118, -216, 146, -206, 248)
 
 [node name="Polygon2D8" type="Polygon2D" parent="Taso2/TiiletTaso2"]
-position = Vector2(-846, 3729)
+position = Vector2(-846, 7698)
 polygon = PackedVector2Array(959, 893, 1208, 917, 1560, 939, 1641, 912, 1694, 865, 1708, 825, 1782, 762, 1841, 721, 1919, 694, 1986, 685, 2053, 687, 2066, 728, 2057, 761, 2045, 785, 1957, 785, 1917, 784, 1896, 794, 1870, 829, 1848, 862, 1849, 876, 1877, 866, 1975, 886, 2079, 839, 2259, 777, 2303, 592, 1610, 256, 367, 388, -203, 755, 413, 1263, 1010, 1463, 1439, 2558, 2223, 2644, 2924, 2655, 3214, 2312, 3828, 1527, 4926, 1120, 4348, 1093, 3812, 1082, 3358, 1088, 3429, 1136, 3465, 1293, 3471, 1409, 3457, 1531, 3189, 1544, 2937, 1618, 2804, 1766, 2761, 1979, 2705, 2190, 2562, 2364, 2307, 2386, 2119, 2423, 1966, 2460, 1813, 2396, 1750, 2335, 1647, 2252, 1556, 2088, 1498, 1990, 1458, 1837, 1426, 1548, 1434, 1405, 1437, 1314, 1447, 1230, 1428, 1127, 1325, 1103, 1199, 1093, 890, 1087, 530, 1078, 410, 1066, 325, 1037, 336, 979, 365, 942, 484, 925, 649, 922, 755, 913, 852, 896)
 
 [node name="Polygon2D4" type="Polygon2D" parent="Taso2/TiiletTaso2"]
-position = Vector2(6543, 4766)
+position = Vector2(6543, 8735)
 polygon = PackedVector2Array(-210, 359, -180, 452, -220, 642, -172, 885, 12, 1083, 49, 1198, 221, 1233, 577, 1213, 719, 976, 761, 755, 972, 504, 1080, 428, 1225, 393, 1340, 323, 1433, 268, 1588, 323, 1671, 393, 1684, 63, 1572, 42, 1529, 36, 1333, 35, 937, -12, 401, -1, 24, 38, -69, 34, -164, 34, -215, 47, -232, 74, -223, 118, -216, 146, -206, 248)
 
 [node name="Polygon2D6" type="Polygon2D" parent="Taso2/TiiletTaso2"]
-position = Vector2(12118, 4766)
+position = Vector2(12118, 8735)
 polygon = PackedVector2Array(-210, 359, -180, 452, -220, 642, -172, 885, 12, 1083, 49, 1198, 221, 1233, 577, 1213, 719, 976, 761, 755, 972, 504, 1080, 428, 1225, 393, 1340, 323, 1433, 268, 1588, 323, 1671, 393, 1684, 63, 1572, 42, 1529, 36, 1333, 35, 1109, 19, 935, -3, 685, 5, 401, -1, 24, 38, -69, 34, -164, 34, -215, 47, -232, 74, -223, 118, -216, 146, -206, 248)
 
 [node name="Polygon2D" type="Polygon2D" parent="Taso2/TiiletTaso2"]
-position = Vector2(949, 4719)
+position = Vector2(949, 8688)
 polygon = PackedVector2Array(4, -95, -19, -38, -32, 21, -46, 63, -52, 88, 187, 84, 189, -152, 82, -155)
 
 [node name="Polygon2D9" type="Polygon2D" parent="Taso2/TiiletTaso2"]
-position = Vector2(4729, 3729)
+position = Vector2(4729, 7698)
 polygon = PackedVector2Array(959, 893, 1208, 917, 1560, 939, 1641, 912, 1694, 865, 1708, 825, 1782, 762, 1841, 721, 1919, 694, 1986, 685, 2053, 687, 2066, 728, 2057, 761, 2045, 785, 1957, 785, 1917, 784, 1896, 794, 1870, 829, 1848, 862, 1849, 876, 1877, 866, 1975, 886, 2079, 839, 2259, 777, 2303, 592, 1610, 256, 367, 388, -203, 755, 413, 1263, 1010, 1463, 1439, 2558, 2223, 2644, 2924, 2655, 3214, 2312, 3828, 1527, 4926, 1120, 4348, 1093, 3812, 1082, 3358, 1088, 3429, 1136, 3465, 1293, 3471, 1409, 3457, 1531, 3189, 1544, 2937, 1618, 2804, 1766, 2761, 1979, 2705, 2190, 2562, 2364, 2307, 2386, 2119, 2423, 1966, 2460, 1813, 2396, 1750, 2335, 1647, 2252, 1556, 2088, 1498, 1990, 1458, 1837, 1426, 1548, 1434, 1405, 1437, 1314, 1447, 1230, 1428, 1127, 1325, 1103, 1199, 1093, 890, 1087, 530, 1078, 410, 1066, 325, 1037, 336, 979, 365, 942, 484, 925, 649, 922, 755, 913, 852, 896)
 
 [node name="Polygon2D10" type="Polygon2D" parent="Taso2/TiiletTaso2"]
-position = Vector2(10304, 3729)
-polygon = PackedVector2Array(959, 893, 1208, 917, 1560, 939, 1641, 912, 1694, 865, 1708, 825, 1782, 762, 1841, 721, 1919, 694, 1986, 685, 2053, 687, 2066, 728, 2057, 761, 2045, 785, 1957, 785, 1917, 784, 1896, 794, 1870, 829, 1848, 862, 1849, 876, 1877, 866, 1975, 886, 2079, 839, 2313, 855, 2468, 854, 2588, 842, 2720, 862, 2972, 866, 3268, 884, 3370, 881, 3452, 873, 3502, 866, 3612, 807, 3722, 754, 3955, 736, 4198, 741, 4521, 775, 4611, 794, 4844, 820, 4996, 842, 5160, 953, 5315, 999, 5438, 978, 5537, 918, 5724, 789, 5341, 428, 4577, 360, 1610, 256, 367, 388, -203, 755, 413, 1263, 1010, 1463, 1439, 2558, 2223, 2644, 2924, 2655, 3214, 2312, 4101, 1822, 5488, 2968, 5936, 3012, 5832, 2620, 5420, 2000, 5627, 1403, 5633, 1300, 5613, 1193, 5420, 1160, 5010, 1200, 4904, 1194, 4836, 1272, 4816, 1329, 4742, 1404, 4616, 1465, 4481, 1460, 4414, 1432, 4354, 1372, 4336, 1317, 4319, 1243, 4299, 1112, 4320, 1072, 4351, 1038, 4398, 988, 4446, 943, 4505, 904, 4411, 879, 4216, 882, 3978, 914, 3853, 938, 3695, 1007, 3459, 1090, 3404, 1196, 3444, 1229, 3465, 1293, 3471, 1409, 3457, 1531, 3189, 1544, 2937, 1618, 2804, 1766, 2761, 1979, 2705, 2190, 2562, 2364, 2307, 2386, 2119, 2423, 1966, 2460, 1813, 2396, 1750, 2335, 1647, 2252, 1556, 2088, 1498, 1990, 1458, 1837, 1426, 1548, 1434, 1405, 1437, 1314, 1447, 1230, 1428, 1127, 1325, 1103, 1199, 1093, 890, 1087, 530, 1078, 410, 1066, 325, 1037, 336, 979, 365, 942, 484, 925, 649, 922, 755, 913, 852, 896)
+position = Vector2(10307, 7702)
+polygon = PackedVector2Array(959, 893, 1208, 917, 1560, 939, 1641, 912, 1694, 865, 1708, 825, 1782, 762, 1841, 721, 1919, 694, 1986, 685, 2053, 687, 2066, 728, 2057, 761, 2045, 785, 1957, 785, 1917, 784, 1896, 794, 1870, 829, 1848, 862, 1849, 876, 1877, 866, 1975, 886, 2079, 839, 2313, 855, 2468, 854, 2588, 842, 2720, 862, 2972, 866, 3268, 884, 3370, 881, 3452, 873, 3502, 866, 3612, 807, 3722, 754, 3955, 736, 4198, 741, 4521, 775, 4611, 794, 4844, 820, 4996, 842, 5160, 953, 5315, 999, 5488, 1022, 5728, 1036, 5806, 1029, 5860, 1054, 5891, 1060, 5914, 1056, 5935, 1036, 6047, 950, 6151, 887, 6275, 886, 6324, 880, 6441, 866, 6550, 858, 6695, 906, 6755, 922, 6794, 914, 6832, 921, 6924, 914, 6973, 916, 7182, 920, 7188, 923, 7445, 921, 7307, 821, 7154, 640, 5341, 428, 4577, 360, 1610, 256, 367, 388, -203, 755, 413, 1263, 1010, 1463, 1439, 2558, 2223, 2644, 2924, 2655, 3214, 2312, 4101, 1822, 4998, 2294, 5586, 2231, 6296, 2002, 6708, 1789, 7134, 1225, 7445, 921, 7188, 923, 7197, 928, 7209, 935, 7215, 947, 7211, 980, 7186, 1022, 7149, 1036, 7090, 1031, 6961, 1033, 6866, 1046, 6770, 1040, 6710, 1039, 6673, 1038, 6630, 1027, 6596, 1010, 6540, 987, 6500, 981, 6467, 975, 6453, 971, 6444, 972, 6441, 978, 6440, 991, 6450, 996, 6471, 1012, 6495, 1043, 6486, 1093, 6473, 1132, 6468, 1168, 6428, 1276, 6378, 1429, 6276, 1524, 5976, 1573, 5895, 1573, 5770, 1555, 5501, 1423, 5403, 1284, 5334, 1192, 5190, 1181, 5010, 1200, 4904, 1194, 4836, 1272, 4816, 1329, 4742, 1404, 4616, 1465, 4481, 1460, 4414, 1432, 4354, 1372, 4336, 1317, 4319, 1243, 4299, 1112, 4320, 1072, 4351, 1038, 4398, 988, 4446, 943, 4505, 904, 4411, 879, 4216, 882, 3978, 914, 3853, 938, 3695, 1007, 3459, 1090, 3404, 1196, 3444, 1229, 3465, 1293, 3471, 1409, 3457, 1531, 3189, 1544, 2937, 1618, 2804, 1766, 2761, 1979, 2705, 2190, 2562, 2364, 2307, 2386, 2119, 2423, 1966, 2460, 1813, 2396, 1750, 2335, 1647, 2252, 1556, 2088, 1498, 1990, 1458, 1837, 1426, 1548, 1434, 1405, 1437, 1314, 1447, 1230, 1428, 1127, 1325, 1103, 1199, 1093, 890, 1087, 530, 1078, 410, 1066, 325, 1037, 336, 979, 365, 942, 484, 925, 649, 922, 755, 913, 852, 896)
 
 [node name="ov" type="Polygon2D" parent="Taso2/TiiletTaso2" groups=["oviseina"]]
-position = Vector2(6524, 4719)
+position = Vector2(6524, 8688)
 polygon = PackedVector2Array(4, -92, -15, -37, -32, 21, -46, 63, -52, 88, 187, 84, 189, -152, 82, -155)
 
 [node name="ov2" type="Polygon2D" parent="Taso2/TiiletTaso2" groups=["avaaoviseina", "oviseina"]]
-position = Vector2(12099, 4719)
+position = Vector2(12099, 8688)
 polygon = PackedVector2Array(4, -92, -15, -37, -32, 21, -46, 63, -52, 88, 187, 84, 189, -152, 82, -155)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Taso2/TiiletTaso2"]
+position = Vector2(550, 3681)
+rotation = -0.00100092
+polygon = PackedVector2Array(15808.8, 5162.83, 15837.9, 5130.86, 15858.9, 5082.88, 15873, 5032.89, 15918, 5014.94, 15969, 5010.99, 15965, 5026.98, 15942.9, 5054.96, 15927.9, 5078.95, 15903.9, 5112.92, 15883.8, 5160.9, 15841.8, 5220.86, 15827.7, 5327.85, 15821.6, 5403.84, 15816.6, 5434.83, 15780.6, 5436.8, 15707.6, 5436.72, 15691.6, 5423.71, 15681.7, 5262.7, 15710.8, 5229.73, 15747.8, 5207.76)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Taso2/TiiletTaso2"]
+position = Vector2(0, 1442)
+polygon = PackedVector2Array(-875, 3118, -1328, 3271, -1531, 3855, -1568, 4474, -1104, 5058, -847, 5336, -28, 5691, 806, 5729, 1818, 5742, 2846, 5788, 3177, 5466, 3129, 4929, 2648, 4890, 2584, 4854, 2583, 4888, 2570, 4931, 2589, 4957, 2609, 4990, 2622, 5042, 2611, 5065, 2590, 5077, 2394, 5079, 1902, 5042, 1851, 5043, 1815, 5023, 1777, 5006, 1734, 5017, 1724, 5035, 1739, 5055, 1760, 5072, 1770, 5097, 1787, 5152, 1801, 5237, 1792, 5285, 1792, 5346, 1744, 5419, 1513, 5444, 1018, 5403, 943, 5325, 922, 5272, 914, 5214, 907, 5187, 896, 5151, 864, 5102, 830, 5079, 733, 5060, 44, 5081, -25, 5046, -56, 5008, -97, 4937, -101, 4918, -107, 4907, -113, 4905, -128, 4904, -171, 4903, -210, 4900, -349, 4903, -397, 4901, -421, 4861, -427, 4822, -422, 4790, -413, 4748, -364, 4744, -285, 4755, -243, 4760, -175, 4774, -98, 4791, -42, 4823, 28, 4861, 97, 4890, 135, 4903, 182, 4900, 226, 4919, 262, 4922, 262, 4869, 233, 4814, 155, 4708, 64, 4593, 2, 4535, -81, 4508, -215, 4498, -323, 4503, -424, 4500, -443, 4453, -434, 4417, -419, 4379, -392, 4372, -257, 4354, -28, 4354, 80, 4424, 145, 4500, 192, 4492, 232, 4438, 249, 4356, 227, 4272, 226, 4236, 214, 4206, 30, 4172, 6, 4131, -39, 4092, -219, 4057, -335, 4094, -672, 4147, -688, 4159, -678, 4177, -658, 4189, -644, 4205, -636, 4253, -632, 4285, -640, 4331, -709, 4348, -766, 4366, -923, 4358, -966, 4344, -1000, 4315, -995, 4266, -973, 4204, -943, 4158, -916, 4109, -896, 4090, -858, 4063, -818, 4062, -789, 4053, -614, 4016, -539, 4001, -491, 3994, -409, 3991, -307, 3948, -268, 3941, -229, 3961, 137, 3999, 268, 4048, 301, 4049, 320, 4035, 326, 4003, 409, 3898, 544, 3810, 701, 3762, 852, 3717, 961, 3709, 1047, 3724, 1142, 3706, 1202, 3723, 1253, 3743, 1359, 3724, 1434, 3713, 1506, 3676, 1600, 3695, 1648, 3719, 1699, 3748, 1729, 3747, 1785, 3710, 1877, 3708, 1986, 3701, 2037, 3749, 2052, 3808, 2028, 3862, 1950, 3854, 1856, 3841, 1836, 3835, 1804, 3844, 1797, 3852, 1806, 3866, 1820, 3878, 1829, 3894, 1832, 3931, 1850, 4055, 1825, 4101, 1695, 4133, 1327, 4109, 1096, 4103, 940, 4088, 861, 3947, 848, 3910, 844, 3893, 825, 3892, 752, 3906, 612, 3956, 555, 3968, 521, 3990, 508, 4007, 506, 4034, 504, 4156, 489, 4203, 431, 4299, 416, 4462, 364, 4552, 299, 4584, 257, 4613, 242, 4637, 260, 4661, 291, 4679, 349, 4798, 358, 4869, 415, 4919, 533, 4914, 625, 4866, 774, 4872, 986, 4905, 1052, 4927, 1113, 4903, 1144, 4854, 1158, 4797, 1164, 4755, 1189, 4715, 1223, 4700, 1411, 4679, 1469, 4644, 1474, 4618, 1444, 4609, 1406, 4611, 1336, 4607, 1240, 4602, 1197, 4598, 1188, 4558, 1192, 4501, 1228, 4486, 1313, 4443, 1427, 4453, 1531, 4454, 1634, 4470, 1676, 4466, 1787, 4523, 1830, 4524, 1868, 4529, 1912, 4520, 2048, 4550, 2082, 4657, 2127, 4763, 2143, 4748, 2166, 4720, 2195, 4691, 2226, 4677, 2302, 4679, 2341, 4695, 2385, 4703, 2444, 4730, 2466, 4762, 2469, 4804, 2453, 4836, 2393, 4822, 2365, 4800, 2307, 4782, 2287, 4801, 2300, 4817, 2308, 4836, 2326, 4855, 2343, 4895, 2379, 4898, 2468, 4920, 2513, 4926, 2536, 4934, 3074, 4912, 3023, 4730, 2633, 4263, 2913, 3602, 2948, 2917, 1900, 2896, 962, 2927, -10, 3113)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Taso2/TiiletTaso2"]
+position = Vector2(-14584, 1334)
+rotation = -0.00100092
+polygon = PackedVector2Array(15860.8, 5176.88, 15872.8, 5164.89, 15883.8, 5166.9, 15866.8, 5182.88, 15844.8, 5196.86, 15820.8, 5205.84, 15812.8, 5224.83, 15821.7, 5256.84, 15827.6, 5403.84, 15739.6, 5389.76, 15738.7, 5267.76, 15744.8, 5237.76, 15742.8, 5217.76, 15739.8, 5196.76, 15731.8, 5179.75, 15718.9, 5151.74, 15731.9, 5148.75, 15742.8, 5159.76, 15751.8, 5163.77, 15765.8, 5175.78, 15786.8, 5178.8, 15810.8, 5178.83)
+
+[node name="Polygon2D11" type="Polygon2D" parent="Taso2/TiiletTaso2"]
+position = Vector2(-14214, 1109)
+rotation = 0.000280933
+polygon = PackedVector2Array(15776.5, 5226.57, 15818.5, 5231.56, 15831.5, 5249.55, 15845.5, 5276.55, 15775.5, 5280.57, 15733.5, 5275.58, 15678.5, 5267.6, 15678.5, 5235.6, 15733.5, 5226.58)
+
+[node name="Polygon2D12" type="Polygon2D" parent="Taso2/TiiletTaso2"]
+position = Vector2(-14068, 987)
+rotation = 0.000280933
+polygon = PackedVector2Array(15787.4, 5099.56, 15828.4, 5085.55, 15865.4, 5082.54, 15893.4, 5078.54, 15899.4, 5058.53, 15900.4, 5028.53, 15845.4, 4965.55, 15815.4, 4947.56, 16172.4, 4994.46, 16200.5, 5203.45, 16186.5, 5224.45, 16164.5, 5254.46, 16148.5, 5273.46, 16134.5, 5294.47, 16119.5, 5310.47, 16106.5, 5319.48, 16090.5, 5322.48, 16072.5, 5319.49, 15963.5, 5298.52, 15933.5, 5309.52, 15898.5, 5313.53, 15770.5, 5305.57, 15732.5, 5289.58, 15695.5, 5287.59, 15691.5, 5220.59, 15708.4, 5121.59, 15739.4, 5108.58)
+
+[node name="Polygon2D13" type="Polygon2D" parent="Taso2/TiiletTaso2"]
+position = Vector2(-16568, 366)
+rotation = 0.000280933
+polygon = PackedVector2Array(15779.5, 5239.57, 15787.5, 5244.57, 15799.5, 5256.56, 15792.5, 5276.56, 15766.5, 5282.57, 15720.5, 5270.58, 15709.5, 5259.59, 15715.5, 5235.59)
 
 [node name="KukatTaso2" type="Node2D" parent="Taso2"]
 
 [node name="Kukka" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
-position = Vector2(-140, 4798)
+position = Vector2(-140, 8767)
 
 [node name="Kukka5" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
-position = Vector2(5990, 4811)
+position = Vector2(5990, 8780)
 
 [node name="Kukka9" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
-position = Vector2(11565, 4811)
+position = Vector2(11565, 8780)
 
 [node name="Kukka2" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
-position = Vector2(831, 4785)
+position = Vector2(831, 8754)
 
 [node name="Kukka7" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
-position = Vector2(12549, 4737)
+position = Vector2(12549, 8716)
 
 [node name="Kukka8" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
-position = Vector2(13740, 4800)
+position = Vector2(13740, 8769)
 
 [node name="Kukka10" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
-position = Vector2(14576, 4593)
+position = Vector2(14576, 8562)
+
+[node name="Kukka11" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(769, 6492)
+rotation = 0.125558
+
+[node name="Kukka13" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(-350, 5928)
+rotation = -0.148881
+
+[node name="Kukka14" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(406, 5816)
+rotation = -1.48411
+
+[node name="Kukka15" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(-285, 5500)
+rotation = -0.502213
+
+[node name="Kukka16" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(-821, 5788)
+rotation = 0.0284185
+
+[node name="Kukka12" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(1686, 6081)
+rotation = -0.149045
+
+[node name="Kukka18" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(15604, 8869)
+rotation = 0.0658293
+
+[node name="Kukka17" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(812, 5319)
+rotation = -0.149045
 
 [node name="MinecartitTaso2" type="Node2D" parent="Taso2"]
 
 [node name="Minecart1" type="Area2D" parent="Taso2/MinecartitTaso2" node_paths=PackedStringArray("mihin_tp") groups=["minecart"]]
-position = Vector2(1126, 4489)
+position = Vector2(1126, 8458)
 collision_layer = 16
 script = ExtResource("58_vyc2b")
 mihin_tp = NodePath("../../Muuta/TutoriaaliTP1")
@@ -3394,8 +3477,30 @@ position = Vector2(46, -8)
 scale = Vector2(0.519523, 0.676654)
 texture = ExtResource("38_c8dmk")
 
+[node name="Minecart4" type="Area2D" parent="Taso2/MinecartitTaso2" node_paths=PackedStringArray("mihin_tp") groups=["minecart"]]
+position = Vector2(2527, 6492)
+rotation = -0.0228145
+collision_layer = 16
+script = ExtResource("58_vyc2b")
+mihin_tp = NodePath("../../Muuta/VesitutoriaaliTP")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/MinecartitTaso2/Minecart4"]
+position = Vector2(-4.5, 0)
+shape = SubResource("RectangleShape2D_re3tf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/MinecartitTaso2/Minecart4"]
+position = Vector2(-12, -7)
+rotation = -0.0114939
+texture = ExtResource("37_snd3d")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Taso2/MinecartitTaso2/Minecart4"]
+z_index = -1
+position = Vector2(46, -8)
+scale = Vector2(0.519523, 0.676654)
+texture = ExtResource("38_c8dmk")
+
 [node name="Minecart2" type="Area2D" parent="Taso2/MinecartitTaso2" node_paths=PackedStringArray("mihin_tp") groups=["minecart"]]
-position = Vector2(6701, 4489)
+position = Vector2(6701, 8458)
 collision_layer = 16
 script = ExtResource("58_vyc2b")
 mihin_tp = NodePath("../../Muuta/TutoriaaliTP2")
@@ -3416,7 +3521,7 @@ scale = Vector2(0.519523, 0.676654)
 texture = ExtResource("38_c8dmk")
 
 [node name="Minecart3" type="Area2D" parent="Taso2/MinecartitTaso2" node_paths=PackedStringArray("mihin_tp") groups=["minecart"]]
-position = Vector2(12276, 4489)
+position = Vector2(12276, 8458)
 collision_layer = 16
 script = ExtResource("58_vyc2b")
 mihin_tp = NodePath("../../Muuta/TutoriaaliTP1")
@@ -3439,48 +3544,27 @@ texture = ExtResource("38_c8dmk")
 [node name="Muuta" type="Node2D" parent="Taso2"]
 
 [node name="TutoriaaliTP1" type="Node2D" parent="Taso2/Muuta"]
-position = Vector2(8026, 5232)
+position = Vector2(8026, 9201)
 
 [node name="TutoriaaliTP2" type="Node2D" parent="Taso2/Muuta"]
-position = Vector2(13601, 5232)
+position = Vector2(13601, 9201)
 
 [node name="VesitutoriaaliTP" type="Node2D" parent="Taso2/Muuta"]
 unique_name_in_owner = true
-position = Vector2(-414, 4754)
+position = Vector2(-414, 8723)
+
+[node name="VesitutoriaaliEnnenTP" type="Node2D" parent="Taso2/Muuta"]
+unique_name_in_owner = true
+position = Vector2(-245, 5905)
 
 [node name="VesitutoriaaliLapiTP" type="Node2D" parent="Taso2/Muuta"]
 unique_name_in_owner = true
-position = Vector2(12371, 4726)
-
-[node name="IsompiValo" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
-position = Vector2(6444, 4772)
-
-[node name="IsompiValo2" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
-position = Vector2(12019, 4772)
-
-[node name="IsompiValo5" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
-position = Vector2(13686, 5236)
-rotation = -0.057817
-
-[node name="IsompiValo7" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
-position = Vector2(15245, 4897)
-rotation = 0.0572196
-
-[node name="IsompiValo6" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
-position = Vector2(8111, 5236)
-rotation = -0.057817
-
-[node name="IsompiValo3" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
-position = Vector2(2255, 5269)
-rotation = -0.187206
-
-[node name="IsompiValo4" parent="Taso2/Muuta" instance=ExtResource("96_e2yjn")]
-position = Vector2(2537, 5238)
+position = Vector2(12371, 8695)
 
 [node name="TutoriaaliOviSeinat" type="Node2D" parent="Taso2/Muuta"]
 
 [node name="OviSeina1" type="Node2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
-position = Vector2(6506, 4779)
+position = Vector2(6506, 8748)
 
 [node name="GrassThinLeft" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
 rotation = -1.27334
@@ -3506,6 +3590,18 @@ position = Vector2(58, -146)
 rotation = -0.712672
 texture = ExtResource("100_tno6r")
 
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(-93, -44)
+texture = ExtResource("94_mc8su")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(-60, -55)
+texture = ExtResource("94_mc8su")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(-27, -65)
+texture = ExtResource("94_mc8su")
+
 [node name="IlluusionVaihtajaVisible" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1" instance=ExtResource("83_0gbej")]
 invert = true
 
@@ -3514,7 +3610,7 @@ occluder = SubResource("OccluderPolygon2D_ercj1")
 
 [node name="OviSeina2" type="Node2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
 unique_name_in_owner = true
-position = Vector2(12081, 4779)
+position = Vector2(12081, 8748)
 
 [node name="GrassThinLeft" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
 rotation = -1.27334
@@ -3540,13 +3636,25 @@ position = Vector2(58, -146)
 rotation = -0.712672
 texture = ExtResource("100_tno6r")
 
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(-93, -44)
+texture = ExtResource("94_mc8su")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(-60, -55)
+texture = ExtResource("94_mc8su")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(-27, -65)
+texture = ExtResource("94_mc8su")
+
 [node name="IlluusionVaihtajaVisible" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2" instance=ExtResource("83_0gbej")]
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
 occluder = SubResource("OccluderPolygon2D_ercj1")
 
 [node name="OviSeinaValopallo" type="Area2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
-position = Vector2(12063, 4663)
+position = Vector2(12063, 8632)
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("99_ned5y")
@@ -3563,18 +3671,67 @@ shape = SubResource("RectangleShape2D_2tisf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Taso2/Muuta"]
 z_index = -1
-position = Vector2(8026, 5231)
+position = Vector2(8026, 9200)
 texture = ExtResource("38_c8dmk")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Taso2/Muuta"]
 z_index = -1
-position = Vector2(13601, 5231)
+position = Vector2(13601, 9200)
 texture = ExtResource("38_c8dmk")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Taso2/Muuta"]
+z_index = -1
+position = Vector2(-246, 5905)
+texture = ExtResource("38_c8dmk")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Taso2/Muuta"]
+z_index = -1
+position = Vector2(17325.2, 8695)
+rotation = -0.00385135
+texture = ExtResource("38_c8dmk")
+
+[node name="Pomppusieni2" parent="Taso2/Muuta" instance=ExtResource("82_imok5")]
+position = Vector2(-910, 5769)
+rotation = 0.0654187
+
+[node name="Pomppusieni3" parent="Taso2/Muuta" instance=ExtResource("82_imok5")]
+position = Vector2(2236, 6480)
+rotation = 0.0665975
+
+[node name="Pomppusieni" parent="Taso2/Muuta" instance=ExtResource("82_imok5")]
+position = Vector2(1269, 6480)
+
+[node name="CreditsAlue" type="Area2D" parent="Taso2/Muuta"]
+position = Vector2(17353.2, 8688.25)
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("59_80cq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/Muuta/CreditsAlue"]
+shape = SubResource("RectangleShape2D_78rim")
+
+[node name="Label" type="Label" parent="Taso2/Muuta/CreditsAlue"]
+z_index = 99
+material = ExtResource("75_4248i")
+offset_left = -94.1563
+offset_top = -36.0
+offset_right = 163.844
+offset_bottom = -13.0
+text = "Thank you for playing!"
+
+[node name="LabelEasterEgg" type="Label" parent="Taso2/Muuta"]
+z_index = 99
+material = ExtResource("75_4248i")
+offset_left = 2442.0
+offset_top = 9147.0
+offset_right = 2700.0
+offset_bottom = 9170.0
+text = "Easter egg!!!"
 
 [node name="VesialueetTaso2" type="Node2D" parent="Taso2"]
 
 [node name="Vesi2D" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
-position = Vector2(683, 5676)
+position = Vector2(683, 9645)
 animaation_kesto = 2.0
 transition_type = 5
 
@@ -3622,8 +3779,17 @@ shape = SubResource("RectangleShape2D_61u0d")
 position = Vector2(7, -687)
 shape = SubResource("RectangleShape2D_61u0d")
 
+[node name="Myrkkyalue2D" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("82_2dvj4")]
+position = Vector2(-15, -784)
+rotation = -0.0618543
+scale = Vector2(2.69031, 1.23891)
+tekeeko_damagea = false
+
+[node name="IlluusionVaihtajaVisible" parent="Taso2/VesialueetTaso2/Vesi2D/Myrkkyalue2D" instance=ExtResource("83_0gbej")]
+invert = true
+
 [node name="Vesi2D2" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
-position = Vector2(6258, 5676)
+position = Vector2(6258, 9645)
 animaation_kesto = 2.0
 transition_type = 5
 
@@ -3671,8 +3837,17 @@ shape = SubResource("RectangleShape2D_61u0d")
 position = Vector2(7, -687)
 shape = SubResource("RectangleShape2D_61u0d")
 
+[node name="Myrkkyalue2D" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("82_2dvj4")]
+position = Vector2(-15, -784)
+rotation = -0.0618543
+scale = Vector2(2.69031, 1.23891)
+tekeeko_damagea = false
+
+[node name="IlluusionVaihtajaVisible" parent="Taso2/VesialueetTaso2/Vesi2D2/Myrkkyalue2D" instance=ExtResource("83_0gbej")]
+invert = true
+
 [node name="Vesi2D3" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
-position = Vector2(11833, 5676)
+position = Vector2(11833, 9645)
 animaation_kesto = 2.0
 transition_type = 5
 
@@ -3720,129 +3895,444 @@ shape = SubResource("RectangleShape2D_61u0d")
 position = Vector2(7, -687)
 shape = SubResource("RectangleShape2D_61u0d")
 
+[node name="Myrkkyalue2D" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("82_2dvj4")]
+position = Vector2(-15, -784)
+rotation = -0.0618543
+scale = Vector2(2.69031, 1.23891)
+tekeeko_damagea = false
+
+[node name="IlluusionVaihtajaVisible" parent="Taso2/VesialueetTaso2/Vesi2D3/Myrkkyalue2D" instance=ExtResource("83_0gbej")]
+invert = true
+
 [node name="Vesi2D4" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
-position = Vector2(14837, 5068)
+position = Vector2(14837, 9037)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D4"]
 position = Vector2(48, 37)
 shape = SubResource("RectangleShape2D_fx2fu")
 
+[node name="Vesi2D5" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
+position = Vector2(15840, 9050)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D5"]
+position = Vector2(152.188, 108.656)
+shape = SubResource("RectangleShape2D_c1ejj")
+
+[node name="Vesi2D8" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
+position = Vector2(15840, 9050)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D8"]
+position = Vector2(599, 45)
+shape = SubResource("RectangleShape2D_cy7e4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D8"]
+position = Vector2(524.912, 115.813)
+shape = SubResource("RectangleShape2D_amira")
+
+[node name="Vesi2D6" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
+position = Vector2(1133, 6677)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D6"]
+position = Vector2(-118.625, 25.3125)
+shape = SubResource("RectangleShape2D_61m8c")
+
+[node name="LummeJuureton" parent="Taso2/VesialueetTaso2/Vesi2D6/CollisionShape2D" instance=ExtResource("88_m1e04")]
+position = Vector2(-80.375, -168.313)
+
+[node name="LummeJuurella" parent="Taso2/VesialueetTaso2/Vesi2D6/CollisionShape2D" instance=ExtResource("88_qbkop")]
+position = Vector2(69.625, -168.313)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D6"]
+position = Vector2(390, 164)
+shape = SubResource("RectangleShape2D_0iy3n")
+
+[node name="Vesi2D7" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
+position = Vector2(1110, 5481)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D7"]
+position = Vector2(-124, -21.8438)
+shape = SubResource("RectangleShape2D_fka26")
+
+[node name="LummeJuureton" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D" instance=ExtResource("88_m1e04")]
+position = Vector2(-71, -120.156)
+
+[node name="LummeJuurella" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D" instance=ExtResource("88_qbkop")]
+position = Vector2(67, -120.156)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D7"]
+position = Vector2(390, 4.40625)
+shape = SubResource("RectangleShape2D_bnc2p")
+
+[node name="LummeJuureton2" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D2" instance=ExtResource("88_m1e04")]
+position = Vector2(-312, -145.719)
+
+[node name="LummeJuurella2" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D2" instance=ExtResource("88_qbkop")]
+position = Vector2(-171, -149.406)
+
+[node name="LummeJuurella3" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D2" instance=ExtResource("88_qbkop")]
+position = Vector2(-33, -149.406)
+
+[node name="LummeJuureton3" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D2" instance=ExtResource("88_m1e04")]
+position = Vector2(101, -145.719)
+
+[node name="LummeJuurella4" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D2" instance=ExtResource("88_qbkop")]
+position = Vector2(236, -149.406)
+
+[node name="Vesi2D9" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
+position = Vector2(16539, 8906)
+animaation_kesto = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D9"]
+position = Vector2(90, 141.5)
+shape = SubResource("RectangleShape2D_b5exg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D9"]
+position = Vector2(1674, 31)
+shape = SubResource("RectangleShape2D_ygt4k")
+
+[node name="Marker2D" type="Marker2D" parent="Taso2/VesialueetTaso2/Vesi2D9"]
+position = Vector2(81, -223)
+gizmo_extents = 107.7
+
+[node name="Marker2D2" type="Marker2D" parent="Taso2/VesialueetTaso2/Vesi2D9"]
+position = Vector2(76, -106)
+gizmo_extents = 107.7
+
+[node name="Area2DAktivoija" type="Area2D" parent="Taso2/VesialueetTaso2/Vesi2D9" node_paths=PackedStringArray("siirrettava") groups=["siirravesi"]]
+position = Vector2(172, 110)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("97_bognj")
+siirrettava = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D9/Area2DAktivoija"]
+shape = SubResource("CircleShape2D_vq7c8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/VesialueetTaso2/Vesi2D9/Area2DAktivoija"]
+position = Vector2(16, 7)
+rotation = -1.278
+texture = ExtResource("97_lolct")
+
 [node name="HappikukatTaso2" type="Node2D" parent="Taso2"]
 
 [node name="Happikukka11" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(12886, 5548)
+position = Vector2(12886, 9517)
 rotation = 1.86774
 scale = Vector2(0.416464, 0.402379)
 flip_h = true
 
 [node name="Happikukka12" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(12622, 5993)
+position = Vector2(12622, 9962)
 rotation = -3.11192
 scale = Vector2(0.416464, 0.402379)
 flip_h = true
 
+[node name="Happikukka28" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(936, 5491)
+rotation = -5.29893
+scale = Vector2(0.416464, 0.402379)
+flip_h = true
+
+[node name="Happikukka29" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(1826, 5441)
+rotation = -8.06379
+scale = Vector2(0.416464, 0.402379)
+flip_h = true
+
 [node name="Happikukka13" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(11899, 5333)
+position = Vector2(11899, 9302)
 rotation = -1.1756
 scale = Vector2(0.416464, 0.402379)
 
 [node name="Happikukka14" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(11891, 5855)
+position = Vector2(11891, 9824)
 rotation = 1.1266
 scale = Vector2(0.416464, 0.402379)
 
 [node name="Happikukka15" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(12200, 6145)
+position = Vector2(12200, 10114)
 rotation = 0.655867
 scale = Vector2(0.416464, 0.402379)
 
 [node name="Happikukka16" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(7310, 5548)
+position = Vector2(7310, 9517)
 rotation = 1.86774
 scale = Vector2(0.416464, 0.402379)
 flip_h = true
 
 [node name="Happikukka17" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(7046, 5993)
+position = Vector2(7046, 9962)
 rotation = -3.11192
 scale = Vector2(0.416464, 0.402379)
 flip_h = true
 
 [node name="Happikukka18" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(6323, 5333)
+position = Vector2(6323, 9302)
 rotation = -1.1756
 scale = Vector2(0.416464, 0.402379)
 
 [node name="Happikukka19" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(6315, 5855)
+position = Vector2(6315, 9824)
 rotation = 1.1266
 scale = Vector2(0.416464, 0.402379)
 
 [node name="Happikukka20" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(6624, 6145)
+position = Vector2(6624, 10114)
 rotation = 0.655867
 scale = Vector2(0.416464, 0.402379)
 
 [node name="Happikukka21" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(1739, 5548)
+position = Vector2(1739, 9517)
 rotation = 1.86774
 scale = Vector2(0.416464, 0.402379)
 flip_h = true
 
 [node name="Happikukka22" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(1475, 5993)
+position = Vector2(1475, 9962)
 rotation = -3.11192
 scale = Vector2(0.416464, 0.402379)
 flip_h = true
 
 [node name="Happikukka23" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(752, 5333)
+position = Vector2(752, 9302)
 rotation = -1.1756
 scale = Vector2(0.416464, 0.402379)
 
 [node name="Happikukka24" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(744, 5855)
+position = Vector2(744, 9824)
 rotation = 1.1266
 scale = Vector2(0.416464, 0.402379)
 
 [node name="Happikukka25" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
-position = Vector2(1053, 6145)
+position = Vector2(1053, 10114)
 rotation = 0.655867
 scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka26" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(1260, 6687)
+rotation = 1.56691
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka27" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(16398, 8994)
+rotation = 8.00286
+scale = Vector2(0.416464, 0.402379)
+
+[node name="Happikukka30" parent="Taso2/HappikukatTaso2" instance=ExtResource("15_2bilk")]
+position = Vector2(16749, 8899)
+rotation = 11.272
+scale = Vector2(0.416464, 0.402379)
+
+[node name="IsommatValotTaso2" type="Node2D" parent="Taso2"]
+
+[node name="IsompiValo" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(6444, 8741)
+
+[node name="IsompiValo2" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(12019, 8741)
+
+[node name="IsompiValo5" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(13686, 9205)
+rotation = -0.057817
+
+[node name="IsompiValo7" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(15245, 8866)
+rotation = 0.0572196
+
+[node name="IsompiValo19" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(16787, 8647)
+rotation = 0.188439
+
+[node name="IsompiValo20" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(17365, 8704)
+rotation = 0.0261523
+
+[node name="IsompiValo18" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(16305, 8721)
+rotation = -3.80519
+
+[node name="IsompiValo6" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(8111, 9205)
+rotation = -0.057817
+
+[node name="IsompiValo3" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(2255, 9238)
+rotation = -0.187206
+
+[node name="IsompiValo4" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(2537, 9207)
+
+[node name="IsompiValo8" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(13, 6475)
+rotation = 0.414378
+
+[node name="IsompiValo9" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(1525.01, 6310)
+rotation = -0.0459419
+
+[node name="IsompiValo16" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(1841, 6444)
+rotation = 0.556375
+
+[node name="IsompiValo17" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(2334, 6487)
+rotation = 0.115596
+
+[node name="IsompiValo10" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(1098, 6380)
+rotation = 2.91192
+
+[node name="IsompiValo11" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(178, 5612)
+rotation = 0.194027
+
+[node name="IsompiValo12" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(-614, 5552)
+rotation = -0.182433
+
+[node name="IsompiValo13" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(639, 5357)
+rotation = -0.226968
+
+[node name="IsompiValo14" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(1294, 5207)
+rotation = -3.35911
+
+[node name="IsompiValo15" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(1657, 5200)
+rotation = -2.66446
+
+[node name="Tooltipit" type="CanvasGroup" parent="Taso2"]
+
+[node name="TooltipMinecart" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(1138, 8429)
+
+[node name="TooltipMinecart4" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(2535, 6458)
+
+[node name="TooltipMinecart2" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(6713, 8429)
+
+[node name="TooltipMinecart3" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(12288, 8429)
+
+[node name="TooltipMinecart5" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(16699, 8965)
 
 [node name="PerhosetTaso2" type="Node2D" parent="Taso2"]
 
 [node name="Perhonen" parent="Taso2/PerhosetTaso2" instance=ExtResource("13_ufso7")]
-position = Vector2(12700, 4722)
+position = Vector2(12700, 8691)
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/Perhonen"]
 position = Vector2(0, -28)
 curve = SubResource("Curve2D_6ewyi")
 
 [node name="Perhonen2" parent="Taso2/PerhosetTaso2" instance=ExtResource("13_ufso7")]
-position = Vector2(14918, 4695)
+position = Vector2(14918, 8664)
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/Perhonen2"]
 curve = SubResource("Curve2D_mfdu8")
 
+[node name="Perhonen3" parent="Taso2/PerhosetTaso2" instance=ExtResource("13_ufso7")]
+position = Vector2(16443, 8656)
+
+[node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/Perhonen3"]
+curve = SubResource("Curve2D_o11av")
+
 [node name="CheckpointitTaso2" type="Node2D" parent="Taso2"]
 
 [node name="Checkpoint" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
-position = Vector2(12442, 4734)
+position = Vector2(12442, 8703)
 
 [node name="Checkpoint2" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
-position = Vector2(-309, 4767)
+position = Vector2(-309, 8736)
 
-[node name="Tooltipit" type="CanvasGroup" parent="Taso2"]
+[node name="Checkpoint3" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
+position = Vector2(-148, 5905)
+rotation = 0.0529006
 
-[node name="TooltipMinecart" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
-position = Vector2(1138, 4460)
+[node name="Checkpoint4" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
+position = Vector2(671, 6460)
+rotation = -0.0154471
 
-[node name="TooltipMinecart2" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
-position = Vector2(6713, 4460)
+[node name="PotioninOsatTaso2" type="Node2D" parent="Taso2"]
 
-[node name="TooltipMinecart3" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
-position = Vector2(12288, 4460)
+[node name="PotioninOsa" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
+position = Vector2(-381, 6298)
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa"]
+texture = ExtResource("91_20a3b")
+
+[node name="PotioninOsa2" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
+position = Vector2(-356, 6299)
+rotation = 0.0980684
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa2"]
+texture = ExtResource("91_20a3b")
+
+[node name="PotioninOsa7" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
+position = Vector2(2413, 6253)
+rotation = 0.000830598
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa7"]
+texture = ExtResource("91_20a3b")
+
+[node name="PotioninOsa4" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
+position = Vector2(-739, 5775)
+rotation = -0.0369931
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa4"]
+texture = ExtResource("91_20a3b")
+
+[node name="PotioninOsa6" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
+position = Vector2(-780, 5776)
+rotation = -0.0690685
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa6"]
+texture = ExtResource("91_20a3b")
+
+[node name="PotioninOsa5" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
+position = Vector2(-654, 5759)
+rotation = -0.0330394
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa5"]
+texture = ExtResource("91_20a3b")
+
+[node name="PotioninOsa8" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
+position = Vector2(1937, 5277)
+rotation = -0.0369931
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa8"]
+texture = ExtResource("91_20a3b")
+
+[node name="PotioninOsa9" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
+position = Vector2(1981, 5281)
+rotation = 0.215042
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa9"]
+texture = ExtResource("91_20a3b")
+
+[node name="PotioninOsa3" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
+position = Vector2(1588, 6317)
+rotation = 0.0706898
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa3"]
+texture = ExtResource("91_20a3b")
+
+[node name="PotioninOsa10" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
+position = Vector2(1290, 6027)
+rotation = 0.00765381
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa10"]
+texture = ExtResource("91_20a3b")
+
+[node name="PotioninOsa11" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
+position = Vector2(1233, 6021)
+rotation = 0.0706898
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa11"]
+texture = ExtResource("91_20a3b")
 
 [node name="OnkoPelaajaTaso2" type="Area2D" parent="Taso2"]
 visible = false
@@ -3851,7 +4341,7 @@ collision_mask = 2
 script = ExtResource("102_3h1h5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/OnkoPelaajaTaso2"]
-position = Vector2(16101.8, 9713.5)
+position = Vector2(16101.8, 10013)
 shape = SubResource("RectangleShape2D_irw3x")
 
 [connection signal="transitio" from="Pelaaja" to="KayttoLiittyma/Transitio" method="_on_transitio"]
@@ -3872,5 +4362,7 @@ shape = SubResource("RectangleShape2D_irw3x")
 [connection signal="body_entered" from="Muuta/Vesiputous" to="Muuta/Vesiputous" method="_on_body_entered"]
 [connection signal="transitio" from="Muuta/Vesiputous" to="KayttoLiittyma/Transitio" method="_on_transitio"]
 [connection signal="body_entered" from="Taso2/Muuta/TutoriaaliOviSeinat/OviSeinaValopallo" to="Taso2/Muuta/TutoriaaliOviSeinat/OviSeinaValopallo" method="_on_body_entered"]
+[connection signal="body_entered" from="Taso2/Muuta/CreditsAlue" to="Taso2/Muuta/CreditsAlue" method="_on_body_entered"]
+[connection signal="credits_entered" from="Taso2/Muuta/CreditsAlue" to="KayttoLiittyma/Credits" method="_on_credits_alue_credits_entered"]
 [connection signal="body_entered" from="Taso2/OnkoPelaajaTaso2" to="Taso2/OnkoPelaajaTaso2" method="_on_body_entered"]
 [connection signal="body_exited" from="Taso2/OnkoPelaajaTaso2" to="Taso2/OnkoPelaajaTaso2" method="_on_body_exited"]

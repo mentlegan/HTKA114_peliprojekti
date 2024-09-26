@@ -2,6 +2,10 @@ extends Area2D
 ## Editorissa vaihdettava arvo sille, ottaako myrkystä damagea
 @export var tekeeko_damagea: bool = true
 
+func _ready() -> void:
+	$AnimatedSprite2D.play("default")
+
+
 ## Pelaajan alkaa ottamaan myrkkyä tullessaan alueelle
 func _on_body_entered(body):
 	if tekeeko_damagea:

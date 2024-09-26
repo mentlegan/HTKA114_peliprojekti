@@ -102,7 +102,7 @@ func _ready():
 		if not vedenpohja or vedenpohja < obj["vedenpohja"]:
 			vedenpohja = obj["vedenpohja"]
 	
-	aseta_vedenpinta_seuraavaan_merkkiin()
+	#aseta_vedenpinta_seuraavaan_merkkiin()
 
 
 ## Asettaa vedenpinnan seuraavan merkin korkeudelle.
