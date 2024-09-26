@@ -53,7 +53,8 @@ func _ready():
 				sprite2d.set_texture(canvas_texture)
 				sprite2d.set_region_enabled(true)
 				sprite2d.set_region_rect(Rect2(0, 0, 1, 1))
-				sprite2d.set_z_index(10)
+				sprite2d.light_mask = 0
+				sprite2d.set_z_index(20)
 				sprite2d.set_material(vesi_shader)
 				sprite2d.position = lapsi.position
 				sprite2d.scale = lapsi.shape.size

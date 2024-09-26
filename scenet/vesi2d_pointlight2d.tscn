@@ -9,8 +9,9 @@ width = 1
 height = 1
 
 [node name="Vesi2DPointLight2D" type="PointLight2D"]
-color = Color(0.913369, 1, 0.990224, 1)
-energy = 1.1
+color = Color(0.55, 0.7525, 1, 1)
+energy = 1.68
 blend_mode = 2
+range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_jgjm0")
