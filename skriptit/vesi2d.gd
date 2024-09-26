@@ -143,6 +143,8 @@ func aseta_vedenpinta(korkeus: float):
 	tween.set_trans(transition_type).set_ease(ease_type)
 
 	for obj in collision_shapet:
+		if not obj["collision_shape"].is_in_group("siirra"):
+			continue
 		var obj_vedenpinta = uusi_vedenpinta
 		if maksimikorkeus_collisionshapella:
 			obj_vedenpinta = max(obj["vedenpinta"], uusi_vedenpinta)
