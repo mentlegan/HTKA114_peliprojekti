@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://u0o5quv7kir7"]
+[gd_scene load_steps=7 format=3 uid="uid://u0o5quv7kir7"]
 
 [ext_resource type="Script" path="res://skriptit/potionin_osa.gd" id="1_38ns5"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="2_bi1b5"]
+[ext_resource type="AudioStream" uid="uid://dvwbwcrvo52mw" path="res://audio/other/kilahdus.mp3" id="3_de376"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nd4xt"]
 size = Vector2(52, 108)
@@ -27,3 +28,9 @@ shape = SubResource("RectangleShape2D_nd4xt")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 blend_mode = 2
 texture = SubResource("GradientTexture2D_mbhqf")
+
+[node name="AudioPotioninOsa" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_de376")
+volume_db = 24.0
+pitch_scale = 0.8
+bus = &"Kaiku"
