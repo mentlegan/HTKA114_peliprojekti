@@ -140,23 +140,27 @@ func muokkaa_kuvat(sivunumero):
 	var kuvamaara = laske_tiedostot(kuvatiedostojen_polku + "sivu"+s+"/") / 2 # Jaetaan kuvatiedostojen määrä kahdella import-tiedostojen takia
 	for kuva in tutoriaalikuva_nodet: # Laitetaan aina vakiona kuvien skaala hieman pienemmäksi
 		kuva.scale = Vector2(0.4, 0.4)
-	# Asetetaan joka nodelle tekstuuri
 	if sivujen_maara == 0: # Tarkistus tyhjien aiheiden varalta
 		return # Keskeytetään funktio
-	tutoriaalikuva_nodet[0].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva1.png")
-	tutoriaalikuva_nodet[1].texture = null # Nollataan ylimääräiset kuvat pois tieltä
-	tutoriaalikuva_nodet[2].texture = null
+	# Asetetaan joka nodelle tekstuuri kuvien määrän mukaan
+	if kuvamaara == 1: # Jos kuvia on vain yksi
+		tutoriaalikuva_nodet[1].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva1.png") # Ladataan ensimmäinen kuva keskelle
+		tutoriaalikuva_nodet[1].scale = Vector2(0.5, 0.5) # Laitetaan yksinäiselle kuvalle hieman isompi koko
+		tutoriaalikuva_nodet[0].texture = null # Nollataan ylimääräiset kuvat pois tieltä
+		tutoriaalikuva_nodet[2].texture = null
 	if kuvamaara >= 2: # Jos kuvia on kaksi tai enemmän
+		tutoriaalikuva_nodet[0].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva1.png") # Ladataan ensimmäinen kuva vasemmalle
 		tutoriaalikuva_nodet[1].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva2.png") # Ladataan toinen kuva
+		tutoriaalikuva_nodet[2].texture = null # Nollataan kolmas kuva pois
 	if kuvamaara == 3: # Jos kuvia on kolme
 		tutoriaalikuva_nodet[2].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva3.png") # Ladataan kolmas kuva
 	# Eri aiheet tarvitsevat erikoiskäsittelyä kuvien koon vuoksi
 	if valittu_aihe == "Vines/" and sivu != 1: # Vines-aiheelle oma käsittely, koska se sisältää isomman kuvan
 		tutoriaalikuva_nodet[0].texture = null # Nollataan ei-tarvittu node
 		tutoriaalikuva_nodet[1].texture = load(kuvatiedostojen_polku + "sivu"+s+"/kuva1.png") # Asetetaan isompi kuva keskelle, koska se on yksin muutenkin
-		tutoriaalikuva_nodet[1].scale = Vector2(0.5, 0.5) # Tehdään iso kuva isommaksi, koska se on yksin keskellä TODO: näin voisi tehdä myös muille sivuille, jossa asia on näin
+		tutoriaalikuva_nodet[1].scale = Vector2(0.5, 0.5) # Tehdään iso kuva isommaksi, koska se on yksin keskellä
 	if valittu_aihe =="Tutorial/": # Tutoriaali-aiheessa on pienempiä kuvia
-		tutoriaalikuva_nodet[0].scale = Vector2(1, 1) # Joten teemme niistä hieman isompia
+		tutoriaalikuva_nodet[1].scale = Vector2(1, 1) # Joten teemme niistä hieman isompia
 
 
 ## Menun sulkemisnapin toiminnallisuus
