@@ -506,8 +506,11 @@ func jatkaPelia():
 
 ## Hallitaan, että mikä kuolema-animaatio soitetaan
 func soita_kuolema_animaatio():
-	if kuoltiinko_viholliseen == false: # normaalisti tämä on false.. 
-		pelaaja.pauseAnimaatiot.play("kuolema") # ..että normaali kuolema-animaatio soitetaan
+	if kuoltiinko_viholliseen == false: # normaalisti tämä on false.. (1)
+		if pelaaja.vedessa == true:
+			pelaaja.pauseAnimaatiot.play("hukkumis_kuolema") # hukkumis animaatio jos kuolee vedessä
+		else:
+			pelaaja.pauseAnimaatiot.play("kuolema") # ..että normaali kuolema-animaatio soitetaan (2)
 	else: pelaaja.pauseAnimaatiot.play("vihollis_kuolema") # muutoin soitetaan viholliseen/pimeyteen kuolemisen animaatio
 
 

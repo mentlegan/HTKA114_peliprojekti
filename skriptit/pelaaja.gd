@@ -516,6 +516,14 @@ func kuolema_fall_damageen():
 	print_debug("Kuolit FALL DAMAGEEN")
 
 
+func kuolema_vedessa():
+	pelaajan_elamat = pelaajan_elamat_max
+	elamat_label_paivita()
+	pimeyskuolema.stop()
+	kuollut.emit()
+	print_debug("Kuolit HUKKUMISEEN")
+
+
 ## Kutsutaan globaalissa, kun game over tai credits screen
 func lopeta_kuolema_tweenit():
 	if kuolema_aloita_tween:
@@ -583,7 +591,10 @@ func meneta_elamia(maara, damage_type):
 		pelaajan_elamat = 0
 		myrkky_ajastin.stop()
 		myrkkyalue_ajastin.stop()
-		kuolema_fall_damageen()
+		if vedessa:
+			kuolema_vedessa()
+		else:
+			kuolema_fall_damageen()
 	elamat_label_paivita()
 
 
