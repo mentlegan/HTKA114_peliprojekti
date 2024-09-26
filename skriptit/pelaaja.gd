@@ -992,6 +992,10 @@ func _physics_process(delta):
 					Globaali.minecart_kaytetty = true
 					Globaali.minecartit.queue_free()
 					Globaali.poista_minecart_tooltipit()
+			elif alue.is_in_group("siirravesi"):
+				if alue.siirrettava and alue.aktiivinen:
+					alue.aktiivinen = false
+					alue.siirrettava.aseta_vedenpinta_seuraavaan_merkkiin()
 	
 	# player.visible = ! (raycast.is_colliding())
 	

@@ -38,6 +38,7 @@ var soitetaan_animatic
 @onready var vesiputous_tp = get_node("/root/Maailma/%Muuta/%VesiputousTeleport").position
 
 @onready var pelaaja_vesitutoriaali = get_node("/root/Maailma/Taso2/%VesitutoriaaliTP").position
+@onready var pelaaja_vesitutoriaali_ennen = get_node("/root/Maailma/Taso2/%VesitutoriaaliEnnenTP").position
 @onready var pelaaja_vesitutoriaalilapi = get_node("/root/Maailma/Taso2/%VesitutoriaaliLapiTP").position
 
 @onready var tiilet_taso_2 = get_node("/root/Maailma/Taso2/%TiiletTaso2")
@@ -118,7 +119,7 @@ const TALLENNUSTIEDOSTO = "user://save_file.json"
 ## Yleinen ready
 func _ready():
 	# Soitetaan alkuanimatic. Seuraavan rivin voi dokumentoida pois, jos haluaa testata peliä ilman sitä
-	#soita_animatic()
+	soita_animatic()
 	
 	# Signaalikäsittelyä mm. pelaajan kuolemisesta
 	pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
@@ -340,10 +341,14 @@ func _input(_event: InputEvent) -> void:
 		teleporttaa_pelaaja(pelaaja_taso45)
 	
 	# PC F6
+	if Input.is_action_just_pressed("vesitutoriaaliennen"):
+		teleporttaa_pelaaja(pelaaja_vesitutoriaali_ennen)
+	
+	# PC F7
 	if Input.is_action_just_pressed("vesitutoriaali"):
 		teleporttaa_pelaaja(pelaaja_vesitutoriaali)
 	
-	# PC F7
+	# PC F9, koska F8 on quit
 	if Input.is_action_just_pressed("vesitutoriaalilapi"):
 		teleporttaa_pelaaja(pelaaja_vesitutoriaalilapi)
 	
