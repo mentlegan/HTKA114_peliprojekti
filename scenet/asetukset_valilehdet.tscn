@@ -57,20 +57,25 @@ offset_left = 116.0
 offset_top = 6.0
 offset_right = 584.0
 offset_bottom = 22.0
-min_value = -80.0
-max_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.5
 ticks_on_borders = true
 
 [node name="sound_musiikki" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Music"
+text = "Music volume"
 
-[node name="musiikki_mute" type="CheckButton" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_musiikki" groups=["mute_napit"]]
+[node name="VolumeSliderMusiikki" type="HSlider" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_musiikki"]
 layout_mode = 0
-offset_left = 60.0
-offset_right = 104.0
-offset_bottom = 24.0
-button_pressed = true
+offset_left = 161.0
+offset_top = 4.0
+offset_right = 629.0
+offset_bottom = 20.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+ticks_on_borders = true
 
 [node name="sound_efektit" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
@@ -254,7 +259,7 @@ layout_mode = 2
 text = "Accessibility4"
 
 [connection signal="value_changed" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_volume/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_musiikki/musiikki_mute" to="." method="_on_musiikki_mute_toggled"]
+[connection signal="value_changed" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_musiikki/VolumeSliderMusiikki" to="." method="_on_volume_music_slider_value_changed"]
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_efektit/efektit_mute" to="." method="_on_efektit_mute_toggled"]
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_pelaaja/pelaaja_mute" to="." method="_on_pelaaja_mute_toggled"]
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_tausta/tausta_mute" to="." method="_on_tausta_mute_toggled"]

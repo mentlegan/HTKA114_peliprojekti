@@ -57,19 +57,20 @@ func _ready():
 ##
 
 ## Volume-sliderin toiminta
-func _on_volume_slider_value_changed(volume):
-	# Asetetaan Master audioväylän volumelle uusi arvo (desibeleissä)
-	AudioServer.set_bus_volume_db(0, volume) # default = 0, min = -80, max = 6
+func _on_volume_slider_value_changed(volume_setting):
+	# volume_setting arvo  0 ... 1
+	var volume_db = linear_to_db(volume_setting) # Volume desibeleissä
+	AudioServer.set_bus_volume_db(0, volume_db)
 
-## Musiikin mykistys-napin toiminta
-func _on_musiikki_mute_toggled(button_pressed):
-	if button_pressed == true:
-		AudioServer.set_bus_mute(AudioServer.get_bus_index("Musiikki"), false) # Kun nappi on pohjassa, ääni kuuluu
-	else:
-		AudioServer.set_bus_mute(AudioServer.get_bus_index("Musiikki"), true) # Kun nappi ei ole pohjassa, ääni ei kuulu
+
+## Musiikin volume slider
+func _on_volume_music_slider_value_changed(volume_setting):
+	var volume_db = linear_to_db(volume_setting) # Volume desibeleissä
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Musiikki"), volume_db)
 
 
 ## Ääniefektien mykistys-napin toiminta
+## EI KÄYTÖSSÄ
 func _on_efektit_mute_toggled(button_pressed):
 	if button_pressed == true:
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("Vihollinen"), false)  # Kun nappi on pohjassa, ääni kuuluu
