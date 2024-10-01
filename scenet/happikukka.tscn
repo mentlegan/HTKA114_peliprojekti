@@ -43,6 +43,7 @@ animations = [{
 }]
 
 [node name="Happikukka" type="Area2D"]
+scale = Vector2(0.51, 0.51)
 script = ExtResource("1_bshdl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
