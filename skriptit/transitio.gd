@@ -20,7 +20,7 @@ func _on_transitio(tp):
 		mihin_tp = tp
 	color_rect.visible = true
 	animation_player.play("fade_black")
-	Globaali.pelaaja.process_mode = Node.PROCESS_MODE_DISABLED
+	Globaali.pelaaja.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 
 
 func _fade_reset(anim_name):
@@ -35,6 +35,6 @@ func _fade_reset(anim_name):
 			#Globaali.teleporttaa_pelaaja(mihin_tp)
 		animation_player.play("fade_reset")
 		await get_tree().create_timer(0.3, false).timeout
-		Globaali.pelaaja.process_mode = Node.PROCESS_MODE_INHERIT
+		Globaali.pelaaja.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 	elif anim_name == "fade_reset":
 		color_rect.visible = false

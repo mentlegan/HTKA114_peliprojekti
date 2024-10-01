@@ -207,7 +207,7 @@ func vaihda_alue(vihollinen):
 	var kuoppa2 = vihollinen.get_children()[3] # Otetaan alueen 1 kuoppa
 	if alue1.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
 		print ("Vihollinen vaihtaa alueelle " + str(alue2))
-		aktivoi_alue(alue2)	
+		aktivoi_alue(alue2)
 		#etsi_lahin_kukka(alue2)
 		deaktivoi_alue(alue1)
 		toista_animaatio(kuoppa1)
@@ -237,7 +237,7 @@ func toista_animaatio(kuoppa):
 
 ## Aktivoidaan saatu alue
 func aktivoi_alue(alue):
-	alue.process_mode = Node.PROCESS_MODE_INHERIT # Toinen alue saa toiminnallisuuden ..
+	alue.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT) # Toinen alue saa toiminnallisuuden ..
 	alue.visible = true # .. ja tulee näkyviin testauksen havainnollistamiseksi ..
 	alue.add_to_group("nykyisetAlueet") # .. ja tulee aktiiviseksi, eli on vaarallinen
 	audio_stream_player_container.global_position = alue.global_position
@@ -247,7 +247,7 @@ func aktivoi_alue(alue):
 func deaktivoi_alue(alue):
 	alue.remove_from_group("nykyisetAlueet") # Valoon joutunut vihollinen ei ole aktiivinen ..
 	alue.visible = false # .. ja katoaa näkyvistä testauksen havainnollistamiseksi..
-	alue.process_mode = Node.PROCESS_MODE_DISABLED # .. ja alue menettää toiminnallisuutensa
+	alue.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED) # .. ja alue menettää toiminnallisuutensa
 
 
 ## Haetaan parametrin noden vihollisen nykyinen, eli aktiivinen alue

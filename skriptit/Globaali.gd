@@ -193,7 +193,7 @@ func poista_minecart_tooltipit():
 	for tooltip in tooltipit:
 		if tooltip.get_name().contains("Minecart"):
 			tooltip.visible = false
-			tooltip.process_mode = Node.PROCESS_MODE_DISABLED
+			tooltip.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 
 
 ## Hakee pelin kaikki tooltip-nodet ja lisää ne omaan taulukkoon
@@ -272,9 +272,9 @@ func lisaa_tasot():
 func lisaa_viholliset():
 	for i in uudetViholliset.size(): # Otetaan viholliset niiden arrayn koon mukaan
 		if samassa_tasossa_kuin_pelaaja(uudetViholliset[i]): # Jos pelaaja on samassa tasossa kuin vihollinen ..
-			uudetViholliset[i].process_mode = Node.PROCESS_MODE_INHERIT # ..vihollinen on toiminnassa
+			uudetViholliset[i].set_deferred("process_mode", Node.PROCESS_MODE_INHERIT) # ..vihollinen on toiminnassa
 		else: # Jos ei ole ..
-			uudetViholliset[i].process_mode = Node.PROCESS_MODE_DISABLED # .. vihollinen ei ole toiminnassa
+			uudetViholliset[i].set_deferred("process_mode", Node.PROCESS_MODE_DISABLED) # .. vihollinen ei ole toiminnassa
 
 
 ## Palauttaa totuusarvon siitä, onko pelaaja samassa tasossa kuin annettu node
@@ -614,7 +614,7 @@ func unlock_tutorial(nimi):
 	print("Tutoriaali avattu: " + nimi)
 	for alue in tutoriaali_alueet.get_children(): # Käväistään läpi tutoriaalien unlock-alueet
 		if nimi == alue.name: # Tarkistetaan, että kyseessä on oikea alue
-			#alue.process_mode = Node.PROCESS_MODE_DISABLED # Yrityksenä siis laittaa pois päältä jo napatut alueet, joka ratkaisisi monta ongelmaa
+			#alue.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED) # Yrityksenä siis laittaa pois päältä jo napatut alueet, joka ratkaisisi monta ongelmaa
 			alue.queue_free() # Tuhotaan alueen node, että sen kanssa ei voi enää toimia, ja tämähän ratkaisee ne monta ongelmaa
 
 
