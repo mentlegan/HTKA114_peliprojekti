@@ -1155,8 +1155,6 @@ position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_ffkin")
 
 [connection signal="area_entered" from="keho" to="." method="_on_keho_area_entered"]
-[connection signal="area_exited" from="keho" to="." method="_on_keho_area_exited"]
-[connection signal="body_entered" from="keho" to="." method="_on_keho_body_entered"]
 [connection signal="siirrytty_valoon" from="ValonTarkistus" to="." method="siirrytty_valoon"]
 [connection signal="siirrytty_varjoon" from="ValonTarkistus" to="." method="siirrytty_varjoon"]
 [connection signal="body_entered" from="Huilu" to="." method="_on_huilu_body_entered"]

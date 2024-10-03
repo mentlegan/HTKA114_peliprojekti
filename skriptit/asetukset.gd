@@ -11,6 +11,9 @@ extends Control
 ## Mutenapeille oman ryhmän toiminta, jos sattuu joskus tarvitsemaan
 @onready var mutenapit = get_tree().get_nodes_in_group("mute_napit")
 
+@onready var volume_slider = $TabContainer/Sound/MarginContainer/VBoxContainer/sound_volume/VolumeSlider
+@onready var volume_slider_musiikki = $TabContainer/Sound/MarginContainer/VBoxContainer/sound_musiikki/VolumeSliderMusiikki
+
 ## Haetaan optionbutton, josta voi valita kuvakoon
 @onready var kuvakokoValinta = get_node("TabContainer/Graphics/MarginContainer/VBoxContainer/graphics_kuvakoko/kuvakoko_valikko") as OptionButton
 ## Kuvakokojen valinnat, ja niiden tekstit, tässä määräytyy myös indeksoinnin järjestys, joka tulee kehiin myöhemmin
@@ -50,6 +53,8 @@ func _ready():
 	taytaKuvakokojenValinta()
 	kuvakokoValinta.item_selected.connect(on_window_mode_selected)
 	_luo_toiminto_lista()
+	_on_volume_slider_value_changed(volume_slider.value)
+	_on_volume_music_slider_value_changed(volume_slider_musiikki.value)
 
 
 ##
@@ -58,7 +63,7 @@ func _ready():
 
 ## Volume-sliderin toiminta
 func _on_volume_slider_value_changed(volume_setting):
-	# volume_setting arvo  0 ... 1
+	# volume_setting arvo  0 ... 1,5
 	var volume_db = linear_to_db(volume_setting) # Volume desibeleissä
 	AudioServer.set_bus_volume_db(0, volume_db)
 

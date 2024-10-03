@@ -427,6 +427,15 @@ size = Vector2(37266.5, 13566)
 unique_name_in_owner = true
 process_mode = 3
 
+[node name="PimeysKuolema" type="AnimatedSprite2D" parent="KayttoLiittyma"]
+unique_name_in_owner = true
+process_mode = 1
+position = Vector2(480, 270)
+sprite_frames = SubResource("SpriteFrames_nwmqr")
+animation = &"PimeysKuolema"
+frame = 1
+frame_progress = 0.937554
+
 [node name="Transitio" parent="KayttoLiittyma" instance=ExtResource("7_f6xdr")]
 
 [node name="GameOverRuutu" parent="KayttoLiittyma" groups=["UI"] instance=ExtResource("9_er4wh")]
@@ -448,13 +457,6 @@ visible = false
 
 [node name="Journal" parent="KayttoLiittyma" instance=ExtResource("4_sg152")]
 visible = false
-
-[node name="PimeysKuolema" type="AnimatedSprite2D" parent="KayttoLiittyma"]
-unique_name_in_owner = true
-process_mode = 1
-position = Vector2(480, 270)
-sprite_frames = SubResource("SpriteFrames_nwmqr")
-animation = &"PimeysKuolema"
 
 [node name="AudioJournal" type="AudioStreamPlayer" parent="KayttoLiittyma"]
 unique_name_in_owner = true
@@ -682,7 +684,7 @@ position = Vector2(3390.7, 227.504)
 position = Vector2(2488.01, 746.305)
 
 [node name="Kukka4" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(1907.02, 740.534)
+position = Vector2(1907.01, 747.533)
 
 [node name="Kukka5" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(2065.29, 536.743)

@@ -448,7 +448,7 @@ func keraa_journal():
 
 ## Vaihtaa journalin näkyviin tai piiloon vuorotellen funktiota kutsuessa.
 func toggle_journal(avaa_valosta_riippumatta = false):
-	if not journal_keratty or pauseruutu.visible or gameover_ruutu.visible:
+	if not journal_keratty or pauseruutu.visible or gameover_ruutu.visible or tutoriaali_ruutu.visible:
 		return
 
 	if not avaa_valosta_riippumatta and not pelaaja.valossa and not journal.visible:
@@ -492,7 +492,7 @@ func teleporttaa_pelaaja(paamaara):
 func pausePeli():
 	if gameover_ruutu.visible:
 		return
-
+	
 	#pelaaja.pimeyskuolema.pause()
 	get_tree().paused = true
 	pauseruutu.visible = true
