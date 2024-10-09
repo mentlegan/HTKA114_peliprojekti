@@ -119,7 +119,7 @@ const TALLENNUSTIEDOSTO = "user://save_file.json"
 ## Yleinen ready
 func _ready():
 	# Soitetaan alkuanimatic. Seuraavan rivin voi dokumentoida pois, jos haluaa testata peliä ilman sitä
-	soita_animatic()
+	#soita_animatic()
 	
 	# Signaalikäsittelyä mm. pelaajan kuolemisesta
 	pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
@@ -552,6 +552,7 @@ func nayta_tutorial():
 	tutoriaali_ruutu.visible = true
 	tutorial_paalla = true
 	get_tree().paused = true
+	tutoriaali_ruutu.poista_merkinta()
 
 
 ## Sulkee tutoriaalin

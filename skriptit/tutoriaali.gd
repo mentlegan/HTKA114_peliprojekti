@@ -1,8 +1,14 @@
-## Harri 26.9.2024
 ## Käsittelee tutoriaaliruudun tapahtumia
+## Harri 9.10.2024
+## Huutomerkki ei-luetun aiheen kohdalle
+## Darkness-aihe avataan heti pelin alussa
+## Kun aihe avataan, se näyttäytyy heti ruudulle, kun tutorial-ruutu avataan
+## Listaa levenetty hieman tämän takia
+## Kuvia keskitetty hieman, koska se ilmeisesti näytti jotenkin oudolta
 ## TODO: kontrollit vielä lisätä teksteineen kansionrakenteeseen
 ## TODO: värikoodaus ja muu tekstin muotoilu, vähän kuten journalissa nyt on
 ## TODO: näppäimistökontrollit
+## TODO: tähän ei varmaan ole fixiä, mutta itemlist ei osaa visuaalisesti vaihtaa valintaansa, jos se tehdään koodissa. Eli jos painellaan hiirellä valintoja, ja koodissa vaihdetaan listan valinta, se ei näytä siltä käyttöliittymässä
 
 extends Control
 
@@ -11,7 +17,7 @@ var aiheet = [] ## Tyhjä lista tutoriaaliaiheista, mikä myöhemmin määräyty
 var sivumaara = 1 ## Vakiona sivumäärä on 1..
 var sivu = 1 ## .. ja sivujakin on vain 1
 var aihekansioiden_polku = "res://tutoriaali/" ## Aihekansioiden polku vähän enemmän suomen kielellä
-var valittu_aihe = "Tutorial/" ## Vakio aihe on ensimmäisenä avattu
+var valittu_aihe = "Darkness/" ## Vakio aihe on ensimmäisenä avattu
 var tekstitiedostojen_polku = aihekansioiden_polku + valittu_aihe + "tekstitiedostot/" ## Kerrotaan tekstitiedostojen polku suomeksi
 var kuvatiedostojen_polku = aihekansioiden_polku + valittu_aihe + "kuvat/" ## Otetaan kuvatiedostojen polku
 
@@ -25,7 +31,8 @@ var kuvatiedostojen_polku = aihekansioiden_polku + valittu_aihe + "kuvat/" ## Ot
 ## Ready tapahtuu, kun scene avautuu
 func _ready():
 	#aiheet = luo_tiedostolista(aihekansioiden_polku) # Luo tutoriaalin aiheista listan kansioiden mukaan
-	aiheet.append("Tutorial") # Lisätään vakiodata, eli tutoriaalin tutoriaali listaan
+	aiheet.append("Darkness") # Lisätään vakiodata
+	aiheet.append("Tutorial")
 	luo_valikko() # Luo valikon valinnat aiheiden mukaan
 	muokkaa_valikkoa() # Muokkaa valikon nappuloita ja grafiikkaa aiheen sivujen mukaisesti
 	vaihda_sivua() # Vaihtaa sivun automaattisesti vakioiden mukaan
@@ -81,7 +88,7 @@ func luo_tiedostolista(polku) -> Array:
 func luo_valikko():
 	nappilista.clear() # Ensin puhdistetaan nappivalikko, ettei referenssidata jää sinne
 	for kansion_nimi in aiheet: # Käydään tutoriaaliaiheet läpi
-		nappilista.add_item(kansion_nimi,null,true) # Luodaan itemlistin valikkoon lista aiheesta
+		nappilista.add_item(kansion_nimi + " !",null,true) # Luodaan itemlistin valikkoon aihe
 
 
 ## Päivittää listaan nimen mukaisen aiheen. Kevyempi funktio kuin luo_valikko
@@ -92,12 +99,33 @@ func paivita_valikko(nimi):
 			return # ..keskeytetään funktio
 	aiheet.append(nimi) # Lisätään aihe taulukkoon
 	nappilista.add_item(nimi,null,true) # Lisätään aihe myös valikon listaan
+	valittu_aihe = nimi + "/" # Säädetään avattu tutoriaali valituksi aiheeksi
+	var koko = nappilista.get_item_count() # Otetaan itemlistin pituus
+	for i in koko: # Iteroidaan itemlistin valinnat läpi, koska itemlist toimii indekseillä
+		if nappilista.get_item_text(i) == nimi: # Jos valinnan nimi vastaa avatun tutoriaalin nimeä
+			valitse_aihe(i) # Asetetaan avattu aihe valituksi listasta, että se avautuu heti
+	nappilista.set_item_text(koko-1,aiheet[koko-1] + " !") # Lisätään huutomerkki lukemattoman perään
+
+
+## Poistaa luettu-merkinnän ("!") nykyisestä aiheesta
+## Aktivoituu, kun tutorial-ruutu avataan. Valittu aihe muuttuu, kun pelaaja avaa uuden tutoriaalin
+## Eli jos pelaaja avaa tutorial-ruudun, ja hänellä on vasta avattu uusi aihe, merkitään se aihe listasta luetuksi
+func poista_merkinta():
+	var nimi = valittu_aihe.rstrip("/") + " !" # Muokataan valittu_aihe muuttuja tähän funktioon sopivaksi
+	for i in nappilista.get_item_count(): # Iteroidaan itemlistin valinnat läpi
+		if nappilista.get_item_text(i) == nimi: # Jos itemlistin valinta vastaa valitun aiheen nimeä huutomerkillä..
+			nappilista.set_item_text(i,nimi.rstrip(" !")) # ..poistetaan huutomerkki
 
 
 ## Valintalistan toimintaa
 ## param index: valintalistan kohteen indeksi 0-n eli visuaalisesti ylhäältä alas
-## TODO: tänne vielä kuvat
 func _on_item_list_item_selected(index: int):
+	valitse_aihe(index)
+
+
+## Valitaan aihe valintalistan mukaan
+## param index: valintalistan kohteen indeksi
+func valitse_aihe(index):
 	# Luetaan ja kirjoitetaan tekstitiedoston sisältö tutoriaalisivun tekstikenttään
 	# Eli kutsutaan tekstinlukufunktiota ensin polulla, sitten aiheella ja sitten tiedostonnimellä, eli sivulla
 	# Esimerkiksi: lue_teksti_tiedosto("res://tutoriaalit/tekstitiedostot/Checkpoint/" + sivu1.txt
@@ -106,9 +134,10 @@ func _on_item_list_item_selected(index: int):
 	sivumaara = laske_tiedostot(tekstitiedostojen_polku) # Lasketaan, että kuinka monta tekstitiedostosivua on jokaisessa aiheessa
 	kuvatiedostojen_polku = aihekansioiden_polku + valittu_aihe + "kuvat/" # Päivitetään kuvatiedostojen polku
 	tutoriaaliteksti.text = lue_teksti_tiedosto(tekstitiedostojen_polku + "sivu1.txt") # Vaihdetaan tutoriaalisivun teksti jo silloin, kuin aihe vaihtuu
-	muokkaa_kuvat(1)
+	muokkaa_kuvat(1) # Otetaan kuvien ensimmäinen sivu
 	muokkaa_valikkoa() # Muokkaa valikon sivumäärän mukaan
 	vaihda_sivua() # Vaihtaa sivua nuolen mukaiseen suuntaan 1-3 välillä
+	nappilista.set_item_text(index,aiheet[index])
 
 
 ## Laskee, että montako tiedostoa polun kansiossa on
@@ -137,6 +166,7 @@ func lue_teksti_tiedosto(file) -> String:
 func muokkaa_kuvat(sivunumero):
 	var s = str(sivunumero) # Sivunumero merkkijonoksi käsittelyä varten
 	var sivujen_maara = laske_tiedostot(kuvatiedostojen_polku) # Lasketaan, että montako sivua on laitettu aiheeseen
+	@warning_ignore("integer_division")
 	var kuvamaara = laske_tiedostot(kuvatiedostojen_polku + "sivu"+s+"/") / 2 # Jaetaan kuvatiedostojen määrä kahdella import-tiedostojen takia
 	for kuva in tutoriaalikuva_nodet: # Laitetaan aina vakiona kuvien skaala hieman pienemmäksi
 		kuva.scale = Vector2(0.4, 0.4)
