@@ -941,8 +941,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("painike_vasen") and (
 		hiiri_kaytossa or tahtain.visible
 	):
-		# Tällä hetkellä 2 maksimissaan
-		if Globaali.nykyiset_pallot < 2 and Globaali.palloja > 0 and not vedessa:
+		# Tällä hetkellä 2 maksimissaan, Globaali.nykyiset_pallot < 2
+		if Globaali.palloja > 0 and not vedessa:
 			# Valon synnyttäminen
 			var l = valopallo.instantiate()
 			# Liikkuminen valon scriptissä
@@ -1069,8 +1069,8 @@ func aseta_ui_nakyvyys(nakyvissa):
 ## Palauttaa pelaajan JSON-tiedostoon tallennettavat muuttujat
 func tallenna():
 	return {
-		"polku": get_scene_file_path(), 		# Pakollinen
-		"vanhempi": get_parent().get_path(),	# Pakollinen
+		"polku": get_scene_file_path(), # Pakollinen
+		"vanhempi": get_parent().get_path(), # Pakollinen
 
 		# Loput arvot riippuvat nodesta.
 
