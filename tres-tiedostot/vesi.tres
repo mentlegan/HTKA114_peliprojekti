@@ -5,15 +5,5 @@
 
 [resource]
 shader = ExtResource("1_rl0cq")
-shader_parameter/nopeus = 0.05
-shader_parameter/aaltojen_nopeus = 0.9
-shader_parameter/aaltojen_leveys = 0.2
-shader_parameter/aaltojen_etaisyys = 0.1
-shader_parameter/aaltojen_kirkkaus = 0.2
-shader_parameter/voimakkuus_x = 0.007
-shader_parameter/voimakkuus_y = 0.01
-shader_parameter/hohtava_vesi = false
-shader_parameter/epaselva_vesi = false
-shader_parameter/veden_vari = Vector4(0.1, 0.1, 0.4, 0.2)
 shader_parameter/vedenpinta = true
 shader_parameter/noise = ExtResource("2_ic2xx")

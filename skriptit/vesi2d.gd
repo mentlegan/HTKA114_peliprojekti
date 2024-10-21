@@ -52,14 +52,13 @@ func _ready():
 				# ja asetetaan sille tyhjä CanvasTexture
 				sprite2d.set_texture(canvas_texture)
 				sprite2d.set_region_enabled(true)
-				sprite2d.set_region_rect(Rect2(0, 0, 1, 1))
+				sprite2d.set_region_rect(Rect2(0, 0, lapsi.shape.size.x, lapsi.shape.size.y))
 				sprite2d.light_mask = 0
 				sprite2d.set_z_index(20)
 				sprite2d.set_material(vesi_shader)
 				sprite2d.position = lapsi.position
-				sprite2d.scale = lapsi.shape.size
 
-				pointlight.scale = sprite2d.scale
+				pointlight.scale = lapsi.shape.size
 				pointlight.position = sprite2d.position
 
 				self.add_child(sprite2d)
@@ -157,10 +156,16 @@ func aseta_vedenpinta(korkeus: float):
 		tween.tween_property(obj["collision_shape"], "global_position:y", uusi_sijainti, animaation_kesto)
 
 		tween.tween_property(obj["sprite2d"], "global_position:y", uusi_sijainti, animaation_kesto)
-		tween.tween_property(obj["sprite2d"], "scale:y", uusi_korkeus, animaation_kesto)
+		tween.tween_property(obj["sprite2d"], "region_rect:size:y", uusi_korkeus, animaation_kesto)
 
 		tween.tween_property(obj["pointlight"], "global_position:y", uusi_sijainti, animaation_kesto)
 		tween.tween_property(obj["pointlight"], "scale:y", uusi_korkeus, animaation_kesto)
 
 		for lumme in obj["lumpeet"]:
 			tween.tween_property(lumme, "global_position:y", obj_vedenpinta, animaation_kesto)
+		
+		tween.set_parallel(false)
+		tween.tween_callback(func():
+			print_debug(obj["sprite2d"].global_position)
+			print_debug(obj["pointlight"].global_position)
+		)
