@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://u0o5quv7kir7"]
+[gd_scene load_steps=8 format=3 uid="uid://u0o5quv7kir7"]
 
 [ext_resource type="Script" path="res://skriptit/potionin_osa.gd" id="1_38ns5"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="2_bi1b5"]
-[ext_resource type="AudioStream" uid="uid://dvwbwcrvo52mw" path="res://audio/other/kilahdus.mp3" id="3_de376"]
+[ext_resource type="AudioStream" uid="uid://c13i0le524bpm" path="res://audio/other/kilahdus.mp3" id="3_de376"]
+[ext_resource type="Texture2D" uid="uid://dh3vdfbsl5o65" path="res://addons/rmsmartshape/assets/icon_editor_handle_selected.svg" id="4_2duo7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nd4xt"]
-size = Vector2(52, 108)
+size = Vector2(50, 50)
 
 [sub_resource type="Gradient" id="Gradient_yinkj"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -22,15 +23,17 @@ collision_mask = 0
 script = ExtResource("1_38ns5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_nd4xt")
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-blend_mode = 2
-texture = SubResource("GradientTexture2D_mbhqf")
 
 [node name="AudioPotioninOsa" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_de376")
 volume_db = 24.0
 pitch_scale = 0.8
 bus = &"Kaiku"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+blend_mode = 2
+texture = SubResource("GradientTexture2D_mbhqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_2duo7")

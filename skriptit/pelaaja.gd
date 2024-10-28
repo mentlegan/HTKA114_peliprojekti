@@ -269,7 +269,7 @@ func _ready():
 	)
 	
 	# Asetetaan äänen taajuus yhdeksi
-	vaihda_aanen_taajuutta(-1)
+	#vaihda_aanen_taajuutta(-1)
 	aanen_taajuus_sprite.visible = false
 	
 	# Laitetaan huilun collisionit pois päältä

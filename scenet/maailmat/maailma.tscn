@@ -1,4 +1,4 @@
-[gd_scene load_steps=168 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=167 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
@@ -92,7 +92,6 @@
 [ext_resource type="PackedScene" uid="uid://b7j5ln7go4it4" path="res://scenet/lumme_juureton.tscn" id="88_m1e04"]
 [ext_resource type="PackedScene" uid="uid://d3275w50mg1i2" path="res://scenet/lumme_juurella.tscn" id="88_qbkop"]
 [ext_resource type="PackedScene" uid="uid://u0o5quv7kir7" path="res://scenet/potionin_osa.tscn" id="90_e0hgj"]
-[ext_resource type="Texture2D" uid="uid://dh3vdfbsl5o65" path="res://addons/rmsmartshape/assets/icon_editor_handle_selected.svg" id="91_20a3b"]
 [ext_resource type="Resource" uid="uid://cam0dd1dlekqi" path="res://tres-tiedostot/smart_shape_tiili_taso2.tres" id="94_1e3xs"]
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="94_mc8su"]
 [ext_resource type="PackedScene" uid="uid://gcmk6sen85wg" path="res://scenet/isompi_valo.tscn" id="96_e2yjn"]
@@ -581,7 +580,7 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1339, 819)
+position = Vector2(1332, 821)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -2618,7 +2617,7 @@ position = Vector2(2785, -223)
 texture = ExtResource("56_13vko")
 
 [node name="Ruohoa" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
-position = Vector2(2289, 742)
+position = Vector2(2289, 743)
 texture = ExtResource("56_13vko")
 
 [node name="Ruohoa14" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
@@ -3491,7 +3490,7 @@ polygon = PackedVector2Array(15776.9, 5145.79, 15820.9, 5107.84, 15840.9, 5071.8
 
 [node name="Polygon2D5" type="Polygon2D" parent="Taso2/TiiletTaso2"]
 position = Vector2(0, 1442)
-polygon = PackedVector2Array(-875, 3118, -1328, 3271, -1531, 3855, -1568, 4474, -1104, 5058, -847, 5336, -28, 5691, 806, 5729, 1818, 5742, 2846, 5788, 3177, 5466, 3129, 4929, 2648, 4890, 2584, 4854, 2583, 4888, 2570, 4931, 2589, 4957, 2609, 4990, 2622, 5042, 2611, 5065, 2590, 5077, 2394, 5079, 1902, 5042, 1851, 5043, 1815, 5023, 1777, 5006, 1746, 5005, 1735, 5017, 1733, 5037, 1739, 5055, 1760, 5072, 1770, 5097, 1787, 5152, 1801, 5237, 1792, 5285, 1792, 5346, 1744, 5419, 1513, 5444, 1018, 5403, 943, 5325, 922, 5272, 914, 5214, 907, 5187, 896, 5151, 864, 5102, 830, 5079, 733, 5060, 44, 5081, -25, 5046, -56, 5008, -97, 4937, -101, 4918, -107, 4907, -113, 4905, -128, 4904, -171, 4903, -210, 4900, -349, 4903, -397, 4901, -421, 4861, -427, 4822, -422, 4790, -413, 4748, -364, 4744, -285, 4755, -243, 4760, -175, 4774, -98, 4791, -42, 4823, 28, 4861, 97, 4890, 135, 4903, 182, 4900, 226, 4919, 262, 4922, 262, 4869, 233, 4814, 155, 4708, 64, 4593, 2, 4535, -81, 4508, -215, 4498, -323, 4503, -424, 4500, -443, 4453, -434, 4417, -419, 4379, -392, 4372, -257, 4354, -28, 4354, 80, 4424, 145, 4500, 192, 4492, 232, 4438, 249, 4356, 227, 4272, 226, 4236, 214, 4206, 30, 4172, 6, 4131, -39, 4092, -219, 4057, -335, 4094, -672, 4147, -688, 4159, -678, 4177, -658, 4189, -644, 4205, -636, 4253, -632, 4285, -640, 4331, -709, 4348, -766, 4366, -923, 4358, -966, 4344, -1000, 4315, -995, 4266, -973, 4204, -943, 4158, -916, 4109, -896, 4090, -858, 4063, -818, 4062, -789, 4053, -614, 4016, -539, 4001, -491, 3994, -409, 3991, -307, 3948, -268, 3941, -229, 3961, 137, 3999, 268, 4048, 301, 4049, 320, 4035, 326, 4003, 409, 3898, 544, 3810, 701, 3762, 852, 3717, 961, 3709, 1047, 3724, 1142, 3706, 1202, 3723, 1253, 3743, 1359, 3724, 1434, 3713, 1506, 3676, 1600, 3695, 1648, 3719, 1699, 3748, 1729, 3747, 1785, 3710, 1877, 3708, 1986, 3701, 2037, 3749, 2052, 3808, 2028, 3862, 1950, 3854, 1856, 3841, 1836, 3835, 1804, 3844, 1797, 3852, 1806, 3866, 1820, 3878, 1829, 3894, 1832, 3931, 1850, 4055, 1825, 4101, 1695, 4133, 1327, 4109, 1096, 4103, 940, 4088, 861, 3947, 848, 3910, 844, 3893, 825, 3892, 752, 3906, 612, 3956, 555, 3968, 521, 3990, 508, 4007, 506, 4034, 504, 4156, 489, 4203, 431, 4299, 416, 4462, 364, 4552, 299, 4584, 257, 4613, 242, 4637, 260, 4661, 291, 4679, 349, 4798, 358, 4869, 415, 4919, 533, 4914, 625, 4866, 774, 4872, 986, 4905, 1052, 4927, 1113, 4903, 1144, 4854, 1158, 4797, 1164, 4755, 1189, 4715, 1223, 4700, 1411, 4679, 1469, 4644, 1474, 4618, 1444, 4609, 1406, 4611, 1336, 4607, 1240, 4602, 1197, 4598, 1188, 4558, 1192, 4501, 1228, 4486, 1313, 4443, 1427, 4453, 1531, 4454, 1634, 4470, 1676, 4466, 1787, 4523, 1830, 4524, 1868, 4529, 1912, 4520, 2048, 4550, 2082, 4657, 2127, 4763, 2143, 4748, 2166, 4720, 2195, 4691, 2226, 4677, 2302, 4679, 2341, 4695, 2385, 4703, 2444, 4730, 2466, 4762, 2469, 4804, 2453, 4836, 2393, 4822, 2365, 4800, 2307, 4782, 2287, 4801, 2300, 4817, 2308, 4836, 2326, 4855, 2343, 4895, 2379, 4898, 2468, 4920, 2513, 4926, 2536, 4934, 3074, 4912, 3023, 4730, 2633, 4263, 2913, 3602, 2948, 2917, 1900, 2896, 962, 2927, -10, 3113)
+polygon = PackedVector2Array(-875, 3118, -1328, 3271, -1531, 3855, -1568, 4474, -1104, 5058, -847, 5336, -28, 5691, 806, 5729, 1818, 5742, 2846, 5788, 3177, 5466, 3129, 4929, 2648, 4890, 2584, 4854, 2583, 4888, 2570, 4931, 2589, 4957, 2609, 4990, 2622, 5042, 2611, 5065, 2590, 5077, 2394, 5079, 1902, 5042, 1851, 5043, 1815, 5023, 1777, 5006, 1746, 5005, 1735, 5017, 1733, 5037, 1739, 5055, 1760, 5072, 1770, 5097, 1787, 5152, 1801, 5237, 1792, 5285, 1792, 5346, 1744, 5419, 1513, 5444, 1018, 5403, 943, 5325, 922, 5272, 914, 5214, 907, 5187, 896, 5151, 864, 5102, 830, 5079, 733, 5060, 44, 5081, -25, 5046, -56, 5008, -97, 4937, -101, 4918, -107, 4907, -113, 4905, -128, 4904, -171, 4903, -210, 4900, -349, 4903, -397, 4901, -421, 4861, -427, 4822, -422, 4790, -413, 4748, -364, 4744, -285, 4755, -243, 4760, -175, 4774, -98, 4791, -42, 4823, 28, 4861, 97, 4890, 135, 4903, 182, 4900, 226, 4919, 262, 4922, 262, 4869, 233, 4814, 155, 4708, 64, 4593, 2, 4535, -81, 4508, -215, 4498, -323, 4503, -424, 4500, -443, 4453, -434, 4417, -419, 4379, -392, 4372, -257, 4354, -28, 4354, 80, 4424, 145, 4500, 192, 4492, 232, 4438, 249, 4356, 227, 4272, 226, 4236, 214, 4206, 30, 4172, 6, 4131, -39, 4092, -219, 4057, -335, 4094, -672, 4147, -688, 4159, -678, 4177, -658, 4189, -644, 4205, -636, 4253, -632, 4285, -640, 4331, -709, 4348, -766, 4366, -923, 4358, -966, 4344, -1000, 4315, -995, 4266, -973, 4204, -943, 4158, -916, 4109, -896, 4090, -858, 4063, -818, 4062, -789, 4053, -614, 4016, -539, 4001, -491, 3994, -409, 3991, -307, 3948, -268, 3941, -229, 3961, 137, 3999, 268, 4048, 301, 4049, 320, 4035, 326, 4003, 409, 3898, 544, 3810, 701, 3762, 852, 3717, 961, 3709, 1047, 3724, 1142, 3706, 1202, 3723, 1253, 3743, 1359, 3724, 1434, 3713, 1506, 3676, 1600, 3695, 1648, 3719, 1699, 3748, 1729, 3747, 1785, 3710, 1877, 3708, 1986, 3701, 2037, 3749, 2052, 3808, 2028, 3862, 1950, 3854, 1856, 3841, 1836, 3835, 1804, 3844, 1797, 3852, 1806, 3866, 1820, 3878, 1829, 3894, 1832, 3931, 1850, 4055, 1825, 4101, 1695, 4133, 1327, 4109, 1096, 4103, 940, 4088, 861, 3947, 848, 3910, 844, 3893, 825, 3892, 752, 3906, 612, 3956, 555, 3968, 521, 3990, 508, 4007, 506, 4034, 504, 4156, 489, 4203, 431, 4299, 416, 4462, 364, 4552, 299, 4584, 257, 4613, 242, 4637, 260, 4661, 291, 4679, 349, 4798, 358, 4869, 415, 4919, 533, 4914, 625, 4866, 774, 4872, 986, 4905, 1052, 4927, 1113, 4903, 1144, 4854, 1158, 4797, 1164, 4755, 1189, 4715, 1223, 4700, 1411, 4679, 1469, 4644, 1474, 4618, 1444, 4609, 1406, 4611, 1336, 4607, 1240, 4602, 1197, 4598, 1188, 4558, 1192, 4501, 1228, 4486, 1313, 4443, 1427, 4453, 1531, 4454, 1634, 4470, 1676, 4466, 1787, 4523, 1830, 4524, 1868, 4529, 1912, 4520, 2048, 4550, 2082, 4657, 2127, 4763, 2143, 4748, 2166, 4720, 2195, 4691, 2226, 4677, 2302, 4679, 2341, 4695, 2385, 4703, 2444, 4730, 2466, 4762, 2469, 4804, 2453, 4836, 2393, 4822, 2365, 4800, 2307, 4782, 2295, 4801, 2300, 4817, 2308, 4836, 2326, 4855, 2343, 4895, 2379, 4898, 2468, 4920, 2513, 4926, 2536, 4934, 3074, 4912, 3023, 4730, 2633, 4263, 2913, 3602, 2948, 2917, 1900, 2896, 962, 2927, -10, 3113)
 
 [node name="Polygon2D7" type="Polygon2D" parent="Taso2/TiiletTaso2"]
 position = Vector2(-14584, 1334)
@@ -3809,7 +3808,7 @@ position = Vector2(-910, 5769)
 rotation = 0.0654187
 
 [node name="Pomppusieni3" parent="Taso2/Muuta" instance=ExtResource("82_imok5")]
-position = Vector2(2236, 6480)
+position = Vector2(2236, 6481)
 rotation = 0.0665975
 
 [node name="Pomppusieni" parent="Taso2/Muuta" instance=ExtResource("82_imok5")]
@@ -4347,78 +4346,45 @@ rotation = -0.0154471
 [node name="PotioninOsa" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
 position = Vector2(-381, 6298)
 
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa"]
-texture = ExtResource("91_20a3b")
-
 [node name="PotioninOsa2" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
 position = Vector2(-356, 6299)
 rotation = 0.0980684
-
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa2"]
-texture = ExtResource("91_20a3b")
 
 [node name="PotioninOsa7" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
 position = Vector2(2413, 6253)
 rotation = 0.000830598
 
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa7"]
-texture = ExtResource("91_20a3b")
-
 [node name="PotioninOsa4" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
 position = Vector2(-739, 5775)
 rotation = -0.0369931
-
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa4"]
-texture = ExtResource("91_20a3b")
 
 [node name="PotioninOsa6" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
 position = Vector2(-780, 5776)
 rotation = -0.0690685
 
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa6"]
-texture = ExtResource("91_20a3b")
-
 [node name="PotioninOsa5" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
-position = Vector2(-654, 5759)
+position = Vector2(-654, 5755)
 rotation = -0.0330394
 
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa5"]
-texture = ExtResource("91_20a3b")
-
 [node name="PotioninOsa8" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
-position = Vector2(1937, 5277)
+position = Vector2(1937, 5266)
 rotation = -0.0369931
 
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa8"]
-texture = ExtResource("91_20a3b")
-
 [node name="PotioninOsa9" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
-position = Vector2(1981, 5281)
+position = Vector2(1981, 5275)
 rotation = 0.215042
-
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa9"]
-texture = ExtResource("91_20a3b")
 
 [node name="PotioninOsa3" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
 position = Vector2(1588, 6317)
 rotation = 0.0706898
 
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa3"]
-texture = ExtResource("91_20a3b")
-
 [node name="PotioninOsa10" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
 position = Vector2(1290, 6027)
 rotation = 0.00765381
 
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa10"]
-texture = ExtResource("91_20a3b")
-
 [node name="PotioninOsa11" parent="Taso2/PotioninOsatTaso2" instance=ExtResource("90_e0hgj")]
 position = Vector2(1233, 6021)
 rotation = 0.0706898
-
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/PotioninOsatTaso2/PotioninOsa11"]
-texture = ExtResource("91_20a3b")
 
 [node name="OnkoPelaajaTaso2" type="Area2D" parent="Taso2"]
 visible = false

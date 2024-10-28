@@ -1,10 +1,10 @@
-extends StaticBody2D
+extends Node2D
 ## Pomppusieni toiminnallisuus
 ## TODO: Velocityn muuttaminen, jos huilulla soittaa
 ## TODO: Saattaa mennä rikki, jos hyppää liian korkealta
-## TODO: putoamisvahingon muuttaminen, jotta toimii pomppusienien kanssa
+## 28.10.2024 muutettu, että ajastimen mukaan menee normaaliin tilaan
 ## Putoamishuippu pitäisi varmaan ottaa pelaajaskriptissä silloin, kun velocity.y > 0
-# Juuso 23.9.2024
+# Juuso 28.10.2024
 
 @onready var raycasts = $Raycasts
 var raycast_offset = 12
@@ -53,21 +53,40 @@ func _on_huilu_area_entered(area) -> void:
 	if area is Huilu and area.aanen_taajuus == 1:
 		if not area.osuu_terrainiin(self):
 			# Vaihtaa seuraavaan hyppy voimaan, jos ei löytynyt nykyistä -> asettaa ensimmäiseen
-			nykyinen_voima = pomppu_voimat[(pomppu_voimat.find(nykyinen_voima) + 1) % pomppu_voimat.size()]
-			if nykyinen_voima == pomppu_voimat[0]:
-				anim_sprite.play("pomppu_pieni")
-				raycasts.position.y += raycast_offset
-			else:
-				anim_sprite.play("pomppu_iso")
-				raycasts.position.y = 0
+			#nykyinen_voima = pomppu_voimat[(pomppu_voimat.find(nykyinen_voima) + 1) % pomppu_voimat.size()]
+			#if nykyinen_voima == pomppu_voimat[0]:
+				#anim_sprite.play("pomppu_pieni")
+				#raycasts.position.y += raycast_offset
+			#else:
+			anim_sprite.play("pomppu_iso")
 			soitaAani()
+			# Timeri alkaa alusta, jos soittaa jo aktivoituun
+			$TimerReset.start()
+			if nykyinen_voima == pomppu_voimat[1]:
+				return
+			nykyinen_voima = pomppu_voimat[1]
+			raycasts.position.y = 0
+			#soitaAani()
 			# Asetetaan labeliin nykyinen voima havainnollistamiseksi
-			label_voima.text = str(nykyinen_voima)
+			#label_voima.text = str(nykyinen_voima)
 
 
 func _on_animation_finished() -> void:
 	anim_sprite.stop()
 	anim_sprite.frame = 0
+
+
+func soitaAani():
+	if not audio_pomppusieni.playing:
+		audio_pomppusieni.play();
+
+
+## Resetoi pomppusienen 5 sekunnin jälkeen, kun aktivoitu huilulla
+func _on_timer_reset_timeout() -> void:
+	nykyinen_voima = pomppu_voimat[0]
+	anim_sprite.play("pomppu_pieni")
+	raycasts.position.y = raycast_offset
+	soitaAani()
 
 
 func _process(_delta):
@@ -86,8 +105,3 @@ func _process(_delta):
 				player.putoamis_vahinko = false
 				#print(player.velocity.y)
 				break
-
-
-func soitaAani():
-	if not audio_pomppusieni.playing:
-		audio_pomppusieni.play();
