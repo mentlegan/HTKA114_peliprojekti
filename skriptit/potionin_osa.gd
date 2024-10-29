@@ -28,9 +28,9 @@ func _ready():
 	await get_tree().create_timer(randf_range(0, 1)).timeout
 	var tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_loops(0)
 	tween.tween_property(self, "global_position:y", starting_y + randi_range(-10, -15), 
-		ANIMAATION_KESTO + randf_range(-0.5, 0.5)).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		ANIMAATION_KESTO + randf_range(-0.5, 0)).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "global_position:y", starting_y + randi_range(0, 5), 
-		ANIMAATION_KESTO + randf_range(-0.5, 0.5)).set_ease(Tween.EASE_OUT)
+		ANIMAATION_KESTO + randf_range(-0.5, 0)).set_ease(Tween.EASE_OUT)
 
 
 ## Kerää ja tuhoaa osan. Palauttaa, kuinka monta osaa on vielä keräämättä.

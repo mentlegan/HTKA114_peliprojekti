@@ -3556,7 +3556,7 @@ position = Vector2(-821, 5788)
 rotation = 0.0284185
 
 [node name="Kukka12" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
-position = Vector2(1686, 6081)
+position = Vector2(1686, 6079)
 rotation = -0.149045
 
 [node name="Kukka18" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]

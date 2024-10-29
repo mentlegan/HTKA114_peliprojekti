@@ -18,10 +18,7 @@ func _on_body_entered(body):
 		Globaali.pelaaja_aloitus = self.global_position
 		aktivoitu = true
 		$AnimatedSprite2D.play("activate")
-		var tween = create_tween()
-		tween.set_trans(Tween.TRANS_CUBIC)
-		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.set_parallel(true)
+		var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT).set_parallel(true)
 		tween.tween_property($Area2D/PointLight2D, "texture_scale", 3, 2)
 		tween.tween_property($Area2D/CollisionShape2D, "scale", Vector2(3, 3), 2)
 		tween.tween_property($Area2D/PointLight2D, "energy", 1.2, 2)
