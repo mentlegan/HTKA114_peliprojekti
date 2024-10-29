@@ -31,6 +31,7 @@ var soitetaan_animatic
 
 ## Pelaajan taso2 ja taso3 koordinaatit teleporttaamiseen
 ## Kentan 1 loppu mukaan minecart tp varten
+@onready var pelaaja_taso1 = get_node("/root/Maailma/%Muuta/%Taso1Teleport").position
 @onready var pelaaja_taso2 = get_node("/root/Maailma/%Muuta/%Taso2Teleport").position
 @onready var pelaaja_taso3 = get_node("/root/Maailma/%Muuta/%Taso3Teleport").position
 @onready var pelaaja_taso45 = get_node("/root/Maailma/%Muuta/%Taso45Teleport").position
@@ -109,6 +110,8 @@ var tausta2_node
 ## Totuusarvo journalin aktivoimiselle ja minecartin käytölle
 var journal_keratty = false
 var minecart_kaytetty = false
+## Onko pimeyskuolema päällä, ei ole tutoriaalissa
+var pimeyskuolema_paalla = false
 
 # Pelin tallennustiedosto
 # Sijainti: %APPDATA%\Godot\app_userdata\Beneath the Mines\save_file.json
@@ -319,8 +322,12 @@ func aseta_indikaattorit_nakyviin(rect: Rect2):
 ## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process
 ## Kutsutaan vain kun painetaan jotain
 func _input(_event: InputEvent) -> void:
+	# PC F1
+	if Input.is_action_just_pressed("taso1"):
+		teleporttaa_pelaaja(pelaaja_taso1)
+	
 	# PC F2
-	if Input.is_action_just_pressed("taso2"):
+	elif Input.is_action_just_pressed("taso2"):
 		"""
 		ovet = Array()
 		# Hyvin scuffed tapa, mutta toimii (kait?)
@@ -332,30 +339,30 @@ func _input(_event: InputEvent) -> void:
 		teleporttaa_pelaaja(pelaaja_taso2)
 	
 	# PC F3
-	if Input.is_action_just_pressed("taso3"):
+	elif Input.is_action_just_pressed("taso3"):
 		teleporttaa_pelaaja(pelaaja_taso3)
 		# get_node("/root/@Node2D@65").queue_free() # Poistetaan duplikoitu maailma2
 	
 	# PC F4
-	if Input.is_action_just_pressed("taso45"):
+	elif Input.is_action_just_pressed("taso45"):
 		teleporttaa_pelaaja(pelaaja_taso45)
 	
 	# PC F6
-	if Input.is_action_just_pressed("vesitutoriaaliennen"):
+	elif Input.is_action_just_pressed("vesitutoriaaliennen"):
 		teleporttaa_pelaaja(pelaaja_vesitutoriaali_ennen)
 	
 	# PC F7
-	if Input.is_action_just_pressed("vesitutoriaali"):
+	elif Input.is_action_just_pressed("vesitutoriaali"):
 		teleporttaa_pelaaja(pelaaja_vesitutoriaali)
 	
 	# PC F9, koska F8 on quit
-	if Input.is_action_just_pressed("vesitutoriaalilapi"):
+	elif Input.is_action_just_pressed("vesitutoriaalilapi"):
 		teleporttaa_pelaaja(pelaaja_vesitutoriaalilapi)
 	
 	# Pelin keskeytys
 	# PC ESCAPE
 	# PS4/PS5 OPTIONS
-	if Input.is_action_just_pressed("pause"):
+	elif Input.is_action_just_pressed("pause"):
 		if get_tree().paused == false:
 			pausePeli()
 			# Asetetaan inputti "syödyksi", sitä ei käsitellä enää missään muualla

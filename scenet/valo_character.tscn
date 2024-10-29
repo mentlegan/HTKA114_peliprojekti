@@ -36,7 +36,7 @@ color = Color(0.971574, 0.871545, 0.66419, 1)
 energy = 2.0
 blend_mode = 2
 shadow_enabled = true
-shadow_filter = 1
+shadow_filter = 2
 texture = ExtResource("2_kid4c")
 height = 60.0
 
@@ -46,7 +46,7 @@ energy = 2.0
 blend_mode = 2
 range_item_cull_mask = 2
 shadow_enabled = true
-shadow_filter = 1
+shadow_filter = 2
 texture = ExtResource("2_kid4c")
 height = 60.0
 

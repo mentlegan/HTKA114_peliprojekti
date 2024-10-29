@@ -65,6 +65,8 @@ var valossa = false
 ## Näyttöä pimentävät valot
 @onready var pimea_valo = $PimeaValo
 @onready var reunojen_pimentaja_valo = $ReunojenPimentajaValo
+## Reunaa valaiseva
+@onready var reuna_valo = $ReunaValo
 
 ## Huilu, äänen taajuuden sprite ja niiden ajastimet
 @onready var huilu = $Huilu
@@ -451,10 +453,10 @@ func paivita_tahtaimen_lentorata():
 
 ## Kun siirrytään varjoon, aloitetaan ajastin
 func siirrytty_varjoon():
-	# Ohitetaan, jos ollaan vedessä
-	if vedessa:
+	# Ohitetaan, jos ollaan vedessä tai tutoriaalikentässä
+	if vedessa or not Globaali.pimeyskuolema_paalla:
 		return
-
+	
 	valossa = false
 	ajastin_pimeassa.start()
 	ajastin_pimeassa_audio.start()
