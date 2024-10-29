@@ -97,3 +97,8 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body is Pelaaja:
 		aseta_lapinakyvyys(0)
+
+
+## Dekaktivoi tooltipin poistamalla pelaajaa maskaavan layerin
+func deaktivoi():
+	self.set_collision_mask_value(2, false)

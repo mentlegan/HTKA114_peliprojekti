@@ -580,7 +580,7 @@ polygon = PackedVector2Array(-59, 1054, -56, 1172, -40, 1171, -38, 1047)
 polygon = PackedVector2Array(-188, 1059, -181, 1170, -154, 1175, -157, 1056)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(1332, 821)
+position = Vector2(1340, 817)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -4088,10 +4088,11 @@ shape = SubResource("RectangleShape2D_0iy3n")
 position = Vector2(16539, 8906)
 animaation_kesto = 4.0
 
-[node name="Aktivoija" parent="Taso2/VesialueetTaso2/Vesi2D9" node_paths=PackedStringArray("siirrettava") instance=ExtResource("97_ogx24")]
+[node name="Aktivoija" parent="Taso2/VesialueetTaso2/Vesi2D9" node_paths=PackedStringArray("siirrettava", "tooltip") instance=ExtResource("97_ogx24")]
 position = Vector2(171, 94)
 rotation = -1.25265
 siirrettava = NodePath("..")
+tooltip = NodePath("../../../Tooltipit/TooltipAktivoi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D9" groups=["siirra"]]
 position = Vector2(76, 93)
@@ -4300,8 +4301,8 @@ position = Vector2(6713, 8429)
 [node name="TooltipMinecart3" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
 position = Vector2(12288, 8429)
 
-[node name="TooltipMinecart5" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
-position = Vector2(16707, 8954)
+[node name="TooltipAktivoi" parent="Taso2/Tooltipit" instance=ExtResource("24_wyudm")]
+position = Vector2(16704, 8947)
 
 [node name="PerhosetTaso2" type="Node2D" parent="Taso2"]
 
