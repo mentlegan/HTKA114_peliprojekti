@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=172 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
@@ -209,7 +209,7 @@ _data = {
 point_count = 8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67cbb"]
-size = Vector2(5539, 1272)
+size = Vector2(5716, 1405)
 
 [sub_resource type="Gradient" id="Gradient_ngsgh"]
 offsets = PackedFloat32Array(1)
@@ -219,6 +219,17 @@ colors = PackedColorArray(1, 1, 1, 1)
 gradient = SubResource("Gradient_ngsgh")
 width = 1024
 height = 1024
+use_hdr = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_shmcu"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_yjt4q"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rir6o"]
+gradient = SubResource("Gradient_yjt4q")
 use_hdr = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muepl"]
@@ -626,7 +637,7 @@ position = Vector2(13351, 138)
 polygon = PackedVector2Array(-71, -304, -24, -351, 30, -434, 244, -416, 298, -157, 225, -146, 171, -144, 145, -139, 119, -127, 88, -101, 46, -10, 34, 14, 28, 35, 17, 34, 6, 33, -11, 34, -25, 36, -37, 38, -78, 56, -99, 82, -131, 112, -144, 128, -157, 136, -170, 148, -172, 162, -181, 181, -214, 203, -231, 234, -255, 249, -277, 250, -300, 253, -313, 248, -309, 230, -311, 206, -317, 174, -351, 148, -380, 119, -434, 92, -497, 33, -341, -30, -313, -92, -247, -115, -148, -188, -160, -272)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(9352, 654)
+position = Vector2(9340, 660)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -710,59 +721,46 @@ curve = SubResource("Curve2D_x65vv")
 [node name="Perhonen3" parent="Perhoset" instance=ExtResource("13_ufso7")]
 position = Vector2(-435.389, 1045.42)
 
-[node name="Tutoriaali_valot" type="Node2D" parent="."]
+[node name="TutoriaaliValot" type="Node2D" parent="."]
 
-[node name="TutoriaaliAlue" type="Area2D" parent="Tutoriaali_valot" groups=["valonlahde"]]
+[node name="TutoriaaliAlue" type="Area2D" parent="TutoriaaliValot" groups=["valonlahde"]]
 position = Vector2(11107, 308)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("15_q5cy2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tutoriaali_valot/TutoriaaliAlue"]
-position = Vector2(838.5, -150)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TutoriaaliValot/TutoriaaliAlue"]
+position = Vector2(804, -83.5)
 shape = SubResource("RectangleShape2D_67cbb")
 
-[node name="PointLight2D" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(9609, 550)
+[node name="Valot" type="Node2D" parent="TutoriaaliValot"]
+
+[node name="PointLight2D2" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(9792.5, 236.5)
+scale = Vector2(1.15332, 1.31152)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D2" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(9764, 394)
+[node name="PointLight2D3" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(10059, 634)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D3" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(10002, 253)
+[node name="PointLight2D5" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(10445, 187)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D4" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(10510, 561)
-energy = 0.35
-blend_mode = 2
-range_item_cull_mask = 3
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_i30lc")
-
-[node name="PointLight2D5" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(10524, 183)
-energy = 0.35
-blend_mode = 2
-range_item_cull_mask = 3
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_i30lc")
-
-[node name="PointLight2D6" type="PointLight2D" parent="Tutoriaali_valot"]
+[node name="PointLight2D6" type="PointLight2D" parent="TutoriaaliValot/Valot"]
 position = Vector2(10845, 477)
 energy = 0.35
 blend_mode = 2
@@ -770,7 +768,7 @@ range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D7" type="PointLight2D" parent="Tutoriaali_valot"]
+[node name="PointLight2D7" type="PointLight2D" parent="TutoriaaliValot/Valot"]
 position = Vector2(11237, 457)
 energy = 0.35
 blend_mode = 2
@@ -778,7 +776,7 @@ range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D8" type="PointLight2D" parent="Tutoriaali_valot"]
+[node name="PointLight2D8" type="PointLight2D" parent="TutoriaaliValot/Valot"]
 position = Vector2(11025, 265)
 energy = 0.35
 blend_mode = 2
@@ -786,103 +784,75 @@ range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D24" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(10886, -163)
+[node name="PointLight2D24" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(10886, -244.5)
+scale = Vector2(1, 0.84082)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D9" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(11027, 551)
+[node name="PointLight2D9" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(11087.3, 557)
+scale = Vector2(0.810058, 0.548828)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D10" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(11548, 4)
+[node name="PointLight2D10" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(12052, 85.5)
+scale = Vector2(1.7666, 1.35449)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D11" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(12228, 157)
+[node name="PointLight2D13" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(11610, 572.5)
+scale = Vector2(0.656249, 0.561523)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D13" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(11802, 608)
+[node name="PointLight2D14" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(12191, 583)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D14" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(12233, 554)
+[node name="PointLight2D16" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(12786, 476)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D15" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(12446, 561)
+[node name="PointLight2D17" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(13225, 346)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D16" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(12798, 440)
+[node name="PointLight2D20" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(13499, 323)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D17" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(13144, 446)
-energy = 0.35
-blend_mode = 2
-range_item_cull_mask = 3
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_i30lc")
-
-[node name="PointLight2D18" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(13246, 304)
-energy = 0.35
-blend_mode = 2
-range_item_cull_mask = 3
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_i30lc")
-
-[node name="PointLight2D19" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(13472, 126)
-energy = 0.35
-blend_mode = 2
-range_item_cull_mask = 3
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_i30lc")
-
-[node name="PointLight2D20" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(13497, 393)
-energy = 0.35
-blend_mode = 2
-range_item_cull_mask = 3
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_i30lc")
-
-[node name="PointLight2D21" type="PointLight2D" parent="Tutoriaali_valot"]
+[node name="PointLight2D21" type="PointLight2D" parent="TutoriaaliValot/Valot"]
 position = Vector2(13729, 106)
 energy = 0.35
 blend_mode = 2
@@ -890,7 +860,7 @@ range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D22" type="PointLight2D" parent="Tutoriaali_valot"]
+[node name="PointLight2D22" type="PointLight2D" parent="TutoriaaliValot/Valot"]
 position = Vector2(14163, 126)
 energy = 0.35
 blend_mode = 2
@@ -898,15 +868,16 @@ range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D23" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(14398, 121)
+[node name="PointLight2D23" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(14408, 128)
+scale = Vector2(0.760742, 0.600586)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D25" type="PointLight2D" parent="Tutoriaali_valot"]
+[node name="PointLight2D25" type="PointLight2D" parent="TutoriaaliValot/Valot"]
 position = Vector2(14247, 330)
 energy = 0.35
 blend_mode = 2
@@ -914,13 +885,21 @@ range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
-[node name="PointLight2D26" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(14646, 178)
+[node name="PointLight2D26" type="PointLight2D" parent="TutoriaaliValot/Valot"]
+position = Vector2(14635, 178)
+scale = Vector2(0.978516, 1)
 energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
+
+[node name="Sprite2DCanvasModulate" type="Sprite2D" parent="TutoriaaliValot"]
+visible = false
+material = SubResource("CanvasItemMaterial_shmcu")
+position = Vector2(11865, 202)
+scale = Vector2(89.7813, 25.4375)
+texture = SubResource("GradientTexture2D_rir6o")
 
 [node name="Kukat" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -4718,8 +4697,8 @@ position = Vector2(16101.8, 10013)
 shape = SubResource("RectangleShape2D_irw3x")
 
 [connection signal="transitio" from="Pelaaja" to="KayttoLiittyma/Transitio" method="_on_transitio"]
-[connection signal="body_entered" from="Tutoriaali_valot/TutoriaaliAlue" to="Tutoriaali_valot/TutoriaaliAlue" method="_on_body_entered"]
-[connection signal="body_exited" from="Tutoriaali_valot/TutoriaaliAlue" to="Tutoriaali_valot/TutoriaaliAlue" method="_on_body_exited"]
+[connection signal="body_entered" from="TutoriaaliValot/TutoriaaliAlue" to="TutoriaaliValot/TutoriaaliAlue" method="_on_body_entered"]
+[connection signal="body_exited" from="TutoriaaliValot/TutoriaaliAlue" to="TutoriaaliValot/TutoriaaliAlue" method="_on_body_exited"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_entered"]
 [connection signal="body_exited" from="uudetViholliset/uusiVihollinen/alue" to="uudetViholliset/uusiVihollinen" method="_on_alue_body_exited"]
 [connection signal="body_entered" from="uudetViholliset/uusiVihollinen/alue2" to="uudetViholliset/uusiVihollinen" method="_on_alue_2_body_entered"]
