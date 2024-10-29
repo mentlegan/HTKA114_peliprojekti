@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=169 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
@@ -325,22 +325,19 @@ radius = 619.427
 size = Vector2(75, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2lsd"]
-size = Vector2(2383.5, 805)
+size = Vector2(1743, 780.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdsjh"]
-size = Vector2(3064, 1282)
+size = Vector2(2416, 1457)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eewo"]
 size = Vector2(3306.5, 1618)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vqab"]
-size = Vector2(2219, 1257)
+size = Vector2(1971, 1266)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1v6da"]
-size = Vector2(2146, 1158)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5akgr"]
-size = Vector2(1020, 620)
+size = Vector2(2032, 1158)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gkwfk"]
 polygon = PackedVector2Array(1.98438, -90.439, -2.01562, -88.439, -1.01562, -81.439)
@@ -486,7 +483,7 @@ ss2d_materiaali = ExtResource("12_1x5sh")
 [node name="Polygon2D" type="Polygon2D" parent="Tiilet"]
 texture_repeat = 2
 position = Vector2(13565, 7)
-polygon = PackedVector2Array(1378, 197, 1355, 221, 1330, 227, 1315, 247, 1326, 350, 1319, 438, 1325, 497, 1322, 546, 1312, 604, 1305, 656, 1292, 718, 1308, 766, 1329, 796, 1352, 814, 1412, 808, 1439, 789, 1481, 769, 1563, 763, 3019, 760, 3152, 704, 3152, 508, 3014, 448, 2828, 442, 2688, 441, 2412, 440, 2324, 447, 2259, 443, 2201, 447, 2166, 448, 2132, 428, 2129, 409, 2139, 391, 2167, 382, 2302, 366, 2449, 324, 2632, 380, 2794, 413, 2912, 410, 2950, 373, 2936, 330, 2803, 269, 2702, 256, 2613, 271, 2550, 269, 2671, 223, 3305.07, 235.888, 3409, 238, 3436, 248, 3458, 276, 3472, 310, 4051, 2011, 4075, 2044, 4105, 2078, 3443, 2090, 3221, 1951, 3017, 1185, -2413, 1390, -5005, 1222, -4826, -51, -4695, -177, -3966, -225, -4099, -144, -4139, -87, -4173, 1, -4175, 132, -4185, 255, -4219, 369, -4252, 440, -4304, 477, -4339, 601, -4333, 663, -4272, 697, -4146, 700, -3700, 705, -3696, 600, -3681, 597, -3616, 597, -3571, 601, -3563, 627, -3545, 702, -3415, 709, -3440, 618, -3455, 535, -3434, 525, -3377, 517, -3245, 518, -3212, 517, -3185, 512, -3167, 513, -3161, 537, -3156, 580, -3151, 637, -3140, 649, -3122, 659, -3036, 660, -2965, 655, -2925, 657, -2901, 627, -2887, 581, -2891, 525, -2914, 492, -2939, 470, -2931, 465, -2914, 463, -2885, 467, -2863, 472, -2846, 482, -2839, 517, -2833, 580, -2831, 646, -2812, 681, -2781, 689, -2725, 682, -2708, 657, -2682, 639, -2658, 627, -2438, 626, -2372, 659, -2318, 689, -2241, 694, -2182, 701, -2139, 698, -2134, 629, -2145, 558, -2156, 525, -2166, 497, -2184, 477, -2202, 467, -2205, 449, -2176, 444, -2154, 457, -2127, 484, -2105, 507, -2074, 618, -2064, 704, -1976, 702, -1744, 702, -1515, 689, -1327, 665, -1044, 639, -978, 635, -909, 615, -835, 590, -765, 555, -661, 539, -492, 518, -394, 496, -335, 493, -277, 493, -213, 494, -106, 489, 45, 480, 130, 464, 158, 453, 183, 421, 168, 384, 144, 346, 88, 286, 27, 270, 3, 231, -15, 183, -28, 165, -48, 145, -49, 129, -31, 123, -4, 133, 72, 168, 186, 180, 331, 187, 437, 184, 508, 182, 540, 178, 551, 180, 553, 191, 552, 215, 552, 239, 554, 262, 572, 296, 583, 329, 650, 392, 799, 378, 906, 354, 919, 350, 935, 307, 929, 284, 917, 266, 896, 249, 880, 241, 881, 221, 877, 196, 884, 184, 906, 184, 977, 187, 1292, 177, 1367, 178, 1403, 176)
+polygon = PackedVector2Array(1378, 197, 1355, 221, 1330, 227, 1315, 247, 1326, 350, 1319, 438, 1325, 497, 1322, 546, 1312, 604, 1305, 656, 1292, 718, 1308, 766, 1329, 796, 1352, 814, 1412, 808, 1439, 789, 1481, 769, 1563, 763, 3019, 760, 3152, 704, 3152, 508, 3014, 448, 2828, 442, 2688, 441, 2412, 440, 2324, 447, 2259, 443, 2201, 447, 2166, 448, 2132, 428, 2129, 409, 2139, 391, 2167, 382, 2302, 366, 2449, 324, 2632, 380, 2794, 413, 2912, 410, 2950, 373, 2936, 330, 2803, 269, 2702, 256, 2613, 271, 2550, 269, 2671, 223, 3305.07, 235.888, 3409, 238, 3436, 248, 3458, 276, 3472, 310, 4051, 2011, 4075, 2044, 4105, 2078, 3443, 2090, 3221, 1951, 3017, 1185, -2413, 1390, -5005, 1222, -4826, -51, -4695, -177, -3966, -225, -4099, -144, -4139, -87, -4173, 1, -4175, 132, -4185, 255, -4219, 369, -4252, 440, -4304, 477, -4339, 601, -4333, 663, -4272, 697, -4146, 700, -3700, 705, -3696, 600, -3681, 597, -3616, 597, -3571, 601, -3563, 627, -3545, 702, -3415, 709, -3440, 618, -3455, 535, -3434, 525, -3377, 517, -3245, 518, -3212, 517, -3185, 512, -3167, 513, -3161, 537, -3156, 580, -3151, 637, -3140, 649, -3122, 659, -3036, 660, -2965, 655, -2925, 657, -2901, 627, -2887, 581, -2891, 525, -2914, 492, -2939, 470, -2931, 465, -2914, 463, -2885, 467, -2863, 472, -2846, 482, -2839, 517, -2833, 580, -2831, 646, -2812, 681, -2781, 689, -2725, 682, -2708, 657, -2682, 639, -2658, 627, -2438, 626, -2372, 659, -2318, 689, -2241, 694, -2182, 701, -2138, 700, -2084, 701, -2082, 624, -2094, 587, -2116, 554, -2142, 529, -2166, 497, -2184, 477, -2202, 467, -2205, 449, -2176, 444, -2152, 457, -2122, 471, -2090, 492, -2066, 512, -2044, 548, -2019, 614, -2009, 668, -1990, 699, -1960, 707, -1744, 702, -1515, 689, -1327, 665, -1044, 639, -978, 635, -909, 615, -835, 590, -765, 555, -661, 539, -492, 518, -394, 496, -335, 493, -277, 493, -213, 494, -106, 489, 45, 480, 130, 464, 158, 453, 183, 421, 168, 384, 144, 346, 88, 286, 27, 270, 3, 231, -15, 183, -28, 165, -48, 145, -49, 129, -31, 123, -4, 133, 72, 168, 186, 180, 331, 187, 437, 184, 508, 182, 540, 178, 551, 180, 553, 191, 552, 215, 552, 239, 554, 262, 572, 296, 583, 329, 650, 392, 799, 378, 906, 354, 919, 350, 935, 307, 929, 284, 917, 266, 896, 249, 880, 241, 881, 221, 877, 196, 884, 184, 906, 184, 977, 187, 1292, 177, 1367, 178, 1403, 176)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Tiilet"]
 texture_repeat = 2
@@ -629,7 +626,7 @@ position = Vector2(13351, 138)
 polygon = PackedVector2Array(-71, -304, -24, -351, 30, -434, 244, -416, 298, -157, 225, -146, 171, -144, 145, -139, 119, -127, 88, -101, 46, -10, 34, 14, 28, 35, 17, 34, 6, 33, -11, 34, -25, 36, -37, 38, -78, 56, -99, 82, -131, 112, -144, 128, -157, 136, -170, 148, -172, 162, -181, 181, -214, 203, -231, 234, -255, 249, -277, 250, -300, 253, -313, 248, -309, 230, -311, 206, -317, 174, -351, 148, -380, 119, -434, 92, -497, 33, -341, -30, -313, -92, -247, -115, -148, -188, -160, -272)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(9339, 666)
+position = Vector2(9352, 654)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -727,7 +724,7 @@ shape = SubResource("RectangleShape2D_67cbb")
 
 [node name="PointLight2D" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(9609, 550)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -735,7 +732,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D2" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(9764, 394)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -743,7 +740,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D3" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(10002, 253)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -751,7 +748,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D4" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(10510, 561)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -759,7 +756,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D5" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(10524, 183)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -767,7 +764,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D6" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(10845, 477)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -775,7 +772,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D7" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(11237, 457)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -783,7 +780,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D8" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(11025, 265)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -791,7 +788,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D24" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(10886, -163)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -799,7 +796,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D9" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(11027, 551)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -807,23 +804,15 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D10" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(11548, 4)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D11" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(12022, 116)
-energy = 0.4
-blend_mode = 2
-range_item_cull_mask = 3
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_i30lc")
-
-[node name="PointLight2D12" type="PointLight2D" parent="Tutoriaali_valot"]
-position = Vector2(12509, 116)
-energy = 0.4
+position = Vector2(12228, 157)
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -831,7 +820,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D13" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(11802, 608)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -839,7 +828,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D14" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(12233, 554)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -847,7 +836,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D15" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(12446, 561)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -855,7 +844,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D16" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(12798, 440)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -863,7 +852,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D17" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(13144, 446)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -871,7 +860,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D18" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(13246, 304)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -879,7 +868,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D19" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(13472, 126)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -887,7 +876,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D20" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(13497, 393)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -895,7 +884,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D21" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(13729, 106)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -903,7 +892,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D22" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(14163, 126)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -911,7 +900,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D23" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(14398, 121)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -919,7 +908,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D25" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(14247, 330)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -927,7 +916,7 @@ texture = SubResource("GradientTexture2D_i30lc")
 
 [node name="PointLight2D26" type="PointLight2D" parent="Tutoriaali_valot"]
 position = Vector2(14646, 178)
-energy = 0.4
+energy = 0.35
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
@@ -3635,17 +3624,16 @@ scale = Vector2(0.519523, 0.676654)
 texture = ExtResource("38_c8dmk")
 
 [node name="Tasot" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tasot"]
-position = Vector2(2278.25, 471)
+position = Vector2(15899.5, 435.25)
 shape = SubResource("RectangleShape2D_b2lsd")
 
 [node name="TasonKamera" parent="Tasot/CollisionShape2D" instance=ExtResource("44_1y1h3")]
 position = Vector2(267.75, 79)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Tasot"]
-position = Vector2(4469, -1058)
+position = Vector2(17965, -1018.5)
 shape = SubResource("RectangleShape2D_cdsjh")
 
 [node name="TasonKamera" parent="Tasot/CollisionShape2D2" instance=ExtResource("44_1y1h3")]
@@ -3653,7 +3641,7 @@ position = Vector2(144, -55)
 zoom = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Tasot"]
-position = Vector2(5676.75, 1061)
+position = Vector2(19176.8, 1013)
 shape = SubResource("RectangleShape2D_5eewo")
 
 [node name="TasonKamera" parent="Tasot/CollisionShape2D3" instance=ExtResource("44_1y1h3")]
@@ -3661,7 +3649,7 @@ position = Vector2(-23.75, 34)
 zoom = Vector2(0.3, 0.3)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Tasot"]
-position = Vector2(7215.5, -454.5)
+position = Vector2(20730.5, -498)
 shape = SubResource("RectangleShape2D_7vqab")
 
 [node name="TasonKamera" parent="Tasot/CollisionShape2D4" instance=ExtResource("44_1y1h3")]
@@ -3669,18 +3657,12 @@ position = Vector2(-12.5, 3.5)
 zoom = Vector2(0.4, 0.4)
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Tasot"]
-position = Vector2(10382, -622)
+position = Vector2(23939, -670)
 shape = SubResource("RectangleShape2D_1v6da")
 
 [node name="TasonKamera" parent="Tasot/CollisionShape2D5" instance=ExtResource("44_1y1h3")]
 position = Vector2(72, 23)
 zoom = Vector2(0.5, 0.5)
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Tasot"]
-position = Vector2(-157, 1037)
-shape = SubResource("RectangleShape2D_5akgr")
-
-[node name="Camera2D" type="Camera2D" parent="Tasot/CollisionShape2D6"]
 
 [node name="Musiikki" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -3770,7 +3752,7 @@ position = Vector2(15099, 699)
 position = Vector2(16984, -1167)
 
 [node name="Light Balls" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
-position = Vector2(11227, 97)
+position = Vector2(11261, 104)
 
 [node name="Minecart" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
 position = Vector2(20101, -902)

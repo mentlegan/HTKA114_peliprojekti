@@ -20,7 +20,8 @@ var SPEED = 110.0
 @onready var ovi_pysty_oikea = preload("res://scenet/ovet/ovi_pysty_oikea.tscn")
 @onready var ovi_vaaka_vasen = preload("res://scenet/ovet/ovi_vaaka_vasen.tscn")
 
-@onready var valo = get_node("PointLight2D")
+@onready var valo: PointLight2D = $PointLight2D
+@onready var valo_2: PointLight2D = $PointLight2D2
 
 ## Audiot
 @onready var audio_valopallon_heitto = $AudioValopallonHeitto
@@ -56,7 +57,8 @@ func move(_position, _mouse):
 
 ## Valopallojen tuhoamiseen liittyvä käsittely
 func start_destroy():
-	audio_valopallo_hajoaa.play()
+	if not audio_valopallo_hajoaa.playing:
+		audio_valopallo_hajoaa.play()
 	# Pysäytetään valopallo
 	velocity = Vector2(0, 0)
 
@@ -70,6 +72,8 @@ func start_destroy():
 	tween_pallo.set_trans(Tween.TRANS_CUBIC)
 	tween_pallo.tween_property(valo, "energy", 0, 1)
 	tween_pallo.tween_property(valo, "texture_scale", 0, 1)
+	tween_pallo.tween_property(valo_2, "energy", 0, 1.2)
+	tween_pallo.tween_property(valo_2, "texture_scale", 0, 1.2)
 	tween_pallo.tween_property(sprite, "modulate", Color.TRANSPARENT, 1)
 	tween_pallo.finished.connect(
 		func():
@@ -239,6 +243,7 @@ func _physics_process(delta):
 			tween.set_ease(Tween.EASE_IN_OUT)
 			tween.set_trans(Tween.TRANS_BACK)
 			tween.tween_property(valo, "energy", valo.energy * 0.8, 0.5)
+			tween.tween_property(valo_2, "energy", valo.energy * 0.8, 0.5)
 			# Keskimäärin vähennetään nopeutta hiukan kimmotessa
 			# Voi joskus myös nopeutua :)
 			velocity *= randf_range(0.8, 1.1)
