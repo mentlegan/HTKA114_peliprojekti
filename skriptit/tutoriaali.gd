@@ -1,10 +1,5 @@
 ## Käsittelee tutoriaaliruudun tapahtumia
 ## Harri 9.10.2024
-## Huutomerkki ei-luetun aiheen kohdalle
-## Darkness-aihe avataan heti pelin alussa
-## Kun aihe avataan, se näyttäytyy heti ruudulle, kun tutorial-ruutu avataan
-## Listaa levenetty hieman tämän takia
-## Kuvia keskitetty hieman, koska se ilmeisesti näytti jotenkin oudolta
 ## TODO: kontrollit vielä lisätä teksteineen kansionrakenteeseen
 ## TODO: värikoodaus ja muu tekstin muotoilu, vähän kuten journalissa nyt on
 ## TODO: näppäimistökontrollit
@@ -14,6 +9,8 @@ extends Control
 
 ## Muuttujat, joilla käsitellään asioita
 var aiheet = [] ## Tyhjä lista tutoriaaliaiheista, mikä myöhemmin määräytyy tutoriaalit/tekstitiedostot-kansion mukaan
+var uudet_aiheet = [] ## Tyhjä lista uusista aiheista, koska halutaan tutoriaalin avautuvan ensimmäisestä uudesta aiheesta
+var luetut_aiheet = [] ## Tyhjä lista jo luetuista aiheista huutomerkkien tarkistusta varten
 var sivumaara = 1 ## Vakiona sivumäärä on 1..
 var sivu = 1 ## .. ja sivujakin on vain 1
 var aihekansioiden_polku = "res://tutoriaali/" ## Aihekansioiden polku vähän enemmän suomen kielellä
@@ -97,14 +94,20 @@ func paivita_valikko(nimi):
 	for aihe in aiheet: # Katsotaan aihelistasta, että onko valikon aihe jo avattu. Toisaalta tämä tarkistus on turha, koska tutoriaalin avaava alue sulkeutuu, kun siitä kuljetaan ekan kerran, mutta hyvä varmistaa vielä täälläkin
 		if aihe == nimi: # Jos aihe löytyy listasta..
 			return # ..keskeytetään funktio
-	aiheet.append(nimi) # Lisätään aihe taulukkoon
-	nappilista.add_item(nimi,null,true) # Lisätään aihe myös valikon listaan
+	nappilista.clear() # Tyhjennetään nappilista, että sen aiheet voidaan laittaa käänteiseen järjestykseen
+	aiheet.reverse() # Käännetään taulukko..
+	aiheet.append(nimi) # ..lisätään aihe taulukkoon
+	aiheet.reverse() # Ja käännetään uusiksi käsittelyä varten
+	uudet_aiheet.append(nimi) # Lisätään alue myös uusien aiheiden listaan
+	for i in aiheet: # Käydään aiheet läpi
+		if luetut_aiheet.has(i): # Jos aihe on jo luettu (eli luettujen listalla)
+			nappilista.add_item(i,null,true) # Lisätään aihe myös valikon listaan ilman huutomerkkiä
+		else: nappilista.add_item(i + " !",null,true) # Lisätään listaan huutomerkin kera
 	valittu_aihe = nimi + "/" # Säädetään avattu tutoriaali valituksi aiheeksi
 	var koko = nappilista.get_item_count() # Otetaan itemlistin pituus
 	for i in koko: # Iteroidaan itemlistin valinnat läpi, koska itemlist toimii indekseillä
-		if nappilista.get_item_text(i) == nimi: # Jos valinnan nimi vastaa avatun tutoriaalin nimeä
+		if nappilista.get_item_text(i) == uudet_aiheet[0] + " !": # Jos valinnan nimi vastaa avatun tutoriaalin nimeä
 			valitse_aihe(i) # Asetetaan avattu aihe valituksi listasta, että se avautuu heti
-	nappilista.set_item_text(koko-1,aiheet[koko-1] + " !") # Lisätään huutomerkki lukemattoman perään
 
 
 ## Poistaa luettu-merkinnän ("!") nykyisestä aiheesta
@@ -120,6 +123,7 @@ func poista_merkinta():
 ## Valintalistan toimintaa
 ## param index: valintalistan kohteen indeksi 0-n eli visuaalisesti ylhäältä alas
 func _on_item_list_item_selected(index: int):
+	luetut_aiheet.append(nappilista.get_item_text(index).rstrip(" !")) # Lisätään tarkistavaan listaan aihe
 	valitse_aihe(index)
 
 
@@ -195,6 +199,7 @@ func muokkaa_kuvat(sivunumero):
 
 ## Menun sulkemisnapin toiminnallisuus
 func _on_takaisin_nappi_pressed():
+	uudet_aiheet = [] # Resetoidaan uusien aiheiden lista
 	Globaali.sulje_tutorial() # Kutsutaan globaalista hauskaa funktiota, joka piilottaa tutoriaalimenun
 
 
