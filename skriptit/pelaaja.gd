@@ -16,6 +16,8 @@ signal transitio(mihin_tp: Vector2)
 
 ## Pelaajan hitbox
 @onready var polygon = get_node("CollisionShape2D")
+## Hitboxi sille että voidaan tarkistaa onko pelaaja veden pinnalla
+@onready var uintiTarkistusHitbox = get_node("UintiTarkistus")
 ## Pelaajan animaatiot
 @onready var animaatio = get_node("Animaatio")
 @onready var pauseAnimaatiot = get_node("PauseAnimaatiot") ## Jos halutaan animaatioita myös, kun peli on pausella
@@ -713,6 +715,7 @@ func _physics_process(delta):
 	var uinnin_velocity = Input.get_vector("liiku_vasen", "liiku_oikea", "kiipea", "putoa")
 	suunta = Input.get_axis("liiku_vasen", "liiku_oikea")
 	
+	var uida_ylos = true
 	# Uinnin movement
 	if vedessa:
 		putoamis_huippu = 0
@@ -724,8 +727,24 @@ func _physics_process(delta):
 		if uinnin_velocity.length() > 0.1:
 			if Input.is_action_pressed("juoksu"):
 				velocity = uinnin_velocity.normalized() * UINTI_JUOKSU_NOPEUS
+				if velocity.y < 0:
+					uida_ylos = false
+					for area in uintiTarkistusHitbox.get_overlapping_areas():
+						if area is Vesi2D:
+							uida_ylos = true
+							break
+					if not uida_ylos:
+						velocity.y = 0
 			else:
 				velocity = uinnin_velocity.normalized() * UINTI_NOPEUS
+				if velocity.y < 0:
+					uida_ylos = false
+					for area in uintiTarkistusHitbox.get_overlapping_areas():
+						if area is Vesi2D:
+							uida_ylos = true
+							break
+					if not uida_ylos:
+						velocity.y = 0
 		else:
 			velocity.x = 0
 			velocity.y = UPPOAMIS_NOPEUS
