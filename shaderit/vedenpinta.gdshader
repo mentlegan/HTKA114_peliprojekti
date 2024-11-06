@@ -1,5 +1,8 @@
 // Paavo, 06.11.2024
 
+// Vedenpinnan efekti on erillisessä shaderissa, koska Godot ei tue
+// vielä canvas_item-shadereiden instanssikohtaisia parametreja.
+
 shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest_mipmap;
@@ -28,6 +31,18 @@ void fragment() {
 
 	// Ajan ja kohinatekstuurin mukaan siirretty
 	vec4 vari = texture(screen_texture, SCREEN_UV + offset);
+
+	// Heijastus
+	if (UV.y < HEIJASTUKSEN_KOKO && (vari.r > 0.1 || vari.g > 0.1 || vari.b > 0.1)) {
+		float y = SCREEN_UV.y - UV.y * (2.0 / 540.0) - 0.001;
+		if (y > 0.0) {
+			vec4 heijastus = texture(screen_texture, vec2(
+				SCREEN_UV.x,
+				y
+			));
+			vari.rgb += heijastus.rgb * 2.0 * ((HEIJASTUKSEN_KOKO - UV.y) / HEIJASTUKSEN_KOKO);
+		}
+	}
 
 	// "Aallot"
 	float i = 0.5 + sin(TIME * AALTOJEN_NOPEUS) * AALTOJEN_ETAISYYS;

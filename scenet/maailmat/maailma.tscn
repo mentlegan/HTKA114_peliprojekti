@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://dskh1b4twfo2c" path="res://scenet/kayttoliittyma/journal.tscn" id="4_sg152"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="4_udkay"]
-[ext_resource type="AudioStream" uid="uid://y88a3ew634t0" path="res://audio/journal/journal.mp3" id="5_fl043"]
+[ext_resource type="AudioStream" uid="uid://bmafpn4g1fabn" path="res://audio/journal/journal.mp3" id="5_fl043"]
 [ext_resource type="PackedScene" uid="uid://dsy33jkmnrijr" path="res://scenet/asetukset_ruutu.tscn" id="5_qkdva"]
 [ext_resource type="PackedScene" uid="uid://dd71njcqglaep" path="res://scenet/transitio.tscn" id="7_f6xdr"]
 [ext_resource type="Texture2D" uid="uid://lxurmqd1rdhq" path="res://grafiikka/Timer-Sheet.png" id="9_75e1e"]
@@ -47,7 +47,7 @@
 [ext_resource type="Script" path="res://skriptit/uusi_vihollinen.gd" id="24_8mx77"]
 [ext_resource type="PackedScene" uid="uid://brs5bgwnn36l8" path="res://scenet/kayttoliittyma/tooltip_minecart.tscn" id="24_wyudm"]
 [ext_resource type="PackedScene" uid="uid://3dn0yrwcrv8w" path="res://scenet/valon_tarkistus.tscn" id="25_a5dle"]
-[ext_resource type="AudioStream" uid="uid://c52myow6udvtx" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
+[ext_resource type="AudioStream" uid="uid://65annnivsadg" path="res://audio/hirvio/soran_rapinaa2.mp3" id="25_lejso"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="26_ibcbx"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="27_5yynh"]
 [ext_resource type="PackedScene" uid="uid://o1g7x7mnf5b" path="res://scenet/ovet/ovi_oikea_y.tscn" id="28_1m8ka"]
@@ -58,31 +58,31 @@
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="32_a8tci"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="33_y2rdp"]
 [ext_resource type="PackedScene" uid="uid://4ehb4n76ts5g" path="res://scenet/checkpoint.tscn" id="35_je5yh"]
-[ext_resource type="AudioStream" uid="uid://c47wbedkpa6se" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
+[ext_resource type="AudioStream" uid="uid://jmdai4le1e0y" path="res://audio/koynnosovi/resonanssiaani_Cmaj.mp3" id="37_bfmro"]
 [ext_resource type="AudioStream" uid="uid://bw6cpa2qyrfll" path="res://audio/musiikki/ambient1_2_loop.wav" id="37_khmdb"]
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
 [ext_resource type="Script" path="res://skriptit/vesiputous.gd" id="45_dq3qu"]
 [ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="45_ocnt8"]
-[ext_resource type="Texture2D" uid="uid://00lou65p51b7" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
-[ext_resource type="Texture2D" uid="uid://b4j5lrgdhkb60" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
-[ext_resource type="Texture2D" uid="uid://bqn58o7rps284" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
-[ext_resource type="AudioStream" uid="uid://bygndcaln8jm1" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
+[ext_resource type="Texture2D" uid="uid://2remnqioy01q" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
+[ext_resource type="Texture2D" uid="uid://waj8yrwtmw58" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
+[ext_resource type="Texture2D" uid="uid://bu48mwj61n7g5" path="res://grafiikka/TaustaElementit/EnemyRihmasto3.png" id="49_3g1ao"]
+[ext_resource type="AudioStream" uid="uid://c86pmsr8e0pqp" path="res://audio/ambient/vesiputous_loop.mp3" id="51_ynajt"]
 [ext_resource type="PackedScene" uid="uid://3oa14w4m8khu" path="res://scenet/Animatic.tscn" id="55_a4dph"]
 [ext_resource type="PackedScene" uid="uid://bnn7owiys160v" path="res://scenet/myrkkysieni.tscn" id="56_7csj5"]
-[ext_resource type="Texture2D" uid="uid://c33u04sddf72v" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
-[ext_resource type="Texture2D" uid="uid://ccrqe2bnffd2f" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
-[ext_resource type="Texture2D" uid="uid://dogr5dacg5tfk" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
+[ext_resource type="Texture2D" uid="uid://d4e3hkybfx4ek" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
+[ext_resource type="Texture2D" uid="uid://0yxb7655jbcm" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
+[ext_resource type="Texture2D" uid="uid://y0nqot4oyiky" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
 [ext_resource type="Script" path="res://skriptit/minecart.gd" id="58_vyc2b"]
 [ext_resource type="Script" path="res://skriptit/CreditsAlue.gd" id="59_80cq2"]
-[ext_resource type="Texture2D" uid="uid://qxjco0m8hlbc" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
-[ext_resource type="Texture2D" uid="uid://crc34cdwfv60c" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
-[ext_resource type="Texture2D" uid="uid://bjaexfdjkgynx" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
-[ext_resource type="Texture2D" uid="uid://dytfhoxau54mh" path="res://grafiikka/TaustaElementit/SmallRocks.png" id="61_u2j4x"]
-[ext_resource type="Texture2D" uid="uid://cvw6ou2ykddxc" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
-[ext_resource type="Texture2D" uid="uid://doo06s7625k48" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
-[ext_resource type="Texture2D" uid="uid://8dc00svnhdd" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
+[ext_resource type="Texture2D" uid="uid://rcc6ypsu70lm" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
+[ext_resource type="Texture2D" uid="uid://d00r25p2c8enu" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
+[ext_resource type="Texture2D" uid="uid://cvqvm0g8eomsi" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
+[ext_resource type="Texture2D" uid="uid://vkl61irhl2g1" path="res://grafiikka/TaustaElementit/SmallRocks.png" id="61_u2j4x"]
+[ext_resource type="Texture2D" uid="uid://fuelm63jo1j0" path="res://grafiikka/TaustaElementit/WoodPillars.png" id="62_b454l"]
+[ext_resource type="Texture2D" uid="uid://mnwtbpfx6eu8" path="res://grafiikka/TaustaElementit/Bones.png" id="63_jo0el"]
+[ext_resource type="Texture2D" uid="uid://dibggsljssm6v" path="res://grafiikka/TaustaElementit/Cobweb.png" id="64_20rsk"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="75_4248i"]
 [ext_resource type="PackedScene" uid="uid://dpgfqmcthph48" path="res://scenet/vesi2d.tscn" id="80_eho0u"]
 [ext_resource type="PackedScene" uid="uid://ciaug8px7wrrg" path="res://scenet/myrkkyalue_2d.tscn" id="82_2dvj4"]
@@ -95,6 +95,7 @@
 [ext_resource type="Resource" uid="uid://cam0dd1dlekqi" path="res://tres-tiedostot/smart_shape_tiili_taso2.tres" id="94_1e3xs"]
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="94_mc8su"]
 [ext_resource type="PackedScene" uid="uid://gcmk6sen85wg" path="res://scenet/isompi_valo.tscn" id="96_e2yjn"]
+[ext_resource type="PackedScene" uid="uid://cm8xt055d8042" path="res://scenet/vesialue.tscn" id="97_5c44a"]
 [ext_resource type="PackedScene" uid="uid://bpsr4m5xt83yn" path="res://scenet/aktivoija.tscn" id="97_ogx24"]
 [ext_resource type="Texture2D" uid="uid://byc1ad1itgcj0" path="res://grafiikka/GrassThinLeft.png" id="99_lvyhb"]
 [ext_resource type="Script" path="res://skriptit/oviseina.gd" id="99_ned5y"]
@@ -386,35 +387,32 @@ size = Vector2(20, 175.882)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78rim"]
 size = Vector2(177, 128.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_61u0d"]
-size = Vector2(385.25, 225.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn2iv"]
+size = Vector2(395, 221.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fx2fu"]
-size = Vector2(645.25, 335.375)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ttyb"]
+size = Vector2(395, 229.75)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fka26"]
-size = Vector2(331.25, 239.688)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx24l"]
+size = Vector2(630, 291)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnc2p"]
-size = Vector2(700.031, 293.188)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tk5x5"]
+size = Vector2(1041, 239)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_61m8c"]
-size = Vector2(331.25, 335.375)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsv7y"]
+size = Vector2(352, 352)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iy3n"]
-size = Vector2(700.031, 612.375)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idveh"]
+size = Vector2(656, 475)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbgf6"]
-size = Vector2(374, 526)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htgox"]
+size = Vector2(679, 496)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfv1d"]
-size = Vector2(322, 526)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg17y"]
+size = Vector2(157.5, 638)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wr2yi"]
-size = Vector2(673.625, 494.688)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_amira"]
-size = Vector2(154.793, 639.313)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfcsw"]
+size = Vector2(372.75, 527)
 
 [sub_resource type="Curve2D" id="Curve2D_6ewyi"]
 _data = {
@@ -637,7 +635,7 @@ position = Vector2(13351, 138)
 polygon = PackedVector2Array(-71, -304, -24, -351, 30, -434, 244, -416, 298, -157, 225, -146, 171, -144, 145, -139, 119, -127, 88, -101, 46, -10, 34, 14, 28, 35, 17, 34, 6, 33, -11, 34, -25, 36, -37, 38, -78, 56, -99, 82, -131, 112, -144, 128, -157, 136, -170, 148, -172, 162, -181, 181, -214, 203, -231, 234, -255, 249, -277, 250, -300, 253, -313, 248, -309, 230, -311, 206, -317, 174, -351, 148, -380, 119, -434, 92, -497, 33, -341, -30, -313, -92, -247, -115, -148, -188, -160, -272)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(9385, 667)
+position = Vector2(9390, 604)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -3672,9 +3670,9 @@ occluder = SubResource("OccluderPolygon2D_n2nwd")
 [node name="Vesi2D" parent="Vesialueet" instance=ExtResource("80_eho0u")]
 position = Vector2(-176, 1160)
 animaation_kesto = 2.0
-transition_type = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vesialueet/Vesi2D"]
+visible = false
 position = Vector2(-63.75, 28.5)
 shape = SubResource("RectangleShape2D_oefff")
 
@@ -3682,6 +3680,7 @@ shape = SubResource("RectangleShape2D_oefff")
 position = Vector2(-8.25, -108)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Vesialueet/Vesi2D"]
+visible = false
 position = Vector2(198, 4)
 shape = SubResource("RectangleShape2D_bjmae")
 
@@ -3689,6 +3688,7 @@ shape = SubResource("RectangleShape2D_bjmae")
 position = Vector2(14, -110)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Vesialueet/Vesi2D"]
+visible = false
 position = Vector2(68, 63)
 shape = SubResource("RectangleShape2D_g01hc")
 
@@ -3703,10 +3703,9 @@ gizmo_extents = 107.7
 [node name="Vesi2D2" parent="Vesialueet" instance=ExtResource("80_eho0u")]
 position = Vector2(-517, 1090)
 animaation_kesto = 5.0
-transition_type = 3
-ease_type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vesialueet/Vesi2D2"]
+visible = false
 position = Vector2(17, 58)
 shape = SubResource("RectangleShape2D_7m7nv")
 
@@ -4156,51 +4155,6 @@ rotation = -0.419538
 [node name="Vesi2D" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
 position = Vector2(683, 9645)
 animaation_kesto = 2.0
-transition_type = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
-position = Vector2(1204.63, -212.75)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
-position = Vector2(1143, 5)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
-position = Vector2(1057, 219)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
-position = Vector2(913, 389)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
-position = Vector2(541, 407)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
-position = Vector2(219, 365)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
-position = Vector2(147, 151)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
-position = Vector2(33, -43)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
-position = Vector2(13, -253)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
-position = Vector2(13, -469)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D"]
-position = Vector2(7, -687)
-shape = SubResource("RectangleShape2D_61u0d")
 
 [node name="Myrkkyalue2D" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("82_2dvj4")]
 position = Vector2(-15, -784)
@@ -4211,54 +4165,53 @@ tekeeko_damagea = false
 [node name="IlluusionVaihtajaVisible" parent="Taso2/VesialueetTaso2/Vesi2D/Myrkkyalue2D" instance=ExtResource("83_0gbej")]
 invert = true
 
+[node name="Vesialue" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("97_5c44a")]
+position = Vector2(1203.5, -213.75)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue2" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("97_5c44a")]
+position = Vector2(1142, 5)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue3" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("97_5c44a")]
+position = Vector2(1059, 216)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue4" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("97_5c44a")]
+position = Vector2(915, 390)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue5" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("97_5c44a")]
+position = Vector2(541, 406)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue6" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("97_5c44a")]
+position = Vector2(217, 367)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue7" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("97_5c44a")]
+position = Vector2(148, 153)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue8" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("97_5c44a")]
+position = Vector2(34, -45)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue9" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("97_5c44a")]
+position = Vector2(13, -252)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue10" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("97_5c44a")]
+position = Vector2(13, -468.125)
+shape = SubResource("RectangleShape2D_0ttyb")
+
+[node name="Vesialue11" parent="Taso2/VesialueetTaso2/Vesi2D" instance=ExtResource("97_5c44a")]
+position = Vector2(8, -687)
+shape = SubResource("RectangleShape2D_tn2iv")
+
 [node name="Vesi2D2" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
 position = Vector2(6258, 9645)
 animaation_kesto = 2.0
-transition_type = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
-position = Vector2(1204.63, -212.75)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
-position = Vector2(1143, 5)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
-position = Vector2(1057, 219)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
-position = Vector2(913, 389)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
-position = Vector2(541, 407)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
-position = Vector2(219, 365)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
-position = Vector2(147, 151)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
-position = Vector2(33, -43)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
-position = Vector2(13, -253)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
-position = Vector2(13, -469)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D2"]
-position = Vector2(7, -687)
-shape = SubResource("RectangleShape2D_61u0d")
 
 [node name="Myrkkyalue2D" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("82_2dvj4")]
 position = Vector2(-15, -784)
@@ -4269,54 +4222,53 @@ tekeeko_damagea = false
 [node name="IlluusionVaihtajaVisible" parent="Taso2/VesialueetTaso2/Vesi2D2/Myrkkyalue2D" instance=ExtResource("83_0gbej")]
 invert = true
 
+[node name="Vesialue" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("97_5c44a")]
+position = Vector2(1203.5, -213.75)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue2" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("97_5c44a")]
+position = Vector2(1142, 5)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue3" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("97_5c44a")]
+position = Vector2(1059, 216)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue4" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("97_5c44a")]
+position = Vector2(915, 390)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue5" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("97_5c44a")]
+position = Vector2(541, 406)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue6" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("97_5c44a")]
+position = Vector2(217, 367)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue7" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("97_5c44a")]
+position = Vector2(148, 153)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue8" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("97_5c44a")]
+position = Vector2(34, -45)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue9" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("97_5c44a")]
+position = Vector2(13, -252)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue10" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("97_5c44a")]
+position = Vector2(13, -468.125)
+shape = SubResource("RectangleShape2D_0ttyb")
+
+[node name="Vesialue11" parent="Taso2/VesialueetTaso2/Vesi2D2" instance=ExtResource("97_5c44a")]
+position = Vector2(8, -687)
+shape = SubResource("RectangleShape2D_tn2iv")
+
 [node name="Vesi2D3" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
 position = Vector2(11833, 9645)
 animaation_kesto = 2.0
-transition_type = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
-position = Vector2(1204.63, -212.75)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
-position = Vector2(1143, 5)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
-position = Vector2(1057, 219)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
-position = Vector2(913, 389)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
-position = Vector2(541, 407)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
-position = Vector2(219, 365)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
-position = Vector2(147, 151)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
-position = Vector2(33, -43)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
-position = Vector2(13, -253)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
-position = Vector2(13, -469)
-shape = SubResource("RectangleShape2D_61u0d")
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D3"]
-position = Vector2(7, -687)
-shape = SubResource("RectangleShape2D_61u0d")
 
 [node name="Myrkkyalue2D" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("82_2dvj4")]
 position = Vector2(-15, -784)
@@ -4327,61 +4279,102 @@ tekeeko_damagea = false
 [node name="IlluusionVaihtajaVisible" parent="Taso2/VesialueetTaso2/Vesi2D3/Myrkkyalue2D" instance=ExtResource("83_0gbej")]
 invert = true
 
+[node name="Vesialue" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("97_5c44a")]
+position = Vector2(1203.5, -213.75)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue2" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("97_5c44a")]
+position = Vector2(1142, 5)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue3" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("97_5c44a")]
+position = Vector2(1059, 216)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue4" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("97_5c44a")]
+position = Vector2(915, 390)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue5" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("97_5c44a")]
+position = Vector2(541, 406)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue6" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("97_5c44a")]
+position = Vector2(217, 367)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue7" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("97_5c44a")]
+position = Vector2(148, 153)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue8" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("97_5c44a")]
+position = Vector2(34, -45)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue9" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("97_5c44a")]
+position = Vector2(13, -252)
+shape = SubResource("RectangleShape2D_tn2iv")
+
+[node name="Vesialue10" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("97_5c44a")]
+position = Vector2(13, -468.125)
+shape = SubResource("RectangleShape2D_0ttyb")
+
+[node name="Vesialue11" parent="Taso2/VesialueetTaso2/Vesi2D3" instance=ExtResource("97_5c44a")]
+position = Vector2(8, -687)
+shape = SubResource("RectangleShape2D_tn2iv")
+
 [node name="Vesi2D4" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
 position = Vector2(14837, 9037)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D4"]
-position = Vector2(48, 37)
-shape = SubResource("RectangleShape2D_fx2fu")
+[node name="Vesialue" parent="Taso2/VesialueetTaso2/Vesi2D4" instance=ExtResource("97_5c44a")]
+position = Vector2(72, 17.5)
+shape = SubResource("RectangleShape2D_xx24l")
 
 [node name="Vesi2D7" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
-position = Vector2(1110, 5481)
+position = Vector2(1107, 5481)
+animaation_kesto = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D7"]
-position = Vector2(-124, -21.8438)
-shape = SubResource("RectangleShape2D_fka26")
+[node name="Vesialue" parent="Taso2/VesialueetTaso2/Vesi2D7" instance=ExtResource("97_5c44a")]
+position = Vector2(244.5, -23.5)
+shape = SubResource("RectangleShape2D_tk5x5")
 
-[node name="LummeJuureton" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D" instance=ExtResource("88_m1e04")]
-position = Vector2(-71, -120.156)
+[node name="LummeJuureton" parent="Taso2/VesialueetTaso2/Vesi2D7/Vesialue" instance=ExtResource("88_m1e04")]
+position = Vector2(-439.5, -127.5)
 
-[node name="LummeJuurella" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D" instance=ExtResource("88_qbkop")]
-position = Vector2(67, -120.156)
+[node name="LummeJuurella" parent="Taso2/VesialueetTaso2/Vesi2D7/Vesialue" instance=ExtResource("88_qbkop")]
+position = Vector2(-301.5, -127.5)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D7"]
-position = Vector2(390, 4.40625)
-shape = SubResource("RectangleShape2D_bnc2p")
+[node name="LummeJuureton2" parent="Taso2/VesialueetTaso2/Vesi2D7/Vesialue" instance=ExtResource("88_m1e04")]
+position = Vector2(-166.5, -126.812)
 
-[node name="LummeJuureton2" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D2" instance=ExtResource("88_m1e04")]
-position = Vector2(-312, -145.719)
+[node name="LummeJuurella2" parent="Taso2/VesialueetTaso2/Vesi2D7/Vesialue" instance=ExtResource("88_qbkop")]
+position = Vector2(-25.5, -130.5)
 
-[node name="LummeJuurella2" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D2" instance=ExtResource("88_qbkop")]
-position = Vector2(-171, -149.406)
+[node name="LummeJuurella3" parent="Taso2/VesialueetTaso2/Vesi2D7/Vesialue" instance=ExtResource("88_qbkop")]
+position = Vector2(112.5, -130.5)
 
-[node name="LummeJuurella3" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D2" instance=ExtResource("88_qbkop")]
-position = Vector2(-33, -149.406)
+[node name="LummeJuureton3" parent="Taso2/VesialueetTaso2/Vesi2D7/Vesialue" instance=ExtResource("88_m1e04")]
+position = Vector2(246.5, -126.812)
 
-[node name="LummeJuureton3" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D2" instance=ExtResource("88_m1e04")]
-position = Vector2(101, -145.719)
-
-[node name="LummeJuurella4" parent="Taso2/VesialueetTaso2/Vesi2D7/CollisionShape2D2" instance=ExtResource("88_qbkop")]
-position = Vector2(236, -149.406)
+[node name="LummeJuurella4" parent="Taso2/VesialueetTaso2/Vesi2D7/Vesialue" instance=ExtResource("88_qbkop")]
+position = Vector2(381.5, -130.5)
 
 [node name="Vesi2D6" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
 position = Vector2(1133, 6677)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D6"]
-position = Vector2(-118.625, 25.3125)
-shape = SubResource("RectangleShape2D_61m8c")
+[node name="Vesialue" parent="Taso2/VesialueetTaso2/Vesi2D6" instance=ExtResource("97_5c44a")]
+position = Vector2(-128, 36)
+shape = SubResource("RectangleShape2D_qsv7y")
 
-[node name="LummeJuureton" parent="Taso2/VesialueetTaso2/Vesi2D6/CollisionShape2D" instance=ExtResource("88_m1e04")]
-position = Vector2(-80.375, -168.313)
+[node name="LummeJuureton" parent="Taso2/VesialueetTaso2/Vesi2D6/Vesialue" instance=ExtResource("88_m1e04")]
+position = Vector2(-71, -179)
 
-[node name="LummeJuurella" parent="Taso2/VesialueetTaso2/Vesi2D6/CollisionShape2D" instance=ExtResource("88_qbkop")]
-position = Vector2(69.625, -168.313)
+[node name="LummeJuurella" parent="Taso2/VesialueetTaso2/Vesi2D6/Vesialue" instance=ExtResource("88_qbkop")]
+position = Vector2(79, -179)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D6"]
-position = Vector2(390, 164)
-shape = SubResource("RectangleShape2D_0iy3n")
+[node name="Vesialue2" parent="Taso2/VesialueetTaso2/Vesi2D6" instance=ExtResource("97_5c44a")]
+position = Vector2(371, 97.5)
+shape = SubResource("RectangleShape2D_idveh")
 
 [node name="Vesi2D9" parent="Taso2/VesialueetTaso2" instance=ExtResource("80_eho0u")]
 position = Vector2(16539, 8906)
@@ -4393,25 +4386,22 @@ rotation = -1.25265
 siirrettava = NodePath("..")
 tooltip = NodePath("../../../Tooltipit/TooltipAktivoi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D9" groups=["siirra"]]
-position = Vector2(76, 93)
-shape = SubResource("RectangleShape2D_pbgf6")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D9"]
-position = Vector2(1912, 51)
-shape = SubResource("RectangleShape2D_xfv1d")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D9"]
-position = Vector2(-546.812, 252.656)
-shape = SubResource("RectangleShape2D_wr2yi")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Taso2/VesialueetTaso2/Vesi2D9"]
-position = Vector2(-133.396, 248.656)
-shape = SubResource("RectangleShape2D_amira")
-
 [node name="Marker2D" type="Marker2D" parent="Taso2/VesialueetTaso2/Vesi2D9"]
-position = Vector2(98, -223)
+position = Vector2(97, -208)
 gizmo_extents = 160.0
+
+[node name="Vesialue" parent="Taso2/VesialueetTaso2/Vesi2D9" instance=ExtResource("97_5c44a")]
+position = Vector2(-547.5, 254)
+shape = SubResource("RectangleShape2D_htgox")
+paikallaan = true
+
+[node name="Vesialue2" parent="Taso2/VesialueetTaso2/Vesi2D9" instance=ExtResource("97_5c44a")]
+position = Vector2(-132.75, 247)
+shape = SubResource("RectangleShape2D_kg17y")
+
+[node name="Vesialue3" parent="Taso2/VesialueetTaso2/Vesi2D9" instance=ExtResource("97_5c44a")]
+position = Vector2(76.625, 92.5)
+shape = SubResource("RectangleShape2D_sfcsw")
 
 [node name="HappikukatTaso2" type="Node2D" parent="Taso2"]
 
