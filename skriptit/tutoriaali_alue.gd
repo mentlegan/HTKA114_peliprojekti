@@ -6,14 +6,16 @@ extends Area2D
 
 
 func _on_body_entered(body) -> void:
+	await Globaali.maailma.ready
 	if body is Pelaaja:
-		Globaali.pimeyskuolema_paalla = false
-		Globaali.pelaaja.reuna_valo.visible = false
+		Globaali.maailma.pimeyskuolema_paalla = false
+		Globaali.maailma.pelaaja.reuna_valo.visible = false
 		print_debug("PIMEYSKUOLEMA --- FALSE")
 
 
 func _on_body_exited(body) -> void:
-		if body is Pelaaja:
-			Globaali.pimeyskuolema_paalla = true
-			Globaali.pelaaja.reuna_valo.visible = true
-			print_debug("PIMEYSKUOLEMA --- TRUE")
+	await Globaali.maailma.ready
+	if body is Pelaaja:
+		Globaali.maailma.pimeyskuolema_paalla = true
+		Globaali.maailma.pelaaja.reuna_valo.visible = true
+		print_debug("PIMEYSKUOLEMA --- TRUE")

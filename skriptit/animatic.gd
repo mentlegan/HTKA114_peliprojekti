@@ -10,10 +10,13 @@ extends Control
 @onready var title_musiikki = %title_musiikki
 
 @onready var nykyinen_kuva = 0 ## Nykyisen kuvan indeksi
-@onready var soitetaanko = Globaali.soitetaan_animatic ## Otetaan globaalilta varmistus
+var soitetaanko
 
 ## Ready tapahtuu, kun scene avautuu
 func _ready():
+	await Globaali.maailma.ready
+	soitetaanko = Globaali.maailma.soitetaan_animatic ## Otetaan globaalilta varmistus
+
 	# Kysytään globaalilta, että halutaanko animatic soittaa
 	if soitetaanko != null and soitetaanko == true:
 		animatic_musiikki.play()

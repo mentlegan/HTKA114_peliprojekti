@@ -40,11 +40,14 @@ var alue2
 var aanenkorkeuden_muutosnopeus = 0.6
 
 ## Nodearrayt
-@onready var uudetViholliset = Globaali.uudetViholliset
+var uudetViholliset
 
 
 ## Kun scene avataan, ready tapahtuu
 func _ready():
+	await Globaali.maailma.ready
+	uudetViholliset = Globaali.maailma.uudetViholliset
+
 	# Signaalikäsittelyä
 	idle_audio_ajastin.timeout.connect(_idle_audio_ajastimen_loppuessa)
 	alueen_vaihto_ajastin.timeout.connect(_alueen_vaihto_ajastimen_loppuessa)
@@ -74,6 +77,7 @@ func _ready():
 
 ## Delta kutsutaan joka framella
 func _process(_delta):
+	await Globaali.maailma.ready
 	# Tarkistetaan ja muutetaan vihollisen äänenkorkeutta sen mukaan onko vihollinen
 	# pelaajan ylä- vai alapuolella
 	muuta_aanenkorkeutta()
@@ -81,7 +85,7 @@ func _process(_delta):
 
 ## Kollektiivinen kuolema-funktio ..
 func kuolema():
-	Globaali.kuoltiinko_viholliseen = true
+	Globaali.maailma.kuoltiinko_viholliseen = true
 	pelaaja_kuollut.emit() # ..joka lähettää signaalin Globaalille
 
 
@@ -261,8 +265,8 @@ func haeNykyinenAlue(vihollinen):
 ## Haetaan alueen lähin kukka
 func etsi_lahin_kukka(alue) -> Node2D:
 	var lahinKukka
-	var minimi = Globaali.kukat[0].position - alue.position
-	for i in Globaali.kukat:
+	var minimi = Globaali.maailma.kukat[0].position - alue.position
+	for i in Globaali.maailma.kukat:
 		var etaisyys = i.position - alue.position
 		if etaisyys < minimi:
 			minimi = etaisyys
@@ -275,7 +279,7 @@ func etsi_lahin_kukka(alue) -> Node2D:
 ## Jos vihollinen on pelaajan yläpuolella, ääni on korkeampi ja jos alapuolella ääni on matalampi.
 func muuta_aanenkorkeutta():
 	var aanenkorkeuden_kerroin = 1
-	var pelaaja_y = Globaali.pelaaja.get_global_position().y
+	var pelaaja_y = Globaali.maailma.pelaaja.get_global_position().y
 	var vihollinen_y = self.get_global_position().y
 	# Tason collision shapen korkeus:
 	var y_vaihteluvali = Globaali.nykyisen_tason_collision_shape(self).size.y

@@ -2,7 +2,13 @@
 ## Pelin pauseruudun nappien toiminta
 extends Control
 
-@onready var asetukset = Globaali.asetuksetruutu
+var asetukset
+
+
+func _ready():
+	await Globaali.maailma.ready
+	asetukset = Globaali.maailma.asetuksetruutu
+
 
 ## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process
 ## Kutsutaan vain kun painetaan jotain

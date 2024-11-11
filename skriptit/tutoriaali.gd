@@ -47,14 +47,14 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 	# PC H
 	elif event.is_action_pressed("tutorial"):
-		if not (Globaali.pauseruutu.visible or Globaali.journal.visible):
+		if not (Globaali.maailma.pauseruutu.visible or Globaali.maailma.journal.visible):
 			if visible:
 				_on_takaisin_nappi_pressed()
 				get_viewport().set_input_as_handled()
 			else:
 				Globaali.nayta_tutorial()
-				Globaali.uusi_tutorial = false
-				Globaali.pelaaja.paivita_tutorial_label()
+				Globaali.maailma.uusi_tutorial = false
+				Globaali.maailma.pelaaja.paivita_tutorial_label()
 				get_viewport().set_input_as_handled()
 
 

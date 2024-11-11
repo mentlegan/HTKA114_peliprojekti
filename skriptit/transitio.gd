@@ -20,21 +20,21 @@ func _on_transitio(tp):
 		mihin_tp = tp
 	color_rect.visible = true
 	animation_player.play("fade_black")
-	Globaali.pelaaja.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	Globaali.maailma.pelaaja.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 
 
 func _fade_reset(anim_name):
 	if anim_name == "fade_black":
 		await get_tree().create_timer(1, false).timeout
-		#if Globaali.minecart_kaytetty == true:
-			#Globaali.teleporttaa_pelaaja(Globaali.taso1_loppu)
+		#if Globaali.maailma.minecart_kaytetty == true:
+			#Globaali.teleporttaa_pelaaja(Globaali.maailma.taso1_loppu)
 		Globaali.teleporttaa_pelaaja(mihin_tp)
-			#Globaali.minecart_kaytetty = false
+			#Globaali.maailma.minecart_kaytetty = false
 		#else:
-			#Globaali.teleporttaa_pelaaja(Globaali.vesiputous_tp)
+			#Globaali.teleporttaa_pelaaja(Globaali.maailma.vesiputous_tp)
 			#Globaali.teleporttaa_pelaaja(mihin_tp)
 		animation_player.play("fade_reset")
 		await get_tree().create_timer(0.3, false).timeout
-		Globaali.pelaaja.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
+		Globaali.maailma.pelaaja.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 	elif anim_name == "fade_reset":
 		color_rect.visible = false

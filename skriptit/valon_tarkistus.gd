@@ -67,7 +67,7 @@ var valossa = null
 func _ready():
 	# Siirretään raycast nykyisen scenen lapseksi
 	self.remove_child(raycast)
-	get_tree().get_current_scene().add_child.call_deferred(raycast)
+	Globaali.maailma.add_child.call_deferred(raycast)
 
 	# Odotetaan, että raycast on lisätty nykyisen scenen lapseksi
 	await Engine.get_main_loop().process_frame

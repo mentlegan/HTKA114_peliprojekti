@@ -15,7 +15,7 @@ func _ready() -> void:
 func _on_body_entered(body):
 	if body is Pelaaja and not aktivoitu:
 		# Vaihdetaan pelaajan spawn-point
-		Globaali.pelaaja_aloitus = self.global_position
+		Globaali.maailma.pelaaja_aloitus = self.global_position
 		aktivoitu = true
 		$AnimatedSprite2D.play("activate")
 		var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT).set_parallel(true)

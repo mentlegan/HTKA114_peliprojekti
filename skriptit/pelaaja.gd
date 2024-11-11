@@ -39,7 +39,7 @@ var tahtaimen_lapset = []
 
 ## Pelaajan kamera
 @onready var kamera = get_node("Camera2D")
-@onready var pimeyskuolema = Globaali.pimeyskuolema_animaatio
+var pimeyskuolema
 ## Totuusarvo valossa olemiselle
 var valossa = false
 
@@ -229,6 +229,9 @@ var kamera_tarina_ajastin = Timer.new()
 
 
 func _ready():
+	# Odotetaan, että Maailma-node on valmis
+	await Globaali.maailma.ready
+
 	# Lisätään ajastimet hypyille, elämä regeneraatiolle, myrkylle ja kameran tärinälle lapsiksi
 	self.add_child(hyppy_ajastin_seinalla)
 	self.add_child(hyppy_ajastin_maassa)
@@ -236,7 +239,7 @@ func _ready():
 	self.add_child(kamera_tarina_ajastin)
 	self.add_child(myrkky_ajastin)
 	self.add_child(myrkkyalue_ajastin)
-	
+
 	# Lisätään pelaajan hp labeliin elamat
 	elama_mittari_kuvalla.max_value = pelaajan_elamat_max
 	elamat_label_paivita()
@@ -292,8 +295,6 @@ func _ready():
 	# Reunoja pimentävä valo näkyviin
 	reunojen_pimentaja_valo.visible = true
 	
-	pimeyskuolema.modulate.a = 0.0
-	
 	palloja_label_paivita()
 
 	sivu_info_label.modulate.a = 0
@@ -301,15 +302,18 @@ func _ready():
 
 	journal_info_label.modulate.a = 0
 	journal_info_label.position.y = -80
-
-	if not Globaali.journal_keratty:
-		apua_label.visible = false
 	
 	# Asetetaan HUD:in tooltipit vastaamaan näppäimistöä
 	kbm_tooltipit_nakyviin(true)
 
 	# Päivitetään potionin osien label
 	keraa_potionin_osa(null)
+
+	pimeyskuolema = Globaali.maailma.pimeyskuolema_animaatio
+	pimeyskuolema.modulate.a = 0.0
+
+	if not Globaali.maailma.journal_keratty:
+		apua_label.visible = false
 
 
 ## Asettaa journalin tooltipit näkyviin näppäimistölle ja hiirelle.
@@ -456,7 +460,7 @@ func paivita_tahtaimen_lentorata():
 ## Kun siirrytään varjoon, aloitetaan ajastin
 func siirrytty_varjoon():
 	# Ohitetaan, jos ollaan vedessä tai tutoriaalikentässä
-	if vedessa or not Globaali.pimeyskuolema_paalla:
+	if vedessa or not Globaali.maailma.pimeyskuolema_paalla:
 		return
 	
 	valossa = false
@@ -502,7 +506,7 @@ func pimeaKuoleminen():
 	pimeyskuolema.play("PimeysKuolema")
 	kuolema_aloita_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	kuolema_aloita_tween.tween_property(pimeyskuolema, "modulate:a", 1, 5)
-	Globaali.kuoltiinko_viholliseen = true # Laitetaan globaalissa oleva tarkistin trueksi oikean animaation saamiseksi
+	Globaali.maailma.kuoltiinko_viholliseen = true # Laitetaan globaalissa oleva tarkistin trueksi oikean animaation saamiseksi
 
 
 ## Tähän lisätty signaalin emit
@@ -641,9 +645,9 @@ func tarinan_lopetus():
 
 
 func palloja_label_paivita():
-	if Globaali.palloja == 0:
+	if Globaali.maailma.palloja == 0:
 		palloja_label.visible = false
-	elif Globaali.palloja == 1:
+	elif Globaali.maailma.palloja == 1:
 		palloja_label.set_texture(palloja_1)
 		palloja_label.visible = true
 	else:
@@ -962,8 +966,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("painike_vasen") and (
 		hiiri_kaytossa or tahtain.visible
 	):
-		# Tällä hetkellä 2 maksimissaan, Globaali.nykyiset_pallot < 2
-		if Globaali.palloja > 0 and not vedessa:
+		# Tällä hetkellä 2 maksimissaan, Globaali.maailma.nykyiset_pallot < 2
+		if Globaali.maailma.palloja > 0 and not vedessa:
 			# Valon synnyttäminen
 			var l = valopallo.instantiate()
 			# Liikkuminen valon scriptissä
@@ -976,8 +980,8 @@ func _physics_process(delta):
 			pallon_heitto_tween.tween_property(palloja_label, "scale", Vector2(1,1), 1)
 			
 			# Muuttujiin muutokset
-			Globaali.nykyiset_pallot += 1
-			Globaali.palloja -= 1
+			Globaali.maailma.nykyiset_pallot += 1
+			Globaali.maailma.palloja -= 1
 			palloja_label_paivita()
 	
 	# Nostetaan ja lasketaan äänen taajuutta tarvittaessa
@@ -997,7 +1001,7 @@ func _physics_process(delta):
 	# TODO: tämä myöhemmin signaaleilla
 	var kukat = valon_tarkistus.get_overlapping_areas()
 	for kukka in kukat:
-		if kukka.is_in_group("kukka") and Globaali.palloja != 2 and kukka.voiko_kerata == true:
+		if kukka.is_in_group("kukka") and Globaali.maailma.palloja != 2 and kukka.voiko_kerata == true:
 			audio_valopallon_keraaminen.play()
 			
 			# Kukan keräämiselle indikaattori
@@ -1008,7 +1012,7 @@ func _physics_process(delta):
 			palloja_label.scale = Vector2(1.3, 1.3)
 			kukan_kerays_tween.tween_property(palloja_label, "scale", Vector2(1, 1), 1)
 			
-			Globaali.palloja = 2
+			Globaali.maailma.palloja = 2
 			palloja_label_paivita()
 			
 			kukka.aloita_kerays_animaatio()
@@ -1019,15 +1023,15 @@ func _physics_process(delta):
 		for alue in alueet:
 			if alue.is_in_group("minecart"):
 				# Tehty nyt täällä, myöhemmin kerkiää optimoida
-				#Globaali.minecart_kaytetty = true
+				#Globaali.maailma.minecart_kaytetty = true
 				# Tp sijainti
 				var tp = alue.mihin_tp.global_position
 				transitio.emit(tp)
 				await get_tree().create_timer(0.8, false).timeout
-				if Globaali.minecart_kaytetty == false:
+				if Globaali.maailma.minecart_kaytetty == false:
 					# TODO: vesialueella voi käyttää moneen kertaan
-					Globaali.minecart_kaytetty = true
-					Globaali.minecartit.queue_free()
+					Globaali.maailma.minecart_kaytetty = true
+					Globaali.maailma.minecartit.queue_free()
 					Globaali.poista_minecart_tooltipit()
 			elif alue.is_in_group("siirravesi"):
 				alue.aktivoi()
@@ -1151,7 +1155,7 @@ func tayta_happi():
 
 ## Päivitetään tutoriaalin ui-label näkyväksi tai piiloon
 func paivita_tutorial_label():
-	if Globaali.uusi_tutorial == true: # Katsotaan globaalista, että onko meillä uusi tutoriaali avattu
+	if Globaali.maailma.uusi_tutorial == true: # Katsotaan globaalista, että onko meillä uusi tutoriaali avattu
 		tutorial_info_label.visible = true # Laitetaan tutoriaali label näkyväksi
 	else: tutorial_info_label.visible = false # Muutoin piiloon
 

@@ -78,7 +78,7 @@ func start_destroy():
 	tween_pallo.finished.connect(
 		func():
 			queue_free()
-			Globaali.nykyiset_pallot -= 1
+			Globaali.maailma.nykyiset_pallot -= 1
 	)
 
 
@@ -132,21 +132,21 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 					collision.disabled = false
 	
 	# Pelkkä ristiovi                         # vain tasossa 3
-	if Globaali.ovi_risti != null and ovi_ylin.get_name() == "Ovet_3":
+	if Globaali.maailma.ovi_risti != null and ovi_ylin.get_name() == "Ovet_3":
 		var ovi_pysty = ovi_pysty_oikea.instantiate()
 		var ovi_vaaka = ovi_vaaka_vasen.instantiate()
 		
 		# Tuhotaan kaikki lapset varmistukseksi
-		var ristit = Globaali.ovi_risti.get_children()
+		var ristit = Globaali.maailma.ovi_risti.get_children()
 		for risti in ristit:
 			risti.queue_free()
 		
-		if Globaali.pystyssa:
-			Globaali.ovi_risti.add_child(ovi_vaaka)
-			Globaali.pystyssa = false
+		if Globaali.maailma.pystyssa:
+			Globaali.maailma.ovi_risti.add_child(ovi_vaaka)
+			Globaali.maailma.pystyssa = false
 		else:
-			Globaali.ovi_risti.add_child(ovi_pysty)
-			Globaali.pystyssa = true
+			Globaali.maailma.ovi_risti.add_child(ovi_pysty)
+			Globaali.maailma.pystyssa = true
 
 
 func _on_vesi_tarkistus_area_entered(area) -> void:
@@ -160,7 +160,7 @@ func _physics_process(delta):
 		# Tuhotaan valopallo kokonaan
 		audio_valopallo_hajoaa.play() # TODO: Jostain syystä ei soi
 		queue_free()
-		Globaali.nykyiset_pallot = 0
+		Globaali.maailma.nykyiset_pallot = 0
 	"""
 	
 	# Valon liikkuminen

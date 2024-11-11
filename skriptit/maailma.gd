@@ -1,0 +1,118 @@
+extends Node2D
+## Node, joka sisältää globaalit muttujat.
+## Muuttujia voi asettaa ja hakea Globaali.maailma-muuttujan kautta.
+
+
+## Käytössä olevat pallot
+var palloja = 0
+## Maailmassa olevat pallot
+var nykyiset_pallot = 0
+## Signaaleja varten
+var pelaaja = null
+var uusi_vihollinen = null
+var tutoriaali = null
+## Sekunnissa päivittämiseen käytettävät muuttujat (kts. process delta)
+var aika_vali = 1.0
+var aika = 0
+## UI-näkyvyyden ajastin
+var ui_ajastin = Timer.new()
+var kuoltiinko_viholliseen
+## Taulukko tooltipeille
+@onready var tooltip_node = get_node("/root/Maailma/Tooltipit")
+var tooltipit = Array()
+
+## Pelaajan ja vihollisen aloitus koordinaatit
+## Pelaajan aloituspaikka muuttuu pelin edetessä checkpointtien takia
+var pelaaja_aloitus = null
+var soitetaan_animatic
+
+## Pelaajan taso2 ja taso3 koordinaatit teleporttaamiseen
+## Kentan 1 loppu mukaan minecart tp varten
+@onready var pelaaja_taso1 = get_node("/root/Maailma/%Muuta/%Taso1Teleport").position
+@onready var pelaaja_taso2 = get_node("/root/Maailma/%Muuta/%Taso2Teleport").position
+@onready var pelaaja_taso3 = get_node("/root/Maailma/%Muuta/%Taso3Teleport").position
+@onready var pelaaja_taso45 = get_node("/root/Maailma/%Muuta/%Taso45Teleport").position
+@onready var taso1_loppu = get_node("/root/Maailma/%Muuta/%Kentan1_loppu").position
+@onready var vesiputous_tp = get_node("/root/Maailma/%Muuta/%VesiputousTeleport").position
+
+@onready var pelaaja_vesitutoriaali = get_node("/root/Maailma/Taso2/%VesitutoriaaliTP").position
+@onready var pelaaja_vesitutoriaali_ennen = get_node("/root/Maailma/Taso2/%VesitutoriaaliEnnenTP").position
+@onready var pelaaja_vesitutoriaalilapi = get_node("/root/Maailma/Taso2/%VesitutoriaaliLapiTP").position
+
+@onready var tiilet_taso_2 = get_node("/root/Maailma/Taso2/%TiiletTaso2")
+@onready var ovi_seina_2 = get_node("/root/Maailma/Taso2/%OviSeina2")
+
+## Valot ja indikaattorit köynnösoville ja niiden taulukko
+var oven_valo = preload("res://scenet/oven_valo.tscn")
+var oven_indikaattori = preload("res://scenet/oven_indikaattori.tscn")
+var oven_indikaattori_punainen = preload("res://tres-tiedostot/oven_indikaattori_punainen.tres")
+var oven_indikaattori_sininen = preload("res://tres-tiedostot/oven_indikaattori_sininen.tres")
+var oven_indikaattori_lila = preload("res://tres-tiedostot/oven_indikaattori_lila.tres")
+var ovien_valot = Array()
+var ovien_indikaattorit = Array()
+@onready var koynnosovet = get_node("/root/Maailma/Koynnosovet")
+
+## Köynnösovien scenet
+@onready var ovi_vasen_x = preload("res://scenet/ovet/ovi_vasen_x.tscn")
+@onready var ovi_oikea_x = preload("res://scenet/ovet/ovi_oikea_x.tscn")
+@onready var ovi_vasen_y = preload("res://scenet/ovet/ovi_vasen_y.tscn")
+@onready var ovi_oikea_y = preload("res://scenet/ovet/ovi_oikea_y.tscn")
+@onready var ovi_vasen_z = preload("res://scenet/ovet/ovi_vasen_z.tscn")
+@onready var ovi_oikea_z = preload("res://scenet/ovet/ovi_oikea_z.tscn")
+
+@onready var ovi_pysty_oikea = preload("res://scenet/ovet/ovi_pysty_oikea.tscn")
+@onready var ovi_vaaka_vasen = preload("res://scenet/ovet/ovi_vaaka_vasen.tscn")
+
+## Taulukko Tasot-nodelle
+var tasot = Array()
+@onready var tasot_node = get_node("/root/Maailma/Tasot")
+
+## Ristiovelle oma kohtelu vielä tässä vaiheessa
+@onready var ovi_risti = get_tree().get_first_node_in_group("risti")
+var pystyssa = true
+
+## Tässä otetaan käyttöliittymän pauseruutu groupin avulla. Alla on toinen tapa ottaa
+## @onready var pauseruutu = get_tree().get_first_node_in_group("pauseruutu")
+
+## /root/Maailma/[uniquenimi] näyttäisi toimivan:
+## huom. uniikki nimi toimii vain, jos ei ole aikomusta tehdä useaa instanssia
+## pitää vaan muistaa kaikille käsiteltäville nodeille laittaa unique nimi nodepuusta:
+## oikea näppäin ja % merkillä oleva valinta Access as unique name 
+## ja kutsua sitä % merkillä scriptissä, kuten alla:
+@onready var gameover_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%GameOverRuutu")
+@onready var credits = get_node("/root/Maailma/%KayttoLiittyma/%Credits")
+@onready var journal = get_node("/root/Maailma/%KayttoLiittyma/Journal")
+@onready var pauseruutu = get_node("/root/Maailma/%KayttoLiittyma/%pause_ruutu")
+@onready var asetuksetruutu = get_node("/root/Maailma/%KayttoLiittyma/%asetukset_ruutu")
+@onready var pimeyskuolema_animaatio = get_node("/root/Maailma/%KayttoLiittyma/%PimeysKuolema")
+@onready var uudetViholliset = get_node("/root/Maailma/%uudetViholliset").get_children()
+@onready var kukat = get_node("/root/Maailma/%Kukat").get_children()
+@onready var piikit = get_node("/root/Maailma/%Piikit").get_children()
+@onready var tutoriaali_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%Tutoriaali")
+@onready var tutoriaali_alueet = get_node("/root/Maailma/%TutoriaaliUnlock")
+var tutorial_paalla = false
+var uusi_tutorial = false
+## Musiikit:
+@onready var musiikki = get_node("/root/Maailma/Musiikki")
+@onready var audio_journal = get_node("/root/Maailma/%KayttoLiittyma/Journal/%AudioJournal")
+@onready var audio_oven_resonanssi = get_node("/root/Maailma/Koynnosovet/%AudioOvenResonanssi")
+## Minecartit tuhotaan, kun jompi kumpi käytetään
+@onready var minecartit = get_node("/root/Maailma/%Minecartit")
+
+## Lisätään sceneen tausta pelin alussa
+var tausta = preload("res://scenet/tausta.tscn")
+var tausta2 = preload("res://scenet/tausta2.tscn")
+var tausta_node
+var tausta2_node
+## Totuusarvo journalin aktivoimiselle ja minecartin käytölle
+var journal_keratty = false
+var minecart_kaytetty = false
+## Onko pimeyskuolema päällä, ei ole tutoriaalissa
+var pimeyskuolema_paalla = false
+
+@onready var animatic = get_node("/root/Maailma/%KayttoLiittyma/%Animatic")
+
+
+## Kutsutaan Globaalin alustusfunktiota luomisen yhteydessä
+func _ready():
+    Globaali.init()
