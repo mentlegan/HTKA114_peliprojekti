@@ -11,6 +11,9 @@ extends Node2D
 # Sijainti: %APPDATA%\Godot\app_userdata\Beneath the Mines\save_file.json
 const TALLENNUSTIEDOSTO = "user://save_file.json"
 
+# Pelin maailma-scenejen kansio
+const MAAILMASCENE_KANSIO = "res://scenet/maailmat"
+
 ## Maailma-node, sisältää aiemmin Globaali.gd:ssä olleet muuttujat.
 ## Aiemman Globaali.muuttujan_nimi formaatin sijaan käytetään nyt Globaali.maailma.muuttujan_nimi.
 ## Uudet globaalit muuttujat on siis laitettava maailma.gd-skriptiin Globaali.gd:n sijaan.
@@ -20,9 +23,6 @@ const TALLENNUSTIEDOSTO = "user://save_file.json"
 ## Muuttujille olisi pitänyt kirjoittaa erillinen alustusfunktio scenen vaihtamista varten,
 ## nykyinen toteutus hoitaa tämän automaattisesti Maailma-noden luomisen yhteydessä.
 @onready var maailma = get_node("/root/Maailma")
-
-## Testimaailma scenen vaihtamista varten
-var test = preload("res://scenet/maailmat/maailma_test.tscn")
 
 
 ## Alustusfunktio, jota Maailma-node kutsuu sceneen astuessa
@@ -276,7 +276,7 @@ func _input(_event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 	
 	elif Input.is_action_just_pressed("vaihda_scene"):
-		vaihda_scene()
+		vaihda_scene("maailma_test")
 
 
 ## Kutsutaan joka framella
@@ -547,13 +547,40 @@ func avaa_seinaovi():
 	maailma.ovi_seina_2.queue_free()
 
 
+## Luo uuden CollisionPolygon2D:n annetun Polygon2D:n perusteella, joka lisätään Polygon2D:n sisarukseksi.
+## Poistaa samalla annetun Polygon2D:n toisen parametrin perusteella.
+## Palauttaa luodun CollisionPolygon2D:n.
+func polygon2d_to_collisionpolygon2d(polygon2d: Polygon2D, poista_polygon2d = false) -> CollisionPolygon2D:
+	# Haetaan Polygon2D:n PackedVector2Array
+	var collisionpolygon = CollisionPolygon2D.new()
+
+	# Lisätään CollisionPolygon2D Polygon2D:n sisarukseksi
+	polygon2d.add_sibling.call_deferred(collisionpolygon)
+
+	# Asetetaan sama sijainti, rotaatio, yms.
+	collisionpolygon.global_position = polygon2d.global_position
+	collisionpolygon.rotation = polygon2d.rotation
+	collisionpolygon.transform = polygon2d.transform
+	collisionpolygon.skew = polygon2d.skew
+
+	# Asetetaan sama polygoni
+	collisionpolygon.set_polygon(polygon2d.get_polygon())
+
+	# Poistetaan tarvittaessa Polygon2D
+	if poista_polygon2d:
+		polygon2d.queue_free()
+
+	return collisionpolygon
+
+
 ## Vaihtaa scenen
 ## TODO: Parametri scenelle, tällä hetkellä vaihdetaan aina testimaailmaan
-func vaihda_scene():
+func vaihda_scene(maailman_nimi):
 	# Poistetaan nykyinen Maailma-node SceneTreestä
 	get_tree().root.remove_child(maailma)
 	# Luodaan uusi Maailma-node
-	maailma = test.instantiate()
+	var maailma_tscn = load(MAAILMASCENE_KANSIO + "/" + maailman_nimi + ".tscn")
+	maailma = maailma_tscn.instantiate()
 	# Lisätään uusi Maailma-node SceneTreehen
 	get_tree().root.add_child(maailma)
 	# (maailma.gd kutsuu Globaali.gd:n init()-funktiota, kun on valmis)
