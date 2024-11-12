@@ -64,6 +64,7 @@ func skippaa():
 	animatic_musiikki.stop()
 	title_musiikki.stop()
 	Globaali.soita_musiikki()
+	Globaali.maailma.alkuanimatic_nahty = true
 
 
 ## Kun painetaan quit-nappia

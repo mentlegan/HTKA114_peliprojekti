@@ -8,8 +8,8 @@ extends Node2D
 
 
 # Pelin tallennustiedosto
-# Sijainti: %APPDATA%\Godot\app_userdata\Beneath the Mines\save_file.json
-const TALLENNUSTIEDOSTO = "user://save_file.json"
+# Sijainti: %APPDATA%\Godot\app_userdata\Beneath the Mines\save_file_[maailma].json
+const TALLENNUSTIEDOSTO = "user://save_file"
 
 # Pelin maailma-scenejen kansio
 const MAAILMASCENE_KANSIO = "res://scenet/maailmat"
@@ -24,12 +24,14 @@ const MAAILMASCENE_KANSIO = "res://scenet/maailmat"
 ## nykyinen toteutus hoitaa tämän automaattisesti Maailma-noden luomisen yhteydessä.
 @onready var maailma = get_node("/root/Maailma")
 
+## Taulukko, joka sisältää tallennustiedoston sisällön Latausnapin painamisen jälkeen
+var tallennetut_nodet = []
+## Nykyisen maailma-scenen tiedostonimi ilman .tscn-tiedostopäätettä
+var nykyinen_scene = "maailma"
+
 
 ## Alustusfunktio, jota Maailma-node kutsuu sceneen astuessa
 func init():
-	# Soitetaan alkuanimatic. Seuraavan rivin voi dokumentoida pois, jos haluaa testata peliä ilman sitä
-	soita_animatic()
-	
 	# Signaalikäsittelyä mm. pelaajan kuolemisesta
 	maailma.pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
 	maailma.pelaaja.kuollut.connect(_game_over) # Yhdistetään signaali pelaajasta
@@ -83,6 +85,29 @@ func init():
 	# Journal pois näkyvistä
 	maailma.journal.visible = false
 
+	# Palautetaan tallennettujen nodejen muuttujat
+	for tallennettu_node in tallennetut_nodet:
+		var node = get_node(tallennettu_node["polku"])
+		for key in tallennettu_node:
+			if key == "polku":
+				continue
+
+			if node[key] is Vector2:
+				node[key].x = tallennettu_node[key][0]
+				node[key].y = tallennettu_node[key][1]
+			else:
+				node[key] = tallennettu_node[key]
+
+		if node.has_method("lataa"):
+			node.call("lataa")
+
+	# Soitetaan alkuanimatic, jos peliä ei olla vielä tallennettu
+	if not maailma.alkuanimatic_nahty:
+		soita_animatic()
+	else:
+		get_tree().paused = false
+		soita_musiikki()
+
 
 ## Antaa tiedon animaticin scriptille, että halutaanko alkuanimaticin soivan
 func soita_animatic():
@@ -93,7 +118,6 @@ func soita_animatic():
 
 ## Soittaa musiikkia
 func soita_musiikki():
-	await maailma.ready
 	maailma.musiikki.play()
 
 
@@ -483,6 +507,11 @@ func sulje_tutorial():
 	get_tree().paused = false
 
 
+## Palauttaa nykyisen scenen tallennustiedoston polun
+func tallennustiedoston_polku():
+	return TALLENNUSTIEDOSTO + "_" + nykyinen_scene + ".json"
+
+
 ## Tallentaa pelin nykyisen tilan JSON-tiedostoon.
 ## Ottaa tallentaessa huomioon pelkästään 'tallenna'-ryhmään kuuluvat nodet,
 ## jotka on instanssoitu (scenet/*.tscn).
@@ -496,10 +525,11 @@ func tallenna():
 	# jos sitä kaivataan:
 	# https://docs.godotengine.org/en/stable/classes/class_marshalls.html
 	
-	var tallennustiedosto = FileAccess.open(TALLENNUSTIEDOSTO, FileAccess.WRITE_READ)
+	var tallennustiedosto = FileAccess.open(tallennustiedoston_polku(), FileAccess.WRITE_READ)
 	
 	# Tallennetaan pelkästään nodet, jotka kuuluvat ryhmään 'tallenna'
 	var nodet = get_tree().get_nodes_in_group("tallenna")
+	var data = []
 
 	for node in nodet:
 		# Tallennettavan noden on oltava instanssoitu (scenet/*.tscn), jotta
@@ -514,18 +544,23 @@ func tallenna():
 			continue
 		
 		# Haetaan noden tiedot ja lisätään se data-taulukkoon
-		var data = node.call("tallenna")
+		var node_data = node.call("tallenna")
+		node_data["polku"] = node.get_path()
 
-		# Muunnetaan tiedot JSON-muotoon
-		var json = JSON.stringify(data)
-		
-		# Lisätään JSON-rivi tallennustiedostoon
-		tallennustiedosto.store_line(json)
+		data.append(node_data)
+
+	# Muunnetaan tiedot JSON-muotoon
+	var json = JSON.stringify(data)
+	
+	# Lisätään JSON-rivi tallennustiedostoon
+	tallennustiedosto.store_line(json)
 
 
 ## Lataa pelin aiemman tilan tallennustiedostosta
 func lataa():
-	pass
+	var tallennustiedosto = FileAccess.open(tallennustiedoston_polku(), FileAccess.READ)
+	tallennetut_nodet = JSON.parse_string(tallennustiedosto.get_as_text())
+	vaihda_scene(nykyinen_scene)
 
 
 ## Avaa uuden tutoriaalin pelaajan tarkisteltavaksi
@@ -576,6 +611,7 @@ func polygon2d_to_collisionpolygon2d(polygon2d: Polygon2D, poista_polygon2d = fa
 ## Vaihtaa scenen
 ## TODO: Parametri scenelle, tällä hetkellä vaihdetaan aina testimaailmaan
 func vaihda_scene(maailman_nimi):
+	nykyinen_scene = maailman_nimi
 	# Poistetaan nykyinen Maailma-node SceneTreestä
 	get_tree().root.remove_child(maailma)
 	# Luodaan uusi Maailma-node

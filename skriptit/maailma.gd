@@ -5,6 +5,8 @@ extends Node2D
 
 ## Käytössä olevat pallot
 var palloja = 0
+## Onko alkuanimatic nähty
+var alkuanimatic_nahty = false
 ## Maailmassa olevat pallot
 var nykyiset_pallot = 0
 ## Signaaleja varten
@@ -116,3 +118,9 @@ var pimeyskuolema_paalla = false
 ## Kutsutaan Globaalin alustusfunktiota luomisen yhteydessä
 func _ready():
     Globaali.init()
+
+
+func tallenna():
+    return {
+        "alkuanimatic_nahty": alkuanimatic_nahty
+    }

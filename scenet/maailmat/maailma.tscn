@@ -436,7 +436,7 @@ point_count = 22
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irw3x"]
 size = Vector2(37266.5, 13566)
 
-[node name="Maailma" type="Node2D" groups=["valonlahde"]]
+[node name="Maailma" type="Node2D" groups=["tallenna", "valonlahde"]]
 script = ExtResource("1_lya7j")
 
 [node name="KayttoLiittyma" type="CanvasLayer" parent="." groups=["UI"]]

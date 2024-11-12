@@ -1092,11 +1092,6 @@ func aseta_ui_nakyvyys(nakyvissa):
 ## Palauttaa pelaajan JSON-tiedostoon tallennettavat muuttujat
 func tallenna():
 	return {
-		"polku": get_scene_file_path(), # Pakollinen
-		"vanhempi": get_parent().get_path(), # Pakollinen
-
-		# Loput arvot riippuvat nodesta.
-
 		# Tallennettavien muuttujien on oltava yhteensopivia JSON-tiedostoformaatin kanssa
 		# (https://en.wikipedia.org/wiki/JSON#Data_types). Voidaan siis tallentaa
 		# numeroita, merkkijonoja, totuusarvoja, null-arvoja ja aiemmista
@@ -1104,6 +1099,10 @@ func tallenna():
 		
 		# JSON-tiedoston muuttujat on nimettävä täsmälleen noden muuttujien
 		# mukaisesti: {"muuttujan_nimi": muuttujan_arvo}.
+
+		# Jos pelkän muuttujan asettaminen ei riitä noden tilan palauttamiseen,
+		# voi kirjoittaa erillisen funktion lataa().
+		# Globaali.gd kutsuu lataa-funktiota, jos sellainen on olemassa.
 
 		"global_position": [
 			global_position.x,		# JSON ei tue Vector2 arvoa, joten tallennetaan
