@@ -117,10 +117,11 @@ var pimeyskuolema_paalla = false
 
 ## Kutsutaan Globaalin alustusfunktiota luomisen yhteydessä
 func _ready():
-    Globaali.init()
+	Globaali.init()
 
 
 func tallenna():
-    return {
-        "alkuanimatic_nahty": alkuanimatic_nahty
-    }
+	return {
+		"alkuanimatic_nahty": alkuanimatic_nahty,
+		"palloja": palloja,
+	}

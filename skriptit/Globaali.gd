@@ -3,7 +3,7 @@
 ## Elias 22.4.2024
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä funktioita käytettäväksi muissa scripteissä
 ## TODO: pelaajan kuolema-animaation voi kenties siirtää pelaajan scriptiin, jos sen saa toimimaan siellä:
-##		 tehty tänne toistaiseksi Fall damage-kuoleman takia
+## tehty tänne toistaiseksi Fall damage-kuoleman takia
 extends Node2D
 
 
@@ -88,6 +88,7 @@ func init():
 	# Palautetaan tallennettujen nodejen muuttujat
 	for tallennettu_node in tallennetut_nodet:
 		var node = get_node(tallennettu_node["polku"])
+		print(node.name, tallennettu_node)
 		for key in tallennettu_node:
 			if key == "polku":
 				continue
