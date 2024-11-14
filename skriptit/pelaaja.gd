@@ -32,10 +32,10 @@ var tahtaimen_lapset = []
 @onready var happi_mittari = get_node("HUD/HappiMittari")
 @onready var palloja_label = get_node("HUD/Palloja")
 @onready var apua_label = get_node("HUD/ApuaLabel")
-@onready var journal_info_label = get_node("JournalInfo")
+@onready var journal_info_label = get_node("HUD/JournalInfo")
 
-@onready var sivu_info_label = get_node("SivuInfo")
-@onready var tutorial_info_label = get_node("TutorialInfo")
+@onready var sivu_info_label = get_node("HUD/SivuInfo")
+@onready var tutorial_info_label = get_node("HUD/TutorialInfo")
 
 ## Pelaajan kamera
 @onready var kamera = get_node("Camera2D")
@@ -90,6 +90,9 @@ var valossa = false
 
 ## Huilun partikkelit ja niiden säde
 @onready var huilun_partikkelit = $Huilu/Partikkelit
+
+## Nykyiset tooltipit, joiden päällä pelaaja on
+var nykyiset_tooltipit = []
 
 ## Äänen taajuus
 var aanen_taajuus = 1
@@ -1087,6 +1090,9 @@ func aseta_ui_nakyvyys(nakyvissa):
 	tween.set_parallel(true)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(hud, "modulate", vari, 0.5)
+
+	for tooltip in nykyiset_tooltipit:
+		tooltip._on_body_exited(self)
 
 
 ## Palauttaa pelaajan JSON-tiedostoon tallennettavat muuttujat

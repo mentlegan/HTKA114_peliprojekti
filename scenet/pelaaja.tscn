@@ -12,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://d1oyqkmwe7p1i" path="res://grafiikka/OhjainTooltipSelect.png" id="6_uircd"]
 [ext_resource type="Texture2D" uid="uid://csjbkgti5474u" path="res://grafiikka/PelaajaKuolema-Sheet.png" id="7_dc5pa"]
 [ext_resource type="Texture2D" uid="uid://dgpptf7h5t4y5" path="res://grafiikka/WallClimb-Sheet.png" id="7_prghi"]
-[ext_resource type="Texture2D" uid="uid://b1sbs0g74wt83" path="res://grafiikka/PelaajaUinti-Sheet.png" id="8_cs5lw"]
-[ext_resource type="Texture2D" uid="uid://cop1kqgfcn0yc" path="res://grafiikka/PelaajaKuolemaVihollinen-Sheet.png" id="9_grh8j"]
-[ext_resource type="Texture2D" uid="uid://b111fcdopmwqv" path="res://grafiikka/PelaajaHukkuminen-Sheet.png" id="9_hp6r5"]
+[ext_resource type="Texture2D" uid="uid://dco7ja0c11g7v" path="res://grafiikka/PelaajaUinti-Sheet.png" id="8_cs5lw"]
+[ext_resource type="Texture2D" uid="uid://dtwqxa8ywct1k" path="res://grafiikka/PelaajaKuolemaVihollinen-Sheet.png" id="9_grh8j"]
+[ext_resource type="Texture2D" uid="uid://cdx5ha40b7xrk" path="res://grafiikka/PelaajaHukkuminen-Sheet.png" id="9_hp6r5"]
 [ext_resource type="AudioStream" uid="uid://eqsig3hl534a" path="res://audio/pelaaja/kavely2_pitka_mono.wav" id="10_uhji0"]
 [ext_resource type="AudioStream" uid="uid://37o042m8fj2j" path="res://audio/pelaaja/juoksu_mono.wav" id="11_kteua"]
 [ext_resource type="Texture2D" uid="uid://dn4q2iyjfh52y" path="res://grafiikka/LightBall2.png" id="11_p47gp"]
@@ -24,32 +24,32 @@
 [ext_resource type="AudioStream" uid="uid://bjbaqnxkgke0l" path="res://audio/pelaaja/walljump1_mono.wav" id="15_bxt80"]
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="16_4n4el"]
 [ext_resource type="Texture2D" uid="uid://dj3c6nkmnxha2" path="res://grafiikka/Valo256.png" id="20_8tpmo"]
-[ext_resource type="AudioStream" uid="uid://c5gr65mbd8g83" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
-[ext_resource type="AudioStream" uid="uid://320omrds163w" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
+[ext_resource type="AudioStream" uid="uid://blcgihddqpvmc" path="res://audio/pelaaja/falldamage.mp3" id="20_l0cg5"]
+[ext_resource type="AudioStream" uid="uid://dans7634kd2jt" path="res://audio/pelaaja/tomahdys.mp3" id="20_o55xv"]
 [ext_resource type="Texture2D" uid="uid://cbatwxsibovo" path="res://grafiikka/AanenTaajuus1.png" id="22_7od7w"]
 [ext_resource type="Texture2D" uid="uid://bh2dveepeu0so" path="res://grafiikka/Nuotti.png" id="22_fot2n"]
 [ext_resource type="AudioStream" uid="uid://pywxdhvql574" path="res://audio/pelaaja/huilu/huiluaani_A.wav" id="23_elvmw"]
-[ext_resource type="AudioStream" uid="uid://bacdrp3ohefy3" path="res://audio/valopallo/valopallon_poimiminenAm.mp3" id="24_7f2m0"]
+[ext_resource type="AudioStream" uid="uid://cpjwo5mr8va2c" path="res://audio/valopallo/valopallon_poimiminenAm.mp3" id="24_7f2m0"]
 [ext_resource type="Texture2D" uid="uid://cp4f2v1euxr6b" path="res://grafiikka/AanenTaajuus3.png" id="24_7n80x"]
 [ext_resource type="AudioStream" uid="uid://dw75jyosgto66" path="res://audio/pelaaja/huilu/huiluaani_C.wav" id="24_xxdxr"]
-[ext_resource type="AudioStream" uid="uid://1xd2tgbqgjry" path="res://audio/ambient/tuulen_humina.mp3" id="25_byydo"]
+[ext_resource type="AudioStream" uid="uid://dnm2hw7nwh5ff" path="res://audio/ambient/tuulen_humina.mp3" id="25_byydo"]
 [ext_resource type="AudioStream" uid="uid://diri4jc7100fi" path="res://audio/pelaaja/huilu/huiluaani_E.wav" id="25_qars5"]
 [ext_resource type="Script" path="res://skriptit/huilu.gd" id="26_v60w7"]
-[ext_resource type="AudioStream" uid="uid://br1v1uebgr0h2" path="res://audio/vesi/hapen_otto_1.mp3" id="28_lca11"]
-[ext_resource type="AudioStream" uid="uid://db8sk3tvesmwe" path="res://audio/vesi/hapen_otto_2.mp3" id="29_s5ej7"]
-[ext_resource type="AudioStream" uid="uid://dfaps31vsx1k7" path="res://audio/vesi/hapen_loppuminen.mp3" id="30_t3ogw"]
-[ext_resource type="AudioStream" uid="uid://xhowdeljh2u0" path="res://audio/vesi/uinti_1.mp3" id="31_vg3lb"]
+[ext_resource type="AudioStream" uid="uid://d2n75njk8jr4" path="res://audio/vesi/hapen_otto_1.mp3" id="28_lca11"]
+[ext_resource type="AudioStream" uid="uid://cndshn3mmlvgp" path="res://audio/vesi/hapen_otto_2.mp3" id="29_s5ej7"]
+[ext_resource type="AudioStream" uid="uid://bbxn151gm3o64" path="res://audio/vesi/hapen_loppuminen.mp3" id="30_t3ogw"]
+[ext_resource type="AudioStream" uid="uid://b6pxhkecf8tc" path="res://audio/vesi/uinti_1.mp3" id="31_vg3lb"]
 [ext_resource type="AudioStream" uid="uid://7tjeefooail4" path="res://audio/pelaaja/creeping_darkness_2.mp3" id="32_1qpma"]
-[ext_resource type="AudioStream" uid="uid://bqq4wlbjkmlas" path="res://audio/vesi/molskahdus.mp3" id="32_trenk"]
-[ext_resource type="Texture2D" uid="uid://bx64k66thfugc" path="res://grafiikka/HealthbarEmpty.png" id="34_tun23"]
-[ext_resource type="Texture2D" uid="uid://bvu61kvcxyqxa" path="res://grafiikka/HealthbarOutline.png" id="35_m6how"]
-[ext_resource type="Texture2D" uid="uid://cx4hiril22jpv" path="res://grafiikka/HealthbarFull.png" id="35_x5jxm"]
+[ext_resource type="AudioStream" uid="uid://bwb3byengmtp2" path="res://audio/vesi/molskahdus.mp3" id="32_trenk"]
+[ext_resource type="Texture2D" uid="uid://bw3okq7geul8m" path="res://grafiikka/HealthbarEmpty.png" id="34_tun23"]
+[ext_resource type="Texture2D" uid="uid://ctt5u7sdmswe4" path="res://grafiikka/HealthbarOutline.png" id="35_m6how"]
+[ext_resource type="Texture2D" uid="uid://b6s4jdsu4j23h" path="res://grafiikka/HealthbarFull.png" id="35_x5jxm"]
 [ext_resource type="Texture2D" uid="uid://carqststa41k" path="res://grafiikka/OhjainTooltipNappaimisto.png" id="38_fvlae"]
-[ext_resource type="Texture2D" uid="uid://wjhr7de2p2eu" path="res://grafiikka/Arrow1.png" id="39_06las"]
-[ext_resource type="Texture2D" uid="uid://cyjwgchhq6km8" path="res://grafiikka/BubblesEmpty.png" id="40_1pcue"]
-[ext_resource type="Texture2D" uid="uid://c1f6mhknf4xm6" path="res://grafiikka/kupla.png" id="40_2fdq1"]
-[ext_resource type="Texture2D" uid="uid://cuiu3dcc67ejp" path="res://grafiikka/BubblesOutline.png" id="41_f03c5"]
-[ext_resource type="Texture2D" uid="uid://d2lt1ssr27sf6" path="res://grafiikka/BubblesFull.png" id="42_8suin"]
+[ext_resource type="Texture2D" uid="uid://tybefdmdsudb" path="res://grafiikka/Arrow1.png" id="39_06las"]
+[ext_resource type="Texture2D" uid="uid://b5bvd2rvkgcn" path="res://grafiikka/BubblesEmpty.png" id="40_1pcue"]
+[ext_resource type="Texture2D" uid="uid://dhbbp1wkvquld" path="res://grafiikka/kupla.png" id="40_2fdq1"]
+[ext_resource type="Texture2D" uid="uid://by1sgcyec22jd" path="res://grafiikka/BubblesOutline.png" id="41_f03c5"]
+[ext_resource type="Texture2D" uid="uid://cqlucd8diriho" path="res://grafiikka/BubblesFull.png" id="42_8suin"]
 [ext_resource type="Texture2D" uid="uid://b2h8c634u1120" path="res://addons/rmsmartshape/assets/Anchor.svg" id="48_ydtx0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
@@ -1065,41 +1065,24 @@ grow_horizontal = 2
 text = "0/#"
 horizontal_alignment = 1
 
-[node name="JournalInfo" type="Label" parent="."]
-z_index = 100
-material = ExtResource("5_gdn2h")
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -80.0
-offset_right = 196.0
-offset_bottom = -62.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "It's too dark to read the journal"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SivuInfo" type="Label" parent="."]
+[node name="SivuInfo" type="Label" parent="HUD"]
 auto_translate_mode = 1
 z_index = 100
 material = ExtResource("5_gdn2h")
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 299.0
+offset_left = 259.0
 offset_top = -158.0
-offset_right = 479.0
+offset_right = 439.0
 offset_bottom = -140.0
 grow_horizontal = 0
 text = "New page found!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="SivuInfo"]
+[node name="TextureRect" type="TextureRect" parent="HUD/SivuInfo"]
 z_index = 99
 material = ExtResource("5_gdn2h")
 layout_mode = 0
@@ -1110,24 +1093,25 @@ offset_bottom = 33.0
 rotation = 4.71238
 texture = ExtResource("39_06las")
 
-[node name="TutorialInfo" type="Label" parent="."]
+[node name="TutorialInfo" type="Label" parent="HUD"]
 auto_translate_mode = 1
 visible = false
 z_index = 100
 material = ExtResource("5_gdn2h")
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 299.0
+offset_left = 259.0
 offset_top = -62.0
-offset_right = 479.0
+offset_right = 439.0
 offset_bottom = -44.0
 grow_horizontal = 0
 text = "New tutorial!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="TutorialInfo"]
+[node name="TextureRect" type="TextureRect" parent="HUD/TutorialInfo"]
 z_index = 99
 material = ExtResource("5_gdn2h")
 layout_mode = 0
@@ -1137,6 +1121,25 @@ offset_right = 168.0
 offset_bottom = 33.0
 rotation = 4.71238
 texture = ExtResource("39_06las")
+
+[node name="JournalInfo" type="Label" parent="HUD"]
+z_index = 100
+material = ExtResource("5_gdn2h")
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -120.0
+offset_right = 176.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "It's too dark to read the journal"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Kuplat" type="CPUParticles2D" parent="."]
 position = Vector2(0, -27)

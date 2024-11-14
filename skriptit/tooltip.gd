@@ -91,12 +91,15 @@ func aseta_lapinakyvyys(lapinakyvyys):
 func _on_body_entered(body):
 	if body is Pelaaja:
 		aseta_lapinakyvyys(1)
+		if not body.nykyiset_tooltipit.has(self):
+			body.nykyiset_tooltipit.append(self)
 
 
 ## Piilotetaan tooltip, kun pelaaja poistuu sen alueelta
 func _on_body_exited(body):
 	if body is Pelaaja:
 		aseta_lapinakyvyys(0)
+		body.nykyiset_tooltipit.erase(self)
 
 
 ## Dekaktivoi tooltipin poistamalla pelaajaa maskaavan layerin
