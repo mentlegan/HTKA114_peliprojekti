@@ -1113,8 +1113,29 @@ func tallenna():
 		"global_position": [
 			global_position.x,		# JSON ei tue Vector2 arvoa, joten tallennetaan
 			global_position.y		# sijainti taulukkoon liukulukuina
-		]
+		],
+		"valossa": valossa,
+		"vedessa": vedessa,
+		"potionin_osia_keratty": potionin_osia_keratty,
+		"potionin_osia_keraamatta": potionin_osia_keraamatta,
+		"pelaajan_elamat": pelaajan_elamat,
+		"pelaajan_happi": pelaajan_happi,
+		"putoamis_huippu": putoamis_huippu
 	}
+
+
+## Peliä ladatessa kutsutaan veteen ja valoon liittyviä apufunktioita.
+func lataa():
+	await ready
+	if valossa:
+		siirrytty_valoon()
+	else:
+		siirrytty_varjoon()
+	
+	if vedessa:
+		siirrytty_veteen()
+	else:
+		poistuttu_vedesta()
 
 
 ## Kun huiluun osuu rigid/staticbody, tarkistetaan onko se ovi.

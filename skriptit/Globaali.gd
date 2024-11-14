@@ -88,19 +88,7 @@ func init():
 	# Palautetaan tallennettujen nodejen muuttujat
 	for tallennettu_node in tallennetut_nodet:
 		var node = get_node(tallennettu_node["polku"])
-		print(node.name, tallennettu_node)
-		for key in tallennettu_node:
-			if key == "polku":
-				continue
-
-			if node[key] is Vector2:
-				node[key].x = tallennettu_node[key][0]
-				node[key].y = tallennettu_node[key][1]
-			else:
-				node[key] = tallennettu_node[key]
-
-		if node.has_method("lataa"):
-			node.call("lataa")
+		lataa_node(node, tallennettu_node)
 
 	# Soitetaan alkuanimatic, jos peliä ei olla vielä tallennettu
 	if not maailma.alkuanimatic_nahty:
@@ -108,6 +96,24 @@ func init():
 	else:
 		get_tree().paused = false
 		soita_musiikki()
+
+
+## Palauttaa noden muuttujat vastaamaan annettua dataa.
+## Kutsuu samalla noden lataa-funktiota, jos sellainen on olemassa.
+func lataa_node(node, data):
+	print_debug(node.name, data)
+	for key in data:
+		if key == "polku":
+			continue
+
+		if node[key] is Vector2:
+			node[key].x = data[key][0]
+			node[key].y = data[key][1]
+		else:
+			node[key] = data[key]
+
+	if node.has_method("lataa"):
+		node.call("lataa")
 
 
 ## Antaa tiedon animaticin scriptille, että halutaanko alkuanimaticin soivan
