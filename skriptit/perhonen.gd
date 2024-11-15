@@ -1,10 +1,11 @@
 extends Area2D
+class_name Perhonen
 
-
-## Perhosen PathFollow2D-node
-var path_follow_2d = PathFollow2D.new()
 ## Perhosen Path2D-node
-var path2d = null
+var path2d: Path2D = null
+## Perhosen PathFollow2D-node
+var path_follow_2d: PathFollow2D = PathFollow2D.new()
+
 ## Perhosen animaatio
 @onready var animaatio = $AnimatedSprite2D
 ## Perhosen äänet
@@ -58,8 +59,14 @@ func _ready():
 		reitin_pituus = 1
 
 
+## Kutsutaan kun aanen_ajastin aika menee loppuun
+func on_aanen_ajastin_timeout():
+	audio_perhonen.play()
+	aanen_ajastin.start(randf_range(1.5, 3.0))
+
+
 ## Kutsutaan joka framella
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	# Kuljetetaan pathfollow2d-nodea reitillä eteenpäin
 	etaisyys += (delta * nopeus) / reitin_pituus
 	path_follow_2d.set_progress_ratio(etaisyys)
@@ -73,9 +80,3 @@ func _process(delta):
 	# Siirretään perhonen pathfollow2d:n koordinaatteihin
 	self.global_position.x = aloituspiste.x + path_follow_2d.position.x
 	self.global_position.y = aloituspiste.y + path_follow_2d.position.y
-
-
-## Kutsutaan kun aanen_ajastin aika menee loppuun
-func on_aanen_ajastin_timeout():
-	audio_perhonen.play()
-	aanen_ajastin.start(randf_range(1.5, 3.0))

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cddsdhy134cjk"]
 
 [ext_resource type="Script" path="res://skriptit/happikukka.gd" id="1_bshdl"]
-[ext_resource type="Texture2D" uid="uid://bylpvsp53ygqy" path="res://grafiikka/TaustaElementit2/Bubblevent-Sheet.png" id="2_d73c1"]
-[ext_resource type="Texture2D" uid="uid://c5wrkbgvlvbfr" path="res://grafiikka/kupla.png" id="3_vmb80"]
+[ext_resource type="Texture2D" uid="uid://0ijlaaynfoy2" path="res://grafiikka/TaustaElementit2/Bubblevent-Sheet.png" id="2_d73c1"]
+[ext_resource type="Texture2D" uid="uid://by0e4ps2qihor" path="res://grafiikka/kupla.png" id="3_vmb80"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tgqtc"]
 

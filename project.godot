@@ -290,6 +290,13 @@ vaihda_scene={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Maailma"
+2d_physics/layer_2="Pelaaja"
+2d_physics/layer_3="Valopallo"
+2d_physics/layer_4="Kukka"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

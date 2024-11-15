@@ -106,6 +106,7 @@ const AANEN_TAAJUUS_VARIT = [
 ## UI:n ja kukan keräyksen animaatiota varten
 var tween: Tween
 var kukan_kerays_tween: Tween
+var elama_regen_tween: Tween
 var kuolema_aloita_tween: Tween
 var kuolema_lopeta_tween: Tween
 var journal_info_tween: Tween
@@ -238,7 +239,7 @@ func _ready():
 	# Lisätään ajastimet hypyille, elämä regeneraatiolle, myrkylle ja kameran tärinälle lapsiksi
 	self.add_child(hyppy_ajastin_seinalla)
 	self.add_child(hyppy_ajastin_maassa)
-	self.add_child(elama_regen_ajastin)
+	#self.add_child(elama_regen_ajastin)
 	self.add_child(kamera_tarina_ajastin)
 	self.add_child(myrkky_ajastin)
 	self.add_child(myrkkyalue_ajastin)
@@ -258,7 +259,7 @@ func _ready():
 	hyppy_ajastin_maassa.timeout.connect(hyppy_buffer_maassa)
 	
 	# Pelaajan elämä regeneraatio
-	elama_regen_ajastin.timeout.connect(elama_regen)
+	#elama_regen_ajastin.timeout.connect(elama_regen)
 	
 	# Myrkkyjen damaget
 	myrkky_ajastin.timeout.connect(myrkky_damage)
@@ -290,7 +291,7 @@ func _ready():
 	animaatio.play("idle")
 	
 	# Pausen aikana soitettavat animaatiot eivät ole näkyvissä normaalisti
-	pauseAnimaatiot.visible=false
+	pauseAnimaatiot.visible = false
 	
 	# Lisätään Tähtäin-spriten lapsinodet omaan taulukkoon
 	tahtaimen_lapset = tahtain.get_children()
@@ -566,16 +567,21 @@ func happi_mittari_paivita():
 ## Lisätään pelaajalle elämiä ja jatketaan regenia, jos ei vielä täydet elämät
 func elama_regen():
 	saa_elamia(elamat_regen_maara)
-	if pelaajan_elamat < pelaajan_elamat_max:
-		elama_regen_ajastin.start(elamat_regen_nopeus)
+	## TODO: audio
+	#if pelaajan_elamat < pelaajan_elamat_max:
+		#elama_regen_ajastin.start(elamat_regen_nopeus)
 
 
 ## Lisätään pelaajalle elämiä
 func saa_elamia(maara):
-	if pelaajan_elamat + maara < pelaajan_elamat_max:
-		pelaajan_elamat += maara
-	else:
-		pelaajan_elamat = pelaajan_elamat_max
+	if pelaajan_elamat < pelaajan_elamat_max:
+		if elama_regen_tween:
+			elama_regen_tween.kill()
+		elama_regen_tween = create_tween().set_trans(Tween.TRANS_EXPO)
+		elama_regen_tween.tween_property(elama_mittari_kuvalla, "scale", Vector2(1.15, 1.15), 0.1)
+		elama_regen_tween.tween_property(elama_mittari_kuvalla, "scale", Vector2(1, 1), 0.7)
+		pelaajan_elamat = clampi(pelaajan_elamat + maara, 0, pelaajan_elamat_max)
+	print("HEALATTU ", maara)
 	elamat_label_paivita()
 
 
@@ -586,7 +592,7 @@ func meneta_elamia(maara, damage_type):
 		kamera_tarisee = true
 		kamera_tarina_ajastin.start(kamera_tarinan_pituus)
 		audio_pelaaja_fall_damage.play()
-		elama_regen_ajastin.start(elamat_regen_nopeus)
+		#elama_regen_ajastin.start(elamat_regen_nopeus)
 		if damage_type == "normaali":
 			animaatio.modulate = Color.RED
 			await get_tree().create_timer(0.1, false).timeout
@@ -979,7 +985,7 @@ func _physics_process(delta):
 			get_tree().root.add_child(l)
 			
 			var pallon_heitto_tween = create_tween().set_trans(Tween.TRANS_EXPO)
-			palloja_label.scale = Vector2(0.8, 0.8)
+			palloja_label.scale = Vector2(0.85, 0.85)
 			pallon_heitto_tween.tween_property(palloja_label, "scale", Vector2(1,1), 1)
 			
 			# Muuttujiin muutokset
@@ -1012,7 +1018,7 @@ func _physics_process(delta):
 				kukan_kerays_tween.kill()
 			
 			kukan_kerays_tween = create_tween().set_trans(Tween.TRANS_EXPO)
-			palloja_label.scale = Vector2(1.3, 1.3)
+			palloja_label.scale = Vector2(1.2, 1.2)
 			kukan_kerays_tween.tween_property(palloja_label, "scale", Vector2(1, 1), 1)
 			
 			Globaali.maailma.palloja = 2

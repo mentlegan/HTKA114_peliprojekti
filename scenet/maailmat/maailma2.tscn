@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="5_cbsn2"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="11_i55o7"]
 [ext_resource type="Texture2D" uid="uid://dite5ccabklvd" path="res://grafiikka/LightFlower.png" id="12_vrpta"]
-[ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://scenet/perhonen.tscn" id="13_bqxms"]
+[ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://scenet/perhoset/perhonen.tscn" id="13_bqxms"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://scenet/vihollinen.tscn" id="14_o2p8t"]
 [ext_resource type="PackedScene" uid="uid://b6cwc10i6c0w4" path="res://scenet/kuoppa.tscn" id="15_lf20a"]
 [ext_resource type="PackedScene" uid="uid://bjtq0prowl168" path="res://scenet/ovet/ovi_vasen_x.tscn" id="16_avlo0"]

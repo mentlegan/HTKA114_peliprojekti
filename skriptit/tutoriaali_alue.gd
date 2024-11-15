@@ -6,7 +6,9 @@ extends Area2D
 
 
 func _on_body_entered(body) -> void:
-	await Globaali.maailma.ready
+	# Nämä awaitit rikkoivat toiminnallisuuden, reuna valo ei mennyt pois
+	# mutta pimeyskuolema meni, hyvin outoa
+	#await Globaali.maailma.ready
 	if body is Pelaaja:
 		Globaali.maailma.pimeyskuolema_paalla = false
 		Globaali.maailma.pelaaja.reuna_valo.visible = false
@@ -14,7 +16,7 @@ func _on_body_entered(body) -> void:
 
 
 func _on_body_exited(body) -> void:
-	await Globaali.maailma.ready
+	#await Globaali.maailma.ready
 	if body is Pelaaja:
 		Globaali.maailma.pimeyskuolema_paalla = true
 		Globaali.maailma.pelaaja.reuna_valo.visible = true
