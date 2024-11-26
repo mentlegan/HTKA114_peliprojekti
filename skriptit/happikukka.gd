@@ -1,7 +1,6 @@
 ## Harri 9.9.2024
 ## Juuso 23.9.2024
 ## Happikukan toimintaa
-## Ei kenties vielä tarvita muuten kuin class namen laittoon, koska nykyisellään toiminta hoituu helposti pelaajan skriptissä
 extends Area2D
 class_name Happikukka
 

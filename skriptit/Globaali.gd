@@ -92,7 +92,8 @@ func init():
 
 	# Soitetaan alkuanimatic, jos peliä ei olla vielä tallennettu
 	if not maailma.alkuanimatic_nahty:
-		soita_animatic()
+		pass
+		#soita_animatic() # Tästä saa animaticin takaisin
 	else:
 		get_tree().paused = false
 		soita_musiikki()

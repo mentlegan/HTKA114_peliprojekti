@@ -1,5 +1,5 @@
 ## Juuso 30.8.2024 - Transitioon teleportin sijainti
-## Harri 9.9.2024 - Happikukan toimintaa
+## Harri 26.11.2024 - Pelaajalle oma hapenoton tarkistin vedessä mm. happikukkia varten
 ## Juuso 10.4.2024
 ## Paavo 17.3.2024
 ## Elias 17.3.2024 - Pelaajan äänet
@@ -1155,23 +1155,35 @@ func _on_huilu_body_entered(body):
 			Globaali.nayta_tason_ovet_ja_resonoi(body)
 
 
-## Kun pelaaja poistuu Area2D-nodesta.
+## Tarkistaa pelaajan poistuvan vedestä
 func _on_veden_tarkistus_area_exited(area):
 	# Jos on osuttu veteen, päivitetään pelaajan muuttuja
 	if area is Vesi2D and vedessa:
 		poistuttu_vedesta()
-	if area is Happikukka and vedessa:
-		#iirrytty_veteen()
-		happi_ajastin.start()
+	#if area is Happikukka and vedessa:
+	#	happi_ajastin.start()
 
 
-## Kun pelaaja osuu Area2D-nodeen.
+## Tarkistaa pelaajan siirtyvän veteen
 func _on_veden_tarkistus_area_entered(area):
 	# Jos on osuttu veteen, päivitetään pelaajan muuttuja
 	if area is Vesi2D:
 		siirrytty_veteen()
+	#if area is Happikukka and vedessa: # Jos ollaan vedessä, ja pelaajan hapen tarkistus huomaa happikukan..
+	#	tayta_happi() # .. happi täyttyy
+
+
+## Tarkistaa pelaajan hapen oton
+func _on_hapen_tarkistus_area_entered(area):
 	if area is Happikukka and vedessa: # Jos ollaan vedessä, ja pelaajan hapen tarkistus huomaa happikukan..
 		tayta_happi() # .. happi täyttyy
+
+
+## Tarkistaa, kun pelaaja ei ota happea
+func _on_hapen_tarkistus_area_exited(area):
+	if area is Happikukka and vedessa:
+		#siirrytty_veteen()
+		happi_ajastin.start()
 
 
 ## Täytetään pelaajan happitaso
@@ -1182,7 +1194,6 @@ func tayta_happi():
 	audio_hukkuminen.stop() # Pysäytetään hukkumisen ääni, jos se soi
 	pelaajan_happi = pelaajan_happi_max # Asetetaan pelaajan happi takaisin normaaliksi..
 	happi_mittari_paivita() # .. ja päivitetään mittari peruslukemaan
-	#happi_mittari.visible = false # Lopuksi mittari piiloon, koska sitä ei enää tarvita
 
 
 ## Päivitetään tutoriaalin ui-label näkyväksi tai piiloon
