@@ -380,9 +380,10 @@ func respawn():
 	maailma.gameover_ruutu.visible = false
 	
 	# Aloittaa timerin alusta
-	maailma.pelaaja.ajastin_pimeassa.start()
+	#maailma.pelaaja.ajastin_pimeassa.start()
 	maailma.pimeyskuolema_animaatio.stop()
 	maailma.pelaaja.siirrytty_varjoon()
+	#maailma.pelaaja.siirrytty_valoon()
 	maailma.pelaaja.palloja_label_paivita()
 	
 	maailma.kuoltiinko_viholliseen = false # resetoidaan viholliseen/pimeyteen kuolemisen tarkistava muuttuja
