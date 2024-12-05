@@ -47,7 +47,7 @@ func init():
 	
 	
 	# Otetaan aloitus koordinaatit talteen
-	maailma.pelaaja_aloitus = maailma.pelaaja.position
+	maailma.pelaaja_aloitus = maailma.pelaaja.global_position
 	
 	# Lisätään sceneen tausta
 	var tausta_n = maailma.tausta.instantiate()

@@ -2,7 +2,6 @@ extends Node2D
 ## Node, joka sisältää globaalit muttujat.
 ## Muuttujia voi asettaa ja hakea Globaali.maailma-muuttujan kautta.
 
-
 ## Käytössä olevat pallot
 var palloja = 0
 ## Onko alkuanimatic nähty
@@ -23,9 +22,10 @@ var kuoltiinko_viholliseen
 @onready var tooltip_node = get_node("/root/Maailma/Tooltipit")
 var tooltipit = Array()
 
-## Pelaajan ja vihollisen aloitus koordinaatit
-## Pelaajan aloituspaikka muuttuu pelin edetessä checkpointtien takia
-var pelaaja_aloitus = null
+## Nykyinen aktivoitu cp ja pelaajan aloituspaikka
+var nykyinen_cp: Checkpoint = null
+var pelaaja_aloitus: Vector2
+
 var soitetaan_animatic
 
 ## Pelaajan taso2 ja taso3 koordinaatit teleporttaamiseen

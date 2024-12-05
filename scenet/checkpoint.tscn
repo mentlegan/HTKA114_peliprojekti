@@ -95,6 +95,8 @@ radius = 27.0741
 position = Vector2(3073, 190)
 collision_mask = 2
 script = ExtResource("1_1e2pn")
+vari_aktivoitu = Color(0.828956, 0.801824, 0, 1)
+vari_nykyinen_aktiivinen = Color(2.88785e-06, 0.869794, 0.982442, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 24)

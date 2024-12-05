@@ -77,7 +77,7 @@ stream_2/stream = ExtResource("6_ejrsp")
 stream_3/stream = ExtResource("7_8lvy4")
 
 [node name="Perhonen" type="Area2D" groups=["valonlahde"]]
-collision_layer = 0
+collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_imobc")
 
