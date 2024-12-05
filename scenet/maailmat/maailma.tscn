@@ -4087,10 +4087,10 @@ text = "Thank you for playing!"
 [node name="LabelEasterEgg" type="Label" parent="Taso2/Muuta"]
 z_index = 99
 material = ExtResource("75_4248i")
-offset_left = 2442.0
-offset_top = 9147.0
-offset_right = 2700.0
-offset_bottom = 9170.0
+offset_left = 2450.0
+offset_top = 9145.0
+offset_right = 2602.0
+offset_bottom = 9168.0
 text = "Easter egg!!!"
 
 [node name="myrkkysieni" parent="Taso2/Muuta" instance=ExtResource("56_7csj5")]

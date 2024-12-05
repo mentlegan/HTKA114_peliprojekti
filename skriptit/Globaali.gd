@@ -30,6 +30,7 @@ var nykyinen_scene = "maailma"
 
 
 ## Alustusfunktio, jota Maailma-node kutsuu sceneen astuessa
+## TODO: Lisää esimerkiksi tausta tekstuurit uudelleen aina sceneä vaihtaessa, näiden korjaus
 func init():
 	# Signaalikäsittelyä mm. pelaajan kuolemisesta
 	maailma.pelaaja = get_tree().get_first_node_in_group("Pelaaja") # Otetaan pelaaja groupistaan
@@ -83,12 +84,12 @@ func init():
 	
 	# Journal pois näkyvistä
 	maailma.journal.visible = false
-
+	
 	# Palautetaan tallennettujen nodejen muuttujat
 	for tallennettu_node in tallennetut_nodet:
 		var node = get_node(tallennettu_node["polku"])
 		lataa_node(node, tallennettu_node)
-
+	
 	# Soitetaan alkuanimatic, jos peliä ei olla vielä tallennettu
 	if not maailma.alkuanimatic_nahty:
 		pass
@@ -306,9 +307,11 @@ func _input(_event: InputEvent) -> void:
 			# Esim. pause-menun skriptissä, jossa pelin jatkuminen
 			get_viewport().set_input_as_handled()
 	
+	# 0
 	elif Input.is_action_just_pressed("vaihda_scene"):
 		vaihda_scene("maailma_test")
 	
+	# ctrl + K
 	elif Input.is_action_just_pressed("kuolema"):
 		maailma.pelaaja.kuolema()
 

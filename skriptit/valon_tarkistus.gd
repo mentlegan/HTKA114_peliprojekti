@@ -68,10 +68,10 @@ func _ready():
 	# Siirretään raycast nykyisen scenen lapseksi
 	self.remove_child(raycast)
 	Globaali.maailma.add_child.call_deferred(raycast)
-
+	
 	# Odotetaan, että raycast on lisätty nykyisen scenen lapseksi
 	await Engine.get_main_loop().process_frame
-
+	
 	# Laitetaan RemoteTransform2D päivittämään raycastin sijaintia
 	remotetransform.set_remote_node(raycast.get_path())
 
@@ -86,7 +86,7 @@ func _physics_process(_delta):
 func _laheta_signaalit():
 	var aiemmin_valossa = valossa
 	valossa = _on_valossa()
-
+	
 	if valossa != aiemmin_valossa:
 		if valossa:
 			siirrytty_valoon.emit()
@@ -121,7 +121,7 @@ func _on_area_entered(area):
 	# Jos Area2D on valonlähde ja se ei ole valonlahteet-taulukossa, lisätään se sinne.
 	if area.is_in_group("valonlahde") and not valonlahteet.has(area):
 		valonlahteet.append(area)
-
+		
 		# Lähetetään samalla signaalit
 		_laheta_signaalit()
 
@@ -131,6 +131,6 @@ func _on_area_exited(area):
 	# Ei turhaan tarkisteta valonlahteet.has(area)-kutsulla, onko area2d jo taulukossa.
 	# Poistetaan, jos sattuu olemaan.
 	valonlahteet.erase(area)
-
+	
 	# Lähetetään samalla signaalit
 	_laheta_signaalit()

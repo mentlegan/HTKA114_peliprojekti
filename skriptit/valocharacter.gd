@@ -61,11 +61,11 @@ func start_destroy():
 		audio_valopallo_hajoaa.play()
 	# Pysäytetään valopallo
 	velocity = Vector2(0, 0)
-
+	
 	# Vaihdetaan blend_mode, jotta ei "syö" muita valoja tuhoutuessa
 	# BLEND_MODE_ADD = 0, sub on 1 ja mix 2
-	valo.blend_mode = 0
-
+	valo.blend_mode = PointLight2D.BLEND_MODE_ADD
+	
 	# Vähennetään valopallon energiaa ja kokoa. Tuhotaan valopallo animaation päätyttyä
 	var tween_pallo = create_tween()
 	tween_pallo.set_parallel(true)
@@ -234,7 +234,6 @@ func _physics_process(delta):
 			audio_koynnos_ovi.play()
 			await get_tree().create_timer(0.2, false).timeout
 			start_destroy()
-			
 		else: # Kimpoaminen
 			velocity = velocity.bounce(collision.get_normal())
 			if tween:
