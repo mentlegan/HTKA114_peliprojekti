@@ -83,7 +83,7 @@ func aseta_vedenpinta_seuraavaan_merkkiin():
 	# Ei aseteta vedenpintaa seuraavaan merkkiin, jos merkkejä ei ole
 	if not vedenpinnan_merkit:
 		return
-
+	
 	aseta_vedenpinta_merkkiin(vedenpinnan_merkit[seuraava_merkki])
 	seuraava_merkki = (seuraava_merkki + 1) % vedenpinnan_merkit.size()
 
@@ -95,7 +95,7 @@ func aseta_vedenpinta_merkkiin(merkki: Marker2D = ensimmainen_merkki):
 	if vedenpinnan_merkit.size() == 0:
 		print_debug("Vesi2D:lla (%s) ei ole Marker2D-nodeja lapsina, skipataan" % self.name)
 		return
-
+	
 	aseta_vedenpinta(merkki.global_position.y)
 
 

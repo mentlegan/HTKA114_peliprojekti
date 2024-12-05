@@ -6,7 +6,6 @@
 ## tehty tänne toistaiseksi Fall damage-kuoleman takia
 extends Node2D
 
-
 # Pelin tallennustiedosto
 # Sijainti: %APPDATA%\Godot\app_userdata\Beneath the Mines\save_file_[maailma].json
 const TALLENNUSTIEDOSTO = "user://save_file"
@@ -309,6 +308,9 @@ func _input(_event: InputEvent) -> void:
 	
 	elif Input.is_action_just_pressed("vaihda_scene"):
 		vaihda_scene("maailma_test")
+	
+	elif Input.is_action_just_pressed("kuolema"):
+		maailma.pelaaja.kuolema()
 
 
 ## Kutsutaan joka framella
@@ -385,6 +387,10 @@ func respawn():
 	maailma.pelaaja.siirrytty_varjoon()
 	#maailma.pelaaja.siirrytty_valoon()
 	maailma.pelaaja.palloja_label_paivita()
+	
+	# 5.12.2024
+	maailma.pelaaja.pelaajan_elamat = maailma.pelaaja.pelaajan_elamat_max
+	maailma.pelaaja.elamat_label_paivita()
 	
 	maailma.kuoltiinko_viholliseen = false # resetoidaan viholliseen/pimeyteen kuolemisen tarkistava muuttuja
 

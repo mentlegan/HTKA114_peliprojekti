@@ -90,7 +90,7 @@ texture = ExtResource("2_c16tm")
 texture_scale = 1.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.407143, 0.613509, 0.252797, 1)
+modulate = Color(0.435501, 0.686193, 0, 1)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nepos")
 frame_progress = 0.153834

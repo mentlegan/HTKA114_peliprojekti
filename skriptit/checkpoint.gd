@@ -1,13 +1,12 @@
-## Juuso 10.4.2024
+## Juuso 5.12.2024
 ## Checkpointtien käsittely
-## Tällä hetkellä ei voi aktivoida jo aiemmin aktivoitua checkpointtia uudelleen,
-## jos on esimerkiksi aktivoinut jonkin toisen tässä välissä
+## Nyt checkpointin voi asettaa uudelleen aktiiviseksi
 extends Area2D
 class_name Checkpoint
 
 @export_group("Valon värit")
 @export var vari_aktivoitu: Color
-@export var vari_nykyinen_aktiivinen: Color
+@export var vari_nykyinen_aktiivinen: Color # Saa muuttaa
 
 ## Totuusarvo sille onko päällä
 var aktivoitu = false
@@ -31,9 +30,8 @@ func _on_body_entered(body):
 		if not aktivoitu:
 			aktivoi()
 		else:
-			var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT).set_parallel(true)
+			var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 			tween.tween_property(valo, "color", vari_nykyinen_aktiivinen, 1)
-			#$Area2D/PointLight2D.color = vari_nykyinen_aktiivinen
 			print_debug("Asetetaan uusi aktiiviseksi ", self.name)
 		
 		# Muulloin kuin aivan ekalla checkpointilla

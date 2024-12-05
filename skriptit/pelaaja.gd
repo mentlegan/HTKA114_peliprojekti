@@ -518,8 +518,6 @@ func pimeaKuoleminen():
 ## Tähän lisätty signaalin emit
 func kuolema():
 	audio_pelaaja_kuolee_viholliselle.play()
-	pelaajan_elamat = pelaajan_elamat_max
-	elamat_label_paivita()
 	pimeyskuolema.stop()
 	kuollut.emit()
 	print_debug("Kuolit PIMEYTEEN")
@@ -528,16 +526,12 @@ func kuolema():
 ## Kuolema pitäisi toteuttaa paremmin, mutta tässä nyt hätäratkaisuna
 func kuolema_fall_damageen():
 	audio_pelaaja_fall_damage_kuolema.play()
-	pelaajan_elamat = pelaajan_elamat_max
-	elamat_label_paivita()
 	pimeyskuolema.stop()
 	kuollut.emit()
 	print_debug("Kuolit FALL DAMAGEEN")
 
 
 func kuolema_vedessa():
-	pelaajan_elamat = pelaajan_elamat_max
-	elamat_label_paivita()
 	pimeyskuolema.stop()
 	kuollut.emit()
 	print_debug("Kuolit HUKKUMISEEN")

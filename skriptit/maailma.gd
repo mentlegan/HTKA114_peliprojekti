@@ -9,7 +9,7 @@ var alkuanimatic_nahty = false
 ## Maailmassa olevat pallot
 var nykyiset_pallot = 0
 ## Signaaleja varten
-var pelaaja = null
+var pelaaja: Pelaaja = null
 var uusi_vihollinen = null
 var tutoriaali = null
 ## Sekunnissa päivittämiseen käytettävät muuttujat (kts. process delta)
