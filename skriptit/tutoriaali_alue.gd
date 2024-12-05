@@ -20,7 +20,12 @@ func _on_body_entered(body) -> void:
 		# Määrää tutoriaalialueen kirkkauden
 		Globaali.maailma.pelaaja.pimea_valo.energy = 0.4
 
+		# Tason reunat näkymään tutoriaalissa
+		Globaali.maailma.pelaaja.reunojen_pimentaja_valo.blend_mode = PointLight2D.BLEND_MODE_MIX
+
+		# Oletusarvolla pelaajan himmeä valo pimentää ympäristöä, joten asetetaan se yhteen
 		Globaali.maailma.pelaaja.pointlight2d.energy = 1.0
+
 		print_debug("PIMEYSKUOLEMA --- FALSE")
 
 
@@ -32,6 +37,9 @@ func _on_body_exited(body) -> void:
 		tween = create_tween().set_parallel(true)
 
 		Globaali.maailma.pimeyskuolema_paalla = true
+		Globaali.maailma.pelaaja.reunojen_pimentaja_valo.blend_mode = PointLight2D.BLEND_MODE_SUB
+		Globaali.maailma.pelaaja.reunojen_pimentaja_valo.energy = 0
 		tween.tween_property(Globaali.maailma.pelaaja, "pimea_valo:energy", 1.0, ANIMAATION_KESTO)
-		tween.tween_property(Globaali.maailma.pelaaja, "pointlight2d:energy", 0.4, ANIMAATION_KESTO * 2.0)
+		tween.tween_property(Globaali.maailma.pelaaja, "reunojen_pimentaja_valo:energy", 1.0, ANIMAATION_KESTO)
+		tween.tween_property(Globaali.maailma.pelaaja, "pointlight2d:energy", 0.4, ANIMAATION_KESTO)
 		print_debug("PIMEYSKUOLEMA --- TRUE")
