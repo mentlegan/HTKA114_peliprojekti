@@ -23,17 +23,19 @@ func _ready():
 ##   Tiilet
 ##   ├── Polygon2D
 ##   ├── Polygon2D2
-##   ├── SS2D_Shape     <- Voidaan vielä käyttää SS2D_Shape:a,
+##   └── SS2D_Shape     <- Voidaan vielä käyttää SS2D_Shape:a,
 ##                      joka tosin muuttaa .tscn-tiedostoa jokaisella avauksella.
 ##
 ## Funktiokutsun jälkeen:
 ##
 ##   Tiilet
 ##   ├── StaticBody2D
+##   │   ├── Polygon2D
 ##   │   ├── CollisionPolygon2D
 ##   │   ├── LightOccluder2D
 ##   │   └── SS2D_Shape
 ##   ├── StaticBody2D2
+##   │   ├── Polygon2D2
 ##   │   ├── CollisionPolygon2D
 ##   │   ├── LightOccluder2D
 ##   │   └── SS2D_Shape
@@ -71,9 +73,12 @@ func lisaa_varjot_ja_collisionit():
 				ss2d.add_to_group("oviseina")
 				if lapsi.is_in_group("avaaoviseina"):
 					ss2d.add_to_group("avaaoviseina")
-			# Lisätään SS2D lapseksi ja poistetaan Polygon2D
+
+			# Lisätään SS2D lapseksi
 			self.add_child(ss2d)
-			lapsi.queue_free()
+
+			# Peitetään tausta Polygon2D:lla
+			lapsi.color = Color.BLACK
 
 	# Käydään uudestaan läpi jokainen lapsi-node.
 	for lapsi in get_children():

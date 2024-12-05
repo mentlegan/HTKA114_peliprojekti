@@ -70,6 +70,8 @@ var valossa = false
 ## Reunaa valaiseva
 @onready var reuna_valo = $ReunaValo
 
+@onready var pointlight2d = $PointLight2D
+
 ## Huilu, äänen taajuuden sprite ja niiden ajastimet
 @onready var huilu = $Huilu
 @onready var huilun_collision = $Huilu/CollisionPolygon2D
