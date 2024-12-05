@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5n65owbe24jl"]
+
+[ext_resource type="Script" path="res://perhospesa_ansa.gd" id="1_movxk"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7eygo"]
+
+[node name="PerhospesaAnsa" type="Node2D"]
+script = ExtResource("1_movxk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(6, 17)
+texture = SubResource("PlaceholderTexture2D_7eygo")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(35, -77, 27, -41, 16, -13, 7, -5, -4, -4, -12, -22, -22, -45, -33, -71, -37, -109, -7, -117, 11, -117, 30, -108)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=171 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" path="res://skriptit/maailma.gd" id="1_lya7j"]
 [ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -90,6 +90,7 @@
 [ext_resource type="PackedScene" uid="uid://ciaug8px7wrrg" path="res://scenet/myrkkyalue_2d.tscn" id="82_2dvj4"]
 [ext_resource type="PackedScene" uid="uid://d1adle7m7mnv3" path="res://scenet/pomppusieni.tscn" id="82_imok5"]
 [ext_resource type="PackedScene" uid="uid://cbufj630idhw" path="res://scenet/illuusion_vaihtaja_visible.tscn" id="83_0gbej"]
+[ext_resource type="PackedScene" uid="uid://b5n65owbe24jl" path="res://scenet/perhospesa_ansa.tscn" id="85_m4sab"]
 [ext_resource type="PackedScene" uid="uid://cjrujir82taha" path="res://scenet/tutorial_unlock.tscn" id="87_d1roi"]
 [ext_resource type="PackedScene" uid="uid://b7j5ln7go4it4" path="res://scenet/lumme_juureton.tscn" id="88_m1e04"]
 [ext_resource type="PackedScene" uid="uid://d3275w50mg1i2" path="res://scenet/lumme_juurella.tscn" id="88_qbkop"]
@@ -3552,6 +3553,10 @@ z_index = -1
 position = Vector2(46, -8)
 scale = Vector2(0.519523, 0.676654)
 texture = ExtResource("38_c8dmk")
+
+[node name="PerhospesaAnsa" parent="Muuta" instance=ExtResource("85_m4sab")]
+position = Vector2(9260, 673)
+rotation = 0.621764
 
 [node name="Tasot" type="Area2D" parent="."]
 visible = false
