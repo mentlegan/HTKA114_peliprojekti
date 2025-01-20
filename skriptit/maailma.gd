@@ -40,6 +40,7 @@ var soitetaan_animatic
 @onready var pelaaja_vesitutoriaali = get_node("/root/Maailma/Taso2/%VesitutoriaaliTP").position
 @onready var pelaaja_vesitutoriaali_ennen = get_node("/root/Maailma/Taso2/%VesitutoriaaliEnnenTP").position
 @onready var pelaaja_vesitutoriaalilapi = get_node("/root/Maailma/Taso2/%VesitutoriaaliLapiTP").position
+@onready var pelaaja_perhospesa = get_node("/root/Maailma/Taso2/%PerhosPesaTP").position
 
 @onready var tiilet_taso_2 = get_node("/root/Maailma/Taso2/%TiiletTaso2")
 @onready var ovi_seina_2 = get_node("/root/Maailma/Taso2/%OviSeina2")

@@ -360,18 +360,6 @@ size = Vector2(143.5, 120)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7m7nv"]
 size = Vector2(192, 162)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ercj1"]
-polygon = PackedVector2Array(8, -108, -34, 28, -20, 77, 28, 69, 72, -94, 128, -214, 103, -220, 21, -146)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0g4ph"]
-size = Vector2(20, 82.1904)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tisf"]
-size = Vector2(20, 175.882)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_78rim"]
-size = Vector2(177, 128.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tn2iv"]
 size = Vector2(395, 221.5)
 
@@ -417,8 +405,20 @@ _data = {
 }
 point_count = 22
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ercj1"]
+polygon = PackedVector2Array(8, -108, -34, 28, -20, 77, 28, 69, 72, -94, 128, -214, 103, -220, 21, -146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0g4ph"]
+size = Vector2(20, 82.1904)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tisf"]
+size = Vector2(20, 175.882)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78rim"]
+size = Vector2(177, 128.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irw3x"]
-size = Vector2(37266.5, 13566)
+size = Vector2(46589.4, 19415)
 
 [node name="Maailma" type="Node2D" groups=["tallenna", "valonlahde"]]
 script = ExtResource("1_lya7j")
@@ -620,7 +620,7 @@ position = Vector2(13351, 138)
 polygon = PackedVector2Array(-71, -304, -24, -351, 30, -434, 244, -416, 298, -157, 225, -146, 171, -144, 145, -139, 119, -127, 88, -101, 46, -10, 34, 14, 28, 35, 17, 34, 6, 33, -11, 34, -25, 36, -37, 38, -78, 56, -99, 82, -131, 112, -144, 128, -157, 136, -170, 148, -172, 162, -181, 181, -214, 203, -231, 234, -255, 249, -277, 250, -300, 253, -313, 248, -309, 230, -311, 206, -317, 174, -351, 148, -380, 119, -434, 92, -497, 33, -341, -30, -313, -92, -247, -115, -148, -188, -160, -272)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(9395, 638)
+position = Vector2(9401, 656)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -1971,6 +1971,7 @@ unique_name_in_owner = true
 position = Vector2(1, 0)
 
 [node name="TutoriaaliAlue" type="Area2D" parent="Muuta" groups=["valonlahde"]]
+visible = false
 position = Vector2(11106, 308)
 collision_layer = 0
 collision_mask = 2
@@ -3765,6 +3766,10 @@ position = Vector2(-16568, 366)
 rotation = 0.000280933
 polygon = PackedVector2Array(15786.5, 5219.57, 15796.5, 5221.56, 15807.5, 5226.56, 15812.5, 5236.56, 15785.5, 5262.57, 15762.5, 5270.57, 15720.5, 5270.58, 15709.5, 5259.59, 15715.5, 5235.59, 15749.1, 5233.6, 15769.5, 5224.57)
 
+[node name="Polygon2D14" type="Polygon2D" parent="Taso2/TiiletTaso2"]
+position = Vector2(20380, 8107)
+polygon = PackedVector2Array(223, -245, 1741, -502, 2465, -2051, 5627, -2125, 6723, -80, 5956, 1596, 3486, 1310, 2460, 1444, 1028, 1482, 447, 1351, 797, 857, 854, 803, 922, 753, 977, 709, 1064, 669, 1148, 658, 1156, 658, 1159, 669, 1154, 688, 1151, 718, 1155, 748, 1157, 793, 1168, 842, 1248, 869, 1332, 877, 1379, 875, 1602, 866, 1773, 850, 1835, 811, 1890, 740, 1865, 676, 1815, 628, 1764, 617, 1725, 607, 1700, 592, 1695, 556, 1709, 524, 1878, 530, 2008, 535, 2772, 506, 2396, 186, 1853, 340, 1755, 363, 1663, 367, 1549, 376, 1449, 407, 1358, 441, 1243, 485, 1161, 499, 1063, 525, 957, 576, 823, 654, 599, 786, 361, 1046, -255, 1130, -803, 411, -654, 11)
+
 [node name="KukatTaso2" type="Node2D" parent="Taso2"]
 
 [node name="Kukka" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
@@ -3906,204 +3911,6 @@ z_index = -1
 position = Vector2(46, -8)
 scale = Vector2(0.519523, 0.676654)
 texture = ExtResource("38_c8dmk")
-
-[node name="Muuta" type="Node2D" parent="Taso2"]
-
-[node name="TutoriaaliTP1" type="Node2D" parent="Taso2/Muuta"]
-position = Vector2(8026, 9201)
-
-[node name="TutoriaaliTP2" type="Node2D" parent="Taso2/Muuta"]
-position = Vector2(13601, 9201)
-
-[node name="VesitutoriaaliTP" type="Node2D" parent="Taso2/Muuta"]
-unique_name_in_owner = true
-position = Vector2(-414, 8723)
-
-[node name="VesitutoriaaliEnnenTP" type="Node2D" parent="Taso2/Muuta"]
-unique_name_in_owner = true
-position = Vector2(-245, 5905)
-
-[node name="VesitutoriaaliLapiTP" type="Node2D" parent="Taso2/Muuta"]
-unique_name_in_owner = true
-position = Vector2(12371, 8695)
-
-[node name="TutoriaaliOviSeinat" type="Node2D" parent="Taso2/Muuta"]
-
-[node name="OviSeina1" type="Node2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
-position = Vector2(6506, 8748)
-
-[node name="GrassThinLeft" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-rotation = -1.27334
-texture = ExtResource("99_lvyhb")
-
-[node name="GrassThinLeft2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(16, -49)
-rotation = -1.27334
-texture = ExtResource("99_lvyhb")
-
-[node name="GrassThinLeft3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(33, -103)
-rotation = -1.27334
-texture = ExtResource("99_lvyhb")
-
-[node name="GrassThinRight" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(96, -179)
-rotation = -0.70151
-texture = ExtResource("100_tno6r")
-
-[node name="GrassThinRight2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(58, -146)
-rotation = -0.712672
-texture = ExtResource("100_tno6r")
-
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(-93, -44)
-texture = ExtResource("94_mc8su")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(-60, -55)
-texture = ExtResource("94_mc8su")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-position = Vector2(-27, -65)
-texture = ExtResource("94_mc8su")
-
-[node name="IlluusionVaihtajaVisible" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1" instance=ExtResource("83_0gbej")]
-invert = true
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
-occluder = SubResource("OccluderPolygon2D_ercj1")
-
-[node name="OviSeina2" type="Node2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
-unique_name_in_owner = true
-position = Vector2(12081, 8748)
-
-[node name="GrassThinLeft" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-rotation = -1.27334
-texture = ExtResource("99_lvyhb")
-
-[node name="GrassThinLeft2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(16, -49)
-rotation = -1.27334
-texture = ExtResource("99_lvyhb")
-
-[node name="GrassThinLeft3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(33, -103)
-rotation = -1.27334
-texture = ExtResource("99_lvyhb")
-
-[node name="GrassThinRight" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(96, -179)
-rotation = -0.70151
-texture = ExtResource("100_tno6r")
-
-[node name="GrassThinRight2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(58, -146)
-rotation = -0.712672
-texture = ExtResource("100_tno6r")
-
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(-93, -44)
-texture = ExtResource("94_mc8su")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(-60, -55)
-texture = ExtResource("94_mc8su")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-position = Vector2(-27, -65)
-texture = ExtResource("94_mc8su")
-
-[node name="IlluusionVaihtajaVisible" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2" instance=ExtResource("83_0gbej")]
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
-occluder = SubResource("OccluderPolygon2D_ercj1")
-
-[node name="OviSeinaValopallo" type="Area2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
-position = Vector2(12063, 8632)
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("99_ned5y")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeinaValopallo"]
-position = Vector2(67, -51)
-rotation = 0.929379
-shape = SubResource("RectangleShape2D_0g4ph")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeinaValopallo"]
-position = Vector2(13.9717, 55.3882)
-rotation = 0.279756
-shape = SubResource("RectangleShape2D_2tisf")
-
-[node name="Sprite2D" type="Sprite2D" parent="Taso2/Muuta"]
-z_index = -1
-position = Vector2(8026, 9200)
-texture = ExtResource("38_c8dmk")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Taso2/Muuta"]
-z_index = -1
-position = Vector2(13601, 9200)
-texture = ExtResource("38_c8dmk")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Taso2/Muuta"]
-z_index = -1
-position = Vector2(-246, 5905)
-texture = ExtResource("38_c8dmk")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Taso2/Muuta"]
-z_index = -1
-position = Vector2(17325.2, 8695)
-rotation = -0.00385135
-texture = ExtResource("38_c8dmk")
-
-[node name="Pomppusieni2" parent="Taso2/Muuta" instance=ExtResource("82_imok5")]
-position = Vector2(-910, 5769)
-rotation = 0.0654187
-
-[node name="Pomppusieni3" parent="Taso2/Muuta" instance=ExtResource("82_imok5")]
-position = Vector2(2236, 6481)
-rotation = 0.0665975
-
-[node name="Pomppusieni" parent="Taso2/Muuta" instance=ExtResource("82_imok5")]
-position = Vector2(1269, 6480)
-
-[node name="CreditsAlue" type="Area2D" parent="Taso2/Muuta"]
-position = Vector2(17353.2, 8688.25)
-collision_layer = 0
-collision_mask = 6
-script = ExtResource("59_80cq2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/Muuta/CreditsAlue"]
-shape = SubResource("RectangleShape2D_78rim")
-
-[node name="Label" type="Label" parent="Taso2/Muuta/CreditsAlue"]
-z_index = 99
-material = ExtResource("75_4248i")
-offset_left = -94.1563
-offset_top = -36.0
-offset_right = 163.844
-offset_bottom = -13.0
-text = "Thank you for playing!"
-
-[node name="LabelEasterEgg" type="Label" parent="Taso2/Muuta"]
-z_index = 99
-material = ExtResource("75_4248i")
-offset_left = 2450.0
-offset_top = 9145.0
-offset_right = 2602.0
-offset_bottom = 9168.0
-text = "Easter egg!!!"
-
-[node name="myrkkysieni" parent="Taso2/Muuta" instance=ExtResource("56_7csj5")]
-position = Vector2(13497, 8737)
-
-[node name="myrkkysieni2" parent="Taso2/Muuta" instance=ExtResource("56_7csj5")]
-position = Vector2(13638, 8740)
-rotation = 0.0327436
-
-[node name="myrkkysieni3" parent="Taso2/Muuta" instance=ExtResource("56_7csj5")]
-position = Vector2(14101, 8633)
-rotation = -0.419538
 
 [node name="VesialueetTaso2" type="Node2D" parent="Taso2"]
 
@@ -4570,10 +4377,6 @@ position = Vector2(16443, 8656)
 position = Vector2(-4, -9)
 curve = SubResource("Curve2D_o11av")
 
-[node name="PerhonenHeal" parent="Taso2/PerhosetTaso2" instance=ExtResource("16_woq5y")]
-position = Vector2(9533, 625)
-rotation = -0.00132818
-
 [node name="AnsatTaso2" type="Node2D" parent="Taso2"]
 
 [node name="PerhospesaAnsa" parent="Taso2/AnsatTaso2" instance=ExtResource("85_m4sab")]
@@ -4596,6 +4399,14 @@ rotation = 0.0529006
 [node name="Checkpoint4" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
 position = Vector2(671, 6460)
 rotation = -0.0154471
+
+[node name="Checkpoint5" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
+position = Vector2(21368, 8767)
+rotation = -0.388242
+
+[node name="Checkpoint6" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
+position = Vector2(22144, 8592)
+rotation = -0.0398796
 
 [node name="PotioninOsatTaso2" type="Node2D" parent="Taso2"]
 
@@ -4642,6 +4453,340 @@ rotation = 0.00765381
 position = Vector2(1233, 6021)
 rotation = 0.0706898
 
+[node name="Muuta" type="Node2D" parent="Taso2"]
+
+[node name="TutoriaaliTP1" type="Node2D" parent="Taso2/Muuta"]
+position = Vector2(8026, 9201)
+
+[node name="TutoriaaliTP2" type="Node2D" parent="Taso2/Muuta"]
+position = Vector2(13601, 9201)
+
+[node name="VesitutoriaaliTP" type="Node2D" parent="Taso2/Muuta"]
+unique_name_in_owner = true
+position = Vector2(-414, 8723)
+
+[node name="VesitutoriaaliEnnenTP" type="Node2D" parent="Taso2/Muuta"]
+unique_name_in_owner = true
+position = Vector2(-245, 5905)
+
+[node name="VesitutoriaaliLapiTP" type="Node2D" parent="Taso2/Muuta"]
+unique_name_in_owner = true
+position = Vector2(12371, 8695)
+
+[node name="PerhosPesaTP" type="Node2D" parent="Taso2/Muuta"]
+unique_name_in_owner = true
+position = Vector2(21303, 8809)
+
+[node name="TutoriaaliOviSeinat" type="Node2D" parent="Taso2/Muuta"]
+
+[node name="OviSeina1" type="Node2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
+position = Vector2(6506, 8748)
+
+[node name="GrassThinLeft" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
+
+[node name="GrassThinLeft2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(16, -49)
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
+
+[node name="GrassThinLeft3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(33, -103)
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
+
+[node name="GrassThinRight" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(96, -179)
+rotation = -0.70151
+texture = ExtResource("100_tno6r")
+
+[node name="GrassThinRight2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(58, -146)
+rotation = -0.712672
+texture = ExtResource("100_tno6r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(-93, -44)
+texture = ExtResource("94_mc8su")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(-60, -55)
+texture = ExtResource("94_mc8su")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+position = Vector2(-27, -65)
+texture = ExtResource("94_mc8su")
+
+[node name="IlluusionVaihtajaVisible" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1" instance=ExtResource("83_0gbej")]
+invert = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina1"]
+occluder = SubResource("OccluderPolygon2D_ercj1")
+
+[node name="OviSeina2" type="Node2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
+unique_name_in_owner = true
+position = Vector2(12081, 8748)
+
+[node name="GrassThinLeft" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
+
+[node name="GrassThinLeft2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(16, -49)
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
+
+[node name="GrassThinLeft3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(33, -103)
+rotation = -1.27334
+texture = ExtResource("99_lvyhb")
+
+[node name="GrassThinRight" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(96, -179)
+rotation = -0.70151
+texture = ExtResource("100_tno6r")
+
+[node name="GrassThinRight2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(58, -146)
+rotation = -0.712672
+texture = ExtResource("100_tno6r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(-93, -44)
+texture = ExtResource("94_mc8su")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(-60, -55)
+texture = ExtResource("94_mc8su")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+position = Vector2(-27, -65)
+texture = ExtResource("94_mc8su")
+
+[node name="IlluusionVaihtajaVisible" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2" instance=ExtResource("83_0gbej")]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeina2"]
+occluder = SubResource("OccluderPolygon2D_ercj1")
+
+[node name="OviSeinaValopallo" type="Area2D" parent="Taso2/Muuta/TutoriaaliOviSeinat"]
+position = Vector2(12063, 8632)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("99_ned5y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeinaValopallo"]
+position = Vector2(67, -51)
+rotation = 0.929379
+shape = SubResource("RectangleShape2D_0g4ph")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Taso2/Muuta/TutoriaaliOviSeinat/OviSeinaValopallo"]
+position = Vector2(13.9717, 55.3882)
+rotation = 0.279756
+shape = SubResource("RectangleShape2D_2tisf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/Muuta"]
+z_index = -1
+position = Vector2(8026, 9200)
+texture = ExtResource("38_c8dmk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Taso2/Muuta"]
+z_index = -1
+position = Vector2(13601, 9200)
+texture = ExtResource("38_c8dmk")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Taso2/Muuta"]
+z_index = -1
+position = Vector2(-246, 5905)
+texture = ExtResource("38_c8dmk")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Taso2/Muuta"]
+z_index = -1
+position = Vector2(17325.2, 8695)
+rotation = -0.00385135
+texture = ExtResource("38_c8dmk")
+
+[node name="Pomppusieni2" parent="Taso2/Muuta" instance=ExtResource("82_imok5")]
+position = Vector2(-910, 5769)
+rotation = 0.0654187
+
+[node name="Pomppusieni3" parent="Taso2/Muuta" instance=ExtResource("82_imok5")]
+position = Vector2(2236, 6481)
+rotation = 0.0665975
+
+[node name="Pomppusieni" parent="Taso2/Muuta" instance=ExtResource("82_imok5")]
+position = Vector2(1269, 6480)
+
+[node name="CreditsAlue" type="Area2D" parent="Taso2/Muuta"]
+position = Vector2(17353.2, 8688.25)
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("59_80cq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/Muuta/CreditsAlue"]
+shape = SubResource("RectangleShape2D_78rim")
+
+[node name="Label" type="Label" parent="Taso2/Muuta/CreditsAlue"]
+z_index = 99
+material = ExtResource("75_4248i")
+offset_left = -94.1563
+offset_top = -36.0
+offset_right = 163.844
+offset_bottom = -13.0
+text = "Thank you for playing!"
+
+[node name="LabelEasterEgg" type="Label" parent="Taso2/Muuta"]
+z_index = 99
+material = ExtResource("75_4248i")
+offset_left = 2450.0
+offset_top = 9145.0
+offset_right = 2602.0
+offset_bottom = 9168.0
+text = "Easter egg!!!"
+
+[node name="Myrkkysienet" type="Node2D" parent="Taso2/Muuta"]
+
+[node name="myrkkysieni" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(13497, 8737)
+
+[node name="myrkkysieni2" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(13638, 8740)
+rotation = 0.0327436
+
+[node name="myrkkysieni3" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(14101, 8633)
+rotation = -0.419538
+
+[node name="myrkkysieni4" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21586, 8929)
+rotation = 0.361421
+
+[node name="myrkkysieni24" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21621, 8944)
+rotation = 0.509326
+
+[node name="myrkkysieni25" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21646, 8949)
+rotation = 0.376177
+
+[node name="myrkkysieni22" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21572, 8917)
+rotation = 1.20878
+
+[node name="myrkkysieni23" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21561, 8867)
+rotation = 1.47951
+
+[node name="myrkkysieni5" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21770, 8951)
+rotation = -0.041989
+scale = Vector2(1, 1)
+
+[node name="myrkkysieni6" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21805, 8950)
+rotation = -0.0953943
+
+[node name="myrkkysieni7" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21727, 8954)
+rotation = 0.223728
+
+[node name="myrkkysieni8" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21677, 8953)
+rotation = 0.0369056
+
+[node name="myrkkysieni9" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21946, 8947)
+rotation = -0.097619
+scale = Vector2(1, 1)
+
+[node name="myrkkysieni10" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21981, 8946)
+rotation = -0.151024
+
+[node name="myrkkysieni11" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21903, 8950)
+rotation = 0.168098
+scale = Vector2(1, 1)
+
+[node name="myrkkysieni12" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(21853, 8949)
+rotation = -0.0187245
+
+[node name="myrkkysieni13" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(22122, 8931)
+rotation = -0.097619
+scale = Vector2(1, 1)
+
+[node name="myrkkysieni14" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(22157, 8930)
+rotation = -0.151024
+
+[node name="myrkkysieni17" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(22206, 8884)
+rotation = -0.871792
+
+[node name="myrkkysieni21" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(22174, 8915)
+rotation = -0.722173
+
+[node name="myrkkysieni19" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(22184, 8764)
+rotation = -2.53064
+
+[node name="myrkkysieni20" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(22140, 8749)
+rotation = -2.725
+
+[node name="myrkkysieni18" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(22235, 8846)
+rotation = -0.824539
+
+[node name="myrkkysieni15" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(22079, 8934)
+rotation = 0.168098
+scale = Vector2(1, 1)
+
+[node name="myrkkysieni16" parent="Taso2/Muuta/Myrkkysienet" instance=ExtResource("56_7csj5")]
+position = Vector2(22029, 8943)
+rotation = -0.146316
+scale = Vector2(1, 1)
+
+[node name="PerhospesaAnsa" parent="Taso2/Muuta" instance=ExtResource("85_m4sab")]
+position = Vector2(21562, 8947)
+rotation = 0.110952
+
+[node name="PerhospesaAnsa2" parent="Taso2/Muuta" instance=ExtResource("85_m4sab")]
+position = Vector2(21541, 8798)
+rotation = 2.08133
+
+[node name="PerhospesaAnsa3" parent="Taso2/Muuta" instance=ExtResource("85_m4sab")]
+position = Vector2(21636, 8974)
+rotation = 0.555303
+
+[node name="PerhospesaAnsa7" parent="Taso2/Muuta" instance=ExtResource("85_m4sab")]
+position = Vector2(21636, 8974)
+rotation = 0.555303
+
+[node name="PerhospesaAnsa8" parent="Taso2/Muuta" instance=ExtResource("85_m4sab")]
+position = Vector2(21740, 8978)
+rotation = 0.171462
+
+[node name="PerhospesaAnsa9" parent="Taso2/Muuta" instance=ExtResource("85_m4sab")]
+position = Vector2(21951, 8975)
+rotation = 0.302365
+
+[node name="PerhospesaAnsa4" parent="Taso2/Muuta" instance=ExtResource("85_m4sab")]
+position = Vector2(21875, 8973)
+rotation = -0.325366
+
+[node name="PerhospesaAnsa5" parent="Taso2/Muuta" instance=ExtResource("85_m4sab")]
+position = Vector2(22246, 8800)
+rotation = -2.03264
+
+[node name="PerhospesaAnsa6" parent="Taso2/Muuta" instance=ExtResource("85_m4sab")]
+position = Vector2(22165, 8951)
+rotation = -0.840594
+
 [node name="OnkoPelaajaTaso2" type="Area2D" parent="Taso2"]
 visible = false
 collision_layer = 0
@@ -4649,7 +4794,7 @@ collision_mask = 2
 script = ExtResource("102_3h1h5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Taso2/OnkoPelaajaTaso2"]
-position = Vector2(16101.8, 10013)
+position = Vector2(20763.3, 12937.5)
 shape = SubResource("RectangleShape2D_irw3x")
 
 [connection signal="transitio" from="Pelaaja" to="KayttoLiittyma/Transitio" method="_on_transitio"]

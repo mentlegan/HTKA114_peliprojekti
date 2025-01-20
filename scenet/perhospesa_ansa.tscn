@@ -1,8 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5n65owbe24jl"]
+[gd_scene load_steps=4 format=3 uid="uid://b5n65owbe24jl"]
 
 [ext_resource type="Script" path="res://perhospesa_ansa.gd" id="1_movxk"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7eygo"]
+
+[sub_resource type="Gradient" id="Gradient_61mhm"]
+offsets = PackedFloat32Array(0, 0.75431, 1)
+colors = PackedColorArray(0.952941, 0, 0.976471, 0.415686, 0.654902, 0, 0.670588, 0.282353, 0, 0, 0, 0)
 
 [node name="PerhospesaAnsa" type="Node2D"]
 script = ExtResource("1_movxk")
@@ -16,11 +20,22 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(35, -77, 27, -41, 16, -13, 7, -5, -4, -4, -12, -22, -22, -45, -33, -71, -37, -109, -7, -117, 11, -117, 30, -108)
+polygon = PackedVector2Array(35, -77, 27, -41, 14, -15, 7, -5, -4, -4, -17, -22, -26, -44, -40, -78, -37, -109, -7, -117, 11, -117, 30, -108)
 
-[node name="Polygon2D" type="Polygon2D" parent="Area2D/CollisionPolygon2D"]
-modulate = Color(0.954562, 0.000886568, 0.975386, 0.415686)
-polygon = PackedVector2Array(15, -13, 27, -40, 35, -77, 30, -108, 10, -117, -7, -117, -37, -109, -33, -75, -33, -69, -4, -5, 8, -6)
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 150
+lifetime = 3.2
+explosiveness = 0.1
+direction = Vector2(0, -1)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
+orbit_velocity_min = -0.02
+orbit_velocity_max = 0.02
+scale_amount_min = 4.5
+scale_amount_max = 5.5
+color_ramp = SubResource("Gradient_61mhm")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

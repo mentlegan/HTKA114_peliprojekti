@@ -4,10 +4,9 @@ extends Area2D
 ## varmaan koska stackaavat päällekäin pakosti
 ## Juuso 29.10.2024
 
-var tween: Tween
-
 const ANIMAATION_KESTO = 1.0
 
+var tween: Tween
 
 func _on_body_entered(body) -> void:
 	# Nämä awaitit rikkoivat toiminnallisuuden, reuna valo ei mennyt pois

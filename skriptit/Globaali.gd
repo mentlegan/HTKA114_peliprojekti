@@ -297,6 +297,10 @@ func _input(_event: InputEvent) -> void:
 	elif Input.is_action_just_pressed("vesitutoriaalilapi"):
 		teleporttaa_pelaaja(maailma.pelaaja_vesitutoriaalilapi)
 	
+	# PC F10
+	elif Input.is_action_just_pressed("perhospesa"):
+		teleporttaa_pelaaja(maailma.pelaaja_perhospesa)
+	
 	# Pelin keskeytys
 	# PC ESCAPE
 	# PS4/PS5 OPTIONS
@@ -367,6 +371,7 @@ func respawn():
 	maailma.pelaaja.animaatio.visible = true
 	maailma.pelaaja.pauseAnimaatiot.stop()
 	maailma.pelaaja.pauseAnimaatiot.visible = false
+	
 	maailma.palloja = 0 # Resetoidaan pallot, koska reload_current_scene ei sitä tee. Tämän voi koittaa laittaa johonkin järkevämpään paikkaan
 	maailma.nykyiset_pallot = 0 # Nykyisten pallojen määrä laitetaan 0
 	
@@ -377,11 +382,8 @@ func respawn():
 	
 	alusta_koynnosovet()
 	
-	# Peli pois pauselta
-	get_tree().paused = false
 	# Haetaan SceneTree ja käynnistetään se uudestaan
 	# self.get_tree().call_deferred("reload_current_scene")
-	teleporttaa_pelaaja(maailma.pelaaja_aloitus)
 	maailma.gameover_ruutu.visible = false
 	
 	# Aloittaa timerin alusta
@@ -395,10 +397,22 @@ func respawn():
 	maailma.pelaaja.pelaajan_elamat = maailma.pelaaja.pelaajan_elamat_max
 	maailma.pelaaja.elamat_label_paivita()
 	
+	# Tuhoa ansa, heal yms. timerit
+	# TODO: korjattavaa on myrkkysienten timereissa
+	# ne voisi muuttaa samanlaiseksi toteutukseksi kuin ansat ja heali perhoset, helpompi ylläpitää
+	# Nyt tekevät vielä damagea respawnin jälkeen kait
+	for child in maailma.pelaaja.get_children():
+		if child is Timer:
+			if child.name.contains("Ansa") or child.name.contains("Heal"):
+				child.stop()
+	
 	maailma.kuoltiinko_viholliseen = false # resetoidaan viholliseen/pimeyteen kuolemisen tarkistava muuttuja
 	
 	# Perhospesän perhosten ja ansojen ajoitusten korjaaminen
 	korjaa_perhospesa_ajoitukset()
+	
+	get_tree().paused = false
+	teleporttaa_pelaaja(maailma.pelaaja_aloitus)
 
 
 func korjaa_perhospesa_ajoitukset():

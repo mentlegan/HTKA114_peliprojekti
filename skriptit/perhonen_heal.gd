@@ -13,10 +13,11 @@ var timer: Timer
 func _on_body_entered(body: Node2D) -> void:
 	if body is Pelaaja:
 		timer = Timer.new()
-		timer.name = "TimerHeal"
 		timer.wait_time = heal_timeout
 		timer.timeout.connect(body.elama_regen)
 		body.add_child(timer)
+		# Nimi lisäämisen jälkeen, ettei muuta automaattisesti muotoon @Timer...
+		timer.name = "TimerHeal"
 		timer.start()
 		print_debug(self.name, " LUOTU AJASTIN ", timer.name)
 		# TODO: Healin näyttäminen visuaalisesti
@@ -26,6 +27,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body is Pelaaja:
 		if timer:
+			print_debug(self.name, " TUHOTTU AJASTIN ", timer.name)
 			timer.queue_free()
 		else:
-			printerr("EI LÖYTYNYT AJASTINTA", self)
+			printerr("EI LÖYTYNYT AJASTINTA", self.name)

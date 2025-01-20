@@ -570,13 +570,16 @@ func elama_regen():
 
 ## Lisätään pelaajalle elämiä
 func saa_elamia(maara):
-	if pelaajan_elamat < pelaajan_elamat_max:
-		if elama_regen_tween:
-			elama_regen_tween.kill()
-		elama_regen_tween = create_tween().set_trans(Tween.TRANS_EXPO)
-		elama_regen_tween.tween_property(elama_mittari_kuvalla, "scale", Vector2(1.15, 1.15), 0.1)
-		elama_regen_tween.tween_property(elama_mittari_kuvalla, "scale", Vector2(1, 1), 0.7)
-		pelaajan_elamat = clampi(pelaajan_elamat + maara, 0, pelaajan_elamat_max)
+	if not pelaajan_elamat < pelaajan_elamat_max:
+		return
+	
+	if elama_regen_tween:
+		elama_regen_tween.kill()
+	elama_regen_tween = create_tween().set_trans(Tween.TRANS_EXPO)
+	elama_regen_tween.tween_property(elama_mittari_kuvalla, "scale", Vector2(1.15, 1.15), 0.1)
+	elama_regen_tween.tween_property(elama_mittari_kuvalla, "scale", Vector2(1, 1), 0.7)
+	# Clampf, jotta voi olla puolikkaita elämiä
+	pelaajan_elamat = clampf(pelaajan_elamat + maara, 0, pelaajan_elamat_max)
 	print("HEALATTU ", maara)
 	elamat_label_paivita()
 
