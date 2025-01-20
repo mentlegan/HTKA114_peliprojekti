@@ -5,5 +5,4 @@
 
 [resource]
 shader = ExtResource("1_rl0cq")
-shader_parameter/vedenpinta = true
 shader_parameter/noise = ExtResource("2_ic2xx")
