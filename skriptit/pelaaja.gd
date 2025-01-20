@@ -777,7 +777,7 @@ func _physics_process(delta):
 		if not putoamis_vahinko and velocity.y > 0:
 			putoamis_vahinko = true
 			putoamis_huippu = get_global_position().y
-			print(putoamis_huippu)
+			#print(putoamis_huippu) # TODO: ota pois kommentista tarvittaessa
 		# Seinää vasten liikkuessa kiipeää tai tippuu
 		# PC kiipeä: W, pudottaudu: S
 	elif (oli_seinalla or is_on_wall()) and Input.is_action_pressed("kiipea") and not vedessa:
@@ -820,7 +820,7 @@ func _physics_process(delta):
 		oli_seinalla = false
 		if putoamis_vahinko:
 			animaatio.scale = Vector2(1.1, 0.9)
-			print("EROTUS: ", get_global_position().y - putoamis_huippu)
+			#print("EROTUS: ", get_global_position().y - putoamis_huippu) TODO:
 			if (get_global_position().y - putoamis_huippu) > putoamis_raja_3:
 				meneta_elamia(putoamis_raja_3_dmg, "normaali")
 			elif (get_global_position().y - putoamis_huippu) > putoamis_raja_2:

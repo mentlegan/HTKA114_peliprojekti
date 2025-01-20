@@ -55,8 +55,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		timer.timeout.connect(body.myrkky_damage)
 		body.add_child(timer)
 		timer.start()
-		#print_debug(self.name, " LUOTU AJASTIN ", timer.name)
-		# TODO: Vahingon näyttäminen
+		print_debug(self.name, " LUOTU AJASTIN ", timer.name)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
