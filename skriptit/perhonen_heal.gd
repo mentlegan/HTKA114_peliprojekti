@@ -1,4 +1,5 @@
 extends Perhonen
+class_name PerhonenHeal
 ## Healaava perhonen
 ## Juuso 15.11.2024
 

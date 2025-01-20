@@ -2,6 +2,7 @@
 ## aktivoi vahinkoa tekevän alueen tietyn aikavälein
 ## Juuso 5.12.2024
 extends Node2D
+class_name Ansa
 
 @export_group("Ansan statsit")
 @export var aika_aktivoituna: int = 5
@@ -24,6 +25,10 @@ func _ready() -> void:
 
 ## Aloittaa syklin, jossa ansa aktivoituu ja deaktivoituu aikavälein
 func aloita_sykli():
+	# Respawnatessa
+	if tween:
+		tween.kill()
+		collision_p2d.scale = Vector2.ZERO
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_loops(0)
 	tween.tween_property(collision_p2d, "scale", Vector2.ONE, aika_transitio)
 	tween.tween_interval(aika_aktivoituna) # Pysyy aktivoituna

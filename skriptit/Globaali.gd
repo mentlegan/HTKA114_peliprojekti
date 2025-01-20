@@ -396,6 +396,23 @@ func respawn():
 	maailma.pelaaja.elamat_label_paivita()
 	
 	maailma.kuoltiinko_viholliseen = false # resetoidaan viholliseen/pimeyteen kuolemisen tarkistava muuttuja
+	
+	# Perhospesän perhosten ja ansojen ajoitusten korjaaminen
+	korjaa_perhospesa_ajoitukset()
+
+
+func korjaa_perhospesa_ajoitukset():
+	# Siirretään kuljettavat perhoset aloittamaan aloituspisteestä
+	# ja ansat aloittamaan syklin alusta
+	# TODO: tämän voisi hoitaa myös Taso2 node
+	# TODO: kun kuljettavat perhoset
+	#for child in maailma.get_node("Taso2/PerhosetTaso2").get_children():
+		#if child is PerhonenKuljettava:
+			#child.global_position = child.aloituspiste
+	# TODO: ehkä healaavat, jos ovat mukana ajoituspuzzleissa
+	for child in maailma.get_node("Taso2/AnsatTaso2").get_children():
+		if child is Ansa:
+			child.aloita_sykli()
 
 
 ## "Kerää" journalin, jotta pelaaja voisi sitä käyttää

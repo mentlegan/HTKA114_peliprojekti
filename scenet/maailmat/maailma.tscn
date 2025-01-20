@@ -3554,10 +3554,6 @@ position = Vector2(46, -8)
 scale = Vector2(0.519523, 0.676654)
 texture = ExtResource("38_c8dmk")
 
-[node name="PerhospesaAnsa" parent="Muuta" instance=ExtResource("85_m4sab")]
-position = Vector2(9260, 673)
-rotation = 0.621764
-
 [node name="Tasot" type="Area2D" parent="."]
 visible = false
 
@@ -4573,6 +4569,17 @@ position = Vector2(16443, 8656)
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/Perhonen3"]
 position = Vector2(-4, -9)
 curve = SubResource("Curve2D_o11av")
+
+[node name="PerhonenHeal" parent="Taso2/PerhosetTaso2" instance=ExtResource("16_woq5y")]
+position = Vector2(9533, 625)
+rotation = -0.00132818
+
+[node name="AnsatTaso2" type="Node2D" parent="Taso2"]
+
+[node name="PerhospesaAnsa" parent="Taso2/AnsatTaso2" instance=ExtResource("85_m4sab")]
+position = Vector2(9261, 673)
+rotation = 0.621764
+scale = Vector2(1, 1)
 
 [node name="CheckpointitTaso2" type="Node2D" parent="Taso2"]
 
