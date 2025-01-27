@@ -571,6 +571,7 @@ func elama_regen():
 ## Lisätään pelaajalle elämiä
 func saa_elamia(maara):
 	if not pelaajan_elamat < pelaajan_elamat_max:
+		print("ON JO MAX HP!")
 		return
 	
 	if elama_regen_tween:

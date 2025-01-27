@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuqdj17cc88da"]
+
+[ext_resource type="Script" path="res://skriptit/timer_heal.gd" id="1_u4jru"]
+[ext_resource type="Resource" uid="uid://cmq3l1t6ioeku" path="res://tres-tiedostot/timer_heal.tres" id="2_61fim"]
+
+[node name="TimerHeal" type="Node"]
+script = ExtResource("1_u4jru")
+data = ExtResource("2_61fim")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

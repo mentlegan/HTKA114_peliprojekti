@@ -397,18 +397,19 @@ func respawn():
 	maailma.pelaaja.pelaajan_elamat = maailma.pelaaja.pelaajan_elamat_max
 	maailma.pelaaja.elamat_label_paivita()
 	
+	maailma.kuoltiinko_viholliseen = false # resetoidaan viholliseen/pimeyteen kuolemisen tarkistava muuttuja
+	
 	# Tuhoa ansa, heal yms. timerit
 	# TODO: korjattavaa on myrkkysienten timereissa
 	# ne voisi muuttaa samanlaiseksi toteutukseksi kuin ansat ja heali perhoset, helpompi ylläpitää
 	# Nyt tekevät vielä damagea respawnin jälkeen kait
+	# TODO: TÄTÄ LOOPPIA EI EHKÄ TARVITSE
 	for child in maailma.pelaaja.get_children():
 		if child is Timer:
 			if child.name.contains("Ansa") or child.name.contains("Heal"):
 				child.stop()
-	
-	maailma.kuoltiinko_viholliseen = false # resetoidaan viholliseen/pimeyteen kuolemisen tarkistava muuttuja
-	
 	# Perhospesän perhosten ja ansojen ajoitusten korjaaminen
+	# TODO: TÄTÄKÄÄN EI EHKÄ TARVITSE
 	korjaa_perhospesa_ajoitukset()
 	
 	get_tree().paused = false

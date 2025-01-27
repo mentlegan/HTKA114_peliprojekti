@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="TimerHealData" load_steps=2 format=3 uid="uid://cmq3l1t6ioeku"]
+
+[ext_resource type="Script" path="res://skriptit/timer_heal_data.gd" id="1_ydvs3"]
+
+[resource]
+script = ExtResource("1_ydvs3")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://obqvnkpuuwsr"]
+[gd_scene load_steps=19 format=3 uid="uid://obqvnkpuuwsr"]
 
 [ext_resource type="Script" path="res://skriptit/perhonen_heal.gd" id="1_msgqj"]
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_c16tm"]
+[ext_resource type="PackedScene" uid="uid://cuqdj17cc88da" path="res://scenet/timer_heal.tscn" id="2_j3obx"]
 [ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="3_ep2gf"]
 [ext_resource type="AudioStream" uid="uid://cln7i2kmgg5qn" path="res://audio/perhonen/perhonen1.mp3" id="4_t4uww"]
 [ext_resource type="AudioStream" uid="uid://dhe3hmb0ieug6" path="res://audio/perhonen/perhonen2.mp3" id="5_qf72o"]
@@ -80,6 +81,7 @@ stream_3/stream = ExtResource("7_vfe8a")
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_msgqj")
+timer_heal_node = ExtResource("2_j3obx")
 nopeus = 50
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -87,7 +89,7 @@ blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
 texture = ExtResource("2_c16tm")
-texture_scale = 1.5
+texture_scale = 1.4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.435501, 0.686193, 0, 1)
