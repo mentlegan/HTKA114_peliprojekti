@@ -113,8 +113,8 @@ func taytaKuvakokojenValinta() -> void:
 ## param index: optionbuttonin vaihtoehto
 func on_window_mode_selected(index : int) -> void:
 	match index: # Katsotaan, että mikä vaihtoehto napattiin
-		0: # Fullscreen
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		0: # Fullscreen, vaihdettu exclusive, jotta saa pois valkoiset reunat
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 			DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 		1: # Window Mode
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -123,7 +123,7 @@ func on_window_mode_selected(index : int) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 		3: # Fullscreen Borderless, pitää korjata myöhemmin
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 			DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 
 
