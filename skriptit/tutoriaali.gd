@@ -19,10 +19,10 @@ var tekstitiedostojen_polku = aihekansioiden_polku + valittu_aihe + "tekstitiedo
 var kuvatiedostojen_polku = aihekansioiden_polku + valittu_aihe + "kuvat/" ## Otetaan kuvatiedostojen polku
 
 ## Tarvittavat nodet
-@onready var nappilista = $ColorRect/MarginContainer/GridContainer/ScrollContainer/ItemList ## Itemlist, josta valitaan aihe
-@onready var tutoriaaliteksti_nodet = $ColorRect/MarginContainer/Tutoriaalitekstit.get_children() ## Tämän avulla voidaan käsitellä tutoriaalitekstiin liittyvviä valikkoja
+@onready var nappilista = $"%ItemList" ## Itemlist, josta valitaan aihe
+@onready var tutoriaaliteksti_nodet = $"%Tutoriaalitekstit".get_children() ## Tämän avulla voidaan käsitellä tutoriaalitekstiin liittyvviä valikkoja
 @onready var tutoriaaliteksti = tutoriaaliteksti_nodet[0] ## Tekstikenttä, mihin tekstitiedoston sisältö kirjoitetaan pelaajan näkyville
-@onready var tutoriaalikuva_nodet = $ColorRect/MarginContainer/Tutoriaalikuvat.get_children() ## Tämän avulla muokataan kuvia
+@onready var tutoriaalikuva_nodet = $"%Tutoriaalikuvat".get_children() ## Tämän avulla muokataan kuvia
 
 
 ## Ready tapahtuu, kun scene avautuu
