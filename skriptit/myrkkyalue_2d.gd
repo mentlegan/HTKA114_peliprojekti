@@ -1,8 +1,9 @@
 extends Area2D
 class_name MyrkkyAlue2D
+
 ## Editorissa vaihdettava arvo sille, ottaako myrkystä damagea
 @export var tekeeko_damagea: bool = true
-@onready var myrkky_audio = $AudioMyrkkyalue
+#@onready var myrkky_audio = $AudioMyrkkyalue
 
 ## Animoitu texture myrkkyalueelle
 var myrkynTexture = preload("res://tres-tiedostot/myrkkyalue.tres")
@@ -21,7 +22,7 @@ func _ready() -> void:
 
 ## Pelaajan alkaa ottamaan myrkkyä tullessaan alueelle
 func _on_body_entered(body):
-	myrkky_audio.play()
+	#myrkky_audio.play()
 	if tekeeko_damagea:
 		if body.is_in_group("Pelaaja"):
 			body.myrkkyalue_timer()
@@ -30,7 +31,7 @@ func _on_body_entered(body):
 
 ## Lopetetaan myrkyn jatkuminen kun pois alueelta
 func _on_body_exited(body):
-	myrkky_audio.stop()
+	#myrkky_audio.stop()
 	if tekeeko_damagea:
 		if body.is_in_group("Pelaaja"):
 			body.myrkkyalue_ajastin.one_shot = true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ciaug8px7wrrg"]
 
 [ext_resource type="Script" path="res://skriptit/myrkkyalue_2d.gd" id="1_yipa4"]
-[ext_resource type="AudioStream" uid="uid://c30cwa5nbg7cs" path="res://audio/vesi/myrkkyvesi.mp3" id="3_htm36"]
+[ext_resource type="AudioStream" uid="uid://ccia6b1i0m766" path="res://audio/vesi/myrkkyvesi.mp3" id="3_htm36"]
 
 [node name="Myrkkyalue2D" type="Area2D"]
 modulate = Color(0.268111, 0.469524, 0.162197, 1)
@@ -13,6 +13,9 @@ script = ExtResource("1_yipa4")
 stream = ExtResource("3_htm36")
 volume_db = -7.0
 pitch_scale = 1.3
+autoplay = true
+max_distance = 500.0
+attenuation = 1.5
 parameters/looping = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
