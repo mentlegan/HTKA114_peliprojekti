@@ -34,6 +34,7 @@ var light = preload("res://scenet/valo_character.tscn") ## Valon informaatio. Ta
 var audio_stream_player_container
 var alue1
 var alue2
+var alue3
 
 ## Kerroin jolla voi muuttaa kuinka nopeasti vihollisen äänenkorkeus muuttuu
 ## VAROITUS: Voi hajota jos arvo on suurempi kuin 1. Tällöin toteutusta täytyy vähän muuttaa.
@@ -71,6 +72,7 @@ func _ready():
 	audio_stream_player_container = $AudioStreamPlayerContainer
 	alue1 = $alue
 	alue2 = $alue2
+	alue3 = $alue3
 	aseta_alueet(self)
 	audio_stream_player_container.global_position = alue1.global_position
 
@@ -187,6 +189,19 @@ func _on_alue_2_body_exited(body):
 	poistuttu_alueelta(body)
 
 
+## Alueelle astumisen funktio alueelle 3
+func _on_alue_3_body_entered(body):
+	# Tarkistetaan, että alue on nykyinen alue, tai ei ole, hirveästi ei ole väliä kummin päin
+	# kunhan tarkistetaan siltä varalta, etteivät molemmat alueet ole aktiivisia samaan aikaan
+	if !body.is_in_group("nykyisetAlueet"):
+		astuttu_alueelle(body)
+
+
+## Alueelta poistumisen funktio alueelle 3
+func _on_alue_3_body_exited(body):
+	poistuttu_alueelta(body)
+
+
 ## Jos vihollinen onkin valossa, vaikkapa valopallon heitosta
 func siirrytty_valoon():
 	audio_pakeneminen.play() # Pelästytään ja äännellään sen mukaisesti
@@ -203,25 +218,48 @@ func aseta_alueet(_vihollinen):
 	alue2.remove_from_group("nykyisetAlueet") # Varmistus
 	alue2.visible = false # Alue 2 katoaa näkyvistä
 	alue2.process_mode = Node.PROCESS_MODE_DISABLED # Alue 2 ei tee mitään
+	alue3.remove_from_group("nykyisetAlueet") # Tehdään samat toimenpiteet alueelle 3
+	alue3.visible = false
+	alue3.process_mode = Node.PROCESS_MODE_DISABLED
 
 
-## Vaihdetaan aluetta, eli vihollinen liikkuu, jos päätyy valoon
+## Vaihdetaan aluetta, eli vihollinen liikkuu, jos päätyy valoon, tai haluaa muuten liikkua
 func vaihda_alue(vihollinen):
 	var kuoppa1 = vihollinen.get_children()[1] # Otetaan alueen 1 kuoppa
-	var kuoppa2 = vihollinen.get_children()[3] # Otetaan alueen 1 kuoppa
-	if alue1.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
-		print ("Vihollinen vaihtaa alueelle " + str(alue2))
-		aktivoi_alue(alue2)
-		#etsi_lahin_kukka(alue2)
-		deaktivoi_alue(alue1)
-		toista_animaatio(kuoppa1)
-	else: # jos ei olekaan alue 1 kyseessä:
-		if alue2.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
-			print ("Vihollinen vaihtaa alueelle " + str(alue1.name))
-			aktivoi_alue(alue1)
-			#etsi_lahin_kukka(alue1)
-			deaktivoi_alue(alue2)
-			toista_animaatio(kuoppa2)
+	var kuoppa2 = vihollinen.get_children()[3] # Otetaan alueen 2 kuoppa
+	var kuoppa3 = vihollinen.get_children()[5] # Otetaan alueen 3 kuoppa
+	var alueet = [alue1,alue2,alue3] # Otetaan vihollisen alueet
+	
+	# Iteroidaan alueet läpi käsittelyä varten
+	for i in alueet:
+		if i.is_in_group("nykyisetAlueet"): # Jos havaitaan nykyinen aktiivinen alue
+			deaktivoi_alue(i) # Se deaktivoidaan..
+			alueet.erase(i) # .. ja poistetaan hetkeksi
+			aktivoi_alue(alueet.pick_random()) # Koska haluamme randomin kahdesta alueesta, emme kolmesta
+			alueet.append(i) # Alue takaisin muiden joukkoon
+			# Kuoppien käsittelyä. TODO: Voisi tehdä vaikka silmukalla, tai laittamalla kuopat alueiden lapsiksi
+			if i == alue1:
+				toista_animaatio(kuoppa1)
+			if i == alue2:
+				toista_animaatio(kuoppa2)
+			if i == alue3:
+				toista_animaatio(kuoppa3)
+			break
+	
+	# Pidetään seuraavat rivit, jos jotain menee pahasti rikki
+	#if alue1.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
+	#	print ("Vihollinen vaihtaa alueelle " + str(alue2))
+	#	aktivoi_alue(alue2)
+	#	#etsi_lahin_kukka(alue2)
+	#	deaktivoi_alue(alue1)
+	#	toista_animaatio(kuoppa1)
+	#else: # jos ei olekaan alue 1 kyseessä:
+	#	if alue2.is_in_group("nykyisetAlueet"): # Erotelmaa alueille
+	#		print ("Vihollinen vaihtaa alueelle " + str(alue1.name))
+	#		aktivoi_alue(alue1)
+	#		#etsi_lahin_kukka(alue1)
+	#		deaktivoi_alue(alue2)
+	#		toista_animaatio(kuoppa2)
 
 
 ## Toistetaan kuopan animaatio
@@ -241,6 +279,7 @@ func toista_animaatio(kuoppa):
 
 ## Aktivoidaan saatu alue
 func aktivoi_alue(alue):
+	print ("Vihollinen vaihtaa alueelle " + str(alue.name))
 	alue.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT) # Toinen alue saa toiminnallisuuden ..
 	alue.visible = true # .. ja tulee näkyviin testauksen havainnollistamiseksi ..
 	alue.add_to_group("nykyisetAlueet") # .. ja tulee aktiiviseksi, eli on vaarallinen
@@ -303,11 +342,18 @@ func siirrytty_varjoon():
 	pass
 
 
+## Valon tarkistuksen signaalien käsittelijät
+
 func _on_valon_tarkistus_area_entered(body):
 	if body.is_in_group("valonlahde"):
 		siirrytty_valoon()
 
 
 func _on_valon_tarkistus_2_area_entered(body):
+	if body.is_in_group("valonlahde"):
+		siirrytty_valoon()
+
+
+func _on_valon_tarkistus_3_area_entered(body):
 	if body.is_in_group("valonlahde"):
 		siirrytty_valoon()

@@ -49,11 +49,8 @@ animations = [{
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_w41mi"]
 streams_count = 3
 stream_0/stream = ExtResource("4_hp66u")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("5_p2hna")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("6_ajjkn")
-stream_2/weight = 1.0
 
 [node name="uusiVihollinen" type="Node2D"]
 position = Vector2(3.8147e-06, 0)
@@ -117,6 +114,32 @@ animation = &"kaivautuminen"
 frame = 1
 frame_progress = 0.415255
 
+[node name="alue3" type="Area2D" parent="." groups=["newVihollinen"]]
+position = Vector2(-1.00153, -177.524)
+rotation = 3.14159
+scale = Vector2(7.09998, -9.79605)
+collision_layer = 4
+collision_mask = 14
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue3"]
+polygon = PackedVector2Array(10, -10, 0, -10, -10, -10, -10, 0, -10, 10, 0, 10, 10, 10, 10, 0)
+
+[node name="ValonTarkistus3" parent="alue3" groups=["newVihollinenValotarkistus"] instance=ExtResource("1_7vppl")]
+position = Vector2(4.3869e-05, -1.75089e-07)
+scale = Vector2(0.248258, 0.98758)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="alue3/ValonTarkistus3"]
+polygon = PackedVector2Array(22, -6, 0, -10, -22, -6, -40, 0, -22, 6, 0, 10, 22, 6, 40, 0)
+
+[node name="Kuoppa3" type="Sprite2D" parent="."]
+position = Vector2(0, -176)
+scale = Vector2(2, -3)
+
+[node name="Animaatio" type="AnimatedSprite2D" parent="Kuoppa3"]
+sprite_frames = SubResource("SpriteFrames_dl2o2")
+animation = &"kaivautuminen"
+frame_progress = 0.402777
+
 [node name="AudioStreamPlayerContainer" type="Node2D" parent="."]
 
 [node name="AudioPaikoillaan" type="AudioStreamPlayer2D" parent="AudioStreamPlayerContainer"]
@@ -158,3 +181,6 @@ max_distance = 600.0
 [connection signal="body_entered" from="alue2" to="." method="_on_alue_2_body_entered"]
 [connection signal="body_exited" from="alue2" to="." method="_on_alue_2_body_exited"]
 [connection signal="area_entered" from="alue2/ValonTarkistus2" to="." method="_on_valon_tarkistus_2_area_entered"]
+[connection signal="body_entered" from="alue3" to="." method="_on_alue_3_body_entered"]
+[connection signal="body_exited" from="alue3" to="." method="_on_alue_3_body_exited"]
+[connection signal="area_entered" from="alue3/ValonTarkistus3" to="." method="_on_valon_tarkistus_3_area_entered"]
