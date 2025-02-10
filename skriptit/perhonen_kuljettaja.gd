@@ -14,7 +14,6 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Pelaaja:
 		#pelaaja = body
-		print("ez")
 		pass
 
 
@@ -28,6 +27,5 @@ func _physics_process(delta: float) -> void:
 	# Liikuttaminen
 	super._physics_process(delta)
 	if pelaaja:
-		print("on")
 		pelaaja.global_position = self.global_position
 		pelaaja.animaatio.set_flip_h(edeltava_x < path_follow_2d.position.x)
