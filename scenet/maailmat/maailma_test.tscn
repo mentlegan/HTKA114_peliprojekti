@@ -66,7 +66,7 @@
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="62_jj5nr"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="63_3n448"]
 [ext_resource type="Script" path="res://skriptit/vesiputous.gd" id="65_7yq52"]
-[ext_resource type="Script" path="res://skriptit/creditsAlue.gd" id="66_5cqll"]
+[ext_resource type="Script" path="res://skriptit/credits_alue.gd" id="66_5cqll"]
 [ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="66_iyi2y"]
 [ext_resource type="AudioStream" uid="uid://re2pv5khmahd" path="res://audio/ambient/vesiputous_loop.mp3" id="67_gnokk"]
 [ext_resource type="Texture2D" uid="uid://dv1w1ywqfk120" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="68_csuhy"]
