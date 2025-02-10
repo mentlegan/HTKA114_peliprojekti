@@ -658,5 +658,5 @@ func vaihda_scene(maailman_nimi):
 	var maailma_tscn = load(MAAILMASCENE_KANSIO + "/" + maailman_nimi + ".tscn")
 	maailma = maailma_tscn.instantiate()
 	# Lisätään uusi Maailma-node SceneTreehen
-	get_tree().root.add_child(maailma)
+	get_tree().root.add_child.call_deferred(maailma)
 	# (maailma.gd kutsuu Globaali.gd:n init()-funktiota, kun on valmis)
