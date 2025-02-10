@@ -599,8 +599,14 @@ func tallenna():
 ## Lataa pelin aiemman tilan tallennustiedostosta
 func lataa():
 	var tallennustiedosto = FileAccess.open(tallennustiedoston_polku(), FileAccess.READ)
-	tallennetut_nodet = JSON.parse_string(tallennustiedosto.get_as_text())
-	vaihda_scene(nykyinen_scene)
+	# Jatketaan vain, jos tallennustiedoston lukeminen onnistui
+	if tallennustiedosto:
+		# Koitetaan jäsentää tallennustiedoston JSON-data
+		var json_data = JSON.parse_string(tallennustiedosto.get_as_text())
+		# Jos jäsentäminen onnistui, ladataan peli
+		if json_data:
+			tallennetut_nodet = json_data
+			vaihda_scene(nykyinen_scene)
 
 
 ## Avaa uuden tutoriaalin pelaajan tarkisteltavaksi
@@ -659,4 +665,5 @@ func vaihda_scene(maailman_nimi):
 	maailma = maailma_tscn.instantiate()
 	# Lisätään uusi Maailma-node SceneTreehen
 	get_tree().root.add_child.call_deferred(maailma)
+	get_tree().paused = false
 	# (maailma.gd kutsuu Globaali.gd:n init()-funktiota, kun on valmis)
