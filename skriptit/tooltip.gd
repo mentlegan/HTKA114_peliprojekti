@@ -1,7 +1,6 @@
 extends Area2D
 class_name Tooltip
 
-
 var ohjain_ui = Array()
 var kbm_ui = Array()
 
@@ -13,7 +12,6 @@ const ANIMAATIO_SIJAINNIN_SIIRROS = Vector2(0, -10)
 const ANIMAATIO_KESTO = 0.5
 const ANIMAATIO_TWEEN = Tween.TRANS_CUBIC
 const ANIMAATIO_EASE = Tween.EASE_OUT
-
 
 ## Piilotetaan tooltip pelin alussa
 func _ready():

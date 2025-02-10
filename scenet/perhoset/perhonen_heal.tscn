@@ -78,7 +78,7 @@ stream_2/stream = ExtResource("6_othpa")
 stream_3/stream = ExtResource("7_vfe8a")
 
 [node name="PerhonenHeal" type="Area2D" groups=["valonlahde"]]
-collision_layer = 0
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_msgqj")
 timer_heal_node = ExtResource("2_j3obx")

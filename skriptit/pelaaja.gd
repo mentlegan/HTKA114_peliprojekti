@@ -165,6 +165,8 @@ const MAX_TAHTAIN_ETAISYYS = 128
 
 ## Totuusarvo vedessä olemiselle
 var vedessa = false
+## Onko perhosen selässä
+var perhosen_selassa: bool = false
 
 ## Get the gravity from the project settings to be synced with RigidBody nodes.
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
@@ -939,7 +941,7 @@ func _physics_process(delta):
 		kamera.offset = Vector2(rng.randf_range(-tarina_voimakkuus, tarina_voimakkuus), rng.randf_range(-tarina_voimakkuus, tarina_voimakkuus))
 	
 	# Flipataan animaatio suuntaa myöten
-	if velocity.x != 0:
+	if velocity.x != 0 and !perhosen_selassa:
 		animaatio.set_flip_h(velocity.x < 0)
 	
 	# polygon on PackedVector2Array
@@ -1026,6 +1028,7 @@ func _physics_process(delta):
 			
 			kukka.aloita_kerays_animaatio()
 			kukka.aloita_kerays()
+	
 	# PC F
 	if Input.is_action_just_pressed("kayta"):
 		var alueet = valon_tarkistus.get_overlapping_areas()
@@ -1044,6 +1047,20 @@ func _physics_process(delta):
 					Globaali.poista_minecart_tooltipit()
 			elif alue.is_in_group("siirravesi"):
 				alue.aktivoi()
+			elif alue is PerhonenKuljettaja:
+				# Kuljettavan perhosen käsittely
+				if perhosen_selassa:
+					perhosen_selassa = false
+					alue.pelaaja = null
+					self.velocity = Vector2.ZERO
+				else:
+					perhosen_selassa = true
+					alue.pelaaja = self
+	
+	## TODO: saattaa joutua muuttamaan, toimii nyt jatkokehitystä varten tarpeeksi hyvin
+	## Nykyisiä ongelmia ovat pelaajan töminä kuljetuksen aikana, jos yrittää liikkua WASD:illa
+	if perhosen_selassa:
+		return
 	
 	# player.visible = ! (raycast.is_colliding())
 	

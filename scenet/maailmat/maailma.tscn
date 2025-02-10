@@ -1,6 +1,6 @@
-[gd_scene load_steps=171 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=173 format=3 uid="uid://ct1c8wsksqlh7"]
 
-[ext_resource type="Script" uid="uid://rws282beuga" path="res://skriptit/maailma.gd" id="1_lya7j"]
+[ext_resource type="Script" path="res://skriptit/maailma.gd" id="1_lya7j"]
 [ext_resource type="Script" uid="uid://dy5rb88bt1p4u" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://d3aikg4e48mxq" path="res://scenet/kayttoliittyma/sivun_3_sisalto.tscn" id="16_r1qfx"]
 [ext_resource type="PackedScene" uid="uid://obqvnkpuuwsr" path="res://scenet/perhoset/perhonen_heal.tscn" id="16_woq5y"]
 [ext_resource type="PackedScene" uid="uid://ircp8yyh6jwk" path="res://scenet/kayttoliittyma/sivun_4_sisalto.tscn" id="17_ik3il"]
+[ext_resource type="PackedScene" uid="uid://btftvhvo3kynj" path="res://scenet/perhoset/perhonen_kuljettaja.tscn" id="17_jwryh"]
 [ext_resource type="PackedScene" uid="uid://dlips1u0ijn1u" path="res://scenet/kayttoliittyma/sivun_5_sisalto.tscn" id="18_yghk6"]
 [ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://scenet/kayttoliittyma/tooltip_liiku.tscn" id="18_yqpof"]
 [ext_resource type="PackedScene" uid="uid://chjelmcay2ys" path="res://scenet/kayttoliittyma/sivun_6_sisalto.tscn" id="19_fwfgn"]
@@ -211,6 +212,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -31.9562, -33.0424, 0, 0, 0, 0, -51.3546, 266.932, 0, 0, 0, 0, -43.3838, 288.943, 0, 0, 0, 0, -22.3838, 288.971, 0, 0, 0, 0, -11.352, 264.985, 0, 0, 0, 0, -8.97875, -16.0118, 0, 0, 0, 0, -13.9429, -43.0185, 0, 0, 0, 0, -31.9562, -33.0424)
 }
 point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_c40u5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -5.9502, -37.0079, 0, 0, 0, 0, 53.0469, -34.9296, 0, 0, 0, 0, 124.054, -39.8353, 0, 0, 0, 0, 150.032, -23.8007, 0, 0, 0, 0, 163.959, 31.2178, 0, 0, 0, 0, 71.9697, 23.0956, 0, 0, 0, 0, -45.0488, 36.9402, 0, 0, 0, 0, -72.04, 29.9044, 0, 0, 0, 0, -76, -0.100891, 0, 0, 0, 0, -52.9814, -14.0704, 0, 0, 0, 0, -34.9785, -16.0464, 0, 0, 0, 0, -23.958, -31.0318, 0, 0, 0, 0, -5.9502, -37.0079)
+}
+point_count = 13
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muepl"]
 atlas = ExtResource("14_j1sri")
@@ -620,7 +627,7 @@ position = Vector2(13351, 138)
 polygon = PackedVector2Array(-71, -304, -24, -351, 30, -434, 244, -416, 298, -157, 225, -146, 171, -144, 145, -139, 119, -127, 88, -101, 46, -10, 34, 14, 28, 35, 17, 34, 6, 33, -11, 34, -25, 36, -37, 38, -78, 56, -99, 82, -131, 112, -144, 128, -157, 136, -170, 148, -172, 162, -181, 181, -214, 203, -231, 234, -255, 249, -277, 250, -300, 253, -313, 248, -309, 230, -311, 206, -317, 174, -351, 148, -380, 119, -434, 92, -497, 33, -341, -30, -313, -92, -247, -115, -148, -188, -160, -272)
 
 [node name="Pelaaja" parent="." instance=ExtResource("4_udkay")]
-position = Vector2(13454, 418)
+position = Vector2(9709, 625)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -707,6 +714,13 @@ position = Vector2(-435.389, 1045.42)
 [node name="PerhonenHeal" parent="Perhoset" instance=ExtResource("16_woq5y")]
 position = Vector2(9532.16, 637.661)
 
+[node name="PerhonenKuljettaja" parent="Perhoset" instance=ExtResource("17_jwryh")]
+position = Vector2(9909.32, 517.162)
+
+[node name="Path2D" type="Path2D" parent="Perhoset/PerhonenKuljettaja"]
+position = Vector2(3.99699, 3.00534)
+curve = SubResource("Curve2D_c40u5")
+
 [node name="Kukat" type="Node2D" parent="."]
 unique_name_in_owner = true
 rotation = -0.00132818
@@ -727,8 +741,8 @@ position = Vector2(13706.4, 466.205)
 rotation = -0.218199
 
 [node name="Kukka44" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(12963.3, 538.218)
-rotation = -0.0849915
+position = Vector2(12918, 542.249)
+rotation = -0.193574
 
 [node name="Kukka46" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(11224.8, 149.909)
@@ -2782,7 +2796,8 @@ position = Vector2(11228, 97)
 texture = ExtResource("59_uc2mr")
 
 [node name="Varsi29" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
-position = Vector2(12968, 478)
+position = Vector2(12917, 491)
+rotation = -0.108582
 texture = ExtResource("59_uc2mr")
 
 [node name="Varsi30" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
@@ -3820,7 +3835,8 @@ position = Vector2(11261, 104)
 position = Vector2(20101, -902)
 
 [node name="Vines" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
-position = Vector2(13208, 443)
+position = Vector2(12862, 493)
+rotation = -0.129512
 
 [node name="Taso2" type="Node2D" parent="."]
 

@@ -1,0 +1,188 @@
+[gd_scene load_steps=24 format=3 uid="uid://btftvhvo3kynj"]
+
+[ext_resource type="Script" path="res://skriptit/perhonen_kuljettaja.gd" id="1_e3irp"]
+[ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_kavlh"]
+[ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="3_gpvrn"]
+[ext_resource type="AudioStream" uid="uid://cln7i2kmgg5qn" path="res://audio/perhonen/perhonen1.mp3" id="4_ro1rj"]
+[ext_resource type="AudioStream" uid="uid://dhe3hmb0ieug6" path="res://audio/perhonen/perhonen2.mp3" id="5_ujjc0"]
+[ext_resource type="AudioStream" uid="uid://dxvxlsyw06mm4" path="res://audio/perhonen/perhonen3.mp3" id="6_peiff"]
+[ext_resource type="AudioStream" uid="uid://c0vxierdat4i6" path="res://audio/perhonen/perhonen4.mp3" id="7_g3shw"]
+[ext_resource type="Script" path="res://skriptit/tooltip.gd" id="8_5tibm"]
+[ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="9_r1kix"]
+[ext_resource type="Texture2D" uid="uid://b8cydfpi4ba6r" path="res://grafiikka/OhjainTooltipB.png" id="10_6w25a"]
+[ext_resource type="Texture2D" uid="uid://carqststa41k" path="res://grafiikka/OhjainTooltipNappaimisto.png" id="11_y3k51"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nepe"]
+atlas = ExtResource("3_gpvrn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg7v4"]
+atlas = ExtResource("3_gpvrn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y36mp"]
+atlas = ExtResource("3_gpvrn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6athy"]
+atlas = ExtResource("3_gpvrn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppeqm"]
+atlas = ExtResource("3_gpvrn")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21mb1"]
+atlas = ExtResource("3_gpvrn")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhk86"]
+atlas = ExtResource("3_gpvrn")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nepos"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nepe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg7v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y36mp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6athy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppeqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21mb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhk86")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2q18j"]
+radius = 64.0312
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7x1qg"]
+random_volume_offset_db = 1.0
+streams_count = 4
+stream_0/stream = ExtResource("4_ro1rj")
+stream_1/stream = ExtResource("5_ujjc0")
+stream_2/stream = ExtResource("6_peiff")
+stream_3/stream = ExtResource("7_g3shw")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yyvvh"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjp4w"]
+size = Vector2(34.25, 40)
+
+[node name="PerhonenKuljettaja" type="Area2D" groups=["valonlahde"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_e3irp")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+blend_mode = 2
+range_item_cull_mask = 3
+shadow_enabled = true
+texture = ExtResource("2_kavlh")
+texture_scale = 1.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.886193, 0.497353, 0, 1)
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nepos")
+frame_progress = 0.153834
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2q18j")
+
+[node name="AudioPerhonen" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_7x1qg")
+volume_db = -2.0
+max_distance = 500.0
+bus = &"Kaiku"
+
+[node name="TooltipPKuljettava" type="Area2D" parent="."]
+visible = false
+z_index = 99
+z_as_relative = false
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_yyvvh")
+position = Vector2(0, -75)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_5tibm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TooltipPKuljettava"]
+position = Vector2(-0.5, 40)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_gjp4w")
+
+[node name="Sprite2D" type="Sprite2D" parent="TooltipPKuljettava"]
+material = ExtResource("9_r1kix")
+use_parent_material = true
+position = Vector2(-18, 0)
+texture = ExtResource("10_6w25a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="TooltipPKuljettava"]
+material = ExtResource("9_r1kix")
+use_parent_material = true
+position = Vector2(20, 0)
+texture = ExtResource("11_y3k51")
+
+[node name="Label" type="Label" parent="TooltipPKuljettava/Sprite2D2"]
+auto_translate_mode = 1
+texture_filter = 1
+material = ExtResource("9_r1kix")
+use_parent_material = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -26.0
+offset_right = 4.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+text = "F"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TooltipPKuljettava"]
+auto_translate_mode = 1
+texture_filter = 1
+material = ExtResource("9_r1kix")
+use_parent_material = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -38.0
+offset_right = 22.5
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+text = "Ride"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="TooltipPKuljettava" to="TooltipPKuljettava" method="_on_body_entered"]
+[connection signal="body_exited" from="TooltipPKuljettava" to="TooltipPKuljettava" method="_on_body_exited"]

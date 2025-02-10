@@ -66,8 +66,8 @@ animation = &"change"
 position = Vector2(-25, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osuu"]
-position = Vector2(45, 0)
-rotation = 1.57124
+position = Vector2(-1, 0)
+rotation = -1.5708
 shape = SubResource("RectangleShape2D_pqeq0")
 one_way_collision = true
 
@@ -75,8 +75,7 @@ one_way_collision = true
 position = Vector2(21, 1)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Kimpoaa"]
-position = Vector2(-45, -1)
-rotation = -1.56685
-scale = Vector2(1, 1)
+position = Vector2(-1, -1)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_pqeq0")
 one_way_collision = true
