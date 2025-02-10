@@ -78,6 +78,7 @@ func sisaltaa_vedenpintaa(vesialue):
 			return false
 	return true
 
+
 ## Asettaa vedenpinnan seuraavan merkin korkeudelle.
 func aseta_vedenpinta_seuraavaan_merkkiin():
 	# Ei aseteta vedenpintaa seuraavaan merkkiin, jos merkkejä ei ole
