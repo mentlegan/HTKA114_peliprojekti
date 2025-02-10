@@ -115,11 +115,10 @@ var pimeyskuolema_paalla = false
 
 @onready var animatic = get_node("/root/Maailma/%KayttoLiittyma/%Animatic")
 
-
 ## Kutsutaan Globaalin alustusfunktiota luomisen yhteydessä
 func _ready():
 	Globaali.init()
-	
+
 
 ## Kutsutaan joka framella
 func _process(_delta):

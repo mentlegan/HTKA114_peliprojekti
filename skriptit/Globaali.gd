@@ -21,13 +21,13 @@ const MAAILMASCENE_KANSIO = "res://scenet/maailmat"
 ## se olisi johtanut kahteen maailma.gd:n kokoiseen koodipätkään Globaalissa.
 ## Muuttujille olisi pitänyt kirjoittaa erillinen alustusfunktio scenen vaihtamista varten,
 ## nykyinen toteutus hoitaa tämän automaattisesti Maailma-noden luomisen yhteydessä.
+## TODO: heittää erroria, voiko alustaa vasta myöhemmin?
 @onready var maailma = get_node("/root/Maailma")
 
 ## Taulukko, joka sisältää tallennustiedoston sisällön Latausnapin painamisen jälkeen
 var tallennetut_nodet = []
 ## Nykyisen maailma-scenen tiedostonimi ilman .tscn-tiedostopäätettä
 var nykyinen_scene = "maailma"
-
 
 ## Alustusfunktio, jota Maailma-node kutsuu sceneen astuessa
 ## TODO: Lisää esimerkiksi tausta tekstuurit uudelleen aina sceneä vaihtaessa, näiden korjaus
@@ -599,14 +599,8 @@ func tallenna():
 ## Lataa pelin aiemman tilan tallennustiedostosta
 func lataa():
 	var tallennustiedosto = FileAccess.open(tallennustiedoston_polku(), FileAccess.READ)
-	# Jatketaan vain, jos tallennustiedoston lukeminen onnistui
-	if tallennustiedosto:
-		# Koitetaan jäsentää tallennustiedoston JSON-data
-		var json_data = JSON.parse_string(tallennustiedosto.get_as_text())
-		# Jos jäsentäminen onnistui, ladataan peli
-		if json_data:
-			tallennetut_nodet = json_data
-			vaihda_scene(nykyinen_scene)
+	tallennetut_nodet = JSON.parse_string(tallennustiedosto.get_as_text())
+	vaihda_scene(nykyinen_scene)
 
 
 ## Avaa uuden tutoriaalin pelaajan tarkisteltavaksi
@@ -659,11 +653,15 @@ func polygon2d_to_collisionpolygon2d(polygon2d: Polygon2D, poista_polygon2d = fa
 func vaihda_scene(maailman_nimi):
 	nykyinen_scene = maailman_nimi
 	# Poistetaan nykyinen Maailma-node SceneTreestä
-	get_tree().root.remove_child(maailma)
+	#get_tree().root.remove_child(maailma)
+	# TODO: 10.2.2025 Juuso
+	# käytetään vain tätä? ei poistanut main menua, 
+	# jos käytti ylempää sillä maailmaa ei ole vielä olemassa
+	# Tällähän varmistaa, että aina nykyinen aktiivinen skene tuhotaan
+	get_tree().root.remove_child(get_tree().current_scene)
 	# Luodaan uusi Maailma-node
 	var maailma_tscn = load(MAAILMASCENE_KANSIO + "/" + maailman_nimi + ".tscn")
 	maailma = maailma_tscn.instantiate()
 	# Lisätään uusi Maailma-node SceneTreehen
 	get_tree().root.add_child.call_deferred(maailma)
-	get_tree().paused = false
 	# (maailma.gd kutsuu Globaali.gd:n init()-funktiota, kun on valmis)
