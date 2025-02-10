@@ -119,6 +119,16 @@ var pimeyskuolema_paalla = false
 ## Kutsutaan Globaalin alustusfunktiota luomisen yhteydessä
 func _ready():
 	Globaali.init()
+	
+
+## Kutsutaan joka framella
+func _process(_delta):
+	# Päivitetään peliä joka sekuntti
+	aika += _delta
+	if aika > aika_vali:
+		# Tähän lisätään joka sekuntti tapahtuva asia
+		Globaali.lisaa_viholliset() # Viholliset päivittyvät pois ja päälle riippuen pelaajan positiosta
+		aika = 0
 
 
 func tallenna():

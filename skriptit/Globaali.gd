@@ -320,16 +320,6 @@ func _input(_event: InputEvent) -> void:
 		maailma.pelaaja.kuolema()
 
 
-## Kutsutaan joka framella
-func _process(_delta):
-	# Päivitetään peliä joka sekuntti
-	maailma.aika += _delta
-	if maailma.aika > maailma.aika_vali:
-		# Tähän lisätään joka sekuntti tapahtuva asia
-		lisaa_viholliset() # Viholliset päivittyvät pois ja päälle riippuen pelaajan positiosta
-		maailma.aika = 0
-
-
 func alusta_koynnosovet():
 	# Resetoidaan köynnösovet kuolemisen jälkeen
 	# Käytetään myös ennen pelin alkua kerran _ready()
