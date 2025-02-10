@@ -53,7 +53,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb28"]
-size = Vector2(11.5, 127.375)
+size = Vector2(127.375, 11.5)
 
 [node name="Ovi_oikea_x" type="Node2D"]
 
@@ -66,11 +66,15 @@ position = Vector2(23, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osuu"]
 position = Vector2(0, 0.3125)
+rotation = 1.55579
 shape = SubResource("RectangleShape2D_yrb28")
+one_way_collision = true
 
 [node name="Kimpoaa" type="StaticBody2D" parent="."]
 position = Vector2(-26, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kimpoaa"]
-position = Vector2(0.25, -1)
+position = Vector2(2, -1)
+rotation = -1.56685
 shape = SubResource("RectangleShape2D_yrb28")
+one_way_collision = true

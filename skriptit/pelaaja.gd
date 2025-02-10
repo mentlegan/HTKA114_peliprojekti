@@ -879,13 +879,13 @@ func _physics_process(delta):
 		elif (velocity.x < -MAX_NOPEUS or velocity.x > MAX_NOPEUS) and is_on_floor() and Input.is_action_pressed("juoksu"):
 			velocity.x = move_toward(velocity.x, suunta * nopeus, JUOKSU_KIIHTYVYYS)
 			if animaatio.is_flipped_h():
-				animaatio.rotation = move_toward(animaatio.rotation, suunta+0.8, delta * velocity.x * suunta / 580)
+				animaatio.rotation = move_toward(animaatio.rotation, suunta + 0.8, delta * velocity.x * suunta / 580)
 			else:
-				animaatio.rotation = move_toward(animaatio.rotation, suunta-0.8, delta * velocity.x * suunta / 580)
+				animaatio.rotation = move_toward(animaatio.rotation, suunta - 0.8, delta * velocity.x * suunta / 580)
 		else:
 			velocity.x = move_toward(velocity.x, suunta * nopeus, KIIHTYVYYS)
 			animaatio.rotation = move_toward(animaatio.rotation, 0, delta * 0.4)
-			
+	
 	# Hidastetaan kun ei liikuta mihinkään suuntaan
 	elif not vedessa:
 		velocity.x = move_toward(velocity.x, 0, KITKA)

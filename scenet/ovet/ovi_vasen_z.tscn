@@ -52,8 +52,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovodx"]
-size = Vector2(11.5, 127.375)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqeq0"]
+size = Vector2(127.375, 11.5)
 
 [node name="Ovi_vasen_z" type="Node2D"]
 
@@ -66,12 +66,17 @@ animation = &"change"
 position = Vector2(-25, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osuu"]
-position = Vector2(0, 0.3125)
-shape = SubResource("RectangleShape2D_ovodx")
+position = Vector2(45, 0)
+rotation = 1.57124
+shape = SubResource("RectangleShape2D_pqeq0")
+one_way_collision = true
 
 [node name="Kimpoaa" type="StaticBody2D" parent="."]
 position = Vector2(21, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Kimpoaa"]
-position = Vector2(0.25, -1)
-shape = SubResource("RectangleShape2D_ovodx")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Kimpoaa"]
+position = Vector2(-45, -1)
+rotation = -1.56685
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_pqeq0")
+one_way_collision = true

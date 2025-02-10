@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bjhedyn16pave" path="res://grafiikka/DoorPurpleClosed.png" id="1_3jqnk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrb28"]
-size = Vector2(11, 426.854)
+size = Vector2(426.854, 11)
 
 [node name="Ovi_vaaka_vasen" type="Node2D"]
 position = Vector2(-0.999998, -5.40167e-08)
@@ -37,11 +37,15 @@ position = Vector2(32.3102, -25.6978)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Osuu"]
 position = Vector2(0, -49.0883)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_yrb28")
+one_way_collision = true
 
 [node name="Kimpoaa" type="StaticBody2D" parent="."]
 position = Vector2(-12.9592, -74.6864)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kimpoaa"]
 position = Vector2(0.0299788, 1.63013)
+rotation = -1.5708
 shape = SubResource("RectangleShape2D_yrb28")
+one_way_collision = true

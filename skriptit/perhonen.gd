@@ -59,7 +59,7 @@ func _ready():
 		reitin_pituus = 1
 
 
-## Kutsutaan kun aanen_ajastin aika menee loppuun
+## Kutsutaan, kun aanen_ajastin aika menee loppuun
 func on_aanen_ajastin_timeout():
 	audio_perhonen.play()
 	aanen_ajastin.start(randf_range(1.5, 3.0))
