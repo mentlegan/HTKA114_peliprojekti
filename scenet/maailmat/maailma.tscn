@@ -734,9 +734,6 @@ rotation = -0.0849915
 position = Vector2(11224.8, 149.909)
 rotation = -0.0332003
 
-[node name="Kukka6" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(16949.7, 245.513)
-
 [node name="Kukka3" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(16047, 771.314)
 
@@ -1998,6 +1995,10 @@ rotation = -0.0103871
 position = Vector2(20479, 70)
 rotation = -0.0103871
 
+[node name="Checkpoint7" parent="Checkpointit" instance=ExtResource("35_je5yh")]
+position = Vector2(16961, 204)
+rotation = 0.00956346
+
 [node name="Minecartit" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(20181, -871)
@@ -2100,7 +2101,7 @@ position = Vector2(9429, -269)
 
 [node name="Kentan1_loppu" type="Node2D" parent="Muuta"]
 unique_name_in_owner = true
-position = Vector2(16911, 207)
+position = Vector2(16911, 210)
 rotation = 0.0157477
 scale = Vector2(0.519523, 0.676654)
 
@@ -2770,10 +2771,6 @@ texture = ExtResource("59_uc2mr")
 
 [node name="Varsi25" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
 position = Vector2(18317, 580)
-texture = ExtResource("59_uc2mr")
-
-[node name="Varsi26" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
-position = Vector2(16962, 206)
 texture = ExtResource("59_uc2mr")
 
 [node name="Varsi27" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
@@ -3605,7 +3602,7 @@ texture = ExtResource("63_jo0el")
 [node name="Puupilarit" type="Node2D" parent="Muuta/TaustaElementit/Eloton"]
 
 [node name="Puupilari" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Puupilarit"]
-position = Vector2(16869, 187)
+position = Vector2(16869, 190)
 texture = ExtResource("62_b454l")
 
 [node name="Puupilari2" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Puupilarit"]
