@@ -19,7 +19,7 @@ signal transitio(mihin_tp: Vector2)
 ## Hitboxi sille että voidaan tarkistaa onko pelaaja veden pinnalla
 @onready var uintiTarkistusHitbox = get_node("UintiTarkistus")
 ## Pelaajan animaatiot
-@onready var animaatio = get_node("Animaatio")
+@onready var animaatio: AnimatedSprite2D = get_node("Animaatio")
 @onready var pauseAnimaatiot = get_node("PauseAnimaatiot") ## Jos halutaan animaatioita myös, kun peli on pausella
 ## Pelaajan alue ja valon tarkistus
 @onready var valon_tarkistus = get_node("ValonTarkistus")
@@ -894,6 +894,7 @@ func _physics_process(delta):
 	
 	if velocity.x > -MAX_NOPEUS and velocity.x < MAX_NOPEUS and not vedessa:
 		animaatio.rotation = move_toward(animaatio.rotation, 0, delta)
+	
 	# Liikutetaan pelaajaa
 	move_and_slide()
 	
@@ -1059,14 +1060,10 @@ func _physics_process(delta):
 	
 	## TODO: saattaa joutua muuttamaan, toimii nyt jatkokehitystä varten tarpeeksi hyvin
 	## Nykyisiä ongelmia ovat pelaajan töminä kuljetuksen aikana, jos yrittää liikkua WASD:illa
+	## Tulee siirtää parempaan kohtaan!!! ei taida nyt edes vaikuttaa mihinkään
 	if perhosen_selassa:
 		return
 	
-	# player.visible = ! (raycast.is_colliding())
-	
-	# light.KORKEUS nyt 60, texture_scale 12   = 60           = 12
-	# sopiva etäisyys 360, joka tulee (light.KORKEUS * light.texture_scale) / 2
-	# Pelkän pelaajan keskipisteen ja valon etäisyyden avulla tarkastelu tuntuisi toimivan hyvin
 	if hiiri_kaytossa != aiempi_hiiren_tila:
 		Globaali.vaihda_tooltip_ui(hiiri_kaytossa)
 		kbm_tooltipit_nakyviin(hiiri_kaytossa)
@@ -1082,7 +1079,7 @@ func soita_huilua():
 	animaatio.play("huilu")
 	huilu.rotation = valon_kohde.angle()
 	animaatio.set_flip_h(valon_kohde.x < 0)
-
+	
 	# Huilun collisionit päälle
 	huilun_collision.set_disabled(false)
 	huilun_raycast.set_enabled(true)

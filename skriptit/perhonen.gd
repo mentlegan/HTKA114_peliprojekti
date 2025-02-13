@@ -7,7 +7,7 @@ var path2d: Path2D = null
 var path_follow_2d: PathFollow2D = PathFollow2D.new()
 
 ## Perhosen animaatio
-@onready var animaatio = $AnimatedSprite2D
+@onready var animaatio: AnimatedSprite2D = $AnimatedSprite2D
 ## Perhosen äänet
 @onready var audio_perhonen = $AudioPerhonen
 @onready var aanen_ajastin = Timer.new()

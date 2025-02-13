@@ -1,14 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://ckpimcfd7qhai"]
 
 [ext_resource type="Script" path="res://skriptit/main_menu.gd" id="1_0y0l8"]
-[ext_resource type="Texture2D" uid="uid://bid5bovn2t7se" path="res://grafiikka/TitleScreen.png" id="2_3xcy3"]
+[ext_resource type="Texture2D" uid="uid://drmojuik7vkjl" path="res://grafiikka/TitleScreen.png" id="2_3xcy3"]
 [ext_resource type="AudioStream" uid="uid://bw6cpa2qyrfll" path="res://audio/musiikki/ambient1_2_loop.wav" id="86_ef444"]
 
-[node name="MainMenu" type="Control" groups=["tallenna", "valonlahde"]]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_0y0l8")
-nayta_main_menu = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

@@ -1,7 +1,10 @@
 extends Perhonen
 class_name PerhonenKuljettaja
 ## Kuljettava perhonen
-## Juuso 10.2.2025
+## Nykyinen toteutus:
+## Pelaajan tulee painaa F perhosen valon alueella, jotta hyppää kyytiin
+## Pois pääsee samalla näppäimellä
+## Juuso 13.2.2025
 
 var pelaaja: Pelaaja
 
@@ -22,10 +25,23 @@ func _on_body_exited(body: Node2D) -> void:
 		pelaaja = null
 
 
+## Liikuttaa pelaajaa omaan nykyiseen sijaintiin
+## Hoitaa pelaajan kääntämisen
+func liikuta_pelaajaa() -> void:
+	pelaaja.global_position = self.global_position
+	# Velocityn asettaminen nollaan taitaa korjata turhan töminän kyydissä
+	pelaaja.velocity = Vector2.ZERO
+	# Vaihdetaan kääntäminen juuri päinvastaiseen suuntaan
+	# Pelaaja katsoo alustavasti oikealle, mutta perhonen vasemmalle
+	pelaaja.animaatio.set_flip_h(not self.animaatio.is_flipped_h())
+	#print("Vanha ddeltava x: ", vanha_edeltava_x)
+	#print("Path follow: ", path_follow_2d.position.x)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	# Liikuttaminen
+	# Itsensä liikuttaminen
 	super._physics_process(delta)
+	# Pelaajan käsittely
 	if pelaaja:
-		pelaaja.global_position = self.global_position
-		pelaaja.animaatio.set_flip_h(edeltava_x < path_follow_2d.position.x)
+		liikuta_pelaajaa()
