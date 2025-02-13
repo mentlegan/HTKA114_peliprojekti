@@ -17,7 +17,7 @@ config/icon="res://grafiikka/icon.svg"
 
 [audio]
 
-buses/default_bus_layout="res://tres-tiedostot/default_bus_layout.tres"
+buses/default_bus_layout="res://resurssit/default_bus_layout.tres"
 
 [autoload]
 
@@ -67,7 +67,7 @@ siirra="Vain tata collisionshapea muutetaan vesi2D"
 
 [gui]
 
-theme/custom="res://tres-tiedostot/fontti_teema.tres"
+theme/custom="res://resurssit/fontit/fontti_teema.tres"
 theme/default_font_antialiasing=0
 theme/default_font_hinting=0
 theme/default_font_subpixel_positioning=0

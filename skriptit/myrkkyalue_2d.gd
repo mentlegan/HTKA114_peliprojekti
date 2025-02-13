@@ -6,14 +6,14 @@ class_name MyrkkyAlue2D
 #@onready var myrkky_audio = $AudioMyrkkyalue
 
 ## Animoitu texture myrkkyalueelle
-var myrkynTexture = preload("res://tres-tiedostot/myrkkyalue.tres")
+const MYRKYN_TEXTURE = preload("res://resurssit/vesi/myrkkyalue.tres")
 
 ## Annetaan myrkkyalueen lapsena oleville polygoneille haluttu ulkonäkö, ja luodaan niille saman kokoiset collisionshapet
 func _ready() -> void:
 	for lapsi in get_children():
 		if lapsi is Polygon2D:
 			var myrkkyalue_collision = CollisionPolygon2D.new()
-			lapsi.texture = myrkynTexture
+			lapsi.texture = MYRKYN_TEXTURE
 			lapsi.modulate.a = 0.7
 			lapsi.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 			myrkkyalue_collision.polygon = lapsi.polygon

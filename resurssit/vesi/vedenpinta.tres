@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bj0463hbn3nce"]
 
 [ext_resource type="Shader" path="res://shaderit/vedenpinta.gdshader" id="1_em4yp"]
-[ext_resource type="Texture2D" uid="uid://o2j8o6manevp" path="res://tres-tiedostot/vesi_noise.tres" id="2_37nnc"]
+[ext_resource type="Texture2D" uid="uid://o2j8o6manevp" path="res://resurssit/vesi/vesi_noise.tres" id="2_37nnc"]
 
 [resource]
 shader = ExtResource("1_em4yp")

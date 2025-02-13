@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://mch12jl02nqd" path="res://scenet/kayttoliittyma/tooltip.tscn" id="1_wlkck"]
 [ext_resource type="Texture2D" uid="uid://tjr5y6tghm7u" path="res://grafiikka/OhjainTooltipA.png" id="2_04ifx"]
-[ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="2_y6cdw"]
+[ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://resurssit/unshaded.tres" id="2_y6cdw"]
 [ext_resource type="Texture2D" uid="uid://dco2lpwebiyc6" path="res://grafiikka/OhjainTooltipNappaimistoLevea.png" id="3_2ahu0"]
 
 [node name="TooltipHyppaa" instance=ExtResource("1_wlkck")]

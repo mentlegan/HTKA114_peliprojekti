@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://gwu1iltp7oef"]
 
-[ext_resource type="Theme" uid="uid://dgo8yhibhuxoi" path="res://tres-tiedostot/fontti_journal.tres" id="1_qj8wx"]
+[ext_resource type="Theme" uid="uid://dgo8yhibhuxoi" path="res://resurssit/fontit/fontti_journal.tres" id="1_qj8wx"]
 [ext_resource type="Script" path="res://skriptit/sivun_sisalto.gd" id="2_6ll3h"]
-[ext_resource type="Texture2D" uid="uid://byscs6abpv2o5" path="res://grafiikka/Journal3.png" id="2_ajbhc"]
+[ext_resource type="Texture2D" uid="uid://d0en1pj08ux2v" path="res://grafiikka/Journal3.png" id="2_ajbhc"]
 
 [node name="SivunSisalto" type="Control"]
 auto_translate_mode = 1

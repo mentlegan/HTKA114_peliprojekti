@@ -4,6 +4,8 @@
 ## TODO: jostain syystä valopallon hajoamisääni ei soi
 extends CharacterBody2D
 
+const PARTIKKELIT_VALOPALLO = preload("res://scenet/partikkelit_valopallo.tscn")
+
 ## Valon nopeus
 var SPEED = 110.0
 
@@ -38,7 +40,6 @@ var kimpoamiset = 0
 @onready var elo_aika = get_node("Timer")
 var tween: Tween
 
-const PARTIKKELIT_VALOPALLO = preload("res://scenet/partikkelit_valopallo.tscn")
 
 ## Kytketään ajastimen loppuminen valopallon tuhoamiseen
 func _ready():

@@ -161,22 +161,22 @@ func lisaa_valot_ja_indikaattorit():
 	for lapsi in maailma.koynnosovet.get_children():
 		for lapsenlapsi in lapsi.get_children():
 			# Valot
-			var valo = maailma.oven_valo.instantiate()
+			var valo = maailma.OVEN_VALO.instantiate()
 			valo.global_position = lapsenlapsi.global_position
 			valo.visible = false
 			lapsi.add_child(valo)
 			maailma.ovien_valot.append(valo)
 	
 			# Indikaattorit
-			var indikaattori = maailma.oven_indikaattori.instantiate()
+			var indikaattori = maailma.OVEN_INDIKAATTORI.instantiate()
 			indikaattori.global_position = lapsenlapsi.global_position
 	
 			if lapsenlapsi.is_in_group("x"):
-				indikaattori.texture = maailma.oven_indikaattori_punainen
+				indikaattori.texture = maailma.OVEN_INDIKAATTORI_PUNAINEN
 			elif lapsenlapsi.is_in_group("y"):
-				indikaattori.texture = maailma.oven_indikaattori_lila
+				indikaattori.texture = maailma.OVEN_INDIKAATTORI_LILA
 			elif lapsenlapsi.is_in_group("z"):
-				indikaattori.texture = maailma.oven_indikaattori_sininen
+				indikaattori.texture = maailma.OVEN_INDIKAATTORI_SININEN
 	
 			lapsi.add_child(indikaattori)
 			maailma.ovien_indikaattorit.append(indikaattori)

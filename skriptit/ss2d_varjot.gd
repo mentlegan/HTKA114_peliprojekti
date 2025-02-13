@@ -2,11 +2,11 @@
 ## Juuso 1.4.2024 korjattu polygonien siirtely
 extends Node2D
 
+const ILLUUSION_VAIHTAJA_VISIBLE = preload("res://scenet/illuusion_vaihtaja_visible.tscn")
 
 ## SmartShape2D-materiaalit
 @export var ss2d_materiaali: Resource
 
-const ILLUUSION_VAIHTAJA_VISIBLE = preload("res://scenet/illuusion_vaihtaja_visible.tscn")
 
 ## Kutsutaan, kun pääsee sceneen
 func _ready():

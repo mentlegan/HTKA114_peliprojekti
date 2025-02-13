@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="SS2D_Material_Shape" load_steps=10 format=3 uid="uid://bqggd8nupvqhq"]
 
-[ext_resource type="Script" uid="uid://be2bchs53mvcr" path="res://addons/rmsmartshape/materials/edge_material.gd" id="1_7fnii"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="1_7fnii"]
 [ext_resource type="Texture2D" uid="uid://dojw3yq7tcfga" path="res://grafiikka/Nurmikko.png" id="2_g7poj"]
-[ext_resource type="Script" uid="uid://dvn0ulqf8cexl" path="res://addons/rmsmartshape/normal_range.gd" id="3_x3krg"]
-[ext_resource type="Script" uid="uid://dkeefxyxvts77" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="4_ywh50"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="3_x3krg"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="4_ywh50"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="6_fgh1s"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_q33ay"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cr7t3uo3y05oq"]
 
 [ext_resource type="PackedScene" uid="uid://mch12jl02nqd" path="res://scenet/kayttoliittyma/tooltip.tscn" id="1_1g6e6"]
-[ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://tres-tiedostot/unshaded.tres" id="2_5x0ps"]
+[ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://resurssit/unshaded.tres" id="2_5x0ps"]
 [ext_resource type="Texture2D" uid="uid://blcn17ln84bmm" path="res://grafiikka/DpadYlos.png" id="2_auomr"]
 [ext_resource type="Texture2D" uid="uid://vpxgh35gef7d" path="res://grafiikka/DpadAlas.png" id="3_mivle"]
 [ext_resource type="Texture2D" uid="uid://carqststa41k" path="res://grafiikka/OhjainTooltipNappaimisto.png" id="4_xppeb"]

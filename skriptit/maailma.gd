@@ -46,11 +46,12 @@ var soitetaan_animatic
 @onready var ovi_seina_2 = get_node("/root/Maailma/Taso2/%OviSeina2")
 
 ## Valot ja indikaattorit köynnösoville ja niiden taulukko
-var oven_valo = preload("res://scenet/oven_valo.tscn")
-var oven_indikaattori = preload("res://scenet/oven_indikaattori.tscn")
-var oven_indikaattori_punainen = preload("res://tres-tiedostot/oven_indikaattori_punainen.tres")
-var oven_indikaattori_sininen = preload("res://tres-tiedostot/oven_indikaattori_sininen.tres")
-var oven_indikaattori_lila = preload("res://tres-tiedostot/oven_indikaattori_lila.tres")
+const OVEN_VALO = preload("res://scenet/oven_valo.tscn")
+const OVEN_INDIKAATTORI = preload("res://scenet/oven_indikaattori.tscn")
+const OVEN_INDIKAATTORI_PUNAINEN = preload("res://resurssit/oven_indikaattorit/oven_indikaattori_punainen.tres")
+const OVEN_INDIKAATTORI_SININEN = preload("res://resurssit/oven_indikaattorit/oven_indikaattori_sininen.tres")
+const OVEN_INDIKAATTORI_LILA = preload("res://resurssit/oven_indikaattorit/oven_indikaattori_lila.tres")
+
 var ovien_valot = Array()
 var ovien_indikaattorit = Array()
 @onready var koynnosovet = get_node("/root/Maailma/Koynnosovet")

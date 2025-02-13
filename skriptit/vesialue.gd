@@ -9,9 +9,9 @@ var vedenpinta_y = 0
 ## Sisältääkö Vesialue vedenpintaa, jolloin se voi nousta alustavaa vedenpintaansa korkeammalle
 var sisaltaa_vedenpintaa = false
 ## Veden shaderi
-var vesi_shader = preload("res://tres-tiedostot/vesi.tres")
+var vesi_shader = preload("res://resurssit/vesi/vesi.tres")
 ## Vedenpinnan shaderi
-var vedenpinta_shader = preload("res://tres-tiedostot/vedenpinta.tres")
+var vedenpinta_shader = preload("res://resurssit/vesi/vedenpinta.tres")
 ## Veden valo
 var vesi_pointlight = preload("res://scenet/vesi2d_pointlight2d.tscn")
 ## Vesialueen lumpeet
