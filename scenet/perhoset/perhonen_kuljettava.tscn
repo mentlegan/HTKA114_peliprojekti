@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://skriptit/perhonen_kuljettaja.gd" id="1_e3irp"]
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_kavlh"]
 [ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="3_gpvrn"]
-[ext_resource type="AudioStream" uid="uid://bjvseb2bhuprp" path="res://audio/perhonen/perhonen1.mp3" id="4_ro1rj"]
-[ext_resource type="AudioStream" uid="uid://bp35k1p5oj1u7" path="res://audio/perhonen/perhonen2.mp3" id="5_ujjc0"]
-[ext_resource type="AudioStream" uid="uid://cvbkbhv85f0fh" path="res://audio/perhonen/perhonen3.mp3" id="6_peiff"]
-[ext_resource type="AudioStream" uid="uid://cushtsbca3tey" path="res://audio/perhonen/perhonen4.mp3" id="7_g3shw"]
+[ext_resource type="AudioStream" uid="uid://cln7i2kmgg5qn" path="res://audio/perhonen/perhonen1.mp3" id="4_ro1rj"]
+[ext_resource type="AudioStream" uid="uid://dhe3hmb0ieug6" path="res://audio/perhonen/perhonen2.mp3" id="5_ujjc0"]
+[ext_resource type="AudioStream" uid="uid://dxvxlsyw06mm4" path="res://audio/perhonen/perhonen3.mp3" id="6_peiff"]
+[ext_resource type="AudioStream" uid="uid://c0vxierdat4i6" path="res://audio/perhonen/perhonen4.mp3" id="7_g3shw"]
 [ext_resource type="Script" path="res://skriptit/tooltip.gd" id="8_5tibm"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://resurssit/unshaded.tres" id="9_r1kix"]
 [ext_resource type="Texture2D" uid="uid://b8cydfpi4ba6r" path="res://grafiikka/OhjainTooltipB.png" id="10_6w25a"]
@@ -86,7 +86,7 @@ light_mode = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjp4w"]
 size = Vector2(34.25, 40)
 
-[node name="PerhonenKuljettaja" type="Area2D" groups=["valonlahde"]]
+[node name="PerhonenKuljettava" type="Area2D" groups=["valonlahde"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_e3irp")
@@ -181,6 +181,13 @@ grow_vertical = 2
 size_flags_horizontal = 0
 text = "Ride"
 horizontal_alignment = 1
+
+[node name="LabelLuokka" type="Label" parent="."]
+offset_left = -47.0
+offset_top = -62.0
+offset_right = 70.0
+offset_bottom = -44.0
+text = "Normaali"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

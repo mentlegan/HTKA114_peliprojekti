@@ -1,16 +1,28 @@
 extends Perhonen
-class_name PerhonenKuljettaja
+class_name PerhonenKuljettava
 ## Kuljettava perhonen
 ## Nykyinen toteutus:
 ## Pelaajan tulee painaa F perhosen valon alueella, jotta hyppää kyytiin
 ## Pois pääsee samalla näppäimellä
 ## Juuso 13.2.2025
 
+## Kuljettavan perhosen eri luokat, saa nähdä tuleeko enempää
+enum Luokka {
+	NORMAALI, ## Liikkuu jatkuvasti riippumatta onko kyydissä
+	ODOTTAVA, ## Odottaa pelaajan hyppäämistä kyytiin ennen kuin liikkuu
+}
+@export var luokka: Luokka = Luokka.NORMAALI
+
+## Testausta varten luokka näkymään perhosen päällä
+@onready var label_luokka: Label = $LabelLuokka
+
+## Viite pelaajaan
 var pelaaja: Pelaaja
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
+	label_luokka.text = str(Luokka.find_key(luokka)).to_pascal_case()
 	#self.z_index = -1 ## Pelaaja perhosen eteen
 
 
@@ -22,7 +34,8 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Pelaaja:
-		pelaaja = null
+		if luokka == Luokka.NORMAALI:
+			pelaaja = null
 
 
 ## Liikuttaa pelaajaa omaan nykyiseen sijaintiin
@@ -38,10 +51,33 @@ func liikuta_pelaajaa() -> void:
 	#print("Path follow: ", path_follow_2d.position.x)
 
 
+## Käytetään hyväksi polymorfismia
+## Tätä siis kutsutaan silloin, kun kutsutaan super._physics_process()
+## ja siellä olevaa laske_etaisyys()
+func laske_etaisyys(delta: float) -> void:
+	# Lasketaan etäisyys normaalisti
+	super.laske_etaisyys(delta)
+	# Rajoitetaan etäisyys nollan ja yhden välille, sillä path2d on jana
+	if luokka == Luokka.ODOTTAVA:
+		etaisyys = clampf(etaisyys, 0.0, 1.0)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	# Itsensä liikuttaminen
-	super._physics_process(delta)
-	# Pelaajan käsittely
-	if pelaaja:
-		liikuta_pelaajaa()
+	if luokka == Luokka.NORMAALI:
+		# Itsensä liikuttaminen
+		super._physics_process(delta)
+		# Pelaajan käsittely
+		if pelaaja:
+			liikuta_pelaajaa()
+	else: # ODOTTAVA
+		#print(path_follow_2d.progress_ratio)
+		if pelaaja:
+			liikuta_pelaajaa()
+			# Jos ei olla lopussa
+			if not is_zero_approx(path_follow_2d.progress_ratio - 1.0):
+				super._physics_process(delta)
+		# Jos ei ole kyydissä ja ei olla alussa
+		elif not is_zero_approx(path_follow_2d.progress_ratio):
+				# Taaksepäin -deltan avulla
+				super._physics_process(-delta)

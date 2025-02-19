@@ -54,13 +54,18 @@ func on_aanen_ajastin_timeout():
 	aanen_ajastin.start(randf_range(1.5, 3.0))
 
 
+## Laskee etäisyyden
+func laske_etaisyys(delta: float) -> void:
+	etaisyys += (delta * nopeus) / reitin_pituus
+
+
 ## Kutsutaan joka framella
 func _physics_process(delta: float) -> void:
 	if not path2d:
 		return
 	
+	laske_etaisyys(delta)
 	# Kuljetetaan pathfollow2d-nodea reitillä eteenpäin
-	etaisyys += (delta * nopeus) / reitin_pituus
 	path_follow_2d.set_progress_ratio(etaisyys)
 	
 	# Käännetään perhonen suunnan mukaan

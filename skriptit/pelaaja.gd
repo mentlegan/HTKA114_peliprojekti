@@ -1048,12 +1048,15 @@ func _physics_process(delta):
 					Globaali.poista_minecart_tooltipit()
 			elif alue.is_in_group("siirravesi"):
 				alue.aktivoi()
-			elif alue is PerhonenKuljettaja:
+			elif alue is PerhonenKuljettava:
 				# Kuljettavan perhosen käsittely
 				if perhosen_selassa:
 					perhosen_selassa = false
 					alue.pelaaja = null
-					self.velocity = Vector2.ZERO
+					# Hyppy poistuessa on tarpeen
+					self.velocity.y = HYPPY_VELOCITY
+					# Onko tarpeellinen tai edes hyvä?
+					self.velocity.x = -250 if animaatio.is_flipped_h() else 250
 				else:
 					perhosen_selassa = true
 					alue.pelaaja = self
@@ -1061,8 +1064,8 @@ func _physics_process(delta):
 	## TODO: saattaa joutua muuttamaan, toimii nyt jatkokehitystä varten tarpeeksi hyvin
 	## Nykyisiä ongelmia ovat pelaajan töminä kuljetuksen aikana, jos yrittää liikkua WASD:illa
 	## Tulee siirtää parempaan kohtaan!!! ei taida nyt edes vaikuttaa mihinkään
-	if perhosen_selassa:
-		return
+	#if perhosen_selassa:
+		#return
 	
 	if hiiri_kaytossa != aiempi_hiiren_tila:
 		Globaali.vaihda_tooltip_ui(hiiri_kaytossa)
