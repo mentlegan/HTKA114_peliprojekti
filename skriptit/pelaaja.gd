@@ -976,8 +976,9 @@ func _physics_process(delta):
 	
 	# PC LEFT_CLICK
 	if Input.is_action_just_pressed("painike_vasen") and (
-		hiiri_kaytossa or tahtain.visible
-	):
+		hiiri_kaytossa or tahtain.visible) and (
+		# Tarkistetaan onko UI elementtiä näkyvissä (esim. teleport menu)
+		not get_viewport().gui_get_focus_owner()):
 		# Tällä hetkellä 2 maksimissaan, Globaali.maailma.nykyiset_pallot < 2
 		if Globaali.maailma.palloja > 0 and not vedessa:
 			# Valon synnyttäminen

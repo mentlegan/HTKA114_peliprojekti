@@ -25,11 +25,6 @@ func _ready():
 	else: Globaali.soita_musiikki()
 
 
-## Delta kutsutaan joka framella. Tässä scriptissä ei taida tarvita, mutta jätetään tältä erää, jos tuleekin myöhemmin tarvetta
-func _process(_delta):
-	pass
-
-
 ## Kun painetaan next-nappia
 func _on_next_nappi_pressed():
 	vaihda_kuva(nykyinen_kuva+1) # Vaihdetaan seuraavaan kuvaan
@@ -70,3 +65,8 @@ func skippaa():
 ## Kun painetaan quit-nappia
 func _on_quit_nappi_pressed():
 	get_tree().quit() # Kutsutaan treen quit, ja peli päättyy
+
+
+## Delta kutsutaan joka framella. Tässä scriptissä ei taida tarvita, mutta jätetään tältä erää, jos tuleekin myöhemmin tarvetta
+func _process(_delta):
+	pass

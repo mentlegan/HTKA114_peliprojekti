@@ -99,6 +99,16 @@ func init():
 		soita_musiikki()
 
 
+## Kuunnellaan scenen vaihto ja kuolema
+func _input(_event: InputEvent) -> void:
+	## 0
+	if Input.is_action_just_pressed("vaihda_scene"):
+		vaihda_scene("maailma_test")
+	## ctrl + K
+	elif Input.is_action_just_pressed("kuolema"):
+		maailma.pelaaja.kuolema()
+
+
 ## Palauttaa noden muuttujat vastaamaan annettua dataa.
 ## Kutsuu samalla noden lataa-funktiota, jos sellainen on olemassa.
 func lataa_node(node, data):
@@ -257,69 +267,6 @@ func aseta_indikaattorit_nakyviin(rect: Rect2):
 			indikaattori.aloita()
 
 
-## Tämä taitaa olla oikea tapa tarkistaa inputteja, toisin kuin process tai physics_process
-## Kutsutaan vain kun painetaan jotain
-func _input(_event: InputEvent) -> void:
-	# PC F1
-	if Input.is_action_just_pressed("taso1"):
-		teleporttaa_pelaaja(maailma.pelaaja_taso1)
-	
-	# PC F2
-	elif Input.is_action_just_pressed("taso2"):
-		"""
-		ovet = Array()
-		# Hyvin scuffed tapa, mutta toimii (kait?)
-		get_tree().change_scene_to_packed(taso2)
-		get_tree().root.add_child(t2.instantiate())
-		_ready()
-		# get_node("/root/Maailma2").free()
-		"""
-		teleporttaa_pelaaja(maailma.pelaaja_taso2)
-	
-	# PC F3
-	elif Input.is_action_just_pressed("taso3"):
-		teleporttaa_pelaaja(maailma.pelaaja_taso3)
-		# get_node("/root/@Node2D@65").queue_free() # Poistetaan duplikoitu maailma2
-	
-	# PC F4
-	elif Input.is_action_just_pressed("taso45"):
-		teleporttaa_pelaaja(maailma.pelaaja_taso45)
-	
-	# PC F6
-	elif Input.is_action_just_pressed("vesitutoriaaliennen"):
-		teleporttaa_pelaaja(maailma.pelaaja_vesitutoriaali_ennen)
-	
-	# PC F7
-	elif Input.is_action_just_pressed("vesitutoriaali"):
-		teleporttaa_pelaaja(maailma.pelaaja_vesitutoriaali)
-	
-	# PC F9, koska F8 on quit
-	elif Input.is_action_just_pressed("vesitutoriaalilapi"):
-		teleporttaa_pelaaja(maailma.pelaaja_vesitutoriaalilapi)
-	
-	# PC F10
-	elif Input.is_action_just_pressed("perhospesa"):
-		teleporttaa_pelaaja(maailma.pelaaja_perhospesa)
-	
-	# Pelin keskeytys
-	# PC ESCAPE
-	# PS4/PS5 OPTIONS
-	elif Input.is_action_just_pressed("pause"):
-		if get_tree().paused == false:
-			pausePeli()
-			# Asetetaan inputti "syödyksi", sitä ei käsitellä enää missään muualla
-			# Esim. pause-menun skriptissä, jossa pelin jatkuminen
-			get_viewport().set_input_as_handled()
-	
-	# 0
-	elif Input.is_action_just_pressed("vaihda_scene"):
-		vaihda_scene("maailma_test")
-	
-	# ctrl + K
-	elif Input.is_action_just_pressed("kuolema"):
-		maailma.pelaaja.kuolema()
-
-
 func alusta_koynnosovet():
 	# Resetoidaan köynnösovet kuolemisen jälkeen
 	# Käytetään myös ennen pelin alkua kerran _ready()
@@ -467,7 +414,7 @@ func lisaa_sivu(sivun_sisalto: SivunSisalto, otsikko: String, sivunumero: int):
 
 
 ## Yleinen funktio pelaajan teleporttaamiseen päämäärään, jossa poistetaan fall-damage ongelmat
-func teleporttaa_pelaaja(paamaara):
+func teleporttaa_pelaaja(paamaara: Vector2):
 	maailma.pelaaja.position = paamaara
 	maailma.pelaaja.putoamis_vahinko = false
 	maailma.pelaaja.putoamis_huippu = maailma.pelaaja.get_global_position().y

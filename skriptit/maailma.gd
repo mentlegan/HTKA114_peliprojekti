@@ -28,19 +28,18 @@ var pelaaja_aloitus: Vector2
 
 var soitetaan_animatic
 
-## Pelaajan taso2 ja taso3 koordinaatit teleporttaamiseen
-## Kentan 1 loppu mukaan minecart tp varten
-@onready var pelaaja_taso1 = get_node("/root/Maailma/%Muuta/%Taso1Teleport").position
-@onready var pelaaja_taso2 = get_node("/root/Maailma/%Muuta/%Taso2Teleport").position
-@onready var pelaaja_taso3 = get_node("/root/Maailma/%Muuta/%Taso3Teleport").position
-@onready var pelaaja_taso45 = get_node("/root/Maailma/%Muuta/%Taso45Teleport").position
-@onready var taso1_loppu = get_node("/root/Maailma/%Muuta/%Kentan1_loppu").position
-@onready var vesiputous_tp = get_node("/root/Maailma/%Muuta/%VesiputousTeleport").position
+@export var teleportit: Array[Node2D]
+## Teleportit ruohoalue
+#@onready var pelaaja_taso1 = get_node("/root/Maailma/%Muuta/%Taso1Teleport").position
+#@onready var pelaaja_taso2 = get_node("/root/Maailma/%Muuta/%Taso2Teleport").position
+#@onready var pelaaja_taso3 = get_node("/root/Maailma/%Muuta/%Taso3Teleport").position
+#@onready var pelaaja_taso45 = get_node("/root/Maailma/%Muuta/%Taso45Teleport").position
 
-@onready var pelaaja_vesitutoriaali = get_node("/root/Maailma/Taso2/%VesitutoriaaliTP").position
-@onready var pelaaja_vesitutoriaali_ennen = get_node("/root/Maailma/Taso2/%VesitutoriaaliEnnenTP").position
-@onready var pelaaja_vesitutoriaalilapi = get_node("/root/Maailma/Taso2/%VesitutoriaaliLapiTP").position
-@onready var pelaaja_perhospesa = get_node("/root/Maailma/Taso2/%PerhosPesaTP").position
+## Vesialue
+#@onready var pelaaja_vesitutoriaali = get_node("/root/Maailma/Taso2/%VesitutoriaaliTP").position
+#@onready var pelaaja_vesitutoriaali_ennen = get_node("/root/Maailma/Taso2/%VesitutoriaaliEnnenTP").position
+#@onready var pelaaja_vesitutoriaalilapi = get_node("/root/Maailma/Taso2/%VesitutoriaaliLapiTP").position
+#@onready var pelaaja_perhospesa = get_node("/root/Maailma/Taso2/%PerhosPesaTP").position
 
 @onready var tiilet_taso_2 = get_node("/root/Maailma/Taso2/%TiiletTaso2")
 @onready var ovi_seina_2 = get_node("/root/Maailma/Taso2/%OviSeina2")
@@ -88,14 +87,17 @@ var pystyssa = true
 @onready var journal = get_node("/root/Maailma/%KayttoLiittyma/Journal")
 @onready var pauseruutu = get_node("/root/Maailma/%KayttoLiittyma/%pause_ruutu")
 @onready var asetuksetruutu = get_node("/root/Maailma/%KayttoLiittyma/%asetukset_ruutu")
+@onready var tutoriaali_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%Tutoriaali")
 @onready var pimeyskuolema_animaatio = get_node("/root/Maailma/%KayttoLiittyma/%PimeysKuolema")
+@onready var teleport_menu: TeleportMenu = $KayttoLiittyma/TeleportMenu
+
 @onready var uudetViholliset = get_node("/root/Maailma/%uudetViholliset").get_children()
 @onready var kukat = get_node("/root/Maailma/%Kukat").get_children()
 @onready var piikit = get_node("/root/Maailma/%Piikit").get_children()
-@onready var tutoriaali_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%Tutoriaali")
 @onready var tutoriaali_alueet = get_node("/root/Maailma/%TutoriaaliUnlock")
 var tutorial_paalla = false
 var uusi_tutorial = false
+
 ## Musiikit:
 @onready var musiikki = get_node("/root/Maailma/Musiikki")
 @onready var audio_journal = get_node("/root/Maailma/%KayttoLiittyma/Journal/%AudioJournal")
@@ -118,7 +120,15 @@ var pimeyskuolema_paalla = false
 
 ## Kutsutaan Globaalin alustusfunktiota luomisen yhteydessä
 func _ready():
+	teleport_menu.luo_teleport_painikkeet(teleportit)
 	Globaali.init()
+
+
+func tallenna():
+	return {
+		"alkuanimatic_nahty": alkuanimatic_nahty,
+		"palloja": palloja,
+	}
 
 
 ## Kutsutaan joka framella
@@ -129,10 +139,3 @@ func _process(_delta):
 		# Tähän lisätään joka sekuntti tapahtuva asia
 		Globaali.lisaa_viholliset() # Viholliset päivittyvät pois ja päälle riippuen pelaajan positiosta
 		aika = 0
-
-
-func tallenna():
-	return {
-		"alkuanimatic_nahty": alkuanimatic_nahty,
-		"palloja": palloja,
-	}
