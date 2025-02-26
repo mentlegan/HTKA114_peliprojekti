@@ -28,6 +28,8 @@ var pelaaja_aloitus: Vector2
 
 var soitetaan_animatic
 
+var vaikeusaste = 1
+
 @export var teleportit: Array[Node2D]
 ## Teleportit ruohoalue
 #@onready var pelaaja_taso1 = get_node("/root/Maailma/%Muuta/%Taso1Teleport").position

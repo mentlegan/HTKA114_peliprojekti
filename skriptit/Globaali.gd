@@ -424,7 +424,6 @@ func teleporttaa_pelaaja(paamaara: Vector2):
 func pausePeli():
 	if maailma.gameover_ruutu.visible:
 		return
-	
 	#pelaaja.pimeyskuolema.pause()
 	get_tree().paused = true
 	maailma.pauseruutu.visible = true

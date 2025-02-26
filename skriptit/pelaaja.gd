@@ -191,7 +191,7 @@ var elamat_regen_nopeus = 8
 var elamat_regen_maara = 1
 
 ## Pelaajan happitason asiat
-const pelaajan_happi_max = 10
+var pelaajan_happi_max = 10
 const HUKKUMIS_DAMAGE = 1
 var pelaajan_happi = pelaajan_happi_max
 @onready var happi_ajastin = $HappiAjastin
@@ -557,9 +557,19 @@ func elamat_label_paivita():
 	elama_mittari_kuvalla.value = pelaajan_elamat
 
 
-## Päivitetään hapen tason mittari
+## Päivitetään hapen tason mittaria
 func happi_mittari_paivita():
-	happi_mittari.value = pelaajan_happi
+	# Tarkastetaan vaikeusastetta, helppo katsoa joka tarkistuksella, eli joka sekuntti, että mikä vaikeusaste on kyseessä
+	if Globaali.maailma.vaikeusaste == 0: # Jos ollaan easylla
+		pelaajan_happi_max = 15
+	if Globaali.maailma.vaikeusaste == 1: # Jos ollaan normalilla
+		pelaajan_happi_max = 10
+	if Globaali.maailma.vaikeusaste == 2: # Jos ollaan hardilla
+		pelaajan_happi_max = 8
+	if pelaajan_happi > pelaajan_happi_max: # Asetetaan happi takaisin maksimiin, jos vaihdetaan vaikeammalle asteelle kesken uinnin
+		pelaajan_happi = pelaajan_happi_max
+	happi_mittari.max_value = pelaajan_happi_max # Päivitetään mittariin lukemaksi maksimiksi uusi asetettu arvo
+	happi_mittari.value = pelaajan_happi # Päivitetään mittariin lukemaksi nykyinen happi
 
 
 ## Lisätään pelaajalle elämiä ja jatketaan regenia, jos ei vielä täydet elämät

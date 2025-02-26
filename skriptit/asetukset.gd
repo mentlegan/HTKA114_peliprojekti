@@ -13,9 +13,10 @@ extends Control
 
 @onready var volume_slider = $TabContainer/Sound/MarginContainer/VBoxContainer/sound_volume/VolumeSlider
 @onready var volume_slider_musiikki = $TabContainer/Sound/MarginContainer/VBoxContainer/sound_musiikki/VolumeSliderMusiikki
+@onready var vaikeusaste_valinta = get_node("TabContainer/Accessibility/MarginContainer/VBoxContainer/accessibility_vaikeusaste/vaikeusaste_valikko") as OptionButton
 
 ## Haetaan optionbutton, josta voi valita kuvakoon
-@onready var kuvakokoValinta = get_node("TabContainer/Graphics/MarginContainer/VBoxContainer/graphics_kuvakoko/kuvakoko_valikko") as OptionButton
+@onready var kuvakoko_valinta = get_node("TabContainer/Graphics/MarginContainer/VBoxContainer/graphics_kuvakoko/kuvakoko_valikko") as OptionButton
 ## Kuvakokojen valinnat, ja niiden tekstit, tässä määräytyy myös indeksoinnin järjestys, joka tulee kehiin myöhemmin
 const kuvakokotaulukko : Array[String] = [
 	"Full-screen",
@@ -51,10 +52,11 @@ var muutettavat_toiminnot = { ## Tänne voi siis lisätä kontrolleja sitä muka
 ## Ready tapahtuu kun scene avautuu
 func _ready():
 	taytaKuvakokojenValinta()
-	kuvakokoValinta.item_selected.connect(on_window_mode_selected)
+	kuvakoko_valinta.item_selected.connect(on_window_mode_selected)
 	_luo_toiminto_lista()
 	_on_volume_slider_value_changed(volume_slider.value)
 	_on_volume_music_slider_value_changed(volume_slider_musiikki.value)
+	vaikeusaste_valinta.item_selected.connect(on_difficulty_mode_item_selected)
 
 
 ##
@@ -106,7 +108,7 @@ func _on_tausta_mute_toggled(button_pressed):
 ## Lisää optionbuttoniin kuvakoon valinnat
 func taytaKuvakokojenValinta() -> void:
 	for kuvakoko in kuvakokotaulukko:
-		kuvakokoValinta.add_item(kuvakoko) # Automaattisesti indeksoi vaihtoehdot nappiin toimintaa varten 0 - n lisäysjärjestyksessä
+		kuvakoko_valinta.add_item(kuvakoko) # Automaattisesti indeksoi vaihtoehdot nappiin toimintaa varten 0 - n lisäysjärjestyksessä
 
 
 ## Optionbuttonin toiminta
@@ -196,3 +198,16 @@ func _on_reset_button_pressed():
 ##
 ## SAAVUTTETAVUUS
 ##
+
+## Vaikeusasteen säätävän valikon toiminnallisuus
+func on_difficulty_mode_item_selected(index: int) -> void:
+	match index: # Katsotaan, että mikä vaihtoehto napattiin
+		0: # Easy
+			Globaali.maailma.vaikeusaste = 0
+			print("Vaikeusaste Easy valittu")
+		1: # Normal
+			Globaali.maailma.vaikeusaste = 1
+			print("Vaikeusaste Normal valittu")
+		2: # Hard
+			Globaali.maailma.vaikeusaste = 2
+			print("Vaikeusaste Hard valittu")

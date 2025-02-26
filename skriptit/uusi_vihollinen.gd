@@ -105,6 +105,10 @@ func astuttu_alueelle(body):
 			audio_jahtaus.play()
 			audio_liikkuminen.play()
 		var kuolema_aika = rng.randf_range(1.0, 4.0) # Tästä voi säätää ajan kantaman, missä pelaaja voi kuolla viholliseen
+		if Globaali.maailma.vaikeusaste == 0: # Jos peli on easy-vaikeusasteessa
+			kuolema_aika = rng.randf_range(1.5, 8.0)
+		if Globaali.maailma.vaikeusaste == 2: # Jos peli on hard- vaikeusasteella
+			kuolema_aika = rng.randf_range(0.75, 3.0)
 		kuolema_ajastin.start(kuolema_aika) # Aloitetaan jahti
 		print ("Kuolet viholliseen " + str(kuolema_aika) + " sekunnin jalkeen")
 		await kuolema_ajastin.timeout # Odotetaan, että vihu saa pelaajan kiinni

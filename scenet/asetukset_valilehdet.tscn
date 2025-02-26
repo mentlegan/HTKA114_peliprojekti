@@ -238,10 +238,25 @@ layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
+[node name="accessibility_vaikeusaste" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-text = "Accessibility1"
+text = "Difficulty"
+
+[node name="vaikeusaste_valikko" type="OptionButton" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer/accessibility_vaikeusaste"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
+offset_top = 22.0
+offset_right = 32.0
+offset_bottom = 42.0
+selected = 1
+item_count = 3
+popup/item_0/text = "Easy"
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
 
 [node name="Label2" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
@@ -263,5 +278,4 @@ text = "Accessibility4"
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_efektit/efektit_mute" to="." method="_on_efektit_mute_toggled"]
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_pelaaja/pelaaja_mute" to="." method="_on_pelaaja_mute_toggled"]
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_tausta/tausta_mute" to="." method="_on_tausta_mute_toggled"]
-[connection signal="item_selected" from="TabContainer/Graphics/MarginContainer/VBoxContainer/graphics_kuvakoko/kuvakoko_valikko" to="." method="_on_kuvakoko_valikko_item_selected"]
 [connection signal="pressed" from="TabContainer/Controls/ResetButton" to="." method="_on_reset_button_pressed"]
