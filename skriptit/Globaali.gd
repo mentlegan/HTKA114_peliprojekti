@@ -101,12 +101,23 @@ func init():
 
 ## Kuunnellaan scenen vaihto ja kuolema
 func _input(_event: InputEvent) -> void:
-	## 0
+	## TODO: nämä voisi ehkä siirtää teleport menuun
+	# 0
 	if Input.is_action_just_pressed("vaihda_scene"):
 		vaihda_scene("maailma_test")
-	## ctrl + K
+	# ctrl + K
 	elif Input.is_action_just_pressed("kuolema"):
 		maailma.pelaaja.kuolema()
+	
+	# Pelin keskeytys
+	# PC ESCAPE
+	# PS4/PS5 OPTIONS
+	elif Input.is_action_just_pressed("pause"):
+		if get_tree().paused == false:
+			pausePeli()
+			# Asetetaan inputti "syödyksi", sitä ei käsitellä enää missään muualla
+			# Esim. pause-menun skriptissä, jossa pelin jatkuminen
+			get_viewport().set_input_as_handled()
 
 
 ## Palauttaa noden muuttujat vastaamaan annettua dataa.
