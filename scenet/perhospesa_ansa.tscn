@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5n65owbe24jl"]
 
-[ext_resource type="Script" path="res://skriptit/perhospesa_ansa.gd" id="1_movxk"]
+[ext_resource type="Script" uid="uid://h6rts845qshl" path="res://skriptit/perhospesa_ansa.gd" id="1_movxk"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7eygo"]
 

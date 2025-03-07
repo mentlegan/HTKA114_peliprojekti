@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://81oaphkmv4j3"]
 
-[ext_resource type="Script" path="res://skriptit/Globaali.gd" id="1_u0tlp"]
+[ext_resource type="Script" uid="uid://dhcjgcwwpjy4j" path="res://skriptit/Globaali.gd" id="1_u0tlp"]
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://scenet/kayttoliittyma/game_over_ruutu.tscn" id="2_382w4"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_skrl7"]
 [ext_resource type="PackedScene" uid="uid://d1c6axf23uaq5" path="res://scenet/kayttoliittyma/help_ruutu.tscn" id="4_u4uma"]
-[ext_resource type="Script" path="res://skriptit/ss2d_varjot.gd" id="5_v1ixm"]
+[ext_resource type="Script" uid="uid://hkxwwgielrn1" path="res://skriptit/ss2d_varjot.gd" id="5_v1ixm"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="11_2k37q"]
 [ext_resource type="Texture2D" uid="uid://dite5ccabklvd" path="res://grafiikka/LightFlower.png" id="12_1lgvd"]
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://scenet/perhoset/perhonen.tscn" id="13_pip84"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://3dn0yrwcrv8w"]
 
-[ext_resource type="Script" path="res://skriptit/valon_tarkistus.gd" id="1_ft5bk"]
+[ext_resource type="Script" uid="uid://2o73v22waqpf" path="res://skriptit/valon_tarkistus.gd" id="1_ft5bk"]
 
 [node name="ValonTarkistus" type="Area2D"]
 collision_layer = 4

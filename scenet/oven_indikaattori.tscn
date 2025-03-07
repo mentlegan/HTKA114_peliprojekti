@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://vhw8ktytmys8"]
 
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://resurssit/unshaded.tres" id="1_q4cth"]
-[ext_resource type="Script" path="res://skriptit/oven_indikaattori.gd" id="2_esttj"]
+[ext_resource type="Script" uid="uid://bg5euorsvtcyy" path="res://skriptit/oven_indikaattori.gd" id="2_esttj"]
 
 [sub_resource type="Curve" id="Curve_1fobu"]
-max_value = 2.0
+_limits = [0.0, 2.0, 0.0, 1.0]
 _data = [Vector2(0, 2), 0.0, -1.6, 0, 1, Vector2(0.5, 1.2), 0.0, 0.0, 0, 0, Vector2(1, 1.18681), 0.0, 0.0, 0, 0]
 point_count = 3
 

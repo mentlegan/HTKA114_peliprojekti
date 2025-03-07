@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://mch12jl02nqd"]
 
-[ext_resource type="Script" path="res://skriptit/tooltip.gd" id="2_kshth"]
+[ext_resource type="Script" uid="uid://dkdt7tmqq22gu" path="res://skriptit/tooltip.gd" id="2_kshth"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yyvvh"]
 light_mode = 1

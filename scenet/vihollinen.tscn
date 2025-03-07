@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://c3iy6ln4bag18"]
 
-[ext_resource type="Script" path="res://skriptit/vihollinen.gd" id="1_8ppmx"]
+[ext_resource type="Script" uid="uid://dyce40150dvto" path="res://skriptit/vihollinen.gd" id="1_8ppmx"]
 [ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://grafiikka/tiili.png" id="1_22viq"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="3_shivu"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="4_x7yr7"]
@@ -21,11 +21,8 @@ radius = 8.63712
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bsy7y"]
 streams_count = 3
 stream_0/stream = ExtResource("4_x7yr7")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("5_6g22y")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("6_n31od")
-stream_2/weight = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ghta"]
 size = Vector2(67.9555, 37)

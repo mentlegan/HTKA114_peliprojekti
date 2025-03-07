@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://713ktg8ejflv"]
 
-[ext_resource type="Script" path="res://skriptit/valocharacter.gd" id="1_0y8yp"]
+[ext_resource type="Script" uid="uid://byybf8bpoqfc2" path="res://skriptit/valocharacter.gd" id="1_0y8yp"]
 [ext_resource type="Texture2D" uid="uid://bmvtp7yssbvk2" path="res://grafiikka/Valo512.png" id="2_kid4c"]
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="3_vppnu"]
 [ext_resource type="AudioStream" uid="uid://ctkufn8j2dbv0" path="res://audio/valopallo/valopallo_heitetaan1_mono.wav" id="4_1ql26"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://daeaotnb7peu2"]
 
-[ext_resource type="Script" path="res://skriptit/piikki.gd" id="1_5vs27"]
+[ext_resource type="Script" uid="uid://c6upmcpxvu34x" path="res://skriptit/piikki.gd" id="1_5vs27"]
 [ext_resource type="Texture2D" uid="uid://cnkoqne4ntyvv" path="res://grafiikka/Spikes.png" id="2_rh51v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0sw8"]

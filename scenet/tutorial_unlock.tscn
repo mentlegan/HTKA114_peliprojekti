@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjrujir82taha"]
 
-[ext_resource type="Script" path="res://skriptit/tutorial_unlock.gd" id="1_3rw0v"]
+[ext_resource type="Script" uid="uid://c4aexvvupbhkx" path="res://skriptit/tutorial_unlock.gd" id="1_3rw0v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ms81s"]
 size = Vector2(27, 113)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bnn7owiys160v"]
 
-[ext_resource type="Script" path="res://skriptit/myrkkysieni.gd" id="1_cya2x"]
+[ext_resource type="Script" uid="uid://bwgsohdnvje48" path="res://skriptit/myrkkysieni.gd" id="1_cya2x"]
 [ext_resource type="Texture2D" uid="uid://chm2wxdw1v8m6" path="res://grafiikka/Myrkkysienet-Sheet.png" id="2_1oqm1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0kho"]

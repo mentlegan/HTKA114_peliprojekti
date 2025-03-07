@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dlhhgg57soqiq"]
 
-[ext_resource type="Script" path="res://skriptit/illuusion_vaihtaja_flip.gd" id="1_i5gjj"]
+[ext_resource type="Script" uid="uid://dbwy4062l08kl" path="res://skriptit/illuusion_vaihtaja_flip.gd" id="1_i5gjj"]
 
 [node name="IlluusionVaihtajaFlip" type="Node"]
 script = ExtResource("1_i5gjj")

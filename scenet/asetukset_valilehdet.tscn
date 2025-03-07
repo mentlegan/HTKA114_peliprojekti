@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dl8i0jom7iver"]
 
-[ext_resource type="Script" path="res://skriptit/asetukset.gd" id="1_bomdo"]
+[ext_resource type="Script" uid="uid://da0itc71nsq7u" path="res://skriptit/asetukset.gd" id="1_bomdo"]
 [ext_resource type="PackedScene" uid="uid://dus2eh6o0800i" path="res://scenet/input_button.tscn" id="2_uehtf"]
 
 [node name="asetukset_valilehdet" type="Control"]

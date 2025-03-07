@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://8fw0amuj7bhb"]
 
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="1_5n0o5"]
-[ext_resource type="Script" path="res://skriptit/partikkelit_valopallo.gd" id="2_2krbn"]
+[ext_resource type="Script" uid="uid://bnofq68p47u48" path="res://skriptit/partikkelit_valopallo.gd" id="2_2krbn"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fmgft"]
 blend_mode = 1

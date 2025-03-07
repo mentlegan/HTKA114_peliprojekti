@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://gktnyqf3rju6"]
 
-[ext_resource type="Script" path="res://skriptit/gameover_ruutu.gd" id="1_g4eso"]
+[ext_resource type="Script" uid="uid://bsimevp1xwj4p" path="res://skriptit/gameover_ruutu.gd" id="1_g4eso"]
 [ext_resource type="Texture2D" uid="uid://b8cydfpi4ba6r" path="res://grafiikka/OhjainTooltipB.png" id="2_8c4vf"]
 [ext_resource type="Texture2D" uid="uid://tjr5y6tghm7u" path="res://grafiikka/OhjainTooltipA.png" id="3_tdbvq"]
 
