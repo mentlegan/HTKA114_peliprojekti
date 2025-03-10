@@ -49,6 +49,8 @@ alignment = 1
 
 [node name="sound_volume" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Controls all the sounds of the game"
+mouse_filter = 0
 text = "Volume"
 
 [node name="VolumeSlider" type="HSlider" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_volume"]
@@ -64,6 +66,8 @@ ticks_on_borders = true
 
 [node name="sound_musiikki" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Controls the music volume"
+mouse_filter = 0
 text = "Music volume"
 
 [node name="VolumeSliderMusiikki" type="HSlider" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_musiikki"]
@@ -94,6 +98,8 @@ button_pressed = true
 [node name="sound_pelaaja" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
+tooltip_text = "Toggle off to mute player character's movement sounds"
+mouse_filter = 0
 text = "Player Movement"
 
 [node name="pelaaja_mute" type="CheckButton" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_pelaaja" groups=["mute_napit"]]
@@ -106,6 +112,8 @@ button_pressed = true
 [node name="sound_tausta" type="Label" parent="TabContainer/Sound/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
+tooltip_text = "Toggle off to mute ambience sounds"
+mouse_filter = 0
 text = "Ambience"
 
 [node name="tausta_mute" type="CheckButton" parent="TabContainer/Sound/MarginContainer/VBoxContainer/sound_tausta" groups=["mute_napit"]]
@@ -143,6 +151,8 @@ alignment = 1
 [node name="graphics_kuvakoko" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
+tooltip_text = "Changes the display mode of the game window"
+mouse_filter = 0
 text = "Window Mode"
 
 [node name="kuvakoko_valikko" type="OptionButton" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/graphics_kuvakoko"]
@@ -210,6 +220,7 @@ offset_right = 204.0
 offset_bottom = 356.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
+tooltip_text = "Resets the controls to their default values"
 focus_mode = 0
 text = "Reset To Default"
 
@@ -241,6 +252,13 @@ alignment = 1
 [node name="accessibility_vaikeusaste" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
+tooltip_text = "Difficulty settings
+Easy: Enemies are less menacing and you have more oxygen while underwater
+Normal: Default game experience
+Hard: Enemies are relentless and you have much less oxygen while underwater
+Ultra Hard:
+Beneath the mines, no one survives"
+mouse_filter = 0
 text = "Difficulty"
 
 [node name="vaikeusaste_valikko" type="OptionButton" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer/accessibility_vaikeusaste"]
@@ -251,12 +269,15 @@ offset_top = 22.0
 offset_right = 32.0
 offset_bottom = 42.0
 selected = 1
-item_count = 3
+item_count = 4
 popup/item_0/text = "Easy"
+popup/item_0/id = 0
 popup/item_1/text = "Normal"
 popup/item_1/id = 1
 popup/item_2/text = "Hard"
 popup/item_2/id = 2
+popup/item_3/text = "Ultra Hard"
+popup/item_3/id = 3
 
 [node name="Label2" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1

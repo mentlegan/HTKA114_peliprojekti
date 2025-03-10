@@ -183,12 +183,14 @@ const SEINAHYPPY_BUFFER = 0.2 ## Kuinka kauan seinältä voi olla poissa, niin e
 const MAAHYPPY_BUFFER = 0.2 ## Kuinka kauan maalta voi olla poissa, niin että pelaaja saa vielä hypätä (sekunteina)
 
 ## Pelaajan elämäpisteet
-const pelaajan_elamat_max = 5
+var pelaajan_elamat_max = 5
 var pelaajan_elamat = pelaajan_elamat_max
 ## Kuinka nopeasti pelaaja saa elämiä takaisin sekunteina
 var elamat_regen_nopeus = 8
 ## Kuinka paljon elamia pelaaja saa takaisin
 var elamat_regen_maara = 1
+## Vaikeusasteen vaihdon olisi syytä muistaa pelaajan elämänpisteet ennen vaihtoa
+var pelaajan_muisti_hp
 
 ## Pelaajan happitason asiat
 var pelaajan_happi_max = 10
@@ -470,7 +472,6 @@ func siirrytty_varjoon():
 	# Ohitetaan, jos ollaan vedessä tai tutoriaalikentässä
 	if vedessa or not Globaali.maailma.pimeyskuolema_paalla:
 		return
-	
 	valossa = false
 	ajastin_pimeassa.start()
 	ajastin_pimeassa_audio.start()
@@ -564,7 +565,7 @@ func happi_mittari_paivita():
 		pelaajan_happi_max = 15
 	if Globaali.maailma.vaikeusaste == 1: # Jos ollaan normalilla
 		pelaajan_happi_max = 10
-	if Globaali.maailma.vaikeusaste == 2: # Jos ollaan hardilla
+	if Globaali.maailma.vaikeusaste >= 2: # Jos ollaan hardilla tai ultra hardilla
 		pelaajan_happi_max = 8
 	if pelaajan_happi > pelaajan_happi_max: # Asetetaan happi takaisin maksimiin, jos vaihdetaan vaikeammalle asteelle kesken uinnin
 		pelaajan_happi = pelaajan_happi_max
@@ -1246,3 +1247,19 @@ func keraa_potionin_osa(potion):
 func _on_keho_area_entered(area):
 	if area is PotioninOsa and area.is_in_group("potionin_osa"):
 		keraa_potionin_osa(area)
+
+
+## Funktio, jolla käsitellään vaikeusasteen muuttumista pelaajan statteihin
+## Käsittelee lähinnä Ultra Hard-vaikeusastetta
+func paivita_vaikeusaste():
+	if Globaali.maailma.vaikeusaste == 3: # Ultra hard
+		pelaajan_muisti_hp = pelaajan_elamat # Tallennetaan pelaajan nykyiset elämänpisteet
+		pelaajan_elamat_max = 1 # Asetetaan pelaajan max-elämät yhteen
+		pelaajan_elamat = 1 # Ja remaining hp myös
+		ajastin_pimeassa.wait_time = 1 # Pelaaja voi olla pimeässä vain sekunnin
+	else:  # Muut vaikeusasteet
+		pelaajan_elamat_max = 5 # Pelaajan max hp takaisin vakioon 5
+		pelaajan_elamat = pelaajan_muisti_hp # Otetaan ennen vaihtoa asetettu elämänpistelukema takaisin
+		ajastin_pimeassa.wait_time = 20 # Vaihdetaan pimeässäoloaika takaisin vakioon 20 sekuntia
+	happi_mittari_paivita() # Päivitetään happimittaria oikeaan lukemaan..
+	elamat_label_paivita() # .. ja samoin hp-mittari

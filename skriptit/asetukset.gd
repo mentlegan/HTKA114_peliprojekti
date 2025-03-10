@@ -211,3 +211,7 @@ func on_difficulty_mode_item_selected(index: int) -> void:
 		2: # Hard
 			Globaali.maailma.vaikeusaste = 2
 			print("Vaikeusaste Hard valittu")
+		3: # Ultra Hard
+			Globaali.maailma.vaikeusaste = 3
+			print("Vaikeusaste Ultra Hard valittu")
+	Globaali.paivita_vaikeusaste()

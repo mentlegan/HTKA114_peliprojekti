@@ -622,3 +622,8 @@ func vaihda_scene(maailman_nimi):
 	# Lisätään uusi Maailma-node SceneTreehen
 	get_tree().root.add_child.call_deferred(maailma)
 	# (maailma.gd kutsuu Globaali.gd:n init()-funktiota, kun on valmis)
+
+
+## Tähän funktioon voi lisätä vaikeusasteen puolesta asioita
+func paivita_vaikeusaste():
+	maailma.pelaaja.paivita_vaikeusaste()

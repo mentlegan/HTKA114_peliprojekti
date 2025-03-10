@@ -94,6 +94,9 @@ func kuolema():
 ## Kollektiivinen alueelle astumisen funktio, eli vihollinen huomaa pelaajan
 func astuttu_alueelle(body):
 	if body.is_in_group("Pelaaja"): # Otetaan pelaajan group
+		if Globaali.maailma.vaikeusaste == 3: # Ultra Hardilla kuollaan saman tien
+			kuolema()
+			return
 		alueen_vaihto_ajastin.stop() # Pysäytetään ajastin, ettei vihollinen vaihda aluetta pelaajan ollessa siellä ..
 		idle_audio_ajastin.stop() # .. tai ääntele idlenä
 		# Äänten säätöä

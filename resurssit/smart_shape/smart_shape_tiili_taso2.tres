@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="SS2D_Material_Shape" load_steps=10 format=3 uid="uid://cam0dd1dlekqi"]
 
-[ext_resource type="Script" uid="uid://c6176x87fcbrr" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="1_gbwls"]
-[ext_resource type="Script" uid="uid://5mrn7y722c8r" path="res://addons/rmsmartshape/materials/edge_material.gd" id="2_txlra"]
-[ext_resource type="Texture2D" uid="uid://bpiovri4b3m8d" path="res://grafiikka/TaustaElementit2/NurmikkoLVL2.png" id="3_qr3gm"]
-[ext_resource type="Script" uid="uid://b341yxm08cqms" path="res://addons/rmsmartshape/normal_range.gd" id="4_wtgg3"]
-[ext_resource type="Script" uid="uid://d11akiojdytsu" path="res://addons/rmsmartshape/materials/shape_material.gd" id="5_5uktw"]
+[ext_resource type="Script" uid="uid://bq32l6rowxd03" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="1_gbwls"]
+[ext_resource type="Script" uid="uid://cwxf45eeqin4v" path="res://addons/rmsmartshape/materials/edge_material.gd" id="2_txlra"]
+[ext_resource type="Texture2D" uid="uid://bjf3kkhgk5g2t" path="res://grafiikka/TaustaElementit2/NurmikkoLVL2.png" id="3_qr3gm"]
+[ext_resource type="Script" uid="uid://doum0e6olyaa5" path="res://addons/rmsmartshape/normal_range.gd" id="4_wtgg3"]
+[ext_resource type="Script" uid="uid://ih0ommnu3bk2" path="res://addons/rmsmartshape/materials/shape_material.gd" id="5_5uktw"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_q3t8q"]
 diffuse_texture = ExtResource("3_qr3gm")
