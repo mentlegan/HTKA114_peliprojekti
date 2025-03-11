@@ -24,9 +24,10 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -125,7 +126,6 @@ button_pressed = true
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
 auto_translate_mode = 1
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -142,20 +142,23 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Graphics/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/MarginContainer/ScrollContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="graphics_kuvakoko" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+[node name="graphics_kuvakoko" type="Label" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 tooltip_text = "Changes the display mode of the game window"
 mouse_filter = 0
 text = "Window Mode"
 
-[node name="kuvakoko_valikko" type="OptionButton" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/graphics_kuvakoko"]
+[node name="kuvakoko_valikko" type="OptionButton" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer/graphics_kuvakoko"]
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = -7.0
@@ -163,18 +166,26 @@ offset_top = 20.0
 offset_right = 705.0
 offset_bottom = 46.0
 
-[node name="Label2" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+[node name="graphics_taustaelementit" type="Label" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Disabling background elements may improve performance and improve clarity"
+mouse_filter = 0
+text = "Background elements"
+
+[node name="tausta_nappi" type="CheckButton" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer/graphics_taustaelementit"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = -1.5
+offset_right = 274.0
+offset_bottom = 22.5
+button_pressed = true
+
+[node name="Label3" type="Label" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-text = "Graphics2"
+text = "Graphics3"
 
-[node name="Label3" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
-auto_translate_mode = 1
-layout_mode = 2
-text = "Graphics3
-"
-
-[node name="Label4" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 text = "Graphics4"
@@ -299,4 +310,5 @@ text = "Accessibility4"
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_efektit/efektit_mute" to="." method="_on_efektit_mute_toggled"]
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_pelaaja/pelaaja_mute" to="." method="_on_pelaaja_mute_toggled"]
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_tausta/tausta_mute" to="." method="_on_tausta_mute_toggled"]
+[connection signal="toggled" from="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer/graphics_taustaelementit/tausta_nappi" to="." method="_on_tausta_nappi_toggled"]
 [connection signal="pressed" from="TabContainer/Controls/ResetButton" to="." method="_on_reset_button_pressed"]

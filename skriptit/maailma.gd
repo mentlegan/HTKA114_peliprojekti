@@ -100,6 +100,10 @@ var pystyssa = true
 var tutorial_paalla = false
 var uusi_tutorial = false
 
+## Taustaelementtejä ja niiden tarkistimia
+@onready var taustaelementit = get_node("Muuta/TaustaElementit")
+var taustaelementit_paalla = true
+
 ## Musiikit:
 @onready var musiikki = get_node("/root/Maailma/Musiikki")
 @onready var audio_journal = get_node("/root/Maailma/%KayttoLiittyma/Journal/%AudioJournal")

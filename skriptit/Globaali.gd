@@ -1,4 +1,4 @@
-## Harri 4.9.2024
+## Harri 11.3.2025
 ## Paavo 22.4.2024
 ## Elias 22.4.2024
 ## Tämä on yleinen, koko pelin kattava globaali scripti, johon voi lisätä funktioita käytettäväksi muissa scripteissä
@@ -627,3 +627,10 @@ func vaihda_scene(maailman_nimi):
 ## Tähän funktioon voi lisätä vaikeusasteen puolesta asioita
 func paivita_vaikeusaste():
 	maailma.pelaaja.paivita_vaikeusaste()
+
+
+## Päivittää grafiikoita, jos niitä halutaan kesken pelin muuttaa, esim. asetuksista
+func paivita_grafiikat():
+	if maailma.taustaelementit_paalla == true:
+		maailma.taustaelementit.visible = true
+	else: maailma.taustaelementit.visible = false

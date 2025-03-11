@@ -1,7 +1,7 @@
-## Harri 4.9.2024
+## Harri 11.3.2025
 ## Tässä säädetään pelin asetuksia pelaajan syötteistä
 ## Mutenapit toimivat suomeksi näin: 
-##	nappi on pohjassa, jos jokin ääni halutaan peliin mukaan
+## 	nappi on pohjassa, jos jokin ääni halutaan peliin mukaan
 ## TODO: Grafiikoiden borderless-optiot voisi korjata myöhemmin toimiviksi, tai poistaa
 ## TODO: nimiä voisi vaihdella fiksummiksi
 ## TODO: input-asetukset toimimaan tallentamisen kanssa
@@ -16,7 +16,7 @@ extends Control
 @onready var vaikeusaste_valinta = get_node("TabContainer/Accessibility/MarginContainer/VBoxContainer/accessibility_vaikeusaste/vaikeusaste_valikko") as OptionButton
 
 ## Haetaan optionbutton, josta voi valita kuvakoon
-@onready var kuvakoko_valinta = get_node("TabContainer/Graphics/MarginContainer/VBoxContainer/graphics_kuvakoko/kuvakoko_valikko") as OptionButton
+@onready var kuvakoko_valinta = get_node("TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer/graphics_kuvakoko/kuvakoko_valikko") as OptionButton
 ## Kuvakokojen valinnat, ja niiden tekstit, tässä määräytyy myös indeksoinnin järjestys, joka tulee kehiin myöhemmin
 const kuvakokotaulukko : Array[String] = [
 	"Full-screen",
@@ -28,6 +28,9 @@ const kuvakokotaulukko : Array[String] = [
 ## Ladataan input-button scene ja tarvittavat nodet
 @onready var input_button_scene = preload ("res://scenet/input_button.tscn")
 @onready var toimintolista = $TabContainer/Controls/MarginContainer/ScrollContainer/Toiminnot
+
+## Ladataan checkbutton taustaelementtien togglelle
+@onready var tausta_nappi = $TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer/graphics_taustaelementit/tausta_nappi
 
 ## Keybind-apumuuttujat
 var asetetaan_control = false
@@ -127,6 +130,16 @@ func on_window_mode_selected(index : int) -> void:
 		3: # Fullscreen Borderless, pitää korjata myöhemmin
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 			DisplayServer.window_get_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+
+
+## Taustaelementtejä hallitsevan napin toiminta
+func _on_tausta_nappi_toggled(button_pressed):
+	if button_pressed == true:
+		Globaali.maailma.taustaelementit_paalla = true
+		Globaali.paivita_grafiikat()
+	else:
+		Globaali.maailma.taustaelementit_paalla = false
+		Globaali.paivita_grafiikat()
 
 
 ##
