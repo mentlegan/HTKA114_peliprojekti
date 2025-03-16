@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://xobaqt701u22" path="res://skriptit/perhonen_kuljettaja.gd" id="1_e3irp"]
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_kavlh"]
 [ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="3_gpvrn"]
-[ext_resource type="AudioStream" uid="uid://bfr4grh6qj5du" path="res://audio/perhonen/perhonen1.mp3" id="4_ro1rj"]
-[ext_resource type="AudioStream" uid="uid://x2mmbtmrqxcr" path="res://audio/perhonen/perhonen2.mp3" id="5_ujjc0"]
-[ext_resource type="AudioStream" uid="uid://0txejdo8gb6i" path="res://audio/perhonen/perhonen3.mp3" id="6_peiff"]
-[ext_resource type="AudioStream" uid="uid://btbls6cmcjen8" path="res://audio/perhonen/perhonen4.mp3" id="7_g3shw"]
+[ext_resource type="AudioStream" uid="uid://cln7i2kmgg5qn" path="res://audio/perhonen/perhonen1.mp3" id="4_ro1rj"]
+[ext_resource type="AudioStream" uid="uid://dhe3hmb0ieug6" path="res://audio/perhonen/perhonen2.mp3" id="5_ujjc0"]
+[ext_resource type="AudioStream" uid="uid://dxvxlsyw06mm4" path="res://audio/perhonen/perhonen3.mp3" id="6_peiff"]
+[ext_resource type="AudioStream" uid="uid://c0vxierdat4i6" path="res://audio/perhonen/perhonen4.mp3" id="7_g3shw"]
 [ext_resource type="Script" uid="uid://dkdt7tmqq22gu" path="res://skriptit/tooltip.gd" id="8_5tibm"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://resurssit/unshaded.tres" id="9_r1kix"]
 [ext_resource type="Texture2D" uid="uid://b8cydfpi4ba6r" path="res://grafiikka/OhjainTooltipB.png" id="10_6w25a"]
@@ -113,6 +113,13 @@ volume_db = -2.0
 max_distance = 500.0
 bus = &"Kaiku"
 
+[node name="LabelLuokka" type="Label" parent="."]
+offset_left = -47.0
+offset_top = -62.0
+offset_right = 70.0
+offset_bottom = -44.0
+text = "Normaali"
+
 [node name="TooltipPKuljettava" type="Area2D" parent="."]
 visible = false
 z_index = 99
@@ -181,13 +188,6 @@ grow_vertical = 2
 size_flags_horizontal = 0
 text = "Ride"
 horizontal_alignment = 1
-
-[node name="LabelLuokka" type="Label" parent="."]
-offset_left = -47.0
-offset_top = -62.0
-offset_right = 70.0
-offset_bottom = -44.0
-text = "Normaali"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

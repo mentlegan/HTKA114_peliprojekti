@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dd71njcqglaep"]
 
-[ext_resource type="Script" uid="uid://rd3q5t2g8q1y" path="res://skriptit/transitio.gd" id="1_nx8hu"]
+[ext_resource type="Script" uid="uid://dh6vchk4glfr3" path="res://skriptit/transitio.gd" id="1_nx8hu"]
 
 [sub_resource type="Animation" id="Animation_tlqxw"]
 length = 0.001
@@ -72,5 +72,5 @@ color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_tbmbt")
+&"": SubResource("AnimationLibrary_tbmbt")
 }

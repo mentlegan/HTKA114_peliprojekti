@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d0j20owmdfkkq"]
 
-[ext_resource type="Script" uid="uid://depkjav3oges7" path="res://skriptit/teleport_menu.gd" id="1_1ysre"]
+[ext_resource type="Script" uid="uid://djrufeq180jwo" path="res://skriptit/teleport_menu.gd" id="1_1ysre"]
 
 [node name="TeleportMenu" type="Control"]
 custom_minimum_size = Vector2(200, 350)

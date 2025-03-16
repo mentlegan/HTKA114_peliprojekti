@@ -1,17 +1,27 @@
+@tool
 extends Perhonen
 class_name PerhonenKuljettava
 ## Kuljettava perhonen
 ## Nykyinen toteutus:
 ## Pelaajan tulee painaa F perhosen valon alueella, jotta hyppää kyytiin
 ## Pois pääsee samalla näppäimellä
-## Juuso 13.2.2025
+## Juuso 16.3.2025
 
 ## Kuljettavan perhosen eri luokat, saa nähdä tuleeko enempää
 enum Luokka {
 	NORMAALI, ## Liikkuu jatkuvasti riippumatta onko kyydissä
 	ODOTTAVA, ## Odottaa pelaajan hyppäämistä kyytiin ennen kuin liikkuu
 }
-@export var luokka: Luokka = Luokka.NORMAALI
+
+## Setteri export muuttujalle, päivittää nyt heti labelin tekstin editorissa
+@export var luokka: Luokka = Luokka.NORMAALI:
+	set(value):
+		luokka = value
+		if not Engine.is_editor_hint():
+			return
+		if not is_inside_tree():
+			await self.ready
+		paivita_label_text()
 
 ## Testausta varten luokka näkymään perhosen päällä
 @onready var label_luokka: Label = $LabelLuokka
@@ -21,9 +31,16 @@ var pelaaja: Pelaaja
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	super._ready()
-	label_luokka.text = str(Luokka.find_key(luokka)).to_pascal_case()
+	paivita_label_text()
 	#self.z_index = -1 ## Pelaaja perhosen eteen
+
+
+func paivita_label_text() -> void:
+	label_luokka.text = str(Luokka.find_key(luokka)).to_pascal_case()
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -64,6 +81,9 @@ func laske_etaisyys(delta: float) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	if luokka == Luokka.NORMAALI:
 		# Itsensä liikuttaminen
 		super._physics_process(delta)

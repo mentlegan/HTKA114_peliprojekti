@@ -10,9 +10,11 @@ colors = PackedColorArray(0.952941, 0, 0.976471, 0.415686, 0.654902, 0, 0.670588
 
 [node name="PerhospesaAnsa" type="Node2D"]
 script = ExtResource("1_movxk")
+nykyinen_lifetime = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(6, 17)
+position = Vector2(-2.38419e-07, -3)
+scale = Vector2(16, 28.5)
 texture = SubResource("PlaceholderTexture2D_7eygo")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -20,19 +22,19 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(35, -77, 27, -41, 14, -15, 7, -5, -4, -4, -17, -22, -26, -44, -40, -78, -37, -109, -7, -117, 11, -117, 30, -108)
+polygon = PackedVector2Array(40, -77, 27, -41, 14, -15, 4, -4, -4, -4, -14, -15, -27, -41, -40, -78, -32, -116.21, -7, -124.21, 7, -124.21, 32, -115.21)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 150
 lifetime = 3.2
 explosiveness = 0.1
 direction = Vector2(0, -1)
-spread = 30.0
+spread = 27.5
 gravity = Vector2(0, 0)
 initial_velocity_min = 30.0
 initial_velocity_max = 40.0
-orbit_velocity_min = -0.02
-orbit_velocity_max = 0.02
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
 scale_amount_min = 4.5
 scale_amount_max = 5.5
 color_ramp = SubResource("Gradient_61mhm")

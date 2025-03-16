@@ -358,10 +358,11 @@ func respawn():
 				child.stop()
 	# Perhospesän perhosten ja ansojen ajoitusten korjaaminen
 	# TODO: TÄTÄKÄÄN EI EHKÄ TARVITSE
-	korjaa_perhospesa_ajoitukset()
+	#korjaa_perhospesa_ajoitukset()
 	
 	get_tree().paused = false
 	teleporttaa_pelaaja(maailma.pelaaja_aloitus)
+	maailma.pelaaja.velocity = Vector2.ZERO
 
 
 func korjaa_perhospesa_ajoitukset():
@@ -373,7 +374,7 @@ func korjaa_perhospesa_ajoitukset():
 		#if child is PerhonenKuljettava:
 			#child.global_position = child.aloituspiste
 	# TODO: ehkä healaavat, jos ovat mukana ajoituspuzzleissa
-	for child in maailma.get_node("Taso2/AnsatTaso2").get_children():
+	for child in maailma.get_node("Taso2/%AnsatTaso2").get_children():
 		if child is Ansa:
 			child.aloita_sykli()
 
