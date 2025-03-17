@@ -21,6 +21,7 @@ var kuoltiinko_viholliseen
 ## Taulukko tooltipeille
 @onready var tooltip_node = get_node("/root/Maailma/Tooltipit")
 var tooltipit = Array()
+var on_release_hyppy = false
 
 ## Nykyinen aktivoitu cp ja pelaajan aloituspaikka
 var nykyinen_cp: Checkpoint = null

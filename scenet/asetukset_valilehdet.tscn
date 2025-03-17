@@ -24,10 +24,9 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -126,6 +125,7 @@ button_pressed = true
 
 [node name="Graphics" type="TabBar" parent="TabContainer"]
 auto_translate_mode = 1
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -290,10 +290,19 @@ popup/item_2/id = 2
 popup/item_3/text = "Ultra Hard"
 popup/item_3/id = 3
 
-[node name="Label2" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
+[node name="accessibility_hyppy_vapautuksella" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
-text = "Accessibility2"
+tooltip_text = "Toggled off (default): jump happens as soon as the input is given.
+Toggled on: jump happens as soon as the input is released."
+mouse_filter = 0
+text = "Jump on release"
+
+[node name="saavutettavuus_hyppy" type="CheckButton" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer/accessibility_hyppy_vapautuksella"]
+layout_mode = 0
+offset_left = 180.0
+offset_right = 224.0
+offset_bottom = 24.0
 
 [node name="Label3" type="Label" parent="TabContainer/Accessibility/MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
@@ -312,3 +321,4 @@ text = "Accessibility4"
 [connection signal="toggled" from="TabContainer/Sound/MarginContainer/VBoxContainer/sound_tausta/tausta_mute" to="." method="_on_tausta_mute_toggled"]
 [connection signal="toggled" from="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer/graphics_taustaelementit/tausta_nappi" to="." method="_on_tausta_nappi_toggled"]
 [connection signal="pressed" from="TabContainer/Controls/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="toggled" from="TabContainer/Accessibility/MarginContainer/VBoxContainer/accessibility_hyppy_vapautuksella/saavutettavuus_hyppy" to="." method="_on_saavutettavuus_hyppy_toggled"]

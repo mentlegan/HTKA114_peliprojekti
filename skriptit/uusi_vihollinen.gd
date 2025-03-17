@@ -7,7 +7,6 @@
 ## Tappaa pelaajan hänen ollessaan alueella liian kauan
 ## Vaihtaa alueesta toiseen, kun valonlähde osuu siihen, tai spontaanisti patrollata
 ## Äännähdellä, kun siltä tuntuu
-## TODO: voisi koittaa kehittää eteenpäin vaikkapa vielä useammalle alueelle, tai tehdä alueesta uusi scenensä
 ## TODO: alueen vaihto valossa vähän kankea vielä, voisi koittaa viilata
 extends Node2D
 class_name uusiVihollinen

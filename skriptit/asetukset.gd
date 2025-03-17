@@ -228,3 +228,11 @@ func on_difficulty_mode_item_selected(index: int) -> void:
 			Globaali.maailma.vaikeusaste = 3
 			print("Vaikeusaste Ultra Hard valittu")
 	Globaali.paivita_vaikeusaste()
+
+
+## On-release hypyn napin toiminta
+func _on_saavutettavuus_hyppy_toggled(button_pressed):
+	if button_pressed == true:
+		Globaali.maailma.on_release_hyppy = true
+	else:
+		Globaali.maailma.on_release_hyppy = false

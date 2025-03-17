@@ -850,29 +850,56 @@ func _physics_process(delta):
 	
 	# Tehdään hyppy
 	# PC SPACE_BAR
-	if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and oli_maassa and hyppyjen_maara < 1 and not vedessa:
-		hyppyjen_maara += 1
-		velocity.y = JUOKSU_HYPPY_KORKEUS
-		if is_on_floor():
-			velocity.x = JUOKSU_HYPPY_NOPEUS * velocity.x
-		animaatio.scale = Vector2(0.9, 1.1)
-		audio_hyppy.play()
-	elif Input.is_action_just_pressed("hyppaa") and oli_maassa and hyppyjen_maara < 1 and not vedessa:
-		hyppyjen_maara += 1
-		velocity.y = HYPPY_VELOCITY
-		animaatio.scale = Vector2(0.9, 1.1)
-		audio_hyppy.play()
-	elif oli_seinalla and Input.is_action_just_pressed("hyppaa") and not vedessa:
-		hyppyjen_maara = 0
-		velocity.y = SEINA_HYPPY_KORKEUS
-		animaatio.scale = Vector2(0.9, 1.1)
-		audio_seinahyppy.pitch_scale = randf_range(0.96, 1.04)
-		audio_seinahyppy.play()
-		if velocity.x == 0:
-			if animaatio.is_flipped_h():
-				velocity.x = SEINA_HYPPY
-			else:
-				velocity.x = -SEINA_HYPPY
+	if Globaali.maailma.on_release_hyppy == false:
+		if Input.is_action_just_pressed("hyppaa") and Input.is_action_pressed("juoksu") and oli_maassa and hyppyjen_maara < 1 and not vedessa:
+			hyppyjen_maara += 1
+			velocity.y = JUOKSU_HYPPY_KORKEUS
+			if is_on_floor():
+				velocity.x = JUOKSU_HYPPY_NOPEUS * velocity.x
+			animaatio.scale = Vector2(0.9, 1.1)
+			audio_hyppy.play()
+		elif Input.is_action_just_pressed("hyppaa") and oli_maassa and hyppyjen_maara < 1 and not vedessa:
+			hyppyjen_maara += 1
+			velocity.y = HYPPY_VELOCITY
+			animaatio.scale = Vector2(0.9, 1.1)
+			audio_hyppy.play()
+		elif oli_seinalla and Input.is_action_just_pressed("hyppaa") and not vedessa:
+			hyppyjen_maara = 0
+			velocity.y = SEINA_HYPPY_KORKEUS
+			animaatio.scale = Vector2(0.9, 1.1)
+			audio_seinahyppy.pitch_scale = randf_range(0.96, 1.04)
+			audio_seinahyppy.play()
+			if velocity.x == 0:
+				if animaatio.is_flipped_h():
+					velocity.x = SEINA_HYPPY
+				else:
+					velocity.x = -SEINA_HYPPY
+	
+	# Tehdään hyppy uudelleen on-release kontrolli hypylle
+	if Globaali.maailma.on_release_hyppy == true:
+		if Input.is_action_just_released("hyppaa") and Input.is_action_pressed("juoksu") and oli_maassa and hyppyjen_maara < 1 and not vedessa:
+			hyppyjen_maara += 1
+			velocity.y = JUOKSU_HYPPY_KORKEUS
+			if is_on_floor():
+				velocity.x = JUOKSU_HYPPY_NOPEUS * velocity.x
+			animaatio.scale = Vector2(0.9, 1.1)
+			audio_hyppy.play()
+		elif Input.is_action_just_released("hyppaa") and oli_maassa and hyppyjen_maara < 1 and not vedessa:
+			hyppyjen_maara += 1
+			velocity.y = HYPPY_VELOCITY
+			animaatio.scale = Vector2(0.9, 1.1)
+			audio_hyppy.play()
+		elif oli_seinalla and Input.is_action_just_released("hyppaa") and not vedessa:
+			hyppyjen_maara = 0
+			velocity.y = SEINA_HYPPY_KORKEUS
+			animaatio.scale = Vector2(0.9, 1.1)
+			audio_seinahyppy.pitch_scale = randf_range(0.96, 1.04)
+			audio_seinahyppy.play()
+			if velocity.x == 0:
+				if animaatio.is_flipped_h():
+					velocity.x = SEINA_HYPPY
+				else:
+					velocity.x = -SEINA_HYPPY
 	
 	animaatio.scale.x = move_toward(animaatio.scale.x, 1, 0.5 * delta)
 	animaatio.scale.y = move_toward(animaatio.scale.y, 1, 0.5 * delta)
