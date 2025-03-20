@@ -11,28 +11,17 @@ layout_mode = 0
 offset_left = 50.0
 offset_top = 80.0
 offset_right = 465.0
-offset_bottom = 210.0
+offset_bottom = 276.0
 theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
 bbcode_enabled = true
-text = "I am unable to progress any further with the vines blocking my way. There must be [outline_size=4][outline_color=black][color=white]more[/color][/outline_color][/outline_size] vines somewhere. Using my flute to [outline_size=4][outline_color=darkgreen][color=white]resonate[/color][/outline_color][/outline_size] with the [outline_size=4][outline_color=darkgreen][color=white]vines[/color][/outline_color][/outline_size] confirmed my suspicions. There is indeed a [outline_size=4][outline_color=black][color=white]second passage[/color][/outline_color][/outline_size] that is connected with this one. It contains the last color of flowers needed to clear the way, but the narrow passage is blocked by more vines. There must be [outline_size=4][outline_color=black][color=white]another entrance...[/color][/outline_color][/outline_size]"
+text = "My path is blocked. The cursed vines bar my way, and without the final color of flowers, I cannot proceed. Yet my flute has confirmed what I suspected. By observing the vibrations I managed to uncover the existence of a second passage connected to this one. If I am to move forward, I must find another way inside.
+
+The old minecarts and rail tracks leave no doubt. This cavern was once a mine, long since abandoned. But the rails have stood the test of time and appear sturdy still.
+
+If my memory serves me right, I recall seeing the other end of these tracks by the water stream near my camp. A minecart should hasten my return and, perhaps, lead me to another entrance. "
 autowrap_mode = 2
 
-[node name="Label3" type="RichTextLabel" parent="." index="2"]
-auto_translate_mode = 1
-layout_mode = 0
-offset_left = 50.0
-offset_top = 188.0
-offset_right = 465.0
-offset_bottom = 318.0
-theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
-bbcode_enabled = true
-text = "The minecarts here makes it obvious that this cave system used to be a mine. Long since abandoned. The tracks here have stood the test of time rather well and appear to be safe to use.  
- 
-If my memory serves me right, I remember seeing the other end of this railroad near my camp. [outline_size=4][outline_color=black][color=white]I should use this minecart[/color][/outline_color][/outline_size] to return there and find another way to the other side. 
-"
-autowrap_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="." index="3"]
+[node name="TextureRect" type="TextureRect" parent="." index="2"]
 layout_mode = 0
 offset_left = 161.0
 offset_top = 52.0

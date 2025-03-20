@@ -29,10 +29,24 @@ offset_right = 465.0
 offset_bottom = 210.0
 theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
 bbcode_enabled = true
-text = "Another dangerous discovery. Some of the mushrooms look to be corrupted by the foul nature of this darkness. Spores from them cause intense irritation and pain in my airways when inhaled. I cannot linger around these parts for too long. I need to dash pass the [outline_size=4][outline_color=darkyellow][color=white]poisonous mushrooms[/color][/outline_color][/outline_size] swiftly."
+text = "Another perilous discovery- some of the mushrooms here are tainted, corrupted by the foul essence of this darkness. Their spores burn my lungs like hot ash when inhaled.
+
+I must not linger. I must move swiftly past these toxic shrooms."
 autowrap_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
-position = Vector2(239, 236)
+[node name="Label3" type="RichTextLabel" parent="." index="2"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 194.0
+offset_top = 80.0
+offset_right = 230.0
+offset_bottom = 103.0
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
+bbcode_enabled = true
+text = "-"
+autowrap_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(245, 219)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_pimif")

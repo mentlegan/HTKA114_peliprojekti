@@ -28,16 +28,26 @@ offset_top = 80.0
 offset_right = 465.0
 offset_bottom = 210.0
 theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
-text = "I have come to the conclusion that these butterflies inside this have gained the ability to emit light by ingesting the luminescent pollen from the flowers. Most fascinating indeed. Maybe this discovery will aid in uncovering the secret behind the dense darkness of this mine. 
+text = "I have come to a conclusion- these butterflies have adapted to the cavern's unnatural darkness by consuming the luminescent pollen. A fascinating phenomenon. Perhaps this discovery will help unravel the mystery behind this darkness.
 
-
-As I lay down for the night one final thought crossed my mind. If those blue creatures really are butterflies, where do they come from? 
-"
+But one thought lingers in my mind as I lay down to rest:
+If these creatures are truly butterflies... then where do they come from?"
 autowrap_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+[node name="Label3" type="RichTextLabel" parent="." index="2"]
+auto_translate_mode = 1
+layout_mode = 0
+offset_left = 203.0
+offset_top = 80.0
+offset_right = 227.0
+offset_bottom = 100.0
+theme_override_colors/default_color = Color(0.180392, 0.12549, 0.0823529, 1)
+text = "-"
+autowrap_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
 modulate = Color(0.383236, 0.270885, 0.136048, 1)
 self_modulate = Color(1, 1, 1, 0.654902)
-position = Vector2(246, 308)
+position = Vector2(247, 270)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nlclw")

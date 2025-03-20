@@ -13,12 +13,17 @@ offset_left = 500.0
 offset_top = 54.0
 offset_right = 908.0
 offset_bottom = 352.0
-text = "This must be the massive cave system the legends speak of. It's been over three moons since I have set out on this journey to find these fabled depths and it seems I have finally found them. 
+text = "At last, I have found it!
 
-I heard from the old mercenary Grimnir, that deep beneath the mines of this mountain lies still countless gold veins, thick as a dragon's tail and lustrous gemstones shining in colors no dwarf has ever seen before. I asked him why all this treasure has been left unclaimed if it is as grand as the stories tell. The greedy smirk from Grimnirs eyes quickly turned into a serious stare as he told that \"something foul guards the depths. As if the darkness itself was alive. To go there would be a fool's errand\" 
+This must be the fabled cave system of legend! It has been more than three moons since I set out on this journey, seeking the depths spoken of in old tales, and now, at long last, I stand at its threshold.
 
-I think his age has gotten the better of him. What kind of a dwarf is afraid of the dark? 
-If there really is only darkness between me and the gold, then that gold is as good as mine. Time to head inside and set up a camp for the night. Perhaps I will even seal the entrance with some planks in case someone is trying to follow me and steal my riches. "
+The old mercenary Grimnir spoke of riches beyond measure buried deep beneath this mountain. Gold veins thick as a dragon's tail and gemstones that shine in hues no dwarf has ever laid eyes upon. I asked him why such treasures remain unclaimed if they are truly as grand as the stories say. His greedy smirk faded, and his eyes grew dark with warning.
+
+\"Something foul guards the depths,\" he said. \"As if the darkness itself were alive. To venture there is folly, a death sentence for any who dare.\"
+Bah! The old fool lets age gnaw at his courage. What kind of dwarf fears the dark? If nothing but shadows stand between me and gold, then that gold is as good as mine.
+
+It is time to head inside and set up camp for the night. Perhaps I shall seal the entrance with planks. Just in case some sneaky thief seeks to follow and steal my riches. 
+"
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="." index="2"]
