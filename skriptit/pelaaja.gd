@@ -1,6 +1,5 @@
+## Harri 24.3.2025 - Korjattu pelin kaatava vaikeusasteen vaihto ja vaikeusasteen vaihdosta syntynyt hp:n täyttävä exploit
 ## Juuso 30.8.2024 - Transitioon teleportin sijainti
-## Harri 26.11.2024 - Pelaajalle oma hapenoton tarkistin vedessä mm. happikukkia varten
-## Juuso 10.4.2024
 ## Paavo 17.3.2024
 ## Elias 17.3.2024 - Pelaajan äänet
 ## TODO: pelaajan hyppy- ja juoksuanimaatiot
@@ -190,7 +189,7 @@ var elamat_regen_nopeus = 8
 ## Kuinka paljon elamia pelaaja saa takaisin
 var elamat_regen_maara = 1
 ## Vaikeusasteen vaihdon olisi syytä muistaa pelaajan elämänpisteet ennen vaihtoa
-var pelaajan_muisti_hp
+var pelaajan_muisti_hp = 5 # Vakiona 5, koska vakio maksimi hp on 5
 
 ## Pelaajan happitason asiat
 var pelaajan_happi_max = 10
@@ -1282,14 +1281,16 @@ func _on_keho_area_entered(area):
 ## Funktio, jolla käsitellään vaikeusasteen muuttumista pelaajan statteihin
 ## Käsittelee lähinnä Ultra Hard-vaikeusastetta
 func paivita_vaikeusaste():
+	if pelaajan_muisti_hp <= pelaajan_elamat_max: # Jos aiemmin otettu (vakio 5 pelin alussa) muisti hp on pienempi tai yhtäsuuri kuin max hp..
+		pelaajan_muisti_hp = pelaajan_elamat # .. tallennetaan pelaajan nykyiset elämänpisteet muistiin
 	if Globaali.maailma.vaikeusaste == 3: # Ultra hard
-		pelaajan_muisti_hp = pelaajan_elamat # Tallennetaan pelaajan nykyiset elämänpisteet
-		pelaajan_elamat_max = 1 # Asetetaan pelaajan max-elämät yhteen
-		pelaajan_elamat = 1 # Ja remaining hp myös
+		pelaajan_elamat_max = 1 # Asetetaan pelaajan max-elämät yhteen..
+		pelaajan_elamat = 1 # .. ja jäljellä oleva hp myös
 		ajastin_pimeassa.wait_time = 1 # Pelaaja voi olla pimeässä vain sekunnin
 	else:  # Muut vaikeusasteet
 		pelaajan_elamat_max = 5 # Pelaajan max hp takaisin vakioon 5
-		pelaajan_elamat = pelaajan_muisti_hp # Otetaan ennen vaihtoa asetettu elämänpistelukema takaisin
 		ajastin_pimeassa.wait_time = 20 # Vaihdetaan pimeässäoloaika takaisin vakioon 20 sekuntia
+		if pelaajan_muisti_hp <= pelaajan_elamat_max: # Tarkistetaan, taas, että jos muisti hp ylittää maksimin
+			pelaajan_elamat = pelaajan_muisti_hp # Otetaan ennen vaihtoa asetettu elämänpistelukema takaisin
 	happi_mittari_paivita() # Päivitetään happimittaria oikeaan lukemaan..
 	elamat_label_paivita() # .. ja samoin hp-mittari
