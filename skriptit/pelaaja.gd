@@ -629,6 +629,8 @@ func meneta_elamia(maara, damage_type):
 		if vedessa:
 			kuolema_vedessa()
 		else:
+			# TODO: täältä tulee printti kuolemiselle fall damageen 
+			# vaikka kuolee esim. piikkiin
 			kuolema_fall_damageen()
 	elamat_label_paivita()
 
@@ -655,6 +657,7 @@ func myrkkyalue_timer():
 	if myrkkyalue_ajastin.time_left == 0:
 		myrkkyalueen_damage()
 		myrkkyalue_ajastin.start(myrkkyalueen_damage_nopeus)
+
 
 ## Vaihdetaan kameran tärinän arvoa
 func elamamittari_tarina():
@@ -1093,7 +1096,7 @@ func _physics_process(delta):
 					perhosen_selassa = false
 					alue.pelaaja = null
 					# Hyppy poistuessa on tarpeen
-					self.velocity.y = HYPPY_VELOCITY
+					self.velocity.y = HYPPY_VELOCITY# - 100? TODO: ehkä miinusta
 					# Onko tarpeellinen tai edes hyvä?
 					self.velocity.x = -250 if animaatio.is_flipped_h() else 250
 				else:

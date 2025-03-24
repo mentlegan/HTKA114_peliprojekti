@@ -54,7 +54,7 @@ class_name Ansa
 	set(value):
 		nykyinen_lifetime = value
 
-var oletus_lifetime: float = 3.2
+var oletus_lifetime: float = 3.3
 
 @onready var collision_p2d: CollisionPolygon2D = $Area2D/CollisionPolygon2D
 @onready var cpu_p2d: CPUParticles2D = $CPUParticles2D
