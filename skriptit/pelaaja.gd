@@ -509,7 +509,7 @@ func siirrytty_valoon():
 
 ## Toistaa pimeäkuoleman äänen kun oltu pimeässä 12 sekuntia.
 ## Pimeyskuoleman indikaattorin käsittelyä
-func pimeaKuoleminen():
+func pimea_kuoleminen():
 	audio_pimeyskuolema.play()
 	pimeyskuolema.play("PimeysKuolema")
 	kuolema_aloita_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
