@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpbhfckag1qrt"]
+
+[ext_resource type="Script" uid="uid://b8vrgrs8hcuqm" path="res://skriptit/polunetsija.gd" id="1_aniyj"]
+
+[node name="Polunetsija" type="NavigationAgent2D"]
+script = ExtResource("1_aniyj")

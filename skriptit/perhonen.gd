@@ -11,6 +11,10 @@ var path_follow_2d: PathFollow2D = PathFollow2D.new()
 ## Perhosen äänet
 @onready var audio_perhonen = $AudioPerhonen
 @onready var aanen_ajastin = Timer.new()
+# Perhosen mahdollinen polunetsijä
+@onready var polunetsija = null
+# Liikkumiseen käytettävä callable
+var liikkumis_callable = null
 ## Perhosen nopeus
 @export var nopeus: int = 80
 ## Perhosen edeltävän framen x-koordinaatti
@@ -31,11 +35,13 @@ func _ready():
 	aanen_ajastin.timeout.connect(on_aanen_ajastin_timeout)
 	aanen_ajastin.start()
 	
-	# Etsitään perhosen path2d lapsi-nodeista, jos sellainen on olemassa
+	# Etsitään perhosen path2d ja polunetsijä lapsi-nodeista, jos jompikumpi on
+	# olemassa
 	for lapsi in self.get_children():
 		if lapsi is Path2D:
 			path2d = lapsi
-			break
+		if lapsi is Polunetsija:
+			polunetsija = lapsi
 	
 	# Lisätään Path2D:n lapseksi PathFollow2D ja muokataan aloituspistettä
 	if path2d:
@@ -46,6 +52,13 @@ func _ready():
 		var curve2d: Curve2D = path2d.get_curve()
 		if curve2d:
 			reitin_pituus = max(1, curve2d.get_baked_length())
+		
+		# Asetetaan liikkumiseen käytettävä callable oikein
+		liikkumis_callable = Callable(self, "path2d_liikkuminen")
+	elif polunetsija:
+		# Jos lapsena on Path2D:n sijaan Polunetsija, käytetään sen funktiota
+		# liikkumiseen
+		liikkumis_callable = Callable(polunetsija, "liikuta_vanhempaa")
 
 
 ## Kutsutaan, kun aanen_ajastin aika menee loppuun
@@ -59,11 +72,8 @@ func laske_etaisyys(delta: float) -> void:
 	etaisyys += (delta * nopeus) / reitin_pituus
 
 
-## Kutsutaan joka framella
-func _physics_process(delta: float) -> void:
-	if not path2d:
-		return
-	
+## Liikkuu lapsena olevan Path2D-noden reitillä
+func path2d_liikkuminen(delta):
 	laske_etaisyys(delta)
 	# Kuljetetaan pathfollow2d-nodea reitillä eteenpäin
 	path_follow_2d.set_progress_ratio(etaisyys)
@@ -77,3 +87,10 @@ func _physics_process(delta: float) -> void:
 	# Siirretään perhonen pathfollow2d:n koordinaatteihin
 	self.global_position.x = aloituspiste.x + path_follow_2d.position.x
 	self.global_position.y = aloituspiste.y + path_follow_2d.position.y
+
+
+## Kutsutaan joka framella
+func _physics_process(delta: float) -> void:
+	# Liikutaan callablen avulla
+	if liikkumis_callable:
+		liikkumis_callable.call(delta)
