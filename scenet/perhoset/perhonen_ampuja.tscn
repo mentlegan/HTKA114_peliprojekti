@@ -1,40 +1,40 @@
-[gd_scene load_steps=19 format=3 uid="uid://obqvnkpuuwsr"]
+[gd_scene load_steps=19 format=3 uid="uid://cyvd1gymux02q"]
 
-[ext_resource type="Script" uid="uid://phryeo7e3b5g" path="res://skriptit/perhonen_heal.gd" id="1_msgqj"]
-[ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_c16tm"]
-[ext_resource type="PackedScene" uid="uid://cuqdj17cc88da" path="res://scenet/timer_heal.tscn" id="2_j3obx"]
-[ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="3_ep2gf"]
-[ext_resource type="AudioStream" uid="uid://bfr4grh6qj5du" path="res://audio/perhonen/perhonen1.mp3" id="4_t4uww"]
-[ext_resource type="AudioStream" uid="uid://x2mmbtmrqxcr" path="res://audio/perhonen/perhonen2.mp3" id="5_qf72o"]
-[ext_resource type="AudioStream" uid="uid://0txejdo8gb6i" path="res://audio/perhonen/perhonen3.mp3" id="6_othpa"]
-[ext_resource type="AudioStream" uid="uid://btbls6cmcjen8" path="res://audio/perhonen/perhonen4.mp3" id="7_vfe8a"]
+[ext_resource type="Script" uid="uid://mssknw6bcn05" path="res://skriptit/perhonen_ampuja.gd" id="1_swbjk"]
+[ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_fyinl"]
+[ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="3_koebx"]
+[ext_resource type="AudioStream" uid="uid://bfr4grh6qj5du" path="res://audio/perhonen/perhonen1.mp3" id="4_qhorh"]
+[ext_resource type="AudioStream" uid="uid://x2mmbtmrqxcr" path="res://audio/perhonen/perhonen2.mp3" id="5_q8cwp"]
+[ext_resource type="AudioStream" uid="uid://0txejdo8gb6i" path="res://audio/perhonen/perhonen3.mp3" id="6_tcgur"]
+[ext_resource type="AudioStream" uid="uid://btbls6cmcjen8" path="res://audio/perhonen/perhonen4.mp3" id="7_7fd03"]
+[ext_resource type="PackedScene" uid="uid://cpbhfckag1qrt" path="res://scenet/polunetsija.tscn" id="8_fyinl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8nepe"]
-atlas = ExtResource("3_ep2gf")
+atlas = ExtResource("3_koebx")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xg7v4"]
-atlas = ExtResource("3_ep2gf")
+atlas = ExtResource("3_koebx")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y36mp"]
-atlas = ExtResource("3_ep2gf")
+atlas = ExtResource("3_koebx")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6athy"]
-atlas = ExtResource("3_ep2gf")
+atlas = ExtResource("3_koebx")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppeqm"]
-atlas = ExtResource("3_ep2gf")
+atlas = ExtResource("3_koebx")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21mb1"]
-atlas = ExtResource("3_ep2gf")
+atlas = ExtResource("3_koebx")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xhk86"]
-atlas = ExtResource("3_ep2gf")
+atlas = ExtResource("3_koebx")
 region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nepos"]
@@ -67,32 +67,28 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2q18j"]
-radius = 64.0312
+radius = 217.037
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7x1qg"]
 random_volume_offset_db = 1.0
 streams_count = 4
-stream_0/stream = ExtResource("4_t4uww")
-stream_1/stream = ExtResource("5_qf72o")
-stream_2/stream = ExtResource("6_othpa")
-stream_3/stream = ExtResource("7_vfe8a")
+stream_0/stream = ExtResource("4_qhorh")
+stream_1/stream = ExtResource("5_q8cwp")
+stream_2/stream = ExtResource("6_tcgur")
+stream_3/stream = ExtResource("7_7fd03")
 
-[node name="PerhonenHeal" type="Area2D" groups=["valonlahde"]]
-collision_layer = 4
+[node name="PerhonenAmpuja" type="Area2D" groups=["valonlahde"]]
+collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_msgqj")
-timer_heal_node = ExtResource("2_j3obx")
-nopeus = 50
+script = ExtResource("1_swbjk")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 blend_mode = 2
 range_item_cull_mask = 3
 shadow_enabled = true
-texture = ExtResource("2_c16tm")
-texture_scale = 1.4
+texture = ExtResource("2_fyinl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.435501, 0.686193, 0, 1)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nepos")
 frame_progress = 0.153834
@@ -106,5 +102,10 @@ volume_db = -2.0
 max_distance = 500.0
 bus = &"Kaiku"
 
+[node name="Polunetsija" parent="." instance=ExtResource("8_fyinl")]
+
+[node name="KohteenAsetusTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="KohteenAsetusTimer" to="." method="_on_kohteen_asetus_timer_timeout"]

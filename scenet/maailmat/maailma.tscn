@@ -36,11 +36,11 @@
 [ext_resource type="PackedScene" uid="uid://obqvnkpuuwsr" path="res://scenet/perhoset/perhonen_heal.tscn" id="16_woq5y"]
 [ext_resource type="PackedScene" uid="uid://ircp8yyh6jwk" path="res://scenet/kayttoliittyma/sivun_4_sisalto.tscn" id="17_ik3il"]
 [ext_resource type="PackedScene" uid="uid://btftvhvo3kynj" path="res://scenet/perhoset/perhonen_kuljettava.tscn" id="17_jwryh"]
-[ext_resource type="PackedScene" uid="uid://cpbhfckag1qrt" path="res://scenet/polunetsija.tscn" id="17_twhf6"]
 [ext_resource type="PackedScene" uid="uid://dlips1u0ijn1u" path="res://scenet/kayttoliittyma/sivun_5_sisalto.tscn" id="18_yghk6"]
 [ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://scenet/kayttoliittyma/tooltip_liiku.tscn" id="18_yqpof"]
 [ext_resource type="PackedScene" uid="uid://chjelmcay2ys" path="res://scenet/kayttoliittyma/sivun_6_sisalto.tscn" id="19_fwfgn"]
 [ext_resource type="PackedScene" uid="uid://htoyrgaml8l2" path="res://scenet/kayttoliittyma/tooltip_juokse.tscn" id="19_ng21i"]
+[ext_resource type="PackedScene" uid="uid://cyvd1gymux02q" path="res://scenet/perhoset/perhonen_ampuja.tscn" id="19_twhf6"]
 [ext_resource type="PackedScene" uid="uid://bpyv3d1bn2rux" path="res://scenet/kayttoliittyma/sivun_7_sisalto.tscn" id="20_7w6it"]
 [ext_resource type="PackedScene" uid="uid://bjnux2y7mk47q" path="res://scenet/ovet/ovi_oikea_x.tscn" id="20_155o0"]
 [ext_resource type="PackedScene" uid="uid://bax24qtm08gy2" path="res://scenet/kayttoliittyma/sivun_8_sisalto.tscn" id="21_ebb8q"]
@@ -162,9 +162,9 @@ animations = [{
 }]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_twhf6"]
-vertices = PackedVector2Array(10089.9, 515.109, 10134.1, 701.797, 10042.9, 693.656, 10013.8, 583.203, 9790.62, 480.18, 9842.52, 578.75, 9783.36, 699.109, 9836.46, 694.742)
+vertices = PackedVector2Array(10082.9, 475.578, 10133.3, 701.148, 10030.7, 694.469, 10002.6, 594.227, 9694.56, 454.531, 9856.67, 589.711, 9684.43, 694, 9849.65, 694)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 4, 5, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(10147, 713, 10098, 506, 9781, 469, 9773, 710, 9846, 704, 9852, 589, 10006, 593, 10035, 703)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(9859, 704, 9866, 600, 9995, 604, 10023, 704, 10146, 712, 10091, 466, 9685, 444, 9674, 704)])
 
 [sub_resource type="Curve2D" id="Curve2D_fl3c8"]
 _data = {
@@ -775,14 +775,11 @@ position = Vector2(-3.70512, 3.06898)
 scale = Vector2(1.02017, 1.18384)
 curve = SubResource("Curve2D_ehsi5")
 
-[node name="Perhonen4" parent="Perhoset" instance=ExtResource("13_ufso7")]
-position = Vector2(10070.1, 666.376)
+[node name="PerhonenAmpuja" parent="Perhoset" instance=ExtResource("19_twhf6")]
+position = Vector2(9786.15, 643.998)
 
-[node name="Polunetsija" parent="Perhoset/Perhonen4" instance=ExtResource("17_twhf6")]
-
-[node name="Marker2D" type="Marker2D" parent="Perhoset/Perhonen4/Polunetsija"]
-position = Vector2(9823, 669)
-gizmo_extents = 37.0
+[node name="Marker2D" type="Marker2D" parent="Perhoset/PerhonenAmpuja"]
+position = Vector2(327.921, 59.4355)
 
 [node name="Kukat" type="Node2D" parent="."]
 unique_name_in_owner = true
