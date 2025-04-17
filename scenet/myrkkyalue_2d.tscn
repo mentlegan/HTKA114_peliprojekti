@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ciaug8px7wrrg"]
 
 [ext_resource type="Script" uid="uid://cm4rpub0rrfby" path="res://skriptit/myrkkyalue_2d.gd" id="1_yipa4"]
-[ext_resource type="AudioStream" uid="uid://cdxdkyg3ojgu4" path="res://audio/vesi/myrkkyvesi.mp3" id="3_htm36"]
+[ext_resource type="AudioStream" uid="uid://coq4j3nnheowo" path="res://audio/vesi/myrkkyvesi.mp3" id="3_htm36"]
 
 [node name="Myrkkyalue2D" type="Area2D"]
 modulate = Color(0.268111, 0.469524, 0.162197, 1)

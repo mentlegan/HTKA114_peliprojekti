@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ircp8yyh6jwk"]
 
 [ext_resource type="PackedScene" uid="uid://gwu1iltp7oef" path="res://scenet/kayttoliittyma/sivun_sisalto.tscn" id="1_5cbue"]
-[ext_resource type="Texture2D" uid="uid://by71kfvfbhkcn" path="res://grafiikka/CheckpointDrawing.png" id="2_hwace"]
-[ext_resource type="Texture2D" uid="uid://p06tiafmjd54" path="res://grafiikka/FluteDrawing.png" id="3_pifes"]
+[ext_resource type="Texture2D" uid="uid://q82d3vp4ugy6" path="res://grafiikka/CheckpointDrawing.png" id="2_hwace"]
+[ext_resource type="Texture2D" uid="uid://bel4i140w6102" path="res://grafiikka/FluteDrawing.png" id="3_pifes"]
 
 [node name="SivunSisalto" instance=ExtResource("1_5cbue")]
 

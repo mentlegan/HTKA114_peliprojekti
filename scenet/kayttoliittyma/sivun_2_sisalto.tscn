@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://dblh5xu0yehdg"]
 
 [ext_resource type="PackedScene" uid="uid://gwu1iltp7oef" path="res://scenet/kayttoliittyma/sivun_sisalto.tscn" id="1_q2b2e"]
-[ext_resource type="Texture2D" uid="uid://2jmgfdyuvge7" path="res://grafiikka/LightFlowerDrawing.png" id="2_fiul2"]
-[ext_resource type="Texture2D" uid="uid://bwljr24dw2kng" path="res://grafiikka/VinesDrawing.png" id="3_vh4dj"]
-[ext_resource type="Texture2D" uid="uid://dffo43giprinx" path="res://grafiikka/BlueFlowerDrawing.png" id="4_jxq7q"]
-[ext_resource type="Texture2D" uid="uid://cbfwpg83011oa" path="res://grafiikka/PurpleFlowerDrawing.png" id="5_dpuby"]
-[ext_resource type="Texture2D" uid="uid://c1p75f3gc311i" path="res://grafiikka/RedFlowerDrawing.png" id="6_tcv1f"]
-[ext_resource type="Texture2D" uid="uid://dlij6ip0lq2nm" path="res://grafiikka/Arrow2.png" id="7_q7e0i"]
-[ext_resource type="Texture2D" uid="uid://tybefdmdsudb" path="res://grafiikka/Arrow1.png" id="8_fdak7"]
+[ext_resource type="Texture2D" uid="uid://m5mw2twgklh1" path="res://grafiikka/LightFlowerDrawing.png" id="2_fiul2"]
+[ext_resource type="Texture2D" uid="uid://3eatp3cuv7vw" path="res://grafiikka/VinesDrawing.png" id="3_vh4dj"]
+[ext_resource type="Texture2D" uid="uid://l806yfkld48a" path="res://grafiikka/BlueFlowerDrawing.png" id="4_jxq7q"]
+[ext_resource type="Texture2D" uid="uid://deahuohrwr1d" path="res://grafiikka/PurpleFlowerDrawing.png" id="5_dpuby"]
+[ext_resource type="Texture2D" uid="uid://deimjvjq65ywl" path="res://grafiikka/RedFlowerDrawing.png" id="6_tcv1f"]
+[ext_resource type="Texture2D" uid="uid://cpadd8midpmsp" path="res://grafiikka/Arrow2.png" id="7_q7e0i"]
+[ext_resource type="Texture2D" uid="uid://31mara3knmao" path="res://grafiikka/Arrow1.png" id="8_fdak7"]
 
 [node name="SivunSisalto" instance=ExtResource("1_q2b2e")]
 

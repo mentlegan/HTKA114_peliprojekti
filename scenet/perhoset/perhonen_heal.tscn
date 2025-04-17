@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_c16tm"]
 [ext_resource type="PackedScene" uid="uid://cuqdj17cc88da" path="res://scenet/timer_heal.tscn" id="2_j3obx"]
 [ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="3_ep2gf"]
-[ext_resource type="AudioStream" uid="uid://bfr4grh6qj5du" path="res://audio/perhonen/perhonen1.mp3" id="4_t4uww"]
-[ext_resource type="AudioStream" uid="uid://x2mmbtmrqxcr" path="res://audio/perhonen/perhonen2.mp3" id="5_qf72o"]
-[ext_resource type="AudioStream" uid="uid://0txejdo8gb6i" path="res://audio/perhonen/perhonen3.mp3" id="6_othpa"]
-[ext_resource type="AudioStream" uid="uid://btbls6cmcjen8" path="res://audio/perhonen/perhonen4.mp3" id="7_vfe8a"]
+[ext_resource type="AudioStream" uid="uid://b4jldo0r6uty7" path="res://audio/perhonen/perhonen1.mp3" id="4_t4uww"]
+[ext_resource type="AudioStream" uid="uid://2efjkipj8go2" path="res://audio/perhonen/perhonen2.mp3" id="5_qf72o"]
+[ext_resource type="AudioStream" uid="uid://bmqnkcv74u5o8" path="res://audio/perhonen/perhonen3.mp3" id="6_othpa"]
+[ext_resource type="AudioStream" uid="uid://byg8n78h5nxs3" path="res://audio/perhonen/perhonen4.mp3" id="7_vfe8a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8nepe"]
 atlas = ExtResource("3_ep2gf")
