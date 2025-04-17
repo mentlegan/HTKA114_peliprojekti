@@ -87,6 +87,7 @@ var valossa = false
 @onready var huilun_aanet = [
 	$HuiluAaniA,
 	$HuiluAaniE,
+	$HuiluAaniC
 ]
 
 ## Huilun partikkelit ja niiden säde
@@ -98,10 +99,11 @@ var nykyiset_tooltipit = []
 ## Äänen taajuus
 var aanen_taajuus = 1
 const AANEN_TAAJUUS_MIN = 1
-const AANEN_TAAJUUS_MAX = 2
+const AANEN_TAAJUUS_MAX = 3
 const AANEN_TAAJUUS_VARIT = [
 	Color.YELLOW,
-	Color.GREEN
+	Color.GREEN,
+	Color.BLUE
 ]
 
 ## UI:n ja kukan keräyksen animaatiota varten
@@ -1139,6 +1141,12 @@ func soita_huilua():
 
 	# Soitetaan huilun ääni
 	huilun_aanet[(aanen_taajuus - 1) % AANEN_TAAJUUS_MAX].play()
+	
+	# Laitetaan illuusiot pois päältä hetkeksi, kun soitetaan huilua sinisellä taajuudella
+	if aanen_taajuus == 3:
+		get_tree().call_group("illuusio", "vaihda_illuusio", not vedessa)
+		await get_tree().create_timer(3, false).timeout # Vaikutus kolme sekuntia
+		get_tree().call_group("illuusio", "vaihda_illuusio", vedessa)
 
 
 ## Asettaa UI:n näkyvyyden
