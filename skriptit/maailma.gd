@@ -6,6 +6,7 @@ extends Node2D
 var palloja = 0
 ## Onko alkuanimatic nähty
 var alkuanimatic_nahty = false
+var tutorial_cutscene_nahty = false
 ## Maailmassa olevat pallot
 var nykyiset_pallot = 0
 ## Signaaleja varten
@@ -28,6 +29,7 @@ var nykyinen_cp: Checkpoint = null
 var pelaaja_aloitus: Vector2
 
 var soitetaan_animatic
+var soitetaan_tutorial_cutscene
 
 var vaikeusaste = 1
 
@@ -124,6 +126,7 @@ var minecart_kaytetty = false
 var pimeyskuolema_paalla = false
 
 @onready var animatic = get_node("/root/Maailma/%KayttoLiittyma/%Animatic")
+@onready var tutorial_cutscene = get_node("/root/Maailma/%KayttoLiittyma/%tutorial_cutscene")
 
 ## Kutsutaan Globaalin alustusfunktiota luomisen yhteydessä
 func _ready():

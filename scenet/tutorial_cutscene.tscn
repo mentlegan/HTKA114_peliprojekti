@@ -1,0 +1,134 @@
+[gd_scene load_steps=10 format=3 uid="uid://di0g8jri43b4c"]
+
+[ext_resource type="Script" uid="uid://c4ifsgbw66g6s" path="res://skriptit/tutorial_cutscene.gd" id="1_oinul"]
+[ext_resource type="Texture2D" uid="uid://b8cydfpi4ba6r" path="res://grafiikka/OhjainTooltipB.png" id="2_oinul"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oinul"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_1sd5o"]
+button_index = 1
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_8wad5"]
+events = [SubResource("InputEventJoypadButton_1sd5o")]
+
+[sub_resource type="Animation" id="Animation_tlqxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yo2an"]
+resource_name = "fade_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gpbto"]
+resource_name = "fade_reset"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbmbt"]
+_data = {
+&"RESET": SubResource("Animation_tlqxw"),
+&"fade_black": SubResource("Animation_yo2an"),
+&"fade_reset": SubResource("Animation_gpbto")
+}
+
+[node name="Cutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oinul")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 424.0
+offset_right = 971.0
+offset_bottom = 553.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oinul")
+
+[node name="skip_nappi" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 398.0
+offset_top = 62.0
+offset_right = 505.0
+offset_bottom = 110.0
+shortcut = SubResource("Shortcut_8wad5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Continue"
+
+[node name="TextureRect2" type="TextureRect" parent="Panel"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 511.0
+offset_top = 6.5
+offset_right = 543.0
+offset_bottom = 38.5
+grow_vertical = 2
+texture = ExtResource("2_oinul")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 2.0
+offset_right = 961.0
+offset_bottom = 49.0
+text = "It's getting darker when I'm descending further down.
+I should stay in the light, there's no telling what's lurking in the darkness."
+
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -26.0
+offset_top = -22.0
+offset_right = 1008.0
+offset_bottom = 426.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_tbmbt")
+}
+
+[connection signal="pressed" from="Panel/skip_nappi" to="." method="_on_skip_nappi_pressed"]

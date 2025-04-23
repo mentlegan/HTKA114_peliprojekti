@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvhen0tgfpdi8"]
+
+[ext_resource type="Texture2D" uid="uid://b8cydfpi4ba6r" path="res://grafiikka/OhjainTooltipB.png" id="1_gnekx"]
+[ext_resource type="Texture2D" uid="uid://tjr5y6tghm7u" path="res://grafiikka/OhjainTooltipA.png" id="2_xx3a2"]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_qf5wa"]
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_x6vxs"]
+events = [SubResource("InputEventJoypadButton_qf5wa")]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_1sd5o"]
+button_index = 1
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_8wad5"]
+events = [SubResource("InputEventJoypadButton_1sd5o")]
+
+[node name="Panel" type="Panel"]
+offset_top = 491.0
+offset_right = 961.0
+offset_bottom = 538.0
+
+[node name="next_nappi" type="Button" parent="."]
+layout_mode = 0
+offset_left = 864.0
+offset_right = 959.0
+offset_bottom = 47.0
+shortcut = SubResource("Shortcut_x6vxs")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Next
+"
+
+[node name="skip_nappi" type="Button" parent="."]
+layout_mode = 0
+offset_left = 428.0
+offset_right = 535.0
+offset_bottom = 48.0
+shortcut = SubResource("Shortcut_8wad5")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Skip"
+
+[node name="quit_nappi" type="Button" parent="."]
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 47.0
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Quit Game"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 541.0
+offset_top = -16.0
+offset_right = 573.0
+offset_bottom = 16.0
+grow_vertical = 2
+texture = ExtResource("1_gnekx")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 827.0
+offset_top = -15.5
+offset_right = 859.0
+offset_bottom = 16.5
+grow_vertical = 2
+texture = ExtResource("2_xx3a2")
+stretch_mode = 2

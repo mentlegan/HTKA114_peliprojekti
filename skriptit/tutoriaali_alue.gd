@@ -41,3 +41,5 @@ func _on_body_exited(body) -> void:
 		tween.tween_property(Globaali.maailma.pelaaja, "reunojen_pimentaja_valo:energy", 1.0, ANIMAATION_KESTO)
 		tween.tween_property(Globaali.maailma.pelaaja, "pointlight2d:energy", 0.4, ANIMAATION_KESTO)
 		print_debug("PIMEYSKUOLEMA --- TRUE")
+		print("siirrytään tutoriaalista pois")
+		Globaali.soita_tutorial_cutscene()

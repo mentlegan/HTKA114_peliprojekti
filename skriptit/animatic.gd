@@ -16,7 +16,6 @@ var soitetaanko
 func _ready():
 	await Globaali.maailma.ready
 	soitetaanko = Globaali.maailma.soitetaan_animatic ## Otetaan globaalilta varmistus
-
 	# Kysytään globaalilta, että halutaanko animatic soittaa
 	if soitetaanko != null and soitetaanko == true:
 		animatic_musiikki.play()

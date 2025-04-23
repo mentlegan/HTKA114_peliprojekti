@@ -143,7 +143,14 @@ func soita_animatic():
 	maailma.soitetaan_animatic = true # Tämä bool sanoo Animaticin scriptille, että alkuanimatic todella soitetaan
 	get_tree().paused = true # Peli pauselle
 	maailma.animatic.visible = true # Animaticin interface ja kuvat näkyviin
-	
+
+
+func soita_tutorial_cutscene():
+	maailma.soitetaan_tutorial_cutscene = true
+	maailma.tutorial_cutscene.visible = true
+	maailma.tutorial_cutscene.soita_animaatio()
+	get_tree().paused = true # Peli pauselle
+
 
 ## Soittaa musiikkia
 func soita_musiikki():
