@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://d3275w50mg1i2"]
 
 [ext_resource type="Script" uid="uid://cx7vmkqhot61f" path="res://skriptit/lumme.gd" id="1_hsthi"]
-[ext_resource type="Texture2D" uid="uid://jkcqc5uq6piw" path="res://grafiikka/TaustaElementit2/Lumme.png" id="3_s7sjx"]
-[ext_resource type="Texture2D" uid="uid://demnvq5jvr35p" path="res://grafiikka/TaustaElementit2/LummeJuuri2.png" id="3_xuwhm"]
-[ext_resource type="Texture2D" uid="uid://0v0absnkp555" path="res://grafiikka/TaustaElementit2/LummeKukka.png" id="4_bhhjf"]
+[ext_resource type="Texture2D" uid="uid://dm3dghhjndmdj" path="res://grafiikka/TaustaElementit2/Lumme.png" id="3_s7sjx"]
+[ext_resource type="Texture2D" uid="uid://b2o7n261w6m2o" path="res://grafiikka/TaustaElementit2/LummeJuuri2.png" id="3_xuwhm"]
+[ext_resource type="Texture2D" uid="uid://crwemptiqahbu" path="res://grafiikka/TaustaElementit2/LummeKukka.png" id="4_bhhjf"]
 [ext_resource type="PackedScene" uid="uid://cbufj630idhw" path="res://scenet/illuusion_vaihtaja_visible.tscn" id="4_fi64h"]
-[ext_resource type="Texture2D" uid="uid://bnni7g80oya21" path="res://grafiikka/TaustaElementit2/LummeJuuri1.png" id="4_gmb65"]
+[ext_resource type="Texture2D" uid="uid://cdmjfcw5ealwk" path="res://grafiikka/TaustaElementit2/LummeJuuri1.png" id="4_gmb65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76ks1"]
 size = Vector2(120, 25)

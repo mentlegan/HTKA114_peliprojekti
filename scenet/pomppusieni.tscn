@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://d1adle7m7mnv3"]
 
 [ext_resource type="Script" uid="uid://casv3w41us84" path="res://skriptit/pomppusieni.gd" id="1_qf01o"]
-[ext_resource type="Texture2D" uid="uid://cb40yqxp77yyx" path="res://grafiikka/PomppusieniIso-Sheet.png" id="2_44gib"]
+[ext_resource type="Texture2D" uid="uid://cdrtaafq6sbor" path="res://grafiikka/PomppusieniIso-Sheet.png" id="2_44gib"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://resurssit/unshaded.tres" id="3_ni1tx"]
-[ext_resource type="Texture2D" uid="uid://be2hyj8egsk7k" path="res://grafiikka/PomppusieniPieni-Sheet.png" id="3_trm1p"]
-[ext_resource type="AudioStream" uid="uid://2cfg8tgdjqyg" path="res://audio/other/pomppusieni.mp3" id="5_olyb5"]
+[ext_resource type="Texture2D" uid="uid://dtm1qm1doyh0t" path="res://grafiikka/PomppusieniPieni-Sheet.png" id="3_trm1p"]
+[ext_resource type="AudioStream" uid="uid://dvlfvuillw5pn" path="res://audio/other/pomppusieni.mp3" id="5_olyb5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pk0x8"]
 atlas = ExtResource("2_44gib")

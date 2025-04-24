@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://xj0qm50xbp3n" path="res://audio/hirvio/vihollisen_liike1_mono.wav" id="8_n68mi"]
 [ext_resource type="AudioStream" uid="uid://kt21kkg6uvsh" path="res://audio/pelaaja/pelaaja_kuolee_mono.wav" id="9_kwoii"]
 [ext_resource type="AudioStream" uid="uid://e07p0ydb0qvl" path="res://audio/hirvio/vihollinen_kaivautuu_mono.wav" id="10_yff1a"]
-[ext_resource type="AudioStream" uid="uid://ba0qr2q7wb5v2" path="res://audio/hirvio/soran_rapinaa2.mp3" id="13_gmoeh"]
+[ext_resource type="AudioStream" uid="uid://bmlunbtp6pxsw" path="res://audio/hirvio/soran_rapinaa2.mp3" id="13_gmoeh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muepl"]
 atlas = ExtResource("4_ypbd3")
