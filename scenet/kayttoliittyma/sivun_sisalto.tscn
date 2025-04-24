@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dgo8yhibhuxoi" path="res://resurssit/fontit/fontti_journal.tres" id="1_qj8wx"]
 [ext_resource type="Script" uid="uid://dmc18ev6fdixj" path="res://skriptit/sivun_sisalto.gd" id="2_6ll3h"]
-[ext_resource type="Texture2D" uid="uid://fewxth4n6jig" path="res://grafiikka/Journal3.png" id="2_ajbhc"]
+[ext_resource type="Texture2D" uid="uid://b354sc1hovoel" path="res://grafiikka/Journal3.png" id="2_ajbhc"]
 
 [node name="SivunSisalto" type="Control"]
 auto_translate_mode = 1

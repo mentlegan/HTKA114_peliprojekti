@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://di0g8jri43b4c"]
 
-[ext_resource type="Script" uid="uid://c4ifsgbw66g6s" path="res://skriptit/tutorial_cutscene.gd" id="1_oinul"]
+[ext_resource type="Script" uid="uid://1qfwfkdkojw2" path="res://skriptit/tutorial_cutscene.gd" id="1_oinul"]
 [ext_resource type="Texture2D" uid="uid://b8cydfpi4ba6r" path="res://grafiikka/OhjainTooltipB.png" id="2_oinul"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oinul"]

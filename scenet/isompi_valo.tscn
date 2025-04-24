@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://gcmk6sen85wg"]
 
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="1_4o0jo"]
-[ext_resource type="Texture2D" uid="uid://b8fpwcylauvqu" path="res://grafiikka/TaustaElementit2/Kristalli.png" id="1_r1rsn"]
+[ext_resource type="Texture2D" uid="uid://dq0x8ulk77yr4" path="res://grafiikka/TaustaElementit2/Kristalli.png" id="1_r1rsn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6k23d"]
 

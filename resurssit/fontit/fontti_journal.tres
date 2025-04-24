@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://dgo8yhibhuxoi"]
 
-[ext_resource type="FontFile" uid="uid://djjnmbw8shg07" path="res://grafiikka/m5x7.ttf" id="1_2ydut"]
+[ext_resource type="FontFile" uid="uid://btu2xiblm7fem" path="res://grafiikka/m5x7.ttf" id="1_2ydut"]
 
 [resource]
 default_font = ExtResource("1_2ydut")

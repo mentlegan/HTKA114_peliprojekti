@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bj0463hbn3nce"]
 
-[ext_resource type="Shader" path="res://shaderit/vedenpinta.gdshader" id="1_em4yp"]
+[ext_resource type="Shader" uid="uid://y7rwe341gcgx" path="res://shaderit/vedenpinta.gdshader" id="1_em4yp"]
 [ext_resource type="Texture2D" uid="uid://o2j8o6manevp" path="res://resurssit/vesi/vesi_noise.tres" id="2_37nnc"]
 
 [resource]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgg0m7s1ew0es" path="res://skriptit/potionin_osa.gd" id="1_38ns5"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://resurssit/unshaded.tres" id="2_bi1b5"]
-[ext_resource type="AudioStream" uid="uid://k8i7fccuqsa8" path="res://audio/other/kilahdus.mp3" id="3_de376"]
+[ext_resource type="AudioStream" uid="uid://hgfqj1f50c4q" path="res://audio/other/kilahdus.mp3" id="3_de376"]
 [ext_resource type="Texture2D" uid="uid://dh3vdfbsl5o65" path="res://addons/rmsmartshape/assets/icon_editor_handle_selected.svg" id="4_2duo7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nd4xt"]

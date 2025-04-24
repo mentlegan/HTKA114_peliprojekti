@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dlips1u0ijn1u"]
 
 [ext_resource type="PackedScene" uid="uid://gwu1iltp7oef" path="res://scenet/kayttoliittyma/sivun_sisalto.tscn" id="1_sugkt"]
-[ext_resource type="Texture2D" uid="uid://bm7ca71s65g1l" path="res://grafiikka/MinecartDrawing.png" id="2_7ws0o"]
+[ext_resource type="Texture2D" uid="uid://b06boidtsa355" path="res://grafiikka/MinecartDrawing.png" id="2_7ws0o"]
 
 [node name="SivunSisalto" instance=ExtResource("1_sugkt")]
 
