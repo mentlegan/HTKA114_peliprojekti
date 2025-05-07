@@ -151,7 +151,7 @@ func change_doorsXYZ(_kirjain, _ovi_ylin, if_y):
 
 
 func _on_vesi_tarkistus_area_entered(area) -> void:
-	if area is Vesi2D:
+	if area is Vesi2D or area.is_in_group("perhonen_hitbox"):
 		start_destroy()
 
 

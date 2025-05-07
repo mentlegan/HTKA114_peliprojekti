@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cyvd1gymux02q"]
+[gd_scene load_steps=20 format=3 uid="uid://cyvd1gymux02q"]
 
 [ext_resource type="Script" uid="uid://mssknw6bcn05" path="res://skriptit/perhonen_ampuja.gd" id="1_swbjk"]
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_fyinl"]
@@ -77,6 +77,9 @@ stream_1/stream = ExtResource("5_q8cwp")
 stream_2/stream = ExtResource("6_tcgur")
 stream_3/stream = ExtResource("7_7fd03")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yjwrg"]
+radius = 22.0227
+
 [node name="PerhonenAmpuja" type="Area2D" groups=["valonlahde"]]
 collision_layer = 0
 collision_mask = 2
@@ -106,6 +109,13 @@ bus = &"Kaiku"
 
 [node name="KohteenAsetusTimer" type="Timer" parent="."]
 
+[node name="Hitbox" type="Area2D" parent="." groups=["perhonen_hitbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+z_as_relative = false
+shape = SubResource("CircleShape2D_yjwrg")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="KohteenAsetusTimer" to="." method="_on_kohteen_asetus_timer_timeout"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

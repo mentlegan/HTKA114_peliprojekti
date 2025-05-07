@@ -82,8 +82,7 @@ bus = &"Kaiku"
 stream = ExtResource("5_g0pli")
 bus = &"Kaiku"
 
-[node name="Area2DVesiTarkistus" type="Area2D" parent="."]
-collision_layer = 0
+[node name="Area2DVesiTarkistus" type="Area2D" parent="." groups=["valopallo"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DVesiTarkistus"]
 shape = SubResource("CircleShape2D_1q7yk")

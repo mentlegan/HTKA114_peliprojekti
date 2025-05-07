@@ -14,6 +14,9 @@ var seuraa_pelaajaa = false
 
 var pelaaja = null
 
+## Perhosen hp
+var hp = 3
+
 
 func _physics_process(delta: float) -> void:
 	if seuraa_pelaajaa:
@@ -43,3 +46,10 @@ func _on_kohteen_asetus_timer_timeout() -> void:
 		polunetsija.aseta_kohde(pelaaja.global_position)
 	else:
 		kohteen_asetus_timer.stop()
+
+## Vähennä hp, jos perhoseen osuu valopallo
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("valopallo"):
+		hp -= 1
+		if hp <= 0:
+			queue_free()

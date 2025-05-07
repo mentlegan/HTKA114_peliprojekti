@@ -64,6 +64,7 @@ oviseina="oviseinia varten, asetetaan ss2d staticbodylle"
 avaaoviseina="oviseinalle, jonka voi avata"
 siirravesi="Aktivoi veden siirron"
 siirra="Vain tata collisionshapea muutetaan vesi2D"
+perhonen_hitbox=""
 
 [gui]
 
