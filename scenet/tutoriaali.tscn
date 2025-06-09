@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr7y1vhh82ot0"]
+[gd_scene load_steps=6 format=3 uid="uid://dr7y1vhh82ot0"]
 
 [ext_resource type="Script" uid="uid://315jdog1vc3" path="res://skriptit/tutoriaali.gd" id="1_4me1l"]
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="2_2d3wx"]
 [ext_resource type="Texture2D" uid="uid://dg3qfxyho3rad" path="res://tutoriaali/Vines/kuvat/sivu1/kuva1.png" id="3_wjw6k"]
 [ext_resource type="Texture2D" uid="uid://c0j0c65l4i26k" path="res://tutoriaali/Vines/kuvat/sivu1/kuva2.png" id="4_efi3a"]
+[ext_resource type="VideoStream" uid="uid://chtqoyg0rd0or" path="res://tutoriaali/test/videot/test.ogv" id="5_pe8eo"]
 
 [node name="Tutoriaali" type="Control"]
 layout_mode = 3
@@ -162,6 +163,23 @@ texture = ExtResource("4_efi3a")
 position = Vector2(342, 144)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_wjw6k")
+
+[node name="Tutoriaalivideot" type="Control" parent="PanelContainer/ColorRect/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="PanelContainer/ColorRect/MarginContainer/Tutoriaalivideot"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 948.0
+offset_bottom = 528.0
+stream = ExtResource("5_pe8eo")
+volume_db = -80.0
+autoplay = true
+loop = true
 
 [node name="takaisin_nappi" type="Button" parent="PanelContainer/ColorRect"]
 layout_mode = 1

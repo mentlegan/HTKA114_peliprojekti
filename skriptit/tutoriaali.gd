@@ -1,5 +1,5 @@
 ## Käsittelee tutoriaaliruudun tapahtumia
-## Harri 9.10.2024
+## Harri 9.6.2025
 ## TODO: kontrollit vielä lisätä teksteineen kansionrakenteeseen
 ## TODO: värikoodaus ja muu tekstin muotoilu, vähän kuten journalissa nyt on
 ## TODO: näppäimistökontrollit
@@ -17,17 +17,19 @@ var aihekansioiden_polku = "res://tutoriaali/" ## Aihekansioiden polku vähän e
 var valittu_aihe = "Darkness/" ## Vakio aihe on ensimmäisenä avattu
 var tekstitiedostojen_polku = aihekansioiden_polku + valittu_aihe + "tekstitiedostot/" ## Kerrotaan tekstitiedostojen polku suomeksi
 var kuvatiedostojen_polku = aihekansioiden_polku + valittu_aihe + "kuvat/" ## Otetaan kuvatiedostojen polku
+var videotiedostojen_polku = aihekansioiden_polku + valittu_aihe + "videot/" ## Otetaan videotiedostojen polku
 
 ## Tarvittavat nodet
 @onready var nappilista = $"%ItemList" ## Itemlist, josta valitaan aihe
 @onready var tutoriaaliteksti_nodet = $"%Tutoriaalitekstit".get_children() ## Tämän avulla voidaan käsitellä tutoriaalitekstiin liittyvviä valikkoja
 @onready var tutoriaaliteksti = tutoriaaliteksti_nodet[0] ## Tekstikenttä, mihin tekstitiedoston sisältö kirjoitetaan pelaajan näkyville
 @onready var tutoriaalikuva_nodet = $"%Tutoriaalikuvat".get_children() ## Tämän avulla muokataan kuvia
-
+@onready var tutoriaalivideo_nodet = $"%Tutoriaalivideot".get_children() ## Tämän avulla muokattaisiin videoita
 
 ## Ready tapahtuu, kun scene avautuu
 func _ready():
 	#aiheet = luo_tiedostolista(aihekansioiden_polku) # Luo tutoriaalin aiheista listan kansioiden mukaan
+	aiheet.append("test") # Lisätään testidata
 	aiheet.append("Darkness") # Lisätään vakiodata
 	aiheet.append("Tutorial")
 	luo_valikko() # Luo valikon valinnat aiheiden mukaan
