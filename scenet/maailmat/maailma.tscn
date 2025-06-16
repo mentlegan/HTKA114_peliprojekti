@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://d0j20owmdfkkq" path="res://scenet/kayttoliittyma/teleport_menu.tscn" id="12_2sjti"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://scenet/vihollinen.tscn" id="12_u46m1"]
 [ext_resource type="Texture2D" uid="uid://4qkv77frylqp" path="res://grafiikka/EnemyDirt.png" id="13_iivh1"]
-[ext_resource type="PackedScene" uid="uid://di0g8jri43b4c" path="res://scenet/tutorial_cutscene.tscn" id="13_sjwyo"]
+[ext_resource type="PackedScene" path="res://scenet/tutorial_cutscene.tscn" id="13_sjwyo"]
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://scenet/perhoset/perhonen.tscn" id="13_ufso7"]
 [ext_resource type="PackedScene" uid="uid://d3kjiqbvins4c" path="res://scenet/ovet/ovi_vasen_z.tscn" id="13_vnqp0"]
 [ext_resource type="PackedScene" uid="uid://bmu1me3chb6d" path="res://scenet/ovet/ovi_oikea_z.tscn" id="14_6n7yc"]
@@ -278,7 +278,7 @@ size = Vector2(75, 48)
 size = Vector2(5740, 1405)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lurdl"]
-size = Vector2(275, 114)
+size = Vector2(263, 110)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41ypk"]
 size = Vector2(432, 457)
@@ -525,11 +525,6 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[node name="Navigaatio" type="Node2D" parent="."]
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Navigaatio"]
-navigation_polygon = SubResource("NavigationPolygon_twhf6")
-
 [node name="Tiilet" type="CanvasGroup" parent="."]
 script = ExtResource("2_a4qf7")
 ss2d_materiaali = ExtResource("12_1x5sh")
@@ -537,12 +532,12 @@ ss2d_materiaali = ExtResource("12_1x5sh")
 [node name="Polygon2D" type="Polygon2D" parent="Tiilet"]
 texture_repeat = 2
 position = Vector2(13565, 7)
-polygon = PackedVector2Array(1378, 197, 1355, 221, 1330, 227, 1315, 247, 1326, 350, 1319, 438, 1325, 497, 1322, 546, 1312, 604, 1305, 656, 1292, 718, 1308, 766, 1329, 796, 1352, 814, 1412, 808, 1439, 789, 1481, 769, 1563, 763, 3019, 760, 3152, 704, 3152, 508, 3014, 448, 2828, 442, 2688, 441, 2412, 440, 2324, 447, 2259, 443, 2201, 447, 2166, 448, 2132, 428, 2129, 409, 2139, 391, 2167, 382, 2302, 366, 2449, 324, 2632, 380, 2794, 413, 2912, 410, 2950, 373, 2936, 330, 2803, 269, 2702, 256, 2613, 271, 2550, 269, 2671, 223, 3305.07, 235.888, 3409, 238, 3436, 248, 3458, 276, 3472, 310, 4051, 2011, 4075, 2044, 4105, 2078, 3443, 2090, 3221, 1951, 3017, 1185, -2413, 1390, -5005, 1222, -4826, -51, -4695, -177, -3966, -225, -4099, -144, -4139, -87, -4173, 1, -4175, 132, -4185, 255, -4219, 369, -4252, 440, -4304, 477, -4339, 601, -4333, 663, -4272, 697, -4146, 700, -3700, 705, -3696, 600, -3681, 597, -3616, 597, -3571, 601, -3563, 627, -3545, 702, -3415, 709, -3440, 618, -3455, 535, -3434, 525, -3377, 517, -3245, 518, -3212, 517, -3185, 512, -3167, 513, -3161, 537, -3156, 580, -3151, 637, -3140, 649, -3122, 659, -3036, 660, -2965, 655, -2925, 657, -2901, 627, -2887, 581, -2891, 525, -2914, 492, -2939, 470, -2931, 465, -2914, 463, -2885, 467, -2863, 472, -2846, 482, -2839, 517, -2833, 580, -2831, 646, -2812, 681, -2781, 689, -2725, 682, -2708, 657, -2682, 639, -2658, 627, -2438, 626, -2372, 659, -2318, 689, -2241, 694, -2182, 701, -2138, 700, -2084, 701, -2082, 624, -2094, 587, -2116, 554, -2142, 529, -2166, 497, -2184, 477, -2202, 467, -2205, 449, -2176, 444, -2152, 457, -2122, 471, -2090, 492, -2066, 512, -2044, 548, -2019, 614, -2009, 668, -1990, 699, -1960, 707, -1744, 702, -1515, 689, -1327, 665, -1044, 639, -978, 635, -909, 615, -835, 590, -765, 555, -661, 539, -492, 518, -394, 496, -335, 493, -277, 493, -213, 494, -106, 489, 45, 480, 130, 464, 158, 453, 183, 421, 168, 384, 144, 346, 88, 286, 27, 270, 3, 231, -15, 183, -28, 165, -48, 145, -49, 129, -31, 123, -4, 133, 72, 168, 186, 180, 331, 187, 437, 184, 508, 182, 540, 178, 551, 180, 553, 191, 552, 215, 552, 239, 554, 262, 572, 296, 583, 329, 650, 392, 799, 378, 906, 354, 919, 350, 935, 307, 929, 284, 917, 266, 896, 249, 880, 241, 881, 221, 877, 196, 884, 184, 906, 184, 977, 187, 1292, 177, 1367, 178, 1403, 176)
+polygon = PackedVector2Array(1382, 202, 1358, 218, 1330, 227, 1315, 247, 1326, 350, 1319, 438, 1325, 497, 1322, 546, 1312, 604, 1305, 656, 1292, 718, 1308, 766, 1329, 796, 1352, 814, 1412, 808, 1439, 789, 1481, 769, 1563, 763, 3019, 760, 3152, 704, 3152, 508, 3014, 448, 2828, 442, 2688, 441, 2412, 440, 2324, 447, 2259, 443, 2201, 447, 2166, 448, 2132, 428, 2129, 409, 2139, 391, 2167, 382, 2302, 366, 2449, 324, 2632, 380, 2794, 413, 2912, 410, 2950, 373, 2936, 330, 2803, 269, 2702, 256, 2613, 271, 2550, 269, 2671, 223, 3305.07, 235.888, 3409, 238, 3436, 248, 3458, 276, 3472, 310, 4051, 2011, 4075, 2044, 4105, 2078, 3443, 2090, 3221, 1951, 3017, 1185, -2413, 1390, -5005, 1222, -4826, -51, -4695, -177, -3966, -225, -4099, -144, -4139, -87, -4173, 1, -4175, 132, -4185, 255, -4219, 369, -4252, 440, -4304, 477, -4339, 601, -4333, 663, -4272, 697, -4146, 700, -3700, 705, -3696, 600, -3681, 597, -3616, 597, -3571, 601, -3563, 627, -3545, 702, -3415, 709, -3440, 618, -3455, 535, -3434, 525, -3377, 517, -3245, 518, -3212, 517, -3185, 512, -3167, 513, -3161, 537, -3156, 580, -3151, 637, -3140, 649, -3122, 659, -3036, 660, -2965, 655, -2925, 657, -2901, 627, -2887, 581, -2891, 525, -2914, 492, -2939, 470, -2931, 465, -2914, 463, -2885, 467, -2863, 472, -2846, 482, -2839, 517, -2833, 580, -2831, 646, -2812, 681, -2781, 689, -2725, 682, -2708, 657, -2682, 639, -2658, 627, -2438, 626, -2372, 659, -2318, 689, -2241, 694, -2182, 701, -2138, 700, -2084, 701, -2082, 624, -2094, 587, -2116, 554, -2142, 529, -2166, 497, -2184, 477, -2202, 467, -2205, 449, -2176, 444, -2152, 457, -2122, 471, -2090, 492, -2066, 512, -2044, 548, -2019, 614, -2009, 668, -1990, 699, -1960, 707, -1744, 702, -1515, 689, -1327, 665, -1044, 639, -978, 635, -909, 615, -835, 590, -765, 555, -661, 539, -492, 518, -394, 496, -335, 493, -277, 493, -213, 494, -106, 489, 45, 480, 130, 464, 158, 453, 183, 421, 168, 384, 144, 346, 88, 286, 27, 270, 3, 231, -15, 183, -28, 165, -48, 145, -49, 129, -31, 123, -4, 133, 72, 168, 186, 180, 331, 187, 437, 184, 508, 182, 540, 178, 551, 180, 553, 191, 552, 215, 552, 239, 554, 262, 572, 296, 583, 329, 650, 392, 799, 378, 906, 354, 919, 350, 935, 307, 929, 284, 917, 266, 896, 249, 880, 241, 881, 221, 877, 196, 884, 184, 906, 184, 977, 187, 1292, 177, 1367, 178, 1403, 176, 1395, 190)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Tiilet"]
 texture_repeat = 2
 position = Vector2(13559, 0)
-polygon = PackedVector2Array(2840, -119, 2844, -50, 2840, 31, 2847, 91, 2845, 100, 2841, 107, 2831, 110, 2814, 106, 2730, 102, 2654, 73, 2553, 78, 2454, 84, 2334, 137, 2184, 186, 2093, 246, 2030, 295, 1983.19, 344.887, 1978, 392, 1983, 469, 2004, 521, 2082, 562, 2118, 568, 2326, 565, 2397, 629, 2232, 631, 2139, 632, 2088, 629, 2039, 628, 1981, 631, 1902, 629, 1823, 611, 1790, 602, 1710, 611, 1688, 621, 1626, 631, 1586, 633, 1540, 634, 1502, 634, 1474, 657, 1454, 673, 1430, 680, 1396, 664, 1402, 608, 1414, 560, 1427, 517, 1404, 420, 1426, 393, 1454, 362, 1420, 309, 1444, 285, 1572, 301, 1625, 281, 1647, 262, 1619, 221, 1580, 185, 1528, 157, 1492, 128, 1466, 112, 1430, 103, 1379, 90, 1320, 78, 1232, 78, 1047, 72, 1028, 65, 1007, 61, 957, 61, 876, 73, 841, 68, 785, 60, 713, 60, 692, 62, 676, 63, 652, 71, 622, 71, 577, 86, 499, 87, 462, 75, 225, 17, 162, -9, 90, -18, 28, -12, 9, -5, -7, -6, -63, -1, -104, 23, -118, 35, -128, 54, -152, 107, -162, 127, -173, 149, -181, 172, -205, 171, -229, 174, -245, 175, -267, 187, -285, 193, -299, 210, -307, 220, -318, 231, -334, 247, -354, 268, -375, 280, -379, 284, -381, 292, -383, 303, -389, 317, -413, 335, -425, 343, -431, 358, -436, 366, -448, 377, -458, 384, -481, 387, -508, 389, -520, 385, -516, 358, -521, 334, -525, 305, -560, 290, -583, 259, -632, 237, -660, 212, -681, 191, -703, 169, -548, 106, -521, 44, -524, -251, 96, -320, 464, -290, 1442, -318)
+polygon = PackedVector2Array(2840, -119, 2844, -50, 2840, 31, 2847, 91, 2845, 100, 2841, 107, 2831, 110, 2814, 106, 2730, 102, 2654, 73, 2553, 78, 2454, 84, 2334, 137, 2184, 186, 2093, 246, 2030, 295, 1983.19, 344.887, 1978, 392, 1983, 469, 2004, 521, 2082, 562, 2118, 568, 2326, 565, 2397, 629, 2232, 631, 2139, 632, 2088, 629, 2039, 628, 1981, 631, 1902, 629, 1823, 611, 1790, 602, 1710, 611, 1688, 621, 1626, 631, 1586, 633, 1540, 634, 1502, 634, 1474, 657, 1454, 673, 1430, 680, 1396, 664, 1402, 608, 1414, 560, 1427, 517, 1411, 441, 1427, 412, 1459, 396, 1494, 382, 1533, 376, 1582, 359, 1613, 315, 1612, 289, 1595, 257, 1569, 214, 1547, 181, 1525, 163, 1492, 128, 1466, 112, 1430, 103, 1379, 90, 1320, 78, 1232, 78, 1047, 72, 1028, 65, 1007, 61, 957, 61, 876, 73, 841, 68, 785, 60, 713, 60, 692, 62, 676, 63, 652, 71, 622, 71, 577, 86, 499, 87, 462, 75, 225, 17, 162, -9, 90, -18, 28, -12, 9, -5, -7, -6, -63, -1, -104, 23, -118, 35, -128, 54, -152, 107, -162, 127, -173, 149, -181, 172, -205, 171, -229, 174, -245, 175, -267, 187, -285, 193, -299, 210, -307, 220, -318, 231, -334, 247, -354, 268, -375, 280, -379, 284, -381, 292, -383, 303, -389, 317, -413, 335, -425, 343, -431, 358, -436, 366, -448, 377, -458, 384, -481, 387, -508, 389, -520, 385, -516, 358, -521, 334, -525, 305, -560, 290, -583, 259, -632, 237, -660, 212, -681, 191, -703, 169, -548, 106, -521, 44, -524, -251, 96, -320, 464, -290, 1442, -318)
 
 [node name="Polygon2D3" type="Polygon2D" parent="Tiilet"]
 position = Vector2(13549, -4)
@@ -675,13 +670,18 @@ position = Vector2(11801, 449)
 polygon = PackedVector2Array(35.6035, -16.7751, 55.833, -16.3922, 70.0967, -1.56958, 72.2275, 23.5194, 72.0479, 57.5337, 76.373, 134.73, 56.2471, 138.034, 30.748, 123.141, -5.87695, 82.8461, -77.334, 66.615, -131.213, 42.3459, -169.279, 5.13147, -215.943, -12.0775, -312.853, -30.5612, -379.696, -61.8951, -485.505, -100.423, -606.14, -174.026, -638.935, -215.19, -681.61, -280.404, -636.5, -302.179, -566.506, -300.83, -437.559, -290.187, -386.554, -290.932, -335.579, -285.678, -251.705, -260.259, -218.801, -241.095, -200.149, -171.001, -187.312, -109.563, -115.734, -53.5781, -27.2891, -20.9592, 8.62012, -17.7117)
 
 [node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
-position = Vector2(14940, 779)
+position = Vector2(14828, 147)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
 floor_snap_length = 14.0
 ohjain_tooltipit = []
 kbm_tooltipit = []
+
+[node name="Navigaatio" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Navigaatio"]
+navigation_polygon = SubResource("NavigationPolygon_twhf6")
 
 [node name="Perhoset" type="Node2D" parent="."]
 rotation = -0.00132818
@@ -1008,7 +1008,7 @@ sivunumero = 7
 visible = false
 
 [node name="Day 8" parent="Journalit" instance=ExtResource("10_s3bjw")]
-position = Vector2(23279, -493)
+position = Vector2(23291, -485)
 otsikko = "Day 8"
 sivunumero = 8
 
@@ -2131,7 +2131,6 @@ unique_name_in_owner = true
 position = Vector2(1, 0)
 
 [node name="TutoriaaliAlue" type="Area2D" parent="Muuta" groups=["valonlahde"]]
-visible = false
 position = Vector2(11106, 308)
 collision_layer = 0
 collision_mask = 2
@@ -2142,7 +2141,7 @@ position = Vector2(816, -83.5)
 shape = SubResource("RectangleShape2D_67cbb")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Muuta/TutoriaaliAlue"]
-position = Vector2(3771.5, -179)
+position = Vector2(3765.5, -181)
 shape = SubResource("RectangleShape2D_lurdl")
 
 [node name="CreditsAlue" type="Area2D" parent="Muuta"]
@@ -2469,30 +2468,6 @@ frame_progress = 0.888882
 
 [node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
 position = Vector2(55, 157)
-sprite_frames = SubResource("SpriteFrames_73xeq")
-frame = 3
-frame_progress = 0.888882
-
-[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
-position = Vector2(52, 217)
-sprite_frames = SubResource("SpriteFrames_73xeq")
-frame = 3
-frame_progress = 0.888882
-
-[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
-position = Vector2(70, 195)
-sprite_frames = SubResource("SpriteFrames_73xeq")
-frame = 3
-frame_progress = 0.888882
-
-[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
-position = Vector2(79, 244)
-sprite_frames = SubResource("SpriteFrames_73xeq")
-frame = 3
-frame_progress = 0.888882
-
-[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="Muuta/Vesiputous"]
-position = Vector2(99, 177)
 sprite_frames = SubResource("SpriteFrames_73xeq")
 frame = 3
 frame_progress = 0.888882
@@ -2981,6 +2956,16 @@ texture = ExtResource("56_13vko")
 position = Vector2(15848, 743)
 texture = ExtResource("56_13vko")
 
+[node name="Ruohoa39" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(14893, 296)
+rotation = 1.69773
+texture = ExtResource("56_13vko")
+
+[node name="Ruohoa40" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
+position = Vector2(14962, 539)
+rotation = -1.3192
+texture = ExtResource("56_13vko")
+
 [node name="Ruohoa14" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Ruohot"]
 position = Vector2(20139, 1450)
 rotation = 0.00732602
@@ -3107,6 +3092,23 @@ position = Vector2(15816, 359)
 rotation = -0.191048
 texture = ExtResource("57_afodq")
 
+[node name="Puska5" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(15954, 335)
+rotation = -0.258136
+texture = ExtResource("57_afodq")
+flip_h = true
+
+[node name="Puska11" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(19568, -857)
+rotation = -0.0853149
+texture = ExtResource("57_afodq")
+flip_h = true
+
+[node name="Puska16" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
+position = Vector2(19862, -946)
+rotation = 3.09208
+texture = ExtResource("57_afodq")
+
 [node name="Puska2" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Puskat"]
 position = Vector2(17804, 1206)
 rotation = 1.6439
@@ -3204,8 +3206,15 @@ position = Vector2(12491, 621)
 texture = ExtResource("58_b26eb")
 
 [node name="Kasvi11" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
-position = Vector2(15103, 273)
+position = Vector2(15080, 350)
+rotation = -0.235913
 texture = ExtResource("58_b26eb")
+
+[node name="Kasvi14" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(15032.1, 366.593)
+rotation = -0.174147
+texture = ExtResource("58_b26eb")
+flip_h = true
 
 [node name="Kasvi12" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
 position = Vector2(14477, 163)

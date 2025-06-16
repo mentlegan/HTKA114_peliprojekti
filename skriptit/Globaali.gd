@@ -45,7 +45,6 @@ func init():
 		if uusiVihu != null:
 			uusiVihu.pelaaja_kuollut.connect(_game_over)
 	
-	
 	# Otetaan aloitus koordinaatit talteen
 	maailma.pelaaja_aloitus = maailma.pelaaja.global_position
 	
@@ -62,7 +61,6 @@ func init():
 	# Tallenetaan muuttujaan
 	maailma.tausta2_node = tausta2_n
 	self.add_child(tausta2_n)
-	
 	
 	# Lisätään UI-ajastin
 	self.add_child(maailma.ui_ajastin)
