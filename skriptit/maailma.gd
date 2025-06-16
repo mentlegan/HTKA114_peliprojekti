@@ -94,7 +94,7 @@ var pystyssa = true
 @onready var asetuksetruutu = get_node("/root/Maailma/%KayttoLiittyma/%asetukset_ruutu")
 @onready var tutoriaali_ruutu = get_node("/root/Maailma/%KayttoLiittyma/%Tutoriaali")
 @onready var pimeyskuolema_animaatio = get_node("/root/Maailma/%KayttoLiittyma/%PimeysKuolema")
-@onready var teleport_menu: TeleportMenu = $KayttoLiittyma/TeleportMenu
+@onready var debug_menu: DebugMenu = %DebugMenu
 
 @onready var uudetViholliset = get_node("/root/Maailma/%uudetViholliset").get_children()
 @onready var kukat = get_node("/root/Maailma/%Kukat").get_children()
@@ -130,7 +130,7 @@ var pimeyskuolema_paalla = false
 
 ## Kutsutaan Globaalin alustusfunktiota luomisen yhteydessä
 func _ready():
-	teleport_menu.luo_teleport_painikkeet(teleportit)
+	debug_menu.luo_teleport_painikkeet(teleportit)
 	Globaali.init()
 
 
@@ -143,6 +143,7 @@ func tallenna():
 
 ## Kutsutaan joka framella
 func _process(_delta):
+	#print(get_tree().current_scene)
 	# Päivitetään peliä joka sekuntti
 	aika += _delta
 	if aika > aika_vali:

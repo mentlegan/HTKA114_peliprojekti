@@ -18,7 +18,7 @@ func _ready() -> void:
 func alusta_timer() -> void:
 	timer.wait_time = data.heal_timeout
 	timer.start()
-	print_debug(self.name, " LUOTU AJASTIN ", self.name)
+	#print_debug(self.name, " LUOTU AJASTIN ", self.name)
 
 
 ## Tällä hetkellä vain pelaaja
@@ -40,5 +40,5 @@ func _on_timer_timeout() -> void:
 
 
 func tuhoa() -> void:
-	print_debug(self.name, " TUHOTTU AJASTIN ", self.name)
+	#print_debug(self.name, " TUHOTTU AJASTIN ", self.name)
 	self.queue_free()

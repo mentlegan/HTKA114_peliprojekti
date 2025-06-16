@@ -101,16 +101,16 @@ func init():
 func _input(_event: InputEvent) -> void:
 	## TODO: nämä voisi ehkä siirtää teleport menuun
 	# 0
-	if Input.is_action_just_pressed("vaihda_scene"):
-		vaihda_scene("maailma_test")
+	#if Input.is_action_just_pressed("vaihda_scene"):
+		#vaihda_scene("maailma_test")
 	# ctrl + K
-	elif Input.is_action_just_pressed("kuolema"):
-		maailma.pelaaja.kuolema()
+	#elif Input.is_action_just_pressed("kuolema"):
+		#maailma.pelaaja.kuolema()
 	
 	# Pelin keskeytys
 	# PC ESCAPE
 	# PS4/PS5 OPTIONS
-	elif Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause"):
 		if get_tree().paused == false:
 			pausePeli()
 			# Asetetaan inputti "syödyksi", sitä ei käsitellä enää missään muualla
@@ -627,6 +627,11 @@ func vaihda_scene(maailman_nimi):
 	maailma = maailma_tscn.instantiate()
 	# Lisätään uusi Maailma-node SceneTreehen
 	get_tree().root.add_child.call_deferred(maailma)
+	# TODO: 16.6.2025 Juuso
+	# Tämä alla oleva rivi saatetaan tarvita, sillä nyt SceneTreen
+	# current_scene on null scenen vaihdon jälkeen...
+	#get_tree().set_current_scene.call_deferred(maailma)
+	
 	# (maailma.gd kutsuu Globaali.gd:n init()-funktiota, kun on valmis)
 
 
