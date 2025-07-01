@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://d0j20owmdfkkq" path="res://scenet/kayttoliittyma/debug_menu.tscn" id="12_2sjti"]
 [ext_resource type="PackedScene" uid="uid://c3iy6ln4bag18" path="res://scenet/vihollinen.tscn" id="12_u46m1"]
 [ext_resource type="Texture2D" uid="uid://4qkv77frylqp" path="res://grafiikka/EnemyDirt.png" id="13_iivh1"]
-[ext_resource type="PackedScene" path="res://scenet/tutorial_cutscene.tscn" id="13_sjwyo"]
+[ext_resource type="PackedScene" uid="uid://di0g8jri43b4c" path="res://scenet/tutorial_cutscene.tscn" id="13_sjwyo"]
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://scenet/perhoset/perhonen.tscn" id="13_ufso7"]
 [ext_resource type="PackedScene" uid="uid://d3kjiqbvins4c" path="res://scenet/ovet/ovi_vasen_z.tscn" id="13_vnqp0"]
 [ext_resource type="PackedScene" uid="uid://bmu1me3chb6d" path="res://scenet/ovet/ovi_oikea_z.tscn" id="14_6n7yc"]
@@ -203,12 +203,6 @@ _data = {
 }
 point_count = 26
 
-[sub_resource type="Curve2D" id="Curve2D_h32vt"]
-_data = {
-"points": PackedVector2Array(-1.678, 21.6889, 1.678, -21.6889, -50.3467, 100, 0, 0, 0, 0, 8.71387, 68, 0, 0, 0, 0, 66.8066, 64, 0, 0, 0, 0, 130.708, 57, -24.7487, -9.8995, 24.7487, 9.8995, 563.495, 61, 0, 0, 0, 0, 651.602, 76, -5.9906, -42.9561, 5.9906, 42.9561, 676.774, 110, 0, 0, 0, 0, 683.552, 151, 0, 0, 0, 0, 681.615, 222, 0, 0, 0, 0, 649.665, 277, 0, 0, 0, 0, 626.428, 309, 0, 0, 0, 0, 594.478, 340, 42.4734, -10.7636, -42.4734, 10.7636, 486.038, 358, 0, 0, 0, 0, 426.01, 365, 0, 0, 0, 0, 369.853, 378, 0, 0, 0, 0, 274.97, 367, 59.3628, -3.04525, -59.3628, 3.04525, 155.88, 356, 0, 0, 0, 0, 61.9648, 354, 0, -1.88775, 0, 1.88775, -31.9502, 368, 0, 0, 0, 0, -89.0742, 378, 0, 0, 0, 0, -218.814, 392, 0, 0, 0, 0, -228.496, 382, 0, 0, 0, 0, -227.528, 362, 0, 0, 0, 0, -201.387, 349, 0, 0, 0, 0, -121.994, 361, 0, 0, 0, 0, -17.4277, 347, 0, 0, 0, 0, 89.0742, 336, 0, 0, 0, 0, 288.525, 340, 0, 0, 0, 0, 330.157, 340, 0, 0, 0, 0, 385.346, 342, 0, 0, 0, 0, 456.022, 325, 0, 0, 0, 0, 496.688, 300, 0, 0, 0, 0, 561.557, 285, 0, 0, 0, 0, 603.191, 254, 0, 0, 0, 0, 636.11, 196, 0, 0, 0, 0, 627.396, 140, 0, 0, 0, 0, 585.764, 108, 0, 0, 0, 0, 432.787, 85, 0, 0, 0, 0, 329.189, 88, 0, 0, 0, 0, 280.779, 87, 0, 0, 0, 0, 57.124, 96, 0, 0, 0, 0, -47.4414, 104)
-}
-point_count = 42
-
 [sub_resource type="Curve2D" id="Curve2D_jk2b3"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 156.975, 19.2085, 0, 0, 0, 0, 223.945, 41.2975, 0, 0, 0, 0, 256.88, 90.3412, 0, 0, 0, 0, 251.809, 144.335, 0, 0, 0, 0, 227.752, 186.303, 0, 0, 0, 0, 204.69, 233.272, 0, 0, 0, 0, 163.652, 262.218, 0, 0, 0, 0, 64.644, 268.086, 0, 0, 0, 0, 31.627, 281.042, 0, 0, 0, 0, -33.4341, 326.956, 0, 0, 0, 0, -93.5391, 405.876, 0, 0, 0, 0, -117.613, 461.844, 0, 0, 0, 0, -138.64, 481.816, 0, 0, 0, 0, -183.631, 474.757, 0, 0, 0, 0, -196.592, 445.739, 0, 0, 0, 0, -201.548, 412.733, 0, 0, 0, 0, -149.486, 365.802, 0, 0, 0, 0, -83.3916, 294.889, 0, 0, 0, 0, -28.3257, 248.963, 0, 0, 0, 0, 33.7144, 219.045, 0, 0, 0, 0, 115.711, 221.154, 0, 0, 0, 0, 195.746, 195.26, 0, 0, 0, 0, 219.827, 134.292, 0, 0, 0, 0, 207.884, 91.2761, 0, 0, 0, 0, 152.937, 51.2031, 0, 0, 0, 0, 100.953, 36.1341, 0, 0, 0, 0, 60.9614, 29.081, 0, 0, 0, 0, 19.9653, 30.0265, 0, 0, 0, 0, -9.03564, 26.988, 0, 0, 0, 0, -11.9907, -7.01593, 0, 0, 0, 0, 10.0371, -27.9867, 0, 0, 0, 0, 36.0425, -31.9521, 0, 0, 0, 0, 76.0322, -23.899, 0, 0, 0, 0, 95.0215, -15.8738, 0, 0, 0, 0, 156.975, 19.2085)
@@ -232,6 +226,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2.6377, 6.69827, 0, 0, 0, 0, 122.918, -6.30386, 0, 0, 0, 0, 161.143, -3.72598, 0, 0, 0, 0, 195.479, -22.2703, 0, 0, 0, 0, 236.647, -21.3785, 0, 0, 0, 0, 307.233, -28.0554)
 }
 point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_h32vt"]
+_data = {
+"points": PackedVector2Array(-1.678, 21.6889, 1.678, -21.6889, -50.3467, 100, 0, 0, 0, 0, 8.71387, 68, 0, 0, 0, 0, 66.8066, 64, 0, 0, 0, 0, 130.708, 57, -24.7487, -9.8995, 24.7487, 9.8995, 563.495, 61, 0, 0, 0, 0, 651.602, 76, -5.9906, -42.9561, 5.9906, 42.9561, 676.774, 110, 0, 0, 0, 0, 683.552, 151, 0, 0, 0, 0, 681.615, 222, 0, 0, 0, 0, 649.665, 277, 0, 0, 0, 0, 626.428, 309, 0, 0, 0, 0, 594.478, 340, 42.4734, -10.7636, -42.4734, 10.7636, 486.038, 358, 0, 0, 0, 0, 426.01, 365, 0, 0, 0, 0, 369.853, 378, 0, 0, 0, 0, 274.97, 367, 59.3628, -3.04525, -59.3628, 3.04525, 155.88, 356, 0, 0, 0, 0, 61.9648, 354, 0, -1.88775, 0, 1.88775, -31.9502, 368, 0, 0, 0, 0, -89.0742, 378, 0, 0, 0, 0, -218.814, 392, 0, 0, 0, 0, -228.496, 382, 0, 0, 0, 0, -227.528, 362, 0, 0, 0, 0, -201.387, 349, 0, 0, 0, 0, -121.994, 361, 0, 0, 0, 0, -17.4277, 347, 0, 0, 0, 0, 89.0742, 336, 0, 0, 0, 0, 288.525, 340, 0, 0, 0, 0, 330.157, 340, 0, 0, 0, 0, 385.346, 342, 0, 0, 0, 0, 456.022, 325, 0, 0, 0, 0, 496.688, 300, 0, 0, 0, 0, 561.557, 285, 0, 0, 0, 0, 603.191, 254, 0, 0, 0, 0, 636.11, 196, 0, 0, 0, 0, 627.396, 140, 0, 0, 0, 0, 585.764, 108, 0, 0, 0, 0, 432.787, 85, 0, 0, 0, 0, 329.189, 88, 0, 0, 0, 0, 280.779, 87, 0, 0, 0, 0, 57.124, 96, 0, 0, 0, 0, -47.4414, 104)
+}
+point_count = 42
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muepl"]
 atlas = ExtResource("14_j1sri")
@@ -670,7 +670,7 @@ position = Vector2(11801, 449)
 polygon = PackedVector2Array(35.6035, -16.7751, 55.833, -16.3922, 70.0967, -1.56958, 72.2275, 23.5194, 72.0479, 57.5337, 76.373, 134.73, 56.2471, 138.034, 30.748, 123.141, -5.87695, 82.8461, -77.334, 66.615, -131.213, 42.3459, -169.279, 5.13147, -215.943, -12.0775, -312.853, -30.5612, -379.696, -61.8951, -485.505, -100.423, -606.14, -174.026, -638.935, -215.19, -681.61, -280.404, -636.5, -302.179, -566.506, -300.83, -437.559, -290.187, -386.554, -290.932, -335.579, -285.678, -251.705, -260.259, -218.801, -241.095, -200.149, -171.001, -187.312, -109.563, -115.734, -53.5781, -27.2891, -20.9592, 8.62012, -17.7117)
 
 [node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
-position = Vector2(9370, 664)
+position = Vector2(9386, 673)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -735,17 +735,6 @@ rotation = 0.00132818
 [node name="Path2D" type="Path2D" parent="Perhoset/Perhonen9"]
 curve = SubResource("Curve2D_eypsu")
 
-[node name="Perhonen8" parent="Perhoset" instance=ExtResource("13_ufso7")]
-position = Vector2(20641.9, 61.4162)
-rotation = 0.00132818
-
-[node name="Perhonen_4" parent="Perhoset" instance=ExtResource("13_ufso7")]
-position = Vector2(24946, -729.868)
-rotation = 0.00132818
-
-[node name="Path2D" type="Path2D" parent="Perhoset/Perhonen_4"]
-curve = SubResource("Curve2D_h32vt")
-
 [node name="Perhonen" parent="Perhoset" instance=ExtResource("13_ufso7")]
 position = Vector2(19731, 755.207)
 
@@ -785,6 +774,28 @@ position = Vector2(9786.15, 643.998)
 
 [node name="Marker2D" type="Marker2D" parent="Perhoset/PerhonenAmpuja"]
 position = Vector2(327.921, 59.4355)
+
+[node name="PerhonenHeal2" parent="Perhoset" instance=ExtResource("16_woq5y")]
+position = Vector2(16348.4, -255.287)
+
+[node name="PerhonenHeal3" parent="Perhoset" instance=ExtResource("16_woq5y")]
+position = Vector2(19510.2, 2091.92)
+
+[node name="PerhonenHeal4" parent="Perhoset" instance=ExtResource("16_woq5y")]
+position = Vector2(20670.9, 61.4548)
+rotation = 0.00132818
+
+[node name="PerhonenHeal5" parent="Perhoset" instance=ExtResource("16_woq5y")]
+position = Vector2(24744.5, -357.135)
+rotation = 0.00132818
+
+[node name="Path2D" type="Path2D" parent="Perhoset/PerhonenHeal5"]
+position = Vector2(201.01, -373)
+curve = SubResource("Curve2D_h32vt")
+
+[node name="PerhonenHeal6" parent="Perhoset" instance=ExtResource("16_woq5y")]
+position = Vector2(327.44, 6445.44)
+rotation = 0.00132818
 
 [node name="Kukat" type="Node2D" parent="."]
 unique_name_in_owner = true
