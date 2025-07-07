@@ -670,7 +670,7 @@ position = Vector2(11801, 449)
 polygon = PackedVector2Array(35.6035, -16.7751, 55.833, -16.3922, 70.0967, -1.56958, 72.2275, 23.5194, 72.0479, 57.5337, 76.373, 134.73, 56.2471, 138.034, 30.748, 123.141, -5.87695, 82.8461, -77.334, 66.615, -131.213, 42.3459, -169.279, 5.13147, -215.943, -12.0775, -312.853, -30.5612, -379.696, -61.8951, -485.505, -100.423, -606.14, -174.026, -638.935, -215.19, -681.61, -280.404, -636.5, -302.179, -566.506, -300.83, -437.559, -290.187, -386.554, -290.932, -335.579, -285.678, -251.705, -260.259, -218.801, -241.095, -200.149, -171.001, -187.312, -109.563, -115.734, -53.5781, -27.2891, -20.9592, 8.62012, -17.7117)
 
 [node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
-position = Vector2(9386, 673)
+position = Vector2(582, 6455)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -3942,6 +3942,28 @@ position = Vector2(20101, -902)
 [node name="Vines" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
 position = Vector2(12862, 493)
 rotation = -0.129512
+
+[node name="Diving" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(858, 5813)
+scale = Vector2(1, 14.68)
+
+[node name="Toxic Mushrooms" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(13450, 8684)
+
+[node name="Bouncy Mushrooms" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(1180, 6413)
+
+[node name="Bouncy Mushrooms2" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(-861, 5743)
+
+[node name="Illusions" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(911, 5998)
+scale = Vector2(1, 11.48)
+
+[node name="Water Lilies" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
+position = Vector2(1057, 5822)
+rotation = -0.0339324
+scale = Vector2(1, 12.44)
 
 [node name="Taso2" type="Node2D" parent="."]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5rrtdpl2g1cf"
-path="res://.godot/imported/kuva1.png-9d709960188c8ef5d3e9dffc00a710a3.ctex"
+uid="uid://dteonynxb4u2h"
+path="res://.godot/imported/kuva2.png-9e168b3f4efd26d0d892c8470c22bd0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tutoriaali/Bouncy shrooms/kuvat/sivu2/kuva1.png"
-dest_files=["res://.godot/imported/kuva1.png-9d709960188c8ef5d3e9dffc00a710a3.ctex"]
+source_file="res://tutoriaali/Bouncy Mushrooms/kuvat/sivu1/kuva2.png"
+dest_files=["res://.godot/imported/kuva2.png-9e168b3f4efd26d0d892c8470c22bd0f.ctex"]
 
 [params]
 

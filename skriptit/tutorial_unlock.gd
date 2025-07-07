@@ -1,7 +1,9 @@
-## Harri 16.9.2024
+## Harri 7.7.2025 Lisätty käsittelyä samannimisille tutorial-alueille
+## TODO: fiksaa se, että tutoriaalin indikaattori tulee useamman kerran
 ## Käsitellään tutoriaalin avaavaa nodea. Tehty lähinnä nimen tarkistuksen takia
 extends Area2D
 
+var unlockattava = null
 
 ## Ready tapahtuu, kun scene avautuu
 func _ready():
@@ -20,5 +22,6 @@ func parseString(string) -> String:
 ## Kun pelaaja osuu tutoriaalin unlockaavaan alueeseen
 func _on_body_entered(body):
 	if body is Pelaaja:
-		Globaali.unlock_tutorial(self.name)
+		unlockattava = self.name.rstrip("1234567890") # Että voidaan tehdä useampi samaa aihetta koskeva tutoriaali-unlock alue
+		Globaali.unlock_tutorial(unlockattava)
 		#Globaali.unlock_tutorial(self.name.rstrip("2")) # So far meillä oli vain yksi tapaus, jossa tutoriaalin voi avata kahdesta paikasta

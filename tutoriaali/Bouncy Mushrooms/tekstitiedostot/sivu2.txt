@@ -1,0 +1,1 @@
+Bouncy mushrooms have two states. Use the flutes yellow frequency to switch between states. Activated bouncy mushrooms will return to their original state after a certain period of time.

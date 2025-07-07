@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dimj4ywgd4pec" path="res://audio/perhonen/perhonen2.mp3" id="5_qf72o"]
 [ext_resource type="AudioStream" uid="uid://bpp70ea5kn1sb" path="res://audio/perhonen/perhonen3.mp3" id="6_othpa"]
 [ext_resource type="AudioStream" uid="uid://dftv68ra3rqyt" path="res://audio/perhonen/perhonen4.mp3" id="7_vfe8a"]
-[ext_resource type="Script" uid="uid://nsqycsilv06" path="res://skriptit/line_2d.gd" id="9_mrumj"]
+[ext_resource type="Script" path="res://skriptit/line_2d.gd" id="9_mrumj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8nepe"]
 atlas = ExtResource("3_ep2gf")
