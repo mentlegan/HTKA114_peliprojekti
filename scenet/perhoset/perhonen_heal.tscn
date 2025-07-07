@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://obqvnkpuuwsr"]
+[gd_scene load_steps=21 format=3 uid="uid://obqvnkpuuwsr"]
 
 [ext_resource type="Script" uid="uid://phryeo7e3b5g" path="res://skriptit/perhonen_heal.gd" id="1_msgqj"]
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_c16tm"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dimj4ywgd4pec" path="res://audio/perhonen/perhonen2.mp3" id="5_qf72o"]
 [ext_resource type="AudioStream" uid="uid://bpp70ea5kn1sb" path="res://audio/perhonen/perhonen3.mp3" id="6_othpa"]
 [ext_resource type="AudioStream" uid="uid://dftv68ra3rqyt" path="res://audio/perhonen/perhonen4.mp3" id="7_vfe8a"]
+[ext_resource type="Script" uid="uid://nsqycsilv06" path="res://skriptit/line_2d.gd" id="9_mrumj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8nepe"]
 atlas = ExtResource("3_ep2gf")
@@ -77,6 +78,11 @@ stream_1/stream = ExtResource("5_qf72o")
 stream_2/stream = ExtResource("6_othpa")
 stream_3/stream = ExtResource("7_vfe8a")
 
+[sub_resource type="Gradient" id="Gradient_mrumj"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0427807, 0.363636, 0.754011, 0.97861)
+colors = PackedColorArray(0.37458, 0.590952, 0.224292, 0.998039, 0.403922, 0.843137, 0, 0.992157, 0.419608, 0.87451, 0, 0.745098, 0.811765, 1, 0.729412, 0.666667)
+
 [node name="PerhonenHeal" type="Area2D" groups=["valonlahde"]]
 collision_layer = 4
 collision_mask = 2
@@ -105,6 +111,16 @@ stream = SubResource("AudioStreamRandomizer_7x1qg")
 volume_db = -2.0
 max_distance = 500.0
 bus = &"Kaiku"
+
+[node name="Line2D" type="Line2D" parent="."]
+modulate = Color(1, 1, 1, 0.529412)
+points = PackedVector2Array(71, -25, 81, -27, 91, -26, 103, -23, 112, -27, 120, -25, 127, -28)
+width = 12.0
+gradient = SubResource("Gradient_mrumj")
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("9_mrumj")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

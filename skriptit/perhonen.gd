@@ -12,7 +12,7 @@ var path_follow_2d: PathFollow2D = PathFollow2D.new()
 @onready var audio_perhonen = $AudioPerhonen
 @onready var aanen_ajastin = Timer.new()
 # Perhosen mahdollinen polunetsijä
-@onready var polunetsija = null
+var polunetsija = null
 # Liikkumiseen käytettävä callable
 var liikkumis_callable = null
 ## Perhosen nopeus
