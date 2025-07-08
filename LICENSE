@@ -1,4 +1,5 @@
-Copyright (c) 2025 Elias Lehtinen, Harri Keränen, Heidi Hakala, Juuso Piippo, Paavo Pörhö, Patrik Hägg, Samiin Agampodi
+Copyright (c) 2025 Agampodi Samiin, Hakala Heidi, Hägg Patrik, Keränen Harri,
+Lehtinen Elias, Piippo Juuso, Pörhö Paavo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -25,4 +26,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 Includes other software released under the MIT license:
-- SmartShape2D, Copyright 2018 Robert Morse. For licensing see /addons/rmsmartshape/LICENSE
+- SmartShape2D, Copyright 2018 Robert Morse. For licensing see
+  /addons/rmsmartshape/LICENSE
