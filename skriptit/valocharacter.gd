@@ -47,6 +47,11 @@ func _ready():
 	audio_valopallon_heitto.play()
 
 
+## Tällä voidaan päivittää nopeus, jos se halutaan tehdä muualla
+func paivita_nopeus(nopeus):
+	SPEED = nopeus
+
+
 func move(_position, _mouse):
 	# Aluksi pelaajan kohtaan
 	position = _position

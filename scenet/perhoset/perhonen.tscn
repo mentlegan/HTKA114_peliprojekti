@@ -1,64 +1,64 @@
 [gd_scene load_steps=18 format=3 uid="uid://dm1ghf6hoypw"]
 
 [ext_resource type="Script" uid="uid://div3c1dd2ax6f" path="res://skriptit/perhonen.gd" id="1_imobc"]
-[ext_resource type="Texture2D" uid="uid://cx2e2qryxy05i" path="res://grafiikka/PerhonenLento.PNG" id="2_kexl8"]
 [ext_resource type="Texture2D" uid="uid://bshv5yglnr7ru" path="res://grafiikka/Valo128.png" id="2_p0fjj"]
+[ext_resource type="Texture2D" uid="uid://5h5n3f6ocu5o" path="res://grafiikka/ButterflyIdle-Sheet.png" id="3_lekeg"]
 [ext_resource type="AudioStream" uid="uid://bcwwxbhw68lwr" path="res://audio/perhonen/perhonen1.mp3" id="4_m3r6s"]
 [ext_resource type="AudioStream" uid="uid://dimj4ywgd4pec" path="res://audio/perhonen/perhonen2.mp3" id="5_8lccb"]
 [ext_resource type="AudioStream" uid="uid://bpp70ea5kn1sb" path="res://audio/perhonen/perhonen3.mp3" id="6_ejrsp"]
 [ext_resource type="AudioStream" uid="uid://dftv68ra3rqyt" path="res://audio/perhonen/perhonen4.mp3" id="7_8lvy4"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8nepe"]
-atlas = ExtResource("2_kexl8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ps2b"]
+atlas = ExtResource("3_lekeg")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xg7v4"]
-atlas = ExtResource("2_kexl8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_w54t8"]
+atlas = ExtResource("3_lekeg")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y36mp"]
-atlas = ExtResource("2_kexl8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj6x4"]
+atlas = ExtResource("3_lekeg")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6athy"]
-atlas = ExtResource("2_kexl8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_or7oq"]
+atlas = ExtResource("3_lekeg")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppeqm"]
-atlas = ExtResource("2_kexl8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_prcd5"]
+atlas = ExtResource("3_lekeg")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_21mb1"]
-atlas = ExtResource("2_kexl8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qwcu"]
+atlas = ExtResource("3_lekeg")
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xhk86"]
-atlas = ExtResource("2_kexl8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_li36m"]
+atlas = ExtResource("3_lekeg")
 region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nepos"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8nepe")
+"texture": SubResource("AtlasTexture_6ps2b")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xg7v4")
+"texture": SubResource("AtlasTexture_w54t8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y36mp")
+"texture": SubResource("AtlasTexture_aj6x4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6athy")
+"texture": SubResource("AtlasTexture_or7oq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ppeqm")
+"texture": SubResource("AtlasTexture_prcd5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_21mb1")
+"texture": SubResource("AtlasTexture_2qwcu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xhk86")
+"texture": SubResource("AtlasTexture_li36m")
 }],
 "loop": true,
 "name": &"default",
@@ -91,7 +91,6 @@ texture_scale = 1.5
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nepos")
-frame_progress = 0.153834
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2q18j")

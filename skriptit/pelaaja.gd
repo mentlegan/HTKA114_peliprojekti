@@ -134,11 +134,15 @@ var valon_kohde = Vector2(0, 0)
 var hiiri_kaytossa = true
 var hiiren_viime_sijainti = Vector2(0, 0)
 
-## Ladataan valmiiksi valopallo
+## Ladataan valmiiksi valopallo, ja siihen liittyvät muuttujat
 var valopallo = preload("res://scenet/valo_character.tscn")
 ## Valopallon UI tekstuurit
 @onready var palloja_1 = preload("res://grafiikka/LightBall1.png")
 @onready var palloja_2 = preload("res://grafiikka/LightBall2.png")
+## Valopallon voimakkuuden säätöön liittyvät muuttujat
+var pallon_nopeus = 110.0
+var nouseva = true
+var laskeva = false
 
 ## Asetetaan pelaajan nopeus ja hypyt
 const MAX_NOPEUS = 180.0
@@ -1015,7 +1019,11 @@ func _physics_process(delta):
 		tahtain.visible = ohjain_tahtays.length() > 0.2
 	
 	# PC LEFT_CLICK
-	if Input.is_action_just_pressed("painike_vasen") and (
+	# Tarkistus napin pohjassa pidolle
+	if Input.is_action_just_pressed("painike_vasen"):
+		nappi_pohjassa("painike_vasen")
+	# Kun painike vapautetaan
+	if Input.is_action_just_released("painike_vasen") and (
 		hiiri_kaytossa or tahtain.visible) and (
 		# Tarkistetaan onko UI elementtiä näkyvissä (esim. teleport menu)
 		not get_viewport().gui_get_focus_owner()):
@@ -1023,6 +1031,8 @@ func _physics_process(delta):
 		if Globaali.maailma.palloja > 0 and not vedessa:
 			# Valon synnyttäminen
 			var l = valopallo.instantiate()
+			# Asetetaan nopeus
+			l.paivita_nopeus(pallon_nopeus)
 			# Liikkuminen valon scriptissä
 			l.move(self.position, valon_kohde + global_position)
 			# Lisääminen puuhun
@@ -1036,6 +1046,7 @@ func _physics_process(delta):
 			Globaali.maailma.nykyiset_pallot += 1
 			Globaali.maailma.palloja -= 1
 			palloja_label_paivita()
+			pallon_nopeus = 110.0 # Resetoidaan pallon nopeus
 	
 	# Nostetaan ja lasketaan äänen taajuutta tarvittaessa
 	# PC MOUSE_WHEEL
@@ -1114,6 +1125,34 @@ func _physics_process(delta):
 	
 	if tahtain.visible:
 		paivita_tahtaimen_lentorata()
+
+
+## Kun nappi on pohjassa, jotain tapahtuu
+## TODO: Voisi päivittää toimivaksi kaikille inputeille
+func nappi_pohjassa(komento):
+	# Ensin tarkistukset
+	if !Input.is_action_pressed(komento):
+		return
+	await get_tree().create_timer(0.2, false).timeout # Jos nappi ei pysy pohjassa tämän ajan, ei tehdä mitään
+	if !Input.is_action_pressed(komento):
+		return
+		
+	# Käsittelyä valopallon nopeudelle
+	if pallon_nopeus == 220.0: # Kun päästään maksiminopeuteen (sen voi säätää tästä)
+		nouseva = false
+		laskeva = true
+	if pallon_nopeus == 110.0: # Jos ollaan pohjalla
+		laskeva = false
+		nouseva = true
+	
+	if nouseva == true:
+		pallon_nopeus += 10 # Nostetaan nopeutta, jos ollaan pohjalla
+		#print(pallon_nopeus)
+		nappi_pohjassa(komento) # Rekursiivinen funktio toistaa itseään
+	if laskeva == true:
+		pallon_nopeus -= 10
+		#print(pallon_nopeus)
+		nappi_pohjassa(komento) # Rekursiivinen funktio toistaa itseään
 
 
 ## Aloittaa huilun soittamisen
