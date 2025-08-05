@@ -2,6 +2,9 @@ extends Perhonen
 class_name PerhonenAmpuja
 ## Alustava skripti ampuvalle perhoselle.
 ## TODO: Korjaa perhosen teleporttaus, jos polulle palatessa pelaaja tulee takaisin sen alueelle
+## TODO: Tuki navigoitavien alueiden valitsemiselle
+## TODO: Käytä polunetsijää myös polulle palatessa
+## TODO: Jonkinlainen state machine physics processiin
 
 
 ## (Testausta varten)
@@ -10,6 +13,8 @@ class_name PerhonenAmpuja
 
 ## Ajastin, kuinka tiheästi perhonen päivittää kohteen pelaajaan
 @onready var kohteen_asetus_timer = $KohteenAsetusTimer
+## Raycast, jolla perhonen ei lähde jahtaamaan pelaajaa seinien läpi
+@onready var raycast = $RayCast2D
 ## Seuraako perhonen pelaajaa vai ei
 var seuraa_pelaajaa = false
 ## Onko perhonen palaamassa polulle pelaajaa seurattuaan
@@ -32,6 +37,8 @@ func _physics_process(delta: float) -> void:
 		return
 	if seuraa_pelaajaa:
 		polunetsija.liikuta_vanhempaa(delta)
+	elif pelaaja and nakee_pelaajan():
+		aloita_jahtaaminen()
 	else:
 		super.path2d_liikkuminen(delta)
 
@@ -40,7 +47,7 @@ func _physics_process(delta: float) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body is Pelaaja:
 		seuraa_pelaajaa = false
-		pelaaja = body
+		pelaaja = null
 		kohteen_asetus_timer.stop()
 		palaamassa_polulle = true
 
@@ -56,15 +63,28 @@ func _on_body_exited(body: Node2D) -> void:
 		)
 
 
+## Palauttaa, näkeekö perhonen pelaajan vai onko seinää välissä
+func nakee_pelaajan() -> bool:
+	viimeisin_sijainti_polulla = global_position
+	raycast.set_target_position(pelaaja.global_position - self.global_position)
+	raycast.force_raycast_update()
+	return not raycast.is_colliding()
+
+
+## Aloittaa pelaajan jahtaamisen, jos perhonen näkee pelaajan
+func aloita_jahtaaminen():
+	seuraa_pelaajaa = true
+	palaamassa_polulle = false
+	polunetsija.aseta_kohde(pelaaja.global_position)
+	kohteen_asetus_timer.start()
+
+
 ## Kun pelaaja tulee lähelle perhosta
 func _on_body_entered(body: Node2D) -> void:
 	if body is Pelaaja and polunetsija:
-		seuraa_pelaajaa = true
-		viimeisin_sijainti_polulla = global_position
-		palaamassa_polulle = false
 		pelaaja = body
-		polunetsija.aseta_kohde(body.global_position)
-		kohteen_asetus_timer.start()
+		if nakee_pelaajan():
+			aloita_jahtaaminen()
 
 
 ## Asetetaan uusi kohde pelaajaan

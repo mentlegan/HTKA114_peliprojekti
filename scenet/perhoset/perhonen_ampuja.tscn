@@ -115,6 +115,8 @@ bus = &"Kaiku"
 z_as_relative = false
 shape = SubResource("CircleShape2D_yjwrg")
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="KohteenAsetusTimer" to="." method="_on_kohteen_asetus_timer_timeout"]
