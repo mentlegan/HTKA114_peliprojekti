@@ -1,12 +1,16 @@
+@tool
 extends Perhonen
 class_name PerhonenHeal
 ## Healaava perhonen
-## Juuso 7.7.2025
+## Juuso 9.8.2025
 
 @export var timer_heal_node: PackedScene
+@export var partikkelit_vari: Color: set = set_partikkelit_vari
 
 @onready var plight_2d: PointLight2D = $PointLight2D
-@onready var line_2d: Line2D = $Line2D
+@onready var line_2d: Line2DPerhonen = $Line2D
+
+@onready var partikkelit: GPUParticles2D = $GPUParticles2D
 
 var timer_heal: TimerHeal
 
@@ -16,16 +20,38 @@ var aloitus_texture_scale: float
 var aloitus_energia: float
 var line2d_aloitus_alpha: float
 
+## Näistä en ole varma
+## ei ole hyvä ellei tee useampaa aaltoa ja samalla partikkeleja varmaan
+#var aalto_paivitys_aika: float = 0.0
+#var aalto_paivitys_raja: float = 0.25 ## Kuinka usein aalto paivitetaan
+
 var tween: Tween
 var tween_aalto: Tween
 
 func _ready() -> void:
 	super._ready()
+	
+	# Äänet mutelle editorissa
+	if Engine.is_editor_hint():
+		aanen_ajastin.stop()
+	
 	aloitus_texture_scale = plight_2d.texture_scale
 	aloitus_energia = plight_2d.energy
 	
-	line2d_aloitus_alpha = line_2d.modulate.a
-	line_2d.modulate.a = 0.0
+	set_partikkelit_vari(partikkelit_vari)
+	
+	if not Engine.is_editor_hint():
+		line2d_aloitus_alpha = line_2d.modulate.a
+		line_2d.modulate.a = 0.0
+		partikkelit.position = Vector2.ZERO
+		partikkelit.emitting = false
+		partikkelit.one_shot = true
+
+
+func set_partikkelit_vari(vari: Color) -> void:
+	partikkelit_vari = vari
+	if partikkelit:
+		partikkelit.modulate = partikkelit_vari
 
 
 ## Luo ajastimen pelaajalle, joka kutsuu elama_regen funktiota
@@ -115,18 +141,29 @@ func heal_efekti() -> void:
 		tween_aalto.kill()
 	
 	print("Heal aalto-efekti")
-	var aalto_nakyviin_aika: float = 0.8
-	var aalto_himmenemis_aika: float = 0.35
+	var aalto_nakyviin_aika: float = 0.45
+	var aalto_himmenemis_aika: float = 0.25
+	var partikkelit_nakyviin_aika: float = 0.15
+	
+	# Partikkelit
+	# TODO: tekstuuri partikkeleille, joko nykyinen tai valopallon
+	# Käytetään hyväksi line_2d, jolla 10 pistettä atm
+	#partikkelit.position = line_2d.palauta_keskipiste()
+	#partikkelit.rotation = self.global_position.direction_to(pelaaja.global_position).angle()
+	#partikkelit.emitting = true
 	
 	tween_aalto = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween_aalto.tween_property(line_2d, "modulate:a", line2d_aloitus_alpha, aalto_nakyviin_aika)
 	tween_aalto.tween_property(line_2d, "modulate:a", 0.0, aalto_himmenemis_aika).set_trans(Tween.TRANS_QUINT)
 	
+	# Odotetaan hetki partikkelien kanssa samalla kun aaltoa tweenataan
+	var tween_parallel: Tween = create_tween()
+	tween_parallel.tween_interval(partikkelit_nakyviin_aika)
+	tween_parallel.tween_callback(func():
+		partikkelit.emitting = true)
+	
 	# TODO: pelaajan efekti, olisiko vihreäksi väläyttäminen
 	# siis käytännössä sama efekti kuin damagea ottaessa
-	# TODO: mahd. partikkelit, line2d aallon ohella
-	#var partikkelit = heal_partikkelit.instantiate()
-	#get_tree().root.add_child(partikkelit)
 
 
 ## Poistetaan ajastin ja resetoidaan valo, kun pelaaja poistuu alueelta
@@ -146,10 +183,20 @@ func _on_body_exited(body: Node2D) -> void:
 
 ## Päivitetään aaltoa pelaajan liikkuessa, kun aalto tween on aktiivinen
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	super._physics_process(delta)
 	if pelaaja:
 		if tween_aalto and tween_aalto.is_running():
-			# TODO: Tarvitseeko päivittää joka physics framella
-			# voisi olla efektin kannalta parempi, jos ei seuraa niin vahvasti pelaajaa
-			# esim. joka kolmas frame
+			#aalto_paivitys_aika += delta
+			#if aalto_paivitys_aika > aalto_paivitys_raja:
+				#aalto_paivitys_aika = 0.0
+				# TODO: Tarvitseeko päivittää joka physics framella
+				# voisi olla efektin kannalta parempi, jos ei seuraa niin vahvasti pelaajaa
+				# esim. joka kolmas frame
+				# Ei näyttänyt hyvälle, jos viivytti päivittämistä,
+				# tällöin pitäisi tehdä useampi aaltoefekti
+			partikkelit.position = line_2d.palauta_keskipiste()
+			partikkelit.rotation = self.global_position.direction_to(pelaaja.global_position).angle()
 			line_2d.muodosta_aalto(self.global_position, pelaaja.global_position)

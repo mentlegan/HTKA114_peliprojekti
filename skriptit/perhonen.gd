@@ -9,7 +9,7 @@ var path_follow_2d: PathFollow2D = PathFollow2D.new()
 ## Perhosen animaatio
 @onready var animaatio: AnimatedSprite2D = $AnimatedSprite2D
 ## Perhosen äänet
-@onready var audio_perhonen = $AudioPerhonen
+@onready var audio_perhonen: AudioStreamPlayer2D = $AudioPerhonen
 @onready var aanen_ajastin = Timer.new()
 # Perhosen mahdollinen polunetsijä
 var polunetsija = null
