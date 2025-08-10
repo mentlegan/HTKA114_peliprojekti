@@ -1,4 +1,4 @@
-[gd_scene load_steps=185 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=186 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" uid="uid://da5w6gxiw78tp" path="res://skriptit/maailma.gd" id="1_lya7j"]
 [ext_resource type="Script" uid="uid://pfedbiv7sf4b" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -237,6 +237,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -75.0381, 30.9006, 0, 0, 0, 0, -49.9824, -11.0661, 0, 0, 0, 0, -36.8975, -75.0488, 0, 0, 0, 0, 64.1797, -132.915, 0, 0, 0, 0, 64.0771, -55.9146, 0, 0, 0, 0, -4.06055, 47.9949, 0, 0, 0, 0, -18.082, 63.9763, 0, 0, 0, 0, -34.0898, 69.9551, 0, 0, 0, 0, -75.0381, 30.9006)
 }
 point_count = 9
+
+[sub_resource type="Curve2D" id="Curve2D_3jlii"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -8.93164, -22.0166, 0, 0, 0, 0, -5.91797, -32.0127, 0, 0, 0, 0, -6.84961, -84.014, 0, 0, 0, 0, -4.78906, -130.011, 0, 0, 0, 0, -5.66797, -221.013, 0, 0, 0, 0, -15.5859, -282.026, 0, 0, 0, 0, -11.5273, -326.02, 0, 0, 0, 0, -12.4043, -419.022, 0, 0, 0, 0, -18.3242, -479.03, 0, 0, 0, 0, -3.23438, -547.01, 0, 0, 0, 0, 15.8027, -574.984, 0, 0, 0, 0, 39.834, -597.952, 0, 0, 0, 0, 96.8516, -610.877, 0, 0, 0, 0, 118.848, -608.848, 0, 0, 0, 0, 124.881, -632.839, 0, 0, 0, 0, 113.896, -644.854, 0, 0, 0, 0, 87.8945, -643.889, 0, 0, 0, 0, 25.8906, -640.971, 0, 0, 0, 0, 8.85938, -617.994, 0, 0, 0, 0, -28.1953, -577.043, 0, 0, 0, 0, -9.27148, -519.018, 0, 0, 0, 0, -2.33398, -472.008, 0, 0, 0, 0, 5.51367, -356.998, 0, 0, 0, 0, 2.43945, -301.002, 0, 0, 0, 0, 3.38867, -263, 0, 0, 0, 0, 2.28711, -186.002, 0, 0, 0, 0, 6.17969, -105.997, 0, 0, 0, 0, 13.1113, -54.9874, 0, 0, 0, 0, 10.0664, -20.9915, 0, 0, 0, 0, 11.0293, 7.00977, 0, 0, 0, 0, 1.01953, 14.9966, 0, 0, 0, 0, -9.9707, 6.98193, 0, 0, 0, 0, -8.93359, -21.0166)
+}
+point_count = 33
 
 [sub_resource type="Curve2D" id="Curve2D_h32vt"]
 _data = {
@@ -690,7 +696,7 @@ polygon = PackedVector2Array(35.6035, -16.7751, 55.833, -16.3922, 70.0967, -1.56
 polygon = PackedVector2Array(758, 1115, 785, 1182, 984, 1183, 1120, 1189, 1110, 1006, 1147, 1004, 1160, 1184, 1351, 1184, 1349, 1278, 708, 1291, 681, 1092)
 
 [node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
-position = Vector2(9410, 660)
+position = Vector2(9401, 657)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -807,6 +813,9 @@ position = Vector2(16348.4, -255.287)
 [node name="PerhonenHeal3" parent="Perhoset" instance=ExtResource("16_woq5y")]
 position = Vector2(19510.2, 2091.92)
 
+[node name="Path2D" type="Path2D" parent="Perhoset/PerhonenHeal3"]
+curve = SubResource("Curve2D_3jlii")
+
 [node name="PerhonenHeal4" parent="Perhoset" instance=ExtResource("16_woq5y")]
 position = Vector2(20670.9, 61.4548)
 rotation = 0.00132818
@@ -874,7 +883,7 @@ position = Vector2(15624.3, 554.752)
 position = Vector2(16470.3, 570.876)
 
 [node name="Kukka21" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(16259.7, 228.596)
+position = Vector2(16259.7, 233.596)
 
 [node name="Kukka22" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(18288.2, 589.291)
@@ -2103,28 +2112,28 @@ rotation = -0.0479157
 unique_name_in_owner = true
 
 [node name="Checkpoint1" parent="Checkpointit" instance=ExtResource("35_je5yh")]
-position = Vector2(16350, 185)
+position = Vector2(16350, 216)
 
 [node name="Checkpoint6" parent="Checkpointit" instance=ExtResource("35_je5yh")]
-position = Vector2(15095, 730)
+position = Vector2(15095, 756)
 
 [node name="Checkpoint2" parent="Checkpointit" instance=ExtResource("35_je5yh")]
-position = Vector2(17278, -1147)
+position = Vector2(17278, -1123)
 
 [node name="Checkpoint3" parent="Checkpointit" instance=ExtResource("35_je5yh")]
-position = Vector2(19347, 2139)
+position = Vector2(19347, 2163)
 rotation = 0.0300953
 
 [node name="Checkpoint4" parent="Checkpointit" instance=ExtResource("35_je5yh")]
-position = Vector2(22973, -467)
+position = Vector2(22973, -442)
 rotation = -0.0103871
 
 [node name="Checkpoint5" parent="Checkpointit" instance=ExtResource("35_je5yh")]
-position = Vector2(20479, 70)
+position = Vector2(20479, 92)
 rotation = -0.0103871
 
 [node name="Checkpoint7" parent="Checkpointit" instance=ExtResource("35_je5yh")]
-position = Vector2(16961, 204)
+position = Vector2(16961, 227)
 rotation = 0.00956346
 
 [node name="Minecartit" type="Node2D" parent="."]
@@ -3964,7 +3973,7 @@ position = Vector2(149, 1014)
 unique_name_in_owner = true
 
 [node name="Checkpoint" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
-position = Vector2(15099, 699)
+position = Vector2(15099, 725)
 
 [node name="Flute" parent="TutoriaaliUnlock" instance=ExtResource("87_d1roi")]
 position = Vector2(16984, -1167)
@@ -4884,29 +4893,29 @@ curve = SubResource("Curve2D_sb360")
 [node name="CheckpointitTaso2" type="Node2D" parent="Taso2"]
 
 [node name="Checkpoint" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
-position = Vector2(12533, 8694)
+position = Vector2(12533, 8717)
 
 [node name="Checkpoint2" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
-position = Vector2(-309, 8736)
+position = Vector2(-309, 8758)
 
 [node name="Checkpoint3" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
-position = Vector2(-148, 5905)
+position = Vector2(-148, 5929)
 rotation = 0.0529006
 
 [node name="Checkpoint4" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
-position = Vector2(671, 6460)
+position = Vector2(671, 6486)
 rotation = -0.0154471
 
 [node name="Checkpoint5" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
-position = Vector2(21368, 8767)
+position = Vector2(21368, 8796)
 rotation = -0.388242
 
 [node name="Checkpoint7" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
-position = Vector2(26060, 7601)
+position = Vector2(26060, 7625)
 rotation = -0.0297748
 
 [node name="Checkpoint6" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
-position = Vector2(22246, 8594)
+position = Vector2(22246, 8624)
 rotation = 0.0133399
 
 [node name="PotioninOsatTaso2" type="Node2D" parent="Taso2"]

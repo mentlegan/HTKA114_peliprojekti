@@ -62,6 +62,7 @@ var oletus_lifetime: float = 3.3
 var tween: Tween
 var timer: Timer
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if Engine.is_editor_hint():

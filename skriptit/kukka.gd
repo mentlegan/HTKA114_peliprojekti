@@ -102,26 +102,38 @@ func sulje_valo():
 func aseta_valon_skaala(skaala):
 	if not valo_paalla_pysyvasti:
 		skaala = max(skaala, point_light.get_texture_scale())
-
+	
 	collision_shape.position = Vector2(0, 0)
-
+	
 	aloita_animaatio(skaala, 1, 3)
-
+	
 	if not area.is_in_group("valonlahde"):
 		area.add_to_group("valonlahde")
-	print_debug(area.is_in_group("valonlahde"))
+		tween_valo_pysyvasti()
+	#print_debug(area.is_in_group("valonlahde"))
+
+
+func tween_valo_pysyvasti() -> void:
+	var tween_vain_kerran: Tween = create_tween().set_ease(Tween.EASE_IN_OUT)
+	print_debug(self.name, " tween vain kerran")
+	tween_vain_kerran.tween_property(animaatio, "scale", Vector2(1.2, 1.2), 0.4)
+	tween_vain_kerran.parallel().tween_property(animaatio, "modulate", Color.YELLOW_GREEN, 0.4)
+	tween_vain_kerran.parallel().tween_property(animaatio, "modulate:a", 0.6, 0.4)
+	tween_vain_kerran.tween_property(animaatio, "scale", Vector2.ONE, 0.3)
+	tween_vain_kerran.parallel().tween_property(animaatio, "modulate", Color.WHITE, 0.5)
+	tween_vain_kerran.parallel().tween_property(animaatio, "modulate:a", 1.0, 0.4)
+	# TODO: Ääni ja mahd. valo pysyvästi esim. tehokkaammaksi?
 
 
 ## Valon lisääminen pallon osuttua
 func _on_body_entered(body):
 	if body.is_in_group("valopallo"):
 		valo_paalla_pysyvasti = true
-		if not area.is_in_group("valonlahde"):
-			aseta_valon_skaala(1)
+		aseta_valon_skaala(1)
 
 
 ## Kun osutaan huiluun
-func _on_area_entered(_area:Area2D):
+func _on_area_entered(_area: Area2D):
 	if _area is Huilu && _area.aanen_taajuus == 1:
 		if not _area.osuu_terrainiin(self):
 			var resonanssiaanen_ajastin = Timer.new()

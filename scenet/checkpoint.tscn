@@ -83,6 +83,26 @@ animations = [{
 "loop": false,
 "name": &"activate",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6efwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvvt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca2ro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ym3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkcok")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uqf5"]
@@ -92,25 +112,23 @@ size = Vector2(42.0579, 109.119)
 radius = 27.0741
 
 [node name="Checkpoint" type="Area2D"]
-position = Vector2(3073, 190)
 collision_mask = 2
 script = ExtResource("1_1e2pn")
-vari_aktivoitu = Color(0.828956, 0.801824, 0, 1)
-vari_nykyinen_aktiivinen = Color(2.88785e-06, 0.869794, 0.982442, 1)
+vari_aktivoitu = Color(0.674128, 0.651748, 5.77569e-07, 1)
+vari_nykyinen_aktiivinen = Color(0.966371, 0.790726, 0.0709808, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, 24)
-rotation = 0.00974901
 sprite_frames = SubResource("SpriteFrames_ewex3")
 animation = &"activate"
+frame = 10
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.33398, -14.5559)
-rotation = 0.0229341
+position = Vector2(0, -27)
 shape = SubResource("RectangleShape2D_2uqf5")
 
 [node name="Area2D" type="Area2D" parent="." groups=["valonlahde"]]
-position = Vector2(2, 18)
+position = Vector2(0, -6)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -128,3 +146,4 @@ texture = ExtResource("3_iv27s")
 texture_scale = 0.5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

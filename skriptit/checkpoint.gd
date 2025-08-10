@@ -8,10 +8,12 @@ class_name Checkpoint
 @export var vari_aktivoitu: Color
 @export var vari_nykyinen_aktiivinen: Color # Saa muuttaa
 
+@onready var valo: PointLight2D = $Area2D/PointLight2D
+@onready var animaatio: AnimatedSprite2D = $AnimatedSprite2D
+
 ## Totuusarvo sille onko päällä
 var aktivoitu = false
 
-@onready var valo: PointLight2D = $Area2D/PointLight2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,26 +29,38 @@ func _on_body_entered(body):
 		
 		Globaali.maailma.pelaaja_aloitus = self.global_position
 		Globaali.maailma.nykyinen_cp = self
+		
 		if not aktivoitu:
 			aktivoi()
 		else:
-			var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+			var tween: Tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 			tween.tween_property(valo, "color", vari_nykyinen_aktiivinen, 1)
-			print_debug("Asetetaan uusi aktiiviseksi ", self.name)
+			animaatio.play("activate")
+			# Aloitetaan activate animaatio siitä, kun cp on jo valoisa
+			animaatio.frame = 4
+			print_debug("Asetetaan uusi nykyiseksi aktiiviseksi ", self.name)
 		
-		# Muulloin kuin aivan ekalla checkpointilla
-		# Resetataan edellinen
+		# Muulloin kuin aivan ekalla checkpointilla, resetataan edellinen
 		if not nykyinen_cp == null:
-			var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-			tween.tween_property(nykyinen_cp.valo, "color", vari_aktivoitu, 1)
-			print_debug("Resetataan edellinen ", self.name)
+			nykyinen_cp.resetoi()
+
+
+## Kutsutaan nykyiselle checkpointille kun uusi aktivoidaan
+func resetoi() -> void:
+	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(valo, "color", vari_aktivoitu, 1)
+	animaatio.play("activate")
+	# Jätetään resetoidessa cp kuitenkin valoisaksi eli asetetaan viimeinen frame
+	animaatio.stop()
+	animaatio.frame = 10
+	print_debug("Resetataan edellinen ", self.name)
 
 
 ## Aktivoi checkpointin
 func aktivoi():
 	aktivoitu = true
 	valo.visible = true
-	$AnimatedSprite2D.play("activate")
+	animaatio.play("activate")
 	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT).set_parallel(true)
 	tween.tween_property(valo, "texture_scale", 3, 2)
 	tween.tween_property($Area2D/CollisionShape2D, "scale", Vector2(3, 3), 2)
@@ -54,3 +68,9 @@ func aktivoi():
 	await tween.finished
 	tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(valo, "color", vari_nykyinen_aktiivinen, 1)
+
+
+## Pelataan active animaatio aina, kun cp on päällä
+## Ei ammu signaalia, kun pelataan looppaava active animaatio
+func _on_animated_sprite_2d_animation_finished() -> void:
+	animaatio.play("active")

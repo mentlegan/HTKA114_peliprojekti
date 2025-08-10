@@ -81,8 +81,8 @@ stream_3/stream = ExtResource("7_vfe8a")
 
 [sub_resource type="Gradient" id="Gradient_mrumj"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.412245, 0.64898, 1)
-colors = PackedColorArray(0.482353, 0.992157, 0, 0.784314, 0.403922, 0.843137, 0, 0.392157, 0.419608, 0.87451, 0, 0.470588, 0.482353, 0.992157, 0, 0.784314)
+offsets = PackedFloat32Array(0, 0, 0, 0.412245)
+colors = PackedColorArray(0.482353, 0.992157, 0, 0.784314, 0.419608, 0.87451, 0, 0.470588, 0.482353, 0.992157, 0, 0.784314, 0.403922, 0.843137, 0, 0.392157)
 
 [sub_resource type="Gradient" id="Gradient_tfina"]
 offsets = PackedFloat32Array(0, 0.463415, 1)
@@ -90,6 +90,7 @@ colors = PackedColorArray(1, 1, 1, 0.784314, 1, 1, 1, 0.862745, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_pgxin"]
 gradient = SubResource("Gradient_tfina")
+use_hdr = true
 
 [sub_resource type="Curve" id="Curve_mrumj"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502164, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -130,7 +131,7 @@ texture_scale = 1.4
 modulate = Color(0.435501, 0.686193, 0, 1)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nepos")
-frame_progress = 0.89044
+frame_progress = 0.900234
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2q18j")

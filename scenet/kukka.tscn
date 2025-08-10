@@ -142,8 +142,7 @@ script = ExtResource("1_vd3gl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2clcg")
-animation = &"disable"
-frame_progress = 0.136132
+frame_progress = 0.399243
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 0.0045216
@@ -166,6 +165,10 @@ shape = SubResource("CircleShape2D_rw8h0")
 wait_time = 10.0
 one_shot = true
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 z_index = 10
 material = SubResource("CanvasItemMaterial_l8d32")
@@ -180,17 +183,13 @@ initial_velocity_min = 70.71
 initial_velocity_max = 101.01
 orbit_velocity_min = -0.3
 orbit_velocity_max = 0.3
-radial_accel_min = 52.53
-radial_accel_max = 64.65
+radial_accel_min = 40.0
+radial_accel_max = 50.0
 damping_min = 39.394
 damping_max = 76.768
 scale_amount_min = 0.5
 scale_amount_curve = SubResource("Curve_jjl0m")
 color_ramp = SubResource("Gradient_g71rd")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
-one_shot = true
 
 [node name="AudioValokukanResonanssi" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_wvag6")
