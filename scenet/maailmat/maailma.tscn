@@ -240,15 +240,15 @@ point_count = 9
 
 [sub_resource type="Curve2D" id="Curve2D_3jlii"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -8.93164, -22.0166, 0, 0, 0, 0, -5.91797, -32.0127, 0, 0, 0, 0, -6.84961, -84.014, 0, 0, 0, 0, -4.78906, -130.011, 0, 0, 0, 0, -5.66797, -221.013, 0, 0, 0, 0, -15.5859, -282.026, 0, 0, 0, 0, -11.5273, -326.02, 0, 0, 0, 0, -12.4043, -419.022, 0, 0, 0, 0, -18.3242, -479.03, 0, 0, 0, 0, -3.23438, -547.01, 0, 0, 0, 0, 15.8027, -574.984, 0, 0, 0, 0, 39.834, -597.952, 0, 0, 0, 0, 96.8516, -610.877, 0, 0, 0, 0, 118.848, -608.848, 0, 0, 0, 0, 124.881, -632.839, 0, 0, 0, 0, 113.896, -644.854, 0, 0, 0, 0, 87.8945, -643.889, 0, 0, 0, 0, 25.8906, -640.971, 0, 0, 0, 0, 8.85938, -617.994, 0, 0, 0, 0, -28.1953, -577.043, 0, 0, 0, 0, -9.27148, -519.018, 0, 0, 0, 0, -2.33398, -472.008, 0, 0, 0, 0, 5.51367, -356.998, 0, 0, 0, 0, 2.43945, -301.002, 0, 0, 0, 0, 3.38867, -263, 0, 0, 0, 0, 2.28711, -186.002, 0, 0, 0, 0, 6.17969, -105.997, 0, 0, 0, 0, 13.1113, -54.9874, 0, 0, 0, 0, 10.0664, -20.9915, 0, 0, 0, 0, 11.0293, 7.00977, 0, 0, 0, 0, 1.01953, 14.9966, 0, 0, 0, 0, -9.9707, 6.98193, 0, 0, 0, 0, -8.93359, -21.0166)
+"points": PackedVector2Array(0, 0, 0, 0, -8.93164, -22.0166, 0, 0, 0, 0, -5.91797, -32.0127, 0, 0, 0, 0, -6.84961, -84.014, 0, 0, 0, 0, -4.78906, -130.011, 0, 0, 0, 0, -5.66797, -221.013, 0, 0, 0, 0, -15.5859, -282.026, 0, 0, 0, 0, -11.5273, -326.02, 0, 0, 0, 0, -12.4043, -419.022, 0, 0, 0, 0, -18.3242, -479.03, 0, 0, 0, 0, -3.23438, -547.01, 0, 0, 0, 0, 15.8027, -574.984, 0, 0, 0, 0, 39.834, -597.952, 0, 0, 0, 0, 96.8516, -610.877, 0, 0, 0, 0, 118.848, -608.848, 0, 0, 0, 0, 124.881, -632.839, 0, 0, 0, 0, 113.896, -644.854, 0, 0, 0, 0, 87.8945, -643.889, 0, 0, 0, 0, 39.8047, -634.948, 0, 0, 0, 0, 18.7773, -613.975, 0, 0, 0, 0, -11.2754, -575.015, 0, 0, 0, 0, -9.27148, -519.018, 0, 0, 0, 0, -2.33398, -472.008, 0, 0, 0, 0, 5.51367, -356.998, 0, 0, 0, 0, 2.43945, -301.002, 0, 0, 0, 0, 3.38867, -263, 0, 0, 0, 0, 2.28711, -186.002, 0, 0, 0, 0, 6.17969, -105.997, 0, 0, 0, 0, 13.1113, -54.9874, 0, 0, 0, 0, 10.0664, -20.9915, 0, 0, 0, 0, 11.0293, 7.00977, 0, 0, 0, 0, 1.01953, 14.9966, 0, 0, 0, 0, -9.9707, 6.98193, 0, 0, 0, 0, -8.93359, -21.0166)
 }
 point_count = 33
 
 [sub_resource type="Curve2D" id="Curve2D_h32vt"]
 _data = {
-"points": PackedVector2Array(-1.678, 21.6889, 1.678, -21.6889, -50.3467, 100, 0, 0, 0, 0, 8.71387, 68, 0, 0, 0, 0, 66.8066, 64, 0, 0, 0, 0, 130.708, 57, -24.7487, -9.8995, 24.7487, 9.8995, 563.495, 61, 0, 0, 0, 0, 651.602, 76, -5.9906, -42.9561, 5.9906, 42.9561, 676.774, 110, 0, 0, 0, 0, 683.552, 151, 0, 0, 0, 0, 681.615, 222, 0, 0, 0, 0, 649.665, 277, 0, 0, 0, 0, 626.428, 309, 0, 0, 0, 0, 594.478, 340, 42.4734, -10.7636, -42.4734, 10.7636, 486.038, 358, 0, 0, 0, 0, 426.01, 365, 0, 0, 0, 0, 369.853, 378, 0, 0, 0, 0, 274.97, 367, 59.3628, -3.04525, -59.3628, 3.04525, 155.88, 356, 0, 0, 0, 0, 61.9648, 354, 0, -1.88775, 0, 1.88775, -31.9502, 368, 0, 0, 0, 0, -89.0742, 378, 0, 0, 0, 0, -218.814, 392, 0, 0, 0, 0, -228.496, 382, 0, 0, 0, 0, -227.528, 362, 0, 0, 0, 0, -201.387, 349, 0, 0, 0, 0, -121.994, 361, 0, 0, 0, 0, -17.4277, 347, 0, 0, 0, 0, 89.0742, 336, 0, 0, 0, 0, 288.525, 340, 0, 0, 0, 0, 330.157, 340, 0, 0, 0, 0, 385.346, 342, 0, 0, 0, 0, 456.022, 325, 0, 0, 0, 0, 496.688, 300, 0, 0, 0, 0, 561.557, 285, 0, 0, 0, 0, 603.191, 254, 0, 0, 0, 0, 636.11, 196, 0, 0, 0, 0, 627.396, 140, 0, 0, 0, 0, 585.764, 108, 0, 0, 0, 0, 432.787, 85, 0, 0, 0, 0, 329.189, 88, 0, 0, 0, 0, 280.779, 87, 0, 0, 0, 0, 57.124, 96, 0, 0, 0, 0, -47.4414, 104)
+"points": PackedVector2Array(-16.7043, 12.6731, 16.7043, -12.6731, -40.0137, 76.9999, 0, 0, 0, 0, 8.71387, 68, 0, 0, 0, 0, 66.8066, 64, 0, 0, 0, 0, 130.708, 57, -24.7487, -9.8995, 24.7487, 9.8995, 563.495, 61, 0, 0, 0, 0, 651.602, 76, -5.9906, -42.9561, 5.9906, 42.9561, 676.774, 110, 0, 0, 0, 0, 683.552, 151, 0, 0, 0, 0, 681.615, 222, 0, 0, 0, 0, 649.665, 277, 0, 0, 0, 0, 626.428, 309, 0, 0, 0, 0, 594.478, 340, 42.4734, -10.7636, -42.4734, 10.7636, 486.038, 358, 0, 0, 0, 0, 426.01, 365, 0, 0, 0, 0, 369.853, 378, 0, 0, 0, 0, 274.97, 367, 59.3628, -3.04525, -59.3628, 3.04525, 155.88, 356, 0, 0, 0, 0, 61.9648, 354, 0, -1.88775, 0, 1.88775, -31.9502, 368, 0, 0, 0, 0, -89.0742, 378, 0, 0, 0, 0, -218.814, 392, 0, 0, 0, 0, -228.496, 382, 0, 0, 0, 0, -227.528, 362, 0, 0, 0, 0, -201.387, 349, 0, 0, 0, 0, -121.994, 361, 0, 0, 0, 0, -17.4277, 347, 0, 0, 0, 0, 89.0742, 336, 0, 0, 0, 0, 288.525, 340, 0, 0, 0, 0, 330.157, 340, 0, 0, 0, 0, 385.346, 342, 0, 0, 0, 0, 456.022, 325, 0, 0, 0, 0, 496.688, 300, 0, 0, 0, 0, 561.557, 285, 0, 0, 0, 0, 603.191, 254, 0, 0, 0, 0, 636.11, 196, 0, 0, 0, 0, 627.396, 140, 0, 0, 0, 0, 585.764, 108, 0, 0, 0, 0, 432.787, 85, 0, 0, 0, 0, 329.189, 88, 0, 0, 0, 0, 280.779, 87, 0, 0, 0, 0, 57.124, 96, 0, 0, 0, 0, -48.0137, 112, 0, 0, 0, 0, -68.0137, 110, 0, 0, 0, 0, -78.0137, 103, 0, 0, 0, 0, -70.0137, 81.9999, 0, 0, 0, 0, -45.0137, 75.9999)
 }
-point_count = 42
+point_count = 46
 
 [sub_resource type="Curve2D" id="Curve2D_vrpes"]
 _data = {
@@ -811,9 +811,10 @@ curve = SubResource("Curve2D_3r26q")
 position = Vector2(16348.4, -255.287)
 
 [node name="PerhonenHeal3" parent="Perhoset" instance=ExtResource("16_woq5y")]
-position = Vector2(19510.2, 2091.92)
+position = Vector2(19500.2, 2091.91)
 
 [node name="Path2D" type="Path2D" parent="Perhoset/PerhonenHeal3"]
+position = Vector2(-5.96225, 0.987199)
 curve = SubResource("Curve2D_3jlii")
 
 [node name="PerhonenHeal4" parent="Perhoset" instance=ExtResource("16_woq5y")]
@@ -883,7 +884,7 @@ position = Vector2(15624.3, 554.752)
 position = Vector2(16470.3, 570.876)
 
 [node name="Kukka21" parent="Kukat" instance=ExtResource("14_332fg")]
-position = Vector2(16259.7, 233.596)
+position = Vector2(16259.7, 238.596)
 
 [node name="Kukka22" parent="Kukat" instance=ExtResource("14_332fg")]
 position = Vector2(18288.2, 589.291)
@@ -2805,7 +2806,7 @@ position = Vector2(16058, 716)
 texture = ExtResource("59_uc2mr")
 
 [node name="Varsi3" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
-position = Vector2(16267, 191)
+position = Vector2(16258, 191)
 texture = ExtResource("59_uc2mr")
 
 [node name="Varsi4" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/KukkienVarret"]
@@ -3245,6 +3246,16 @@ position = Vector2(16181, 221)
 rotation = -0.442822
 texture = ExtResource("58_b26eb")
 
+[node name="Kasvi15" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(15985, 127)
+rotation = -3.45995
+texture = ExtResource("58_b26eb")
+
+[node name="Kasvi16" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
+position = Vector2(15579, 347)
+rotation = -3.93989
+texture = ExtResource("58_b26eb")
+
 [node name="Kasvi6" type="Sprite2D" parent="Muuta/TaustaElementit/Kasvillisuus/Kasvit"]
 position = Vector2(20709, 811)
 rotation = -1.69392
@@ -3392,6 +3403,12 @@ texture = ExtResource("59_moxlu")
 [node name="Kivi16" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
 position = Vector2(20313, 728)
 rotation = -2.75779
+scale = Vector2(1, -1)
+texture = ExtResource("59_moxlu")
+
+[node name="Kivi28" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Kivet"]
+position = Vector2(19929, 565)
+rotation = -3.13159
 scale = Vector2(1, -1)
 texture = ExtResource("59_moxlu")
 
@@ -3577,7 +3594,7 @@ texture = ExtResource("64_20rsk")
 
 [node name="Seittia5" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Seitit"]
 position = Vector2(19839, -237)
-rotation = 0.146672
+rotation = 1.01948
 texture = ExtResource("64_20rsk")
 
 [node name="Seittia4" type="Sprite2D" parent="Muuta/TaustaElementit/Eloton/Seitit"]
@@ -5420,8 +5437,8 @@ position = Vector2(26721, 7652)
 rotation = 0.44273
 
 [node name="piikki7" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
-position = Vector2(26909, 7483)
-rotation = 3.29986
+position = Vector2(26909, 7482)
+rotation = 3.23518
 
 [node name="piikki10" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
 position = Vector2(26990, 7255)
@@ -5444,7 +5461,7 @@ position = Vector2(27002, 7271)
 rotation = 4.14757
 
 [node name="piikki9" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
-position = Vector2(27240, 7475)
+position = Vector2(27240, 7471)
 rotation = 3.22744
 
 [node name="piikki13" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]

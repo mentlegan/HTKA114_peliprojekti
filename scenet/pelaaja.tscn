@@ -34,7 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://dw75jyosgto66" path="res://audio/pelaaja/huilu/huiluaani_C.wav" id="24_xxdxr"]
 [ext_resource type="AudioStream" uid="uid://c01td3kcj70nh" path="res://audio/ambient/tuulen_humina.mp3" id="25_byydo"]
 [ext_resource type="AudioStream" uid="uid://diri4jc7100fi" path="res://audio/pelaaja/huilu/huiluaani_E.wav" id="25_qars5"]
-[ext_resource type="Script" uid="uid://cbq1x7o1s4422" path="res://skriptit/huilu.gd" id="26_v60w7"]
+[ext_resource type="Script" uid="uid://c5htt5tfsiucy" path="res://skriptit/huilu.gd" id="26_v60w7"]
 [ext_resource type="AudioStream" uid="uid://dvmb8l1qpgtd6" path="res://audio/vesi/hapen_otto_1.mp3" id="28_lca11"]
 [ext_resource type="AudioStream" uid="uid://cffo5u3oefjn0" path="res://audio/vesi/hapen_otto_2.mp3" id="29_s5ej7"]
 [ext_resource type="AudioStream" uid="uid://b32gv51jaarnu" path="res://audio/vesi/hapen_loppuminen.mp3" id="30_t3ogw"]
@@ -698,7 +698,6 @@ shape = SubResource("CapsuleShape2D_u7j51")
 
 [node name="PimeaValo" type="PointLight2D" parent="."]
 visible = false
-position = Vector2(-17.5059, -41.9961)
 scale = Vector2(2188.64, 1311.03)
 blend_mode = 1
 texture = SubResource("GradientTexture2D_lbg0v")

@@ -116,8 +116,8 @@ func aseta_valon_skaala(skaala):
 func tween_valo_pysyvasti() -> void:
 	var tween_vain_kerran: Tween = create_tween().set_ease(Tween.EASE_IN_OUT)
 	print_debug(self.name, " tween vain kerran")
-	tween_vain_kerran.tween_property(animaatio, "scale", Vector2(1.2, 1.2), 0.4)
-	tween_vain_kerran.parallel().tween_property(animaatio, "modulate", Color.YELLOW_GREEN, 0.4)
+	tween_vain_kerran.tween_property(animaatio, "scale", Vector2(1.1, 1.1), 0.4)
+	tween_vain_kerran.parallel().tween_property(animaatio, "modulate", Color.AQUAMARINE, 0.4)
 	tween_vain_kerran.parallel().tween_property(animaatio, "modulate:a", 0.6, 0.4)
 	tween_vain_kerran.tween_property(animaatio, "scale", Vector2.ONE, 0.3)
 	tween_vain_kerran.parallel().tween_property(animaatio, "modulate", Color.WHITE, 0.5)
