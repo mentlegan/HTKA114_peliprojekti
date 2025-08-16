@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cbufj630idhw"]
 
-[ext_resource type="Script" uid="uid://b148isb2ui1as" path="res://skriptit/illuusion_vaihtaja_visible.gd" id="1_e4boe"]
+[ext_resource type="Script" uid="uid://dovn6og5g5lih" path="res://skriptit/illuusion_vaihtaja_visible.gd" id="1_e4boe"]
 
 [node name="IlluusionVaihtajaVisible" type="Node"]
 script = ExtResource("1_e4boe")

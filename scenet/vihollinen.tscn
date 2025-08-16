@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://c3iy6ln4bag18"]
 
-[ext_resource type="Script" uid="uid://dyce40150dvto" path="res://skriptit/vihollinen.gd" id="1_8ppmx"]
+[ext_resource type="Script" uid="uid://iljux1576rnb" path="res://skriptit/vihollinen.gd" id="1_8ppmx"]
 [ext_resource type="Texture2D" uid="uid://xnyqgwscqx7t" path="res://grafiikka/tiili.png" id="1_22viq"]
 [ext_resource type="AudioStream" uid="uid://ck4qv0a7crsd2" path="res://audio/hirvio/vihollisen_hengitys1_mono.wav" id="3_shivu"]
 [ext_resource type="AudioStream" uid="uid://cm7etl18w23iq" path="res://audio/hirvio/hirvioaani1_mono.wav" id="4_x7yr7"]

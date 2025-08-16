@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsy33jkmnrijr"]
 
-[ext_resource type="Script" uid="uid://bh4lkjrtcbbdo" path="res://skriptit/asetukset_menu.gd" id="1_ahoxr"]
+[ext_resource type="Script" uid="uid://bibiv82p13rks" path="res://skriptit/asetukset_menu.gd" id="1_ahoxr"]
 [ext_resource type="PackedScene" uid="uid://dl8i0jom7iver" path="res://scenet/asetukset_valilehdet.tscn" id="2_vh5rh"]
 
 [node name="asetukset_ruutu" type="Control"]

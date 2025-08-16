@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d3275w50mg1i2"]
 
-[ext_resource type="Script" uid="uid://cx7vmkqhot61f" path="res://skriptit/lumme.gd" id="1_hsthi"]
+[ext_resource type="Script" uid="uid://ctglah8hi13ad" path="res://skriptit/lumme.gd" id="1_hsthi"]
 [ext_resource type="Texture2D" uid="uid://dm3dghhjndmdj" path="res://grafiikka/TaustaElementit2/Lumme.png" id="3_s7sjx"]
 [ext_resource type="Texture2D" uid="uid://b2o7n261w6m2o" path="res://grafiikka/TaustaElementit2/LummeJuuri2.png" id="3_xuwhm"]
 [ext_resource type="Texture2D" uid="uid://crwemptiqahbu" path="res://grafiikka/TaustaElementit2/LummeKukka.png" id="4_bhhjf"]

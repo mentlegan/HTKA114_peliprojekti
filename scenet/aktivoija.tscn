@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpsr4m5xt83yn"]
 
-[ext_resource type="Script" uid="uid://2doq0y8xq3ov" path="res://skriptit/aktivoija.gd" id="1_31k7u"]
+[ext_resource type="Script" uid="uid://f4dpai3ix0wk" path="res://skriptit/aktivoija.gd" id="1_31k7u"]
 [ext_resource type="Texture2D" uid="uid://crwemptiqahbu" path="res://grafiikka/TaustaElementit2/LummeKukka.png" id="2_c87ws"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vq7c8"]

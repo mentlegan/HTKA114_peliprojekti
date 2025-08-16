@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ctidyv8v2d1cv"]
 
 [ext_resource type="Texture2D" uid="uid://b6d8xrwadr5iv" path="res://grafiikka/JournalPickup-Sheet.png" id="1_6s1pl"]
-[ext_resource type="Script" uid="uid://b5ver05nfyecw" path="res://skriptit/journal_pickup.gd" id="1_owwu1"]
+[ext_resource type="Script" uid="uid://85wfa6ea5ipw" path="res://skriptit/journal_pickup.gd" id="1_owwu1"]
 [ext_resource type="Texture2D" uid="uid://02x0wi25d81d" path="res://grafiikka/Valo64.png" id="3_euu4u"]
 [ext_resource type="AudioStream" uid="uid://qevk0puv3qu4" path="res://audio/journal/journal.mp3" id="4_5w50t"]
 

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://gktnyqf3rju6" path="res://scenet/kayttoliittyma/game_over_ruutu.tscn" id="2_wrg0b"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_ofno8"]
 [ext_resource type="PackedScene" uid="uid://d1c6axf23uaq5" path="res://scenet/kayttoliittyma/help_ruutu.tscn" id="4_6x2o3"]
-[ext_resource type="Script" uid="uid://hkxwwgielrn1" path="res://skriptit/ss2d_varjot.gd" id="5_cbsn2"]
+[ext_resource type="Script" uid="uid://pfedbiv7sf4b" path="res://skriptit/ss2d_varjot.gd" id="5_cbsn2"]
 [ext_resource type="PackedScene" uid="uid://kmwces4tj1hh" path="res://scenet/pelaaja.tscn" id="11_i55o7"]
 [ext_resource type="Texture2D" uid="uid://dite5ccabklvd" path="res://grafiikka/LightFlower.png" id="12_vrpta"]
 [ext_resource type="PackedScene" uid="uid://dm1ghf6hoypw" path="res://scenet/perhoset/perhonen.tscn" id="13_bqxms"]
