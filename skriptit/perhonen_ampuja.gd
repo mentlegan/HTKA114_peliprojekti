@@ -11,6 +11,9 @@ class_name PerhonenAmpuja
 ## Asettaa pelin alkaessa kohteen polunetsinnälle.
 @export var kohde: Marker2D
 
+var happo = preload("res://scenet/happo.tscn")
+## Ajastin, kuinka tiheästi perhonen pyrkii ampumaan pelaajaa
+@onready var ampumisajastin = $AmpumisAjastin
 ## Ajastin, kuinka tiheästi perhonen päivittää kohteen pelaajaan
 @onready var kohteen_asetus_timer = $KohteenAsetusTimer
 ## Raycast, jolla perhonen ei lähde jahtaamaan pelaajaa seinien läpi
@@ -79,10 +82,34 @@ func aloita_jahtaaminen():
 	kohteen_asetus_timer.start()
 
 
+## Ampuu pelaajaa kohti happoa
+func ammu():
+	# Jos pelaaja on jo sisemmän alueen ulkopuolella, ei enää ammuta
+	if not pelaaja:
+		ampumisajastin.stop()
+		return
+	
+	if not nakee_pelaajan():
+		return
+
+	var pallo = happo.instantiate()
+	pallo.global_position = self.global_position
+	pallo.velocity = self.global_position.direction_to(pelaaja.global_position)
+	self.get_tree().root.add_child(pallo)
+
+
+## Aloittaa pelaajan ampumisen
+func aloita_ampuminen():
+	# Aloitetaan ampuminen pelkästään, jos ajastin on kerennyt pysähtyä.
+	if ampumisajastin.get_time_left() < 0.01:
+		ammu()
+	ampumisajastin.start()
+
 ## Kun pelaaja tulee lähelle perhosta
 func _on_body_entered(body: Node2D) -> void:
 	if body is Pelaaja and polunetsija:
 		pelaaja = body
+		aloita_ampuminen()
 		if nakee_pelaajan():
 			aloita_jahtaaminen()
 

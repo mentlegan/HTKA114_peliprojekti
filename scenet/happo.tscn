@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://jiapugysxaga"]
+
+[ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="1_e7icy"]
+[ext_resource type="Script" uid="uid://bk1sn87nymtjk" path="res://skriptit/happo.gd" id="1_xexyd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5hgpw"]
+radius = 5.0
+
+[sub_resource type="Gradient" id="Gradient_e7icy"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xexyd"]
+gradient = SubResource("Gradient_e7icy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Happo" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_xexyd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1.05888e-06, 0.696866, 0.638924, 1)
+texture = ExtResource("1_e7icy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5hgpw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -1
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 15.0
+damping_min = 27.659
+damping_max = 43.617
+color = Color(3.08037e-06, 0.779431, 0.361245, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+blend_mode = 2
+texture = SubResource("GradientTexture2D_xexyd")

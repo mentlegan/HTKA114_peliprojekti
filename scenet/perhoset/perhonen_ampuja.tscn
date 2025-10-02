@@ -117,7 +117,11 @@ shape = SubResource("CircleShape2D_yjwrg")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
+[node name="AmpumisAjastin" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="KohteenAsetusTimer" to="." method="_on_kohteen_asetus_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="AmpumisAjastin" to="." method="ammu"]
