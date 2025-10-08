@@ -168,9 +168,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(9859, 704, 9866, 600, 9995, 604, 10023, 704, 10146, 712, 10091, 466, 9685, 444, 9674, 704)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sjwyo"]
-vertices = PackedVector2Array(1090.52, 989.383, 1099.48, 1172.79, 797.906, 1167.12, 773.648, 1104.03, 698.477, 1078.65, 680.727, 838.594, 1336.82, 813.391, 1164.17, 986.648, 1331.15, 1164.11, 1179.19, 1165.89)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6, 0), PackedInt32Array(7, 0, 6), PackedInt32Array(7, 6, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1341, 1174, 1170, 1176, 1155, 997, 1101, 999, 1110, 1183, 791, 1177, 766, 1112, 689, 1086, 670, 829, 1347, 803)])
+vertices = PackedVector2Array(1090.52, 989.383, 1099.47, 1172.49, 879.562, 1162.24, 865.641, 1141, 875.031, 1096.92, 868.258, 851.211, 1336.82, 813.844, 1164.17, 986.648, 1331.15, 1164.11, 1179.19, 1165.89)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5, 6), PackedInt32Array(7, 0, 6), PackedInt32Array(7, 6, 8, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1341, 1174, 1170, 1176, 1155, 997, 1101, 999, 1110, 1183, 874, 1172, 855, 1143, 865, 1096, 858, 842, 1347, 803)])
 
 [sub_resource type="Curve2D" id="Curve2D_fl3c8"]
 _data = {

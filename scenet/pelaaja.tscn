@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=143 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" uid="uid://bwlncd4f3y88a" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -34,7 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://dw75jyosgto66" path="res://audio/pelaaja/huilu/huiluaani_C.wav" id="24_xxdxr"]
 [ext_resource type="AudioStream" uid="uid://c01td3kcj70nh" path="res://audio/ambient/tuulen_humina.mp3" id="25_byydo"]
 [ext_resource type="AudioStream" uid="uid://diri4jc7100fi" path="res://audio/pelaaja/huilu/huiluaani_E.wav" id="25_qars5"]
-[ext_resource type="Script" uid="uid://c5htt5tfsiucy" path="res://skriptit/huilu.gd" id="26_v60w7"]
+[ext_resource type="Script" uid="uid://cbq1x7o1s4422" path="res://skriptit/huilu.gd" id="26_v60w7"]
 [ext_resource type="AudioStream" uid="uid://dvmb8l1qpgtd6" path="res://audio/vesi/hapen_otto_1.mp3" id="28_lca11"]
 [ext_resource type="AudioStream" uid="uid://cffo5u3oefjn0" path="res://audio/vesi/hapen_otto_2.mp3" id="29_s5ej7"]
 [ext_resource type="AudioStream" uid="uid://b32gv51jaarnu" path="res://audio/vesi/hapen_loppuminen.mp3" id="30_t3ogw"]
@@ -678,6 +678,13 @@ size = Vector2(46, 3)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_54lqu"]
 height = 48.0
 
+[sub_resource type="Gradient" id="Gradient_6wnn6"]
+offsets = PackedFloat32Array(0.512987, 0.519481)
+colors = PackedColorArray(1, 0, 1, 0, 1, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_70qk2"]
+gradient = SubResource("Gradient_6wnn6")
+
 [node name="Pelaaja" type="CharacterBody2D" node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") groups=["Pelaaja", "tallenna"]]
 collision_layer = 2
 script = ExtResource("1_ypfv3")
@@ -1182,6 +1189,12 @@ shape = SubResource("RectangleShape2D_cqmqw")
 position = Vector2(0, -10)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_54lqu")
+
+[node name="Kilpi" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -2.38419e-07)
+scale = Vector2(0.90625, 0.90625)
+texture = SubResource("GradientTexture2D_70qk2")
 
 [connection signal="area_entered" from="keho" to="." method="_on_keho_area_entered"]
 [connection signal="siirrytty_valoon" from="ValonTarkistus" to="." method="siirrytty_valoon"]

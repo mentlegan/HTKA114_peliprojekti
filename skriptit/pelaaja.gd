@@ -36,6 +36,8 @@ var tahtaimen_lapset = []
 @onready var sivu_info_label = get_node("HUD/SivuInfo")
 @onready var tutorial_info_label = get_node("HUD/TutorialInfo")
 
+@onready var kilpi = get_node("Kilpi")
+
 ## Pelaajan kamera
 @onready var kamera = get_node("Camera2D")
 var pimeyskuolema
@@ -1061,6 +1063,10 @@ func _physics_process(delta):
 		if huilun_cd_ajastin.is_stopped() and huilun_ajastin.is_stopped() and not vedessa:
 			soita_huilua()
 	
+	# Asetetaan kilpi tarvittaessa näkyväksi
+	kilpi.visible = Input.is_action_pressed("painike_kilpi")
+	kilpi.set_flip_h(animaatio.is_flipped_h())
+	
 	# Kukkien kerääminen JA MINECARTIN KÄYTTÄMINEN
 	# TODO: tämä myöhemmin signaaleilla
 	var kukat = valon_tarkistus.get_overlapping_areas()
@@ -1321,6 +1327,11 @@ func keraa_potionin_osa(potion):
 func _on_keho_area_entered(area):
 	if area is PotioninOsa and area.is_in_group("potionin_osa"):
 		keraa_potionin_osa(area)
+
+
+## Palauttaa, onko pelaajan kilpi esillä
+func kilpi_esilla():
+	return Input.is_action_pressed("painike_kilpi")
 
 
 ## Funktio, jolla käsitellään vaikeusasteen muuttumista pelaajan statteihin

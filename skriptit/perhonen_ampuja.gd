@@ -4,6 +4,7 @@ class_name PerhonenAmpuja
 ## TODO: Korjaa perhosen teleporttaus, jos polulle palatessa pelaaja tulee takaisin sen alueelle
 ## TODO: Tuki navigoitavien alueiden valitsemiselle
 ## TODO: Käytä polunetsijää myös polulle palatessa
+## TODO: Älä jää NavigationRegionin reunalle paikalleen jos pelaaja on sen ulkopuolella, vaan lähde takaisin polulle
 ## TODO: Jonkinlainen state machine physics processiin
 
 
@@ -11,9 +12,13 @@ class_name PerhonenAmpuja
 ## Asettaa pelin alkaessa kohteen polunetsinnälle.
 @export var kohde: Marker2D
 
+@onready var sprite = $AnimatedSprite2D
+
 var happo = preload("res://scenet/happo.tscn")
 ## Ajastin, kuinka tiheästi perhonen pyrkii ampumaan pelaajaa
 @onready var ampumisajastin = $AmpumisAjastin
+## Ajastin, kuinka nopeasti hapon peittämänä perhonen palautuu normaalitilaan
+@onready var happoajastin = $HappoAjastin
 ## Ajastin, kuinka tiheästi perhonen päivittää kohteen pelaajaan
 @onready var kohteen_asetus_timer = $KohteenAsetusTimer
 ## Raycast, jolla perhonen ei lähde jahtaamaan pelaajaa seinien läpi
@@ -95,6 +100,7 @@ func ammu():
 	var pallo = happo.instantiate()
 	pallo.global_position = self.global_position
 	pallo.velocity = self.global_position.direction_to(pelaaja.global_position)
+	pallo.perhonen = self
 	self.get_tree().root.add_child(pallo)
 
 
@@ -122,9 +128,24 @@ func _on_kohteen_asetus_timer_timeout() -> void:
 		kohteen_asetus_timer.stop()
 
 
+## Asetetaan perhonen hapon peittämäksi, jos osutaan kimmotettuun happoon
+func _on_hitbox_body_entered(body) -> void:
+	if body is Happo:
+		if body.kimmotettu:
+			happoajastin.start()
+			sprite.modulate = Color.YELLOW
+			body.queue_free()
+
+
 ## Vähennä hp, jos perhoseen osuu valopallo
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("valopallo"):
 		hp -= 1
-		if hp <= 0:
+		if hp <= 0 or not happoajastin.is_stopped():
 			queue_free()
+
+
+## Happoajastimen loppuessa palautetaan normaali väri spritelle
+func _on_happo_ajastin_timeout() -> void:
+	print("TIMEOUT")
+	sprite.modulate = Color.WHITE

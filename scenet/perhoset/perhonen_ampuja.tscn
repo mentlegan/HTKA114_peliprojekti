@@ -110,6 +110,8 @@ bus = &"Kaiku"
 [node name="KohteenAsetusTimer" type="Timer" parent="."]
 
 [node name="Hitbox" type="Area2D" parent="." groups=["perhonen_hitbox"]]
+collision_layer = 17
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 z_as_relative = false
@@ -120,8 +122,14 @@ shape = SubResource("CircleShape2D_yjwrg")
 [node name="AmpumisAjastin" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="HappoAjastin" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="KohteenAsetusTimer" to="." method="_on_kohteen_asetus_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="AmpumisAjastin" to="." method="ammu"]
+[connection signal="timeout" from="HappoAjastin" to="." method="_on_happo_ajastin_timeout"]
