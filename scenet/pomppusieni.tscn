@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://d1adle7m7mnv3"]
 
-[ext_resource type="Script" uid="uid://btc1ickgwawdk" path="res://skriptit/pomppusieni.gd" id="1_qf01o"]
+[ext_resource type="Script" uid="uid://casv3w41us84" path="res://skriptit/pomppusieni.gd" id="1_qf01o"]
 [ext_resource type="Texture2D" uid="uid://cdrtaafq6sbor" path="res://grafiikka/PomppusieniIso-Sheet.png" id="2_44gib"]
 [ext_resource type="Material" uid="uid://bpi6nb20iy07w" path="res://resurssit/unshaded.tres" id="3_ni1tx"]
 [ext_resource type="Texture2D" uid="uid://dtm1qm1doyh0t" path="res://grafiikka/PomppusieniPieni-Sheet.png" id="3_trm1p"]

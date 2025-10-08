@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dpgfqmcthph48"]
 
-[ext_resource type="Script" uid="uid://c24wq7cfqeiyk" path="res://skriptit/vesi2d.gd" id="1_wbm3t"]
+[ext_resource type="Script" uid="uid://5c7nee4j3tsa" path="res://skriptit/vesi2d.gd" id="1_wbm3t"]
 
 [node name="Vesi2D" type="Area2D"]
 z_index = -1

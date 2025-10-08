@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dyc37pjplr1qw"]
 
-[ext_resource type="Script" uid="uid://cd20hcr3r80s2" path="res://skriptit/tason_kamera.gd" id="1_e73yw"]
+[ext_resource type="Script" uid="uid://vovc8742778q" path="res://skriptit/tason_kamera.gd" id="1_e73yw"]
 
 [node name="TasonKamera" type="Camera2D"]
 position = Vector2(348.5, 31)

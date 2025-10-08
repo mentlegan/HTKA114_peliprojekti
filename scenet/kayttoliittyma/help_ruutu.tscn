@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://d1c6axf23uaq5"]
 
-[ext_resource type="Script" uid="uid://cl1dynv84ormv" path="res://skriptit/help_ruutu.gd" id="1_nedjx"]
+[ext_resource type="Script" uid="uid://bvo3he2tfm01q" path="res://skriptit/help_ruutu.gd" id="1_nedjx"]
 [ext_resource type="PackedScene" uid="uid://b6tu0dt5yxud0" path="res://scenet/kayttoliittyma/tooltip_heita.tscn" id="1_v1cbn"]
 [ext_resource type="PackedScene" uid="uid://b3yg7t62nb2m" path="res://scenet/kayttoliittyma/tooltip_liiku.tscn" id="2_mflqa"]
 [ext_resource type="PackedScene" uid="uid://6mmd32udtqp3" path="res://scenet/kayttoliittyma/tooltip_hyppaa.tscn" id="3_wx0kr"]

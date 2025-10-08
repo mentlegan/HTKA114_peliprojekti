@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7j5ln7go4it4"]
 
-[ext_resource type="Script" uid="uid://ctglah8hi13ad" path="res://skriptit/lumme.gd" id="1_0bw0p"]
+[ext_resource type="Script" uid="uid://cx7vmkqhot61f" path="res://skriptit/lumme.gd" id="1_0bw0p"]
 [ext_resource type="Texture2D" uid="uid://cdmjfcw5ealwk" path="res://grafiikka/TaustaElementit2/LummeJuuri1.png" id="4_cn4y1"]
 [ext_resource type="PackedScene" uid="uid://cbufj630idhw" path="res://scenet/illuusion_vaihtaja_visible.tscn" id="4_t23t7"]
 [ext_resource type="Texture2D" uid="uid://dm3dghhjndmdj" path="res://grafiikka/TaustaElementit2/Lumme.png" id="5_w3frm"]

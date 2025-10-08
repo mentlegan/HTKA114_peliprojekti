@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0hwx80manrge"]
 
 [ext_resource type="Texture2D" uid="uid://bw63swpnyimyq" path="res://grafiikka/Seinä.png" id="1_5cf6x"]
-[ext_resource type="Script" uid="uid://2jnmyy2olhhi" path="res://skriptit/plax.gd" id="2_td3gt"]
+[ext_resource type="Script" uid="uid://donqmah46lu58" path="res://skriptit/plax.gd" id="2_td3gt"]
 
 [node name="ParallaxTausta" type="Node2D"]
 process_mode = 4

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://1rmwgns112ns"]
 
 [ext_resource type="Texture2D" uid="uid://bjdo41cny65hb" path="res://grafiikka/PagePickup-Sheet.png" id="1_c07y4"]
-[ext_resource type="Script" uid="uid://dqadojxb4ikq2" path="res://skriptit/sivu.gd" id="1_ucu4y"]
+[ext_resource type="Script" uid="uid://dio0dw8pyat2o" path="res://skriptit/sivu.gd" id="1_ucu4y"]
 [ext_resource type="Texture2D" uid="uid://02x0wi25d81d" path="res://grafiikka/Valo64.png" id="3_wao0c"]
 [ext_resource type="AudioStream" uid="uid://w78k0pmop1jj" path="res://audio/journal/journal_sivu1.mp3" id="4_ifntp"]
 [ext_resource type="AudioStream" uid="uid://dcoj0g54d77b" path="res://audio/journal/journal_sivu2.mp3" id="5_7n0ok"]
