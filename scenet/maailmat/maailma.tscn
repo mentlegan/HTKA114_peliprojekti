@@ -4243,6 +4243,40 @@ rotation = -0.0894325
 position = Vector2(27663, 7481)
 rotation = -0.0894325
 
+[node name="Kukka23" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(27958, 6858)
+rotation = 0.380482
+
+[node name="Kukka24" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(27097, 6788)
+
+[node name="Kukka25" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(26468, 6770)
+
+[node name="Kukka26" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(27225, 6241)
+
+[node name="Kukka27" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(27778, 5839)
+
+[node name="Kukka28" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(29022, 5873)
+rotation = 0.0872665
+
+[node name="Kukka29" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(25811, 6282)
+
+[node name="Kukka30" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(26287, 6000)
+rotation = -0.472984
+
+[node name="Kukka31" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(30389, 5886)
+
+[node name="Kukka32" parent="Taso2/KukatTaso2" instance=ExtResource("14_332fg")]
+position = Vector2(29181, 6339)
+rotation = 0.122173
+
 [node name="MinecartitTaso2" type="Node2D" parent="Taso2"]
 
 [node name="Minecart1" type="Area2D" parent="Taso2/MinecartitTaso2" node_paths=PackedStringArray("mihin_tp") groups=["minecart"]]
@@ -4823,8 +4857,191 @@ position = Vector2(28034, 7321)
 rotation = 8.536
 
 [node name="IsompiValo34" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
-position = Vector2(28009, 6867)
-rotation = 6.87558
+position = Vector2(27728, 6749)
+
+[node name="IsompiValo35" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(26863, 6820)
+rotation = 2.7646
+
+[node name="IsompiValo36" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(27349, 6678)
+rotation = 3.13985
+metadata/_edit_group_ = true
+
+[node name="IsompiValo37" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(28170, 6965)
+rotation = -2.06472
+metadata/_edit_group_ = true
+
+[node name="IsompiValo38" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(27080, 6362)
+rotation = -3.20268
+metadata/_edit_group_ = true
+
+[node name="IsompiValo39" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(27164, 5925)
+rotation = 1.6441
+metadata/_edit_group_ = true
+
+[node name="IsompiValo40" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(26238, 6752)
+rotation = -6.28319
+metadata/_edit_group_ = true
+
+[node name="IsompiValo41" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(27507, 5829)
+rotation = -6.28319
+metadata/_edit_group_ = true
+
+[node name="IsompiValo42" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(28042, 5695)
+rotation = 3.14508
+metadata/_edit_group_ = true
+
+[node name="IsompiValo43" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(28842, 5723)
+rotation = 3.27249
+metadata/_edit_group_ = true
+
+[node name="IsompiValo44" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(28537, 5851)
+rotation = 0.0471239
+metadata/_edit_group_ = true
+
+[node name="IsompiValo45" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(28974, 6150)
+rotation = -2.05251
+metadata/_edit_group_ = true
+
+[node name="IsompiValo46" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(28382, 7436)
+rotation = -0.0279253
+metadata/_edit_group_ = true
+
+[node name="IsompiValo47" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(29344, 5868)
+rotation = 0.015708
+metadata/_edit_group_ = true
+
+[node name="IsompiValo48" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(29758, 5880)
+rotation = 0.015708
+metadata/_edit_group_ = true
+
+[node name="IsompiValo49" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(30095, 5884)
+rotation = 0.015708
+metadata/_edit_group_ = true
+
+[node name="IsompiValo50" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(30712, 5868)
+rotation = 0.0506145
+metadata/_edit_group_ = true
+
+[node name="IsompiValo51" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(31034, 5883)
+rotation = -0.0767945
+metadata/_edit_group_ = true
+
+[node name="IsompiValo52" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(31322, 5859)
+rotation = -0.111701
+metadata/_edit_group_ = true
+
+[node name="IsompiValo53" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(31454, 5373)
+rotation = -1.76104
+metadata/_edit_group_ = true
+
+[node name="IsompiValo54" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(31635, 5610)
+rotation = -1.88845
+metadata/_edit_group_ = true
+
+[node name="IsompiValo55" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(30756, 5421)
+rotation = 0.776672
+metadata/_edit_group_ = true
+
+[node name="IsompiValo56" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(30751, 5582)
+rotation = 2.55342
+metadata/_edit_group_ = true
+
+[node name="IsompiValo57" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(30396, 5582)
+rotation = 3.69486
+metadata/_edit_group_ = true
+
+[node name="IsompiValo58" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(29982, 5631)
+rotation = 2.04553
+metadata/_edit_group_ = true
+
+[node name="IsompiValo59" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(29973, 5374)
+rotation = 1.15715
+metadata/_edit_group_ = true
+
+[node name="IsompiValo60" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(29849, 5179)
+rotation = 0.345575
+metadata/_edit_group_ = true
+
+[node name="IsompiValo61" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(30151, 4981)
+rotation = -2.31954
+metadata/_edit_group_ = true
+
+[node name="IsompiValo62" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(30354, 5441)
+rotation = -1.30376
+metadata/_edit_group_ = true
+
+[node name="IsompiValo63" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(30385, 5091)
+rotation = -2.9531
+metadata/_edit_group_ = true
+
+[node name="IsompiValo64" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(30546, 5116)
+rotation = -2.9531
+metadata/_edit_group_ = true
+
+[node name="IsompiValo65" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(30787, 5064)
+rotation = -3.5884
+metadata/_edit_group_ = true
+
+[node name="IsompiValo66" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(31252, 5149)
+rotation = -3.20792
+metadata/_edit_group_ = true
+
+[node name="IsompiValo67" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(31107, 5056)
+rotation = -1.68424
+metadata/_edit_group_ = true
+
+[node name="IsompiValo68" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(31199, 4792)
+rotation = 2.522
+metadata/_edit_group_ = true
+
+[node name="IsompiValo69" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(31523, 4781)
+rotation = 3.53953
+metadata/_edit_group_ = true
+
+[node name="IsompiValo70" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(31664, 5178)
+rotation = 3.28645
+metadata/_edit_group_ = true
+
+[node name="IsompiValo71" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
+position = Vector2(29869, 4826)
+rotation = 3.41386
+metadata/_edit_group_ = true
 
 [node name="IsompiValo32" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(26961, 7082)
@@ -4930,6 +5147,18 @@ rotation = -0.388242
 [node name="Checkpoint7" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
 position = Vector2(26060, 7625)
 rotation = -0.0297748
+
+[node name="Checkpoint8" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
+position = Vector2(25686, 6013)
+rotation = 0.0174533
+
+[node name="Checkpoint9" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
+position = Vector2(29592, 5890)
+rotation = 0.0331613
+
+[node name="Checkpoint10" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
+position = Vector2(29249, 6348)
+rotation = 0.16057
 
 [node name="Checkpoint6" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
 position = Vector2(22246, 8624)
@@ -5459,6 +5688,58 @@ rotation = 3.42538
 [node name="piikki17" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
 position = Vector2(27002, 7271)
 rotation = 4.14757
+
+[node name="piikki18" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30386, 5405)
+rotation = -0.352556
+
+[node name="piikki19" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30411, 5396)
+rotation = -0.352556
+
+[node name="piikki20" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30431, 5396)
+rotation = -0.225147
+
+[node name="piikki21" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30457, 5388)
+rotation = -0.0977384
+
+[node name="piikki22" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30485, 5385)
+rotation = -0.0977384
+
+[node name="piikki23" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30515, 5383)
+rotation = -0.010472
+
+[node name="piikki24" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30545, 5383)
+rotation = -0.010472
+
+[node name="piikki25" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30569, 5382)
+rotation = -0.010472
+
+[node name="piikki26" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30600, 5382)
+rotation = 0.0279253
+
+[node name="piikki27" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30626, 5383)
+rotation = 0.0279253
+
+[node name="piikki28" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30664, 5383)
+rotation = 0.0279253
+
+[node name="piikki29" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30695, 5388)
+rotation = 0.280998
+
+[node name="piikki30" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
+position = Vector2(30719, 5395)
+rotation = 0.280998
 
 [node name="piikki9" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
 position = Vector2(27240, 7471)
