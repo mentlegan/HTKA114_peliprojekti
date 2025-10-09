@@ -690,7 +690,7 @@ func hyppy_buffer_seinalla():
 	oli_seinalla = false
 
 
-## Ei hyppyä kun liian kauan seinältä
+## Ei hyppyä kun liian kauan pois maasta
 func hyppy_buffer_maassa():
 	oli_maassa = false
 
@@ -941,10 +941,63 @@ func _physics_process(delta):
 	if velocity.x > -MAX_NOPEUS and velocity.x < MAX_NOPEUS and not vedessa:
 		animaatio.rotation = move_toward(animaatio.rotation, 0, delta)
 	
-	# Liikutetaan pelaajaa
-	move_and_slide()
+	## Kukkien kerääminen, minecart, veden siirto ja kuljettavan perhosen kyytiin hyppy
+	var alueet = valon_tarkistus.get_overlapping_areas()
+	for alue in alueet:
+		if alue.is_in_group("kukka") and Globaali.maailma.palloja != 2 and alue.voiko_kerata:
+			audio_valopallon_keraaminen.play()
+			
+			# Kukan keräämiselle indikaattori
+			if kukan_kerays_tween:
+				kukan_kerays_tween.kill()
+			
+			kukan_kerays_tween = create_tween().set_trans(Tween.TRANS_EXPO)
+			palloja_label.scale = Vector2(1.2, 1.2)
+			kukan_kerays_tween.tween_property(palloja_label, "scale", Vector2(1, 1), 1)
+			
+			Globaali.maailma.palloja = 2
+			palloja_label_paivita()
+			
+			alue.aloita_kerays_animaatio()
+			alue.aloita_kerays()
+		
+		if Input.is_action_just_pressed("kayta"):
+			if alue.is_in_group("minecart"):
+				# Tehty nyt täällä, myöhemmin kerkiää optimoida
+				#Globaali.maailma.minecart_kaytetty = true
+				# Tp sijainti
+				var tp = alue.mihin_tp.global_position
+				transitio.emit(tp)
+				await get_tree().create_timer(0.8, false).timeout
+				if Globaali.maailma.minecart_kaytetty == false:
+					# TODO: vesialueella voi käyttää moneen kertaan
+					Globaali.maailma.minecart_kaytetty = true
+					Globaali.maailma.minecartit.queue_free()
+					Globaali.poista_minecart_tooltipit()
+			elif alue.is_in_group("siirravesi"):
+				alue.aktivoi()
+		elif Input.is_action_just_pressed("hyppaa"): # Nyt mennään hyppynapilla perhosen selkään
+			if alue is PerhonenKuljettava and not is_on_floor():
+				# Kuljettavan perhosen käsittely
+				if perhosen_selassa:
+					perhosen_selassa = false
+					alue.pelaaja = null
+					# Hyppy poistuessa on tarpeen
+					self.velocity.y = HYPPY_VELOCITY # - 100? TODO: ehkä miinusta
+					# Onko tarpeellinen tai edes hyvä?
+					self.velocity.x = -250 if animaatio.is_flipped_h() else 250
+				else:
+					perhosen_selassa = true
+					alue.pelaaja = self
 	
-	#print("VELOCITY.Y: ", velocity.y)
+	## TODO: saattaa joutua muuttamaan, toimii nyt jatkokehitystä varten tarpeeksi hyvin
+	## Nykyisiä ongelmia ovat pelaajan töminä kuljetuksen aikana, jos yrittää liikkua WASD:illa
+	## Tulee siirtää parempaan kohtaan!!! ei taida nyt edes vaikuttaa mihinkään
+	#if perhosen_selassa:
+		#return
+	
+	## Liikutetaan pelaajaa
+	move_and_slide()
 	
 	# Käynnistetään / pysäytetään pelaajan animaatio vasta liikkumisen jälkeen.
 	# Tällöin pelaajan kävely/juoksuanimaatio ei jatku jos pelaaja kulkee seinää
@@ -990,10 +1043,6 @@ func _physics_process(delta):
 	# Flipataan animaatio suuntaa myöten
 	if velocity.x != 0 and !perhosen_selassa:
 		animaatio.set_flip_h(velocity.x < 0)
-	
-	# polygon on PackedVector2Array
-	# var vec = Vector2(player.position + abs(hitbox.polygon[1]))
-	# print(vec)
 	
 	# Hiiren sijainti, otetaan tässä niin on varmasti oikein
 	var hiiren_sijainti = get_global_mouse_position() - global_position
@@ -1066,64 +1115,6 @@ func _physics_process(delta):
 	# Asetetaan kilpi tarvittaessa näkyväksi
 	kilpi.visible = Input.is_action_pressed("painike_kilpi")
 	kilpi.set_flip_h(animaatio.is_flipped_h())
-	
-	# Kukkien kerääminen JA MINECARTIN KÄYTTÄMINEN
-	# TODO: tämä myöhemmin signaaleilla
-	var kukat = valon_tarkistus.get_overlapping_areas()
-	for kukka in kukat:
-		if kukka.is_in_group("kukka") and Globaali.maailma.palloja != 2 and kukka.voiko_kerata == true:
-			audio_valopallon_keraaminen.play()
-			
-			# Kukan keräämiselle indikaattori
-			if kukan_kerays_tween:
-				kukan_kerays_tween.kill()
-			
-			kukan_kerays_tween = create_tween().set_trans(Tween.TRANS_EXPO)
-			palloja_label.scale = Vector2(1.2, 1.2)
-			kukan_kerays_tween.tween_property(palloja_label, "scale", Vector2(1, 1), 1)
-			
-			Globaali.maailma.palloja = 2
-			palloja_label_paivita()
-			
-			kukka.aloita_kerays_animaatio()
-			kukka.aloita_kerays()
-	
-	# PC F
-	if Input.is_action_just_pressed("kayta"):
-		var alueet = valon_tarkistus.get_overlapping_areas()
-		for alue in alueet:
-			if alue.is_in_group("minecart"):
-				# Tehty nyt täällä, myöhemmin kerkiää optimoida
-				#Globaali.maailma.minecart_kaytetty = true
-				# Tp sijainti
-				var tp = alue.mihin_tp.global_position
-				transitio.emit(tp)
-				await get_tree().create_timer(0.8, false).timeout
-				if Globaali.maailma.minecart_kaytetty == false:
-					# TODO: vesialueella voi käyttää moneen kertaan
-					Globaali.maailma.minecart_kaytetty = true
-					Globaali.maailma.minecartit.queue_free()
-					Globaali.poista_minecart_tooltipit()
-			elif alue.is_in_group("siirravesi"):
-				alue.aktivoi()
-			elif alue is PerhonenKuljettava:
-				# Kuljettavan perhosen käsittely
-				if perhosen_selassa:
-					perhosen_selassa = false
-					alue.pelaaja = null
-					# Hyppy poistuessa on tarpeen
-					self.velocity.y = HYPPY_VELOCITY# - 100? TODO: ehkä miinusta
-					# Onko tarpeellinen tai edes hyvä?
-					self.velocity.x = -250 if animaatio.is_flipped_h() else 250
-				else:
-					perhosen_selassa = true
-					alue.pelaaja = self
-	
-	## TODO: saattaa joutua muuttamaan, toimii nyt jatkokehitystä varten tarpeeksi hyvin
-	## Nykyisiä ongelmia ovat pelaajan töminä kuljetuksen aikana, jos yrittää liikkua WASD:illa
-	## Tulee siirtää parempaan kohtaan!!! ei taida nyt edes vaikuttaa mihinkään
-	#if perhosen_selassa:
-		#return
 	
 	if hiiri_kaytossa != aiempi_hiiren_tila:
 		Globaali.vaihda_tooltip_ui(hiiri_kaytossa)
