@@ -3,16 +3,13 @@ class_name Happo
 ## TODO: Pelaajalle kilpi hapon torjumiseen
 ## TODO: Hapon tuhoutumiselle ja torjumiselle animaatio
 
-
 const NOPEUS = 165
 const DAMAGE = 1
 
-
 ## Perhonen, joka hapon ampui
 var perhonen = null
-## Onko perhonen jo kerran kimmotettu
+## Onko happo jo kerran kimmotettu
 var kimmotettu = false
-
 
 func _physics_process(delta):
 	# Tuhotaan happo, jos se osuu seinään tai pelaajaan.

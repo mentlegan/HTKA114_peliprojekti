@@ -61,7 +61,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 		if tween:
 			tween.kill()
-		tween = get_tree().root.create_tween()
+		tween = create_tween()
 		tween.tween_property(
 			self, "global_position", viimeisin_sijainti_polulla,
 			viimeisin_sijainti_polulla.distance_to(self.global_position) * PALUUKESTO
@@ -93,7 +93,7 @@ func ammu():
 	if not pelaaja:
 		ampumisajastin.stop()
 		return
-	
+
 	if not nakee_pelaajan():
 		return
 
@@ -101,7 +101,7 @@ func ammu():
 	pallo.global_position = self.global_position
 	pallo.velocity = self.global_position.direction_to(pelaaja.global_position)
 	pallo.perhonen = self
-	self.get_tree().root.add_child(pallo)
+	get_tree().root.call_deferred("add_child", pallo)
 
 
 ## Aloittaa pelaajan ampumisen
@@ -110,6 +110,7 @@ func aloita_ampuminen():
 	if ampumisajastin.get_time_left() < 0.01:
 		ammu()
 	ampumisajastin.start()
+
 
 ## Kun pelaaja tulee lähelle perhosta
 func _on_body_entered(body: Node2D) -> void:

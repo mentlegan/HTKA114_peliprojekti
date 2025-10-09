@@ -29,4 +29,5 @@ func muodosta_aalto(aloitus_piste: Vector2, kohde: Vector2) -> void:
 func palauta_keskipiste() -> Vector2:
 	if PISTEIDEN_MAARA % 2 == 0:
 		return self.points[PISTEIDEN_MAARA / 2 - 1]
+
 	return self.points[PISTEIDEN_MAARA / 2]
