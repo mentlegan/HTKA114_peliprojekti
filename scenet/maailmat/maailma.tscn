@@ -1,7 +1,7 @@
 [gd_scene load_steps=186 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" uid="uid://da5w6gxiw78tp" path="res://skriptit/maailma.gd" id="1_lya7j"]
-[ext_resource type="Script" uid="uid://hkxwwgielrn1" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
+[ext_resource type="Script" uid="uid://pfedbiv7sf4b" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://dskh1b4twfo2c" path="res://scenet/kayttoliittyma/journal.tscn" id="4_sg152"]
@@ -69,7 +69,7 @@
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
-[ext_resource type="Script" uid="uid://cn0j2spa8x21x" path="res://skriptit/vesiputous.gd" id="45_dq3qu"]
+[ext_resource type="Script" uid="uid://cst51cwsntyof" path="res://skriptit/vesiputous.gd" id="45_dq3qu"]
 [ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="45_ocnt8"]
 [ext_resource type="Texture2D" uid="uid://dtyy75g8n38cr" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
 [ext_resource type="Texture2D" uid="uid://b27y7io6ywqll" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
@@ -80,8 +80,8 @@
 [ext_resource type="Texture2D" uid="uid://b1ofdm4wri7wl" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
 [ext_resource type="Texture2D" uid="uid://cmbwtsacthwsm" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
 [ext_resource type="Texture2D" uid="uid://dcpx2p3gryoj7" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
-[ext_resource type="Script" uid="uid://vvk7nr5bc0jl" path="res://skriptit/minecart.gd" id="58_vyc2b"]
-[ext_resource type="Script" uid="uid://dvygx05gakjn3" path="res://skriptit/credits_alue.gd" id="59_80cq2"]
+[ext_resource type="Script" uid="uid://dwhjuosp3an48" path="res://skriptit/minecart.gd" id="58_vyc2b"]
+[ext_resource type="Script" uid="uid://dwr17jimn14l5" path="res://skriptit/credits_alue.gd" id="59_80cq2"]
 [ext_resource type="Texture2D" uid="uid://mkk1dwbb0nxx" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
 [ext_resource type="Texture2D" uid="uid://clhgiiwpxnk34" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
 [ext_resource type="Texture2D" uid="uid://bp7y0hk085fkv" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
@@ -105,9 +105,9 @@
 [ext_resource type="PackedScene" uid="uid://cm8xt055d8042" path="res://scenet/vesialue.tscn" id="97_5c44a"]
 [ext_resource type="PackedScene" uid="uid://bpsr4m5xt83yn" path="res://scenet/aktivoija.tscn" id="97_ogx24"]
 [ext_resource type="Texture2D" uid="uid://byc1ad1itgcj0" path="res://grafiikka/GrassThinLeft.png" id="99_lvyhb"]
-[ext_resource type="Script" uid="uid://cpehd38coystn" path="res://skriptit/oviseina.gd" id="99_ned5y"]
+[ext_resource type="Script" uid="uid://cf1uydw4cdyp5" path="res://skriptit/oviseina.gd" id="99_ned5y"]
 [ext_resource type="Texture2D" uid="uid://buano3qu6yeh6" path="res://grafiikka/GrassThinRight.png" id="100_tno6r"]
-[ext_resource type="Script" uid="uid://bpepdww0wjpxo" path="res://skriptit/onko_pelaaja_taso_2.gd" id="102_3h1h5"]
+[ext_resource type="Script" uid="uid://b7qes8haec8sr" path="res://skriptit/onko_pelaaja_taso_2.gd" id="102_3h1h5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
 atlas = ExtResource("9_75e1e")
@@ -4866,182 +4866,126 @@ rotation = 2.7646
 [node name="IsompiValo36" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(27349, 6678)
 rotation = 3.13985
-metadata/_edit_group_ = true
 
 [node name="IsompiValo37" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(28170, 6965)
 rotation = -2.06472
-metadata/_edit_group_ = true
 
 [node name="IsompiValo38" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(27080, 6362)
 rotation = -3.20268
-metadata/_edit_group_ = true
 
 [node name="IsompiValo39" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(27164, 5925)
 rotation = 1.6441
-metadata/_edit_group_ = true
 
 [node name="IsompiValo40" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(26238, 6752)
 rotation = -6.28319
-metadata/_edit_group_ = true
 
 [node name="IsompiValo41" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(27507, 5829)
 rotation = -6.28319
-metadata/_edit_group_ = true
 
 [node name="IsompiValo42" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(28042, 5695)
 rotation = 3.14508
-metadata/_edit_group_ = true
-
-[node name="IsompiValo43" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
-position = Vector2(28842, 5723)
-rotation = 3.27249
-metadata/_edit_group_ = true
 
 [node name="IsompiValo44" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(28537, 5851)
 rotation = 0.0471239
-metadata/_edit_group_ = true
 
 [node name="IsompiValo45" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(28974, 6150)
 rotation = -2.05251
-metadata/_edit_group_ = true
 
 [node name="IsompiValo46" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(28382, 7436)
 rotation = -0.0279253
-metadata/_edit_group_ = true
 
 [node name="IsompiValo47" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(29344, 5868)
 rotation = 0.015708
-metadata/_edit_group_ = true
 
 [node name="IsompiValo48" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(29758, 5880)
 rotation = 0.015708
-metadata/_edit_group_ = true
 
 [node name="IsompiValo49" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(30095, 5884)
 rotation = 0.015708
-metadata/_edit_group_ = true
 
 [node name="IsompiValo50" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(30712, 5868)
 rotation = 0.0506145
-metadata/_edit_group_ = true
 
 [node name="IsompiValo51" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(31034, 5883)
 rotation = -0.0767945
-metadata/_edit_group_ = true
 
 [node name="IsompiValo52" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
-position = Vector2(31322, 5859)
+position = Vector2(31451, 5841)
 rotation = -0.111701
-metadata/_edit_group_ = true
 
 [node name="IsompiValo53" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(31454, 5373)
 rotation = -1.76104
-metadata/_edit_group_ = true
 
 [node name="IsompiValo54" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(31635, 5610)
 rotation = -1.88845
-metadata/_edit_group_ = true
 
 [node name="IsompiValo55" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(30756, 5421)
 rotation = 0.776672
-metadata/_edit_group_ = true
 
 [node name="IsompiValo56" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
-position = Vector2(30751, 5582)
-rotation = 2.55342
-metadata/_edit_group_ = true
-
-[node name="IsompiValo57" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
-position = Vector2(30396, 5582)
-rotation = 3.69486
-metadata/_edit_group_ = true
+position = Vector2(30644, 5616)
+rotation = 2.95221
 
 [node name="IsompiValo58" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(29982, 5631)
 rotation = 2.04553
-metadata/_edit_group_ = true
-
-[node name="IsompiValo59" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
-position = Vector2(29973, 5374)
-rotation = 1.15715
-metadata/_edit_group_ = true
 
 [node name="IsompiValo60" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(29849, 5179)
 rotation = 0.345575
-metadata/_edit_group_ = true
 
 [node name="IsompiValo61" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(30151, 4981)
 rotation = -2.31954
-metadata/_edit_group_ = true
 
 [node name="IsompiValo62" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(30354, 5441)
 rotation = -1.30376
-metadata/_edit_group_ = true
 
 [node name="IsompiValo63" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
-position = Vector2(30385, 5091)
-rotation = -2.9531
-metadata/_edit_group_ = true
-
-[node name="IsompiValo64" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
-position = Vector2(30546, 5116)
-rotation = -2.9531
-metadata/_edit_group_ = true
+position = Vector2(30473, 5107)
+rotation = -2.98686
 
 [node name="IsompiValo65" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(30787, 5064)
 rotation = -3.5884
-metadata/_edit_group_ = true
 
 [node name="IsompiValo66" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(31252, 5149)
 rotation = -3.20792
-metadata/_edit_group_ = true
 
 [node name="IsompiValo67" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(31107, 5056)
 rotation = -1.68424
-metadata/_edit_group_ = true
 
 [node name="IsompiValo68" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(31199, 4792)
 rotation = 2.522
-metadata/_edit_group_ = true
-
-[node name="IsompiValo69" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
-position = Vector2(31523, 4781)
-rotation = 3.53953
-metadata/_edit_group_ = true
 
 [node name="IsompiValo70" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(31664, 5178)
 rotation = 3.28645
-metadata/_edit_group_ = true
 
 [node name="IsompiValo71" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(29869, 4826)
 rotation = 3.41386
-metadata/_edit_group_ = true
 
 [node name="IsompiValo32" parent="Taso2/IsommatValotTaso2" instance=ExtResource("96_e2yjn")]
 position = Vector2(26961, 7082)
