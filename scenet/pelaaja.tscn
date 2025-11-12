@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=146 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" uid="uid://bwlncd4f3y88a" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -50,7 +50,10 @@
 [ext_resource type="Texture2D" uid="uid://w66m3s1o2tck" path="res://grafiikka/kupla.png" id="40_2fdq1"]
 [ext_resource type="Texture2D" uid="uid://dk1maq4gytv2j" path="res://grafiikka/BubblesOutline.png" id="41_f03c5"]
 [ext_resource type="Texture2D" uid="uid://hllv7127dc22" path="res://grafiikka/BubblesFull.png" id="42_8suin"]
+[ext_resource type="Texture2D" uid="uid://be3ajp0w2tnqb" path="res://grafiikka/mittariEmpty.png" id="47_go443"]
+[ext_resource type="Texture2D" uid="uid://sgmdbm5phjib" path="res://grafiikka/mittariOutline.png" id="48_c8nrl"]
 [ext_resource type="Texture2D" uid="uid://b2h8c634u1120" path="res://addons/rmsmartshape/assets/Anchor.svg" id="48_ydtx0"]
+[ext_resource type="Texture2D" uid="uid://cyowvyeakjuki" path="res://grafiikka/mittariFull.png" id="49_t254o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -981,6 +984,19 @@ scale = Vector2(2.82806, 2.8)
 texture_under = ExtResource("40_1pcue")
 texture_over = ExtResource("41_f03c5")
 texture_progress = ExtResource("42_8suin")
+
+[node name="HeittoMittari" type="TextureProgressBar" parent="HUD"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -200.0
+offset_top = -127.0
+offset_right = 195.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_under = ExtResource("47_go443")
+texture_over = ExtResource("48_c8nrl")
+texture_progress = ExtResource("49_t254o")
 
 [node name="ApuaLabel" type="Label" parent="HUD"]
 z_index = 99

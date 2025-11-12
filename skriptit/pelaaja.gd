@@ -29,6 +29,7 @@ var tahtaimen_lapset = []
 @onready var hud = get_node("HUD")
 @onready var elama_mittari_kuvalla = get_node("HUD/ElamaMittariKuvalla")
 @onready var happi_mittari = get_node("HUD/HappiMittari")
+@onready var heitto_mittari = get_node("HUD/HeittoMittari")
 @onready var palloja_label = get_node("HUD/Palloja")
 @onready var apua_label = get_node("HUD/ApuaLabel")
 @onready var journal_info_label = get_node("HUD/JournalInfo")
@@ -143,6 +144,7 @@ var valopallo = preload("res://scenet/valo_character.tscn")
 @onready var palloja_2 = preload("res://grafiikka/LightBall2.png")
 ## Valopallon voimakkuuden säätöön liittyvät muuttujat
 var pallon_nopeus = 110.0
+var pallon_max_nopeus = 220.0
 var nouseva = true
 var laskeva = false
 
@@ -263,6 +265,12 @@ func _ready():
 	happi_mittari.max_value = pelaajan_happi_max
 	happi_mittari_paivita()
 	happi_mittari.visible = false
+	
+	# Käsitellään pallon heiton mittarin asiat
+	heitto_mittari.max_value = pallon_max_nopeus
+	heitto_mittari.min_value = 110.0
+	heitto_mittari_paivita()
+	heitto_mittari.visible = false
 	
 	# Hyppy mahdollisuus pois jos liian kauan pois seinältä
 	hyppy_ajastin_seinalla.timeout.connect(hyppy_buffer_seinalla)
@@ -576,6 +584,11 @@ func happi_mittari_paivita():
 		pelaajan_happi = pelaajan_happi_max
 	happi_mittari.max_value = pelaajan_happi_max # Päivitetään mittariin lukemaksi maksimiksi uusi asetettu arvo
 	happi_mittari.value = pelaajan_happi # Päivitetään mittariin lukemaksi nykyinen happi
+
+
+func heitto_mittari_paivita():
+	print(pallon_nopeus)
+	heitto_mittari.value = pallon_nopeus
 
 
 ## Lisätään pelaajalle elämiä ja jatketaan regenia, jos ei vielä täydet elämät
@@ -1072,7 +1085,8 @@ func _physics_process(delta):
 	# PC LEFT_CLICK
 	# Tarkistus napin pohjassa pidolle
 	if Input.is_action_just_pressed("painike_vasen"):
-		nappi_pohjassa("painike_vasen")
+		if Globaali.maailma.palloja != 0:
+			nappi_pohjassa("painike_vasen")
 	# Kun painike vapautetaan
 	if Input.is_action_just_released("painike_vasen") and (
 		hiiri_kaytossa or tahtain.visible) and (
@@ -1098,6 +1112,7 @@ func _physics_process(delta):
 			Globaali.maailma.palloja -= 1
 			palloja_label_paivita()
 			pallon_nopeus = 110.0 # Resetoidaan pallon nopeus
+			heitto_mittari.visible = false
 	
 	# Nostetaan ja lasketaan äänen taajuutta tarvittaessa
 	# PC MOUSE_WHEEL
@@ -1133,22 +1148,27 @@ func nappi_pohjassa(komento):
 	await get_tree().create_timer(0.2, false).timeout # Jos nappi ei pysy pohjassa tämän ajan, ei tehdä mitään
 	if !Input.is_action_pressed(komento):
 		return
-		
+	
+	# Mittari näkyviin
+	if Globaali.maailma.palloja != 0:
+		heitto_mittari.visible = true
 	# Käsittelyä valopallon nopeudelle
-	if pallon_nopeus == 220.0: # Kun päästään maksiminopeuteen (sen voi säätää tästä)
+	if pallon_nopeus >= pallon_max_nopeus: # Kun päästään maksiminopeuteen (tai hieman siitä ylös)
 		nouseva = false
 		laskeva = true
-	if pallon_nopeus == 110.0: # Jos ollaan pohjalla
+		heitto_mittari_paivita()
+	if pallon_nopeus <= 110.0: # Jos ollaan pohjalla
 		laskeva = false
 		nouseva = true
+		heitto_mittari_paivita()
 	
 	if nouseva == true:
-		pallon_nopeus += 10 # Nostetaan nopeutta, jos ollaan pohjalla
-		#print(pallon_nopeus)
+		pallon_nopeus += 20 # Nostetaan nopeutta, jos ollaan pohjalla
+		heitto_mittari_paivita()
 		nappi_pohjassa(komento) # Rekursiivinen funktio toistaa itseään
 	if laskeva == true:
-		pallon_nopeus -= 10
-		#print(pallon_nopeus)
+		pallon_nopeus -= 20
+		heitto_mittari_paivita()
 		nappi_pohjassa(komento) # Rekursiivinen funktio toistaa itseään
 
 
