@@ -131,7 +131,7 @@ texture_scale = 1.4
 modulate = Color(0.435501, 0.686193, 0, 1)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nepos")
-frame_progress = 0.900234
+frame_progress = 0.99882
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2q18j")
@@ -143,7 +143,7 @@ max_distance = 500.0
 bus = &"Kaiku"
 
 [node name="Line2D" type="Line2D" parent="."]
-modulate = Color(1, 1, 1, 0.470588)
+modulate = Color(1, 1, 1, 0.313726)
 points = PackedVector2Array(71, -25, 81, -27, 91, -26, 103, -23, 112, -27, 120, -25, 127, -28)
 gradient = SubResource("Gradient_mrumj")
 joint_mode = 2

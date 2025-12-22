@@ -144,7 +144,7 @@ func tallenna():
 ## Kutsutaan joka framella
 func _process(_delta):
 	#print(get_tree().current_scene)
-	# Päivitetään peliä joka sekuntti
+	# Päivitetään vihollisia joka sekuntti
 	aika += _delta
 	if aika > aika_vali:
 		# Tähän lisätään joka sekuntti tapahtuva asia

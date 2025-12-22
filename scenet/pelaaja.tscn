@@ -986,17 +986,17 @@ texture_over = ExtResource("41_f03c5")
 texture_progress = ExtResource("42_8suin")
 
 [node name="HeittoMittari" type="TextureProgressBar" parent="HUD"]
+modulate = Color(1, 1, 1, 0.823529)
 layout_mode = 1
 anchors_preset = -1
-offset_left = -200.0
-offset_top = -127.0
-offset_right = 195.0
-offset_bottom = -87.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_under = ExtResource("47_go443")
+offset_left = 35.0
+offset_top = -16.0
+rotation = -1.57079
+scale = Vector2(0.345982, 0.551345)
+value = 52.0
+texture_under = ExtResource("49_t254o")
 texture_over = ExtResource("48_c8nrl")
-texture_progress = ExtResource("49_t254o")
+texture_progress = ExtResource("47_go443")
 
 [node name="ApuaLabel" type="Label" parent="HUD"]
 z_index = 99

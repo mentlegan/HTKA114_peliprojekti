@@ -142,11 +142,17 @@ var valopallo = preload("res://scenet/valo_character.tscn")
 ## Valopallon UI tekstuurit
 @onready var palloja_1 = preload("res://grafiikka/LightBall1.png")
 @onready var palloja_2 = preload("res://grafiikka/LightBall2.png")
+
 ## Valopallon voimakkuuden säätöön liittyvät muuttujat
-var pallon_nopeus = 110.0
-var pallon_max_nopeus = 220.0
-var nouseva = true
-var laskeva = false
+var minimi_aika: float = 0.1
+var painettu_aika: float = 0.0
+
+var oletus_pallon_nopeus: float = 140.0
+var pallon_nopeus: float = oletus_pallon_nopeus
+
+var pallon_min_nopeus: float = 110.0
+var pallon_max_nopeus: float = 220.0
+var nouseva: bool = true
 
 ## Asetetaan pelaajan nopeus ja hypyt
 const MAX_NOPEUS = 180.0
@@ -1084,9 +1090,14 @@ func _physics_process(delta):
 	
 	# PC LEFT_CLICK
 	# Tarkistus napin pohjassa pidolle
-	if Input.is_action_just_pressed("painike_vasen"):
+	if Input.is_action_pressed("painike_vasen"):
 		if Globaali.maailma.palloja != 0:
-			nappi_pohjassa("painike_vasen")
+			heitto_nappi_pohjassa(delta)
+	else:
+		nouseva = true
+		painettu_aika = 0.0
+		heitto_mittari.visible = false
+	
 	# Kun painike vapautetaan
 	if Input.is_action_just_released("painike_vasen") and (
 		hiiri_kaytossa or tahtain.visible) and (
@@ -1111,7 +1122,7 @@ func _physics_process(delta):
 			Globaali.maailma.nykyiset_pallot += 1
 			Globaali.maailma.palloja -= 1
 			palloja_label_paivita()
-			pallon_nopeus = 110.0 # Resetoidaan pallon nopeus
+			pallon_nopeus = oletus_pallon_nopeus # Resetoidaan pallon nopeus
 			heitto_mittari.visible = false
 	
 	# Nostetaan ja lasketaan äänen taajuutta tarvittaessa
@@ -1141,35 +1152,25 @@ func _physics_process(delta):
 
 ## Kun nappi on pohjassa, jotain tapahtuu
 ## TODO: Voisi päivittää toimivaksi kaikille inputeille
-func nappi_pohjassa(komento):
-	# Ensin tarkistukset
-	if !Input.is_action_pressed(komento):
-		return
-	await get_tree().create_timer(0.2, false).timeout # Jos nappi ei pysy pohjassa tämän ajan, ei tehdä mitään
-	if !Input.is_action_pressed(komento):
-		return
-	
-	# Mittari näkyviin
-	if Globaali.maailma.palloja != 0:
-		heitto_mittari.visible = true
-	# Käsittelyä valopallon nopeudelle
-	if pallon_nopeus >= pallon_max_nopeus: # Kun päästään maksiminopeuteen (tai hieman siitä ylös)
-		nouseva = false
-		laskeva = true
-		heitto_mittari_paivita()
-	if pallon_nopeus <= 110.0: # Jos ollaan pohjalla
-		laskeva = false
+func heitto_nappi_pohjassa(delta: float):
+	if pallon_nopeus <= pallon_min_nopeus:
 		nouseva = true
-		heitto_mittari_paivita()
+	if pallon_nopeus >= pallon_max_nopeus:
+		nouseva = false
 	
-	if nouseva == true:
-		pallon_nopeus += 20 # Nostetaan nopeutta, jos ollaan pohjalla
-		heitto_mittari_paivita()
-		nappi_pohjassa(komento) # Rekursiivinen funktio toistaa itseään
-	if laskeva == true:
-		pallon_nopeus -= 20
-		heitto_mittari_paivita()
-		nappi_pohjassa(komento) # Rekursiivinen funktio toistaa itseään
+	# Mittari näkyviin minimiajan jälkeen
+	painettu_aika += delta
+	if painettu_aika < minimi_aika:
+		return
+	
+	if nouseva:
+		#pallon_nopeus += 20 # Nostetaan nopeutta, jos ollaan pohjalla
+		pallon_nopeus += delta * 100
+	else:
+		pallon_nopeus -= delta * 100
+	
+	heitto_mittari.visible = true
+	heitto_mittari_paivita()
 
 
 ## Aloittaa huilun soittamisen
