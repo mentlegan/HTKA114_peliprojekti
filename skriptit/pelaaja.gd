@@ -144,15 +144,15 @@ var valopallo = preload("res://scenet/valo_character.tscn")
 @onready var palloja_2 = preload("res://grafiikka/LightBall2.png")
 
 ## Valopallon voimakkuuden säätöön liittyvät muuttujat
-var minimi_aika: float = 0.1
-var painettu_aika: float = 0.0
-
 var oletus_pallon_nopeus: float = 140.0
 var pallon_nopeus: float = oletus_pallon_nopeus
 
 var pallon_min_nopeus: float = 110.0
 var pallon_max_nopeus: float = 220.0
 var nouseva: bool = true
+
+var heitto_mittari_nakyvyys_tween: Tween
+var heitto_mittari_nakyvyys_alpha: float # Alustetaan readyssa
 
 ## Asetetaan pelaajan nopeus ja hypyt
 const MAX_NOPEUS = 180.0
@@ -275,8 +275,10 @@ func _ready():
 	# Käsitellään pallon heiton mittarin asiat
 	heitto_mittari.max_value = pallon_max_nopeus
 	heitto_mittari.min_value = 110.0
-	heitto_mittari_paivita()
-	heitto_mittari.visible = false
+	heitto_mittari_arvo_paivita()
+	
+	heitto_mittari_nakyvyys_alpha = heitto_mittari.modulate.a
+	heitto_mittari_nakyvyys_paivita(0.0)
 	
 	# Hyppy mahdollisuus pois jos liian kauan pois seinältä
 	hyppy_ajastin_seinalla.timeout.connect(hyppy_buffer_seinalla)
@@ -592,9 +594,13 @@ func happi_mittari_paivita():
 	happi_mittari.value = pelaajan_happi # Päivitetään mittariin lukemaksi nykyinen happi
 
 
-func heitto_mittari_paivita():
+func heitto_mittari_arvo_paivita():
 	print(pallon_nopeus)
 	heitto_mittari.value = pallon_nopeus
+
+
+func heitto_mittari_nakyvyys_paivita(arvo: float):
+	heitto_mittari.modulate.a = arvo
 
 
 ## Lisätään pelaajalle elämiä ja jatketaan regenia, jos ei vielä täydet elämät
@@ -1095,8 +1101,9 @@ func _physics_process(delta):
 			heitto_nappi_pohjassa(delta)
 	else:
 		nouseva = true
-		painettu_aika = 0.0
-		heitto_mittari.visible = false
+		heitto_mittari_nakyvyys_paivita(0.0)
+		if heitto_mittari_nakyvyys_tween:
+			heitto_mittari_nakyvyys_tween.kill()
 	
 	# Kun painike vapautetaan
 	if Input.is_action_just_released("painike_vasen") and (
@@ -1122,8 +1129,9 @@ func _physics_process(delta):
 			Globaali.maailma.nykyiset_pallot += 1
 			Globaali.maailma.palloja -= 1
 			palloja_label_paivita()
+			
 			pallon_nopeus = oletus_pallon_nopeus # Resetoidaan pallon nopeus
-			heitto_mittari.visible = false
+			heitto_mittari_nakyvyys_paivita(0.0)
 	
 	# Nostetaan ja lasketaan äänen taajuutta tarvittaessa
 	# PC MOUSE_WHEEL
@@ -1158,19 +1166,20 @@ func heitto_nappi_pohjassa(delta: float):
 	if pallon_nopeus >= pallon_max_nopeus:
 		nouseva = false
 	
-	# Mittari näkyviin minimiajan jälkeen
-	painettu_aika += delta
-	if painettu_aika < minimi_aika:
-		return
+	# Jos ei tweenata ja nakyvyys on nollassa
+	if not (heitto_mittari_nakyvyys_tween and heitto_mittari_nakyvyys_tween.is_running()) \
+		and is_zero_approx(heitto_mittari.modulate.a
+	):
+		heitto_mittari_nakyvyys_tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		heitto_mittari_nakyvyys_tween.tween_method(
+			heitto_mittari_nakyvyys_paivita, 0.0, heitto_mittari_nakyvyys_alpha, 0.4)
 	
 	if nouseva:
-		#pallon_nopeus += 20 # Nostetaan nopeutta, jos ollaan pohjalla
 		pallon_nopeus += delta * 100
 	else:
 		pallon_nopeus -= delta * 100
 	
-	heitto_mittari.visible = true
-	heitto_mittari_paivita()
+	heitto_mittari_arvo_paivita()
 
 
 ## Aloittaa huilun soittamisen

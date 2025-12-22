@@ -50,10 +50,10 @@
 [ext_resource type="Texture2D" uid="uid://w66m3s1o2tck" path="res://grafiikka/kupla.png" id="40_2fdq1"]
 [ext_resource type="Texture2D" uid="uid://dk1maq4gytv2j" path="res://grafiikka/BubblesOutline.png" id="41_f03c5"]
 [ext_resource type="Texture2D" uid="uid://hllv7127dc22" path="res://grafiikka/BubblesFull.png" id="42_8suin"]
-[ext_resource type="Texture2D" uid="uid://be3ajp0w2tnqb" path="res://grafiikka/mittariEmpty.png" id="47_go443"]
+[ext_resource type="Texture2D" uid="uid://be3ajp0w2tnqb" path="res://grafiikka/mittariFull.png" id="47_go443"]
 [ext_resource type="Texture2D" uid="uid://sgmdbm5phjib" path="res://grafiikka/mittariOutline.png" id="48_c8nrl"]
 [ext_resource type="Texture2D" uid="uid://b2h8c634u1120" path="res://addons/rmsmartshape/assets/Anchor.svg" id="48_ydtx0"]
-[ext_resource type="Texture2D" uid="uid://cyowvyeakjuki" path="res://grafiikka/mittariFull.png" id="49_t254o"]
+[ext_resource type="Texture2D" uid="uid://cyowvyeakjuki" path="res://grafiikka/mittariEmpty.png" id="49_t254o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -986,17 +986,22 @@ texture_over = ExtResource("41_f03c5")
 texture_progress = ExtResource("42_8suin")
 
 [node name="HeittoMittari" type="TextureProgressBar" parent="HUD"]
-modulate = Color(1, 1, 1, 0.823529)
+modulate = Color(1, 1, 1, 0.705882)
+z_index = 10
+material = ExtResource("5_gdn2h")
 layout_mode = 1
 anchors_preset = -1
-offset_left = 35.0
-offset_top = -16.0
+offset_left = 36.0
+offset_top = -18.0
+offset_right = 228.0
+offset_bottom = 16.0
 rotation = -1.57079
 scale = Vector2(0.345982, 0.551345)
-value = 52.0
+value = 39.0
 texture_under = ExtResource("49_t254o")
 texture_over = ExtResource("48_c8nrl")
 texture_progress = ExtResource("47_go443")
+tint_progress = Color(0.547353, 0.268362, 0.0013208, 1)
 
 [node name="ApuaLabel" type="Label" parent="HUD"]
 z_index = 99
