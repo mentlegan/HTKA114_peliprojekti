@@ -131,7 +131,7 @@ texture_scale = 1.4
 modulate = Color(0.435501, 0.686193, 0, 1)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_nepos")
-frame_progress = 0.99882
+frame_progress = 0.0674929
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2q18j")

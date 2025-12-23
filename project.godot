@@ -318,6 +318,7 @@ painike_kilpi={
 2d_physics/layer_3="Valopallo"
 2d_physics/layer_4="Kukka"
 2d_physics/layer_5="Happo"
+2d_physics/layer_6="PerhonenLiikLait"
 
 [rendering]
 

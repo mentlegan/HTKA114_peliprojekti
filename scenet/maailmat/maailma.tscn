@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=187 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" uid="uid://da5w6gxiw78tp" path="res://skriptit/maailma.gd" id="1_lya7j"]
 [ext_resource type="Script" uid="uid://pfedbiv7sf4b" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -473,6 +473,12 @@ _data = {
 }
 point_count = 15
 
+[sub_resource type="Curve2D" id="Curve2D_iuo4h"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3, 0, 0, 0, 0, 0, 145, -9, 0, 0, 0, 0, 235, -29, 0, 0, 0, 0, 319, -39, 0, 0, 0, 0, 388, -72, 0, 0, 0, 0, 443, -124, 0, 0, 0, 0, 502, -148, 0, 0, 0, 0, 551, -216, 0, 0, 0, 0, 519, -300, 0, 0, 0, 0, 450, -410, 0, 0, 0, 0, 441, -517, 0, 0, 0, 0, 352, -581, 0, 0, 0, 0, 239, -544, 0, 0, 0, 0, 191, -476, 0, 0, 0, 0, 142, -437, 0, 0, 0, 0, 99, -437, 0, 0, 0, 0, 4, -442, 0, 0, 0, 0, -46, -489, 0, 0, 0, 0, -71, -540, 0, 0, 0, 0, -78, -592, 0, 0, 0, 0, -33, -648, 0, 0, 0, 0, 39, -680, 0, 0, 0, 0, 100, -720, 0, 0, 0, 0, 157, -811, 0, 0, 0, 0, 183, -835, 0, 0, 0, 0, 241, -876, 0, 0, 0, 0, 324, -908, 0, 0, 0, 0, 370, -927, 0, 0, 0, 0, 410, -934, 0, 0, 0, 0, 461, -949)
+}
+point_count = 30
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ercj1"]
 polygon = PackedVector2Array(8, -108, -34, 28, -20, 77, 28, 69, 72, -94, 128, -214, 103, -220, 21, -146)
 
@@ -490,7 +496,7 @@ size = Vector2(70263.4, 38564)
 
 [node name="Maailma" type="Node2D" node_paths=PackedStringArray("teleportit") groups=["tallenna"]]
 script = ExtResource("1_lya7j")
-teleportit = [NodePath("Muuta/RuohoTutoriaaliTP"), NodePath("Muuta/Taso1TP"), NodePath("Muuta/Taso2TP"), NodePath("Muuta/Taso3TP"), NodePath("Muuta/Taso45TP"), NodePath("Muuta/VesiputousTP"), NodePath("Taso2/MuutaTaso2/VesitutoriaaliTP"), NodePath("Taso2/MuutaTaso2/VesitutoriaaliEnnenTP"), NodePath("Taso2/MuutaTaso2/VesitutoriaaliLapiTP"), NodePath("Taso2/MuutaTaso2/PerhosPesaTP"), NodePath("Taso2/MuutaTaso2/PerhosPesa2TP")]
+teleportit = [NodePath("Muuta/RuohoTutoriaaliTP"), NodePath("Muuta/Taso1TP"), NodePath("Muuta/Taso2TP"), NodePath("Muuta/Taso3TP"), NodePath("Muuta/Taso45TP"), NodePath("Muuta/VesiputousTP"), NodePath("Taso2/MuutaTaso2/VesitutoriaaliTP"), NodePath("Taso2/MuutaTaso2/VesitutoriaaliEnnenTP"), NodePath("Taso2/MuutaTaso2/VesitutoriaaliLapiTP"), NodePath("Taso2/MuutaTaso2/PerhosPesaTP"), NodePath("Taso2/MuutaTaso2/PerhosPesa2TP"), NodePath("Taso2/MuutaTaso2/PerhosPesa3TP")]
 
 [node name="KayttoLiittyma" type="CanvasLayer" parent="." groups=["UI"]]
 unique_name_in_owner = true
@@ -696,7 +702,7 @@ polygon = PackedVector2Array(35.6035, -16.7751, 55.833, -16.3922, 70.0967, -1.56
 polygon = PackedVector2Array(758, 1115, 785, 1182, 984, 1183, 1120, 1189, 1110, 1006, 1147, 1004, 1160, 1184, 1351, 1184, 1349, 1278, 708, 1291, 681, 1092)
 
 [node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
-position = Vector2(11299, 96)
+position = Vector2(30621, 5801)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -5068,6 +5074,14 @@ nopeus = 75
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/PerhonenHeal2"]
 curve = SubResource("Curve2D_sb360")
 
+[node name="PerhonenKuljettava3" parent="Taso2/PerhosetTaso2" instance=ExtResource("17_jwryh")]
+position = Vector2(30794, 5814)
+luokka = 2
+
+[node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/PerhonenKuljettava3"]
+position = Vector2(3, 3)
+curve = SubResource("Curve2D_iuo4h")
+
 [node name="CheckpointitTaso2" type="Node2D" parent="Taso2"]
 
 [node name="Checkpoint" parent="Taso2/CheckpointitTaso2" instance=ExtResource("35_je5yh")]
@@ -5180,6 +5194,10 @@ position = Vector2(21303, 8809)
 [node name="PerhosPesa2TP" type="Node2D" parent="Taso2/MuutaTaso2"]
 unique_name_in_owner = true
 position = Vector2(25992, 7610)
+
+[node name="PerhosPesa3TP" type="Node2D" parent="Taso2/MuutaTaso2"]
+unique_name_in_owner = true
+position = Vector2(30635, 5839)
 
 [node name="TutoriaaliOviSeinat" type="Node2D" parent="Taso2/MuutaTaso2"]
 

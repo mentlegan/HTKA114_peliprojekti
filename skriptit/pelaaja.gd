@@ -595,7 +595,7 @@ func happi_mittari_paivita():
 
 
 func heitto_mittari_arvo_paivita():
-	print(pallon_nopeus)
+	#print(pallon_nopeus)
 	heitto_mittari.value = pallon_nopeus
 
 
@@ -1012,8 +1012,10 @@ func _physics_process(delta):
 					# Onko tarpeellinen tai edes hyvä?
 					self.velocity.x = -250 if animaatio.is_flipped_h() else 250
 				else:
-					perhosen_selassa = true
-					alue.pelaaja = self
+					# Liikkelle laitettavan kyytiin ei pääse, jos se ei liiku
+					if alue.tarkista_paaseeko_kyytiin():
+						perhosen_selassa = true
+						alue.pelaaja = self
 	
 	## TODO: saattaa joutua muuttamaan, toimii nyt jatkokehitystä varten tarpeeksi hyvin
 	## Nykyisiä ongelmia ovat pelaajan töminä kuljetuksen aikana, jos yrittää liikkua WASD:illa

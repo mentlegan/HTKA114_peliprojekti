@@ -1,12 +1,11 @@
 extends Area2D
 class_name Huilu
 
-
-## Äänen taajuus, asetetaan pelaaja.gd:ssä
-var aanen_taajuus = 1
 ## Huilun raycast
 @onready var raycast = $RayCast2D
 
+## Äänen taajuus, asetetaan pelaaja.gd:ssä
+var aanen_taajuus = 1
 
 ## Tarkistaa, osuuko huilun raycast terrainiin pelaajan ja annetun noden välillä
 func osuu_terrainiin(node):

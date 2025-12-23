@@ -87,7 +87,7 @@ light_mode = 1
 size = Vector2(34.25, 40)
 
 [node name="PerhonenKuljettava" type="Area2D" groups=["valonlahde"]]
-collision_layer = 4
+collision_layer = 36
 collision_mask = 2
 script = ExtResource("1_e3irp")
 
@@ -189,6 +189,7 @@ size_flags_horizontal = 0
 text = "Ride"
 horizontal_alignment = 1
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="body_entered" from="TooltipPKuljettava" to="TooltipPKuljettava" method="_on_body_entered"]
