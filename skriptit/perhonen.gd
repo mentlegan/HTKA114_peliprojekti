@@ -16,7 +16,7 @@ var polunetsija = null
 # Liikkumiseen käytettävä callable
 var liikkumis_callable = null
 ## Perhosen nopeus
-@export var nopeus: int = 80
+@export var nopeus: float = 80
 ## Perhosen edeltävän framen x-koordinaatti
 var edeltava_x = position.x
 ## Perhosen tämänhetkinen etäisyys reitillä. Liukuluku, 0..1 välissä

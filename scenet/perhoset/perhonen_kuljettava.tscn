@@ -90,6 +90,7 @@ size = Vector2(34.25, 40)
 collision_layer = 36
 collision_mask = 2
 script = ExtResource("1_e3irp")
+nopeus = 80
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 blend_mode = 2
@@ -120,7 +121,7 @@ offset_right = 70.0
 offset_bottom = -44.0
 text = "Normaali"
 
-[node name="TooltipPKuljettava" type="Area2D" parent="."]
+[node name="TooltipKuljettava" type="Area2D" parent="."]
 visible = false
 z_index = 99
 z_as_relative = false
@@ -131,24 +132,24 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("8_5tibm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TooltipPKuljettava"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TooltipKuljettava"]
 position = Vector2(-0.5, 40)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_gjp4w")
 
-[node name="Sprite2D" type="Sprite2D" parent="TooltipPKuljettava"]
+[node name="Sprite2D" type="Sprite2D" parent="TooltipKuljettava"]
 material = ExtResource("9_r1kix")
 use_parent_material = true
 position = Vector2(-18, 0)
 texture = ExtResource("10_6w25a")
 
-[node name="Sprite2D2" type="Sprite2D" parent="TooltipPKuljettava"]
+[node name="Sprite2D2" type="Sprite2D" parent="TooltipKuljettava"]
 material = ExtResource("9_r1kix")
 use_parent_material = true
 position = Vector2(20, 0)
 texture = ExtResource("11_y3k51")
 
-[node name="Label" type="Label" parent="TooltipPKuljettava/Sprite2D2"]
+[node name="Label" type="Label" parent="TooltipKuljettava/Sprite2D2"]
 auto_translate_mode = 1
 texture_filter = 1
 material = ExtResource("9_r1kix")
@@ -169,7 +170,7 @@ text = "F"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="TooltipPKuljettava"]
+[node name="Label" type="Label" parent="TooltipKuljettava"]
 auto_translate_mode = 1
 texture_filter = 1
 material = ExtResource("9_r1kix")
@@ -192,5 +193,5 @@ horizontal_alignment = 1
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
-[connection signal="body_entered" from="TooltipPKuljettava" to="TooltipPKuljettava" method="_on_body_entered"]
-[connection signal="body_exited" from="TooltipPKuljettava" to="TooltipPKuljettava" method="_on_body_exited"]
+[connection signal="body_entered" from="TooltipKuljettava" to="TooltipKuljettava" method="_on_body_entered"]
+[connection signal="body_exited" from="TooltipKuljettava" to="TooltipKuljettava" method="_on_body_exited"]

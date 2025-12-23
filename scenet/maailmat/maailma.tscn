@@ -1,4 +1,4 @@
-[gd_scene load_steps=187 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=189 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" uid="uid://da5w6gxiw78tp" path="res://skriptit/maailma.gd" id="1_lya7j"]
 [ext_resource type="Script" uid="uid://pfedbiv7sf4b" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -479,6 +479,16 @@ _data = {
 }
 point_count = 30
 
+[sub_resource type="Gradient" id="Gradient_sjwyo"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.904088, 0.000659776, 0.904082, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sb360"]
+gradient = SubResource("Gradient_sjwyo")
+width = 100
+use_hdr = true
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ercj1"]
 polygon = PackedVector2Array(8, -108, -34, 28, -20, 77, 28, 69, 72, -94, 128, -214, 103, -220, 21, -146)
 
@@ -787,9 +797,11 @@ position = Vector2(-435.389, 1045.42)
 
 [node name="PerhonenHeal" parent="Perhoset" instance=ExtResource("16_woq5y")]
 position = Vector2(9532.16, 637.661)
+nopeus = 50.0
 
 [node name="PerhonenKuljettaja" parent="Perhoset" instance=ExtResource("17_jwryh")]
 position = Vector2(9846.74, 514.265)
+nopeus = 80.0
 
 [node name="Path2D" type="Path2D" parent="Perhoset/PerhonenKuljettaja"]
 position = Vector2(3.99699, 3.00534)
@@ -798,6 +810,7 @@ curve = SubResource("Curve2D_c40u5")
 [node name="PerhonenKuljettaja2" parent="Perhoset" instance=ExtResource("17_jwryh")]
 position = Vector2(10373.7, 469.334)
 luokka = 1
+nopeus = 80.0
 
 [node name="Path2D" type="Path2D" parent="Perhoset/PerhonenKuljettaja2"]
 position = Vector2(-3.70512, 3.06898)
@@ -815,9 +828,11 @@ curve = SubResource("Curve2D_3r26q")
 
 [node name="PerhonenHeal2" parent="Perhoset" instance=ExtResource("16_woq5y")]
 position = Vector2(16348.4, -255.287)
+nopeus = 50.0
 
 [node name="PerhonenHeal3" parent="Perhoset" instance=ExtResource("16_woq5y")]
 position = Vector2(19500.2, 2091.91)
+nopeus = 50.0
 
 [node name="Path2D" type="Path2D" parent="Perhoset/PerhonenHeal3"]
 position = Vector2(-5.96225, 0.987199)
@@ -826,10 +841,12 @@ curve = SubResource("Curve2D_3jlii")
 [node name="PerhonenHeal4" parent="Perhoset" instance=ExtResource("16_woq5y")]
 position = Vector2(20670.9, 61.4548)
 rotation = 0.00132818
+nopeus = 50.0
 
 [node name="PerhonenHeal5" parent="Perhoset" instance=ExtResource("16_woq5y")]
 position = Vector2(24744.5, -357.135)
 rotation = 0.00132818
+nopeus = 50.0
 
 [node name="Path2D" type="Path2D" parent="Perhoset/PerhonenHeal5"]
 position = Vector2(201.01, -373)
@@ -838,6 +855,7 @@ curve = SubResource("Curve2D_h32vt")
 [node name="PerhonenHeal6" parent="Perhoset" instance=ExtResource("16_woq5y")]
 position = Vector2(327.44, 6445.44)
 rotation = 0.00132818
+nopeus = 50.0
 
 [node name="PerhonenAmpuja2" parent="Perhoset" instance=ExtResource("19_twhf6")]
 position = Vector2(1053.71, 972.4)
@@ -5050,26 +5068,28 @@ curve = SubResource("Curve2D_o11av")
 [node name="PerhonenKuljettava" parent="Taso2/PerhosetTaso2" instance=ExtResource("17_jwryh")]
 position = Vector2(21497, 8734)
 luokka = 1
+nopeus = 80.0
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/PerhonenKuljettava"]
 curve = SubResource("Curve2D_qu705")
 
 [node name="PerhonenKuljettava2" parent="Taso2/PerhosetTaso2" instance=ExtResource("17_jwryh")]
 position = Vector2(26361, 7543)
+nopeus = 80.0
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/PerhonenKuljettava2"]
 curve = SubResource("Curve2D_sjwyo")
 
 [node name="PerhonenHeal" parent="Taso2/PerhosetTaso2" instance=ExtResource("16_woq5y")]
 position = Vector2(22487, 8593)
-nopeus = 75
+nopeus = 75.0
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/PerhonenHeal"]
 curve = SubResource("Curve2D_twhf6")
 
 [node name="PerhonenHeal2" parent="Taso2/PerhosetTaso2" instance=ExtResource("16_woq5y")]
 position = Vector2(27812, 7424)
-nopeus = 75
+nopeus = 75.0
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/PerhonenHeal2"]
 curve = SubResource("Curve2D_sb360")
@@ -5077,10 +5097,32 @@ curve = SubResource("Curve2D_sb360")
 [node name="PerhonenKuljettava3" parent="Taso2/PerhosetTaso2" instance=ExtResource("17_jwryh")]
 position = Vector2(30794, 5814)
 luokka = 2
+nopeus = 80.0
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/PerhonenKuljettava3"]
 position = Vector2(3, 3)
 curve = SubResource("Curve2D_iuo4h")
+
+[node name="Vasymispiste" type="Marker2D" parent="Taso2/PerhosetTaso2/PerhonenKuljettava3"]
+top_level = true
+material = ExtResource("75_4248i")
+position = Vector2(31181, 5747)
+gizmo_extents = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Taso2/PerhosetTaso2/PerhonenKuljettava3/Vasymispiste"]
+modulate = Color(1, 1, 1, 0.584314)
+use_parent_material = true
+scale = Vector2(0.1, 10)
+texture = SubResource("GradientTexture1D_sb360")
+
+[node name="Label" type="Label" parent="Taso2/PerhosetTaso2/PerhonenKuljettava3/Vasymispiste"]
+use_parent_material = true
+offset_left = -27.0
+offset_top = -15.0
+offset_right = 114.0
+offset_bottom = 3.0
+scale = Vector2(0.437706, 0.437706)
+text = "Vasymispiste"
 
 [node name="CheckpointitTaso2" type="Node2D" parent="Taso2"]
 

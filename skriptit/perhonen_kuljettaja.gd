@@ -14,11 +14,6 @@ enum Luokka {
 	LIIK_LAIT, ## Huilulla liikkeelle laitettava
 }
 
-## Liikkelle laitettavalle
-var liikkuu_eteenpain: bool = false
-var tultu_alkuun: bool = false
-var oliko_pelaaja_kyydissa: bool = false
-
 ## Setteri export muuttujalle, päivittää nyt heti labelin tekstin editorissa
 @export var luokka: Luokka = Luokka.NORMAALI:
 	set(value):
@@ -35,12 +30,32 @@ var oliko_pelaaja_kyydissa: bool = false
 ## Viite pelaajaan
 var pelaaja: Pelaaja
 
+## Liikkelle laitettavalle perhoselle loput näistä
+var liikkuu_eteenpain: bool = false
+var tultu_alkuun: bool = false
+var oliko_pelaaja_kyydissa: bool = false
+
+## Väsymispiste, jossa palataan takaisin 
+## jos pelaaja oli kyydissä siihen asti matkalla missään vaiheessa
+var vasymispiste: Marker2D
+## Tween nopeuden ja animaation nopeuden säätämiselle
+var tween: Tween
+var aloitus_nopeus: float
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	
 	super._ready()
+	
+	if luokka == Luokka.LIIK_LAIT:
+		for lapsi in get_children():
+			if lapsi is Marker2D:
+				vasymispiste = lapsi
+		
+		aloitus_nopeus = nopeus
+	
 	paivita_label_text()
 	#self.z_index = -1 ## Pelaaja perhosen eteen
 
@@ -100,6 +115,45 @@ func laske_etaisyys(delta: float) -> void:
 		etaisyys = clampf(etaisyys, 0.0, 1.0)
 
 
+## Liikkeelle laitettavan perhosen nopeuden tweenaus
+func perhosen_vasyminen():
+	## TODO: Tässä toteutuksessa tarkistetaan vielä
+	## oliko ollenkaan kyydissä koko matkalla
+	
+	## Väsymispiste ja nopeuden hidastuminen, jos pelaaja kyydissä
+	## Palaa takaisin päästyään väsymispisteeseen asti
+	## Tässä tulee tehdä kenttä niin, että pelaaja ei voi hypätä kyytiin
+	## väsymispisteen ohittamisen jälkeen
+	
+	var hidastumis_etaisyys: float = 200.0
+	var etaisyys_pisteeseen: float = \
+		self.global_position.distance_to(vasymispiste.global_position)
+	
+	#print(etaisyys_pisteeseen)
+	if etaisyys_pisteeseen < hidastumis_etaisyys:
+		if not tween or not tween.is_running():
+			# Tween saattaa laueta uudelleen, mutta ei haittaa
+			# koska nopeus on silloin jo hidastettu alhaisimmaksi arvoksi
+			print("Hidastetaan nopeutta")
+			tween = create_tween().set_parallel(true)
+			tween.tween_property(self, "nopeus", 40.0, 3.0)
+			tween.tween_property(animaatio, "speed_scale", 0.5, 3.0)
+	
+	# Jos ollaan ollaan epsilonin päässä väsymispisteestä
+	# (manuaalisesti asetettu reitille)
+	var eps: float = 2.0
+	if etaisyys_pisteeseen < eps:
+		print("Väsymispisteen kohdalla, palataan takaisin")
+		liikkuu_eteenpain = false
+		if tween:
+			tween.kill()
+		
+		print("Palautetaan nopeus")
+		tween = create_tween().set_parallel(true)
+		tween.tween_property(self, "nopeus", aloitus_nopeus, 2.5)
+		tween.tween_property(animaatio, "speed_scale", 1.0, 2.5)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -127,13 +181,14 @@ func _physics_process(delta: float) -> void:
 				liikuta_pelaajaa()
 			if liikkuu_eteenpain:
 				if pelaaja:
-					# TODO: Tässä vaiheessa tarkistetaan vielä
-					# oliko ollenkaan kyydissä koko matkalla
-					print("Pelaaja oli kyydissä")
+					# Printataan vain kerran
+					if not oliko_pelaaja_kyydissa:
+						print("Pelaaja oli kyydissä")
+					
 					oliko_pelaaja_kyydissa = true
 				
-				## TODO: Väsymispiste ja hidastuminen, jos pelaaja kyydissä
-				## Palaa takaisin päästyään väsymispisteeseen asti
+				if oliko_pelaaja_kyydissa:
+					perhosen_vasyminen()
 				
 				# Ollaan lopussa, asetetaan palaamaan takaisin
 				if is_equal_approx(path_follow_2d.progress_ratio, 1.0):
