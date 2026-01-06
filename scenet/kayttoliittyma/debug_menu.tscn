@@ -52,9 +52,9 @@ text = "Tp3"
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 0
 offset_left = 197.0
-offset_top = 103.0
+offset_top = 97.0
 offset_right = 415.0
-offset_bottom = 194.0
+offset_bottom = 297.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainerUtil"]
 layout_mode = 2
@@ -77,5 +77,50 @@ layout_mode = 2
 focus_mode = 0
 text = "TODO: Lataa scene"
 
+[node name="PanelMoottorinNopeus" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 197.0
+offset_top = 304.0
+offset_right = 414.0
+offset_bottom = 504.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelMoottorinNopeus"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelMoottorinNopeus/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelMoottorinNopeus/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Moottorin nopeus"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelMoottorinNopeus/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NopeusSlider" type="HSlider" parent="PanelMoottorinNopeus/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 10.0
+step = 0.1
+value = 1.0
+
+[node name="ButtonReset" type="Button" parent="PanelMoottorinNopeus/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="LabelNopeus" type="Label" parent="PanelMoottorinNopeus/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nopeus: "
+
 [connection signal="pressed" from="PanelContainerUtil/MarginContainer/VBoxContainer/ButtonKuolema" to="." method="_on_button_death_pressed"]
 [connection signal="pressed" from="PanelContainerUtil/MarginContainer/VBoxContainer/ButtonLataaScene" to="." method="_on_button_reload_scene_pressed"]
+[connection signal="value_changed" from="PanelMoottorinNopeus/MarginContainer/VBoxContainer/HBoxContainer/NopeusSlider" to="." method="_on_nopeus_slider_value_changed"]
+[connection signal="pressed" from="PanelMoottorinNopeus/MarginContainer/VBoxContainer/HBoxContainer/ButtonReset" to="." method="_on_button_reset_pressed"]

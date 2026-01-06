@@ -5,6 +5,9 @@ class_name DebugMenu
 
 @onready var v_box_container: VBoxContainer = $PanelContainerTP/MarginContainer/ScrollContainer/VBoxContainer
 
+@onready var nopeus_slider: HSlider = $PanelMoottorinNopeus/MarginContainer/VBoxContainer/HBoxContainer/NopeusSlider
+@onready var label_nopeus: Label = $PanelMoottorinNopeus/MarginContainer/VBoxContainer/LabelNopeus
+
 ## Poistetaan mallipainikkeet
 func _ready() -> void:
 	for button: Button in v_box_container.get_children():
@@ -47,3 +50,18 @@ func _on_button_death_pressed() -> void:
 func _on_button_reload_scene_pressed() -> void:
 	pass
 	#Globaali.vaihda_scene("maailma")
+
+
+func _on_nopeus_slider_value_changed(value: float) -> void:
+	Engine.time_scale = value
+	paivita_nopeus_label()
+
+
+func _on_button_reset_pressed() -> void:
+	nopeus_slider.value = nopeus_slider.min_value
+	Engine.time_scale = nopeus_slider.min_value
+	paivita_nopeus_label()
+
+
+func paivita_nopeus_label() -> void:
+	label_nopeus.text = "Nopeus: " + str(nopeus_slider.value)

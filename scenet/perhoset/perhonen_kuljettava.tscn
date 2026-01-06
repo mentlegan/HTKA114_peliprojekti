@@ -90,7 +90,6 @@ size = Vector2(34.25, 40)
 collision_layer = 36
 collision_mask = 2
 script = ExtResource("1_e3irp")
-nopeus = 80
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 blend_mode = 2

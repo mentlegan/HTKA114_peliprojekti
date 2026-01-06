@@ -180,6 +180,8 @@ const MAX_TAHTAIN_ETAISYYS = 128
 var vedessa = false
 ## Onko perhosen selässä
 var perhosen_selassa: bool = false
+## Viite perhoseen, jotta voi kuollessa resetoida
+var perhonen_jonka_selassa: PerhonenKuljettava = null
 
 ## Get the gravity from the project settings to be synced with RigidBody nodes.
 ## Eli napataan painovoima kimppaan rigidbodyjen kanssa.
@@ -541,6 +543,10 @@ func pimea_kuoleminen():
 
 ## Tähän lisätty signaalin emit
 func kuolema():
+	if Globaali.juuri_kuoltu:
+		print_debug("SKIPATAAN KUOLEMA, SILLÄ JUURI KUOLTU")
+		return
+	
 	audio_pelaaja_kuolee_viholliselle.play()
 	pimeyskuolema.stop()
 	kuollut.emit()
@@ -549,6 +555,10 @@ func kuolema():
 
 ## Kuolema pitäisi toteuttaa paremmin, mutta tässä nyt hätäratkaisuna
 func kuolema_fall_damageen():
+	if Globaali.juuri_kuoltu:
+		print_debug("SKIPATAAN KUOLEMA, SILLÄ JUURI KUOLTU")
+		return
+	
 	audio_pelaaja_fall_damage_kuolema.play()
 	pimeyskuolema.stop()
 	kuollut.emit()
@@ -556,6 +566,10 @@ func kuolema_fall_damageen():
 
 
 func kuolema_vedessa():
+	if Globaali.juuri_kuoltu:
+		print_debug("SKIPATAAN KUOLEMA, SILLÄ JUURI KUOLTU")
+		return
+	
 	pimeyskuolema.stop()
 	kuollut.emit()
 	print_debug("Kuolit HUKKUMISEEN")
@@ -630,6 +644,10 @@ func saa_elamia(maara):
 
 ## Vähennetään pelaajan elämiä
 func meneta_elamia(maara, damage_type):
+	if Globaali.juuri_kuoltu:
+		print_debug("Ei menetetä elämiä, sillä juuri kuoltu")
+		return
+	
 	if pelaajan_elamat - maara > 0:
 		pelaajan_elamat -= maara
 		kamera_tarisee = true
@@ -1005,6 +1023,7 @@ func _physics_process(delta):
 			if alue is PerhonenKuljettava and not is_on_floor():
 				# Kuljettavan perhosen käsittely
 				if perhosen_selassa:
+					perhonen_jonka_selassa = null
 					perhosen_selassa = false
 					alue.pelaaja = null
 					# Hyppy poistuessa on tarpeen
@@ -1014,6 +1033,7 @@ func _physics_process(delta):
 				else:
 					# Liikkelle laitettavan kyytiin ei pääse, jos se ei liiku
 					if alue.tarkista_paaseeko_kyytiin():
+						perhonen_jonka_selassa = alue
 						perhosen_selassa = true
 						alue.pelaaja = self
 	

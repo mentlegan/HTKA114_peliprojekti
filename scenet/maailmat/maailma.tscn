@@ -457,9 +457,9 @@ point_count = 15
 
 [sub_resource type="Curve2D" id="Curve2D_sjwyo"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -8, -3, 0, 0, 0, 0, 6, 5, 0, 0, 0, 0, 29, 6, 0, 0, 0, 0, 46, 3, 0, 0, 0, 0, 93, 2, 0, 0, 0, 0, 151, -6, 0, 0, 0, 0, 212, -5, 0, 0, 0, 0, 279, 0, 0, 0, 0, 0, 390, -4, 0, 0, 0, 0, 478, -19, 0, 0, 0, 0, 509, -16, 0, 0, 0, 0, 566, -19, 0, 0, 0, 0, 592, -20, 0, 0, 0, 0, 617, -24, 0, 0, 0, 0, 647, -24, 0, 0, 0, 0, 693, -26, 0, 0, 0, 0, 797, -30, 0, 0, 0, 0, 817, -37, 0, 0, 0, 0, 855, -34, 0, 0, 0, 0, 904, -41, 0, 0, 0, 0, 931.299, -39.3166, 0, 0, 0, 0, 944, -40, 0, 0, 0, 0, 939, -47, 0, 0, 0, 0, 926, -47, 0, 0, 0, 0, 871, -41, 0, 0, 0, 0, 749, -36, 0, 0, 0, 0, 675, -27, 0, 0, 0, 0, 591, -25, 0, 0, 0, 0, 518, -26, 0, 0, 0, 0, 472, -24, 0, 0, 0, 0, 413, -22, 0, 0, 0, 0, 314, -18, 0, 0, 0, 0, 198, -21, 0, 0, 0, 0, 119, -10, 0, 0, 0, 0, 18, -14, 0, 0, 0, 0, -8, -3)
+"points": PackedVector2Array(0, 0, 0, 0, -8, -3, 0, 0, 0, 0, 6, 5, 0, 0, 0, 0, 29, 6, 0, 0, 0, 0, 46, 3, 0, 0, 0, 0, 93, 2, 0, 0, 0, 0, 151, -6, 0, 0, 0, 0, 212, -5, 0, 0, 0, 0, 278, -19, 0, 0, 0, 0, 374, -28, 0, 0, 0, 0, 417, -35, 0, 0, 0, 0, 465, -34, 0, 0, 0, 0, 506, -34, 0, 0, 0, 0, 564, -35, 0, 0, 0, 0, 608, -37, 0, 0, 0, 0, 638, -38, 0, 0, 0, 0, 660, -40, 0, 0, 0, 0, 696, -37, 0, 0, 0, 0, 784, -42, 0, 0, 0, 0, 805, -42, 0, 0, 0, 0, 818, -46, 0, 0, 0, 0, 860, -43, 0, 0, 0, 0, 899, -42, 0, 0, 0, 0, 925, -39, 0, 0, 0, 0, 952, -41, 0, 0, 0, 0, 975, -46, 0, 0, 0, 0, 993, -60, 0, 0, 0, 0, 977, -68, 0, 0, 0, 0, 963, -50, 0, 0, 0, 0, 949, -49, 0, 0, 0, 0, 921, -41, 0, 0, 0, 0, 862, -32, 0, 0, 0, 0, 754, -33, 0, 0, 0, 0, 679, -26, 0, 0, 0, 0, 591, -20, 0, 0, 0, 0, 512, -20, 0, 0, 0, 0, 461, -19, 0, 0, 0, 0, 413, -22, 0, 0, 0, 0, 314, -18, 0, 0, 0, 0, 198, -21, 0, 0, 0, 0, 119, -10, 0, 0, 0, 0, 18, -14, 0, 0, 0, 0, -8, -3)
 }
-point_count = 36
+point_count = 42
 
 [sub_resource type="Curve2D" id="Curve2D_twhf6"]
 _data = {
@@ -712,7 +712,7 @@ polygon = PackedVector2Array(35.6035, -16.7751, 55.833, -16.3922, 70.0967, -1.56
 polygon = PackedVector2Array(758, 1115, 785, 1182, 984, 1183, 1120, 1189, 1110, 1006, 1147, 1004, 1160, 1184, 1351, 1184, 1349, 1278, 708, 1291, 681, 1092)
 
 [node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
-position = Vector2(30621, 5801)
+position = Vector2(26509, 7569)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173
@@ -801,7 +801,6 @@ nopeus = 50.0
 
 [node name="PerhonenKuljettaja" parent="Perhoset" instance=ExtResource("17_jwryh")]
 position = Vector2(9846.74, 514.265)
-nopeus = 80.0
 
 [node name="Path2D" type="Path2D" parent="Perhoset/PerhonenKuljettaja"]
 position = Vector2(3.99699, 3.00534)
@@ -810,7 +809,6 @@ curve = SubResource("Curve2D_c40u5")
 [node name="PerhonenKuljettaja2" parent="Perhoset" instance=ExtResource("17_jwryh")]
 position = Vector2(10373.7, 469.334)
 luokka = 1
-nopeus = 80.0
 
 [node name="Path2D" type="Path2D" parent="Perhoset/PerhonenKuljettaja2"]
 position = Vector2(-3.70512, 3.06898)
@@ -5068,14 +5066,12 @@ curve = SubResource("Curve2D_o11av")
 [node name="PerhonenKuljettava" parent="Taso2/PerhosetTaso2" instance=ExtResource("17_jwryh")]
 position = Vector2(21497, 8734)
 luokka = 1
-nopeus = 80.0
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/PerhonenKuljettava"]
 curve = SubResource("Curve2D_qu705")
 
 [node name="PerhonenKuljettava2" parent="Taso2/PerhosetTaso2" instance=ExtResource("17_jwryh")]
 position = Vector2(26361, 7543)
-nopeus = 80.0
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/PerhonenKuljettava2"]
 curve = SubResource("Curve2D_sjwyo")
@@ -5097,7 +5093,6 @@ curve = SubResource("Curve2D_sb360")
 [node name="PerhonenKuljettava3" parent="Taso2/PerhosetTaso2" instance=ExtResource("17_jwryh")]
 position = Vector2(30794, 5814)
 luokka = 2
-nopeus = 80.0
 
 [node name="Path2D" type="Path2D" parent="Taso2/PerhosetTaso2/PerhonenKuljettava3"]
 position = Vector2(3, 3)
@@ -5670,7 +5665,7 @@ position = Vector2(26721, 7652)
 rotation = 0.44273
 
 [node name="piikki7" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]
-position = Vector2(26909, 7482)
+position = Vector2(26906, 7482)
 rotation = 3.23518
 
 [node name="piikki10" parent="Taso2/MuutaTaso2/AnsatTaso2/Piikit" instance=ExtResource("9_ox6hl")]

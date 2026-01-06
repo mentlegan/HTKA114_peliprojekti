@@ -29,6 +29,10 @@ var tallennetut_nodet = []
 ## Nykyisen maailma-scenen tiedostonimi ilman .tscn-tiedostopäätettä
 var nykyinen_scene = "maailma"
 
+## Kuolemalle timer, ettei voi kuolla heti uudelleen respawnattua
+var kuoltu_timer: Timer
+var juuri_kuoltu: bool = false
+
 ## Alustusfunktio, jota Maailma-node kutsuu sceneen astuessa
 ## TODO: Lisää esimerkiksi tausta tekstuurit uudelleen aina sceneä vaihtaessa, näiden korjaus
 func init():
@@ -95,6 +99,17 @@ func init():
 	else:
 		get_tree().paused = false
 		soita_musiikki()
+	
+	kuoltu_timer = Timer.new()
+	kuoltu_timer.wait_time = 0.3
+	kuoltu_timer.one_shot = true
+	kuoltu_timer.timeout.connect(juuri_kuoltu_reset)
+	self.add_child(kuoltu_timer)
+
+
+func juuri_kuoltu_reset() -> void:
+	juuri_kuoltu = false
+	print("Voi taas kuolla")
 
 
 ## Kuunnellaan scenen vaihto ja kuolema
@@ -350,6 +365,13 @@ func respawn():
 	maailma.pelaaja.pelaajan_elamat = maailma.pelaaja.pelaajan_elamat_max
 	maailma.pelaaja.elamat_label_paivita()
 	
+	# 6.1.2026
+	if maailma.pelaaja.perhonen_jonka_selassa:
+		maailma.pelaaja.perhonen_jonka_selassa.pelaaja = null
+		maailma.pelaaja.perhonen_jonka_selassa = null
+	
+	maailma.pelaaja.perhosen_selassa = false
+	
 	maailma.kuoltiinko_viholliseen = false # resetoidaan viholliseen/pimeyteen kuolemisen tarkistava muuttuja
 	
 	# Tuhoa ansa, heal yms. timerit
@@ -361,6 +383,7 @@ func respawn():
 		if child is Timer:
 			if child.name.contains("Ansa") or child.name.contains("Heal"):
 				child.stop()
+	
 	# Perhospesän perhosten ja ansojen ajoitusten korjaaminen
 	# TODO: TÄTÄKÄÄN EI EHKÄ TARVITSE
 	#korjaa_perhospesa_ajoitukset()
@@ -368,6 +391,10 @@ func respawn():
 	get_tree().paused = false
 	teleporttaa_pelaaja(maailma.pelaaja_aloitus)
 	maailma.pelaaja.velocity = Vector2.ZERO
+	
+	juuri_kuoltu = true
+	print("Ei voi kuolla, aloitetaan timer")
+	kuoltu_timer.start()
 
 
 func korjaa_perhospesa_ajoitukset():
