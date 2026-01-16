@@ -21,8 +21,7 @@ const MAAILMASCENE_KANSIO = "res://scenet/maailmat"
 ## se olisi johtanut kahteen maailma.gd:n kokoiseen koodipätkään Globaalissa.
 ## Muuttujille olisi pitänyt kirjoittaa erillinen alustusfunktio scenen vaihtamista varten,
 ## nykyinen toteutus hoitaa tämän automaattisesti Maailma-noden luomisen yhteydessä.
-## TODO: heittää erroria, voiko alustaa vasta myöhemmin?
-@onready var maailma = get_node("/root/Maailma")
+@onready var maailma = get_node_or_null("/root/Maailma")
 
 ## Taulukko, joka sisältää tallennustiedoston sisällön Latausnapin painamisen jälkeen
 var tallennetut_nodet = []
