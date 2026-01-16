@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://kmwces4tj1hh"]
+[gd_scene load_steps=145 format=3 uid="uid://kmwces4tj1hh"]
 
 [ext_resource type="Script" uid="uid://bwlncd4f3y88a" path="res://skriptit/pelaaja.gd" id="1_ypfv3"]
 [ext_resource type="Texture2D" uid="uid://dqym5n3qft82r" path="res://grafiikka/PlayerIdle.PNG" id="2_66tpr"]
@@ -54,6 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://sgmdbm5phjib" path="res://grafiikka/mittariOutline.png" id="48_c8nrl"]
 [ext_resource type="Texture2D" uid="uid://b2h8c634u1120" path="res://addons/rmsmartshape/assets/Anchor.svg" id="48_ydtx0"]
 [ext_resource type="Texture2D" uid="uid://cyowvyeakjuki" path="res://grafiikka/mittariEmpty.png" id="49_t254o"]
+[ext_resource type="PackedScene" uid="uid://c7kmw6th34045" path="res://scenet/kilpi.tscn" id="55_c8nrl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7j51"]
 radius = 3.83333
@@ -681,14 +682,6 @@ size = Vector2(46, 3)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_54lqu"]
 height = 48.0
 
-[sub_resource type="Gradient" id="Gradient_6wnn6"]
-offsets = PackedFloat32Array(0, 0.166667, 0.246377, 0.710145, 0.847826)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0.762582, 0.000449541, 0.762577, 1, 0.762582, 0.000449541, 0.762577, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_70qk2"]
-gradient = SubResource("Gradient_6wnn6")
-fill_from = Vector2(1, 1)
-
 [node name="Pelaaja" type="CharacterBody2D" node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") groups=["Pelaaja", "tallenna"]]
 collision_layer = 2
 script = ExtResource("1_ypfv3")
@@ -1205,19 +1198,14 @@ shape = SubResource("RectangleShape2D_ffkin")
 position = Vector2(0, -30)
 shape = SubResource("RectangleShape2D_cqmqw")
 
+[node name="Kilpi" parent="." instance=ExtResource("55_c8nrl")]
+
 [node name="HapenTarkistus" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HapenTarkistus"]
 position = Vector2(0, -10)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_54lqu")
-
-[node name="Kilpi" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-1.90735e-06, 0)
-scale = Vector2(0.21875, 1)
-texture = SubResource("GradientTexture2D_70qk2")
-offset = Vector2(123.429, 0)
 
 [connection signal="area_entered" from="keho" to="." method="_on_keho_area_entered"]
 [connection signal="siirrytty_valoon" from="ValonTarkistus" to="." method="siirrytty_valoon"]

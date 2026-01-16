@@ -1,4 +1,4 @@
-[gd_scene load_steps=189 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=190 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" uid="uid://da5w6gxiw78tp" path="res://skriptit/maailma.gd" id="1_lya7j"]
 [ext_resource type="Script" uid="uid://hkxwwgielrn1" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -98,6 +98,7 @@
 [ext_resource type="PackedScene" uid="uid://cjrujir82taha" path="res://scenet/tutorial_unlock.tscn" id="87_d1roi"]
 [ext_resource type="PackedScene" uid="uid://b7j5ln7go4it4" path="res://scenet/lumme_juureton.tscn" id="88_m1e04"]
 [ext_resource type="PackedScene" uid="uid://d3275w50mg1i2" path="res://scenet/lumme_juurella.tscn" id="88_qbkop"]
+[ext_resource type="PackedScene" uid="uid://b2slar8auo7rn" path="res://scenet/kilpi_unlock.tscn" id="89_sb360"]
 [ext_resource type="PackedScene" uid="uid://u0o5quv7kir7" path="res://scenet/potionin_osa.tscn" id="90_e0hgj"]
 [ext_resource type="Resource" uid="uid://cam0dd1dlekqi" path="res://resurssit/smart_shape/smart_shape_tiili_taso2.tres" id="94_1e3xs"]
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="94_mc8su"]
@@ -3912,6 +3913,9 @@ occluder = SubResource("OccluderPolygon2D_u14n4")
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="Muuta/Varjot"]
 position = Vector2(6, -39)
 occluder = SubResource("OccluderPolygon2D_n2nwd")
+
+[node name="KilpiUnlock" parent="Muuta" instance=ExtResource("89_sb360")]
+position = Vector2(868, 1114)
 
 [node name="Tasot" type="Area2D" parent="."]
 visible = false

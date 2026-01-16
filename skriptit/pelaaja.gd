@@ -1380,6 +1380,11 @@ func kilpi_esilla():
 	return kilpi.visible
 
 
+## Unlockaa kilven
+func unlock_kilpi():
+	kilpi_keratty = true
+
+
 ## Funktio, jolla käsitellään vaikeusasteen muuttumista pelaajan statteihin
 ## Käsittelee lähinnä Ultra Hard-vaikeusastetta
 func paivita_vaikeusaste():

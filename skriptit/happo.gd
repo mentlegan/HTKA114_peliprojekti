@@ -1,6 +1,5 @@
 extends CharacterBody2D
 class_name Happo
-## TODO: Pelaajalle kilpi hapon torjumiseen
 ## TODO: Hapon tuhoutumiselle ja torjumiselle animaatio
 
 const NOPEUS = 165
@@ -18,13 +17,14 @@ func _physics_process(delta):
 	if collision:
 		var collider = collision.get_collider()
 		var kilpi_esilla = false
-		if collider is Pelaaja:
-			if perhonen and collider.kilpi_esilla() and not kimmotettu:
+		if collider is Pelaaja and not kimmotettu:
+			if perhonen and collider.kilpi_esilla():
 				kilpi_esilla = true
 				velocity = collider.global_position.direction_to(get_global_mouse_position())
 				kimmotettu = true
 			else:
 				collider.meneta_elamia(DAMAGE, "normaali")
+				self.queue_free()
 
-		if not kilpi_esilla:
+		if collider is not Pelaaja:
 			self.queue_free()
