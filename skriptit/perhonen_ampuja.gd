@@ -29,6 +29,8 @@ var seuraa_pelaajaa = false
 var palaamassa_polulle = false
 ## Viimeisin sijainti, jossa perhonen oli polulta lähtiessään
 var viimeisin_sijainti_polulla = null
+## Onko perhonen liian lähellä pelaajaa sitä seuratessaan
+var liian_lahella = false
 ## Kuinka pitkään perhosella kestää palata polulleen
 const PALUUKESTO = 0.01
 
@@ -41,7 +43,7 @@ var hp = 3
 
 
 func _physics_process(delta: float) -> void:
-	if palaamassa_polulle:
+	if palaamassa_polulle or (seuraa_pelaajaa and liian_lahella):
 		return
 	if seuraa_pelaajaa:
 		polunetsija.liikuta_vanhempaa(delta)
@@ -150,3 +152,15 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func _on_happo_ajastin_timeout() -> void:
 	print("TIMEOUT")
 	sprite.modulate = Color.WHITE
+
+
+## Pelaaja on tarpeeksi kaukana jahtaamisdeadzonelta poistuessaan
+func _on_jahtaamis_deadzone_body_exited(body):
+	if body is Pelaaja:
+		liian_lahella = false
+
+
+## Pelaaja on liian lähellä jahtaamisdeadzonelle tullessaan
+func _on_jahtaamis_deadzone_body_entered(body):
+	if body is Pelaaja:
+		liian_lahella = true
