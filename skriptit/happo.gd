@@ -21,7 +21,7 @@ func _physics_process(delta):
 		if collider is Pelaaja:
 			if perhonen and collider.kilpi_esilla() and not kimmotettu:
 				kilpi_esilla = true
-				velocity = self.global_position.direction_to(perhonen.global_position)
+				velocity = collider.global_position.direction_to(get_global_mouse_position())
 				kimmotettu = true
 			else:
 				collider.meneta_elamia(DAMAGE, "normaali")

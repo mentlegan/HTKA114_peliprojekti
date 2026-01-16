@@ -1,7 +1,7 @@
 [gd_scene load_steps=189 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" uid="uid://da5w6gxiw78tp" path="res://skriptit/maailma.gd" id="1_lya7j"]
-[ext_resource type="Script" uid="uid://pfedbiv7sf4b" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
+[ext_resource type="Script" uid="uid://hkxwwgielrn1" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
 [ext_resource type="PackedScene" uid="uid://bjlmhrkdv4ei5" path="res://scenet/kayttoliittyma/credits.tscn" id="3_172ol"]
 [ext_resource type="PackedScene" uid="uid://ccxl4u1mjftgb" path="res://scenet/kayttoliittyma/pause_ruutu.tscn" id="3_g8yqd"]
 [ext_resource type="PackedScene" uid="uid://dskh1b4twfo2c" path="res://scenet/kayttoliittyma/journal.tscn" id="4_sg152"]
@@ -69,7 +69,7 @@
 [ext_resource type="Texture2D" uid="uid://bk2oxjoyxcvec" path="res://grafiikka/Minecart.png" id="37_snd3d"]
 [ext_resource type="Texture2D" uid="uid://cefimsgyidbj2" path="res://grafiikka/CaveOpening.png" id="38_c8dmk"]
 [ext_resource type="PackedScene" uid="uid://dyc37pjplr1qw" path="res://scenet/tason_kamera.tscn" id="44_1y1h3"]
-[ext_resource type="Script" uid="uid://cst51cwsntyof" path="res://skriptit/vesiputous.gd" id="45_dq3qu"]
+[ext_resource type="Script" uid="uid://cn0j2spa8x21x" path="res://skriptit/vesiputous.gd" id="45_dq3qu"]
 [ext_resource type="Texture2D" uid="uid://ddf5a4j3xysb2" path="res://grafiikka/Vesiputous-Sheet.png" id="45_ocnt8"]
 [ext_resource type="Texture2D" uid="uid://dtyy75g8n38cr" path="res://grafiikka/TaustaElementit/EnemyRihmasto1.png" id="47_8pqee"]
 [ext_resource type="Texture2D" uid="uid://b27y7io6ywqll" path="res://grafiikka/TaustaElementit/EnemyRihmasto2.png" id="48_ky2yn"]
@@ -80,8 +80,8 @@
 [ext_resource type="Texture2D" uid="uid://b1ofdm4wri7wl" path="res://grafiikka/TaustaElementit/Grass.png" id="56_13vko"]
 [ext_resource type="Texture2D" uid="uid://cmbwtsacthwsm" path="res://grafiikka/TaustaElementit/Plant2.png" id="57_afodq"]
 [ext_resource type="Texture2D" uid="uid://dcpx2p3gryoj7" path="res://grafiikka/TaustaElementit/Plant1.png" id="58_b26eb"]
-[ext_resource type="Script" uid="uid://dwhjuosp3an48" path="res://skriptit/minecart.gd" id="58_vyc2b"]
-[ext_resource type="Script" uid="uid://dwr17jimn14l5" path="res://skriptit/credits_alue.gd" id="59_80cq2"]
+[ext_resource type="Script" uid="uid://vvk7nr5bc0jl" path="res://skriptit/minecart.gd" id="58_vyc2b"]
+[ext_resource type="Script" uid="uid://dvygx05gakjn3" path="res://skriptit/credits_alue.gd" id="59_80cq2"]
 [ext_resource type="Texture2D" uid="uid://mkk1dwbb0nxx" path="res://grafiikka/TaustaElementit/Rock2.png" id="59_moxlu"]
 [ext_resource type="Texture2D" uid="uid://clhgiiwpxnk34" path="res://grafiikka/LightFlowerVarsi.png" id="59_uc2mr"]
 [ext_resource type="Texture2D" uid="uid://bp7y0hk085fkv" path="res://grafiikka/TaustaElementit/Rock1.png" id="60_qm1rx"]
@@ -105,9 +105,9 @@
 [ext_resource type="PackedScene" uid="uid://cm8xt055d8042" path="res://scenet/vesialue.tscn" id="97_5c44a"]
 [ext_resource type="PackedScene" uid="uid://bpsr4m5xt83yn" path="res://scenet/aktivoija.tscn" id="97_ogx24"]
 [ext_resource type="Texture2D" uid="uid://byc1ad1itgcj0" path="res://grafiikka/GrassThinLeft.png" id="99_lvyhb"]
-[ext_resource type="Script" uid="uid://cf1uydw4cdyp5" path="res://skriptit/oviseina.gd" id="99_ned5y"]
+[ext_resource type="Script" uid="uid://cpehd38coystn" path="res://skriptit/oviseina.gd" id="99_ned5y"]
 [ext_resource type="Texture2D" uid="uid://buano3qu6yeh6" path="res://grafiikka/GrassThinRight.png" id="100_tno6r"]
-[ext_resource type="Script" uid="uid://b7qes8haec8sr" path="res://skriptit/onko_pelaaja_taso_2.gd" id="102_3h1h5"]
+[ext_resource type="Script" uid="uid://bpepdww0wjpxo" path="res://skriptit/onko_pelaaja_taso_2.gd" id="102_3h1h5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mp68"]
 atlas = ExtResource("9_75e1e")
@@ -712,7 +712,7 @@ polygon = PackedVector2Array(35.6035, -16.7751, 55.833, -16.3922, 70.0967, -1.56
 polygon = PackedVector2Array(758, 1115, 785, 1182, 984, 1183, 1120, 1189, 1110, 1006, 1147, 1004, 1160, 1184, 1351, 1184, 1349, 1278, 708, 1291, 681, 1092)
 
 [node name="Pelaaja" parent="." node_paths=PackedStringArray("ohjain_tooltipit", "kbm_tooltipit") instance=ExtResource("4_udkay")]
-position = Vector2(26509, 7569)
+position = Vector2(748, 1063)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.22173

@@ -38,6 +38,7 @@ var tahtaimen_lapset = []
 @onready var tutorial_info_label = get_node("HUD/TutorialInfo")
 
 @onready var kilpi = get_node("Kilpi")
+var kilpi_keratty = false
 
 ## Pelaajan kamera
 @onready var kamera = get_node("Camera2D")
@@ -1169,8 +1170,9 @@ func _physics_process(delta):
 			soita_huilua()
 	
 	# Asetetaan kilpi tarvittaessa näkyväksi
-	kilpi.visible = Input.is_action_pressed("painike_kilpi")
-	kilpi.set_flip_h(animaatio.is_flipped_h())
+	kilpi.visible = Input.is_action_pressed("painike_kilpi") and kilpi_keratty
+	kilpi.rotation = hiiren_sijainti.angle()
+	kilpi.set_flip_v(hiiren_sijainti.x < 0)
 	
 	if hiiri_kaytossa != aiempi_hiiren_tila:
 		Globaali.vaihda_tooltip_ui(hiiri_kaytossa)
@@ -1278,7 +1280,8 @@ func tallenna():
 		"potionin_osia_keraamatta": potionin_osia_keraamatta,
 		"pelaajan_elamat": pelaajan_elamat,
 		"pelaajan_happi": pelaajan_happi,
-		"putoamis_huippu": putoamis_huippu
+		"putoamis_huippu": putoamis_huippu,
+		"kilpi_keratty": kilpi_keratty
 	}
 
 
@@ -1374,7 +1377,7 @@ func _on_keho_area_entered(area):
 
 ## Palauttaa, onko pelaajan kilpi esillä
 func kilpi_esilla():
-	return Input.is_action_pressed("painike_kilpi")
+	return kilpi.visible
 
 
 ## Funktio, jolla käsitellään vaikeusasteen muuttumista pelaajan statteihin
