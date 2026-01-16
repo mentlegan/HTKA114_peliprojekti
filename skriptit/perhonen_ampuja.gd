@@ -36,41 +36,37 @@ const PALUUKESTO = 0.01
 
 var pelaaja = null
 
-var tween = null
-
 ## Perhosen hp
 var hp = 3
 
 
 func _physics_process(delta: float) -> void:
-	if palaamassa_polulle or (seuraa_pelaajaa and liian_lahella):
-		return
-	if seuraa_pelaajaa:
-		polunetsija.liikuta_vanhempaa(delta)
+	if seuraa_pelaajaa or palaamassa_polulle:
+		# Lopetetaan seuraaminen / palaaminen, jos polunetsintä on kutsun jälkeen loppunut
+		if polunetsija.liikuta_vanhempaa(delta):
+			palaamassa_polulle = false
+			if seuraa_pelaajaa:
+				lopeta_jahtaaminen()
 	elif pelaaja and nakee_pelaajan():
 		aloita_jahtaaminen()
 	else:
 		super.path2d_liikkuminen(delta)
+		viimeisin_sijainti_polulla = global_position
 
 
 ## Kun pelaaja poistuu perhosen etäisyydeltä
 func _on_body_exited(body: Node2D) -> void:
 	if body is Pelaaja:
-		seuraa_pelaajaa = false
-		pelaaja = null
-		kohteen_asetus_timer.stop()
-		palaamassa_polulle = true
+		lopeta_jahtaaminen()
 
-		if tween:
-			tween.kill()
-		tween = create_tween()
-		tween.tween_property(
-			self, "global_position", viimeisin_sijainti_polulla,
-			viimeisin_sijainti_polulla.distance_to(self.global_position) * PALUUKESTO
-		)
-		tween.tween_callback(func():
-			palaamassa_polulle = false
-		)
+
+## Lopettaa pelaajan jahtaamisen ja palaa aiemmalle polulleen
+func lopeta_jahtaaminen():
+	seuraa_pelaajaa = false
+	pelaaja = null
+	kohteen_asetus_timer.stop()
+	palaamassa_polulle = true
+	polunetsija.aseta_kohde(viimeisin_sijainti_polulla, liian_lahella)
 
 
 ## Palauttaa, näkeekö perhonen pelaajan vai onko seinää välissä
@@ -85,7 +81,7 @@ func nakee_pelaajan() -> bool:
 func aloita_jahtaaminen():
 	seuraa_pelaajaa = true
 	palaamassa_polulle = false
-	polunetsija.aseta_kohde(pelaaja.global_position)
+	polunetsija.aseta_kohde(pelaaja.global_position, liian_lahella)
 	kohteen_asetus_timer.start()
 
 
@@ -126,7 +122,7 @@ func _on_body_entered(body: Node2D) -> void:
 ## Asetetaan uusi kohde pelaajaan
 func _on_kohteen_asetus_timer_timeout() -> void:
 	if seuraa_pelaajaa and pelaaja:
-		polunetsija.aseta_kohde(pelaaja.global_position)
+		polunetsija.aseta_kohde(pelaaja.global_position, liian_lahella)
 	else:
 		kohteen_asetus_timer.stop()
 
@@ -164,3 +160,15 @@ func _on_jahtaamis_deadzone_body_exited(body):
 func _on_jahtaamis_deadzone_body_entered(body):
 	if body is Pelaaja:
 		liian_lahella = true
+
+
+## Alkaa jahtaamaan pelaajaa mistä tahansa kohtaa navigaatioalueellaan
+func aktivoi(_pelaaja):
+	pelaaja = _pelaaja
+	aloita_jahtaaminen()
+
+
+## Lopettaa pelaajan jahtaamisen
+func deaktivoi(_pelaaja):
+	pelaaja = _pelaaja
+	lopeta_jahtaaminen()

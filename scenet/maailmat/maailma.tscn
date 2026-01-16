@@ -1,4 +1,4 @@
-[gd_scene load_steps=190 format=3 uid="uid://ct1c8wsksqlh7"]
+[gd_scene load_steps=192 format=3 uid="uid://ct1c8wsksqlh7"]
 
 [ext_resource type="Script" uid="uid://da5w6gxiw78tp" path="res://skriptit/maailma.gd" id="1_lya7j"]
 [ext_resource type="Script" uid="uid://hkxwwgielrn1" path="res://skriptit/ss2d_varjot.gd" id="2_a4qf7"]
@@ -99,6 +99,7 @@
 [ext_resource type="PackedScene" uid="uid://b7j5ln7go4it4" path="res://scenet/lumme_juureton.tscn" id="88_m1e04"]
 [ext_resource type="PackedScene" uid="uid://d3275w50mg1i2" path="res://scenet/lumme_juurella.tscn" id="88_qbkop"]
 [ext_resource type="PackedScene" uid="uid://b2slar8auo7rn" path="res://scenet/kilpi_unlock.tscn" id="89_sb360"]
+[ext_resource type="PackedScene" uid="uid://b06q4qhqajhxo" path="res://scenet/aktivointialue.tscn" id="90_3r26q"]
 [ext_resource type="PackedScene" uid="uid://u0o5quv7kir7" path="res://scenet/potionin_osa.tscn" id="90_e0hgj"]
 [ext_resource type="Resource" uid="uid://cam0dd1dlekqi" path="res://resurssit/smart_shape/smart_shape_tiili_taso2.tres" id="94_1e3xs"]
 [ext_resource type="Texture2D" uid="uid://b5gd4vu60u7ls" path="res://grafiikka/LightBall.png" id="94_mc8su"]
@@ -169,9 +170,9 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(9859, 704, 9866, 600, 9995, 604, 10023, 704, 10146, 712, 10091, 466, 9685, 444, 9674, 704)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sjwyo"]
-vertices = PackedVector2Array(1090.52, 989.383, 1099.47, 1172.49, 879.562, 1162.24, 865.641, 1141, 875.031, 1096.92, 868.258, 851.211, 1336.82, 813.844, 1164.17, 986.648, 1331.15, 1164.11, 1179.19, 1165.89)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(0, 4, 5, 6), PackedInt32Array(7, 0, 6), PackedInt32Array(7, 6, 8, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1341, 1174, 1170, 1176, 1155, 997, 1101, 999, 1110, 1183, 874, 1172, 855, 1143, 865, 1096, 858, 842, 1347, 803)])
+vertices = PackedVector2Array(674.969, 887.523, 714.773, 1092.36, 688.523, 1082.52, 640.297, 874.773, 880.258, 878.539, 859, 851.953, 1336.82, 813.844, 1090.52, 989.383, 1099.47, 1172.49, 879.562, 1162.24, 865.641, 1141, 874.969, 1097.17, 1164.17, 986.648, 1331.15, 1164.11, 1179.19, 1165.89)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 8, 9, 10, 11), PackedInt32Array(7, 11, 4, 6), PackedInt32Array(12, 7, 6), PackedInt32Array(12, 6, 13, 14)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1341, 1174, 1170, 1176, 1155, 997, 1101, 999, 1110, 1183, 874, 1172, 855, 1143, 865, 1096, 870, 889, 687, 897, 728, 1108, 680, 1090, 628, 866, 858, 842, 1347, 803)])
 
 [sub_resource type="Curve2D" id="Curve2D_fl3c8"]
 _data = {
@@ -377,6 +378,9 @@ polygon = PackedVector2Array(12374, -1548, 12374, -1542, 12380, -1558)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_n2nwd"]
 polygon = PackedVector2Array(12404, -1540, 12404, -1538, 12405, -1540)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrpes"]
+size = Vector2(78, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2lsd"]
 size = Vector2(1964, 780.5)
@@ -3916,6 +3920,54 @@ occluder = SubResource("OccluderPolygon2D_n2nwd")
 
 [node name="KilpiUnlock" parent="Muuta" instance=ExtResource("89_sb360")]
 position = Vector2(868, 1114)
+
+[node name="Aktivointialue" parent="Muuta" node_paths=PackedStringArray("perhonen") instance=ExtResource("90_3r26q")]
+perhonen = NodePath("../../Perhoset/PerhonenAmpuja2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muuta/Aktivointialue"]
+position = Vector2(708, 995)
+shape = SubResource("RectangleShape2D_vrpes")
+
+[node name="Label" type="Label" parent="Muuta/Aktivointialue/CollisionShape2D"]
+material = ExtResource("75_4248i")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -11.5
+offset_right = 26.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "aktivoi"
+
+[node name="Aktivointialue2" parent="Muuta" node_paths=PackedStringArray("perhonen") instance=ExtResource("90_3r26q")]
+perhonen = NodePath("../../Perhoset/PerhonenAmpuja2")
+deaktivoiva = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muuta/Aktivointialue2"]
+position = Vector2(814, 1164)
+shape = SubResource("RectangleShape2D_vrpes")
+
+[node name="Label" type="Label" parent="Muuta/Aktivointialue2/CollisionShape2D"]
+z_index = 10
+material = ExtResource("75_4248i")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -11.5
+offset_right = 26.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "deaktivoi"
 
 [node name="Tasot" type="Area2D" parent="."]
 visible = false
